@@ -1,6 +1,9 @@
 @import '../../src/sass/mixins';
 @import '../../src/sass/vars';
 
+.ds-fontsize-4xlarge {
+  @include xui-text-4xlarge;
+}
 .ds-fontsize-3xlarge {
   @include xui-text-3xlarge;
 }

@@ -2944,7 +2944,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -3006,7 +3006,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -3068,7 +3068,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -3771,7 +3771,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -3875,7 +3875,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -3979,7 +3979,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -4288,7 +4288,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -4424,7 +4424,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -4560,7 +4560,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -4983,6 +4983,160 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     Header 1
                   </span>
                   <svg
+                    className="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
+                    focusable="false"
+                    height={11}
+                    viewBox="0 0 8 11"
+                    width={8}
+                  >
+                    <path
+                      d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
+                      role="presentation"
+                    />
+                  </svg>
+                </div>
+              </th>
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--cell-secondtolast"
+                onFocus={[Function]}
+                scope="col"
+              >
+                <span>
+                  Header 2
+                </span>
+              </th>
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-last"
+                onFocus={[Function]}
+                scope="col"
+              >
+                <span>
+                  Header 3
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            className="xui-table--body"
+          >
+            <tr
+              className="xui-table--row"
+            >
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Apple
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Apple
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Apple
+              </td>
+            </tr>
+            <tr
+              className="xui-table--row"
+            >
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Banana
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Banana
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Banana
+              </td>
+            </tr>
+            <tr
+              className="xui-table--row"
+            >
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Carrot
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Carrot
+              </td>
+              <td
+                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
+                onFocus={[Function]}
+              >
+                Carrot
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div
+    className="xui-loader-static"
+    style={
+      Object {
+        "background": "white",
+        "display": "inline-block",
+        "marginBottom": "20px",
+        "maxWidth": "500px",
+        "minWidth": "300px",
+        "padding": "20px",
+        "verticalAlign": "top",
+        "width": "50%",
+      }
+    }
+  >
+    <div
+      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
+    >
+      <div
+        className="xui-table-wrapper"
+        onScroll={[Function]}
+        role="group"
+        tabIndex={0}
+      >
+        <table
+          className="xui-table-element"
+        >
+          <thead
+            className="xui-table--head"
+          >
+            <tr
+              className="xui-table--row xui-text-align-left"
+            >
+              <th
+                className="xui-table--cell xui-heading-separator xui-table--cell-first xui-table--sortbutton xui-table--sortbutton-active"
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                scope="col"
+                tabIndex={0}
+              >
+                <div>
+                  <span>
+                    Header 1
+                  </span>
+                  <svg
                     className="xui-icon xui-table--sortbutton-icon"
                     focusable="false"
                     height={11}
@@ -5026,160 +5180,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
                 onFocus={[Function]}
               >
-                Apple
-              </td>
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Apple
-              </td>
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Apple
-              </td>
-            </tr>
-            <tr
-              className="xui-table--row"
-            >
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Banana
-              </td>
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Banana
-              </td>
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Banana
-              </td>
-            </tr>
-            <tr
-              className="xui-table--row"
-            >
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Carrot
-              </td>
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Carrot
-              </td>
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
-                Carrot
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <div
-    className="xui-loader-static"
-    style={
-      Object {
-        "background": "white",
-        "display": "inline-block",
-        "marginBottom": "20px",
-        "maxWidth": "500px",
-        "minWidth": "300px",
-        "padding": "20px",
-        "verticalAlign": "top",
-        "width": "50%",
-      }
-    }
-  >
-    <div
-      className="xui-table xui-panel xui-table-responsive xui-table-hasheader xui-table-nopointerevents"
-    >
-      <div
-        className="xui-table-wrapper"
-        onScroll={[Function]}
-        role="group"
-        tabIndex={0}
-      >
-        <table
-          className="xui-table-element"
-        >
-          <thead
-            className="xui-table--head"
-          >
-            <tr
-              className="xui-table--row xui-text-align-left"
-            >
-              <th
-                className="xui-table--cell xui-heading-separator xui-table--cell-first xui-table--sortbutton xui-table--sortbutton-active"
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="button"
-                scope="col"
-                tabIndex={0}
-              >
-                <div>
-                  <span>
-                    Header 1
-                  </span>
-                  <svg
-                    className="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
-                    focusable="false"
-                    height={11}
-                    viewBox="0 0 8 11"
-                    width={8}
-                  >
-                    <path
-                      d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
-                      role="presentation"
-                    />
-                  </svg>
-                </div>
-              </th>
-              <th
-                className="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--cell-secondtolast"
-                onFocus={[Function]}
-                scope="col"
-              >
-                <span>
-                  Header 2
-                </span>
-              </th>
-              <th
-                className="xui-table--cell xui-heading-separator xui-table--cell-last"
-                onFocus={[Function]}
-                scope="col"
-              >
-                <span>
-                  Header 3
-                </span>
-              </th>
-            </tr>
-          </thead>
-          <tbody
-            className="xui-table--body"
-          >
-            <tr
-              className="xui-table--row"
-            >
-              <td
-                className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-                onFocus={[Function]}
-              >
                 Carrot
               </td>
               <td
@@ -5291,7 +5291,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                     Header 1
                   </span>
                   <svg
-                    className="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
+                    className="xui-icon xui-table--sortbutton-icon"
                     focusable="false"
                     height={11}
                     viewBox="0 0 8 11"
@@ -5873,7 +5873,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -5967,7 +5967,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -6061,7 +6061,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -7601,7 +7601,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -7737,7 +7737,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -7873,7 +7873,7 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
               >
                  
                 <div
-                  className="xui-table--overflowmenu-body"
+                  className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
                   role="presentation"
                 >
@@ -8065,6 +8065,309 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<XUITable /> unit tests should render QA hooks on various child elements, if provided 1`] = `
+<div
+  className="xui-loader-static"
+  style={
+    Object {
+      "background": "white",
+      "display": "inline-block",
+      "marginBottom": "20px",
+      "maxWidth": "500px",
+      "minWidth": "300px",
+      "padding": "20px",
+      "verticalAlign": "top",
+      "width": "50%",
+    }
+  }
+>
+  <div
+    className="xui-table xui-panel xui-table-hasheader xui-table-nopointerevents"
+    data-automationid="testTableHook"
+  >
+    <div
+      className="xui-table--customheader"
+      data-automationid="testTableHook-header"
+    >
+      <div
+        style={
+          Object {
+            "background": "darkslategray",
+            "color": "white",
+            "fontWeight": "bold",
+            "padding": "20px",
+          }
+        }
+      >
+        Header
+      </div>
+    </div>
+    <div
+      className="xui-table-wrapper"
+      onScroll={[Function]}
+    >
+      <table
+        className="xui-table-element"
+        data-automationid="testTableHook-table"
+      >
+        <thead
+          className="xui-table--head"
+        >
+          <tr
+            className="xui-table--row xui-text-align-left"
+          >
+            <th
+              className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
+            >
+               
+              <div
+                className="xui-table--checkbox-head xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+              >
+                <label
+                  className="xui-styledcheckboxradio"
+                  onClick={[Function]}
+                  role="presentation"
+                >
+                  <input
+                    aria-label="Select all rows"
+                    checked={false}
+                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                    disabled={false}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    required={false}
+                    tabIndex={0}
+                    type="checkbox"
+                  />
+                  <div
+                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                  >
+                    <div
+                      className="xui-touchtarget"
+                    />
+                  </div>
+                </label>
+              </div>
+            </th>
+            <th
+              className="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--cell-secondtolast"
+              onFocus={[Function]}
+              scope="col"
+            >
+              <span>
+                Header 1
+              </span>
+            </th>
+            <th
+              className="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-last"
+              onClick={[Function]}
+              onKeyPress={[Function]}
+            >
+               
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          className="xui-table--body"
+        >
+          <tr
+            className="xui-table--row"
+            data-automationid="testTableHook-row-0"
+          >
+            <td
+              className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
+            >
+               
+              <div
+                className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+              >
+                <label
+                  className="xui-styledcheckboxradio"
+                  data-automationid="testTableHook-row-0--rowcheckbox"
+                  onClick={[Function]}
+                  role="presentation"
+                >
+                  <input
+                    aria-label="Select row"
+                    checked={false}
+                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                    data-automationid="testTableHook-row-0--rowcheckbox--input"
+                    disabled={false}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    required={false}
+                    type="checkbox"
+                  />
+                  <div
+                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    data-automationid="testTableHook-row-0--rowcheckbox--checkbox"
+                  >
+                    <div
+                      className="xui-touchtarget"
+                    />
+                  </div>
+                </label>
+              </div>
+            </td>
+            <td
+              className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+              onFocus={[Function]}
+            >
+              Apple
+            </td>
+            <td
+              className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
+            >
+               
+              <div
+                className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
+                data-automationid="testTableHook-row-0--rowoverflow"
+                data-ref="toggled-wrapper"
+                role="presentation"
+              >
+                <button
+                  aria-activedescendant={null}
+                  aria-haspopup="listbox"
+                  aria-label="More row options"
+                  className="xui-button xui-button-icon-medium xui-button-icon"
+                  disabled={false}
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  tabIndex={0}
+                  title="More row options"
+                  type="button"
+                >
+                  <svg
+                    className="xui-icon"
+                    focusable="false"
+                    height={13}
+                    viewBox="0 0 3 13"
+                    width={3}
+                  >
+                    <path
+                      d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                      role="presentation"
+                    />
+                  </svg>
+                  <div
+                    className="xui-touchtarget"
+                  />
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr
+            className="xui-table--row"
+            data-automationid="testTableHook-row-1"
+          >
+            <td
+              className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
+            >
+               
+              <div
+                className="xui-table--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+              >
+                <label
+                  className="xui-styledcheckboxradio"
+                  data-automationid="testTableHook-row-1--rowcheckbox"
+                  onClick={[Function]}
+                  role="presentation"
+                >
+                  <input
+                    aria-label="Select row"
+                    checked={false}
+                    className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                    data-automationid="testTableHook-row-1--rowcheckbox--input"
+                    disabled={false}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    required={false}
+                    type="checkbox"
+                  />
+                  <div
+                    className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                    data-automationid="testTableHook-row-1--rowcheckbox--checkbox"
+                  >
+                    <div
+                      className="xui-touchtarget"
+                    />
+                  </div>
+                </label>
+              </div>
+            </td>
+            <td
+              className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+              onFocus={[Function]}
+            >
+              Carrot
+            </td>
+            <td
+              className="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
+            >
+               
+              <div
+                className="xui-table--overflowmenu-body xui-dropdown--toggledwrapper"
+                data-automationid="testTableHook-row-1--rowoverflow"
+                data-ref="toggled-wrapper"
+                role="presentation"
+              >
+                <button
+                  aria-activedescendant={null}
+                  aria-haspopup="listbox"
+                  aria-label="More row options"
+                  className="xui-button xui-button-icon-medium xui-button-icon"
+                  disabled={false}
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  tabIndex={0}
+                  title="More row options"
+                  type="button"
+                >
+                  <svg
+                    className="xui-icon"
+                    focusable="false"
+                    height={13}
+                    viewBox="0 0 3 13"
+                    width={3}
+                  >
+                    <path
+                      d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                      role="presentation"
+                    />
+                  </svg>
+                  <div
+                    className="xui-touchtarget"
+                  />
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      className="xui-table--customfooter"
+      data-automationid="testTableHook-footer"
+    >
+      <div
+        style={
+          Object {
+            "background": "darkslategray",
+            "color": "white",
+            "fontWeight": "bold",
+            "padding": "20px",
+          }
+        }
+      >
+        Footer
       </div>
     </div>
   </div>

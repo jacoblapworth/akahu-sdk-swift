@@ -20,7 +20,6 @@ const AccordionTrigger = ({
   overflow,
   pinnedValue,
   onKeyDown,
-  icon = arrowPath,
 }) => {
   const onTriggerKeyDown = useCallback(
     event => {
@@ -39,7 +38,7 @@ const AccordionTrigger = ({
     <div className={`${ns}-accordiontrigger--arrow`}>
       <XUIIconButton
         ariaLabel={toggleLabel}
-        icon={icon}
+        icon={arrowPath}
         rotation={isOpen ? 180 : null}
         tabIndex={-1}
         title={toggleLabel}
@@ -89,11 +88,6 @@ AccordionTrigger.propTypes = {
   onKeyDown: PropTypes.func,
   toggleLabel: PropTypes.string,
   isOpen: PropTypes.bool,
-  icon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
 };
 
 export default React.memo(AccordionTrigger);

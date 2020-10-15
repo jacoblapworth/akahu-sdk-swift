@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import cn from 'classnames';
 
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
@@ -31,7 +31,7 @@ const EditableTableWrapper = ({
 }) => {
   const scrollContainerRef = React.useRef();
   const tableWrapperRef = React.useRef();
-  const [dndInstructionsId] = React.useState(uuid());
+  const [dndInstructionsId] = React.useState(uuidv4());
 
   const onDragEnd = result => {
     if (typeof result.source.index === 'number' && typeof result.destination?.index === 'number') {

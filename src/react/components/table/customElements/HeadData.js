@@ -1,14 +1,8 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { NBSP } from '../helpers/constants';
 
-class HeadData extends PureComponent {
-  render = () => {
-    const { children, ...props } = this.props;
-
-    return <th {...props}>{children || NBSP}</th>;
-  };
-}
+const HeadData = ({ children, ...props }) => <th {...props}>{children || NBSP}</th>;
 
 HeadData.propTypes = {
   children: PropTypes.node,

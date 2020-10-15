@@ -25,10 +25,16 @@
     border-bottom-right-radius: $xui-radius;
     border-top-right-radius: $xui-radius;
   }
+
+  // ToggledWrapper throws off icon alignment in IE11
+  .#{$ns}-dropdown--toggledwrapper {
+    display: inline-flex;
+  }
 }
 
 .#{$ns}-button-grouped {
   border-radius: 0;
+  flex-grow: 1;
 
   &:hover {
     z-index: $xui-z-index-focus; // show full border on hover

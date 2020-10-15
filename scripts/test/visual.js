@@ -2,7 +2,7 @@
 const chalk = require('chalk');
 const { execSync } = require('child_process');
 const fs = require('fs');
-const md5File = require('md5-file/promise');
+const md5File = require('md5-file');
 const open = require('open');
 const path = require('path');
 const { argv } = require('yargs');
@@ -45,10 +45,17 @@ async function test() {
   await docker.startContainer();
 
   // Install project dependencies inside `/.docker`
-  const newDependencyHash = await md5File('package.json').catch();
+  const newDependencyHash = await new Promise(async resolve => {
+    try {
+      const packageHash = await md5File.sync('package.json');
+      return resolve(packageHash);
+    } catch (e) {
+      return resolve();
+    }
+  });
   const currentDependencyHash = await new Promise(async resolve => {
     try {
-      const packageHash = await md5File('.docker/package.json');
+      const packageHash = await md5File.sync('.docker/package.json');
       return resolve(packageHash);
     } catch (e) {
       return resolve();

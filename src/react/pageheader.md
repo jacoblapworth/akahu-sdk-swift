@@ -2,7 +2,7 @@
 	<a href="../section-components-navigation-page-header.html" isDocLink>Page Header in the XUI Documentation</a>
 </div>
 
-The `XUIPageHeader` appears beneath the global header on a page. In a basic example, it is a white bar with a title. In more complex cases it could contain a [`XUIBreadcrumbTrail`](#xuibreadcrumbtrail), a [`Picklist`](#picklist) to present tabbed navigation, or a [`XUIActions`](#actions) component (and some combinations).
+The `XUIPageHeader` appears beneath the global header on a page. In a basic example, it is a white bar with a title. In more complex cases it could contain a [`XUIBreadcrumbTrail`](#xuibreadcrumbtrail), a [`XUIPicklist`](#picklist) to present tabbed navigation, or a [`XUIActions`](#actions) component (and some combinations).
 
 [Container Queries](#container-queries) could be used to detect the container size and adjust the layout of PageHeader responsively.
 
@@ -16,20 +16,20 @@ import { XUIPageHeader } from '@xero/xui/react/pageheader';
 
 ```jsx harmony
 import { XUIPageHeader } from '@xero/xui/react/pageheader';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 const builtTabs = (
-  <Picklist secondaryProps={{ role: 'menu' }}>
-    <Pickitem ariaRole="menuitem" id="one">
+  <XUIPicklist secondaryProps={{ role: 'menu' }}>
+    <XUIPickitem ariaRole="menuitem" id="one">
       See all
-    </Pickitem>
-    <Pickitem ariaRole="menuitem" id="two" isSelected>
+    </XUIPickitem>
+    <XUIPickitem ariaRole="menuitem" id="two" isSelected>
       Edit
-    </Pickitem>
-    <Pickitem ariaRole="menuitem" id="three">
+    </XUIPickitem>
+    <XUIPickitem ariaRole="menuitem" id="three">
       Add
-    </Pickitem>
-  </Picklist>
+    </XUIPickitem>
+  </XUIPicklist>
 );
 
 <XUIPageHeader title="Contacts" tabs={builtTabs} />;
@@ -43,20 +43,20 @@ Try to resize: Click and drag the bottom right corner of the following container
 
 ```jsx harmony
 import { XUIPageHeader } from '@xero/xui/react/pageheader';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 const builtTabs = (
-  <Picklist secondaryProps={{ role: 'menu' }} swapAtBreakpoint="small">
-    <Pickitem ariaRole="menuitem" id="one">
+  <XUIPicklist secondaryProps={{ role: 'menu' }} swapAtBreakpoint="small">
+    <XUIPickitem ariaRole="menuitem" id="one">
       See all
-    </Pickitem>
-    <Pickitem ariaRole="menuitem" id="two" isSelected>
+    </XUIPickitem>
+    <XUIPickitem ariaRole="menuitem" id="two" isSelected>
       Edit
-    </Pickitem>
-    <Pickitem ariaRole="menuitem" id="three">
+    </XUIPickitem>
+    <XUIPickitem ariaRole="menuitem" id="three">
       Add
-    </Pickitem>
-  </Picklist>
+    </XUIPickitem>
+  </XUIPicklist>
 );
 const wrapperStyles = {
   resize: 'horizontal',
@@ -96,7 +96,7 @@ import { XUIPageHeader, XUIBreadcrumbTrail } from '@xero/xui/react/pageheader';
 import XUIActions from '@xero/xui/react/actions';
 import XUIButton from '@xero/xui/react/button';
 import XUITag from '@xero/xui/react/tag';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 const builtActions = (
   <XUIActions
@@ -122,17 +122,17 @@ const sampleBreadcrumb = [
 const builtBreadcrumb = <XUIBreadcrumbTrail breadcrumbs={sampleBreadcrumb} />;
 
 const builtTabs = (
-  <Picklist secondaryProps={{ role: 'menu' }}>
-    <Pickitem ariaRole="menuitem" id="one">
+  <XUIPicklist secondaryProps={{ role: 'menu' }}>
+    <XUIPickitem ariaRole="menuitem" id="one">
       See all
-    </Pickitem>
-    <Pickitem ariaRole="menuitem" id="two" isSelected>
+    </XUIPickitem>
+    <XUIPickitem ariaRole="menuitem" id="two" isSelected>
       Edit
-    </Pickitem>
-    <Pickitem ariaRole="menuitem" id="three">
+    </XUIPickitem>
+    <XUIPickitem ariaRole="menuitem" id="three">
       Add
-    </Pickitem>
-  </Picklist>
+    </XUIPickitem>
+  </XUIPicklist>
 );
 
 <XUIPageHeader

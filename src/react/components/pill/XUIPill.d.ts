@@ -85,4 +85,5 @@ type AvatarProp =
 
 type Props = BaseProps & AvatarProp;
 
-export default class XUIPill extends React.Component<Props> {}
+declare const XUIPill: React.FunctionComponent<Props>;
+export default XUIPill;

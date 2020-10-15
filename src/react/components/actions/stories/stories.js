@@ -8,21 +8,54 @@ import { boolean, select } from '@storybook/addon-knobs';
 // Components we need to test with
 import XUIActions from '../XUIActions';
 import XUIButton from '../../button/XUIButton';
+import XUISplitButtonGroup from '../../button/XUISplitButtonGroup';
+import XUISecondaryButton from '../../button/XUISecondaryButton';
 import XUIPanel from '../../panel/XUIPanel';
+import XUIDropdown from '../../dropdown/XUIDropdown';
+import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 
-const sampleActions = ({ isLinear, actionsCount, hasLayout }) => (
+const splitButtonExample = hasDropdown => (
+  <XUISplitButtonGroup variant="primary">
+    <XUIButton>Split action</XUIButton>
+    {hasDropdown ? (
+      <XUIDropdownToggled
+        dropdown={
+          <XUIDropdown fixedWidth size="small">
+            <XUIPicklist>
+              <XUIPickitem id="aa" key="aa" value="aa">
+                Option 1
+              </XUIPickitem>
+              <XUIPickitem id="bb" key="bb" value="bb">
+                Option 2
+              </XUIPickitem>
+            </XUIPicklist>
+          </XUIDropdown>
+        }
+        trigger={<XUISecondaryButton aria-label="Other actions" key="split" variant="primary" />}
+      />
+    ) : (
+      <XUISecondaryButton aria-label="Other actions" key="split" variant="primary" />
+    )}
+  </XUISplitButtonGroup>
+);
+
+const simpleButton = (
+  <XUIButton href="https://www.xero.com" variant="primary">
+    Xero
+  </XUIButton>
+);
+
+const sampleActions = ({ isLinear, actionsCount, hasLayout, hasSplitButton, hasDropdown }) => (
   <XUIActions
     hasLayout={hasLayout}
     isLinear={isLinear}
-    primaryAction={
-      <XUIButton href="https://www.xero.com" variant="primary">
-        Xero
-      </XUIButton>
-    }
+    primaryAction={hasSplitButton ? splitButtonExample(hasDropdown) : simpleButton}
     secondaryAction={actionsCount > 1 && <XUIButton href="https://xui.xero.com">XUI</XUIButton>}
   />
 );
@@ -50,9 +83,15 @@ variations.forEach(variation => {
       storyTitle,
       isLinear,
       actionsCount,
+      hasSplitButton,
+      hasDropdown,
       ...variationMinusStoryDetails
     } = variation;
 
-    return <XUIPanel className="xui-padding">{sampleActions({ isLinear, actionsCount })}</XUIPanel>;
+    return (
+      <XUIPanel className="xui-padding">
+        {sampleActions({ isLinear, actionsCount, hasSplitButton, hasDropdown })}
+      </XUIPanel>
+    );
   });
 });

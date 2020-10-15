@@ -18,6 +18,8 @@ const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
   isMultiline && typeof rows !== 'number';
 
 class XUITextInput extends PureComponent {
+  rootNode = React.createRef();
+
   state = {
     hasFocus: false,
   };
@@ -187,6 +189,7 @@ class XUITextInput extends PureComponent {
                     labelClassName,
                     isLabelHidden,
                   }}
+                  ref={this.rootNode}
                 >
                   <div className={baseClasses} data-automationid={qaHook} {...otherProps}>
                     {leftElement}
@@ -201,11 +204,11 @@ class XUITextInput extends PureComponent {
                       onFocusCapture={input.onFocus}
                       placeholder={placeholder}
                       ref={compose(inputRef, i => (this.input = i))}
+                      type={type}
+                      value={value}
+                      {...ariaAttributes}
                       // used by autosize for textarea resizing http://www.jacklmoore.com/autosize/
                       rows={isMultiline ? rows || minRows : undefined}
-                      type={type}
-                      {...ariaAttributes}
-                      value={value}
                     />
                     {rightElement}
                   </div>

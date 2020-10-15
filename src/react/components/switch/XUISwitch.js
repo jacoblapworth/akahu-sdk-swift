@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -26,121 +26,114 @@ const onLabelClick = e => {
   }
 };
 
-export default class XUISwitch extends PureComponent {
+const XUISwitch = props => {
+  const {
+    children,
+    className,
+    hintMessage,
+    isChecked,
+    isDefaultChecked,
+    isDisabled,
+    isInvalid,
+    isLabelHidden,
+    isReversed,
+    labelClassName,
+    labelId,
+    name,
+    onChange,
+    qaHook,
+    validationMessage,
+    value,
+    // size, TODO: add size options.
+    // isGrouped, TODO: add grouping flag to match Checkbox/Radio. Maybe try context instead?
+  } = props;
+
   // User can manually provide an id, or we will generate one.
-  wrapperIds = generateIds(this.props.labelId);
+  const wrapperIds = generateIds(labelId);
 
-  constructor(props) {
-    super(props);
+  const _isControlled = typeof isChecked === 'boolean';
 
-    this._isControlled = typeof props.isChecked === 'boolean';
+  // We conditionally maintain state in order to support 'uncontrolled' component
+  const [internalIsChecked, setInternalIsChecked] = useState(
+    _isControlled ? null : !!isDefaultChecked,
+  );
 
-    // We conditionally maintain state in order to support 'uncontrolled' component
-    this.state = {
-      internalIsChecked: this._isControlled ? null : !!props.isDefaultChecked,
-    };
+  const internalOnChange = e => {
+    setInternalIsChecked(e.target.checked);
+    onChange && onChange(e);
+  };
 
-    this.internalOnChange = this.internalOnChange.bind(this);
-  }
+  const isCheckedCalculated = _isControlled ? isChecked : internalIsChecked;
+  const onChangeCalculated = _isControlled ? onChange : internalOnChange;
 
-  internalOnChange(e) {
-    this.setState({ internalIsChecked: e.target.checked });
-    this.props.onChange && this.props.onChange(e);
-  }
+  // Other size options coming soon. See Checkbox/Radio for how this will work.
+  // NB: Keeping this hard-coded, for the moment, so as not to expose a
+  // useless prop in the API in XUI15.
+  const calculatedSize = 'medium';
 
-  render() {
-    const {
-      children,
-      isDisabled,
-      name,
-      value,
-      qaHook,
-      className,
-      isReversed,
-      isLabelHidden,
-      labelClassName,
-      isInvalid,
-      validationMessage,
-      hintMessage,
-      // size, TODO: add size options.
-      // isGrouped, TODO: add grouping flag to match Checkbox/Radio. Maybe try context instead?
-    } = this.props;
+  const classes = cn(
+    baseClass,
+    isReversed && `${baseClass}-reversed`,
+    isDisabled && `${baseClass}-is-disabled`,
+  );
 
-    const isChecked = this._isControlled ? this.props.isChecked : this.state.internalIsChecked;
-    const onChange = this._isControlled ? this.props.onChange : this.internalOnChange;
+  const wrapperClasses = cn(
+    className,
+    `${baseClass}wrapper`,
+    calculatedSize && `${baseClass}-${calculatedSize}`,
+  );
 
-    // Other size options coming soon. See Checkbox/Radio for how this will work.
-    // NB: Keeping this hard-coded, for the moment, so as not to expose a
-    // useless prop in the API in XUI15.
-    const calculatedSize = 'medium';
+  const labelClasses = cn(
+    `${baseClass}--label`,
+    calculatedSize && `${baseClass}--label-${calculatedSize}`,
+    labelClassName,
+  );
 
-    const classes = cn(
-      baseClass,
-      isReversed && `${baseClass}-reversed`,
-      isDisabled && `${baseClass}-is-disabled`,
-    );
+  const controlClasses = cn(
+    `${baseClass}--control`,
+    calculatedSize && `${baseClass}--control-${calculatedSize}`,
+  );
 
-    const wrapperClasses = cn(
-      className,
-      `${baseClass}wrapper`,
-      calculatedSize && `${baseClass}-${calculatedSize}`,
-    );
+  const inputProps = {
+    type: 'checkbox',
+    role: 'switch',
+    className: `${baseClass}--checkbox`,
+    'data-automationid': qaHook && `${qaHook}--input`,
+    disabled: isDisabled || undefined,
+    'aria-checked': isCheckedCalculated,
+    checked: isCheckedCalculated,
+    name,
+    value,
+    onChange: onChangeCalculated,
+    ...getAriaAttributes(wrapperIds, props),
+  };
 
-    const labelClasses = cn(
-      `${baseClass}--label`,
-      calculatedSize && `${baseClass}--label-${calculatedSize}`,
-      labelClassName,
-    );
+  return (
+    <XUIControlWrapperInline
+      fieldClassName={classes}
+      label={children}
+      labelClassName={labelClasses}
+      messageClassName={`${baseClass}--message`}
+      onClick={onLabelClick}
+      rootClassName={wrapperClasses}
+      wrapperIds={wrapperIds}
+      {...{
+        qaHook,
+        isInvalid,
+        validationMessage,
+        hintMessage,
+        isLabelHidden,
+      }}
+    >
+      <input {...inputProps} />
+      <div className={controlClasses} data-automationid={qaHook && `${qaHook}--switch`}>
+        <XUITouchTarget />
+      </div>
+    </XUIControlWrapperInline>
+  );
+};
 
-    const controlClasses = cn(
-      `${baseClass}--control`,
-      calculatedSize && `${baseClass}--control-${calculatedSize}`,
-    );
-
-    const messageClasses = cn(
-      `${baseClass}--message`,
-      !isLabelHidden && `${baseClass}--message-with-label`,
-    );
-
-    const inputProps = {
-      type: 'checkbox',
-      role: 'switch',
-      className: `${baseClass}--checkbox`,
-      'data-automationid': qaHook && `${qaHook}--input`,
-      disabled: isDisabled || undefined,
-      'aria-checked': isChecked,
-      checked: isChecked,
-      name,
-      value,
-      onChange,
-      ...getAriaAttributes(this.wrapperIds, this.props),
-    };
-
-    return (
-      <XUIControlWrapperInline
-        fieldClassName={classes}
-        label={children}
-        labelClassName={labelClasses}
-        messageClassName={messageClasses}
-        onClick={onLabelClick}
-        rootClassName={wrapperClasses}
-        wrapperIds={this.wrapperIds}
-        {...{
-          qaHook,
-          isInvalid,
-          validationMessage,
-          hintMessage,
-          isLabelHidden,
-        }}
-      >
-        <input {...inputProps} />
-        <div className={controlClasses} data-automationid={qaHook && `${qaHook}--switch`}>
-          <XUITouchTarget />
-        </div>
-      </XUIControlWrapperInline>
-    );
-  }
-}
+export default XUISwitch;
 
 XUISwitch.propTypes = {
   children: PropTypes.node,

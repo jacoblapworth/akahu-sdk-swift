@@ -43,8 +43,15 @@ const XUIEditableTableRow = ({
     );
   }
 
+  const isDragDisabled = disableRowControls;
+
   return (
-    <Draggable disableInteractiveElementBlocking index={index} useDraggable={isDraggable}>
+    <Draggable
+      disableInteractiveElementBlocking
+      index={index}
+      isDragDisabled={isDragDisabled}
+      useDraggable={isDraggable}
+    >
       {(provided, snapshot) => (
         <tr
           className={cn(
@@ -72,7 +79,7 @@ const XUIEditableTableRow = ({
               }}
               className={`${baseName}--draghandle`}
               iconReference={dragIcon}
-              isDisabled={disableRowControls}
+              isDisabled={isDragDisabled}
               onMouseDown={event => event.currentTarget.focus()}
               qaHook={qaHook && `${qaHook}--button-drag`}
             />

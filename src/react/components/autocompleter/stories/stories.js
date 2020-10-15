@@ -6,9 +6,9 @@ import { storiesOf } from '@storybook/react';
 import { boolean, text, select, number } from '@storybook/addon-knobs';
 
 // Components we need to test with
-import peopleDataSet from '../private/people';
 import DetailedListExample from './components/DetailedListExample';
 import SecondarySearchExample from './components/SecondarySearchExample';
+import peopleDataSet from '../private/people';
 
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 

@@ -23,10 +23,10 @@ const data = {
 
 <Table
   data={data}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color and price per kg"
 >
@@ -49,10 +49,10 @@ const data = {
 
 <Table
   data={data}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color and price per kg"
 >
@@ -86,10 +86,10 @@ const data = {
 <Table
   data={data}
   isResponsive
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color and purchase information"
 >
@@ -152,10 +152,10 @@ const data = {
   data={data}
   isResponsive
   isTruncated
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color and purchase information"
 >
@@ -214,10 +214,10 @@ const data = {
 
 <Table
   data={data}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color, price per kg and additional notes"
 >
@@ -256,10 +256,10 @@ document.head.appendChild(node);
 <Table
   data={data}
   className="xui-table-reactdocs-shadow"
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color and price per kg"
 >
@@ -314,10 +314,10 @@ const data = {
 
 <Table
   data={data}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color and price per kg"
 >
@@ -346,7 +346,7 @@ Each row's _Disabled_ state is derived from checking for _"truthy"_ row key / va
 
 **Note: Make sure the state of the _disbled_ checkbox will not be changed via the bulk-select. For reference, There's an example `onCheckAllToggle` callback function below.**
 
-Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props. If you provide these, you must also provide the corresponding `checkAllRowsLabel` or `checkOneRowLabel` for accessibility purposes.
+Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props. If you provide these, you must also provide the corresponding `checkAllRowsAriaLabel` or `checkOneRowAriaLabel` for accessibility purposes.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
@@ -410,10 +410,10 @@ class Demo extends React.Component {
         disabledIds={this.state.disabledIds}
         onCheckAllToggle={this.handleCheckAllToggle}
         onCheckOneToggle={this.handleCheckOneToggle}
-        loaderLabel="Loading more data"
+        loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
-        checkOneRowLabel="Select row"
-        checkAllRowsLabel="Select all rows"
+        checkOneRowAriaLabel="Select row"
+        checkAllRowsAriaLabel="Select all rows"
         overflowMenuTitle="More row options"
         caption="List of fruits with color, price per kg and checkboxes"
       >
@@ -436,7 +436,7 @@ You can append a menu to a table row by adding `hasOverflowMenu` and providing a
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
-import { Pickitem } from '@xero/xui/react/picklist';
+import { XUIPickitem } from '@xero/xui/react/picklist';
 
 const data = {
   abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99, paid: true },
@@ -448,15 +448,15 @@ const data = {
   hasOverflowMenu
   createOverflowMenu={({ fruit, paid }) =>
     !paid && [
-      <Pickitem key="0" id="0" onClick={() => alert(`Pay for ${fruit}s`)}>
+      <XUIPickitem key="0" id="0" onClick={() => alert(`Pay for ${fruit}s`)}>
         Pay for {fruit}s
-      </Pickitem>
+      </XUIPickitem>
     ]
   }
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color, price per kg and additional options"
 >
@@ -477,7 +477,7 @@ If an **action** column is **active** in the _Table_ it can be pinned to the rel
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
-import { Pickitem } from '@xero/xui/react/picklist';
+import { XUIPickitem } from '@xero/xui/react/picklist';
 const data = {
   abc123: {
     fruit: 'Banana',
@@ -534,14 +534,14 @@ class Demo extends React.Component {
         onCheckOneToggle={this.handleCheckOneToggle}
         hasOverflowMenu
         createOverflowMenu={() => [
-          <Pickitem key="0" id="0" onClick={() => {}}>
+          <XUIPickitem key="0" id="0" onClick={() => {}}>
             Edit
-          </Pickitem>
+          </XUIPickitem>
         ]}
-        loaderLabel="Loading more data"
+        loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
-        checkOneRowLabel="Select row"
-        checkAllRowsLabel="Select all rows"
+        checkOneRowAriaLabel="Select row"
+        checkAllRowsAriaLabel="Select all rows"
         overflowMenuTitle="More row options"
         caption="List of fruits with color and purchase information"
       >
@@ -662,10 +662,10 @@ class Demo extends React.Component {
         isSortAsc={isSortAsc}
         onSortChange={this.handleSortChange}
         customSort={activeSortKey === 'tags' ? this.handleTagSort : null}
-        loaderLabel="Loading more data"
+        loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
-        checkOneRowLabel="Select row"
-        checkAllRowsLabel="Select all rows"
+        checkOneRowAriaLabel="Select row"
+        checkAllRowsAriaLabel="Select all rows"
         overflowMenuTitle="More row options"
         caption="List of fruits with tags and sorting"
       >
@@ -727,10 +727,10 @@ const Appendage = ({ children }) => (
   data={data}
   header={<Appendage>Header</Appendage>}
   footer={<Appendage>Footer</Appendage>}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color and price per kg"
 >
@@ -744,7 +744,7 @@ const Appendage = ({ children }) => (
 
 ## Loader
 
-Appends a `<XUILoader />` after the last _Row_ in the _Table_ with the `isLoading` prop. If you provide this prop, you must also provide a `loaderLabel` for accessibility purposes.
+Appends a `<XUILoader />` after the last _Row_ in the _Table_ with the `isLoading` prop. If you provide this prop, you must also provide a `loaderAriaLabel` for accessibility purposes.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
@@ -756,10 +756,10 @@ const data = {
 <Table
   data={data}
   isLoading
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color and price per kg"
 >
@@ -798,10 +798,10 @@ const data = {
   data={data}
   shouldRowClick={({ fruit }) => fruit === 'Banana'}
   onRowClick={(event, { fruit }) => alert(`You clicked the ${fruit} row`)}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color and price per kg"
 >
@@ -861,10 +861,10 @@ const data = {};
 <Table
   data={data}
   emptyMessage="There are no fruit results"
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color and price per kg"
 >
@@ -892,10 +892,10 @@ const emptyStateComponent = (
 <Table
   data={data}
   emptyStateComponent={emptyStateComponent}
-  loaderLabel="Loading more data"
+  loaderAriaLabel="Loading more data"
   emptyMessage="Nothing to show here"
-  checkOneRowLabel="Select row"
-  checkAllRowsLabel="Select all rows"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
   overflowMenuTitle="More row options"
   caption="List of fruits with color and price per kg"
 >

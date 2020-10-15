@@ -54,7 +54,7 @@ img.#{$ns}-avatar {
 }
 
 .#{$ns}-avatar-xlarge {
-  @include xui-text-2xlarge;
+  @include xui-text-3xlarge;
   height: $xui-control-size-xlarge;
   width: $xui-control-size-xlarge;
 }

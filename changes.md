@@ -1,86 +1,165 @@
-# XUI 16 Changes
-
-For a step-by-step guide to upgrading, refer to the [Upgrade Guide](https://docs.google.com/document/d/1A2kCB_etKBJhO7oGMPCzKFkKE56p9-tpGoZJl5qsZmI/edit?usp=sharing).
+# XUI 17 Changes
 
 ## Dependency updates
 
-Please take some time to check that your projects' package.json dependencies match those of XUI's package.json
-dependencies to avoid multiple versions of a dependency being bundled in your projects.
+Please take some time to check that your projects' package.json dependencies match those of XUI's package.json dependencies to avoid multiple versions of a dependency being bundled in your projects.
 
-We recommend running a bundle analyzer after upgrading (and regularly in general!)
+We recommend running a bundles analyzer after upgrading (and regularly in general).
 
 ## XUI CSS
 
-Button, TextInput, Pill, Table, Range, Tag, Progress indicator, Picklist, and Horizontal Pickitem have all had style adjustments (often setting a min-width of 40px on some part of the component), to improve the size of their interactive targets for touch devices. Be sure to check these components for visual regressions in your application.
+### Button icon placement
 
-XUI had previously provided a set of z-index variables to indicate where elements should stack in the third dimension, but those variables had not actually been used internally to style XUI components. Components now use them, and variables and documentation have been updated to better reflect how stacking occurs in XUI. See [the Z-index documentation](https://xui.xero.com/16.0.0/section-fundamentals-layout.html#fundamentals-layout-6) for the latest.
+- `xui-button--lefticon` and `xui-button--righticon` are now provided to help with icon placement inside buttons. These should be used with `xui-button-has-icon` and an icon wrapper – see the [button documentation](https://xui.xero.com/17.0.0/section-components-controls-button.html#components-controls-button-9) for full details.
 
-### Removals
+### Icon wrapper updates
 
-- BreadcrumbTrail
-  - `xui-pageheading--breadcrumbs` and `xui-breadcrumbs` have been replaced with `xui-pageheading--breadcrumbtrail` and `xui-breadcrumbtrail`, respectively.
-- The `xui-heading-medium` mixin no longer has an `emphasis` parameter.
-- Z-index variables `$xui-z-index-tooltip` and `$xui-z-index-mask` have been removed without replacement. `
-- `$xui-z-index-overlay` has been renamed to the more-apt `$xui-z-index-sheetmask`
-- The class `xui-pickitem-link--body` has been removed from `a` tags in `XUIPickItem`s. From now on flexbox handles the correct alignment of tabs in `XUIPageHeader`.
-- Toggle
-  - `xui-toggle-option` and `xui-toggle-optionwrapper` have been replaced with `xui-toggle--option` and `xui-toggle--optionwrapper`, respectively.
+- `xui-iconwrapper-medium`’s width and height have been updated from 30px to 32px.
+- `xui-iconwrapper-small` and `xui-iconwrapper-xsmall` have been added.
 
-Following classes have been **removed** because they don't meet [XUI touch target standards](https://xui.xero.com/16.0.0/section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4):
+### Styling adjustments for checkbox, radio, and switch
 
-- Pill: `xui-pill-single` and `xui-pill-xsmall`
-  - The look of `xui-pill-single` can be achieved using a textInput with side elements
-  - `xui-pill-xsmall` should be replaced with a larger size variant (eg.`xui-pill-small`)
-- Datepicker: `xui-datepicker-compact`
-  - `xui-datepicker-compact` should be deleted and use `xui-datepicker` alone
-- Page Layout: All classes with a prefix of `xui-page-layout`
-  - Those classes should be reimplemented with Compositions
-- Picklist / Pickitem: `xui-picklist-small`, `xui-picklist-xsmall`, `xui-pickitem-small` and `xui-pickitem-xsmall`
-  - `small` and `xsmall` variants should be replaced with `medium` variant
+Checkboxes, radios, and switches now all have consistent styling across focus, hover and active states.
+
+Reversed checkboxes and radios in a `xui-styledcheckboxradio-group` have had their padding increased from 7px to 15px, and those outside a group have had their left margin removed. Affected classes are:
+
+- `xui-styledcheckboxradio-reversed`
+- `xui-styledcheckboxradio--label`
+- `xui-styledcheckboxradio--input + xui-iconwrapper`
+- `xui-styledcheckboxradio--radio`
+- `xui-switch--control`
+
+### Safari margin collapse fix
+
+Safari’s margin collapse behavior causes compositions to bump up against the bottom of the page even when using the `hasAutoSpaceAround` property.
+
+To fix this we added `-webkit-margin-bottom-collapse: separate;` to `xui-body`.
+
+There should not be any regressions, but please check that the bottom of your pages still look correct after updating to XUI 17, even if you do not use compositions.
+
+### Banner layout changes
+
+`xui-banner-layout` previously had its `layout` property set to `inline-block`. This has been changed to `block`.
 
 ### Typography changes
 
-- Headings: large, xlarge, 2xlarge, 3xlarge
-  - updated line height to `28px` for large (**removed** `1.3077`), `32px` for xlarge (**removed** `1.15`), `72px` for 2xlarge (**removed** `1.15`), `96px` for 3xlarge headings (**removed** `1.15`)
-- `xui-avatar-2xsmall`
-  - `xui-avatar-2xsmall` uses now line height corresponding to its font-size (12px instead of 16px).
+A new `2xlarge` typography scale has been added with `font-size: 30px` and `line-height: 44px`. The existing `2xlarge` and `3xlarge` type scales have been renamed to `3xlarge` and `4xlarge` respectively.
 
-## XUI CSS components
+There have been changes to the typography Sass variables and mixins, so any teams consuming these will need to update any styling using these, as they won't be covered by the codemod.
 
-- Non-linked text items appearing as part of a BreadcrumbTrail should now have the `xui-breadcrumb-no-link` class applied to them
-- Truncated Pickitems with a leftElement and/or secondaryText now require one of the following classes:
-  - For Pickitems with a leftElement and secondaryText.
-    - `xui-pickitem-has-leftelement-secondarytext`
-  - For Pickitems with leftElement and no secondaryText.
-    - `xui-pickitem-has-leftelement`
-  - For Pickitems with secondaryText and no leftElement.
-    - `xui-pickitem-has-secondarytext`
-- Significant changes have been made to the markup and CSS for Page Headers to support an improved responsive experience. Please see the [documentation](https://xui.xero.com/16.0.0/section-components-navigation-page-header.html) for details on the new structure for page headers that have content more complex than a title alone.
-- Isolation Headers have been overhauled to largely match the new structure of Page Headers. Please see the [documentation](https://xui.xero.com/16.0.0/section-components-navigation-isolation-header.html) for details.
-- Updated HTML structure for `Tag` component. Tags will be truncated instead of wrapping its content can't fit available space. When truncated, a tooltip will be added to display full text. Tags also now require a `xui-tagcontent` element to wrap the inner text.
-- Updated HTML structure for `Popover` component.
-  - Added new header, body, and footer sections.
-  - This is not a breaking change so existing popovers will continue to work.
+Added classes/variables/mixins are:
 
-### Invisible touch targets
+- `xui-font-size-2xlarge`
+- `xui-line-height-2xlarge`
+- `xui-heading-2xlarge`
+- `xui-text-2xlarge`
 
-Several CSS components require a new child element with the `.xui-touchtarget` class. This class will add an invisible touch target with a minimum width and height of 40px. The following CSS components will need to be updated manually (If you are using the React components you do not need to do this).
+Changed classes/variables/mixins are:
 
-- [Icon button](https://xui.xero.com/16.0.0/section-components-controls-button.html#components-controls-button-6)
-- [Checkbox](https://xui.xero.com/16.0.0/section-components-controls-checkbox.html) and [Rollover Checkbox](https://xui.xero.com/16.0.0/section-components-controls-checkbox.html#components-controls-checkbox-11)
-- [Radio](https://xui.xero.com/16.0.0/section-components-controls-radio.html)
-- [Switch](https://xui.xero.com/16.0.0/section-components-controls-switch.html)
+- `xui-font-size-2xlarge` > `xui-font-size-3xlarge`
+- `xui-font-size-3xlarge` > `xui-font-size-4xlarge`
+- `xui-line-height-2xlarge` > `xui-line-height-3xlarge`
+- `xui-line-height-3xlarge` > `xui-line-height-4xlarge`
+- `xui-heading-2xlarge` > `xui-heading-3xlarge`
+- `xui-heading-3xlarge` > `xui-heading-4xlarge`
+- `xui-text-2xlarge` > `xui-text-3xlarge`
+- `xui-text-3xlarge` > `xui-text-4xlarge`
+
+### Removals
+
+Following classes have been **removed** because left space isn't needed for alignment after the "invalid" icon added:
+
+- `xui-styledcheckboxradio--message-with-label`
+- `xui-switch--message-with-label`
 
 ## XUI React components
 
-- Many of the exports previously exported from `structural.js` have been moved out to their own, more specific exports. The codemod will resolve as many of these path updates as it can and inform you of any it is unable to handle.
-  - XUIBreadcrumbTrail and XUIPageHeader are now exported from `pageheader.js`
-  - XUIActions is now **the default export** from `actions.js`
-  - XUIContentBlock and XUIContentBlockItem are now exported from `contentblock.js`
-  - XUIOverviewBlock and XUIOverviewSection are now exported from `overviewblock.js`
-  - XUIPanel, XUIPanelHeading, XUIPanelFooter, and XUIPanelSection are now exported from `panel.js`
-  - XUIColumn and XUIRow **have not** been moved and are still exported from `structural.js`
-- Components exported as default export can now be imported using named import as well as default one. Affected:
+- A number of React components have been converted from class-based to functional. You may need to make changes accordingly. Here’s [the list of affected components and more information about the change](https://docs.google.com/document/d/1x2vwW-cYZaX2hVmDk4rQBtoP-pp6Q2PNJbFY5-n7t78/edit).
+- We’ve renamed some XUI components and associated props and public methods to standardise the naming convention.
+  - Renamed components:
+    - `DropDown` → `XUIDropdown`
+    - `DropDownToggled` → `XUIDropdownToggled`
+    - `DropDownHeader` → `XUIDropdownHeader`
+    - `DropDownFooter` → `XUIDropdownFooter`
+    - `DropDownPanel` → `XUIDropdownPanel`
+    - `NestedDropDown` → `XUINestedDropdown`
+    - `NestedPicklist` → `XUINestedPicklist`
+    - `NestedPicklistContainer` → `XUINestedPicklistContainer`
+    - `NestedPicklistTrigger` → `XUINestedPicklistTrigger`
+    - `Pickitem` → `XUIPickitem`
+    - `Picklist` → `XUIPicklist`
+    - `PicklistDivider` → `XUIPicklistDivider`
+    - `PicklistHeader` → `XUIPicklistHeader`
+    - `SelectBox` → `XUISelectBox`
+    - `SelectBoxOption` → `XUISelectBoxOption`
+    - `StatefulPicklist` → `XUIStatefulPicklist`
+  - Renamed public methods:
+    - `XUIAutocompleter` and `XUIAutocompleterSecondarySearch`:
+      - `closeDropDown` → `closeDropdown`
+      - `openDropDown` → `openDropdown`
+    - `XUIDropdownToggled`
+      - `closeDropDown` → `closeDropdown`
+      - `isDropDownOpen` → `isDropdownOpen`
+      - `openDropDown` → `openDropdown`
+      - `repositionDropDown` → `repositionDropdown`
+    - `XUISelectBox`
+      - `isDropDownOpen` → `isDropdownOpen`
+- `XUIRolloverCheckbox`
+  - Changed the component’s filename and associated import paths to match the exported component name. The main XUI export file remains unchanged; so if you import from `@xero/xui/react/rollovercheckbox`, this will not affect you.
+- `XUIStepper`
+  - Updated spacing to match other components and 4px grid
+- `XUIButton`, `XUISecondaryButton`, `XUISplitButtonGroup`
+  - `link` has been removed as a variant of these button types in favour of `borderless-primary`. The styling remains unchanged.
+  - Borderless variants of `XUISecondaryButton` and `XUISplitButtonGroup` have been removed due to possible confusion with non-split buttons containing carets. Use `standard`, `primary`, `create`, or `negative` instead.
+- `XUIPagination`
+  - Numbers in `createPagingContent` and `createCountContent` won't be formatted for internationalization, product teams need to implement it themselves.
+- `XUIIcon`
+  - `small` and `xsmall` size variants have been added. These change the size of the wrapper _only_ – the icon itself is the same size as the `medium` variant for legibility purposes.
+- `XUIButton` can now include an icon attached to the left or right of the button text, for more details see the ['Component props'](#Component-props) section below.
+- `XUITable` has long supported a `qaHook`, but if provided, this value will now also be added to a unique `data-automationid` for each row and checkboxes and overflow menus for each row. If you are using markup snapshots, they may need to be updated accordingly.
+
+### Removals
+
+- `XUIButtonCaret` has been removed in favour of the prop `hasCaret` on `XUIButton`.
+- The following icon props have been removed as they were previously incorrectly added to support internationalisation when they were already internationally recognised symbols:
+  - `triggerStateIcon` in XUIAccordionItem.
+  - `closeIcon` in XUIBanner.
+  - `keyIcon` and `paginationIcon` in XUIBarChart.
+  - `icon` in ContentPagination.
+  - `icon` in NestedPicklistTrigger.
+  - `completedIcon` and `errorIcon` in XUIProgressCircular.
+  - `headerSortbuttonIcon` in XUITable.
+
+### Component props
+
+_Note. The codemod will resolve the prop differences automatically when run._
+
+- `XUINestedDropdown` prop `currentPanel` has been renamed to `currentPanelId`.
+
+- `XUIButton` now has `leftIcon` and `rightIcon` props that users can add Icons to display on a button. Only one of these props can be used at a time, and if both are provided only the `leftIcon` will be shown, along with an error fired.
+
+- `XUIButton` now has a `hasCaret` prop to toggle whether the button will have a caret.
+
+- All props that are setting an aria-label has been refactored to have the prefix `aria`.
+  - XUIAutocompleter and XUIAutocompleterSecondarySearch `loadingLabel` has been renamed to `loadingAriaLabel`
+  - XUIButton and XUISecondaryButton `loadingLabel` has been renamed to `loadingAriaLabel`
+  - XUIBarChart `loadingLabel` has been renamed to `loadingAriaLabel`
+  - XUIDropdownHeader `backButtonLabel` has been renamed to `backButtonAriaLabel`
+  - XUITable
+    - `loaderLabel` has been renamed to `loaderAriaLabel`
+    - `checkOneRowLabel` has been renamed to`checkOneRowAriaLabel`
+    - `checkAllRowsLabel` has been renamed to `checkAllRowsAriaLabel`
+  - XUIDatePicker
+    - `nextButtonLabel` has been renamed to `nextButtonAriaLabel`
+    - `prevButtonLabel` has been renamed to `prevButtonAriaLabel`
+  - XUIPanelSection
+    - `headerText` has been renamed to `heading` and now can accept a node for better internationalisation support.
+
+### Notable minor and patch changes since 16.0.0
+
+- `XUIDropdown`, `XUIDropdownPanel`, `StatefulPicklist`
+  - A new `clearHighlightedItem` method has been added to allow clearing of highlighted items in a dropdown.
+- Components exported as default export can now be imported using named import as well as default one. Affected components are:
   - XUIAccordion
   - XUIAutocompleter
   - XUIAvatar
@@ -89,19 +168,19 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
   - XUICapsule
   - XUICheckbox
   - XUIDatePicker
-  - XUIDropDown
+  - XUIDropdown
   - XUIIcon
   - XUIIllustration
   - XUIIsolationHeader
   - XUILoader
   - XUIModal
-  - Pisklist
+  - XUIPicklist
   - XUIPill
   - XUIProgressIndicator (progressTypes)
   - XUIRadio
   - XUIRange
   - XUIRolloverCheckbox
-  - SelectBox
+  - XUISelectBox
   - XUIStepper
   - XUISwitch
   - XUITable
@@ -111,85 +190,18 @@ Several CSS components require a new child element with the `.xui-touchtarget` c
   - XUIToggle
   - XUITooltip
 - `XUIPanel` and `XUIPageHeader` received additional default export.
-- Significant changes have been made to `XUIAccordion` and its API, including:
-  - Rather than accepting a `createItem` function and an `items` array, it now takes `XUIAccordionItem`s as children.
-  - `XUIAccordion` is now a function component, rather than a class. You may need to make updates accordingly.
-  - See the [full API documentation](https://xui.xero.com/16.4.0/react/#accordion) for `XUIAccordion`.
-
-### Additions
-
-- `XUIPopover` provides additional information in line with page elements.
-
-### Removals
-
-- icons in `XUIButton`
-  - `icon` and `icon-inverted` variants of `XUIButton` have been **removed**. As a replacement, you can use `XUIIconButton` for buttons that only contain an icon.
-- `XUIBreadcrumb` has been renamed to `XUIBreadcrumbTrail`
-- `XUIIsolationHeaderNavigation`, `XUIIsolationHeaderTitle`, `XUIIsolationHeaderSecondaryTitle`, and `XUIIsolationHeaderActions` have been **removed**. `XUIIsolationHeader` now accepts `navigationButton`, `title`, `secondary`, and `actions` as props instead.
-- Correspondingly, the Sass variables `$xui-isolationheader-bg-color`, `$xui-isolationheader-color`, and `$xui-isolationheader-inverted-bg-color` have been **removed**. Please use `$xui-pageheading-bg-color`, `$xui-text-primary-color`, and `$xui-color-grey-2`, respectively, instead.
-
-Following props have been **removed** because they don't meet [XUI touch target standards](https://xui.xero.com/16.0.0/section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4):
-
-- `XUIPill`: `xsmall` size variant
-- `XUIAutocompleter`: prop `inputSize`
-- `XUIDatePicker`: prop `isCompact`
-- `Picklist` / `Pickitem`: prop `size`
-- `NestedPicklist` / `NestedPicklistContainer`: prop `size`
-- `SelectBoxOption`: prop `size`
-
-### Component props
-
-- `XUIAvatar` now requires the value prop for accessibility and for cases in which images have not loaded
-- `XUIPageHeader` now requires that `breadcrumbs` only be used in combination with `title`, where previously the two could _not_ be used together.
-- `XUIIsolationHeader` has a new API similar to that of `XUIPageHeader`. It still accepts `children`; but for best results, we recommend updating your project to use the new API.
-- `Picklist` added a prop `swapAtBreakpoint`, which defines the swap breakpoint (container width) between tab-styled dropdown and horizontal picklist.
-- `XUIBreadcrumbTrail` has a new prop `swapAtBreakpoint`, which defines the pageHeader width at which the component will condense early breadcrumb items into a dropdown. This behaviour is optional, and will not occur if no `swapAtBreakpoint` is supplied, or if the set of breadcrumbs is only one or two items.
-- `XUIAutocompleterSecondarySearch` requires previously optional `onSearch` function for every single use
-- `XUIRadio` and `XUICheckbox` now accepts `inputProps` object with attributes that will be set on the HTML input node.
-
-### Internationalisation
-
-Going forward, XUI will no longer provide default English values with its React components. This was a difficult decision to make, but we ultimately believe that localisation is a responsibility best handled by product teams.
-
-To help ease this transition, we are providing a codemod that will add all of the missing English values to your application. Instructions for using the codemod are [available in our GitHub repo](https://github.dev.xero.com/UXE/xui/#upgrading-between-versions-of-xui).
-
-Below is a list of components that have been affected by this change. The codemod will make all these changes for you, but you can use this list as a reference if needed.
-
-- `<XUIAccordion />`
-  - `toggleLabel`: "Toggle"
-  - `emptyMessage`: "Nothing available to show"
-- `<XUIAutocompleter />`
-  - `loadingLabel`: "Loading"
-- `<XUIAutocompleterEmptyState />`
-  - `children`: "No results found"
-- `<XUIBarChart />`
-  - `keyTitle`: "Graph key"
-  - `emptyMessage`: "There is no data to display"
-  - `paginationNextTitle`: "Next page"
-  - `paginationPreviousTitle`: "Previous page"
-  - `loadingLabel`: "Loading"
-- `<DropDownHeader />`
-  - `primaryButtonContent`: "Apply"
-  - `secondaryButtonContent`: "Cancel"
-  - `backButtonLabel`: "Back"
-- `<XUIModal />`
-  - `closeButtonLabel`: "Close"
-- `<NestedPicklistTrigger />`
-  - `ariaLabel`: "Toggle submenu"
-- `<XUILoader />`
-  - `ariaLabel`: "Loading"
-- `<XUIPill />`
-  - `deleteButtonLabel`: "Delete"
-- `<SelectBox />`
-  - `caretTitle`: "Toggle list"
-- `<XUITable />`
-  - `loaderLabel`: "Loading more data"
-  - `emptyMessage`: "Nothing to show here"
-  - `checkOneRowLabel`: "Select row"
-  - `checkAllRowsLabel`: "Select all rows"
-  - `overflowMenuTitle`: "More row options"
 
 ## Other changes
+
+- For accessibility purposes, components with prop `validationMessage` now have an "invalid" icon in the left of the message.
+- `XUITable`
+  - The arrow icon for sorting from the header row has been corrected to point up when the values are sorted in ascending order (A -> Z, low -> high), and down when descending. This has never been correct.
+  - We've removed the `width: 100%` CSS property from table headers containing a sort button. The sortable column will no longer squash other columns to get the most width possible.
+- In a previous minor release 16.4.0, we added internationalisation support for various icons. We subsequently identified that the changes were not required for many of these icons as they are internationally recognised symbols. We have corrected this here by reverting all of the unneeded changes. This leaves the following icons still available for internationalisation:
+
+  - `emptyIcon` in XUIAccordion
+  - `emptyStateIcon` in XUIBarChart
+  - `emptyStateIcon` in Table
 
 ### TypeScript support
 
@@ -229,11 +241,11 @@ interface Props {
 
 ### Invisible touch targets
 
-Components with a fixed with and height now have an invisible touch target around them that has a minimum width and height of 40px. Visit [our documentation for touch targets](https://xui.xero.com/16.0.0/section-getting-started-responsive.html#getting-started-responsive-3) for more information. If you use our CSS components please refer to [this list of components that will need updating](#invisible-touch-targets). If you use our React components then touch targets have been added already.
+Components with a fixed with and height now have an invisible touch target around them that has a minimum width and height of 40px. Visit [our documentation for touch targets](https://xui.xero.com/17.0.0/section-getting-started-responsive-guidelines.html#getting-started-responsive-guidelines-4) for more information. If you use our React components then touch targets have been added already. If you use our CSS components, the following components will need updating:
 
 Components with invisible touch targets:
 
-- [XUIIconButton](https://xui.xero.com/16.0.0/react/#icon-button)
-- [XUICheckbox](https://xui.xero.com/16.0.0/react/#checkbox) and [XUIRolloverCheckbox](https://xui.xero.com/16.0.0/react/#rollover-checkbox)
-- [XUIRadio](https://xui.xero.com/16.0.0/react/#radio)
-- [XUISwitch](https://xui.xero.com/16.0.0/react/#switch)
+- [XUIIconButton](https://xui.xero.com/17.0.0/section-components-controls-button.html#components-controls-button-6)
+- [XUICheckbox](https://xui.xero.com/17.0.0/section-components-controls-checkbox.html) and [XUIRolloverCheckbox](https://xui.xero.com/17.0.0/section-components-controls-checkbox.html#components-controls-checkbox-11)
+- [XUIRadio](https://xui.xero.com/17.0.0/section-components-controls-radio.html)
+- [XUISwitch](https://xui.xero.com/17.0.0/section-components-controls-switch.html)

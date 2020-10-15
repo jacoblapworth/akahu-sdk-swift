@@ -45,7 +45,6 @@ const variations = [
     navigationIcon: 'cross',
     isPositionFixed: true,
     selectors: '.xui-container',
-    misMatchThreshold: 0.4,
   },
 ];
 

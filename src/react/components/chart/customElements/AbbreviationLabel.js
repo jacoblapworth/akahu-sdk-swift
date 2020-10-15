@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { xAxisFontTheme } from '../helpers/theme';
 import getResponsiveOptions from '../helpers/xaxis';
@@ -64,63 +64,59 @@ const responsiveOptions = {
   }),
 };
 
-class AbbreviationLabel extends PureComponent {
-  render = () => {
-    const {
-      isToolTipHidden,
-      updateToolTip,
-      labelWidth,
-      labelTop,
-      labelHeight,
-      // Victory...
-      index: labelIndex,
-      text: textRaw,
-      // Unused Victory references...
-      // scale, style, fontFamily, fontSize, letterSpacing, padding, fill, stroke, x,
-      // y, verticalAnchor, textAnchor, datum
-    } = this.props;
+const AbbreviationLabel = ({
+  isToolTipHidden,
+  labelHeight,
+  labelTop,
+  labelWidth,
+  updateToolTip,
+  // Victory...
+  index: labelIndex,
+  text: textRaw,
+  // Unused Victory references...
+  // scale, style, fontFamily, fontSize, letterSpacing, padding, fill, stroke, x,
+  // y, verticalAnchor, textAnchor, datum
+}) => {
+  const textOptions = textRaw.split('|').map(option => option.trim());
+  const getTagText = createTagTextThunk(textOptions);
+  const {
+    // Tag...
+    tagLeft,
+    tagTop,
+    tagText,
+    tagStyle,
+    tagAnchor,
+    tagTextWidth,
+    // ToolTip...
+    toolTipOffset,
+  } = getResponsiveOptions(responsiveOptions, { labelWidth, labelIndex, getTagText });
 
-    const textOptions = textRaw.split('|').map(option => option.trim());
-    const getTagText = createTagTextThunk(textOptions);
-    const {
-      // Tag...
-      tagLeft,
-      tagTop,
-      tagText,
-      tagStyle,
-      tagAnchor,
-      tagTextWidth,
-      // ToolTip...
-      toolTipOffset,
-    } = getResponsiveOptions(responsiveOptions, { labelWidth, labelIndex, getTagText });
-
-    return (
-      <XAxisLabelWrapper
-        isToolTipHidden={isToolTipHidden}
-        labelHeight={labelHeight}
-        labelLeft={labelWidth * labelIndex}
-        labelTop={labelTop}
-        labelWidth={labelWidth}
-        toolTipMessage={getTagText(4)}
-        toolTipOffset={toolTipOffset}
-        updateToolTip={updateToolTip}
-      >
-        {tagText && (
-          <TruncatedText
-            className={`${NAME_SPACE}-chart--measure`}
-            maxWidth={tagTextWidth}
-            style={tagStyle}
-            textAnchor={tagAnchor}
-            x={tagLeft}
-            y={tagTop}
-          >
-            {tagText}
-          </TruncatedText>
-        )}
-      </XAxisLabelWrapper>
-    );
-  };
-}
+  return (
+    <XAxisLabelWrapper
+      isToolTipHidden={isToolTipHidden}
+      labelHeight={labelHeight}
+      labelLeft={labelWidth * labelIndex}
+      labelTop={labelTop}
+      labelWidth={labelWidth}
+      toolTipMessage={getTagText(4)}
+      toolTipOffset={toolTipOffset}
+      updateToolTip={updateToolTip}
+    >
+      {tagText && (
+        <TruncatedText
+          className={`${NAME_SPACE}-chart--measure`}
+          maxWidth={tagTextWidth}
+          style={tagStyle}
+          textAnchor={tagAnchor}
+          x={tagLeft}
+          y={tagTop}
+        >
+          {tagText}
+        </TruncatedText>
+      )}
+    </XAxisLabelWrapper>
+  );
+};
 
 export default AbbreviationLabel;
 

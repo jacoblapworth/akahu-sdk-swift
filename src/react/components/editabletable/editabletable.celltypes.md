@@ -86,7 +86,7 @@ const data = [
 
 ### Select box cell
 
-A `XUIEditableTableCellSelectBox` requires at least one [`SelectBoxOption`](#select-box-option) to be passed as a child, just like a regular [`SelectBox`](#select-box).
+A `XUIEditableTableCellSelectBox` requires at least one [`XUISelectBoxOption`](#select-box-option) to be passed as a child, just like a regular [`SelectBox`](#select-box).
 
 ```jsx harmony
 import {
@@ -97,7 +97,7 @@ import {
   XUIEditableTableHeadingCell,
   XUIEditableTableRow
 } from '@xero/xui/react/editabletable';
-import { SelectBoxOption } from '@xero/xui/react/select-box';
+import { XUISelectBoxOption } from '@xero/xui/react/selectbox';
 
 const noop = () => {};
 const data = [{ fruit: 'Orange', colour: 'Orange', price: 3.99 }];
@@ -119,15 +119,15 @@ const data = [{ fruit: 'Orange', colour: 'Orange', price: 3.99 }];
           label={'Select fruit'}
           onChange={noop}
         >
-          <SelectBoxOption id={`${index}_a1`} key="a1" value="Orange">
+          <XUISelectBoxOption id={`${index}_a1`} key="a1" value="Orange">
             Orange
-          </SelectBoxOption>
-          <SelectBoxOption id={`${index}_a2`} key="a2" value="Banana">
+          </XUISelectBoxOption>
+          <XUISelectBoxOption id={`${index}_a2`} key="a2" value="Banana">
             Banana
-          </SelectBoxOption>
-          <SelectBoxOption id={`${index}_a3`} key="a3" value="Lemon">
+          </XUISelectBoxOption>
+          <XUISelectBoxOption id={`${index}_a3`} key="a3" value="Lemon">
             Lemon
-          </SelectBoxOption>
+          </XUISelectBoxOption>
         </XUIEditableTableCellSelectBox>
         <XUIEditableTableCellSelectBox
           buttonContent={'Select colour'}
@@ -135,15 +135,15 @@ const data = [{ fruit: 'Orange', colour: 'Orange', price: 3.99 }];
           label={'Select colour'}
           onChange={noop}
         >
-          <SelectBoxOption id={`${index}_b1`} key="b1" value="Yellow">
+          <XUISelectBoxOption id={`${index}_b1`} key="b1" value="Yellow">
             Yellow
-          </SelectBoxOption>
-          <SelectBoxOption id={`${index}_b2`} key="b2" value="Blue">
+          </XUISelectBoxOption>
+          <XUISelectBoxOption id={`${index}_b2`} key="b2" value="Blue">
             Blue
-          </SelectBoxOption>
-          <SelectBoxOption id={`${index}_b3`} key="b3" value="Red">
+          </XUISelectBoxOption>
+          <XUISelectBoxOption id={`${index}_b3`} key="b3" value="Red">
             Red
-          </SelectBoxOption>
+          </XUISelectBoxOption>
         </XUIEditableTableCellSelectBox>
         <XUIEditableTableCellSelectBox
           buttonContent={'Select price / kg'}
@@ -151,15 +151,15 @@ const data = [{ fruit: 'Orange', colour: 'Orange', price: 3.99 }];
           label={'Select price / kg'}
           onChange={noop}
         >
-          <SelectBoxOption id={`${index}_c1`} key="c1" value="2.99">
+          <XUISelectBoxOption id={`${index}_c1`} key="c1" value="2.99">
             2.99
-          </SelectBoxOption>
-          <SelectBoxOption id={`${index}_c2`} key="c2" value="3.99">
+          </XUISelectBoxOption>
+          <XUISelectBoxOption id={`${index}_c2`} key="c2" value="3.99">
             3.99
-          </SelectBoxOption>
-          <SelectBoxOption id={`${index}_c3`} key="c3" value="4.99">
+          </XUISelectBoxOption>
+          <XUISelectBoxOption id={`${index}_c3`} key="c3" value="4.99">
             4.99
-          </SelectBoxOption>
+          </XUISelectBoxOption>
         </XUIEditableTableCellSelectBox>
       </XUIEditableTableRow>
     ))}

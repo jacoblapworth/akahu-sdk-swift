@@ -18,9 +18,22 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'unchecked hover state',
+    isLabelHidden: true,
+    hoverSelector: '.xui-styledcheckboxradio--input',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'checked',
     labelText: 'Checked Example',
     isDefaultChecked: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'checked hover state',
+    isDefaultChecked: true,
+    isLabelHidden: true,
+    hoverSelector: '.xui-styledcheckboxradio--input',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -76,6 +89,40 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with an icon hover state',
+    labelText: 'Icon Example',
+    iconMain: starIcon,
+    hoverSelector: '.xui-styledcheckboxradio--input',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with an checked icon',
+    labelText: 'Icon Example',
+    isDefaultChecked: true,
+    iconMain: starIcon,
+    hoverSelector: '.xui-styledcheckboxradio--input',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with an checked icon hover state',
+    labelText: 'Icon Example',
+    isDefaultChecked: true,
+    iconMain: starIcon,
+    hoverSelector: '.xui-styledcheckboxradio--input',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'inline group',
+    isSeries: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'inline group reversed',
+    isReversed: true,
+    isSeries: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'grouped',
     isGroup: true,
     groupProps: {
@@ -122,6 +169,15 @@ const variations = [
 ];
 
 [false, true].forEach(isInvalid => {
+  isInvalid &&
+    variations.push({
+      storyKind: storiesWithVariationsKindName,
+      storyTitle: `with long validation message`,
+      isInvalid,
+      viewports: desktopPlus320,
+      validationMessage:
+        isInvalid && 'Validation message is longer longer longer here and could wrap wrap wrap',
+    });
   [false, true].forEach(isLabelHidden => {
     [false, true].forEach(isReversed => {
       const isInvalidTitle = isInvalid ? 'with validation error' : 'with hint text';

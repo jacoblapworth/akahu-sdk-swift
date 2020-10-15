@@ -10,26 +10,31 @@ import baseCompositionClass, { buildLayoutClass, buildGlobalCompositionClasses }
 
 const compositionName = 'splitheader';
 
-export default class XUICompositionSplitHeader extends PureComponent {
-  render() {
-    const { className, header, primary, secondary, retainWidth, ...spreadProps } = this.props;
+const XUICompositionSplitHeader = ({
+  className,
+  header,
+  primary,
+  retainWidth,
+  secondary,
+  ...spreadProps
+}) => {
+  const compositionClasses = cn(
+    buildGlobalCompositionClasses(spreadProps),
+    buildLayoutClass({ retainWidth, compositionName }),
+    `${baseCompositionClass}-${compositionName}`,
+    className,
+  );
 
-    const compositionClasses = cn(
-      buildGlobalCompositionClasses(spreadProps),
-      buildLayoutClass({ retainWidth, compositionName }),
-      `${baseCompositionClass}-${compositionName}`,
-      className,
-    );
+  return (
+    <div className={compositionClasses}>
+      <XUIGridAreaHeader>{header}</XUIGridAreaHeader>
+      <XUIGridAreaPrimary>{primary}</XUIGridAreaPrimary>
+      <XUIGridAreaMain>{secondary}</XUIGridAreaMain>
+    </div>
+  );
+};
 
-    return (
-      <div className={compositionClasses}>
-        <XUIGridAreaHeader>{header}</XUIGridAreaHeader>
-        <XUIGridAreaPrimary>{primary}</XUIGridAreaPrimary>
-        <XUIGridAreaMain>{secondary}</XUIGridAreaMain>
-      </div>
-    );
-  }
-}
+export default XUICompositionSplitHeader;
 
 XUICompositionSplitHeader.propTypes = {
   className: PropTypes.string,

@@ -2,6 +2,7 @@
 @import '../mixins';
 
 $stepper-tab-max-width: 300px;
+$stepper-spacing: $xui-s-2xlarge;
 
 @mixin xui-stepper-link-color($color) {
   color: $color;
@@ -81,23 +82,23 @@ $stepper-tab-max-width: 300px;
 
 .#{$ns}-stepper-inline .#{$ns}-stepper-tab {
   // Reset any "Stacked" layout flex ordering set via JS when using an "Inline" layout.
-  margin: 0 30px;
+  margin: 0 $stepper-spacing;
   order: 0 !important;
 
   &:before,
   &:after {
     height: 1px;
     top: 50%;
-    width: 30px;
+    width: $stepper-spacing;
   }
 
   &:after {
     left: inherit;
-    right: -30px;
+    right: -$stepper-spacing;
   }
 
   &:before {
-    left: -30px;
+    left: -$stepper-spacing;
   }
 }
 
@@ -294,7 +295,7 @@ $stepper-tab-max-width: 300px;
 
   .#{$ns}-stepper-link-wrapper {
     display: block;
-    padding: 0 10px;
+    padding: 0 $xui-s-xsmall;
     text-align: center;
   }
 

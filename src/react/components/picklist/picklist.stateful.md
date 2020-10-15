@@ -1,23 +1,23 @@
-The `StatefulPicklist` wraps the `Picklist` to keep track of which element is highlighted and can take care of highlighting behaviour within itself. It also Exposes these methods to control highlighting behavior from a wrapping component. A good example is `DropDown` which manages the users navigation on the menu and selecting an item. They're also available if a custom wrapper for `StatefulPicklist` is needed. Detailed information on the API can be found in the [DropDown section](#dropdown).
+`XUIStatefulPicklist` wraps `XUIPicklist` to keep track of which element is highlighted and can take care of highlighting behaviour within itself. It also Exposes these methods to control highlighting behaviour from a wrapping component. A good example is `XUIDropdown`, which manages the users navigation on the menu and selecting an item. They're also available if a custom wrapper for `XUIStatefulPicklist` is needed. Detailed information on the API can be found in the [dropdown section](#dropdown).
 
-### Components Using StatefulPicklist
+### Components using stateful picklist
 
-- [DropDown](#dropdown)
-- [SelectBox, inherited from Dropdown](#select-box)
+- [Dropdown](#dropdown)
+- [Select box, inherited from dropdown](#selectbox)
 - [Autocompleter](#autocompleter)
 
-### Using StatefulPicklist
+### Using stateful picklist
 
-In most cases you would be able to use a wrapper around the `StatefulPicklist`, such as the ones listed above. However, for some cases you may need to roll your own. To understand how to correctly implement the component, you should be aware of what behaviours `StatefulPicklist` covers:
+In most cases you would be able to use a wrapper around the `XUIStatefulPicklist`, such as the ones listed above. However, for some cases you may need to roll your own. To understand how to correctly implement the component, you should be aware of what behaviours `XUIStatefulPicklist` covers:
 
-#### It Includes
+#### It includes
 
 - Manages state of highlighted items.
 - Exposes API methods to set and find highlighted items.
 - Handles mouse events on items.
 - Hooks to use the keyboard navigation.
 
-#### It Doesn't Include
+#### It doesn’t include
 
 - Managing state of selected items.
 - Automatically hook up keyboard events.
@@ -25,10 +25,10 @@ In most cases you would be able to use a wrapper around the `StatefulPicklist`, 
 
 ### Example
 
-A thin wrapper around the `StatefulPicklist` to demonstrate the bare minimum to build a working component.
+A thin wrapper around `XUIStatefulPicklist` to demonstrate the bare minimum to build a working component.
 
 ```jsx harmony
-import Picklist, { StatefulPicklist, Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIStatefulPicklist, XUIPickitem } from '@xero/xui/react/picklist';
 
 class BasicStatefulPicklist extends React.Component {
   constructor(...args) {
@@ -58,22 +58,26 @@ class BasicStatefulPicklist extends React.Component {
   render() {
     return (
       <div id="spl-wrapper1" ref={this._rootNode} tabIndex={0} onKeyDown={this.onKeyDown}>
-        <StatefulPicklist secondaryProps={{ role: null }} onSelect={this.onSelect} ref={this._list}>
-          <Picklist secondaryProps={{ role: 'menu' }}>
+        <XUIStatefulPicklist
+          secondaryProps={{ role: null }}
+          onSelect={this.onSelect}
+          ref={this._list}
+        >
+          <XUIPicklist secondaryProps={{ role: 'menu' }}>
             {[1, 2, 3, 4].map(i => {
               return (
-                <Pickitem
+                <XUIPickitem
                   ariaRole="menuitem"
                   id={`vertical_${i}`}
                   key={i}
                   isSelected={this.state.selectedItem === `vertical_${i}`}
                 >
                   {`Item ${i}`}
-                </Pickitem>
+                </XUIPickitem>
               );
             })}
-          </Picklist>
-        </StatefulPicklist>
+          </XUIPicklist>
+        </XUIStatefulPicklist>
       </div>
     );
   }
@@ -82,7 +86,7 @@ class BasicStatefulPicklist extends React.Component {
 ```
 
 ```jsx harmony
-import Picklist, { StatefulPicklist, Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIStatefulPicklist, XUIPickitem } from '@xero/xui/react/picklist';
 
 class BasicHorizontalStatefulPicklist extends React.Component {
   constructor(...args) {
@@ -112,27 +116,27 @@ class BasicHorizontalStatefulPicklist extends React.Component {
   render() {
     return (
       <div id="spl-wrapper2" ref={this._rootNode} tabIndex={0} onKeyDown={this.onKeyDown}>
-        <StatefulPicklist
+        <XUIStatefulPicklist
           secondaryProps={{ role: null }}
           isHorizontal
           onSelect={this.onSelect}
           ref={this._list}
         >
-          <Picklist secondaryProps={{ role: 'menu' }} isHorizontal>
+          <XUIPicklist secondaryProps={{ role: 'menu' }} isHorizontal>
             {[1, 2, 3, 4].map(i => {
               return (
-                <Pickitem
+                <XUIPickitem
                   ariaRole="menuitem"
                   id={`horizontal_${i}`}
                   key={i}
                   isSelected={this.state.selectedItem === `horizontal_${i}`}
                 >
                   {`Item ${i}`}
-                </Pickitem>
+                </XUIPickitem>
               );
             })}
-          </Picklist>
-        </StatefulPicklist>
+          </XUIPicklist>
+        </XUIStatefulPicklist>
       </div>
     );
   }
@@ -143,5 +147,5 @@ class BasicHorizontalStatefulPicklist extends React.Component {
 #### Key Things To Note
 
 - **The wrapping element must be in focus** for the keyboard handling to work.
-- You need to **hook in the keyDown event**, this is so it can be managed by the wrapper and not assume it should be called with every valid keyboard event. This is so certain keyDown events or DOM nodes can be filtered out by the custom wrapper. See the DropdownPanel for a good example of this.
-- You need to **manage select state**. The `StatefulPicklist` provides an `onSelect` handler to let you know when an item has been selected. You will need to store this in your wrapper's state and pass this to the selected `Pickitem`s using the `isSelected` prop. This is because the `StatefulPicklist` can handle single or multiple item selections and the wrapper should determine which to use.
+- You need to **hook in the `keyDown` event** so it can be managed by the wrapper and not assume it should be called with every valid keyboard event. This is so certain `keyDown` events or DOM nodes can be filtered out by the custom wrapper. See [`XUIDropdownPanel`](#xuidropdownpanel) for a good example of this.
+- You need to **manage select state**. `XUIStatefulPicklist` provides an `onSelect` handler to let you know when an item has been selected. You will need to store this in your wrapper's state and pass this to the selected `XUIPickitem`s using the `isSelected` prop. This is because the `XUIStatefulPicklist` can handle single or multiple item selections and the wrapper should determine which to use.

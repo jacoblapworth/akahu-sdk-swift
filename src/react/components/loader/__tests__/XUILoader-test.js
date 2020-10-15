@@ -6,14 +6,14 @@ import XUILoader from '../XUILoader';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('XUILoader', function() {
-  it('should render with an aria label describing its purpose', function() {
+describe('XUILoader', function () {
+  it('should render with an aria label describing its purpose', function () {
     const testString = 'Something is loading, please wait';
     const wrapper = mount(<XUILoader ariaLabel={testString} />);
     expect(wrapper.getDOMNode().getAttribute('aria-label')).toEqual(testString);
   });
 
-  it('should add extra classes when defined', function() {
+  it('should add extra classes when defined', function () {
     const testClass = 'test-class';
     const wrapper = mount(
       <XUILoader className={testClass} ariaLabel="Something is loading, please wait" />,
@@ -21,7 +21,7 @@ describe('XUILoader', function() {
     expect(wrapper.getDOMNode().classList.contains(testClass)).toBeTruthy();
   });
 
-  it('should add the layout class by default', function() {
+  it('should add the layout class by default', function () {
     const testClass = 'test-class';
     const wrapper = mount(
       <XUILoader className={testClass} ariaLabel="Something is loading, please wait" />,
@@ -29,14 +29,14 @@ describe('XUILoader', function() {
     expect(wrapper.getDOMNode().classList.contains('xui-loader-layout')).toBeTruthy();
   });
 
-  it('should not add the layout class if `defaultLayout` is set to `false`', function() {
+  it('should not add the layout class if `defaultLayout` is set to `false`', function () {
     const wrapper = mount(
       <XUILoader defaultLayout={false} ariaLabel="Something is loading, please wait" />,
     );
     expect(wrapper.getDOMNode().classList.contains('xui-loader-layout')).toBeFalsy();
   });
 
-  it('should add appropriate size classes', function() {
+  it('should add appropriate size classes', function () {
     const wrapper = renderer.create(
       <div>
         <XUILoader ariaLabel="Something is loading, please wait" />
@@ -56,7 +56,7 @@ describe('XUILoader', function() {
     expect(wrapper.getDOMNode().classList.contains('xui-loader-inverted')).toBeTruthy();
   });
 
-  it('should add the retain layout class if `retainLayout` is set to `true`', function() {
+  it('should add the retain layout class if `retainLayout` is set to `true`', function () {
     const wrapper = mount(
       <XUILoader retainLayout={true} ariaLabel="Something is loading, please wait" />,
     );

@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
@@ -6,77 +6,75 @@ import LeftVisualEl from './private/LeftVisualEl';
 import { ns } from '../helpers/xuiClassNamespace';
 import { baseClass, childSizeClassMap } from './private/constants';
 
-class XUIInnerPill extends PureComponent {
-  render() {
-    const {
-      avatarProps,
-      href,
-      isInvalid,
-      onClick,
-      qaHook,
-      secondaryText,
-      target,
-      title,
-      value,
-      size,
-      innerPillRef,
-      avatar,
-    } = this.props;
+const XUIInnerPill = ({
+  avatar,
+  avatarProps,
+  href,
+  innerPillRef,
+  isInvalid,
+  onClick,
+  qaHook,
+  secondaryText,
+  size,
+  target,
+  title,
+  value,
+}) => {
+  const isInteractive = href || onClick;
 
-    const isInteractive = href || onClick;
+  const className = cn(`${baseClass}--content`, isInteractive && `${baseClass}--button`);
+  const innerPillQaHook = qaHook && `${qaHook}--inner`;
+  const secondaryTextEl = secondaryText && (
+    <span className={`${ns}-color-grey-muted ${baseClass}--secondary`} ref={innerPillRef}>
+      {secondaryText}
+    </span>
+  );
+  const valueEl = value && (
+    <span
+      className={`${baseClass}--text`}
+      ref={!secondaryText && innerPillRef ? innerPillRef : null}
+    >
+      {value}
+    </span>
+  );
 
-    const className = cn(`${baseClass}--content`, isInteractive && `${baseClass}--button`);
-    const innerPillQaHook = qaHook && `${qaHook}--inner`;
-    const secondaryTextEl = secondaryText && (
-      <span className={`${ns}-color-grey-muted ${baseClass}--secondary`} ref={innerPillRef}>
-        {secondaryText}
-      </span>
-    );
-    const valueEl = value && (
-      <span
-        className={`${baseClass}--text`}
-        ref={!secondaryText && innerPillRef ? innerPillRef : null}
-      >
-        {value}
-      </span>
-    );
+  const contents = (
+    <>
+      <LeftVisualEl
+        avatar={avatar}
+        avatarProps={avatarProps}
+        isInvalid={isInvalid}
+        size={childSizeClassMap[size]}
+      />
+      {secondaryTextEl}
+      {valueEl}
+    </>
+  );
 
-    const contents = (
-      <>
-        <LeftVisualEl
-          avatar={avatar}
-          avatarProps={avatarProps}
-          isInvalid={isInvalid}
-          size={childSizeClassMap[size]}
-        />
-        {secondaryTextEl}
-        {valueEl}
-      </>
-    );
+  return href || onClick ? (
+    <XUIButton
+      {...{
+        href,
+        target,
+        title,
+        onClick,
+      }}
+      className={className}
+      isLink={!!href}
+      qaHook={innerPillQaHook}
+      size={size}
+      variant="unstyled"
+    >
+      {contents}
+    </XUIButton>
+  ) : (
+    <span className={className} data-automationid={innerPillQaHook}>
+      {contents}
+    </span>
+  );
+};
 
-    return href || onClick ? (
-      <XUIButton
-        {...{
-          href,
-          target,
-          title,
-          onClick,
-        }}
-        className={className}
-        isLink={!!href}
-        qaHook={innerPillQaHook}
-        size={size}
-        variant="unstyled"
-      >
-        {contents}
-      </XUIButton>
-    ) : (
-      <span className={className} data-automationid={innerPillQaHook}>
-        {contents}
-      </span>
-    );
-  }
-}
+export default XUIInnerPill;
 
 XUIInnerPill.propTypes = {
   /** Props for the avatar to be displayed, must adhere to the XUIAvatar component API
@@ -107,5 +105,3 @@ XUIInnerPill.propTypes = {
   /** The size of the pill */
   size: PropTypes.oneOf(Object.keys(childSizeClassMap)),
 };
-
-export default XUIInnerPill;

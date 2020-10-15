@@ -171,7 +171,6 @@ const enrichParams = (state, props, chartTheme) => {
     chartHeight,
     keyLabel: keyLabelRaw,
     keyTitle,
-    keyIcon,
     barsData: barsDataRaw,
     barColor: barColorRaw,
     barColorActive,
@@ -190,7 +189,6 @@ const enrichParams = (state, props, chartTheme) => {
     paginationLabel,
     paginationNextTitle,
     paginationPreviousTitle,
-    paginationIcon,
   } = props;
 
   const {
@@ -321,7 +319,6 @@ const enrichParams = (state, props, chartTheme) => {
     paginationLabel,
     paginationNextTitle,
     paginationPreviousTitle,
-    paginationIcon,
 
     // Tooltip...
     hasToolTip,
@@ -344,7 +341,6 @@ const enrichParams = (state, props, chartTheme) => {
     hasKey,
     keyTitle,
     keyLabel,
-    keyIcon,
   };
 };
 

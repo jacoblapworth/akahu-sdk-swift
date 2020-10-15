@@ -12,26 +12,25 @@
 }
 
 .#{$ns}-banner-positive {
-  @include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius, true);
+  @include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius);
 }
 
 .#{$ns}-banner-negative {
-  @include xui-highlight-left($xui-bannger-negative-bg-color, $xui-radius, true);
+  @include xui-highlight-left($xui-banner-negative-bg-color, $xui-radius);
 }
 
 .#{$ns}-banner-layout {
   @include xui-padding($xui-s-2xsmall);
   @include xui-margin-bottom($xui-s-large);
 
-  display: inline-block;
-  width: 100%;
+  display: block;
+  overflow: hidden;
 
   @include xui-breakpoint-small-down {
     border-left: 0;
     border-right: 0;
     border-top: 0;
     margin-top: 0;
-    width: 100%;
 
     &::before {
       border-radius: 0;

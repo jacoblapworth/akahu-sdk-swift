@@ -1,52 +1,51 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import overflowPathData from '@xero/xui-icon/icons/overflow';
-import DropDown from '../../dropdown/DropDown';
-import DropDownToggled from '../../dropdown/DropDownToggled';
-import Picklist from '../../picklist/Picklist';
+import XUIDropdown from '../../dropdown/XUIDropdown';
+import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
+import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIIconButton from '../../button/XUIIconButton';
 import { NAME_SPACE } from '../helpers/constants';
 import preventDefault from '../../helpers/preventDefault';
 
-class OverflowMenu extends PureComponent {
-  createTrigger = overflowMenuTitle => (
+const OverflowMenu = ({ children, overflowMenuTitle, qaHook }) => {
+  const createTrigger = title => (
     <XUIIconButton
-      ariaLabel={overflowMenuTitle}
+      ariaLabel={title}
       icon={overflowPathData}
       onClick={preventDefault}
-      title={overflowMenuTitle}
+      title={title}
     />
   );
 
-  createDropDown = items => (
-    <DropDown>
-      <Picklist>{items}</Picklist>
-    </DropDown>
+  const createDropdown = items => (
+    <XUIDropdown>
+      <XUIPicklist>{items}</XUIPicklist>
+    </XUIDropdown>
   );
 
-  render = () => {
-    const { overflowMenuTitle, children } = this.props;
-    const trigger = this.createTrigger(overflowMenuTitle);
-    const dropdown = this.createDropDown(children);
+  const trigger = createTrigger(overflowMenuTitle);
+  const dropdown = createDropdown(children);
 
-    return (
-      <DropDownToggled
-        className={`${NAME_SPACE}--overflowmenu-body`}
-        dropdown={dropdown}
-        isLegacyDisplay
-        trigger={trigger}
-      />
-    );
-  };
-}
+  return (
+    <XUIDropdownToggled
+      className={`${NAME_SPACE}--overflowmenu-body`}
+      dropdown={dropdown}
+      isLegacyDisplay
+      qaHook={qaHook}
+      trigger={trigger}
+    />
+  );
+};
+
+export default OverflowMenu;
 
 OverflowMenu.propTypes = {
   overflowMenuTitle: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.bool]),
+  qaHook: PropTypes.string,
 };
 
 OverflowMenu.defaultProps = {
   children: [],
 };
-
-export default OverflowMenu;

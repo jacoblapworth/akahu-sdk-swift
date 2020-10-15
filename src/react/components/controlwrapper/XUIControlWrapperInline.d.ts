@@ -57,4 +57,5 @@ interface Props {
   };
 }
 
-export default class XUIControlWrapperInline extends React.PureComponent<Props> {}
+declare const XUIControlWrapperInline: React.FunctionComponent<Props>;
+export default XUIControlWrapperInline;

@@ -7,6 +7,17 @@ module.exports = async (page, scenario) => {
 
   const xuiMotionDelayLong = 500;
 
+  await page.evaluate(() => {
+    document.head.insertAdjacentHTML(
+      'beforeend',
+      `<style>
+        * {
+          caret-color: transparent !important;
+        }
+      </style>`,
+    );
+  });
+
   if (clickSelector) {
     await page.click(clickSelector);
     await wait(xuiMotionDelayLong);

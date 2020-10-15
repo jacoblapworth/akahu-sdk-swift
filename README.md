@@ -268,12 +268,34 @@ jscodeshift --importBasePath=@xero/xui/react-es6/ -t node_modules/@xero/xui/code
 jscodeshift -t node_modules/@xero/xui/codemod/<version> src/
 ```
 
-**NB** There are several other configuration settings you may need to set for your project, including --extensions and --parser. By default, codeshift examines .js files with babel.
+### Adjusting Codeshift to work for you
 
-For example:
+Depending on your setup the above commands may not work for you. Here are a couple of different scenarios and what Jscodeshift command you should run.
+
+#### 1. If your source code is not in `/src`:
+
+Please switch out `/src` to your source folder's name
+
+```bash
+jscodeshift -t node_modules/@xero/xui/codemod client/
+```
+
+#### 2. If your project uses TypeScript:
+
+By default, codeshift examines .js files with babel. You can use codeshift with TypeScript by adjusting the `--parser` and `--extensions` as follows:
 
 ```bash
 jscodeshift -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=tsx --extensions=ts,tsx
+```
+
+#### 3. If you are using Windows:
+
+If you are using a windows computer, the [codemod will auto-format linebreaks to 'CRLF' which may cause problems if your environment is setup to use 'LF'](https://github.com/facebook/jscodeshift/issues/195).
+
+To format to 'LF', add the following flag in the jscodeshift command:
+
+```bash
+--printOptions='{"lineTerminator":"\n"}'
 ```
 
 ## Contributing to XUI

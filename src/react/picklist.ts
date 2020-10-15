@@ -1,20 +1,20 @@
-import NestedPicklist from './components/picklist/NestedPicklist';
-import NestedPicklistContainer from './components/picklist/NestedPicklistContainer';
-import NestedPicklistTrigger from './components/picklist/NestedPicklistTrigger';
-import Pickitem from './components/picklist/Pickitem';
-import Picklist from './components/picklist/Picklist';
-import PicklistDivider from './components/picklist/PicklistDivider';
-import PicklistHeader from './components/picklist/PicklistHeader';
-import StatefulPicklist from './components/picklist/StatefulPicklist';
+import XUINestedPicklist from './components/picklist/XUINestedPicklist';
+import XUINestedPicklistContainer from './components/picklist/XUINestedPicklistContainer';
+import XUINestedPicklistTrigger from './components/picklist/XUINestedPicklistTrigger';
+import XUIPickitem from './components/picklist/XUIPickitem';
+import XUIPicklist from './components/picklist/XUIPicklist';
+import XUIPicklistDivider from './components/picklist/XUIPicklistDivider';
+import XUIPicklistHeader from './components/picklist/XUIPicklistHeader';
+import XUIStatefulPicklist from './components/picklist/XUIStatefulPicklist';
 
 export {
-  Picklist as default,
-  Picklist,
-  Pickitem,
-  StatefulPicklist,
-  PicklistHeader,
-  PicklistDivider,
-  NestedPicklist,
-  NestedPicklistContainer,
-  NestedPicklistTrigger,
+  XUIPicklist as default,
+  XUINestedPicklist,
+  XUINestedPicklistContainer,
+  XUINestedPicklistTrigger,
+  XUIPickitem,
+  XUIPicklist,
+  XUIPicklistDivider,
+  XUIPicklistHeader,
+  XUIStatefulPicklist,
 };

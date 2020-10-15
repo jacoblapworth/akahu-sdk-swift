@@ -155,7 +155,7 @@ interface Props {
   /**
    * Type of the input - should not be used together with `isMultiline`.
    */
-  type?: InputType;
+  type?: keyof typeof InputType;
   /**
    * Validation message to show under the input if `isInvalid` is `true`.
    */
@@ -166,4 +166,9 @@ interface Props {
   value?: string;
 }
 
-export default class XUITextInput extends React.PureComponent<Props> {}
+export default class XUITextInput extends React.PureComponent<Props> {
+  /**
+   * Root node to enable users to access as a ref.
+   */
+  rootNode: React.MutableRefObject<HTMLElement>;
+}

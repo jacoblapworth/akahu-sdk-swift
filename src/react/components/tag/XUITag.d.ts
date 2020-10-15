@@ -25,4 +25,5 @@ interface Props {
   variant?: keyof typeof variants;
 }
 
-export default class XUITag extends React.PureComponent<Props> {}
+declare const XUITag: React.FunctionComponent<Props>;
+export default XUITag;

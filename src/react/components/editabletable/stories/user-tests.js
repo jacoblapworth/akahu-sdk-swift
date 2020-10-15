@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import React, { useState } from 'react';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import {
   XUIEditableTable,
   XUIEditableTableHead,
@@ -10,7 +10,7 @@ import {
 import XUIEditableTableBody from '../XUIEditableTableBody';
 import XUIEditableTableCellTextInput from '../XUIEditableTableCellTextInput';
 import XUIEditableTableCellSelectBox from '../XUIEditableTableCellSelectBox';
-import { TextHelpers, SelectBoxOption } from '../../../select-box';
+import { TextHelpers, XUISelectBoxOption } from '../../../selectbox';
 import XUIButton from '../../../button';
 import XUIActions from '../../../actions';
 
@@ -45,7 +45,7 @@ const SBCell = props => {
       {options &&
         options.map((opt, idx) => {
           return (
-            <SelectBoxOption
+            <XUISelectBoxOption
               id={opt}
               isSelected={selectedItems.indexOf(opt) >= 0}
               key={idx + opt + rowIndex}
@@ -53,7 +53,7 @@ const SBCell = props => {
               value={opt}
             >
               {opt}
-            </SelectBoxOption>
+            </XUISelectBoxOption>
           );
         })}
     </XUIEditableTableCellSelectBox>
@@ -68,7 +68,7 @@ class EditableTableUserTest extends React.Component {
     'Salad filling(s)': undefined,
     Sauce: undefined,
     'Order note': undefined,
-    uid: uuid(),
+    uid: uuidv4(),
   };
 
   state = {
@@ -90,7 +90,7 @@ class EditableTableUserTest extends React.Component {
   };
 
   addNewItem = () => {
-    this.blankItem.uid = uuid();
+    this.blankItem.uid = uuidv4();
     this.setState(prevState => ({
       items: [...prevState.items, { ...this.blankItem }],
     }));
@@ -231,7 +231,7 @@ const sandwichData = [
     'Salad filling(s)': ['Lettuce', 'Onion', 'Mushroom', 'Pickles'],
     Sauce: 'Thousand Island',
     'Order note': 'Please add cheese',
-    uid: uuid(),
+    uid: uuidv4(),
   },
   {
     Name: 'Zac',
@@ -240,7 +240,7 @@ const sandwichData = [
     'Salad filling(s)': ['Lettuce', 'Onion', 'Pickles'],
     Sauce: 'Mayonnaise',
     'Order note': 'Can you please add extra sauce? Cheers',
-    uid: uuid(),
+    uid: uuidv4(),
   },
   {
     Name: 'Elise',
@@ -249,7 +249,7 @@ const sandwichData = [
     'Salad filling(s)': ['Lettuce', 'Mushroom', 'Pickles'],
     Sauce: 'Aioli',
     'Order note': undefined,
-    uid: uuid(),
+    uid: uuidv4(),
   },
   {
     Name: 'Sam',
@@ -258,7 +258,7 @@ const sandwichData = [
     'Salad filling(s)': ['Onion', 'Mushroom'],
     Sauce: 'Tomato',
     'Order note': undefined,
-    uid: uuid(),
+    uid: uuidv4(),
   },
   {
     Name: 'Taylor',
@@ -267,7 +267,7 @@ const sandwichData = [
     'Salad filling(s)': ['Lettuce'],
     Sauce: 'Mayonnaise',
     'Order note': 'Peanut allergy',
-    uid: uuid(),
+    uid: uuidv4(),
   },
 ];
 

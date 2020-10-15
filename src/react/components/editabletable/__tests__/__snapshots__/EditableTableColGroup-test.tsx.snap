@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditableTableColGroup includes row control columns, if necessary 1`] = `
+<table>
+  <EditableTableColGroup
+    columnWidths={
+      Array [
+        "100px",
+        "100px",
+      ]
+    }
+  >
+    <colgroup>
+      <col
+        style={
+          Object {
+            "width": "40px",
+          }
+        }
+      />
+      <col
+        key="0"
+        style={
+          Object {
+            "width": "100px",
+          }
+        }
+      />
+      <col
+        key="1"
+        style={
+          Object {
+            "width": "100px",
+          }
+        }
+      />
+      <col
+        style={
+          Object {
+            "width": "40px",
+          }
+        }
+      />
+    </colgroup>
+  </EditableTableColGroup>
+</table>
+`;
+
+exports[`EditableTableColGroup renders correctly 1`] = `
+<colgroup>
+  <col
+    key="0"
+    style={
+      Object {
+        "width": "100px",
+      }
+    }
+  />
+  <col
+    key="1"
+    style={
+      Object {
+        "width": "100px",
+      }
+    }
+  />
+</colgroup>
+`;
+
+exports[`EditableTableColGroup returns null if no colWidths are provided 1`] = `""`;

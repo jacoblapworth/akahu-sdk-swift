@@ -2,8 +2,6 @@
 //
 // Components: File-uploader
 //
-// flags: new
-//
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=kix.dl4oequj98wj
 //
 // Teaser: Intuitively upload files into an application
@@ -102,7 +100,7 @@
 // Don't: Don’t use to indicate an error with uploading an individual file, such as an invalid file type. Instead display this kind of error on the item in the file list.
 //
 // Classes:
-// xui-validation-is-invalid: Applies error validation style to text element
+// xui-validation-is-invalid: Applies error validation style and "invalid" icon to text element
 // xui-fileuploader--dropzone-invalid: Applies error validation style to dropzone
 //
 // ExampleClass: ds-example-transparent

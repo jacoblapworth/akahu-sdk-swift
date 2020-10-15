@@ -126,6 +126,7 @@ XUIPagination.propTypes = {
    * This is required if the `showCount` prop is set to `true`.
    * <br />
    * Sample function with recommended English value:
+   * (`from`, `to` and `count` should be formatted for internationalization in the returned strings)
    * <br />
    * ``(from, to, count) => ({  enhanced: `Showing items ${from}-${to} of ${count}`, simple: `Total items: ${count}`, })``
    */
@@ -137,6 +138,7 @@ XUIPagination.propTypes = {
    * Simple is used when container width < 600px, enhanced used when container with >= 600px.
    * <br />
    * Sample function with recommended English value:
+   * (`page` and `pageCount` should be formatted for internationalization in the returned strings)
    * <br />
    * ``(page, pageCount) => ({ enhanced: `Page ${page} of ${pageCount}`, simple: `${page} of ${pageCount}`, })``
    */

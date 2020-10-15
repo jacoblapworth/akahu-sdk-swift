@@ -10,8 +10,8 @@ import centered from '@storybook/addon-centered/react';
 import overflow from '@xero/xui-icon/icons/overflow';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIBreadcrumbTrail from '../../pageheader/XUIBreadcrumbTrail';
-import XUIPicklist from '../../picklist/Picklist';
-import XUIPickitem from '../../picklist/Pickitem';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 import XUIButton from '../../button/XUIButton';
 import XUIActions from '../../actions/XUIActions';
 import XUIPanel from '../XUIPanel';
@@ -80,7 +80,7 @@ storiesWithKnobs.add('Playground', () => {
   const hasFooter = boolean('Has panel footer?', false);
   const panelContent = <p className="xui-padding-large">Some important text might go here.</p>;
   const builtSection = boolean('Has panel section?', false);
-  const headerText = builtSection && text('Section header', '');
+  const sectionHeading = builtSection && text('Section header', '');
   const settings = {
     heading: hasHeading ? heading : undefined,
     footer: hasFooter ? footer : undefined,
@@ -88,7 +88,7 @@ storiesWithKnobs.add('Playground', () => {
   return (
     <XUIPanel {...settings}>
       {!builtSection && panelContent}
-      {builtSection && section({ headerText })}
+      {builtSection && section({ heading: sectionHeading })}
     </XUIPanel>
   );
 });
@@ -100,16 +100,14 @@ variations.forEach(variation => {
   const { storyTitle, type } = variation;
   storiesWithVariations.add(storyTitle, () => {
     if (type === 'panel') {
-      return (
-        <XUIPanel heading={heading}>{section({ headerText: "I'm a section header" })}</XUIPanel>
-      );
+      return <XUIPanel heading={heading}>{section({ heading: "I'm a section header" })}</XUIPanel>;
     }
     if (type === 'panel-sidebar') {
       const heading = <XUIPanelHeading>{exampleBreadcrumb}</XUIPanelHeading>;
       return (
         <div style={{ minWidth: '700px' }}>
           <XUIPanel footer={footer} heading={heading} sidebar={exampleTabs}>
-            <XUIPanelSection className="xui-padding-large" headerText="I'm a section header">
+            <XUIPanelSection className="xui-padding-large" heading="I'm a section header">
               <p>Some important text might go here.</p>
             </XUIPanelSection>
             <XUIPanelSection className="xui-padding-large">
@@ -117,6 +115,13 @@ variations.forEach(variation => {
             </XUIPanelSection>
           </XUIPanel>
         </div>
+      );
+    }
+    if (type === 'panel-header-node') {
+      return (
+        <XUIPanel heading={heading}>
+          {section({ heading: <div>This is a section heading</div> })}
+        </XUIPanel>
       );
     }
   });

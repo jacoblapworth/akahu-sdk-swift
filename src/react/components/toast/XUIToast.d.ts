@@ -59,7 +59,7 @@ interface BaseProps {
 }
 
 type ActionProps =
-  | {}
+  | Record<string, unknown>
   | {
       /**
        * First and primary action. Always use this one first before using `secondaryAction`.

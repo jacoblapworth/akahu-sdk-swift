@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { baseClass } from './constants';
 
-export default function XUIModalFooter({ className, children, qaHook }) {
+const XUIModalFooter = ({ className, children, qaHook }) => {
   const classNames = cn(`${baseClass}--footer`, className);
 
   return (
@@ -11,7 +11,9 @@ export default function XUIModalFooter({ className, children, qaHook }) {
       {children}
     </footer>
   );
-}
+};
+
+export default XUIModalFooter;
 
 XUIModalFooter.propTypes = {
   children: PropTypes.node,

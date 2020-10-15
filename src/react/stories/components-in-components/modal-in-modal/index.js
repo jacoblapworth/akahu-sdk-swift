@@ -1,5 +1,5 @@
 // Libs
-import React, { Component } from 'react';
+import React from 'react';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -7,11 +7,11 @@ import { storiesOf } from '@storybook/react';
 // import { addReadme } from 'storybook-readme';
 // import readme from './README.md';
 
+import { nonBackstopStoryNames, compositionKind } from '../tests';
+
 // Components we need to test with
 import Example from './components/Example';
 import Example2 from './components/Example2';
-
-import { nonBackstopStoryNames, compositionKind } from '../tests';
 
 <Example />;
 <Example2 />;

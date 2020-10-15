@@ -82,10 +82,10 @@ export const checkIsNarrowViewport = () =>
   typeof window !== 'undefined' && window.document.documentElement.clientWidth < breakpoints.small;
 
 /**
- * Add the window event listeners that the DropDownToggled depends on.
+ * Add the window event listeners that the `XUIDropdownToggled` depends on.
  *
  * @export
- * @param {DropDownToggled} ddt
+ * @param {XUIDropdownToggled} ddt
  */
 export const addEventListeners = ddt => {
   if (typeof window !== 'undefined') {
@@ -99,10 +99,10 @@ export const addEventListeners = ddt => {
 };
 
 /**
- * Remove the window event listeners that the DropDownToggled might have added.
+ * Remove the window event listeners that the `XUIDropdownToggled` might have added.
  *
  * @export
- * @param {DropDownToggled} ddt
+ * @param {XUIDropdownToggled} ddt
  */
 export const removeEventListeners = ddt => {
   if (typeof window !== 'undefined') {

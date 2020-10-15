@@ -41,7 +41,7 @@ interface Props {
    * An accessibility label for the next month button that will be read to users with a screen
    * reader.
    */
-  nextButtonLabel?: string;
+  nextButtonAriaLabel?: string;
   /**
    * Callback for when a user switches to a different month.
    */
@@ -55,7 +55,7 @@ interface Props {
    * An accessibility label for the previous month button that will be read to users with a screen
    * reader.
    */
-  prevButtonLabel?: string;
+  prevButtonAriaLabel?: string;
   qaHook?: string;
   /**
    * If you only want to display a single selected day without allowing the user to select a date

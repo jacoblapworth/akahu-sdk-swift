@@ -1,20 +1,16 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import XUIIcon from '../../icon/XUIIcon';
 import { ns } from '../../helpers/xuiClassNamespace';
 
-export default class XUIAccordionItemEmptyState extends PureComponent {
-  render() {
-    const { children, qaHook, emptyIcon } = this.props;
+const XUIAccordionItemEmptyState = ({ children, qaHook, emptyIcon }) => (
+  <div className={`${ns}-accordion--emptystate`} data-automationid={qaHook}>
+    <XUIIcon icon={emptyIcon} isBoxed size="large" />
+    <div>{children}</div>
+  </div>
+);
 
-    return (
-      <div className={`${ns}-accordion--emptystate`} data-automationid={qaHook}>
-        <XUIIcon icon={emptyIcon} isBoxed size="large" />
-        <div>{children}</div>
-      </div>
-    );
-  }
-}
+export default XUIAccordionItemEmptyState;
 
 XUIAccordionItemEmptyState.propTypes = {
   qaHook: PropTypes.string,

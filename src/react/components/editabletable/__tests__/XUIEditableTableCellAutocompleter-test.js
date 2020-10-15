@@ -2,14 +2,14 @@ import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 import XUIAutocompleter from '../../autocompleter/XUIAutocompleter';
 import XUIEditableTableCell from '../XUIEditableTableCell';
 import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellAutocompleter from '../XUIEditableTableCellAutocompleter';
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -125,12 +125,7 @@ describe('<XUIEditableTableCellAutocompleter />', () => {
         </tbody>
       </table>,
     );
-    expect(
-      wrapper
-        .find(XUIEditableTableCell)
-        .getDOMNode()
-        .getAttribute('width'),
-    ).toBe('100px');
+    expect(wrapper.find(XUIEditableTableCell).getDOMNode().getAttribute('width')).toBe('100px');
   });
 
   it('spreads the rest of the props onto XUIEditableTableCellAutocompleter', () => {
@@ -170,10 +165,10 @@ describe('<XUIEditableTableCellAutocompleter />', () => {
     );
 
     const cellAuto = wrapper.find(XUIEditableTableCellAutocompleter);
-    cellAuto.instance().openDropDown();
+    cellAuto.instance().openDropdown();
     expect(onOpenMock).toHaveBeenCalledTimes(1);
 
-    cellAuto.instance().closeDropDown();
+    cellAuto.instance().closeDropdown();
     expect(onCloseMock).toHaveBeenCalledTimes(1);
   });
 });

@@ -23,7 +23,6 @@ const variationsPath = relativeToProjectDirectory('.tmp/react-visualregression/c
 // For components or compositions with absolutely-positioned elements, use fullPageSettings.
 const fullPageSettings = {
   selectors: '.xui-container',
-  misMatchThreshold: 0.4,
 };
 
 /**
@@ -88,7 +87,7 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/datepicker/stories/variations.js`,
   },
   {
-    testsPrefix: 'DropDown',
+    testsPrefix: 'XUI Dropdown',
     variationsPath: `${variationsPath}/dropdown/stories/variations.js`,
     ...fullPageSettings,
   },
@@ -112,7 +111,6 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Loader',
     variationsPath: `${variationsPath}/loader/stories/variations.js`,
-    misMatchThreshold: 5,
   },
   {
     testsPrefix: 'XUI Modal',
@@ -166,11 +164,11 @@ const componentsToTest = [
   },
   {
     testsPrefix: 'Rollover Checkbox',
-    variationsPath: `${variationsPath}/rolloverCheckbox/stories/variations.js`,
+    variationsPath: `${variationsPath}/rollovercheckbox/stories/variations.js`,
   },
   {
-    testsPrefix: 'SelectBox',
-    variationsPath: `${variationsPath}/select-box/stories/variations.js`,
+    testsPrefix: 'XUI Select Box',
+    variationsPath: `${variationsPath}/selectbox/stories/variations.js`,
     ...fullPageSettings,
   },
   {
@@ -180,6 +178,12 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Stepper',
     variationsPath: `${variationsPath}/stepper/stories/variations.js`,
+  },
+  {
+    testsPrefix: 'XUI Fixed Footer WIP',
+    variationsPath: `${variationsPath}/fixedfooter/stories/variations.js`,
+    readyEvent: 'xui-fixedfooter-ready-event',
+    ...fullPageSettings,
   },
   {
     testsPrefix: 'XUI Table',
@@ -266,7 +270,7 @@ function buildScenarios() {
             label: `${component.testsPrefix} ${story.storyTitle}`,
             url: buildUrl(story.storyKind, story.storyTitle),
             selectors: [story.selectors || component.selectors || '#root > div > div'],
-            misMatchThreshold: story.misMatchThreshold || component.misMatchThreshold || 0.6,
+            misMatchThreshold: story.misMatchThreshold || component.misMatchThreshold || 0,
             selectorExpansion: component.captureAllSelectors,
             delay,
             readyEvent,

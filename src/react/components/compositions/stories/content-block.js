@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import overflow from '@xero/xui-icon/icons/overflow';
 import { XUIContentBlock, XUIContentBlockItem } from '../../../contentblock';
 import { XUIPanel, XUIPanelSection } from '../../../panel';
-import XUIButton, { XUIButtonCaret, XUIIconButton } from '../../../button';
-import Dropdown, { DropDownToggled } from '../../../dropdown';
-import Picklist, { Pickitem } from '../../../picklist';
+import XUIButton, { XUIIconButton } from '../../../button';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from '../../../table';
 
 export default class ContentBlock extends PureComponent {
@@ -26,25 +26,30 @@ export default class ContentBlock extends PureComponent {
     const { showMediumDownButton, dropdownOptions = [], onSelectItem } = this.props;
 
     const MediumDownButton = (
-      <XUIButton className="xui-u-hidden-medium-up" size="small" variant="borderless-standard">
-        Filter <XUIButtonCaret />
+      <XUIButton
+        className="xui-u-hidden-medium-up"
+        hasCaret
+        size="small"
+        variant="borderless-standard"
+      >
+        Filter
       </XUIButton>
     );
 
     const dropdown = (
-      <Dropdown>
-        <Picklist>
+      <XUIDropdown>
+        <XUIPicklist>
           {dropdownOptions.map(item => (
-            <Pickitem id={item} key={item} onSelect={onSelectItem.bind(this, item)}>
+            <XUIPickitem id={item} key={item} onSelect={onSelectItem.bind(this, item)}>
               Navigation item {item}
-            </Pickitem>
+            </XUIPickitem>
           ))}
-        </Picklist>
-      </Dropdown>
+        </XUIPicklist>
+      </XUIDropdown>
     );
 
     const toggledDropdown = showMediumDownButton ? (
-      <DropDownToggled dropdown={dropdown} trigger={MediumDownButton} />
+      <XUIDropdownToggled dropdown={dropdown} trigger={MediumDownButton} />
     ) : null;
 
     return (

@@ -9,7 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 const illustrationURL = 'illustration.svg';
 
 describe('XUIIllustration', () => {
-  it('Should render with the correct classes for small, medium, and large sizes', function() {
+  it('Should render with the correct classes for small, medium, and large sizes', function () {
     const wrapper = renderer.create(
       <div>
         <XUIIllustration src={illustrationURL} size="small" />

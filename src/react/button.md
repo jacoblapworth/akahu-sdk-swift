@@ -82,7 +82,7 @@ import ExampleContainer from './docs/ExampleContainer';
 </div>;
 ```
 
-**Note:** For a button that contains only an icon, use [IconButton](#icon-button)
+**Note:** For a button that contains only an icon, use [`XUIIconButton`](#icon-button)
 
 ### Size
 
@@ -127,6 +127,57 @@ import XUIButton from '@xero/xui/react/button';
 </div>;
 ```
 
+### Icons in buttons
+
+Icons can add context to the text content of the button. If you want a button to only contain an icon, use [`XUIIconButton`](#icon-button).
+
+Buttons only accept icons on one side of the text content. If you try to add icons on both sides, only the icon on the left will show. The exception is buttons using the `hasCaret` setting, which may also show an icon on the left.
+
+```jsx harmony
+import XUIButton from '@xero/xui/react/button';
+import settings from '@xero/xui-icon/icons/settings';
+import external from '@xero/xui-icon/icons/external';
+
+<div>
+  <div className="xui-margin-bottom">
+    <XUIButton className="xui-margin-right" leftIcon={settings}>
+      Left icon
+    </XUIButton>
+    <XUIButton className="xui-margin-right" rightIcon={external}>
+      Right icon
+    </XUIButton>
+  </div>
+  <div className="xui-margin-bottom">
+    <XUIButton className="xui-margin-right" leftIcon={settings} size="small">
+      Left icon
+    </XUIButton>
+    <XUIButton className="xui-margin-right" rightIcon={external} size="small">
+      Right icon
+    </XUIButton>
+  </div>
+  <div>
+    <XUIButton className="xui-margin-right" leftIcon={settings} size="xsmall">
+      Left icon
+    </XUIButton>
+    <XUIButton className="xui-margin-right" rightIcon={external} size="xsmall">
+      Right icon
+    </XUIButton>
+  </div>
+</div>;
+```
+
+### Dropdowns
+
+The trigger to open a [`<XUIDropdownToggled>`](#dropdown) is often a button. To add a caret icon to a button, add the property `hasCaret`.
+
+Check out the [Dropdown](#dropdown) examples to see buttons being used as triggers.
+
+```jsx harmony
+import XUIButton from '@xero/xui/react/button';
+
+<XUIButton hasCaret>Dropdown</XUIButton>;
+```
+
 ### Disabled / Loading States
 
 You can programatically disable a button by setting the `isDisabled` prop to `true`. This will prevent interaction, including preventing it gaining focus.
@@ -147,48 +198,56 @@ import XUIButton from '@xero/xui/react/button';
 </div>;
 ```
 
-The `isLoading` prop replaces the contents of the button with a loader, as well as disabling the button. You must also provide a `loadingLabel`, which adds an `aria-label` to the loader for accessibility purposes.
+The `isLoading` prop replaces the contents of the button with a loader, as well as disabling the button. You must also provide a `loadingAriaLabel`, which adds an `aria-label` to the loader for accessibility purposes. As the loading state disables the button, the loader's colour scheme will reflect this.
 
 The `retainLayout` prop modifies the internals to keep the original button size, but shows a loader instead of the content
 
 The `minLoaderWidth` prop modifies the button by applying a 75px min width on it. Useful for short content buttons.
 
-The supplied loader inherits the text color of the button component.
-
 ```jsx harmony
 import XUIButton from '@xero/xui/react/button';
 
 <div>
-  <XUIButton className="xui-margin-right-small" variant="primary" loadingLabel="Loading">
-    Button with lots of text
-  </XUIButton>
-  <XUIButton className="xui-margin-right-small" variant="primary" isLoading loadingLabel="Loading">
+  <XUIButton className="xui-margin-right-small" variant="primary" loadingAriaLabel="Loading">
     Button with lots of text
   </XUIButton>
   <XUIButton
     className="xui-margin-right-small"
     variant="primary"
     isLoading
-    loadingLabel="Loading"
+    loadingAriaLabel="Loading"
+  >
+    Button with lots of text
+  </XUIButton>
+  <XUIButton
+    className="xui-margin-right-small"
+    variant="primary"
+    isLoading
+    loadingAriaLabel="Loading"
     retainLayout={false}
   >
     Button with lots of text
   </XUIButton>
-  <XUIButton className="xui-margin-right-small" variant="primary" loadingLabel="Loading">
+  <XUIButton className="xui-margin-right-small" variant="standard" loadingAriaLabel="Loading">
     OK
   </XUIButton>
-  <XUIButton className="xui-margin-right-small" variant="primary" isLoading loadingLabel="Loading">
+  <XUIButton
+    className="xui-margin-right-small"
+    variant="standard"
+    isLoading
+    loadingAriaLabel="Loading"
+  >
     OK
   </XUIButton>
   <XUIButton
     className="xui-margin-right-small"
     variant="primary"
-    loadingLabel="Loading"
+    loadingAriaLabel="Loading"
     minLoaderWidth
   >
     OK
   </XUIButton>
-  <XUIButton variant="primary" isLoading loadingLabel="Loading" minLoaderWidth>
+  <XUIButton variant="primary" isLoading loadingAriaLabel="Loading" minLoaderWidth>
     OK
   </XUIButton>
 </div>;

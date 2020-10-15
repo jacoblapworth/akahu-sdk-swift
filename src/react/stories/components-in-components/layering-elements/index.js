@@ -1,5 +1,5 @@
 // Libs
-import React, { Component, PureComponent, Fragment } from 'react';
+import React from 'react';
 
 // Story book things
 
@@ -8,36 +8,57 @@ import { boolean } from '@storybook/addon-knobs';
 
 // Components we need to test with
 import info from '@xero/xui-icon/icons/info';
-import DropDown, { DropDownToggled } from '../../../dropdown';
-import Picklist, { Pickitem } from '../../../picklist';
-import XUIButton, { XUIButtonCaret, XUIIconButton } from '../../../button';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
+import XUIButton, { XUIIconButton, XUISplitButtonGroup, XUISecondaryButton } from '../../../button';
 import XUITextInput from '../../../textinput';
 import { XUICompositionDetail } from '../../../compositions';
 import { XUIPageHeader } from '../../../pageheader';
 import XUITooltip from '../../../tooltip';
 import ExampleToast from './components/ExampleToast';
 import Example from './components/Example';
+import XUIActions from '../../../actions';
+import XUIFixedFooterWIP from '../../../fixedfooter';
+
 import * as lists from '../../../components/helpers/list';
 import { nonBackstopStoryNames, compositionKind } from '../tests';
 
 const buildDropdownPicklist = items => {
   const pickItems = items.map((text, id) => (
-    <Pickitem id={text} isSelected={false} key={id}>
+    <XUIPickitem id={text} isSelected={false} key={id}>
       {text}
-    </Pickitem>
+    </XUIPickitem>
   ));
   return (
-    <DropDown>
-      <Picklist>{pickItems}</Picklist>
-    </DropDown>
+    <XUIDropdown>
+      <XUIPicklist>{pickItems}</XUIPicklist>
+    </XUIDropdown>
   );
 };
 
-const buildTrigger = text => (
-  <XUIButton>
-    {text}
-    <XUIButtonCaret />
-  </XUIButton>
+const buildTrigger = text => <XUIButton hasCaret>{text}</XUIButton>;
+
+const splitButtonExample = (
+  <XUISplitButtonGroup variant="primary">
+    <XUIButton size="small">Split action</XUIButton>
+    <XUIDropdownToggled
+      dropdown={
+        <XUIDropdown fixedWidth size="small">
+          <XUIPicklist>
+            <XUIPickitem id="aa" key="aa" value="aa">
+              Option 1
+            </XUIPickitem>
+            <XUIPickitem id="bb" key="bb" value="bb">
+              Option 2
+            </XUIPickitem>
+          </XUIPicklist>
+        </XUIDropdown>
+      }
+      trigger={
+        <XUISecondaryButton aria-label="Other actions" key="split" size="small" variant="primary" />
+      }
+    />
+  </XUISplitButtonGroup>
 );
 <Example />;
 
@@ -62,7 +83,7 @@ test.add(nonBackstopStoryNames.layeringElements, () => {
             >
               Hello. I am a clue.
             </XUITooltip>
-            <DropDownToggled
+            <XUIDropdownToggled
               closeOnSelect={false}
               dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
               trigger={buildTrigger('Short Trigger')}
@@ -78,14 +99,14 @@ test.add(nonBackstopStoryNames.layeringElements, () => {
               >
                 Hello. I am a clue.
               </XUITooltip>
-              <DropDownToggled
+              <XUIDropdownToggled
                 closeOnSelect={false}
                 dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
                 trigger={buildTrigger('Short Trigger')}
               />
               This is some Modal content.
               <XUITextInput isLabelHidden label="Input label" />
-              <DropDownToggled
+              <XUIDropdownToggled
                 dropdown={buildDropdownPicklist(lists.MedListMedItems)}
                 trigger={buildTrigger('Medium Dropdown Trigger')}
               />
@@ -98,6 +119,19 @@ test.add(nonBackstopStoryNames.layeringElements, () => {
           </>
         }
       />
+      <XUIFixedFooterWIP>
+        <XUIActions
+          className="xui-padding-small"
+          hasLayout
+          isLinear
+          primaryAction={splitButtonExample}
+          secondaryAction={
+            <XUIButton href="https://xui.xero.com" size="small">
+              XUI
+            </XUIButton>
+          }
+        />
+      </XUIFixedFooterWIP>
     </>
   );
 });

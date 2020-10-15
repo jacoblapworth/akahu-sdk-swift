@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-export default function ExampleContainer({ isInverted, className, style, children }) {
+const ExampleContainer = ({ children, className, isInverted, style }) => {
   const classnames = cn(
     {
       'xui-background-grey-1 xui-padding-small': isInverted,
@@ -14,7 +14,9 @@ export default function ExampleContainer({ isInverted, className, style, childre
       {children}
     </div>
   );
-}
+};
+
+export default ExampleContainer;
 
 ExampleContainer.propTypes = {
   children: PropTypes.node,

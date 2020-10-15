@@ -96,12 +96,7 @@ describe('<XUIPopover />', () => {
       const wrapper = mount(<XUIPopover id="test-popover" triggerRef={triggerRef} />);
 
       // Assert
-      expect(
-        wrapper
-          .find(Positioning)
-          .first()
-          .props().triggerRef.current,
-      ).toBe(trigger);
+      expect(wrapper.find(Positioning).first().props().triggerRef.current).toBe(trigger);
     });
 
     it('proxies the rootNode ref object of class components', () => {
@@ -112,12 +107,7 @@ describe('<XUIPopover />', () => {
       const wrapper = mount(<XUIPopover id="test-popover" triggerRef={triggerRef} />);
 
       // Assert
-      expect(
-        wrapper
-          .find(Positioning)
-          .first()
-          .props().triggerRef.current,
-      ).toBe(trigger);
+      expect(wrapper.find(Positioning).first().props().triggerRef.current).toBe(trigger);
     });
   });
 

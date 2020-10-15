@@ -10,7 +10,7 @@ import view from '@xero/xui-icon/icons/view';
 import { XUICompositionDetail } from '../../../compositions';
 import { XUIColumn, XUIRow } from '../../../structural';
 import { XUIPanel, XUIPanelHeading, XUIPanelSection } from '../../../panel';
-import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUIButton from '../../../button';
 import XUIRolloverCheckbox from '../../../rollovercheckbox';
 import XUIAvatar from '../../../avatar';
 import XUIToggle, { XUIToggleOption } from '../../../toggle';
@@ -19,11 +19,11 @@ import { XUICheckboxGroup } from '../../../checkbox';
 import { XUISwitchGroup } from '../../../switch';
 import DetailedListExample from '../../../components/autocompleter/stories/components/DetailedListExample';
 import SecondarySearchExample from '../../../components/autocompleter/stories/components/SecondarySearchExample';
-import Picklist, { Pickitem, PicklistHeader } from '../../../picklist';
+import XUIPicklist, { XUIPickitem, XUIPicklistHeader } from '../../../picklist';
 import XUIIcon from '../../../icon';
 import XUIPill from '../../../pill';
 import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
-import DropDownDateRange from '../helpers/daterangedropdown';
+import DropdownDateRange from '../helpers/daterangedropdown';
 import { nonBackstopStoryNames, compositionKind } from '../tests';
 import {
   createRadios,
@@ -118,13 +118,12 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                   isClosed
                   listSize={overallSize}
                   trigger={
-                    <XUIButton fullWidth="small-down" size={overallSize}>
+                    <XUIButton fullWidth="small-down" hasCaret size={overallSize}>
                       Secondary Search
-                      <XUIButtonCaret />
                     </XUIButton>
                   }
                 />
-                <DropDownDateRange size={overallSize} />
+                <DropdownDateRange size={overallSize} />
               </XUIPanelSection>
               {/* Hover interaction */}
               <XUIPanelSection className="xui-padding-xlarge" id="hover">
@@ -312,19 +311,19 @@ test.add(nonBackstopStoryNames.touchInteractions, () => {
                     })}
                   </XUIColumn>
                   <XUIColumn className="xui-panel" gridColumns="full" gridColumnsSmallUp="half">
-                    <Picklist isMultiselect size={noXsmallSize}>
-                      <PicklistHeader>{noXsmallSize}</PicklistHeader>
+                    <XUIPicklist isMultiselect size={noXsmallSize}>
+                      <XUIPicklistHeader>{noXsmallSize}</XUIPicklistHeader>
                       {multiSelectItems.map(id => (
-                        <Pickitem
+                        <XUIPickitem
                           id={`2_${id}`}
                           isSelected={this.state.isSelectedById[`2_${id}`]}
                           key={`2_${id}`}
                           onClick={this.toggleSelection.bind(this, `2_${id}`)}
                         >
                           {id}
-                        </Pickitem>
+                        </XUIPickitem>
                       ))}
-                    </Picklist>
+                    </XUIPicklist>
                   </XUIColumn>
                 </XUIRow>
               </XUIPanelSection>

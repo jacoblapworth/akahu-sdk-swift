@@ -9,9 +9,9 @@ import { storiesOf } from '@storybook/react';
 
 // Components we need to test with
 import XUIModal, { XUIModalBody } from '../../../modal';
-import DropDown, { DropDownToggled } from '../../../dropdown';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
 import XUIDatePicker from '../../../datepicker';
-import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUIButton from '../../../button';
 
 import NOOP from '../../../components/helpers/noop';
 import { storyNames, compositionKind } from '../tests';
@@ -28,23 +28,18 @@ const test = storiesOf(compositionKind, module);
 // });
 
 test.add(storyNames.dateDDInModal, () => {
-  const trigger = (
-    <XUIButton>
-      Datepicker Button
-      <XUIButtonCaret />
-    </XUIButton>
-  );
+  const trigger = <XUIButton hasCaret>Datepicker Button</XUIButton>;
   const dropdown = (
-    <DropDown>
+    <XUIDropdown>
       <XUIDatePicker displayedMonth={displayMonth} onSelectDate={NOOP} />
-    </DropDown>
+    </XUIDropdown>
   );
 
   return (
     <XUIModal closeButtonLabel="Close" isOpen>
       <XUIModalBody>
         This is some Datepicker Modal content.
-        <DropDownToggled
+        <XUIDropdownToggled
           dropdown={dropdown}
           isHidden={false}
           isLegacyDisplay={false}

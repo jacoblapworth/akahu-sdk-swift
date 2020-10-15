@@ -1,6 +1,8 @@
 @import '../vars';
 @import '../mixins';
 
+$xui-invalid-icon-size: 18px; // Override default icon view-box to remove unwanted surrounding space
+
 .#{$ns}-form-layout {
   @include xui-margin-horizontal-auto;
   max-width: $xui-form-width;
@@ -27,6 +29,14 @@
 
 .#{$ns}-validation-is-invalid {
   color: $xui-validation-invalid-color;
+  display: flex;
+  line-height: $xui-invalid-icon-size;
+  padding-top: $xui-s-small / 2;
+  .#{$ns}-icon {
+    height: $xui-invalid-icon-size;
+    margin-right: $xui-s-xsmall;
+    width: $xui-invalid-icon-size;
+  }
 }
 
 .#{$ns}-form-inline {

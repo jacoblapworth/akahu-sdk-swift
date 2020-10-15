@@ -169,15 +169,18 @@ const Example = () => {
 <Example />;
 ```
 
-## Custom Content
+## Customise Content
 
-There are three props: `createPagingContent`, `createPagingContent` and `perPageContent` that can be used to custom content in `XUIPagination`. These props can also be used for localization purposes.
+There are three props: `createPagingContent`, `createCountContent` and `perPageContent` that can be used to customise content in `XUIPagination`. These props can also be used for localization purposes.
+
+Numbers in `createPagingContent` and `createCountContent` should be formatted for internationalisation. There's an example for `createCountContent` below.
 
 ```jsx harmony
 import XUIPagination from '@xero/xui/react/pagination';
 import {
   defaultPerPageCountOptions,
-  defaultCreatePagingContent
+  defaultCreatePagingContent,
+  numberFormat
 } from './components/pagination/private/helpers';
 
 const defaultProps = {
@@ -193,8 +196,10 @@ const Example = () => (
   <XUIPagination
     count={100}
     createCountContent={(from, to, count) => ({
-      simple: `Total contacts: ${count}`,
-      enhanced: `Showing contacts ${from}-${to} of ${count}`
+      simple: `Total contacts: ${numberFormat(count)}`,
+      enhanced: `Showing contacts ${numberFormat(from)}-${numberFormat(to)} of ${numberFormat(
+        count
+      )}`
     })}
     perPageContent="Contacts per page"
     {...defaultProps}

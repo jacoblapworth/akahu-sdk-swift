@@ -296,7 +296,7 @@ The chart can change its state to reflect its supplied props.
 
 #### Loading
 
-Display the **loading** state using the prop `isLoading`. You must also provide a `loadingLabel` for accessibility purposes.
+Display the **loading** state using the prop `isLoading`. You must also provide a `loadingAriaLabel` for accessibility purposes.
 
 #### Empty
 
@@ -337,7 +337,7 @@ class Demo extends React.Component {
             emptyMessage="There is no data to display"
             paginationNextTitle="Next page"
             paginationPreviousTitle="Previous page"
-            loadingLabel="Loading"
+            loadingAriaLabel="Loading"
           />
         </div>
         <div style={wrapperStyles}>

@@ -32,4 +32,5 @@ interface BaseProps {
 
 type Props = BaseProps & React.HTMLAttributes<HTMLElement>;
 
-export default class XUIActions extends React.PureComponent<Props> {}
+declare const XUIActions: React.FunctionComponent<Props>;
+export default XUIActions;

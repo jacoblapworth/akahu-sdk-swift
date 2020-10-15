@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { XUIIconData } from '../icon/XUIIcon';
 import {
   buttonTypes,
   sizeClassNames,
@@ -8,12 +9,21 @@ import {
 } from './private/constants';
 
 interface BaseProps {
+  /**
+   * Optional prop for users to modify the Button caret icon, if required for localisation.
+   * Defaults to the caret icon, if no value is provided.
+   */
+  caretIcon?: XUIIconData;
   children?: React.ReactNode;
   className?: string;
   /**
    * Modifier for the width of the button.
    */
   fullWidth?: keyof typeof widthClassNames;
+  /**
+   * Use this to specify whether this button will have a dropdown caret.
+   */
+  hasCaret?: boolean;
   /**
    * The `href` attribute to use on the anchor element.
    *
@@ -49,10 +59,14 @@ interface BaseProps {
    */
   isLoading?: boolean;
   /**
+   * Icon to appear to the left of the button content.
+   */
+  leftIcon?: React.ReactNode;
+  /**
    * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
    * `true`.
    */
-  loadingLabel?: string;
+  loadingAriaLabel?: string;
   /**
    * Use this to specify a min width on the button, when you want to swap to loading states.
    */
@@ -76,6 +90,10 @@ interface BaseProps {
    * When used with `isLoading` this allows the button to retain children width.
    */
   retainLayout?: boolean;
+  /**
+   * Icon to appear to the right of the button content.
+   */
+  rightIcon?: React.ReactNode;
   /**
    * Modifier for the size of the button. Buttons with `variant` set to `unstyled` will ignore the
    * `size` property.
@@ -104,7 +122,7 @@ interface BaseProps {
   /**
    * Determines the styling variation to apply.
    */
-  variant?: typeof textButtonVariants;
+  variant?: keyof typeof textButtonVariants;
 }
 
 type SpreadProps =

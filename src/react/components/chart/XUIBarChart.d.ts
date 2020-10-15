@@ -116,12 +116,6 @@ interface BaseProps {
    */
   isXAxisToolTipHidden?: boolean;
   /**
-   * Optional prop for users to modify the info key button icon, if required for localisation.
-   *
-   * Defaults to the info icon, if no value is provided.
-   */
-  keyIcon?: XUIIconData;
-  /**
    * A text of representation of the bar or each bar stack.
    *
    * Provide a single value for standard bar, or an array of values for a stacked
@@ -140,17 +134,11 @@ interface BaseProps {
    *
    * Recommended English value: *Loading*
    */
-  loadingLabel?: string;
+  loadingAriaLabel?: string;
   /**
    * Handler for when a bar "click" interaction occurs.
    */
   onBarClick?: (event: InteractionEvent, item: InteractionParams) => void;
-  /**
-   * Optional prop for users to modify the pagination navigation icon, if required for localisation.
-   *
-   * Defaults to the arrow icon, if no value is provided.
-   */
-  paginationIcon?: XUIIconData;
   /**
    * Accessibility title for pagination button. This is required if `hasPagination` is `true`.
    *
@@ -195,4 +183,5 @@ interface EmptyStateComponentProps {
 type EmptyStateProps = EmptyStateMessageProps | EmptyStateComponentProps;
 type Props = BaseProps & EmptyStateProps;
 
-export default class XUIBarChart extends React.PureComponent<Props> {}
+declare const XUIBarChart: React.FunctionComponent<Props>;
+export default XUIBarChart;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIPicklistHeader /> basic example 1`] = `
+<li
+  className="xui-picklist--header"
+>
+  <span
+    className="xui-picklist--header--text"
+  >
+    Some header text
+  </span>
+</li>
+`;
+
+exports[`<XUIPicklistHeader /> with all options 1`] = `
+<li
+  className="xui-picklist--header custom-header-class"
+  id="headerId"
+  role="presentation"
+>
+  <span
+    className="xui-picklist--header--text"
+  >
+    Some header text
+  </span>
+</li>
+`;

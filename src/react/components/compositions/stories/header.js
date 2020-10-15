@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { XUIActions } from '../../../actions';
 import { XUIPageHeader } from '../../../pageheader';
-import Picklist, { Pickitem } from '../../../picklist';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUIButton, { XUISplitButtonGroup, XUISecondaryButton } from '../../../button';
 
 export default class CustomHeader extends PureComponent {
@@ -19,9 +19,9 @@ export default class CustomHeader extends PureComponent {
     const { title } = this.props;
 
     const builtTabs = (
-      <Picklist>
+      <XUIPicklist>
         {[0, 1].map(item => (
-          <Pickitem
+          <XUIPickitem
             ariaRole="menuitem"
             id={`number_${item}`}
             isSelected={this.state.selectedTab === item}
@@ -29,9 +29,9 @@ export default class CustomHeader extends PureComponent {
             onClick={this.onTabClick.bind(this, item)}
           >
             Tab
-          </Pickitem>
+          </XUIPickitem>
         ))}
-      </Picklist>
+      </XUIPicklist>
     );
 
     return (

@@ -2,14 +2,14 @@ import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 import XUITextInput from '../../textInput/XUITextInput';
 import XUIEditableTableCell from '../XUIEditableTableCell';
 import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellTextInput from '../XUIEditableTableCellTextInput';
 
-jest.mock('uuid/v4');
+jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -154,12 +154,7 @@ describe('<XUIEditableTableCellTextInput />', () => {
           </tbody>
         </table>,
       );
-      expect(
-        wrapper
-          .find(XUIEditableTableCell)
-          .getDOMNode()
-          .getAttribute('width'),
-      ).toBe('50px');
+      expect(wrapper.find(XUIEditableTableCell).getDOMNode().getAttribute('width')).toBe('50px');
     });
 
     it('spreads the rest of the props onto XUITextInput', () => {

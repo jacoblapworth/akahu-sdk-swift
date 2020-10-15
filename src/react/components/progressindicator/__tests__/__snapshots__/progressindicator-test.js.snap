@@ -310,7 +310,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
           <div
             className="xui-progress-icon"
           >
-            <XUIIcon
+            <ForwardRef
               icon={
                 Object {
                   "height": 10,
@@ -333,7 +333,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                   role="presentation"
                 />
               </svg>
-            </XUIIcon>
+            </ForwardRef>
           </div>
         </CircularIcon>
       </div>
@@ -443,7 +443,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
           <div
             className="xui-progress-icon"
           >
-            <XUIIcon
+            <ForwardRef
               className="xui-progress-icon-error"
               icon={
                 Object {
@@ -467,7 +467,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                   role="presentation"
                 />
               </svg>
-            </XUIIcon>
+            </ForwardRef>
           </div>
         </CircularIcon>
       </div>
@@ -900,7 +900,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
           <div
             className="xui-progress-icon"
           >
-            <XUIIcon
+            <ForwardRef
               className="xui-progress-icon-error"
               icon={
                 Object {
@@ -924,7 +924,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                   role="presentation"
                 />
               </svg>
-            </XUIIcon>
+            </ForwardRef>
           </div>
         </CircularIcon>
       </div>
@@ -1063,7 +1063,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
           <div
             className="xui-progress-icon"
           >
-            <XUIIcon
+            <ForwardRef
               icon={
                 Object {
                   "height": 10,
@@ -1086,7 +1086,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                   role="presentation"
                 />
               </svg>
-            </XUIIcon>
+            </ForwardRef>
           </div>
         </CircularIcon>
       </div>
@@ -4067,7 +4067,7 @@ exports[`<XUIProgressIndicator /> should override a soft error alert with a hard
           <div
             className="xui-progress-icon"
           >
-            <XUIIcon
+            <ForwardRef
               className="xui-progress-icon-error"
               icon={
                 Object {
@@ -4091,7 +4091,7 @@ exports[`<XUIProgressIndicator /> should override a soft error alert with a hard
                   role="presentation"
                 />
               </svg>
-            </XUIIcon>
+            </ForwardRef>
           </div>
         </CircularIcon>
       </div>

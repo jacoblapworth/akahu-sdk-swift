@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import XUIEditableTableCellControl from './XUIEditableTableCellControl';
-import SelectBox from '../select-box/SelectBox';
+import XUISelectBox from '../selectbox/XUISelectBox';
 import { tableName } from './private/constants';
 
 const baseName = `${tableName}cellselectbox`;
@@ -52,7 +52,7 @@ const XUIEditableTableCellSelectBox = ({
      * To minimise this impact, we only stop propagation when we know the dropdown of this cell is
      * currently open.
      */
-    selectBoxRef.current && selectBoxRef.current.isDropDownOpen() && event.stopPropagation();
+    selectBoxRef.current && selectBoxRef.current.isDropdownOpen() && event.stopPropagation();
   };
 
   /**
@@ -82,7 +82,7 @@ const XUIEditableTableCellSelectBox = ({
       onMouseDown={preventDropdownFromClosing}
       validationMessage={validationMessage}
     >
-      <SelectBox
+      <XUISelectBox
         {...spreadProps}
         containerClasses={cn(`${baseName}--control`, containerClasses)}
         defaultLayout={false}
@@ -95,7 +95,7 @@ const XUIEditableTableCellSelectBox = ({
         ref={selectBoxRef}
       >
         {children}
-      </SelectBox>
+      </XUISelectBox>
     </XUIEditableTableCellControl>
   );
 };
@@ -138,7 +138,7 @@ XUIEditableTableCellSelectBox.propTypes = {
   /** Optional callback to be executed when the trigger gains focus */
   onFocus: PropTypes.func,
 
-  /** Display text to be rendered on SelectBox button. */
+  /** Display text to be rendered on XUISelectBox button. */
   buttonContent: PropTypes.node.isRequired,
 
   /** Selection callback */
@@ -161,7 +161,7 @@ XUIEditableTableCellSelectBox.propTypes = {
 
   /**
    * Setting to false will allow the dropdown's width to be set independent of the trigger width. <br>
-   * **Note:** *Setting this to true will override any size prop on DropDown.* <br>
+   * **Note:** *Setting this to true will override any size prop on Dropdown.* <br>
    * XUI design has also decided to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers.
    */

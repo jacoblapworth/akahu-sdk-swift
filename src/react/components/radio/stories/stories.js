@@ -34,7 +34,7 @@ storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
-    const { isGroup, isSeries, groupProps } = variation;
+    const { isGroup, isReversed, isSeries, groupProps } = variation;
     const label = typeof variation.labelText === 'string' ? variation.labelText : 'Test radio';
 
     // Remove story-specific properties
@@ -63,14 +63,14 @@ variations.forEach(variation => {
     }
     if (isSeries) {
       return (
-        <div aria-label="r1" role="radiogroup">
-          <XUIRadio key="r1-1" name="rg1">
+        <div aria-label="r1">
+          <XUIRadio isReversed={isReversed} key="r1-1" name="rg1">
             Medium radio label goes here
           </XUIRadio>
-          <XUIRadio isDefaultChecked key="r1-2" name="rg1">
+          <XUIRadio isDefaultChecked isReversed={isReversed} key="r1-2" name="rg1">
             Longish radio label goes here, but this one really goes on and on and on and on
           </XUIRadio>
-          <XUIRadio key="r1-3" name="rg1">
+          <XUIRadio isReversed={isReversed} key="r1-3" name="rg1">
             Third
           </XUIRadio>
         </div>

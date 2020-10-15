@@ -43,11 +43,6 @@
                 "components": "../src/react/components/button/XUIButton.js"
               },
               {
-                "name": "Button Caret",
-                "components": "../src/react/components/button/XUIButtonCaret.js",
-                "content": "../src/react/components/button/button.caret.md"
-              },
-              {
                 "name": "Button Groups",
                 "components": "../src/react/components/button/XUIButtonGroup.js",
                 "content": "../src/react/components/button/button.group.md"
@@ -88,7 +83,7 @@
               {
                 "name": "Rollover Checkbox",
                 "content": "../src/react/rollovercheckbox.md",
-                "components": "../src/react/components/rolloverCheckbox/rolloverCheckbox.js"
+                "components": "../src/react/components/rollovercheckbox/XUIRolloverCheckbox.js"
               }
             ]
           },
@@ -117,16 +112,16 @@
             "content": "../src/react/range.md"
           },
           {
-            "name": "Select-box",
-            "content": "../src/react/select-box.md",
+            "name": "Select Box",
+            "content": "../src/react/selectbox.md",
             "sections": [
               {
-                "components": "../src/react/components/select-box/SelectBox.js"
+                "components": "../src/react/components/selectbox/XUISelectBox.js"
               },
               {
                 "name": "Select Box Option",
-                "components": "../src/react/components/select-box/SelectBoxOption.js",
-                "content": "../src/react/components/select-box/selectbox.option.md"
+                "components": "../src/react/components/selectbox/XUISelectBoxOption.js",
+                "content": "../src/react/components/selectbox/selectbox.option.md"
               }
             ]
           },
@@ -321,6 +316,12 @@
             "name": "Stepper",
             "content": "../src/react/stepper.md",
             "components": "../src/react/components/stepper/XUIStepper.js"
+          },
+          {
+            "name": "Fixed Footer",
+            "content": "../src/react/fixedfooter.md",
+            "components": "../src/react/components/fixedfooter/XUIFixedFooterWIP.js",
+            "description": "**Work in progress: Subject to breaking changes at any time, including patch and minor releases.**"
           }
         ]
       },
@@ -353,22 +354,22 @@
           },
           {
             "name": "Dropdown",
-            "components": "../src/react/components/dropdown/DropDown.js",
+            "components": "../src/react/components/dropdown/XUIDropdown.js",
             "content": "../src/react/dropdown.md",
             "sections": [
               {
                 "name": "Dropdown Toggled",
-                "components": "../src/react/components/dropdown/DropDownToggled.js",
+                "components": "../src/react/components/dropdown/XUIDropdownToggled.js",
                 "content": "../src/react/components/dropdown/dropdown.toggled.md"
               },
               {
                 "name": "Dropdown Header & Footer",
-                "components": "../src/react/components/dropdown/*(DropDownHeader|DropDownFooter).js",
+                "components": "../src/react/components/dropdown/*(XUIDropdownHeader|XUIDropdownFooter).js",
                 "content": "../src/react/components/dropdown/dropdown.headerfooter.md"
               },
               {
                 "name": "Nested Dropdowns",
-                "components": "../src/react/components/dropdown/*(DropDownPanel|NestedDropDown).js",
+                "components": "../src/react/components/dropdown/*(XUIDropdownPanel|XUINestedDropdown).js",
                 "content": "../src/react/components/dropdown/dropdown.nested.md"
               }
             ]
@@ -476,27 +477,27 @@
             "content": "../src/react/picklist.md",
             "sections": [
               {
-                "components": "../src/react/components/picklist/Picklist.js"
+                "components": "../src/react/components/picklist/XUIPicklist.js"
               },
               {
-                "name": "Pick Item",
-                "components": "../src/react/components/picklist/Pickitem.js",
+                "name": "Pickitem",
+                "components": "../src/react/components/picklist/XUIPickitem.js",
                 "content": "../src/react/components/picklist/picklist.pickitem.md"
               },
               {
-                "components": "../src/react/components/picklist/PicklistHeader.js"
+                "components": "../src/react/components/picklist/XUIPicklistHeader.js"
               },
               {
-                "components": "../src/react/components/picklist/PicklistDivider.js"
+                "components": "../src/react/components/picklist/XUIPicklistDivider.js"
               },
               {
                 "name": "Stateful Picklist",
-                "components": "../src/react/components/picklist/StatefulPicklist.js",
+                "components": "../src/react/components/picklist/XUIStatefulPicklist.js",
                 "content": "../src/react/components/picklist/picklist.stateful.md"
               },
               {
                 "name": "Nested Picklist",
-                "components": "../src/react/components/picklist/NestedPicklist*.js",
+                "components": "../src/react/components/picklist/XUINestedPicklist*.js",
                 "content": "../src/react/components/picklist/picklist.nested.md"
               }
             ]

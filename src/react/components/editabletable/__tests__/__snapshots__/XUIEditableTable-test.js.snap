@@ -102,7 +102,7 @@ exports[`<XUIEditableTable /> validation message renders correctly when the tabl
     className="xui-editabletable--validation"
     id="xui-editabletable-testGeneratedId-message"
   >
-    <XUIIcon
+    <ForwardRef
       icon={
         Object {
           "height": 16,

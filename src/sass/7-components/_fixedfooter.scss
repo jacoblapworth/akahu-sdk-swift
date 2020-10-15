@@ -1,0 +1,31 @@
+@import '../vars';
+@import '../mixins';
+
+// Fixed Footer
+// -----------------
+
+.#{$ns}-fixedfooter--wrapper {
+  // These are required to ensure the fixed footer sits behind modals, toasts, etc.
+  position: relative;
+  z-index: $xui-z-index-html;
+}
+
+.#{$ns}-fixedfooter {
+  @include xui-layout-width-fullwidth;
+  bottom: 0;
+  left: 0;
+  min-height: $xui-navigation-height;
+  right: 0;
+  z-index: $xui-z-index-header;
+  &:not(.#{$ns}-fixedfooter-clone) {
+    background-color: $xui-panel-bg-color;
+    box-shadow: $xui-shadow-depth-overlap-bottom;
+    position: fixed;
+  }
+}
+
+.#{$ns}-fixedfooter-clone {
+  // We don't want the full 'hidden visually' treatment, because the purpose of this
+  // element is to mock the necessary space.
+  visibility: hidden;
+}

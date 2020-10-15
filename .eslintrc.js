@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 const restrictedGlobals = require('eslint-restricted-globals');
 
 module.exports = {
@@ -79,10 +80,16 @@ module.exports = {
     'typescript-sort-keys/interface': 2,
     'typescript-sort-keys/string-enum': 2,
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/interface-name-prefix': [
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/naming-convention': [
       'error',
       {
-        prefixWithI: 'never',
+        selector: 'interface',
+        format: ['PascalCase'],
+        custom: {
+          regex: '^I[A-Z]',
+          match: false,
+        },
       },
     ],
   },

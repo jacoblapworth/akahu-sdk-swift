@@ -15,7 +15,7 @@ import XUIPanel from '../../panel/XUIPanel';
 import XUIContentBlock from '../XUIContentBlock';
 import XUIContentBlockItem from '../XUIContentBlockItem';
 import XUICheckbox from '../../checkbox/XUICheckbox';
-import XUIRolloverCheckbox from '../../rolloverCheckbox/rolloverCheckbox';
+import XUIRolloverCheckbox from '../../rollovercheckbox/XUIRolloverCheckbox';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUITag from '../../tag/XUITag';
 
@@ -102,14 +102,10 @@ storiesWithKnobs.add('Playground', () => {
     secondaryHeading: text('secondaryHeading', '') || undefined,
     overflow: boolean('Has overflow menu?', false) ? (
       <XUIIconButton ariaLabel="Overflow menu" icon={overflow} />
-    ) : (
-      undefined
-    ),
+    ) : undefined,
     action: boolean('Has action?', false) ? (
       <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>} />
-    ) : (
-      undefined
-    ),
+    ) : undefined,
     description: text('description', '') || undefined,
     leftContent: leftContent === 'none' ? undefined : leftContent,
     tag: hasTag,

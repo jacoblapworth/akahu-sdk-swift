@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditableTableHeadRow renders correctly 1`] = `<tr />`;
+
+exports[`EditableTableHeadRow renders utility control columns, if applicable 1`] = `
+<table>
+  <thead>
+    <EditableTableHeadRow>
+      <tr>
+        <XUIEditableTableHeadingCell
+          scope="col"
+          style={
+            Object {
+              "width": "40px",
+            }
+          }
+        >
+          <th
+            className="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
+            scope="col"
+            style={
+              Object {
+                "width": "40px",
+              }
+            }
+          />
+        </XUIEditableTableHeadingCell>
+        <XUIEditableTableHeadingCell
+          scope="col"
+          style={
+            Object {
+              "width": "40px",
+            }
+          }
+        >
+          <th
+            className="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
+            scope="col"
+            style={
+              Object {
+                "width": "40px",
+              }
+            }
+          />
+        </XUIEditableTableHeadingCell>
+      </tr>
+    </EditableTableHeadRow>
+  </thead>
+</table>
+`;
+
+exports[`EditableTableHeadRow renders with children, qaHook, and spreadprops 1`] = `
+<tr
+  className="test-classname"
+  data-automationid="test-qaHook"
+>
+  <td>
+    Test content
+  </td>
+</tr>
+`;

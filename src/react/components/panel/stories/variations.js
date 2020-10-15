@@ -14,6 +14,11 @@ const variations = [
     viewports: desktopPlus320,
     type: 'panel-sidebar',
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `with header node`,
+    type: 'panel-header-node',
+  },
 ];
 
 export { storiesWithVariationsKindName, variations };

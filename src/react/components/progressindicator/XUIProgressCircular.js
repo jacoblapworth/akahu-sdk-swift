@@ -21,8 +21,6 @@ const XUIProgressCircular = props => (
       isHardError,
       hardErrorAlert,
       customContent,
-      completedIcon,
-      errorIcon,
     }) => (
       <div className={`${NAME_SPACE}--fragment`}>
         <CircularTrack
@@ -44,8 +42,6 @@ const XUIProgressCircular = props => (
               isComplete,
               isHardError,
               hardErrorAlert,
-              completedIcon,
-              errorIcon,
             }}
           />
         )}
@@ -142,24 +138,4 @@ XUIProgressCircular.propTypes = {
 
   /** The id of an element that provides an ARIA label for the progress indicator */
   ariaLabelledBy: PropTypes.string,
-
-  /**
-   * Optional prop for users to modify the completion icon, if required for localisation.
-   * A default icon is applied if not provided.
-   * */
-  completedIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
-
-  /**
-   * Optional prop for users to modify the error icon, if required for localisation.
-   * A default icon is applied if not provided.
-   * */
-  errorIcon: PropTypes.shape({
-    height: PropTypes.number,
-    path: PropTypes.string,
-    width: PropTypes.number,
-  }),
 };

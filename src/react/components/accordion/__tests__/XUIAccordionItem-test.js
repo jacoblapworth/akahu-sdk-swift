@@ -7,7 +7,9 @@ import XUIAccordionContext from '../XUIAccordionContext';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid/v4', () => jest.fn(() => '123'));
+jest.mock('uuid', () => ({
+  v4: jest.fn(() => '123'),
+}));
 
 const qaHook = 'test-hook';
 

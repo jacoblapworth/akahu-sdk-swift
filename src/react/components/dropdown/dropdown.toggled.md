@@ -1,16 +1,16 @@
-`DropDownToggled` connects the trigger element with the dropdown, in terms of behavior and wrapping the two elements for positioning.
+`XUIDropdownToggled` connects the trigger element with the dropdown, in terms of behavior and wrapping the two elements for positioning.
 
 ## Basic Use Cases
 
-### Using with `Picklist`
+### Using with `XUIPicklist`
 
-If you want standard `Picklist` behaviour (close on select, keyboard handlers, etc) then you **must** have `Picklist` as an immediate child of the `DropDown`. If you are missing these features, make sure that you are correctly using the `Picklist` component.
+If you want standard `XUIPicklist` behaviour (close on select, keyboard handlers, etc) then you **must** have `XUIPicklist` as an immediate child of the `XUIDropdown`. If you are missing these features, make sure that you are correctly using the `XUIPicklist` component.
 
 ```jsx harmony
 import { Component } from 'react';
-import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
-import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+import XUIButton from '@xero/xui/react/button';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 
 const isSelected = (item, selectedIds) =>
   item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
@@ -21,14 +21,14 @@ function createItems(item, selectedId) {
   }
 
   return (
-    <Pickitem
+    <XUIPickitem
       {...item.props}
       value={item.props.id}
       key={item.props.id}
       isSelected={isSelected(item, selectedId)}
     >
       {item.text}
-    </Pickitem>
+    </XUIPickitem>
   );
 }
 
@@ -63,7 +63,7 @@ const toggledItems = [
   return { props: { id }, text };
 });
 
-class ToggledDropDown extends Component {
+class ToggledDropdown extends Component {
   constructor(...args) {
     super(...args);
     this.state = {
@@ -85,20 +85,19 @@ class ToggledDropDown extends Component {
 
   render() {
     const trigger = (
-      <XUIButton>
+      <XUIButton hasCaret>
         {this.state.selectedId === null
           ? 'Trigger Button'
           : toggledItems[this.state.selectedId].text}
-        <XUIButtonCaret />
       </XUIButton>
     );
     const dropdown = (
-      <DropDown onSelect={this.onSelect}>
-        <Picklist>{createItems(toggledItems, this.state.selectedId)}</Picklist>
-      </DropDown>
+      <XUIDropdown onSelect={this.onSelect}>
+        <XUIPicklist>{createItems(toggledItems, this.state.selectedId)}</XUIPicklist>
+      </XUIDropdown>
     );
     return (
-      <DropDownToggled
+      <XUIDropdownToggled
         className="exampleClass"
         onOpen={this.logOpen}
         trigger={trigger}
@@ -108,16 +107,16 @@ class ToggledDropDown extends Component {
     );
   }
 }
-<ToggledDropDown />;
+<ToggledDropdown />;
 ```
 
-### Multiselect `Picklist`
+### Multiselect picklist
 
 ```jsx harmony
 import { Component } from 'react';
-import XUIButton, { XUIButtonCaret } from '@xero/xui/react/button';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
-import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+import XUIButton from '@xero/xui/react/button';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 
 const items = [
   { id: 'a', text: 'First' },
@@ -155,16 +154,15 @@ class MultiselectExample extends Component {
     const { selected } = this.state;
     const selectedItems = items.filter(item => selected[item.id]).map(item => item.text);
     const trigger = (
-      <XUIButton>
+      <XUIButton hasCaret>
         {selectedItems.length == 0 ? 'Select Items' : selectedItems.join(', ')}
-        <XUIButtonCaret />
       </XUIButton>
     );
     const dropdown = (
-      <DropDown onSelect={this.onSelect}>
-        <Picklist>
+      <XUIDropdown onSelect={this.onSelect}>
+        <XUIPicklist>
           {items.map(item => (
-            <Pickitem
+            <XUIPickitem
               key={item.id}
               id={item.id}
               value={item.id}
@@ -172,12 +170,12 @@ class MultiselectExample extends Component {
               isMultiselect
             >
               {item.text} Option
-            </Pickitem>
+            </XUIPickitem>
           ))}
-        </Picklist>
-      </DropDown>
+        </XUIPicklist>
+      </XUIDropdown>
     );
-    return <DropDownToggled trigger={trigger} dropdown={dropdown} closeOnSelect={false} />;
+    return <XUIDropdownToggled trigger={trigger} dropdown={dropdown} closeOnSelect={false} />;
   }
 }
 <MultiselectExample />;
@@ -185,19 +183,19 @@ class MultiselectExample extends Component {
 
 #### Props required for this behaviour
 
-- `closeOnSelect=false` -> `DropDownToggled`: Allows user to select multiple items without the dropdown closing
+- `closeOnSelect=false` -> `XUIDropdownToggled`: Allows user to select multiple items without the dropdown closing
 - `isMultiselect=true` -> `Pickitem`: Renders the `Pickitem` as a checkbox
 
 ## Complex examples
 
-Although using `DropDown` with `Picklist` provides the default behaviour, the API is configurable enough to handle almost any content.
+Although using `XUIDropdown` with `XUIPicklist` provides the default behaviour, the API is configurable enough to handle almost any content.
 
 ### Dropdown with a date picker
 
 ```jsx harmony
 import { Component } from 'react';
 import XUIButton from '@xero/xui/react/button';
-import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 import XUIDatePicker from '@xero/xui/react/datepicker';
 
 const today = new Date();
@@ -218,7 +216,7 @@ const months = [
 
 const formatDate = date => `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 
-class SimpleDropDownDatePicker extends Component {
+class SimpleDropdownDatePicker extends Component {
   constructor(...args) {
     super(...args);
     this.datepicker = React.createRef();
@@ -242,26 +240,26 @@ class SimpleDropDownDatePicker extends Component {
       selectedDate: day,
       currentMonth: day
     });
-    this.ddt.current.closeDropDown();
+    this.ddt.current.closeDropdown();
   }
 
   render() {
     const { currentMonth, selectedDate } = this.state;
     const dropdown = (
-      <DropDown>
+      <XUIDropdown>
         <XUIDatePicker
           ref={this.datepicker}
           displayedMonth={currentMonth}
           onSelectDate={this.onSelectDate}
           selectedDate={selectedDate}
         />
-      </DropDown>
+      </XUIDropdown>
     );
     const trigger = (
       <XUIButton>{selectedDate == null ? 'Select a date' : formatDate(selectedDate)}</XUIButton>
     );
     return (
-      <DropDownToggled
+      <XUIDropdownToggled
         ref={this.ddt}
         trigger={trigger}
         dropdown={dropdown}
@@ -272,33 +270,33 @@ class SimpleDropDownDatePicker extends Component {
     );
   }
 }
-<SimpleDropDownDatePicker />;
+<SimpleDropdownDatePicker />;
 ```
 
 As mentioned, the above example is not using dropdown with its optimised use case so we need to manually handle some interactions. See the key points below for more details.
 
 #### Props required for this behaviour
 
-- `restrictToViewPort=false` -> `DropDownToggled`: Ensure that the user is never required to scroll the contents of the date picker. Scrolling is fine for lists. But scrolling a date picker is a bad user experience. This means that the date picker might hang off the edge of the screen or slightly cover the button, but this is preferable to having to scroll inside of the dropdown.
-- `closeOnTab=false` -> `DropDownToggled`: Enables user to use the tab key to navigate to the next/previous month buttons or the selects controlling the month and year.
-- `onOpenAnimationEnd=function` -> `DropDownToggled`: This function should call `XUIDatePicker.focus` as focus is required to enable keyboard navigation on the datepicker.
-- `onSelectDate` -> `XUIDatePicker`: This function should call `DropDownToggled.closeDropDown` manually close the dropdown when appropriate.
+- `restrictToViewPort=false` -> `XUIDropdownToggled`: Ensure that the user is never required to scroll the contents of the date picker. Scrolling is fine for lists. But scrolling a date picker is a bad user experience. This means that the date picker might hang off the edge of the screen or slightly cover the button, but this is preferable to having to scroll inside of the dropdown.
+- `closeOnTab=false` -> `XUIDropdownToggled`: Enables user to use the tab key to navigate to the next/previous month buttons or the selects controlling the month and year.
+- `onOpenAnimationEnd=function` -> `XUIDropdownToggled`: This function should call `XUIDatePicker.focus` as focus is required to enable keyboard navigation on the datepicker.
+- `onSelectDate` -> `XUIDatePicker`: This function should call `XUIDropdownToggled.closeDropdown` manually close the dropdown when appropriate.
 
-### DropDown with Text Input Trigger
+### Dropdown with Text Input Trigger
 
 It is highly recommended that you use [`Autocompleter`](#autocompleter) to implement this pattern if it fits your use case. It handles these customisations by default.
 
 ```jsx harmony
 import 'array.prototype.find';
 import { Component } from 'react';
-import DropDown, { DropDownToggled } from '@xero/xui/react/dropdown';
+import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 import XUITextInput from '@xero/xui/react/textinput';
 import {
   boldMatch,
   decorateSubStr,
   XUIAutocompleterEmptyState
 } from '@xero/xui/react/autocompleter';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 const items = [
   'Apricot',
@@ -350,7 +348,7 @@ class InputTriggerExample extends Component {
   onInputChange(event) {
     const invalidInput = !!event.target.value.match(/[\!\.\^%&#]/);
     if (invalidInput) {
-      this.ddt.current.closeDropDown();
+      this.ddt.current.closeDropdown();
     }
     this.setState({
       inputValue: event.target.value,
@@ -359,10 +357,10 @@ class InputTriggerExample extends Component {
   }
 
   onInputKeyDown(event) {
-    if (this.ddt.current.isDropDownOpen() && this.dropdown != null) {
+    if (this.ddt.current.isDropdownOpen() && this.dropdown != null) {
       this.dropdown.onKeyDown(event);
     } else {
-      this.ddt.current.openDropDown();
+      this.ddt.current.openDropdown();
     }
   }
 
@@ -401,25 +399,25 @@ class InputTriggerExample extends Component {
       );
     } else {
       pickItems = visibleItems.map(item => (
-        <Pickitem key={item.id} id={item.id} value={item.id} isSelected={selectedId === item.id}>
+        <XUIPickitem key={item.id} id={item.id} value={item.id} isSelected={selectedId === item.id}>
           <span>{decorateSubStr(item.text, inputValue, boldMatch)}</span>
-        </Pickitem>
+        </XUIPickitem>
       ));
     }
 
     const dropdown = (
-      <DropDown
+      <XUIDropdown
         ref={d => (this.dropdown = d)}
         hasKeyboardEvents={false}
         restrictFocus={false}
         onSelect={this.onSelect}
       >
-        <Picklist>{pickItems}</Picklist>
-      </DropDown>
+        <XUIPicklist>{pickItems}</XUIPicklist>
+      </XUIDropdown>
     );
 
     return (
-      <DropDownToggled
+      <XUIDropdownToggled
         ref={this.ddt}
         trigger={trigger}
         dropdown={dropdown}
@@ -434,12 +432,12 @@ class InputTriggerExample extends Component {
 
 #### Props required for this behaviour
 
-- `triggerClickAction="none"/"open"` -> `DropDownToggled`: By default trigger clicks will toggle open state. When using with an input, click should only open the dropdown or do nothing.
-- `hasKeyboardEvents=false` -> `DropDown`: Required to keep focus on the input while typing.
-- `restrictFocus=false` -> `DropDown`: Required to keep focus on the input while typing.
+- `triggerClickAction="none"/"open"` -> `XUIDropdownToggled`: By default trigger clicks will toggle open state. When using with an input, click should only open the dropdown or do nothing.
+- `hasKeyboardEvents=false` -> `XUIDropdown`: Required to keep focus on the input while typing.
+- `restrictFocus=false` -> `XUIDropdown`: Required to keep focus on the input while typing.
 - `onKeyDown=function` -> `XUITextInput`:
-  - If `triggerClickAction="none"`, you should open the dropdown here by calling `DropDownToggled.openDropDown`.
-  - `keydown` events should be passed down to `DropDown.onKeyDown` to default `DropDown` keyboard navigation such as closing on `esc`, `Picklist` navigation etc.
+  - If `triggerClickAction="none"`, you should open the dropdown here by calling `XUIDropdownToggled.openDropdown`.
+  - `keydown` events should be passed down to `XUIDropdown.onKeyDown` to default `XUIDropdown` keyboard navigation such as closing on `esc`, `XUIPicklist` navigation etc.
 
 #### Validation with dropdown triggers
 
@@ -447,4 +445,4 @@ Since the input triggering the dropdown could potentially be invalid (eg., the i
 
 ### Inline display
 
-We've added the ability for DropDown to position the DropDownPanel inline with your content, for improved accessibility and to resolve a few tough positioning scenarios, like dropdowns in a scrolling modal, or preferring to align the dropdown to the right of the trigger. To use this, set `isLegacyDisplay` to false on `DropDownToggled` and see the accompanying related props.
+We've added the ability for `XUIDropdown` to position the `XUIDropdownPanel` inline with your content, for improved accessibility and to resolve a few tough positioning scenarios, like dropdowns in a scrolling modal, or preferring to align the dropdown to the right of the trigger. To use this, set `isLegacyDisplay` to false on `XUIDropdownToggled` and see the accompanying related props.

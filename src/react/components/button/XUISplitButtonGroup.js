@@ -1,23 +1,18 @@
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import XUIButtonGroup from './XUIButtonGroup';
-import { sizeClassNames, textButtonVariants } from './private/constants';
+import { sizeClassNames, standardVariantClassNames } from './private/constants';
 
-export default function XUISplitButtonGroup({
-  children,
-  className,
-  isDisabled,
-  size,
-  variant,
-  qaHook,
-}) {
+const XUISplitButtonGroup = ({ children, className, isDisabled, size, variant, qaHook }) => {
   const cloneProps = { isDisabled, variant };
   return (
     <XUIButtonGroup className={className} data-automationid={qaHook} size={size}>
       {Children.map(children, child => cloneElement(child, cloneProps))}
     </XUIButtonGroup>
   );
-}
+};
+
+export default XUISplitButtonGroup;
 
 XUISplitButtonGroup.propTypes = {
   children: PropTypes.node,
@@ -32,9 +27,10 @@ XUISplitButtonGroup.propTypes = {
    */
   size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
-  /** Determines what the purpose of this button is. `standard`, `primary`, `create`,
-   * `negative`, `link` or `unstyled`. */
-  variant: PropTypes.oneOf(textButtonVariants),
+  /**
+   * Determines the styling variation to apply: `standard`, `primary`, `create`, or `negative`.
+   */
+  variant: PropTypes.oneOf(Object.keys(standardVariantClassNames)),
 };
 
 XUISplitButtonGroup.defaultProps = {

@@ -9,9 +9,9 @@ import { storiesOf } from '@storybook/react';
 
 // Components we need to test with
 import XUIModal, { XUIModalBody } from '../../../modal';
-import DropDown, { DropDownToggled } from '../../../dropdown';
-import Picklist, { Pickitem } from '../../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
+import XUIButton from '../../../button';
 
 import { storyNames, compositionKind } from '../tests';
 
@@ -52,29 +52,24 @@ const toggledItems = [
   'Yellow quash',
   'Zucchini',
 ].map((text, id) => (
-  <Pickitem id={text} isSelected={false} key={id}>
+  <XUIPickitem id={text} isSelected={false} key={id}>
     {text}
-  </Pickitem>
+  </XUIPickitem>
 ));
 
 test.add(storyNames.dropDownInModal, () => {
-  const trigger = (
-    <XUIButton>
-      Trigger Button
-      <XUIButtonCaret />
-    </XUIButton>
-  );
+  const trigger = <XUIButton hasCaret>Trigger Button</XUIButton>;
   const dropdown = (
-    <DropDown>
-      <Picklist>{toggledItems}</Picklist>
-    </DropDown>
+    <XUIDropdown>
+      <XUIPicklist>{toggledItems}</XUIPicklist>
+    </XUIDropdown>
   );
 
   return (
     <XUIModal closeButtonLabel="Close" isOpen>
       <XUIModalBody>
         This is some Modal content.
-        <DropDownToggled dropdown={dropdown} trigger={trigger} />
+        <XUIDropdownToggled dropdown={dropdown} trigger={trigger} />
       </XUIModalBody>
     </XUIModal>
   );

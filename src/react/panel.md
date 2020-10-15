@@ -23,7 +23,7 @@ import { XUIPanel } from '@xero/xui/react/panel';
 import { XUIPanel, XUIPanelSection } from '@xero/xui/react/panel';
 
 <XUIPanel>
-  <XUIPanelSection headerText="Organisation Settings" className="xui-padding-large">
+  <XUIPanelSection heading="Organisation Settings" className="xui-padding-large">
     <p>
       Settings allow you fine control over which members of your organisation can use different
       parts of Xero.
@@ -42,7 +42,7 @@ import { XUIPanel, XUIPanelSection } from '@xero/xui/react/panel';
 ```jsx harmony
 import { XUIPanel, XUIPanelSection, XUIPanelHeading, XUIPanelFooter } from '@xero/xui/react/panel';
 import XUIActions from '@xero/xui/react/actions';
-import Picklist, { Pickitem } from '@xero/xui/react/picklist';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import XUIButton from '@xero/xui/react/button';
 
 const heading = <XUIPanelHeading>Invoices</XUIPanelHeading>;
@@ -63,17 +63,17 @@ const footerActions = (
 );
 const footer = <XUIPanelFooter className="xui-padding-small">{footerActions}</XUIPanelFooter>;
 const exampleNav = (
-  <Picklist secondaryProps={{ role: 'menu' }}>
-    <Pickitem id="panelpi1" ariaRole="menuitem">
+  <XUIPicklist secondaryProps={{ role: 'menu' }}>
+    <XUIPickitem id="panelpi1" ariaRole="menuitem">
       Bills
-    </Pickitem>
-    <Pickitem id="panelpi2" ariaRole="menuitem" isSelected>
+    </XUIPickitem>
+    <XUIPickitem id="panelpi2" ariaRole="menuitem" isSelected>
       Invoices
-    </Pickitem>
-    <Pickitem id="panelpi3" ariaRole="menuitem">
+    </XUIPickitem>
+    <XUIPickitem id="panelpi3" ariaRole="menuitem">
       Contacts
-    </Pickitem>
-  </Picklist>
+    </XUIPickitem>
+  </XUIPicklist>
 );
 
 <XUIPanel heading={heading} footer={footer} sidebar={exampleNav}>

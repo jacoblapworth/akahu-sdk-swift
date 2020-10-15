@@ -61,10 +61,7 @@ class CaptureScriptPerformance {
 function logTaskTitle(runningTaskFileName, noDisplay) {
   let task;
   if (isWindowsPlatform) {
-    task = runningTaskFileName
-      .split('scripts\\')[1]
-      .split('.js')[0]
-      .replace(/\\/g, '/');
+    task = runningTaskFileName.split('scripts\\')[1].split('.js')[0].replace(/\\/g, '/');
   } else {
     task = runningTaskFileName.split('scripts/')[1].split('.js')[0];
   }

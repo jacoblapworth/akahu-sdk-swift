@@ -8,13 +8,13 @@ import { storiesOf } from '@storybook/react';
 // import readme from './README.md';
 
 // Components we need to test with
-import DropDown, { DropDownToggled } from '../../../dropdown';
-import Picklist, { Pickitem } from '../../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
+import XUIButton from '../../../button';
 import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
 import XUIRadio, { XUIRadioGroup } from '../../../radio';
 import XUISwitch from '../../../switch';
-import SelectBox, { SelectBoxOption } from '../../../select-box';
+import XUISelectBox, { XUISelectBoxOption } from '../../../selectbox';
 import { XUIRow, XUIColumn } from '../../../structural';
 
 // Private modules
@@ -64,22 +64,17 @@ const toggledItems = [
   'Yellow quash',
   'Zucchini',
 ].map((text, id) => (
-  <Pickitem id={text} isSelected={false} key={id}>
+  <XUIPickitem id={text} isSelected={false} key={id}>
     {text}
-  </Pickitem>
+  </XUIPickitem>
 ));
 
 test.add(storyNames.formOnAPage, () => {
-  const trigger = (
-    <XUIButton>
-      Trigger Button
-      <XUIButtonCaret />
-    </XUIButton>
-  );
+  const trigger = <XUIButton hasCaret>Trigger Button</XUIButton>;
   const dropdown = (
-    <DropDown>
-      <Picklist>{toggledItems}</Picklist>
-    </DropDown>
+    <XUIDropdown>
+      <XUIPicklist>{toggledItems}</XUIPicklist>
+    </XUIDropdown>
   );
 
   return (
@@ -180,10 +175,10 @@ test.add(storyNames.formOnAPage, () => {
           <XUIColumn className="xui-padding-vertical" gridColumns="full">
             <XUIColumn gridColumns="half">
               <InputLabel>A dropdown button</InputLabel>
-              <DropDownToggled dropdown={dropdown} trigger={trigger} />
+              <XUIDropdownToggled dropdown={dropdown} trigger={trigger} />
             </XUIColumn>
             <XUIColumn gridColumns="half">
-              <SelectBox
+              <XUISelectBox
                 buttonContent="Hello world"
                 caretTitle="Toggle list"
                 isFieldLayout
@@ -191,13 +186,13 @@ test.add(storyNames.formOnAPage, () => {
                 label="A simple select box"
                 name="selectOne"
               >
-                <SelectBoxOption id="1" key={1} value="1">
+                <XUISelectBoxOption id="1" key={1} value="1">
                   It&apos;s a wonderful day
-                </SelectBoxOption>
-                <SelectBoxOption id="2" key={2} value="2">
+                </XUISelectBoxOption>
+                <XUISelectBoxOption id="2" key={2} value="2">
                   Today Yo!
-                </SelectBoxOption>
-              </SelectBox>
+                </XUISelectBoxOption>
+              </XUISelectBox>
             </XUIColumn>
           </XUIColumn>
         </XUIRow>

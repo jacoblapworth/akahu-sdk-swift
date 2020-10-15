@@ -40,6 +40,9 @@
 .#{$ns}-fileuploader--dropzone-disabled {
   @include xui-disabled-form-control;
   @include xui-disabled-form-control-state-borders;
+  background-color: $xui-control-disabled-bg-color;
+  border-color: $xui-control-disabled-border-color;
+  cursor: not-allowed;
 }
 
 .#{$ns}-fileuploader--dropzone-invalid {

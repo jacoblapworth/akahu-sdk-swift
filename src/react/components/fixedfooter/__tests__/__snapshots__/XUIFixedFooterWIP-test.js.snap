@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIFixedFooterWIP/> renders expected markup 1`] = `
+<XUIFixedFooterWIP>
+  <Portal
+    node={
+      <div
+        class="xui-portal"
+      >
+        <div
+          class="xui-fixedfooter--wrapper xui-container"
+        >
+          <div
+            class="xui-fixedfooter"
+          >
+            Testing
+          </div>
+          <div
+            aria-hidden="true"
+            class="xui-fixedfooter xui-fixedfooter-clone"
+            role="presentation"
+          >
+            Testing
+          </div>
+        </div>
+      </div>
+    }
+  >
+    <Portal
+      containerInfo={
+        <div
+          class="xui-portal"
+        >
+          <div
+            class="xui-fixedfooter--wrapper xui-container"
+          >
+            <div
+              class="xui-fixedfooter"
+            >
+              Testing
+            </div>
+            <div
+              aria-hidden="true"
+              class="xui-fixedfooter xui-fixedfooter-clone"
+              role="presentation"
+            >
+              Testing
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <div
+        className="xui-fixedfooter--wrapper xui-container"
+      >
+        <div
+          className="xui-fixedfooter"
+        >
+          Testing
+        </div>
+        <div
+          aria-hidden={true}
+          className="xui-fixedfooter xui-fixedfooter-clone"
+          role="presentation"
+        >
+          Testing
+        </div>
+      </div>
+    </Portal>
+  </Portal>
+</XUIFixedFooterWIP>
+`;

@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SelectBox from '../../select-box/SelectBox';
-import SelectBoxOption from '../../select-box/SelectBoxOption';
+import XUISelectBox from '../../selectbox/XUISelectBox';
+import XUISelectBoxOption from '../../selectbox/XUISelectBoxOption';
 
 import { numberFormat } from './helpers';
 
 const PaginationSelect = ({ buttonContent, currentOption, label, onSelect, options }) => {
   return (
-    <SelectBox
+    <XUISelectBox
       buttonContent={buttonContent}
       buttonVariant="borderless-primary"
       fullWidth="never"
@@ -19,7 +19,7 @@ const PaginationSelect = ({ buttonContent, currentOption, label, onSelect, optio
     >
       {options.map((opt, idx) => {
         return (
-          <SelectBoxOption
+          <XUISelectBoxOption
             id={label ? `${label.replace(/\s/g, '')}${opt}` : `pagination${opt}`}
             isSelected={opt === currentOption}
             key={`${idx + opt}`}
@@ -27,10 +27,10 @@ const PaginationSelect = ({ buttonContent, currentOption, label, onSelect, optio
             value={opt}
           >
             {numberFormat(opt)}
-          </SelectBoxOption>
+          </XUISelectBoxOption>
         );
       })}
-    </SelectBox>
+    </XUISelectBox>
   );
 };
 

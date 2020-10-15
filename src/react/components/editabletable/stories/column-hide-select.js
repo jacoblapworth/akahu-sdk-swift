@@ -1,5 +1,5 @@
 import React from 'react';
-import { SelectBox, SelectBoxOption } from '../../../select-box';
+import { XUISelectBox, XUISelectBoxOption } from '../../../selectbox';
 
 export default class ColumnHideSelect extends React.Component {
   state = {
@@ -28,7 +28,7 @@ export default class ColumnHideSelect extends React.Component {
       firstHideableChildIndex = 0;
     }
     return (
-      <SelectBox
+      <XUISelectBox
         buttonContent="Show/hide columns"
         caretTitle="Toggle list"
         closeAfterSelection={false}
@@ -41,7 +41,7 @@ export default class ColumnHideSelect extends React.Component {
         {columns.map((item, index) => {
           const colIndex = index + firstHideableChildIndex;
           return (
-            <SelectBoxOption
+            <XUISelectBoxOption
               id={`opt_${index}`}
               isSelected={!this.state.hiddenColumns.includes(colIndex)}
               key={`opt_${index}`}
@@ -49,10 +49,10 @@ export default class ColumnHideSelect extends React.Component {
               value={colIndex}
             >
               {(isNaN(parseInt(item)) && item) || `Content Column ${colIndex}`}
-            </SelectBoxOption>
+            </XUISelectBoxOption>
           );
         })}
-      </SelectBox>
+      </XUISelectBox>
     );
   }
 }

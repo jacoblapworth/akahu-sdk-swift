@@ -14,7 +14,7 @@
 }
 
 .#{$ns}-button-medium {
-  line-height: 1rem;
+  line-height: $xui-line-height-button;
   min-height: $xui-control-size-standard;
   padding: 11px $xui-input-padding-horizontal;
 }

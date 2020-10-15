@@ -6,8 +6,8 @@ import usePrevious from './usePrevious';
 export default function useResizeObserver(defaultNode) {
   const [entry, setEntry] = useState({});
   const [node, setNode] = useState(defaultNode);
-  const observer = useRef(null);
-  const preRect = usePrevious(null);
+  const observer = useRef();
+  const preRect = usePrevious();
 
   const observe = useCallback(() => {
     // Only observe one element here

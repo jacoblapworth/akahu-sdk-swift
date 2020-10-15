@@ -52,25 +52,30 @@ const FileList = ({
           const { name, size, type } = originalFile;
           return (
             <li className={cn(fileItemBaseClass)} key={uid}>
-              {// Once the prop for loading spin of XUIProgressCircular is added,
-              // the error and uploading status could be merged
-              (status === 'error' && (
-                <span className={iconClassName}>
-                  <XUIProgressCircular
-                    id={`fileuploader-icon-error-${uid}`}
-                    isHardError
-                    {...progressProps}
-                  />
-                </span>
-              )) ||
-                (status === 'uploading' && (
-                  <span className={`${fileItemBaseClass}--loading`}>
-                    <XUIProgressCircular id={`fileuploader-icon-spin-${uid}`} {...progressProps} />
+              {
+                // Once the prop for loading spin of XUIProgressCircular is added,
+                // the error and uploading status could be merged
+                (status === 'error' && (
+                  <span className={iconClassName}>
+                    <XUIProgressCircular
+                      id={`fileuploader-icon-error-${uid}`}
+                      isHardError
+                      {...progressProps}
+                    />
                   </span>
                 )) ||
-                (showIcon && (
-                  <XUIIcon className={iconClassName} icon={getFileTypeIcon(name, type)} isBoxed />
-                ))}
+                  (status === 'uploading' && (
+                    <span className={`${fileItemBaseClass}--loading`}>
+                      <XUIProgressCircular
+                        id={`fileuploader-icon-spin-${uid}`}
+                        {...progressProps}
+                      />
+                    </span>
+                  )) ||
+                  (showIcon && (
+                    <XUIIcon className={iconClassName} icon={getFileTypeIcon(name, type)} isBoxed />
+                  ))
+              }
               <div className={`${fileItemBaseClass}--maincontent`}>
                 {name}
                 {status === 'error' ? (

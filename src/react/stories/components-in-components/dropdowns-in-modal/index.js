@@ -9,9 +9,9 @@ import { storiesOf } from '@storybook/react';
 
 // Components we need to test with
 import XUIModal, { XUIModalBody } from '../../../modal';
-import DropDown, { DropDownToggled } from '../../../dropdown';
-import Picklist, { Pickitem } from '../../../picklist';
-import XUIButton, { XUIButtonCaret } from '../../../button';
+import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
+import XUIPicklist, { XUIPickitem } from '../../../picklist';
+import XUIButton from '../../../button';
 import XUITextInput from '../../../textinput';
 
 import * as lists from '../../../components/helpers/list';
@@ -28,39 +28,34 @@ const test = storiesOf(compositionKind, module);
 
 const buildDropdownPicklist = items => {
   const pickItems = items.map((text, id) => (
-    <Pickitem id={text} isSelected={false} key={id}>
+    <XUIPickitem id={text} isSelected={false} key={id}>
       {text}
-    </Pickitem>
+    </XUIPickitem>
   ));
   return (
-    <DropDown>
-      <Picklist>{pickItems}</Picklist>
-    </DropDown>
+    <XUIDropdown>
+      <XUIPicklist>{pickItems}</XUIPicklist>
+    </XUIDropdown>
   );
 };
 
-const buildTrigger = text => (
-  <XUIButton>
-    {text}
-    <XUIButtonCaret />
-  </XUIButton>
-);
+const buildTrigger = text => <XUIButton hasCaret>{text}</XUIButton>;
 
-test.add(storyNames.multiDropDowns, () => (
+test.add(storyNames.multiDropdowns, () => (
   <div className="xui-u-flex">
     <XUITextInput fieldClassName="xui-margin-small" isLabelHidden label="Input label" />
     <XUIModal closeButtonLabel="Close" isOpen>
       <XUIModalBody>
         This is some Modal content.
         <XUITextInput isLabelHidden label="Input label" />
-        <DropDownToggled
+        <XUIDropdownToggled
           dropdown={buildDropdownPicklist(lists.ShortListShortItems)}
           isHidden={false}
           trigger={buildTrigger('Short Trigger')}
         />
         This is some Modal content.
         <XUITextInput isLabelHidden label="Input label" />
-        <DropDownToggled
+        <XUIDropdownToggled
           dropdown={buildDropdownPicklist(lists.MedListMedItems)}
           trigger={buildTrigger('Medium Dropdown Trigger')}
         />

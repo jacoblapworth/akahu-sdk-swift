@@ -38,16 +38,16 @@ class XUIEditableTableCellAutocompleter extends Component {
    * @public
    * Set the state as not hidden in order to toggle the list open.
    */
-  openDropDown = () => {
-    this.completerRef.current.openDropDown();
+  openDropdown = () => {
+    this.completerRef.current.openDropdown();
   };
 
   /**
    * @public
    * Set the state as hidden in order to toggle the list closed.
    */
-  closeDropDown = () => {
-    this.completerRef.current.closeDropDown();
+  closeDropdown = () => {
+    this.completerRef.current.closeDropdown();
   };
 
   /**
@@ -195,10 +195,10 @@ XUIEditableTableCellAutocompleter.propTypes = {
   /** Maps to the `size` property of the dropdown component. */
   dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
-  /** Maps to the `closeOnSelect` property of the DropDownToggled component. */
+  /** Maps to the `closeOnSelect` property of the DropdownToggled component. */
   closeOnSelect: PropTypes.bool,
 
-  /** Maps to the `closeOnTab` property of the DropDownToggled component. Set to false, if you've
+  /** Maps to the `closeOnTab` property of the DropdownToggled component. Set to false, if you've
    * supplied a footer element with any links or interaction. */
   closeOnTab: PropTypes.bool,
 
@@ -217,7 +217,7 @@ XUIEditableTableCellAutocompleter.propTypes = {
 
   /**
    * Setting to false will allow the dropdown's width to be set independent of the trigger width. <br>
-   * **Note:** *Setting this to true will override any size prop on DropDown.* <br>
+   * **Note:** *Setting this to true will override any size prop on Dropdown.* <br>
    * XUI design has also decided to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers. Defaults to true.
    */

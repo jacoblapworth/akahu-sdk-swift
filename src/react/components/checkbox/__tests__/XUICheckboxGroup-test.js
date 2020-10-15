@@ -8,9 +8,9 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const NOOP = () => {}; // No operation function
 
-describe('XUICheckboxGroup', function() {
+describe('XUICheckboxGroup', function () {
   // children property checkboxes
-  it('should contain XUICheckbox components if provided', function() {
+  it('should contain XUICheckbox components if provided', function () {
     const wrapper = mount(
       <XUICheckboxGroup>
         <XUICheckbox onChange={NOOP} />
@@ -23,7 +23,7 @@ describe('XUICheckboxGroup', function() {
   });
 
   // children property non-checkboxes
-  it('should contain children regardless of type', function() {
+  it('should contain children regardless of type', function () {
     const wrapper = mount(
       <div>
         <XUICheckboxGroup>
@@ -34,34 +34,19 @@ describe('XUICheckboxGroup', function() {
       </div>,
     );
 
-    expect(
-      wrapper
-        .find('div.dogs')
-        .first()
-        .text(),
-    ).toEqual('dogs');
-    expect(
-      wrapper
-        .find('span.patotes')
-        .first()
-        .text(),
-    ).toEqual('patotes');
-    expect(
-      wrapper
-        .find('label.cats')
-        .first()
-        .text(),
-    ).toEqual('cats');
+    expect(wrapper.find('div.dogs').first().text()).toEqual('dogs');
+    expect(wrapper.find('span.patotes').first().text()).toEqual('patotes');
+    expect(wrapper.find('label.cats').first().text()).toEqual('cats');
   });
 
   // className property (additional classes)
-  it('should use additional classes if provided', function() {
+  it('should use additional classes if provided', function () {
     const wrapper = mount(<XUICheckboxGroup className="dogs-are-totes-patotes" />);
     expect(wrapper.find('.dogs-are-totes-patotes.xui-styledcheckboxradio-group')).toHaveLength(1);
   });
 
   // qaHook property
-  it('should have a qaHook if provided', function() {
+  it('should have a qaHook if provided', function () {
     const wrapper = mount(<XUICheckboxGroup qaHook="cheese-and-crackers" />);
 
     expect(wrapper.find('[data-automationid="cheese-and-crackers"]')).toHaveLength(1);

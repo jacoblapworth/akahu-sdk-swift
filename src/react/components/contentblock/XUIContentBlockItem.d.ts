@@ -83,4 +83,5 @@ interface Props {
   tags?: React.ReactNode;
 }
 
-export default class XUIContentBlockItem extends React.PureComponent<Props> {}
+declare const XUIContentBlockItem: React.FunctionComponent<Props>;
+export default XUIContentBlockItem;

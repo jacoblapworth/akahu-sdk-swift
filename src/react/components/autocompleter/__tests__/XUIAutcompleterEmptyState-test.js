@@ -2,8 +2,9 @@ import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import XUIAutocompleterEmptyState from '../XUIAutocompleterEmptyState';
 import filter from '@xero/xui-icon/icons/filter';
+import XUIAutocompleterEmptyState from '../XUIAutocompleterEmptyState';
+import XUIIcon from '../../icon/XUIIcon';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -58,5 +59,26 @@ describe('<XUIAutocompleterEmptyState />', () => {
     );
 
     expect(childComp).toMatchSnapshot();
+  });
+
+  it('should properly render when passing XUIIcon node', () => {
+    const iconNode = <XUIIcon icon={filter} />;
+    const iconComp = renderer.create(
+      <XUIAutocompleterEmptyState iconComponent={iconNode}>
+        No results found
+      </XUIAutocompleterEmptyState>,
+    );
+
+    expect(iconComp).toMatchSnapshot();
+  });
+
+  it('should pass specific icon props', () => {
+    const iconComp = renderer.create(
+      <XUIAutocompleterEmptyState icon={filter} iconProps={{ color: 'red' }}>
+        No results found
+      </XUIAutocompleterEmptyState>,
+    );
+
+    expect(iconComp).toMatchSnapshot();
   });
 });

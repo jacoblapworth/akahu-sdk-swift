@@ -1,4 +1,4 @@
-var flagDefinitions = require('./flagDefinitions');
+var flagDefinitions = require('/src/react/helpers/flagDefinitions');
 
 const renderFlags = (data, block) => {
   const flags = data.split(' ');

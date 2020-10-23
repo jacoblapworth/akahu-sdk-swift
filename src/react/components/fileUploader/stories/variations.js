@@ -98,6 +98,52 @@ const variations = [
     dropZoneMessage: 'Droooooooooooooooooooooop drooooop drooop your file',
     viewports: desktopPlus320,
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with various uploadProgressPercentage',
+    fileList: [
+      {
+        uid: uuidv4(),
+        status: 'uploading',
+        originalFile: {
+          name: 'No Progress.zip',
+          type: 'application/zip',
+          size: 44444444,
+        },
+        uploadProgressPercentage: 0,
+      },
+      {
+        uid: uuidv4(),
+        status: 'uploading',
+        originalFile: {
+          name: 'Half Progress.zip',
+          type: 'application/zip',
+          size: 44444444,
+        },
+        uploadProgressPercentage: 50,
+      },
+      {
+        uid: uuidv4(),
+        status: 'uploading',
+        originalFile: {
+          name: 'Full Progress.zip',
+          type: 'application/zip',
+          size: 44444444,
+        },
+        uploadProgressPercentage: 100,
+      },
+      {
+        uid: uuidv4(),
+        status: 'done',
+        originalFile: {
+          name: 'Done.zip',
+          type: 'application/zip',
+          size: 44444444,
+        },
+        uploadProgressPercentage: 100,
+      },
+    ],
+  },
 ];
 
 [false, true].forEach(hasDragAndDrop => {

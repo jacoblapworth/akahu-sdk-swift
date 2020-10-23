@@ -160,6 +160,7 @@ type FileObject = {
   rightContent?: React.ReactNode;
   status: string;
   uid: string;
+  uploadProgressPercentage?: number;
 };
 
 type FileHandler = (file: FileObject, fileList: FileObject[], event: InteractionEvent) => void;

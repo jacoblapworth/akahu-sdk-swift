@@ -8,6 +8,12 @@ We recommend running a bundles analyzer after upgrading (and regularly in genera
 
 ## XUI CSS
 
+### File Uploader
+
+- `xui-fileuploader--fileitem--loading` now presents a static progress icon.
+- `xui-fileuploader--fileitem--loading-indeterminate` can be applied alongside `xui-fileuploader--fileitem--loading` to present a spinning progress icon.
+- `FileObject` now accepts an `uploadProgressPercentage` prop for visually communicating the upload progress.
+
 ### Removals
 
 ## XUI React components

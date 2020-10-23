@@ -1,4 +1,4 @@
-var flagDefinitions = require('/src/react/helpers/flagDefinitions');
+var flagDefinitions = require('../../../src/react/helpers/flagDefinitions');
 
 const renderFlags = (data, block) => {
   const flags = data.split(' ');
@@ -41,7 +41,7 @@ const renderFlagDefs = block => {
   return newBlock;
 };
 
-module.exports = function(handlebars) {
+module.exports = function (handlebars) {
   handlebars.registerHelper('renderFlags', renderFlags);
   handlebars.registerHelper('renderFlagDefs', renderFlagDefs);
 };

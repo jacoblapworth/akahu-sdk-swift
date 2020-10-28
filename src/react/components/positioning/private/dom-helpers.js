@@ -142,3 +142,40 @@ export function getTriggerNodeFromParentRef(parentRef, leaveRoomForValidationMes
   }
   return parentRef.firstChild;
 }
+
+/**
+ * The getAbsoluteBoundingClientRect() function returns the size and position of an element relative
+ * to the viewport when placed at position [0, 0].
+ *
+ * This is particularly useful for calculating the maximum width of an element.
+ *
+ * @param {Element} element The element to get the size and position of.
+ */
+/* eslint-disable no-param-reassign */
+export const getAbsoluteBoundingClientRect = element => {
+  const previousStyle = {
+    left: element.style.left,
+    marginLeft: element.style.marginLeft,
+    position: element.style.position,
+    top: element.style.top,
+  };
+
+  /**
+   * We place the element at the top left of the page before retrieving its measurements so
+   * that the size is not influenced by the edges of the page.
+   */
+  element.style.left = '0';
+  element.style.marginLeft = '0';
+  element.style.position = 'absolute';
+  element.style.top = '0';
+
+  const boundingClientRect = element.getBoundingClientRect();
+
+  element.style.left = previousStyle.left;
+  element.style.marginLeft = previousStyle.marginLeft;
+  element.style.position = previousStyle.position;
+  element.style.top = previousStyle.top;
+
+  return boundingClientRect;
+};
+/* eslint-enable no-param-reassign */

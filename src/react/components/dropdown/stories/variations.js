@@ -123,6 +123,13 @@ const variations = [
       children: 'dropdown-in-dropdown',
     },
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'dropdown against right gutter',
+    ddSettings: {
+      children: 'right-gutter',
+    },
+  },
 ];
 
 Object.keys(privateConsts.fixedWidthDropdownSizes).forEach(size => {

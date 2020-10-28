@@ -134,6 +134,12 @@ const variations = [
     value: 'fullWidth small-down',
     fullWidth: 'small-down',
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `with short content and minLoaderWidth`,
+    value: 'B',
+    minLoaderWidth: true,
+  },
 ];
 
 Object.keys(privateConsts.textButtonVariants).forEach((buttonVariant, index) => {

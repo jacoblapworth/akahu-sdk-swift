@@ -24,8 +24,10 @@
   }
 }
 
-.#{$ns}-button-min-loader-width {
-  min-width: 75px;
+.#{$ns}-button {
+  &.#{$ns}-button-min-loader-width {
+    min-width: 75px;
+  }
 }
 
 // Buttons when displaying loaders inside them, need to hide the main content

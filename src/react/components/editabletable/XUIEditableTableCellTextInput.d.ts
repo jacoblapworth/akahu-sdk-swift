@@ -11,7 +11,6 @@ interface BaseProps {
 type Props = BaseProps &
   Omit<
     React.ComponentProps<typeof XUITextInput>,
-    | 'defaultValue'
     | 'fieldClassName'
     | 'focusByDefault'
     | 'hintMessage'

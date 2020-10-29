@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import invalid from '@xero/xui-icon/icons/invalid';
+import cn from 'classnames';
 
 import { tableName } from './private/constants';
 import EditableTableColGroup from './private/EditableTableColGroup';
@@ -22,6 +23,8 @@ const XUIEditableTable = ({
   dndDropFailedMessage,
   dndDropMessage,
   dndInstructions = '',
+  hasPinnedFirstColumn,
+  hasPinnedLastColumn,
   hiddenColumns,
   id,
   isInvalid,
@@ -62,6 +65,8 @@ const XUIEditableTable = ({
         dndDropFailedMessage={dndDropFailedMessage}
         dndDropMessage={dndDropMessage}
         dndInstructions={dndInstructions}
+        hasPinnedFirstColumn={hasPinnedFirstColumn}
+        hasPinnedLastColumn={hasPinnedLastColumn}
         isInvalid={isInvalid}
         maxWidth={maxWidth}
         minWidth={minWidth}
@@ -75,7 +80,11 @@ const XUIEditableTable = ({
           aria-describedby={isInvalid && validationMessage ? wrapperIds.message : undefined}
           aria-invalid={isInvalid}
           aria-label={ariaLabel}
-          className={tableName}
+          className={cn(
+            tableName,
+            hasPinnedFirstColumn && `${tableName}-pinfirst`,
+            hasPinnedLastColumn && `${tableName}-pinlast`,
+          )}
           data-automationid={qaHook}
           id={wrapperIds.control}
           ref={tableRef}
@@ -146,6 +155,8 @@ XUIEditableTable.propTypes = {
    * Optional id to be applied to the table. If one is not provided, a unique one will be generated.
    */
   id: PropTypes.string,
+  hasPinnedFirstColumn: PropTypes.bool,
+  hasPinnedLastColumn: PropTypes.bool,
   /**
    * Used to style the table as invalid.
    */

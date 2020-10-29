@@ -22,6 +22,8 @@ const EditableTableWrapper = ({
   dndDropFailedMessage,
   dndDropMessage,
   dndInstructions,
+  hasPinnedFirstColumn,
+  hasPinnedLastColumn,
   isInvalid,
   maxWidth,
   minWidth,
@@ -82,6 +84,8 @@ const EditableTableWrapper = ({
           >
             <EditableTableOverflow
               className={cn(className, wrapperName)}
+              hasPinnedFirstColumn={hasPinnedFirstColumn}
+              hasPinnedLastColumn={hasPinnedLastColumn}
               ref={combineRefs(provided.innerRef, tableWrapperRef)}
               style={wrapperStyle}
               {...provided.droppableProps}
@@ -127,6 +131,8 @@ EditableTableWrapper.propTypes = {
   dndDropFailedMessage: PropTypes.func,
   dndDropMessage: PropTypes.func,
   dndInstructions: PropTypes.string,
+  hasPinnedFirstColumn: PropTypes.bool,
+  hasPinnedLastColumn: PropTypes.bool,
   tableRef: PropTypes.object.isRequired,
   validationMessage: PropTypes.string,
 };

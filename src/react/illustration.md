@@ -2,11 +2,9 @@
 	<a href="../section-fundamentals-illustrations.html" isDocLink>Illustrations in the XUI Documentation</a>
 </div>
 
-Xero’s Xpert illustration system helps teams create beautiful illustrations and implement them consistently.
+XUI provides a [centralised illustrations repository](https://github.dev.xero.com/UXE/illustrations/) to host illustrations, and a component to help teams implement illustrations consistently into products.
 
-XUI provides a [centralised illustrations repository](https://github.dev.xero.com/UXE/illustrations/) to host these illustrations, and a component to help teams implement illustrations consistently into products.
-
-To find out more about creating or requesting illustrations [visit the Confluence page](https://confluence.teamxero.com/pages/viewpage.action?spaceKey=PLAT&title=Creating+and+implementing+Xpert+illustrations).
+To find out more about creating or requesting illustrations [visit the Confluence page](https://confluence.teamxero.com/pages/viewpage.action?pageId=309631564).
 
 For teams not using XUI to implement illustrations, try to mirror the functionality of the XUI component classes to ensure consistency if the illustrations are ever updated.
 

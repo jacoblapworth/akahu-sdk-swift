@@ -23,6 +23,8 @@ import XUIDatePicker from '../../datepicker/XUIDatePicker';
 import XUIIcon from '../../icon/XUIIcon';
 import XUITextInput from '../../textInput/XUITextInput';
 import XUIPanel from '../../panel/XUIPanel';
+import { XUIRow, XUIColumn } from '../../../structural';
+import { XUICheckbox, XUICheckboxGroup } from '../../../checkbox';
 
 import { storiesWithVariationsKindName, variations, NOOP } from './variations';
 import { ShortListShortItems, LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
@@ -361,6 +363,50 @@ const hintLabel = props => (
   />
 );
 
+const rightGutter = () => (
+  <div style={{ display: 'flex', justifyContent: 'flex-end', width: '90vw', marginRight: '50px' }}>
+    <XUIDropdownToggled
+      className="xui-margin-right-large"
+      dropdown={
+        <XUIDropdown>
+          <XUIRow className="xui-padding-xsmall">
+            <XUIColumn className="xui-padding-xsmall" gridColumnsLargeUp={3}>
+              <XUICheckboxGroup label="Plan type">
+                <XUICheckbox>All</XUICheckbox>
+                <XUICheckbox>Starter another long one</XUICheckbox>
+                <XUICheckbox>Standard</XUICheckbox>
+              </XUICheckboxGroup>
+            </XUIColumn>
+            <XUIColumn className="xui-padding-xsmall" gridColumnsLargeUp={3}>
+              <XUICheckboxGroup label="Plan type">
+                <XUICheckbox>All</XUICheckbox>
+                <XUICheckbox>Starter</XUICheckbox>
+                <XUICheckbox>Standard</XUICheckbox>
+              </XUICheckboxGroup>
+            </XUIColumn>
+            <XUIColumn className="xui-padding-xsmall" gridColumnsLargeUp={3}>
+              <XUICheckboxGroup label="Plan type">
+                <XUICheckbox>All</XUICheckbox>
+                <XUICheckbox>Starter</XUICheckbox>
+                <XUICheckbox>Standard and something much longer</XUICheckbox>
+              </XUICheckboxGroup>
+            </XUIColumn>
+            <XUIColumn className="xui-padding-xsmall" gridColumnsLargeUp={3}>
+              <XUICheckboxGroup label="Plan type">
+                <XUICheckbox>All</XUICheckbox>
+                <XUICheckbox>Starter</XUICheckbox>
+                <XUICheckbox>Standard</XUICheckbox>
+              </XUICheckboxGroup>
+            </XUIColumn>
+          </XUIRow>
+        </XUIDropdown>
+      }
+      isHidden={false}
+      trigger={trigger}
+    />
+  </div>
+);
+
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
@@ -384,6 +430,9 @@ variations.forEach(variation => {
     }
     if (ddSettings.children === 'dropdown-in-dropdown') {
       return DropdownInDropdown();
+    }
+    if (ddSettings.children === 'right-gutter') {
+      return rightGutter();
     }
     return (
       <XUIDropdownToggled

@@ -154,7 +154,7 @@ interface Props {
   validationMessage?: string;
 }
 
-type FileObject = {
+export type FileObject = {
   errorMessage?: string;
   originalFile: File;
   rightContent?: React.ReactNode;
@@ -163,9 +163,13 @@ type FileObject = {
   uploadProgressPercentage?: number;
 };
 
-type FileHandler = (file: FileObject, fileList: FileObject[], event: InteractionEvent) => void;
+export type FileHandler = (
+  file: FileObject,
+  fileList: FileObject[],
+  event: InteractionEvent,
+) => void;
 
 type InteractionEvent = React.MouseEvent | React.KeyboardEvent;
 
 declare const XUIFileUploader: React.FunctionComponent<Props>;
-export default XUIFileUploader;
+export { XUIFileUploader as default, XUIFileUploader };

@@ -98,6 +98,20 @@ describe('<XUIProgressIndicator />', () => {
       expect(findElementSize()).toHaveLength(1);
     });
 
+    it('should not render the track until ElementSize has defined width and height', () => {
+      expect(component.find('CircularTrack')).toHaveLength(0);
+    });
+
+    it('should render the track once ElementSize has defined width and height', () => {
+      component.find('ElementSize').setState({ elementWidth: 40, elementHeight: 40 });
+      expect(component.find('CircularTrack')).toHaveLength(1);
+    });
+
+    it('should render to the width and height of its wrapping div', () => {
+      expect(component.find('.xui-progress-circular-wrapper').props().width).toBe(40);
+      expect(component.find('#myCustomProgressId-progress-mask').props().height).toBe(40);
+    });
+
     it('should unmount <ElementSize /> when the isGrow prop is not present', () => {
       component.setProps({ isGrow: false });
 
@@ -178,7 +192,10 @@ describe('<XUIProgressIndicator />', () => {
 
         if (Variant) {
           const component = mount(<Variant {...props} />);
-
+          if (props.isGrow) {
+            // ElementSize depends on a re-render normally, so manually setting the state here
+            component.find('ElementSize').setState({ elementWidth: 20, elementHeight: 20 });
+          }
           expect(toJson(component)).toMatchSnapshot();
         }
       });

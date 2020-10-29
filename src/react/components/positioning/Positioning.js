@@ -5,17 +5,18 @@ import { Portal } from 'react-portal';
 import cn from 'classnames';
 import '../helpers/xuiGlobalChecks';
 import {
-  isNarrowViewport,
+  attachListeners,
   calcSpaceAbove,
   calcSpaceBelow,
-  calcSpaceRight,
   calcSpaceLeft,
-  scrollTopAmount,
-  scrollLeftAmount,
-  isBaseRendered,
-  attachListeners,
+  calcSpaceRight,
   detachListeners,
+  getAbsoluteBoundingClientRect,
   getTriggerNodeFromParentRef,
+  isBaseRendered,
+  isNarrowViewport,
+  scrollLeftAmount,
+  scrollTopAmount,
 } from './private/dom-helpers';
 import portalContainer from '../helpers/portalContainer';
 import { ns } from '../helpers/xuiClassNamespace';
@@ -125,12 +126,15 @@ class Positioning extends PureComponent {
     const { isVisible, onVisible, shouldRestrictMaxHeight } = this.props;
     const { positioned } = this.state;
 
-    // If the popup is going from hidden to visible but hasn't been positioned yet, the render
-    // method will ensure that everything is rendered with "visibility: hidden".
-    // Wait a bit to make sure all children also render, then measure things and position the
-    // popup correctly on the screen.
-    if (isVisible && !positioned) {
-      this._positionTimer = setTimeout(this.positionOnShow, 50, this);
+    if (isVisible) {
+      this.positionComponent();
+      // If the popup is going from hidden to visible but hasn't been positioned yet, the render
+      // method will ensure that everything is rendered with "visibility: hidden".
+      // Wait a bit to make sure all children also render, then measure things and position the
+      // popup correctly on the screen.
+      if (!positioned) {
+        this._positionTimer = setTimeout(this.positionOnShow, 50, this);
+      }
     }
 
     if (!prevState.positioned && positioned && onVisible != null) {
@@ -214,7 +218,10 @@ class Positioning extends PureComponent {
 
     if (parentRef) {
       const triggerDOM = getTriggerNodeFromParentRef(parentRef, leaveRoomForValidationMessage);
-      const popupRect = this.positionEl && this.positionEl.firstChild.getBoundingClientRect();
+      const popupRect =
+        this.positionEl &&
+        this.positionEl.firstChild &&
+        getAbsoluteBoundingClientRect(this.positionEl.firstChild);
 
       if (isBaseRendered(popupRect)) {
         const styles =

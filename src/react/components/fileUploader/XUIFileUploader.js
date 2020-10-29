@@ -207,6 +207,7 @@ XUIFileUploader.propTypes = {
    *   originalFile: File, // Original File object
    *   errorMessage: String, // Optional, custom error message, will overwrite prop `defaultErrorMessage`
    *   rightContent: ReactNode, // Optional, custom rightContent for files with `done` status, shows in the left of delete icon
+   *   uploadProgressPercentage: Number, // Optional, percentage of upload completed. When present, the progress icon will illustrate completion amount. Must be an integer between 0 and 100 inclusive.
    * }
    */
   fileList: PropTypes.array.isRequired,

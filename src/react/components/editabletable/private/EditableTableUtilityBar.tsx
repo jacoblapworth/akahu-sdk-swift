@@ -2,8 +2,10 @@ import cn from 'classnames';
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
+import combineRefs from '../../helpers/combineRefs';
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
 import { tableName } from './constants';
+import useResizeObserver from './helpers/useResizeObserver';
 
 const baseName = `${tableName}utilitybar`;
 
@@ -26,18 +28,29 @@ const EditableTableUtilityBar: React.FunctionComponent<Props> = ({
   const [colSpan, setColSpan] = React.useState<number>(0);
   const [wrapperWidth, setWrapperWidth] = React.useState<number>();
 
-  React.useEffect(() => {
+  const {
+    contentRect: { width },
+    observedElementRef,
+  } = useResizeObserver();
+
+  const combinedRef = combineRefs(observedElementRef);
+
+  React.useLayoutEffect(() => {
     if (scrollContainerRef?.current) {
       const wrapperNode = scrollContainerRef.current;
       // The action cell should stretch to the whole row
       setColSpan(wrapperNode.querySelector('tr')?.children.length);
       setWrapperWidth(wrapperNode.clientWidth - 2);
     }
-  }, [scrollContainerRef]);
+  }, [scrollContainerRef, width]);
 
   return (
     <tr className={cn(baseName, className)} data-automationid={qaHook} {...spreadProps}>
-      <td className={`${baseName}--cell`} colSpan={colSpan}>
+      <td
+        className={`${baseName}--cell`}
+        colSpan={colSpan}
+        ref={element => combinedRef(element as HTMLElement)}
+      >
         <div className={`${baseName}--cell--wrapper`} style={{ width: wrapperWidth }}>
           {children}
         </div>

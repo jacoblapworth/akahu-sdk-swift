@@ -35,7 +35,6 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 function generateSubVariants(subVariants, variant) {
   const examples = subVariants.map((prop, idx) => {

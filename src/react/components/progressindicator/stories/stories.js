@@ -130,7 +130,6 @@ storiesWithKnobs.add('Playground | Linear', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 const createStandardComparison = (styles, Component, props, componentChildren, children) => (
   <StandardComparison

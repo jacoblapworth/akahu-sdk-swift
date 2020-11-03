@@ -4,7 +4,6 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { select, boolean } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import XUIOverviewBlock from '../XUIOverviewBlock';
@@ -67,7 +66,6 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   const { storyTitle, storyKind, sections, ...variationMinusStoryDetails } = variation;

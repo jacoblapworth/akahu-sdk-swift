@@ -272,7 +272,6 @@ const TestScaffold = (
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 
-storiesWithVariations.addDecorator(centered);
 createCustomStyles();
 variations.forEach(variation => {
   const { storyTitle, examples } = variation;

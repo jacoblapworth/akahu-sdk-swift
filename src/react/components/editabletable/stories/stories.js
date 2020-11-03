@@ -204,7 +204,6 @@ storiesWithKnobs.add('Playground', () => (
 ));
 
 const storiesWithVariations = storiesOf(variationStoryKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
@@ -341,7 +340,6 @@ class EditableTableStoryWrapper extends React.Component {
 }
 
 const regressionStoriesWithVariations = storiesOf(regressionVariationStoryKindName, module);
-regressionStoriesWithVariations.addDecorator(centered);
 
 regressionVariations.forEach(variation => {
   regressionStoriesWithVariations.add(variation.storyTitle, () => {

@@ -1,5 +1,5 @@
-import { configure, addDecorator } from '@storybook/react';
-import { withA11y } from '@storybook/addon-a11y';
+import { configure, addParameters, addDecorator } from '@storybook/react';
+import centered from './decorators/xuiResponsiveCenter';
 
 function requireAll(requireContext) {
   return requireContext.keys().map(requireContext);
@@ -14,5 +14,6 @@ function loadStories() {
   );
 }
 
-addDecorator(withA11y);
+addParameters({ layout: 'fullscreen' }); // Removes default padding in storybook v6
+// addDecorator(centered);
 configure(loadStories, module);

@@ -4,7 +4,6 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { select, number, text } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import XUIRow from '../XUIRow';
@@ -62,12 +61,8 @@ storiesWithKnobs.add('Columns Playground', () => {
   );
 });
 
-const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module).addDecorator(
-  centered,
-);
-const storiesWithFullFlexibility = storiesOf(storiesWithVariationsKindName, module).addDecorator(
-  customCentered,
-);
+const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithFullFlexibility = storiesOf(storiesWithVariationsKindName, module);
 
 const handleVariation = (variationSet, renderer) => {
   variationSet.forEach(variation => {

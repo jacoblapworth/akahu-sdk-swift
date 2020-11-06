@@ -15,7 +15,6 @@ import XUIDropdownHeader from '../XUIDropdownHeader';
 import XUIDropdownPanel from '../XUIDropdownPanel';
 import XUIDropdownToggled from '../XUIDropdownToggled';
 import XUINestedDropdown from '../XUINestedDropdown';
-import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIPickitem from '../../picklist/XUIPickitem';
@@ -23,6 +22,7 @@ import XUIDatePicker from '../../datepicker/XUIDatePicker';
 import XUIIcon from '../../icon/XUIIcon';
 import XUITextInput from '../../textInput/XUITextInput';
 import XUIPanel from '../../panel/XUIPanel';
+import { XUIButton, XUISplitButtonGroup, XUISecondaryButton } from '../../../button';
 import { XUIRow, XUIColumn } from '../../../structural';
 import { XUICheckbox, XUICheckboxGroup } from '../../../checkbox';
 
@@ -407,6 +407,23 @@ const rightGutter = () => (
   </div>
 );
 
+const splitButtonInline = () => (
+  <XUISplitButtonGroup variant="primary">
+    <XUIButton>Split action</XUIButton>
+    <XUIDropdownToggled
+      dropdown={
+        <XUIDropdown fixedWidth size="small">
+          <XUIPicklist>{createItems(toggledShort, 'split')}</XUIPicklist>
+        </XUIDropdown>
+      }
+      isHidden={false}
+      isLegacyDisplay={false}
+      preferredPosition="bottom-right"
+      trigger={<XUISecondaryButton aria-label="Other actions" key="split" variant="primary" />}
+    />
+  </XUISplitButtonGroup>
+);
+
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(centered);
 
@@ -433,6 +450,9 @@ variations.forEach(variation => {
     }
     if (ddSettings.children === 'right-gutter') {
       return rightGutter();
+    }
+    if (ddSettings.children === 'splitButton-inline') {
+      return splitButtonInline();
     }
     return (
       <XUIDropdownToggled

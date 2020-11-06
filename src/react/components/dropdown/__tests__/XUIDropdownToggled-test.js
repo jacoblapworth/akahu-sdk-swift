@@ -2,12 +2,12 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { v4 as uuidv4 } from 'uuid';
 import XUIDropdown from '../XUIDropdown';
 import XUIDropdownToggled from '../XUIDropdownToggled';
 import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIPickitem from '../../picklist/XUIPickitem';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
-import { v4 as uuidv4 } from 'uuid';
 
 const testId = 'testDropdownId';
 jest.mock('uuid');
@@ -42,11 +42,11 @@ const testDropdown = (props = {}) => {
   return (
     <XUIDropdownToggled
       className="testClass"
-      forceDesktop={true}
-      onOpen={() => (openCalled = true)}
-      onClose={() => (closeCalled = true)}
-      trigger={getTrigger()}
       dropdown={props.dropdown || getDropdown()}
+      forceDesktop
+      onClose={() => (closeCalled = true)}
+      onOpen={() => (openCalled = true)}
+      trigger={getTrigger()}
       {...props}
     />
   );
@@ -58,9 +58,9 @@ describe('<XUIDropdownToggled />', () => {
     closeCalled = false;
   });
 
-  describe('dropdown rendered closed', function() {
+  describe('dropdown rendered closed', function () {
     let wrapper;
-    beforeEach(function() {
+    beforeEach(function () {
       wrapper = mount(testDropdown(), {
         wrappingComponent: ({ children }) => <div className="test-container">{children}</div>,
       });
@@ -141,11 +141,7 @@ describe('<XUIDropdownToggled />', () => {
     it('expects a matching id on the dropdown and referenced by aria attributes', () => {
       expect(wrapper.html().includes(`aria-owns="${testId}"`)).toBeTruthy();
       expect(
-        wrapper
-          .find('button')
-          .first()
-          .html()
-          .includes(`aria-controls="${testId}"`),
+        wrapper.find('button').first().html().includes(`aria-controls="${testId}"`),
       ).toBeTruthy();
     });
   });
@@ -170,17 +166,17 @@ describe('<XUIDropdownToggled />', () => {
   it('should render a passed qaHook as an auotmation id', () => {
     const automationId = renderer.create(
       <XUIDropdownToggled
+        dropdown={getDropdown()}
         qaHook="ddt-example"
         trigger={getTrigger({ qaHook: 'ddt-example--trigger' })}
-        dropdown={getDropdown()}
       />,
     );
 
     expect(automationId).toMatchSnapshot();
   });
 
-  describe('closeOnSelect', function() {
-    it('closes the dropdown when the user selects something by default', function() {
+  describe('closeOnSelect', function () {
+    it('closes the dropdown when the user selects something by default', function () {
       const wrapper = mount(testDropdown({ isHidden: false }));
 
       document.querySelector('.xui-portal .xui-pickitem--body').click();
@@ -188,7 +184,7 @@ describe('<XUIDropdownToggled />', () => {
       expect(wrapper.instance().isDropdownOpen()).toBeFalsy();
     });
 
-    it('does not close the dropdown on select if closeOnSelect is set to false', function() {
+    it('does not close the dropdown on select if closeOnSelect is set to false', function () {
       const wrapper = mount(testDropdown({ isHidden: false, closeOnSelect: false }));
 
       document.querySelector('.xui-portal .xui-pickitem--body').click();

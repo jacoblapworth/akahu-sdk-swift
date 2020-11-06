@@ -384,8 +384,15 @@ export default class XUIDropdownToggled extends PureComponent {
 		 - AND trigger has also rendered and can match with target
      - OR if the click target is the mask
     */
+
     const openedDropdownsDoNotContainTarget = this.openedDropdowns.every(openedDropdown => {
-      const dropdown = openedDropdown && document.getElementById(openedDropdown.props.id);
+      const dropdown =
+        openedDropdown === undefined
+          ? /** Where the opened dropdown is the top level dropdown */
+            document.getElementById(this.dropdownId)
+          : /** Where the opened dropdown are the inner dropdowns */
+            openedDropdown && document.getElementById(openedDropdown.props.id);
+
       return dropdown == null || !dropdown.contains(event.target);
     });
 

@@ -130,6 +130,13 @@ const variations = [
       children: 'right-gutter',
     },
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'dropdown inline from split button',
+    ddSettings: {
+      children: 'splitButton-inline',
+    },
+  },
 ];
 
 Object.keys(privateConsts.fixedWidthDropdownSizes).forEach(size => {

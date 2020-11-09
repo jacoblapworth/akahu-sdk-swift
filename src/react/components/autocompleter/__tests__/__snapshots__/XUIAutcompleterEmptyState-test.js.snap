@@ -48,6 +48,50 @@ exports[`<XUIAutocompleterEmptyState /> should include an icon that defaults to 
 </div>
 `;
 
+exports[`<XUIAutocompleterEmptyState /> should pass specific icon props 1`] = `
+<div
+  className="xui-autocompleter--emptystate"
+>
+  <div
+    className="xui-iconwrapper xui-iconwrapper-large"
+  >
+    <svg
+      className="xui-icon xui-icon-color-red"
+      focusable="false"
+      height={14.666666666666666}
+      viewBox="0 0 10 11"
+      width={13.333333333333332}
+    >
+      <path
+        d="M10 2V0H0v2l4 5v4h2V7l4-5z"
+        role="presentation"
+      />
+    </svg>
+  </div>
+  No results found
+</div>
+`;
+
+exports[`<XUIAutocompleterEmptyState /> should properly render when passing XUIIcon node 1`] = `
+<div
+  className="xui-autocompleter--emptystate"
+>
+  <svg
+    className="xui-icon"
+    focusable="false"
+    height={11}
+    viewBox="0 0 10 11"
+    width={10}
+  >
+    <path
+      d="M10 2V0H0v2l4 5v4h2V7l4-5z"
+      role="presentation"
+    />
+  </svg>
+  No results found
+</div>
+`;
+
 exports[`<XUIAutocompleterEmptyState /> should render an automation id when passed in the qaHook prop 1`] = `
 <div
   className="xui-autocompleter--emptystate"

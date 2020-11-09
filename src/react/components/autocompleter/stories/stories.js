@@ -6,13 +6,18 @@ import { storiesOf } from '@storybook/react';
 import { boolean, text, select, number } from '@storybook/addon-knobs';
 
 // Components we need to test with
+import invalid from '@xero/xui-icon/icons/invalid';
+import XUIIcon from '../../icon/XUIIcon';
+import peopleDataSet from '../private/people';
 import DetailedListExample from './components/DetailedListExample';
 import SecondarySearchExample from './components/SecondarySearchExample';
-import peopleDataSet from '../private/people';
+import EmptyStateExample from './components/EmptyStateExample';
 
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName, fixedWidthDropdownSizes } from './variations';
+
+const iconExample = <XUIIcon color="red" icon={invalid} />;
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
@@ -61,6 +66,15 @@ variations.forEach(variation => {
 
     if (variation.storyType === 'XUIAutocompleterSecondarySearch') {
       return <SecondarySearchExample />;
+    }
+
+    if (variation.storyType === 'XUIAutocompleterEmptyState') {
+      return (
+        <EmptyStateExample
+          iconComponent={variationMinusStoryDetails.iconComponent ? iconExample : null}
+          iconProps={variationMinusStoryDetails.iconProps}
+        />
+      );
     }
 
     return (

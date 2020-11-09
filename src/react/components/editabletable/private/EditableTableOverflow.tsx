@@ -12,16 +12,20 @@ const baseName = `${ns}-editabletableoverflow`;
 interface BaseProps {
   children?: React.ReactNode;
   className?: string;
+  hasPinnedFirstColumn?: boolean;
+  hasPinnedLastColumn?: boolean;
 }
 
 type Props = BaseProps & React.HTMLAttributes<HTMLDivElement>;
 
 const EditableTableOverflow: React.FunctionComponent<Props> = React.forwardRef<HTMLElement, Props>(
-  ({ children, className, ...spreadProps }, ref) => {
+  ({ children, className, hasPinnedFirstColumn, hasPinnedLastColumn, ...spreadProps }, ref) => {
     const editableTableOverflowRef = React.useRef<HTMLElement>(null);
     const { scrollContainerRef, tableRef } = React.useContext(XUIEditableTableContext);
     const [hasLeftOverflow, setLeftOverflow] = React.useState<boolean>();
     const [hasRightOverflow, setRightOverflow] = React.useState<boolean>();
+    const [hasFirstPinOverflow, setFirstPinOverflow] = React.useState<boolean>();
+    const [hasLastPinOverflow, setLastPinOverflow] = React.useState<boolean>();
 
     const {
       contentRect: { height, width, x, y },
@@ -46,10 +50,13 @@ const EditableTableOverflow: React.FunctionComponent<Props> = React.forwardRef<H
       const tableWidth = tableNode && tableNode.clientWidth;
       const leftAction = scrollLeft > 0;
       const rightAction = scrollLeft + wrapperWidth < tableWidth - 1; // `scrollLeft + wrapper width` is 1px less than `tableWidth` in Firefox when fully scrolled to the right
-
+      const firstPin = leftAction && hasPinnedFirstColumn;
+      const lastPin = rightAction && hasPinnedLastColumn;
       setLeftOverflow(leftAction);
       setRightOverflow(rightAction);
-    }, [scrollContainerRef, tableRef]);
+      setFirstPinOverflow(firstPin);
+      setLastPinOverflow(lastPin);
+    }, [hasPinnedFirstColumn, hasPinnedLastColumn, scrollContainerRef, tableRef]);
 
     React.useLayoutEffect(() => {
       setScrollOverflow();
@@ -71,15 +78,16 @@ const EditableTableOverflow: React.FunctionComponent<Props> = React.forwardRef<H
     });
 
     const hasFootAction = tableRef?.current?.querySelector(`.${ns}-editabletablefoot--action`);
-
     return (
       <div
         className={cn(
           className,
           baseName,
           hasFootAction && `${baseName}-has-footaction`,
-          hasLeftOverflow && `${baseName}-overflowleft`,
-          hasRightOverflow && `${baseName}-overflowright`,
+          hasLeftOverflow && !hasFirstPinOverflow && `${baseName}-overflowleft`,
+          hasRightOverflow && !hasLastPinOverflow && `${baseName}-overflowright`,
+          hasFirstPinOverflow && `${baseName}-pinoverflowleft`,
+          hasLastPinOverflow && `${baseName}-pinoverflowright`,
         )}
         ref={element => combinedRef(element as HTMLElement)}
         {...spreadProps}
@@ -93,6 +101,8 @@ const EditableTableOverflow: React.FunctionComponent<Props> = React.forwardRef<H
 EditableTableOverflow.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  hasPinnedFirstColumn: PropTypes.bool,
+  hasPinnedLastColumn: PropTypes.bool,
 };
 
 export default EditableTableOverflow;

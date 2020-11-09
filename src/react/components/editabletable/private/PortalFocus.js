@@ -55,7 +55,9 @@ const PortalFocus = ({ cellRef, isFocused, scrollContainerRef }) => {
     }
     return () => scrollContainerRef?.current?.removeEventListener('scroll', getPortalPosition);
   }, [cellRef, handleSizeChange, isFocused, scrollContainerRef]);
-
+  const pinnedCell = cellRef?.current?.matches(
+    `.${tableName}-pinlast .${tableName}cell:last-child, .${tableName}-pinfirst .${tableName}cell:first-child`,
+  );
   return showPortal ? (
     <Portal node={scrollContainerRef?.current}>
       <div
@@ -64,6 +66,7 @@ const PortalFocus = ({ cellRef, isFocused, scrollContainerRef }) => {
           cellCovered === 'right' && `${baseName}-rightCovered`,
           cellCovered === 'left' && `${baseName}-leftCovered`,
           cellCovered === 'horizontal' && `${baseName}-horizontalCovered`,
+          pinnedCell && `${baseName}-pinned`,
         )}
         style={{ ...portalStyle }}
       >

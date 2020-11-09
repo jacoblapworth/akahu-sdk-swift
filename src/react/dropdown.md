@@ -10,7 +10,7 @@ Using a [`XUIPicklist`](#picklist) in `XUIDropdown` gives behaviour similar to a
 
 You may find one of these simpler components meets your requirements:
 
-- [Select box](#selectbox): A simplified wrapper for `XUIDropdown` and `XUIDropdownToggled`, acts like a `<select/>` element
+- [Select box](#select-box): A simplified wrapper for `XUIDropdown` and `XUIDropdownToggled`, acts like a `<select/>` element
 - [Autocompleter](#autocompleter): Has a text input for a trigger and allows the user to search through and select from a list of items.
 
 ### Terminology

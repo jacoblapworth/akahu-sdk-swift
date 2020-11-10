@@ -7,6 +7,7 @@ import filePdfIcon from '@xero/xui-icon/icons/file-pdf';
 import fileWordIcon from '@xero/xui-icon/icons/file-word';
 import fileZipIcon from '@xero/xui-icon/icons/file-zip';
 import { ns } from '../../helpers/xuiClassNamespace';
+import { logWarning } from '../../helpers/developmentConsole';
 
 export const baseClass = `${ns}-fileuploader`;
 
@@ -71,6 +72,12 @@ export const defaultFileList = [
     status: 'error',
     originalFile: { name: 'test3.zip', type: 'application/zip', size: 33333 },
   },
+  {
+    uid: uuidv4(),
+    status: 'uploading',
+    originalFile: { name: 'test4.zip', type: 'application/zip', size: 44444 },
+    uploadProgressPercentage: 50,
+  },
 ];
 
 // This is just for tests/docs use
@@ -101,4 +108,20 @@ export const fakeUpload = () => {
       resolve();
     }, 1000);
   });
+};
+
+export const parseUploadProgressPercentage = value => {
+  if (value === undefined) return undefined;
+  if (isNaN(value)) return undefined;
+
+  if (value < 0 || value > 100) {
+    const newValue = value < 0 ? 0 : 100;
+    logWarning({
+      componentName: 'XUIFileUploader',
+      message: `uploadProgressPercentage was provided ${value}. This has been rounded to ${newValue}.`,
+    });
+    return newValue;
+  }
+
+  return Math.floor(value);
 };

@@ -160,6 +160,7 @@ export type FileObject = {
   rightContent?: React.ReactNode;
   status: string;
   uid: string;
+  uploadProgressPercentage?: number;
 };
 
 export type FileHandler = (

@@ -2464,7 +2464,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               className="xui-progress-size"
             >
               <LinearTrack
-                elementHeight={null}
+                elementHeight={20}
                 isGrow={true}
                 progress={3}
                 thickness={99999}
@@ -2477,7 +2477,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                     className="xui-progress-linear-track"
                     style={
                       Object {
-                        "height": "0px",
+                        "height": "20px",
                       }
                     }
                   >
@@ -2485,7 +2485,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                       className="xui-progress-linear-current"
                       style={
                         Object {
-                          "height": "0px",
+                          "height": "20px",
                           "width": "60%",
                         }
                       }
@@ -2546,7 +2546,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               className="xui-progress-size"
             >
               <LinearTrack
-                elementHeight={null}
+                elementHeight={20}
                 isGrow={true}
                 progress={3}
                 thickness={10}
@@ -2559,7 +2559,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                     className="xui-progress-linear-track"
                     style={
                       Object {
-                        "height": "0px",
+                        "height": "10px",
                       }
                     }
                   >
@@ -2567,7 +2567,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                       className="xui-progress-linear-current"
                       style={
                         Object {
-                          "height": "0px",
+                          "height": "10px",
                           "width": "60%",
                         }
                       }
@@ -2625,10 +2625,10 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
               className="xui-progress-size"
             >
               <LinearTrack
-                elementHeight={null}
+                elementHeight={20}
                 isGrow={true}
                 progress={3}
-                thickness={null}
+                thickness={20}
                 total={5}
               >
                 <div
@@ -2638,7 +2638,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                     className="xui-progress-linear-track"
                     style={
                       Object {
-                        "height": "0px",
+                        "height": "20px",
                       }
                     }
                   >
@@ -2646,7 +2646,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
                       className="xui-progress-linear-current"
                       style={
                         Object {
-                          "height": "0px",
+                          "height": "20px",
                           "width": "60%",
                         }
                       }

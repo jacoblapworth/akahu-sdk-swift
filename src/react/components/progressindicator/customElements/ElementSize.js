@@ -45,10 +45,11 @@ class ElementSize extends Component {
 
   render = () => {
     const { className, children } = this.props;
+    const isWrapperSizeCalculated = this.state.elementWidth && this.state.elementHeight;
 
     return (
       <div className={className} ref={node => (this.rootNode = node)}>
-        {children(this.state)}
+        {isWrapperSizeCalculated && children(this.state)}
       </div>
     );
   };

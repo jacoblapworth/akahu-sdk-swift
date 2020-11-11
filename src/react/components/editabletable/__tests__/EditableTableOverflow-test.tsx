@@ -102,4 +102,70 @@ describe('EditableTableOverflow', () => {
     // Assert
     expect(wrapper.html()).toContain('has-footaction');
   });
+
+  it('applies the pinoverflowleft class when the table can be scrolled to the left and has a pinned first column', () => {
+    // Arrange
+    const currentRef = {
+      addEventListener: NOOP,
+      removeEventListener: NOOP,
+    };
+    const scrollContainerRef = ({
+      current: {
+        ...currentRef,
+        clientWidth: 400,
+        scrollLeft: 1,
+      },
+    } as unknown) as React.RefObject<HTMLDivElement>;
+    const tableRef = ({
+      current: {
+        ...currentRef,
+        clientWidth: 600,
+        querySelector: NOOP,
+      },
+    } as unknown) as React.RefObject<HTMLTableElement>;
+
+    const wrapper = mount(
+      <XUIEditableTableContext.Provider
+        value={{ dragAndDrop: {}, rowOptions: {}, scrollContainerRef, tableRef }}
+      >
+        <EditableTableOverflow hasPinnedFirstColumn />
+      </XUIEditableTableContext.Provider>,
+    );
+
+    // Assert
+    expect(wrapper.html()).toContain('-pinoverflowleft');
+  });
+
+  it('applies the pinoverflowright class when the table can be scrolled to the right and has a pinned last column', () => {
+    // Arrange
+    const currentRef = {
+      addEventListener: NOOP,
+      removeEventListener: NOOP,
+    };
+    const scrollContainerRef = ({
+      current: {
+        ...currentRef,
+        clientWidth: 400,
+        scrollLeft: 0,
+      },
+    } as unknown) as React.RefObject<HTMLDivElement>;
+    const tableRef = ({
+      current: {
+        ...currentRef,
+        clientWidth: 600,
+        querySelector: NOOP,
+      },
+    } as unknown) as React.RefObject<HTMLTableElement>;
+
+    const wrapper = mount(
+      <XUIEditableTableContext.Provider
+        value={{ dragAndDrop: {}, rowOptions: {}, scrollContainerRef, tableRef }}
+      >
+        <EditableTableOverflow hasPinnedLastColumn />
+      </XUIEditableTableContext.Provider>,
+    );
+
+    // Assert
+    expect(wrapper.html()).toContain('-pinoverflowright');
+  });
 });

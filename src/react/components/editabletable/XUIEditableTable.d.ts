@@ -80,6 +80,14 @@ interface BaseProps {
    */
   dndInstructions?: string;
   /**
+   * Pin the leftmost column when scrolling horizontally.
+   */
+  hasPinnedFirstColumn?: boolean;
+  /**
+   * Pin the rightmost column when horizontally scrolling.
+   */
+  hasPinnedLastColumn?: boolean;
+  /**
    * Array of column _indexes_ to be hidden. Zero-based. Hidden elements remain in the DOM.
    * Convenient and performant for when the available columns and their order will not be changing.
    * For more dynamic tables, consider an alternate approach.

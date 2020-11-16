@@ -4,48 +4,78 @@ import cn from 'classnames';
 import { Portal } from 'react-portal';
 import { tableName } from './constants';
 import useResizeObserver from '../../helpers/useResizeObserver';
+import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
 
 const baseName = `${tableName}--portalfocus`;
 
-const PortalFocus = ({ cellRef, isFocused, scrollContainerRef }) => {
+const PortalFocus = ({ focusedCellRef, isFocused, scrollContainerRef }) => {
   const [showPortal, setShowPortal] = useState(undefined);
   const [portalStyle, setPortalStyle] = useState({});
-  const [cellCovered, setCellCovered] = useState(undefined);
-  const { handleSizeChange } = useResizeObserver(cellRef?.current);
+  const [focusedCellCovered, setFocusedCellCovered] = useState(undefined);
+  const { handleSizeChange } = useResizeObserver(focusedCellRef?.current);
+  const { hasPinnedFirstColumn, hasPinnedLastColumn } = React.useContext(XUIEditableTableContext);
+
+  const isFocusedCellPinned = focusedCellRef?.current?.matches(
+    `.${tableName}-pinlast .${tableName}cell:last-child, .${tableName}-pinfirst .${tableName}cell:first-child`,
+  );
 
   useLayoutEffect(() => {
     const getPortalPosition = () => {
-      const scrollContainerRect = scrollContainerRef?.current?.getBoundingClientRect();
-      const cellRect = cellRef?.current?.getBoundingClientRect();
-      if (!scrollContainerRect || !cellRect) {
+      if (!scrollContainerRef?.current || !focusedCellRef?.current) {
         return;
       }
-      let portalWidth = cellRect.width;
-      let leftPosition = cellRect.left - scrollContainerRect.left;
-      const rightCovered = cellRect.right >= scrollContainerRect.right;
-      const leftCovered = cellRect.left <= scrollContainerRect.left;
+
+      const scrollContainerRect = scrollContainerRef?.current?.getBoundingClientRect();
+      const focusedCellRect = focusedCellRef?.current?.getBoundingClientRect();
+
+      if (!scrollContainerRect || !focusedCellRect) {
+        return;
+      }
+
+      const safeAreaRight =
+        !isFocusedCellPinned && hasPinnedLastColumn
+          ? scrollContainerRef?.current?.querySelector('td:last-child').clientWidth
+          : 1;
+
+      const safeAreaLeft =
+        !isFocusedCellPinned && hasPinnedFirstColumn
+          ? scrollContainerRef?.current?.querySelector('td:first-child').clientWidth
+          : 1;
+
+      let portalWidth = focusedCellRect.width;
+      let leftPosition = focusedCellRect.left - scrollContainerRect.left;
+      const rightCovered = focusedCellRect.right > scrollContainerRect.right - safeAreaRight;
+      const leftCovered = focusedCellRect.left < scrollContainerRect.left + safeAreaLeft;
 
       if (rightCovered && leftCovered) {
-        setCellCovered('horizontal');
-        portalWidth = scrollContainerRect.width - 2;
-        leftPosition = 1;
+        setFocusedCellCovered('horizontal');
+        portalWidth = scrollContainerRect.width - safeAreaLeft - safeAreaRight;
+        leftPosition = safeAreaLeft;
       } else if (rightCovered) {
-        setCellCovered('right');
-        portalWidth = scrollContainerRect.width + scrollContainerRect.left - cellRect.left - 1;
+        setFocusedCellCovered('right');
+        portalWidth =
+          scrollContainerRect.width +
+          scrollContainerRect.left -
+          focusedCellRect.left -
+          safeAreaRight;
       } else if (leftCovered) {
-        setCellCovered('left');
-        portalWidth = scrollContainerRect.width + cellRect.right - scrollContainerRect.right - 1;
-        leftPosition = 1;
+        setFocusedCellCovered('left');
+        portalWidth =
+          scrollContainerRect.width +
+          focusedCellRect.right -
+          scrollContainerRect.right -
+          safeAreaLeft;
+        leftPosition = safeAreaLeft;
       } else {
-        setCellCovered(false);
+        setFocusedCellCovered(false);
       }
 
       setShowPortal(portalWidth > 0);
       setPortalStyle({
         left: leftPosition,
-        top: cellRect.top - scrollContainerRect.top,
+        top: focusedCellRect.top - scrollContainerRect.top,
         width: portalWidth,
-        height: cellRect.height,
+        height: focusedCellRect.height,
       });
     };
     if (isFocused) {
@@ -54,19 +84,25 @@ const PortalFocus = ({ cellRef, isFocused, scrollContainerRef }) => {
       scrollContainerRef?.current?.addEventListener('scroll', getPortalPosition);
     }
     return () => scrollContainerRef?.current?.removeEventListener('scroll', getPortalPosition);
-  }, [cellRef, handleSizeChange, isFocused, scrollContainerRef]);
-  const pinnedCell = cellRef?.current?.matches(
-    `.${tableName}-pinlast .${tableName}cell:last-child, .${tableName}-pinfirst .${tableName}cell:first-child`,
-  );
+  }, [
+    focusedCellRef,
+    handleSizeChange,
+    hasPinnedFirstColumn,
+    hasPinnedLastColumn,
+    isFocusedCellPinned,
+    isFocused,
+    scrollContainerRef,
+  ]);
+
   return showPortal ? (
     <Portal node={scrollContainerRef?.current}>
       <div
         className={cn(
           baseName,
-          cellCovered === 'right' && `${baseName}-rightCovered`,
-          cellCovered === 'left' && `${baseName}-leftCovered`,
-          cellCovered === 'horizontal' && `${baseName}-horizontalCovered`,
-          pinnedCell && `${baseName}-pinned`,
+          focusedCellCovered === 'right' && `${baseName}-rightCovered`,
+          focusedCellCovered === 'left' && `${baseName}-leftCovered`,
+          focusedCellCovered === 'horizontal' && `${baseName}-horizontalCovered`,
+          isFocusedCellPinned && `${baseName}-pinned`,
         )}
         style={{ ...portalStyle }}
       >
@@ -77,7 +113,7 @@ const PortalFocus = ({ cellRef, isFocused, scrollContainerRef }) => {
 };
 
 PortalFocus.propTypes = {
-  cellRef: PropTypes.object,
+  focusedCellRef: PropTypes.object,
   isFocused: PropTypes.bool,
   scrollContainerRef: PropTypes.object,
 };

@@ -8157,6 +8157,7 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
             </th>
             <th
               className="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--cell-secondtolast"
+              data-automationid="cellHeadQaHook"
               onFocus={[Function]}
               scope="col"
             >
@@ -8217,6 +8218,7 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
             </td>
             <td
               className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+              data-automationid="cellBodyQaHook"
               onFocus={[Function]}
             >
               Apple
@@ -8304,6 +8306,7 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
             </td>
             <td
               className="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-secondtolast xui-table--cell-singleline"
+              data-automationid="cellBodyQaHook"
               onFocus={[Function]}
             >
               Carrot

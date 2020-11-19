@@ -2,11 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NBSP } from '../helpers/constants';
 
-const HeadData = ({ children, ...props }) => <th {...props}>{children || NBSP}</th>;
+const HeadData = ({ children, qaHook, ...props }) => (
+  <th {...props} data-automationid={qaHook}>
+    {children || NBSP}
+  </th>
+);
 
 HeadData.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  qaHook: PropTypes.string,
 
   // Interaction.
   role: PropTypes.string,

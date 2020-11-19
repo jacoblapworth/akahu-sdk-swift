@@ -13,17 +13,19 @@ class XUITableCell extends PureComponent {
 
 /* eslint-disable react/no-unused-prop-types */
 XUITableCell.propTypes = {
-  /** Reference to an object key in the supplied data that the relating column should sort by. */
-  sortKey: PropTypes.string,
-
-  /** A function that conditionally adds a callback for cells that need an interaction. */
-  onCellClick: PropTypes.func,
-
   /** Attached CSS classes on a per Cell basis. */
   className: PropTypes.string,
 
   /** Allow a cells data to wrap and create multiple lines. */
   hasWrapping: PropTypes.bool,
+
+  /** A function that conditionally adds a callback for cells that need an interaction. */
+  onCellClick: PropTypes.func,
+
+  qaHook: PropTypes.string,
+
+  /** Reference to an object key in the supplied data that the relating column should sort by. */
+  sortKey: PropTypes.string,
 };
 /* eslint-enable react/no-unused-prop-types */
 

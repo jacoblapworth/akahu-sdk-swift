@@ -14,6 +14,7 @@ const SortButton = ({
   isSortAsc,
   onSortChange,
   sortKey,
+  qaHook,
   ...props
 }) => {
   const handleInteraction = event => {
@@ -43,6 +44,7 @@ const SortButton = ({
         isHead: true,
         tabIndex: 0,
         scope: 'col',
+        qaHook,
       }}
     >
       <div>
@@ -65,6 +67,7 @@ SortButton.propTypes = {
   isSortAsc: PropTypes.bool,
   onSortChange: PropTypes.func,
   onFocus: PropTypes.func,
+  qaHook: PropTypes.string,
 };
 
 export default SortButton;

@@ -222,7 +222,15 @@ class ScrollResetWrapper extends PureComponent {
 }
 
 const TestScaffold = (
-  { columns, removeHeader, hasHeaderClassName, styleOverrides, tableProps },
+  {
+    columns,
+    removeHeader,
+    hasHeaderClassName,
+    styleOverrides,
+    cellHeadQaHook,
+    cellBodyQaHook,
+    tableProps,
+  },
   tableIndex,
 ) => (
   <ScrollResetWrapper key={tableIndex} style={{ ...tableStyles, ...styleOverrides }}>
@@ -243,7 +251,7 @@ const TestScaffold = (
       {new Array(columns).fill(0).map((_, columnIndex) => (
         <Column
           body={({ content, tags, className, hasWrapping }) => (
-            <Cell className={className} hasWrapping={hasWrapping}>
+            <Cell className={className} hasWrapping={hasWrapping} qaHook={cellBodyQaHook}>
               {content || (tags && createTags(tags.length)) || `Cell ${columnIndex + 1}`}
             </Cell>
           )}
@@ -252,6 +260,7 @@ const TestScaffold = (
               <Cell
                 {...(tableProps.activeSortKey && !columnIndex && { sortKey: 'content' })}
                 className={hasHeaderClassName && 'xui-table-visualTesting-cell'}
+                qaHook={cellHeadQaHook}
               >
                 {`Header ${columnIndex + 1}`}
               </Cell>

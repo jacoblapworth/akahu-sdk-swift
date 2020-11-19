@@ -25,6 +25,7 @@ export default class GenericCell extends PureComponent {
       onCellClick,
       hasWrapping,
       cellLocation,
+      qaHook,
     } = this.props;
     const isCellLink = !isRowLink && onCellClick;
     const role = isCellLink ? 'button' : undefined;
@@ -50,6 +51,7 @@ export default class GenericCell extends PureComponent {
           onClick,
           onKeyDown,
           tabIndex: isCellLink ? 0 : undefined,
+          qaHook,
         }}
       >
         {children}
@@ -69,4 +71,5 @@ GenericCell.propTypes = {
   hasWrapping: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.node,
+  qaHook: PropTypes.string,
 };

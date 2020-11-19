@@ -118,7 +118,13 @@ class TableBodyRow extends PureComponent {
 
         {columns.map(({ props: { body: createBodyNode } }, columnIndex) => {
           const {
-            props: { children, onCellClick, hasWrapping, className: cellClassName },
+            props: {
+              children,
+              onCellClick,
+              hasWrapping,
+              className: cellClassName,
+              qaHook: cellQaHook,
+            },
           } = createBodyNode(rowData, columnIndex);
           const cellLocation = getCellLocation({
             columns,
@@ -141,6 +147,7 @@ class TableBodyRow extends PureComponent {
                 ensureCellVisibility,
                 onCellClick,
                 hasWrapping,
+                qaHook: cellQaHook,
               }}
             />
           );

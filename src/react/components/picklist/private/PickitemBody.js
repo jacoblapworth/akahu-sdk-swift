@@ -14,28 +14,29 @@ import XUIIcon from '../../icon/XUIIcon';
  * @param {Object} props
  */
 const PickitemBody = ({
-  onClick,
-  onKeyDown,
-  shouldTruncate,
-  onMouseOver,
-  onBlur,
-  onFocus,
-  href,
   children,
-  target,
-  qaHook,
-  tabIndex,
-  primaryElement,
-  secondaryElement,
-  pinnedElement,
-  leftElement,
-  rightElement,
+  className,
   headingElement,
+  href,
+  leftElement,
+  onBlur,
+  onClick,
+  onFocus,
+  onKeyDown,
+  onMouseOver,
+  pinnedElement,
+  primaryElement,
+  qaHook,
+  rightElement,
+  secondaryElement,
+  shouldTruncate,
   showButtonCaret,
+  tabIndex,
+  target,
 }) => {
   const rel = target ? 'noopener noreferrer' : null;
   const childProps = {
-    className: cn(itemBodyClassName, showButtonCaret && `${itemBodyClassName}-has-icon`),
+    className: cn(itemBodyClassName, className, showButtonCaret && `${itemBodyClassName}-has-icon`),
     onClick,
     onKeyDown,
     onMouseOver,
@@ -84,31 +85,32 @@ const PickitemBody = ({
 };
 
 PickitemBody.propTypes = {
-  children: PropTypes.node,
-  href: PropTypes.string,
   checkboxClassName: PropTypes.string,
-  onClick: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onMouseOver: PropTypes.func,
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
-  target: PropTypes.string,
-  shouldTruncate: PropTypes.bool,
-  qaHook: PropTypes.string,
-  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /** Standard text */
-  primaryElement: PropTypes.node,
-  /** Less important text to appear beside primary. */
-  secondaryElement: PropTypes.node,
-  /** Less important text to appear pinned at the right. */
-  pinnedElement: PropTypes.node,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  headingElement: PropTypes.node,
+  href: PropTypes.string,
   /** Content to be added to the left of the pickitem. */
   leftElement: PropTypes.node,
+  onBlur: PropTypes.func,
+  onClick: PropTypes.func,
+  onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  onMouseOver: PropTypes.func,
+  /** Less important text to appear pinned at the right. */
+  pinnedElement: PropTypes.node,
+  /** Standard text */
+  primaryElement: PropTypes.node,
+  qaHook: PropTypes.string,
   /** Content to be added to the right of the pickitem. */
   rightElement: PropTypes.node,
-  headingElement: PropTypes.node,
+  /** Less important text to appear beside primary. */
+  secondaryElement: PropTypes.node,
+  shouldTruncate: PropTypes.bool,
   /** Show button caret. Used in `TabDropdown` */
   showButtonCaret: PropTypes.bool,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  target: PropTypes.string,
 };
 
 export default PickitemBody;

@@ -14,6 +14,11 @@ We recommend running a bundles analyzer after upgrading (and regularly in genera
 - `xui-fileuploader--fileitem--loading-indeterminate` can be applied alongside `xui-fileuploader--fileitem--loading` to present a spinning progress icon.
 - `FileObject` now accepts an `uploadProgressPercentage` prop for visually communicating the upload progress.
 
+### PickItems
+
+- `xui-pickitem--body-has-leftelement` should be added to the pickitem body element when a left element is present (not required if using React `XUIPickitem` component).
+- `xui-pickitem--body-has-rightelement` should be added to the pickitem body element when a right element is present (not required if using React `XUIPickitem` component).
+
 ### Removals
 
 ## XUI React components

@@ -3,6 +3,7 @@ import * as React from 'react';
 export interface Props {
   checkboxClassName?: string;
   children?: React.ReactNode;
+  className?: string;
   headingElement?: React.ReactNode;
   href?: string;
   /**

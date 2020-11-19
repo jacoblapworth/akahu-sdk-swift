@@ -369,6 +369,12 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
     height: 100%;
     justify-content: center;
     text-align: center;
+    &.#{$ns}-pickitem--body-has-leftelement {
+      padding-left: $xui-s-small;
+    }
+    &.#{$ns}-pickitem--body-has-rightelement {
+      padding-right: $xui-s-small;
+    }
   }
   &.#{$ns}-pickitem-is-selected:not(.#{$ns}-pickitem-multiselect) {
     // This selector shouldn't need to be so strong.

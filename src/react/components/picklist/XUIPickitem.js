@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import PickitemBody from './private/PickitemBody';
 import PickitemMultiselect from './private/PickitemMultiselect';
-import { pickitemClassName, sideElementClassName } from './private/constants';
+import { itemBodyClassName, pickitemClassName, sideElementClassName } from './private/constants';
 import { verticalOnlyProp } from './private/helpers';
 
 /**
@@ -129,6 +129,10 @@ export default class XUIPickitem extends PureComponent {
             ...pickitemBodyProps,
             ...listeners,
           }}
+          className={cn(
+            leftElement && `${itemBodyClassName}-has-leftelement`,
+            rightElement && `${itemBodyClassName}-has-rightelement`,
+          )}
           headingElement={headingWrapped}
           leftElement={wrappedLeft}
           pinnedElement={pinnedWrapped}

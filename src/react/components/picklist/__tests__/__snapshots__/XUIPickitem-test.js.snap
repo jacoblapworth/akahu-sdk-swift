@@ -96,7 +96,7 @@ exports[`<XUIPickitem /> renders a pickitem with most compatible options 1`] = `
   role="option"
 >
   <button
-    className="xui-pickitem--body"
+    className="xui-pickitem--body xui-pickitem--body-has-leftelement xui-pickitem--body-has-rightelement"
     rel={null}
     type="button"
   >
@@ -299,7 +299,7 @@ exports[`<XUIPickitem /> renders a truncating pickitem with leftelement 1`] = `
   role="option"
 >
   <button
-    className="xui-pickitem--body"
+    className="xui-pickitem--body xui-pickitem--body-has-leftelement"
     rel={null}
     type="button"
   >
@@ -364,7 +364,7 @@ exports[`<XUIPickitem /> renders a truncating pickitem with secondary text and l
   role="option"
 >
   <button
-    className="xui-pickitem--body"
+    className="xui-pickitem--body xui-pickitem--body-has-leftelement"
     rel={null}
     type="button"
   >

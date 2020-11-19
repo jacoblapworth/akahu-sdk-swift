@@ -15,6 +15,7 @@ const TableHeadGenericCell = ({
   isSortAsc,
   onSortChange,
   sortKey,
+  qaHook,
 }) => {
   const isHead = true;
   const onFocus = ensureCellVisibility;
@@ -30,6 +31,7 @@ const TableHeadGenericCell = ({
         isSortAsc,
         onSortChange,
         onFocus,
+        qaHook,
       }}
     />
   ) : (
@@ -39,6 +41,7 @@ const TableHeadGenericCell = ({
         className,
         onFocus,
         scope: 'col',
+        qaHook,
       }}
     >
       <span>{children}</span>
@@ -55,6 +58,7 @@ TableHeadGenericCell.propTypes = {
   onSortChange: PropTypes.func,
   cellLocation: PropTypes.string,
   ensureCellVisibility: PropTypes.func,
+  qaHook: PropTypes.string,
 };
 
 export default TableHeadGenericCell;

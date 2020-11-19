@@ -317,7 +317,7 @@ class EditableTableStoryWrapper extends React.Component {
     );
 
     const displayComponent = renderSmallerWrapper ? (
-      <div style={{ width: '400px', overflow: 'hidden' }}>{editableTableComponent}</div>
+      <div style={{ width: '400px' }}>{editableTableComponent}</div>
     ) : (
       editableTableComponent
     );

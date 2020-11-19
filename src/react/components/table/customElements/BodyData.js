@@ -17,7 +17,7 @@ class BodyData extends PureComponent {
   setPrecedence = hasPrecedence => this.setState(() => ({ hasPrecedence }));
 
   render = () => {
-    const { children, onClick, className: suppliedClasses, ...props } = this.props;
+    const { children, onClick, className: suppliedClasses, qaHook, ...props } = this.props;
     const className = cn(suppliedClasses, {
       [`${NAME_SPACE}--cell-hasprecedence`]: this.state.hasPrecedence,
     });
@@ -40,6 +40,7 @@ class BodyData extends PureComponent {
           }),
         }}
         className={className}
+        data-automationid={qaHook}
       >
         {children || NBSP}
       </td>
@@ -51,6 +52,7 @@ class BodyData extends PureComponent {
 BodyData.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  qaHook: PropTypes.string,
 
   // Interaction.
   role: PropTypes.string,

@@ -2,9 +2,9 @@ import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { v4 as uuidv4 } from 'uuid';
 import TestScaffold from '../stories/stories';
 import { variations } from '../stories/variations';
-import { v4 as uuidv4 } from 'uuid';
 
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testDropdownId');
@@ -40,8 +40,10 @@ describe('<XUITable />', () => {
           hasOverflowMenu: true,
           createOverflowMenu: () => {},
         },
+        cellHeadQaHook: 'cellHeadQaHook',
+        cellBodyQaHook: 'cellBodyQaHook',
       };
-      const exampleTable = renderer.create(<TestScaffold {...settings}></TestScaffold>);
+      const exampleTable = renderer.create(<TestScaffold {...settings} />);
       expect(exampleTable).toMatchSnapshot();
     });
   });

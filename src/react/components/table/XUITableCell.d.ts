@@ -15,6 +15,7 @@ export interface Props {
    * A function that conditionally adds a callback for cells that need an interaction.
    */
   onCellClick?: CreateInteractionHandler;
+  qaHook?: string;
   /**
    * Reference to an object key in the supplied data that the relating column should sort by.
    */

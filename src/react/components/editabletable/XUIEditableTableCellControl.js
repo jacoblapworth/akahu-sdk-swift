@@ -69,7 +69,7 @@ const XUIEditableTableCellControl = ({
           )}
           {isFocused && typeof draggedRowIndex !== 'number' && (
             <PortalFocus
-              cellRef={cellRef}
+              focusedCellRef={cellRef}
               isFocused={isFocused}
               scrollContainerRef={scrollContainerRef}
             />

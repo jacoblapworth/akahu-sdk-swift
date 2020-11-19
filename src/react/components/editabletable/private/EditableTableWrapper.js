@@ -76,6 +76,8 @@ const EditableTableWrapper = ({
                 dragHandleDescribedBy: dndInstructionsId,
                 rowPlaceholder: provided.placeholder,
               },
+              hasPinnedFirstColumn,
+              hasPinnedLastColumn,
               rowOptions: { ...rowOptions },
               scrollContainerRef,
               tableRef,

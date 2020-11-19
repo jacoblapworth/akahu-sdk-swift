@@ -39,7 +39,7 @@ const TableHead = ({
           {
             props: {
               head: {
-                props: { children, sortKey, className },
+                props: { children, sortKey, className, qaHook },
               },
             },
           },
@@ -55,6 +55,7 @@ const TableHead = ({
               sortKey,
               className,
               children,
+              qaHook,
               cellLocation: getCellLocation({
                 columns,
                 columnIndex,

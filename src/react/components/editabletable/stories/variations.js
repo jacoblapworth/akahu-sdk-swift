@@ -187,6 +187,16 @@ const variations = [
   },
   {
     storyKind: variationStoryKindName,
+    storyTitle: 'with select cell spanning multiple lines',
+    columnCount: 2,
+    hasHeader: false,
+    rows: 1,
+    cellType: 'selectBox',
+    randomiseContent: true,
+    maxWidth: '300px',
+  },
+  {
+    storyKind: variationStoryKindName,
     storyTitle: 'with autocompleter cells',
     columnCount: 4,
     hasHeader: false,

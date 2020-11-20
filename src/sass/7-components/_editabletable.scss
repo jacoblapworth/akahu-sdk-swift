@@ -3,6 +3,7 @@
 
 $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to remove unwanted surrounding space
 $xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top and bottom borders (1px per border)
+$xui-editabletablecell-vertical-padding: $xui-s-xsmall - 1px; // xsmall, minus a 1px border
 
 @keyframes #{$ns}-drag-shadow-animation {
   from {
@@ -200,25 +201,24 @@ $xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top 
 }
 
 .#{$ns}-editabletablecellreadonly {
-  @include xui-padding-vertical($xui-s-xsmall - 1px); // xsmall, minus a 1px border
+  @include xui-padding-vertical($xui-editabletablecell-vertical-padding);
   @include xui-padding-horizontal($xui-s-standard);
 }
 
 .#{$ns}-editabletablecellselectbox {
   .#{$ns}-select--button {
-    @include xui-padding-vertical($xui-s-xsmall - 1px); // xsmall, minus a 1px border
-    display: block;
+    @include xui-padding-vertical($xui-editabletablecell-vertical-padding);
     position: relative;
   }
   .#{$ns}-select--content {
     display: block;
     line-height: $xui-line-height-standard;
-    padding-right: $xui-s-standard;
   }
   .#{$ns}-select--caret {
-    position: absolute;
-    right: $xui-s-standard; // Horizontally aligns caret to be consistent with spacing of select-box
-    top: $xui-s-small; // Vertically aligns caret to middle of the cell
+    align-items: center;
+    align-self: flex-start;
+    display: flex;
+    height: $xui-minimum-touch-target - $xui-editabletablecell-vertical-padding * 2; // Minimum content height for the cell
   }
 }
 

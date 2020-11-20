@@ -206,6 +206,7 @@ variations.forEach(variation => {
       renderSmallerWrapper,
       showAddRowButton,
       cellType,
+      randomiseContent,
       withDisabled,
       withInvalid,
       validationMessage,
@@ -216,6 +217,8 @@ variations.forEach(variation => {
     delete variationMinusStoryDetails.hasHeader;
     delete variationMinusStoryDetails.renderSmallerWrapper;
     delete variationMinusStoryDetails.showAddRowButton;
+
+    let cellsCount = 0;
 
     const editableTableComponent = (
       <XUIEditableTable {...variationMinusStoryDetails} isInvalid={withInvalid}>
@@ -237,16 +240,18 @@ variations.forEach(variation => {
               onRemove={() => console.log('remove me')}
             >
               {Array.from(Array(columnCount).keys()).map((item, index) => {
+                cellsCount += 1;
+
                 return !cellType ? (
                   <XUIEditableTableCellReadOnly id={index} key={index}>
                     Cell text
                   </XUIEditableTableCellReadOnly>
                 ) : (
                   generateCell({
-                    cellsCount: 1,
+                    cellsCount: randomiseContent ? cellsCount : 1,
                     cellType,
                     columnIndex: index,
-                    randomiseContent: false,
+                    randomiseContent,
                     isDisabled: withDisabled && index === 2,
                     isInvalid: withInvalid && rowIndex === 2,
                     validationMessage,

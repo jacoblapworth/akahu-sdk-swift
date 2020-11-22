@@ -4,6 +4,10 @@ const { isWindowsPlatform, convertExecTaskToWindows } = require('../helpers');
 const ignorePatterns = ['.kss/builder/**', 'src/react/components/helpers/versions.js'];
 
 async function prettier() {
+  if (process.argv.find(arg => ignorePatterns.find(ignorePattern => arg.includes(ignorePattern)))) {
+    return;
+  }
+
   const args = [
     '--ignore-path .gitignore',
     ...process.argv

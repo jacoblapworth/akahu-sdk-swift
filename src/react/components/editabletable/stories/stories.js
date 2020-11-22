@@ -213,6 +213,7 @@ variations.forEach(variation => {
       renderSmallerWrapper,
       showAddRowButton,
       cellType,
+      randomiseContent,
       scrollLeft,
       withDisabled,
       withInvalid,
@@ -230,6 +231,7 @@ variations.forEach(variation => {
         cellType={cellType}
         columnCount={columnCount}
         hasHeader={hasHeader}
+        randomiseContent={randomiseContent}
         renderSmallerWrapper={renderSmallerWrapper}
         rows={rows}
         scrollLeft={scrollLeft}
@@ -256,6 +258,7 @@ class EditableTableStoryWrapper extends React.Component {
     const {
       columnCount,
       hasHeader,
+      randomiseContent,
       rows,
       renderSmallerWrapper,
       showAddRowButton,
@@ -265,6 +268,7 @@ class EditableTableStoryWrapper extends React.Component {
       validationMessage,
       variationMinusStoryDetails,
     } = this.props;
+    let cellsCount = 0;
     const editableTableComponent = (
       <XUIEditableTable {...variationMinusStoryDetails} isInvalid={withInvalid}>
         {(hasHeader && (
@@ -285,16 +289,18 @@ class EditableTableStoryWrapper extends React.Component {
               onRemove={() => console.log('remove me')}
             >
               {Array.from(Array(columnCount).keys()).map((item, index) => {
+                cellsCount += 1;
+
                 return !cellType ? (
                   <XUIEditableTableCellReadOnly id={index} key={index}>
                     Cell text
                   </XUIEditableTableCellReadOnly>
                 ) : (
                   generateCell({
-                    cellsCount: 1,
+                    cellsCount: randomiseContent ? cellsCount : 1,
                     cellType,
                     columnIndex: index,
-                    randomiseContent: false,
+                    randomiseContent,
                     isDisabled: withDisabled && index === 2,
                     isInvalid: withInvalid && rowIndex === 2,
                     validationMessage,

@@ -157,11 +157,15 @@ library:
         url: https://xui.xero.com/latest
       - name: XUI's confluence page
         url: https://confluence.teamxero.com/display/PLAT/UX+Engineering
-    # dashboards:
-    # - name: MyService Dashboard
-    #   url: https://insights.newrelic.com/accounts/MY_DASHBOARD
-    #   description: >-
-    #     Service Level Objectives for XUI
+    dashboards:
+      - name: PaaS Gloo dashboard in Grafana
+        url: https://paas.xero.dev/grafana/d/gloo-data-plane/gloo-data-plane?orgId=1&from=now-6h&to=now&var-datasource=istio&var-cluster=us-east-1.k8s-paas-svc-rua&var-Namespace=All&var-Service=manual-xui-xero-com_gloo-system
+        description: >-
+          Dashboard of metrics for the health of the Gloo system that the XUI Okta setup relies on.
+      - name: Cloudwatch metrics for OKTA Load-balancer
+        url: https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#LoadBalancers:search=alb-oidc-ingress;sort=loadBalancerName
+        description: >-
+          Dashboard of metrics for the health of the OKTA ALB `alb-oidc-ingress`. To view login into `xero-ps-paas-prod/us-east-1`.
     # logs:
     # - name: XUI Logs
     #   url: https://service.us2.sumologic.com/MY_LOGS

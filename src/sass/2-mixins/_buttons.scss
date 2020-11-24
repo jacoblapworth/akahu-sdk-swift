@@ -195,12 +195,4 @@ Styling for carets in button-like things
 @mixin xui-button--caret {
   display: flex;
   margin-left: $xui-s-xsmall;
-
-  &.#{$ns}-iconwrapper {
-    height: unset;
-    width: unset;
-  }
-  .#{$ns}-button-split & {
-    margin: auto;
-  }
 }

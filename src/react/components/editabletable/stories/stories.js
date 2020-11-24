@@ -207,14 +207,14 @@ variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
     const variationMinusStoryDetails = { ...variation };
     const {
+      cellType,
       columnCount,
       hasHeader,
-      rows,
-      renderSmallerWrapper,
-      showAddRowButton,
-      cellType,
       randomiseContent,
+      renderSmallerWrapper,
+      rows,
       scrollLeft,
+      showAddRowButton,
       withDisabled,
       withInvalid,
       validationMessage,

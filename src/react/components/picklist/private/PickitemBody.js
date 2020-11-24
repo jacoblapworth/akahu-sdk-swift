@@ -77,9 +77,7 @@ const PickitemBody = ({
       </span>
       {pinnedElement}
       {rightElement}
-      {showButtonCaret && (
-        <XUIIcon className={`${pickitemClassName}--caret`} icon={caret} isBoxed />
-      )}
+      {showButtonCaret && <XUIIcon className={`${pickitemClassName}--caret`} icon={caret} />}
     </Tag>
   );
 };

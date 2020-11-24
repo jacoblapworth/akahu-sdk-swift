@@ -14,7 +14,6 @@ import {
 import { ns } from '../helpers/xuiClassNamespace';
 import noop from '../helpers/noop';
 import SizeContext from '../../contexts/SizeContext';
-import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 
 /**
  * Returns true if the button is a borderless variant
@@ -144,12 +143,9 @@ export default class XUIButton extends React.PureComponent {
                 />
               )}
               {hasCaret && (
-                <XUIIcon
-                  className={cn(`${ns}-button--caret`, _caretClassName)}
-                  icon={caret}
-                  isBoxed
-                  size={size}
-                />
+                <div className={cn(`${ns}-button--caret`, _caretClassName)}>
+                  <XUIIcon icon={caret} size={size} />
+                </div>
               )}
             </>
           );

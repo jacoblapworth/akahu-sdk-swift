@@ -33,8 +33,9 @@
 }
 
 .#{$ns}-button-split {
+  align-items: center;
+  display: flex;
   flex: 0 0 $xui-minimum-touch-target;
   justify-content: center;
   padding: 0;
-  vertical-align: top;
 }

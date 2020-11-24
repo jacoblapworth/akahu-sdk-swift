@@ -1,21 +1,21 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import caret from '@xero/xui-icon/icons/caret';
+
 import XUIButton from './XUIButton';
 import { buttonTypes, sizeClassNames, standardVariantClassNames } from './private/constants';
 import { ns } from '../helpers/xuiClassNamespace';
+import XUIIcon from '../icon/XUIIcon';
 
 export default class XUISplitButton extends PureComponent {
   render() {
     const { className, ...spreadProps } = this.props;
     spreadProps.children = null;
     return (
-      <XUIButton
-        {...spreadProps}
-        className={cn(`${ns}-button-split`, className)}
-        hasCaret
-        isGrouped
-      />
+      <XUIButton {...spreadProps} className={cn(`${ns}-button-split`, className)} isGrouped>
+        <XUIIcon icon={caret} />
+      </XUIButton>
     );
   }
 }

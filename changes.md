@@ -14,6 +14,12 @@ We recommend running a bundles analyzer after upgrading (and regularly in genera
 - `xui-fileuploader--fileitem--loading-indeterminate` can be applied alongside `xui-fileuploader--fileitem--loading` to present a spinning progress icon.
 - `FileObject` now accepts an `uploadProgressPercentage` prop for visually communicating the upload progress.
 
+### Carets
+
+- `xui-button--caret` and `xui-iconwrapper` are no longer used together.
+  - Use `xui-button--caret` for carets that sit alongside other content.
+  - Use `xui-iconwrapper` for carets that sit on their own, such as those in split buttons.
+
 ### PickItems
 
 - `xui-pickitem--body-has-leftelement` should be added to the pickitem body element when a left element is present (not required if using React `XUIPickitem` component).

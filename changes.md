@@ -65,6 +65,10 @@ Changed classes/variables/mixins are:
 - `xui-text-2xlarge` > `xui-text-3xlarge`
 - `xui-text-3xlarge` > `xui-text-4xlarge`
 
+### Flex utilities
+
+A new `xui-u-flex-align-baseline` flex utility has been added for aligning content on the page. Applying this class will align children so that their baselines align, by setting `align-items: baseline`.
+
 ### Removals
 
 Following classes have been **removed** because left space isn't needed for alignment after the "invalid" icon added:

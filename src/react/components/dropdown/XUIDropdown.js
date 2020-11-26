@@ -8,6 +8,7 @@ import XUIDropdownPanel from './XUIDropdownPanel';
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from './private/constants';
+import { openedModals } from '../helpers/modalManager';
 
 /**
  * Wrapper for all content which will go inside of a dropdown. It ensures the correct
@@ -207,7 +208,10 @@ export default class XUIDropdown extends PureComponent {
   };
 
   unlockScroll = () => {
-    unlockScroll();
+    // If it's inside a modal, should not unlock
+    if (!openedModals?.length) {
+      unlockScroll();
+    }
   };
 
   lockScroll = () => {

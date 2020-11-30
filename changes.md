@@ -125,6 +125,8 @@ Following classes have been **removed** because left space isn't needed for alig
 - `XUIAutocompleterEmptyState` now accepts
   - `XUIIcon` passed as `iconComponent` prop (doing so ignores `icon` prop).
   - additional icon component props padded as `iconProps` (can be used with `icon` prop but not `iconComponent`)
+- `XUIDropdown` has a new `onScroll` prop, which provides a callback for when the dropdown is scrolled.
+- `XUIDropdownPanel` has a new `onScroll` prop, which provides a callback for when the dropdown is scrolled (this is for use within a `XUINestedDropdown`).
 
 ### Removals
 

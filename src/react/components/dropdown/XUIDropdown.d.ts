@@ -75,6 +75,10 @@ interface Props {
    */
   onOpenAnimationEnd?: React.EventHandler<React.AnimationEvent<HTMLDivElement>>;
   /**
+   * Callback for adding additional `onScroll` functionality.
+   */
+  onScroll?: React.EventHandler<React.UIEvent<HTMLElement>>;
+  /**
    * A generalised callback when an item has been selected.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

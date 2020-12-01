@@ -22,19 +22,7 @@
 //
 // Tips:
 // Warning: Inputs in XUI do not currently adjust font-size for small screens – this can trigger page zooming on focus in some mobile browsers
-//
-// Definitions:
-// Default: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="text" placeholder="Standard Input" aria-label="Standard input"/></div>
-// Read-only: <div class="xui-container"><div class="xui-container"><input class="xui-textinput xui-textinput--input" type="text" value="Read-only" aria-label="Standard input" readonly/></div></div>
-// Disabled: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="text" placeholder="Disabled input" aria-label="Disabled input" disabled /></div>
-// Password: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="password" placeholder="Password Input" aria-label="Password"/></div>
-// Number: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="number" placeholder="0.00" aria-label="Number input"/></div>
-// Email: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="email" placeholder="example@xero.com" aria-label="Email"/></div>
-// Tel: <div class="xui-container"><input class="xui-textinput xui-textinput--input" type="tel" placeholder="Telephone number" aria-label="Telephone"/></div>
-//
-// Note: Avoid using type="date" due to severe browser inconsistency. Use type="text" with an accessible label indicating the data type instead.
-//
-// exampleclass: ds-example-markuponly
+// Dont: Avoid using type="date" due to severe browser inconsistency. Use type="text" with an accessible label indicating the data type instead.
 //
 // Markup: ./examples/text-input/_text-input.html
 //

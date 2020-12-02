@@ -36,7 +36,7 @@ const BasicAccordionDemo = () => (
 
 The `<XUIAccordionItem />` can take a variety of props that can inject content into the layout (`primaryHeading`, `secondaryHeading`, `leftContent`, `pinnedValue`, `action`, `overflow`, `custom`).
 
-You can also supply an `onClick` prop that returns the entire item from the items array in addition to an `isOpen` boolean representing the items toggled state.
+You can also supply an `onItemClick` prop that returns the entire item from the items array in addition to an `isOpen` boolean representing the items toggled state.
 
 **Note:** if you are adding a `<button />` type element as content remember to [`stopPropagation`](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation) so the event does not bubble up and trigger the _Accordion_ _expand_ / _collapse_ toggle accidentally.
 

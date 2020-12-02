@@ -1,7 +1,7 @@
 import { unlockScroll, lockScroll } from './lockScroll';
 import { portalClass } from './portalContainer';
 
-export const openedModals = []; // modal registry
+const openedModals = []; // modal registry
 
 // Which modal is on the top of the stack?
 const getTopModal = () => openedModals[openedModals.length - 1];

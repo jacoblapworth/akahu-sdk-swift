@@ -7,6 +7,7 @@ import XUIDropdown from '../XUIDropdown';
 import XUIDropdownToggled from '../XUIDropdownToggled';
 import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIPickitem from '../../picklist/XUIPickitem';
+import XUIModal from '../../modal/XUIModal';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
 const testId = 'testDropdownId';
@@ -191,5 +192,18 @@ describe('<XUIDropdownToggled />', () => {
 
       expect(wrapper.instance().isDropdownOpen()).toBeTruthy();
     });
+  });
+
+  it('should not unlock the scroll when inside a modal', () => {
+    const wrapper = mount(
+      <XUIModal isOpen={true} closeButtonLabel="Close">
+        {testDropdown({ isHidden: false })}
+      </XUIModal>,
+    );
+
+    // Close the dropdown
+    wrapper.find('.xui-pickitem--body').first().simulate('click');
+
+    expect(document.querySelector('.xui-lockscroll')).toBeTruthy();
   });
 });

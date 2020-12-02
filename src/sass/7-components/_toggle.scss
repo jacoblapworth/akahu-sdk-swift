@@ -193,6 +193,7 @@
 // Option styles
 .#{$ns}-toggle--option {
   display: flex;
+  height: 100%;
 }
 
 .#{$ns}-toggle > .#{$ns}-toggle--optionwrapper,

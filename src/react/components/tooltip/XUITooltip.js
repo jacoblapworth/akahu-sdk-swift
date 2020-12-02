@@ -102,7 +102,7 @@ export default class XUITooltip extends PureComponent {
     if (!rootNode) {
       return;
     }
-    const { display } = window.getComputedStyle(rootNode);
+    const { display } = window.getComputedStyle(rootNode.current || rootNode);
     this.triggerIsInline = /inline/.test(display);
   };
 

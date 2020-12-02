@@ -55,10 +55,6 @@
     align-items: center;
   }
 
-  .#{$ns}-u-flex-align-baseline#{$suffix} {
-    align-items: baseline;
-  }
-
   .#{$ns}-u-flex-row#{$suffix} {
     flex-direction: row;
   }

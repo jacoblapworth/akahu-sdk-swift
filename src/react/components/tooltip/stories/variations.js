@@ -77,7 +77,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with a longer tip',
-    triggerType: 'input',
+    triggerType: 'button',
     tipText: longTipText,
   },
   {

@@ -225,8 +225,6 @@ variations.forEach(variation => {
       variationMinusStoryDetails.trigger = createTriggerIcon();
     } else if (triggerType === 'button') {
       variationMinusStoryDetails.trigger = createTriggerButton();
-    } else if (triggerType === 'input') {
-      variationMinusStoryDetails.trigger = createTriggerInput();
     }
     let content;
     if (triggerType !== 'text') {

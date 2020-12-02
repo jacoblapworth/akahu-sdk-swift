@@ -8,7 +8,6 @@ import XUIDropdownPanel from './XUIDropdownPanel';
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from './private/constants';
-import { openedModals } from '../helpers/modalManager';
 
 /**
  * Wrapper for all content which will go inside of a dropdown. It ensures the correct
@@ -208,10 +207,7 @@ export default class XUIDropdown extends PureComponent {
   };
 
   unlockScroll = () => {
-    // If it's inside a modal, should not unlock
-    if (!openedModals?.length) {
-      unlockScroll();
-    }
+    unlockScroll();
   };
 
   lockScroll = () => {
@@ -233,7 +229,6 @@ export default class XUIDropdown extends PureComponent {
       fixedWidth,
       onCloseAnimationEnd,
       onOpenAnimationEnd,
-      onScroll,
       animateClosed,
       animateOpen,
       forceDesktop,
@@ -269,7 +264,6 @@ export default class XUIDropdown extends PureComponent {
           ignoreKeyboardEvents={ignoreKeyboardEvents}
           onHighlightChange={this.onHighlightChange}
           onKeyDown={this.keyDownHandler}
-          onScroll={onScroll}
           onSelect={onSelect}
           qaHook={qaHook}
           ref={this.panel}
@@ -320,9 +314,6 @@ XUIDropdown.propTypes = {
 
   /** Callback for adding additional onKeyPress functionality */
   onKeyDown: PropTypes.func,
-
-  /** Callback for adding additional onScroll functionality. */
-  onScroll: PropTypes.func,
 
   /** Whether focus should be restricted to the dropdown while it's open. */
   restrictFocus: PropTypes.bool,

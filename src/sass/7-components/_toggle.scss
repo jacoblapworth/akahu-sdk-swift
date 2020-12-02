@@ -15,6 +15,11 @@
   width: 100%;
 }
 
+// Medium variant
+.#{$ns}-toggle-medium .#{$ns}-toggle--label {
+  @include xui-padding-vertical($xui-s-xsmall - 1);
+}
+
 .#{$ns}-toggle-medium .#{$ns}-toggle--label,
 .#{$ns}-toggle-medium .#{$ns}-toggle--option {
   min-height: $xui-control-size-standard;
@@ -22,7 +27,7 @@
 
 // Small variant
 .#{$ns}-toggle-small .#{$ns}-toggle--label {
-  @include xui-padding-vertical($xui-s-2xsmall);
+  @include xui-padding-vertical($xui-s-2xsmall - 1);
 }
 
 .#{$ns}-toggle-small .#{$ns}-toggle--label,
@@ -116,6 +121,7 @@
   flex-direction: column;
   justify-content: center;
   min-width: $xui-control-size-standard; // TODO: remove layout assumption
+  @include xui-padding-horizontal($xui-s-small);
   position: relative; // For z-index
   text-align: center;
   transition: all $xui-motion-speed-fast ease;

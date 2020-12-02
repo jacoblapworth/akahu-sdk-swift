@@ -8,6 +8,8 @@ import { select, boolean, text } from '@storybook/addon-knobs';
 // Components we need to test with
 import XUIToggle from '../XUIToggle';
 import XUIToggleOption from '../XUIToggleOption';
+import XUIIcon from '../../../icon';
+import { flattenedIconMap } from '../../helpers/icons';
 import { colorMap } from '../private/constants';
 import NOOP from '../../helpers/noop';
 import ExampleContainer from '../../../docs/ExampleContainer';
@@ -74,12 +76,28 @@ variations.forEach(variation => {
   });
 });
 
-const buildOptions = options =>
-  options.map((option, index) => {
-    option.onChange = NOOP;
-    return (
-      <XUIToggleOption key={index} {...option}>
-        {option.value}
-      </XUIToggleOption>
-    );
-  });
+const buildOptions = options => {
+  if (options !== 'icons') {
+    return options.map((option, index) => {
+      option.onChange = NOOP;
+      return (
+        <XUIToggleOption key={index} {...option}>
+          {option.value}
+        </XUIToggleOption>
+      );
+    });
+  }
+  return ['exclamation', 'subtraction', 'youtube', 'settings', 'arrow-small'].map(
+    (option, index) => {
+      const config = {
+        onChange: NOOP,
+        name: 'tg13',
+      };
+      return (
+        <XUIToggleOption key={index} {...config}>
+          {flattenedIconMap[option] ? <XUIIcon icon={flattenedIconMap[option]} /> : undefined}
+        </XUIToggleOption>
+      );
+    },
+  );
+};

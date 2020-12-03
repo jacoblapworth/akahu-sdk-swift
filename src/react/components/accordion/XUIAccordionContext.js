@@ -1,9 +1,9 @@
 import React from 'react';
 
 export default React.createContext({
-  openAccordionItemId: null,
-  setOpenAccordionItem: () => {},
-  qaHook: null,
   emptyStateComponent: null,
+  openAccordionItemId: null,
+  qaHook: null,
+  setOpenAccordionItem: () => {},
   toggleLabel: null,
 });

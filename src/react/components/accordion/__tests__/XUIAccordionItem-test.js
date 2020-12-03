@@ -21,9 +21,9 @@ const Test = ({ children }) => {
         value={{
           emptyStateComponent: null,
           openAccordionItemId: openItemId,
+          qaHook,
           setOpenAccordionItem: setOpenItemId,
           toggleLabel: 'Toggle',
-          qaHook,
         }}
       >
         <XUIAccordionItem>{children}</XUIAccordionItem>

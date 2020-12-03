@@ -7,13 +7,13 @@ import EmptyState from './customElements/EmptyState';
 import XUIAccordionContext from './XUIAccordionContext';
 
 const XUIAccordion = ({
-  qaHook,
+  children,
   className,
-  emptyStateComponent,
   emptyIcon,
   emptyMessage,
+  emptyStateComponent,
+  qaHook,
   toggleLabel,
-  children,
 }) => {
   const [openAccordionItemId, setOpenAccordionItemId] = useState(null);
   const setOpenAccordionItem = useCallback(
@@ -48,11 +48,11 @@ const XUIAccordion = ({
     <div className={cn(`${ns}-accordion`, className)} data-automationid={qaHook}>
       <XUIAccordionContext.Provider
         value={{
-          setOpenAccordionItem,
-          openAccordionItemId,
           emptyStateComponent: emptyComponent,
-          toggleLabel,
+          openAccordionItemId,
           qaHook,
+          setOpenAccordionItem,
+          toggleLabel,
         }}
       >
         {children}
@@ -63,17 +63,9 @@ const XUIAccordion = ({
 
 XUIAccordion.propTypes = {
   children: PropTypes.node,
-  qaHook: PropTypes.string,
 
   /** Attached to the outer most element of the accordion component. */
   className: PropTypes.string,
-
-  /**
-   * Accessibility label representing the `<XUIAccordionItem />` toggle functionality.
-   * <br />
-   * Recommended English value: *Toggle*
-   */
-  toggleLabel: PropTypes.string.isRequired,
 
   /** Customise the default "empty" icon path data. */
   emptyIcon: PropTypes.shape({
@@ -91,6 +83,15 @@ XUIAccordion.propTypes = {
 
   /** Override the default "empty" component. */
   emptyStateComponent: PropTypes.element,
+
+  qaHook: PropTypes.string,
+
+  /**
+   * Accessibility label representing the `<XUIAccordionItem />` toggle functionality.
+   * <br />
+   * Recommended English value: *Toggle*
+   */
+  toggleLabel: PropTypes.string.isRequired,
 };
 
 XUIAccordion.defaultProps = {

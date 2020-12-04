@@ -16,13 +16,13 @@ const XUIAccordionItem = ({
   description,
   children,
   onClick,
+  qaHook,
   isOpen: propsIsOpen,
 }) => {
   const [id] = useState(uuidv4());
   const {
     setOpenAccordionItem,
     openAccordionItemId,
-    qaHook,
     emptyStateComponent,
     toggleLabel,
   } = useContext(XUIAccordionContext);
@@ -57,11 +57,11 @@ const XUIAccordionItem = ({
     <AccordionWrapper
       _wrapperId={id}
       isOpen={isItemOpen}
-      qaHook={qaHook && `${qaHook}-wrapper`}
+      qaHook={qaHook}
       trigger={
         <AccordionTrigger
           isOpen={isItemOpen}
-          qaHook={qaHook && `${qaHook}-trigger`}
+          qaHook={qaHook && `${qaHook}--trigger`}
           {...{
             action,
             leftContent,
@@ -113,6 +113,8 @@ XUIAccordionItem.propTypes = {
   isOpen: PropTypes.bool,
 
   children: PropTypes.node,
+
+  qaHook: PropTypes.string,
 };
 
 export default XUIAccordionItem;

@@ -21,7 +21,7 @@ const AccordionWrapper = ({ children, isOpen, qaHook, trigger, _wrapperId }) => 
         [`${ns}-accordionwrapper-pop`]: isOpen && shouldPop,
         [`${ns}-accordionwrapper-no-pop`]: isOpen && !shouldPop,
       })}
-      data-automationid={qaHook}
+      data-automationid={qaHook && `${qaHook}--wrapper`}
       ref={accordionItem}
     >
       {trigger}
@@ -29,6 +29,7 @@ const AccordionWrapper = ({ children, isOpen, qaHook, trigger, _wrapperId }) => 
         className={cn(contentClassName, {
           [`${contentClassName}-is-open`]: isOpen,
         })}
+        data-automationid={qaHook && `${qaHook}--content`}
         id={`${contentClassName}-${_wrapperId}`}
       >
         {children}

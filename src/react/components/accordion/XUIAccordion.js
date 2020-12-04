@@ -24,7 +24,7 @@ const XUIAccordion = ({
   );
 
   const emptyComponent = emptyStateComponent || (
-    <EmptyState emptyIcon={emptyIcon} qaHook={qaHook && `${qaHook}-empty`}>
+    <EmptyState emptyIcon={emptyIcon} qaHook={qaHook && `${qaHook}--empty`}>
       {emptyMessage}
     </EmptyState>
   );
@@ -52,7 +52,6 @@ const XUIAccordion = ({
           openAccordionItemId,
           emptyStateComponent: emptyComponent,
           toggleLabel,
-          qaHook,
         }}
       >
         {children}

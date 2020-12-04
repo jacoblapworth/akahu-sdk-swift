@@ -33,6 +33,13 @@ XUIToggleOption now includes updated padding, horizontal and vertical, for both 
 
 ## XUI React components
 
+### XUIAccordion
+
+- `XUIAccordion` continues to support a `qaHook` property, however this value will no longer be passed down to its `XUIAccordionItem` child component/s. This allows each individual `XUIAccordionItem` to have its own unique `data-automationid`. If you are using markup snapshots or using these generated `data-automationid`s for your testing, these will need to be updated accordingly.
+- `XUIAccordionItem` now supports its own `qaHook` property which, if provided, will add a `data-automationid` to the accordion item itself, as well as its child `trigger` and `content` elements.
+- All `XUIAccordion`-related `qahook`s have been updated to use a `--` instead of a single `-`, in line with XUI naming conventions.
+  - e.g. `{qaHook}-empty` has been renamed to `{qaHook}--empty`
+
 ### Removals
 
 ### Component props

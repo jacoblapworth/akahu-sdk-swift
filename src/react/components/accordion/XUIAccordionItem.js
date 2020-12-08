@@ -8,22 +8,22 @@ import usePrevious from '../helpers/usePrevious';
 
 const XUIAccordionItem = ({
   action,
+  children,
+  description,
+  isOpen: propsIsOpen,
   leftContent,
+  onClick,
   overflow,
   pinnedValue,
   primaryHeading,
   secondaryHeading,
-  description,
-  children,
-  onClick,
-  isOpen: propsIsOpen,
 }) => {
   const [id] = useState(uuidv4());
   const {
-    setOpenAccordionItem,
+    emptyStateComponent,
     openAccordionItemId,
     qaHook,
-    emptyStateComponent,
+    setOpenAccordionItem,
     toggleLabel,
   } = useContext(XUIAccordionContext);
   const prevPropsIsOpen = usePrevious(propsIsOpen);
@@ -64,15 +64,15 @@ const XUIAccordionItem = ({
           qaHook={qaHook && `${qaHook}-trigger`}
           {...{
             action,
-            leftContent,
+            description,
             id,
+            leftContent,
+            onItemClick,
             overflow,
             pinnedValue,
             primaryHeading,
             secondaryHeading,
-            description,
             toggleLabel,
-            onItemClick,
           }}
         />
       }
@@ -84,35 +84,35 @@ const XUIAccordionItem = ({
 
 /* eslint-disable react/no-unused-prop-types */
 XUIAccordionItem.propTypes = {
+  /** Optional actions to be right aligned. Use the `<XUIActions />` component. */
+  action: PropTypes.node,
+
+  children: PropTypes.node,
+
+  /** Description content. */
+  description: PropTypes.node,
+
+  /** Whether this accordion item should open, this should only be true for one item */
+  isOpen: PropTypes.bool,
+
   /** Left most consumer specified component option, sits to the right of the arrow.
    * Typically an `<XUIAvatar />`, `<XUICheckbox />` or `<XUIRolloverCheckbox />` component. */
   leftContent: PropTypes.node,
+
+  /** Callback for a accordion item toggle */
+  onClick: PropTypes.func,
+
+  /** Any component passed as right most content, typically a `<XUIDropdownToggled />` component. */
+  overflow: PropTypes.node,
+
+  /** Pinned to right side of the accordion item trigger. */
+  pinnedValue: PropTypes.node,
 
   /** Primary heading content. */
   primaryHeading: PropTypes.node,
 
   /** Secondary heading content. */
   secondaryHeading: PropTypes.node,
-
-  /** Description content. */
-  description: PropTypes.node,
-
-  /** Pinned to right side of the accordion item trigger. */
-  pinnedValue: PropTypes.node,
-
-  /** Optional actions to be right aligned. Use the `<XUIActions />` component. */
-  action: PropTypes.node,
-
-  /** Any component passed as right most content, typically a `<XUIDropdownToggled />` component. */
-  overflow: PropTypes.node,
-
-  /** Callback for a accordion item toggle */
-  onClick: PropTypes.func,
-
-  /** Whether this accordion item should open, this should only be true for one item */
-  isOpen: PropTypes.bool,
-
-  children: PropTypes.node,
 };
 
 export default XUIAccordionItem;

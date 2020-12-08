@@ -4,7 +4,7 @@
 $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to remove unwanted surrounding space
 $xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top and bottom borders (1px per border)
 $xui-editabletable-z-index-pinned: 3;
-$xui-editabletablecell-vertical-padding: $xui-s-xsmall - 1px; // xsmall, minus a 1px border
+$xui-editabletablecell-vertical-padding: $xui-s-xsmall;
 
 @keyframes #{$ns}-drag-shadow-animation {
   from {
@@ -98,6 +98,8 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall - 1px; // xsmall, minus a
   table-layout: fixed;
   width: 100%;
 
+  // This is required to ensure that the cell heights adjust correctly in Firefox.
+  // See https://github.dev.xero.com/UXE/xui/pull/4865 for more information.
   .#{$ns}-editabletablerow,
   .#{$ns}-editabletablecell {
     height: 100%;

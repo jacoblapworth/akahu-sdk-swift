@@ -23,6 +23,7 @@ const config = {
   transform: {
     '^.+\\.(j|t)sx?$': 'babel-jest',
   },
+  transformIgnorePatterns: ['/node_modules/(?!(@xero))'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 };
 module.exports = config;

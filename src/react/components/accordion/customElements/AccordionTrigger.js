@@ -8,18 +8,18 @@ import { isKeyClick } from '../../helpers/reactKeyHandler';
 
 const AccordionTrigger = ({
   action,
-  qaHook,
-  leftContent,
-  onItemClick,
-  toggleLabel,
+  description,
   id,
   isOpen,
-  primaryHeading,
-  secondaryHeading,
-  description,
+  leftContent,
+  onItemClick,
+  onKeyDown,
   overflow,
   pinnedValue,
-  onKeyDown,
+  primaryHeading,
+  qaHook,
+  secondaryHeading,
+  toggleLabel,
 }) => {
   const onTriggerKeyDown = useCallback(
     event => {
@@ -63,31 +63,31 @@ const AccordionTrigger = ({
       qaHook={qaHook}
       {...{
         action,
-        qaHook,
-        primaryHeading,
-        secondaryHeading,
         description,
         overflow,
         pinnedValue,
+        primaryHeading,
+        qaHook,
+        secondaryHeading,
       }}
     />
   );
 };
 
 AccordionTrigger.propTypes = {
-  id: PropTypes.string.isRequired,
-  leftContent: PropTypes.node,
-  qaHook: PropTypes.string,
-  primaryHeading: PropTypes.node,
-  secondaryHeading: PropTypes.node,
-  description: PropTypes.node,
-  pinnedValue: PropTypes.node,
   action: PropTypes.node,
-  overflow: PropTypes.node,
+  description: PropTypes.node,
+  id: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool,
+  leftContent: PropTypes.node,
   onItemClick: PropTypes.func,
   onKeyDown: PropTypes.func,
+  overflow: PropTypes.node,
+  pinnedValue: PropTypes.node,
+  primaryHeading: PropTypes.node,
+  qaHook: PropTypes.string,
+  secondaryHeading: PropTypes.node,
   toggleLabel: PropTypes.string,
-  isOpen: PropTypes.bool,
 };
 
 export default React.memo(AccordionTrigger);

@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
@@ -46,6 +47,8 @@ class EditableTablePlayground extends React.Component {
       hasHeader,
       hideShowColumns,
       invalidSecondColumn,
+      hasPinnedFirstColumn,
+      hasPinnedLastColumn,
       randomiseContent,
       rows,
       rowOptions,
@@ -88,6 +91,8 @@ class EditableTablePlayground extends React.Component {
             `You have dropped the item. It has moved from position ${startPosition} to ${endPosition}.`
           }
           dndInstructions="Press space bar to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or forms mode."
+          hasPinnedFirstColumn={hasPinnedFirstColumn}
+          hasPinnedLastColumn={hasPinnedLastColumn}
           hiddenColumns={this.state.hiddenColumns}
           isInvalid={invalidSecondColumn}
           maxWidth={maxWidth}
@@ -173,6 +178,8 @@ storiesWithKnobs.add('Playground', () => (
     disableRowControls={boolean('Disable controls in the last row?', false)}
     disableSecondRow={boolean('Disable cells in the second row?', false)}
     hasHeader={boolean('Has header?', true)}
+    hasPinnedFirstColumn={boolean('Has pinned first column?', false)}
+    hasPinnedLastColumn={boolean('Has pinned last column?', false)}
     hideShowColumns={boolean('Show column-hiding filter?', false)}
     invalidSecondColumn={boolean('Invalid cells in the second column?', false)}
     maxWidth={text('Max width', '1100px')}
@@ -206,6 +213,8 @@ variations.forEach(variation => {
       renderSmallerWrapper,
       showAddRowButton,
       cellType,
+      randomiseContent,
+      scrollLeft,
       withDisabled,
       withInvalid,
       validationMessage,
@@ -217,6 +226,49 @@ variations.forEach(variation => {
     delete variationMinusStoryDetails.renderSmallerWrapper;
     delete variationMinusStoryDetails.showAddRowButton;
 
+    return (
+      <EditableTableStoryWrapper
+        cellType={cellType}
+        columnCount={columnCount}
+        hasHeader={hasHeader}
+        randomiseContent={randomiseContent}
+        renderSmallerWrapper={renderSmallerWrapper}
+        rows={rows}
+        scrollLeft={scrollLeft}
+        showAddRowButton={showAddRowButton}
+        validationMessage={validationMessage}
+        variationMinusStoryDetails={variationMinusStoryDetails}
+        withDisabled={withDisabled}
+        withInvalid={withInvalid}
+      />
+    );
+  });
+});
+
+class EditableTableStoryWrapper extends React.Component {
+  componentDidMount() {
+    setTimeout(() => {
+      document.querySelector(
+        '.xui-editabletablewrapper--scrollcontainer',
+      ).scrollLeft = this.props.scrollLeft;
+    });
+  }
+
+  render() {
+    const {
+      columnCount,
+      hasHeader,
+      randomiseContent,
+      rows,
+      renderSmallerWrapper,
+      showAddRowButton,
+      cellType,
+      withDisabled,
+      withInvalid,
+      validationMessage,
+      variationMinusStoryDetails,
+    } = this.props;
+    let cellsCount = 0;
     const editableTableComponent = (
       <XUIEditableTable {...variationMinusStoryDetails} isInvalid={withInvalid}>
         {(hasHeader && (
@@ -237,16 +289,18 @@ variations.forEach(variation => {
               onRemove={() => console.log('remove me')}
             >
               {Array.from(Array(columnCount).keys()).map((item, index) => {
+                cellsCount += 1;
+
                 return !cellType ? (
                   <XUIEditableTableCellReadOnly id={index} key={index}>
                     Cell text
                   </XUIEditableTableCellReadOnly>
                 ) : (
                   generateCell({
-                    cellsCount: 1,
+                    cellsCount: randomiseContent ? cellsCount : 1,
                     cellType,
                     columnIndex: index,
-                    randomiseContent: false,
+                    randomiseContent,
                     isDisabled: withDisabled && index === 2,
                     isInvalid: withInvalid && rowIndex === 2,
                     validationMessage,
@@ -269,14 +323,14 @@ variations.forEach(variation => {
     );
 
     const displayComponent = renderSmallerWrapper ? (
-      <div style={{ width: '400px', overflow: 'hidden' }}>{editableTableComponent}</div>
+      <div style={{ width: '400px' }}>{editableTableComponent}</div>
     ) : (
       editableTableComponent
     );
 
     return displayComponent;
-  });
-});
+  }
+}
 
 const regressionStoriesWithVariations = storiesOf(regressionVariationStoryKindName, module);
 regressionStoriesWithVariations.addDecorator(centered);

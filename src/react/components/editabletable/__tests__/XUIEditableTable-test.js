@@ -72,4 +72,18 @@ describe('<XUIEditableTable />', () => {
       expect(wrapper.text()).not.toContain('Error message');
     });
   });
+
+  describe('pinned columns', () => {
+    it('renders the pinned first column when hasPinnedFirstColumn is passed', () => {
+      const wrapper = shallow(<XUIEditableTable hasPinnedFirstColumn />);
+
+      expect(wrapper.find('.xui-editabletable-pinfirst')).toHaveLength(1);
+    });
+
+    it('renders the pinned last column when hasPinnedLastColumn is passed', () => {
+      const wrapper = shallow(<XUIEditableTable hasPinnedLastColumn />);
+
+      expect(wrapper.find('.xui-editabletable-pinlast')).toHaveLength(1);
+    });
+  });
 });

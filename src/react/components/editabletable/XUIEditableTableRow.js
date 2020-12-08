@@ -58,6 +58,7 @@ const XUIEditableTableRow = ({
             baseName,
             className,
             snapshot?.isDragging && !snapshot?.isDropAnimating && `${baseName}-dragging`,
+            snapshot?.isDropAnimating && `${baseName}-dropping`,
           )}
           data-automationid={qaHook}
           ref={provided?.innerRef}

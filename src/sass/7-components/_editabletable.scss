@@ -3,6 +3,8 @@
 
 $xui-editabletable-invalid-icon-size: 18px; // Override default icon view-box to remove unwanted surrounding space
 $xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top and bottom borders (1px per border)
+$xui-editabletable-z-index-pinned: 3;
+$xui-editabletablecell-vertical-padding: $xui-s-xsmall;
 
 @keyframes #{$ns}-drag-shadow-animation {
   from {
@@ -32,6 +34,24 @@ $xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top 
   top: 1px;
   width: $xui-s-standard;
   z-index: $xui-z-index-responsiveoverlay;
+}
+
+@mixin xui-editabletable-overflow-shadow-left {
+  @include xui-editabletable-overflow;
+  background: linear-gradient(
+    90deg,
+    rgba($xui-color-black, 0.2) 0%,
+    rgba($xui-color-black, 0) 100%
+  );
+}
+
+@mixin xui-editabletable-overflow-shadow-right {
+  @include xui-editabletable-overflow;
+  background: linear-gradient(
+    270deg,
+    rgba($xui-color-black, 0.2) 0%,
+    rgba($xui-color-black, 0) 100%
+  );
 }
 
 .#{$ns}-editabletablewrapper {
@@ -78,6 +98,8 @@ $xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top 
   table-layout: fixed;
   width: 100%;
 
+  // This is required to ensure that the cell heights adjust correctly in Firefox.
+  // See https://github.dev.xero.com/UXE/xui/pull/4865 for more information.
   .#{$ns}-editabletablerow,
   .#{$ns}-editabletablecell {
     height: 100%;
@@ -85,22 +107,12 @@ $xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top 
 }
 
 .#{$ns}-editabletableoverflow-overflowleft:before {
-  @include xui-editabletable-overflow;
-  background: linear-gradient(
-    90deg,
-    rgba($xui-color-black, 0.2) 0%,
-    rgba($xui-color-black, 0) 100%
-  );
+  @include xui-editabletable-overflow-shadow-left;
   left: 0;
 }
 
 .#{$ns}-editabletableoverflow-overflowright:after {
-  @include xui-editabletable-overflow;
-  background: linear-gradient(
-    270deg,
-    rgba($xui-color-black, 0.2) 0%,
-    rgba($xui-color-black, 0) 100%
-  );
+  @include xui-editabletable-overflow-shadow-right;
   right: 0;
 }
 
@@ -172,6 +184,7 @@ $xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top 
 }
 
 .#{$ns}-editabletableheadingcell {
+  background-color: $xui-editabletablehead-bg-color;
   height: $xui-minimum-touch-target;
   padding-left: $xui-s-standard;
   padding-right: $xui-s-standard;
@@ -200,25 +213,24 @@ $xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top 
 }
 
 .#{$ns}-editabletablecellreadonly {
-  @include xui-padding-vertical($xui-s-xsmall - 1px); // xsmall, minus a 1px border
+  @include xui-padding-vertical($xui-editabletablecell-vertical-padding);
   @include xui-padding-horizontal($xui-s-standard);
 }
 
 .#{$ns}-editabletablecellselectbox {
   .#{$ns}-select--button {
-    @include xui-padding-vertical($xui-s-xsmall - 1px); // xsmall, minus a 1px border
-    display: block;
+    @include xui-padding-vertical($xui-editabletablecell-vertical-padding);
     position: relative;
   }
   .#{$ns}-select--content {
     display: block;
     line-height: $xui-line-height-standard;
-    padding-right: $xui-s-standard;
   }
   .#{$ns}-select--caret {
-    position: absolute;
-    right: $xui-s-standard; // Horizontally aligns caret to be consistent with spacing of select-box
-    top: $xui-s-small; // Vertically aligns caret to middle of the cell
+    align-items: center;
+    align-self: flex-start;
+    display: flex;
+    height: $xui-minimum-touch-target - $xui-editabletablecell-vertical-padding * 2; // Minimum content height for the cell
   }
 }
 
@@ -307,6 +319,10 @@ $xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top 
       clip-path: inset(-1px -1px -1px 0px);
     }
   }
+  // When the cell is pinned, ensure the outline is visible above it
+  &.#{$ns}-editabletable--portalfocus-pinned {
+    z-index: calc(#{$xui-editabletable-z-index-pinned} + 1);
+  }
 }
 
 .#{$ns}-editabletableutilitybar--cell {
@@ -316,5 +332,86 @@ $xui-editabletable-overflow-border-adjustment: 2px; // 2px is to offset the top 
     left: 1px; // 1px is the border
     padding: $xui-s-2xsmall;
     position: sticky;
+  }
+}
+
+.#{$ns}-editabletable-pinfirst {
+  .#{$ns}-editabletablecell,
+  .#{$ns}-editabletableheadingcell {
+    &:first-child {
+      left: 1px;
+      position: sticky;
+    }
+  }
+  .#{$ns}-editabletablecell:first-child {
+    background-color: $xui-editabletable-bg-color;
+  }
+}
+
+.#{$ns}-editabletableoverflow-pinoverflowleft {
+  .#{$ns}-editabletableheadingcell:first-child {
+    @include xui-shadow-border-left($xui-standard-border-color);
+    z-index: $xui-editabletable-z-index-pinned;
+    &:after {
+      @include xui-editabletable-overflow-shadow-left;
+      height: 100%;
+      left: 100%;
+      top: 0;
+    }
+  }
+
+  .#{$ns}-editabletablecell:first-child {
+    z-index: $xui-editabletable-z-index-pinned;
+  }
+
+  .#{$ns}-editabletablerow:not(.#{$ns}-editabletablerow-dragging):not(.#{$ns}-editabletablerow-dropping) {
+    .#{$ns}-editabletablecell:first-child:after {
+      @include xui-editabletable-overflow-shadow-left;
+      height: 100%;
+      left: calc(100% + 1px); // +1px stops border and shadow overlapping
+      top: 0;
+    }
+  }
+}
+
+.#{$ns}-editabletable-pinlast {
+  .#{$ns}-editabletablecell,
+  .#{$ns}-editabletableheadingcell {
+    &:last-child {
+      position: sticky;
+      right: 1px;
+    }
+  }
+  .#{$ns}-editabletableheadingcell:last-child {
+    @include xui-shadow-border-right($xui-standard-border-color);
+  }
+  .#{$ns}-editabletablecell:last-child {
+    background-color: $xui-editabletable-bg-color;
+  }
+}
+
+.#{$ns}-editabletableoverflow-pinoverflowright {
+  .#{$ns}-editabletableheadingcell:last-child {
+    height: -webkit-fit-content; // Fixes a Safari bug where a pinned <th> would not match the height of the rest of the header
+    z-index: $xui-editabletable-z-index-pinned;
+    &:after {
+      @include xui-editabletable-overflow-shadow-right;
+      height: 100%;
+      right: 100%;
+      top: 0;
+    }
+  }
+
+  .#{$ns}-editabletablecell:last-child {
+    z-index: $xui-editabletable-z-index-pinned;
+  }
+
+  .#{$ns}-editabletablerow:not(.#{$ns}-editabletablerow-dragging):not(.#{$ns}-editabletablerow-dropping) {
+    .#{$ns}-editabletablecell:last-child:after {
+      @include xui-editabletable-overflow-shadow-right;
+      height: 100%;
+      right: calc(100% + 1px);
+      top: 0;
+    }
   }
 }

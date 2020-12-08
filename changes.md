@@ -65,6 +65,10 @@ Changed classes/variables/mixins are:
 - `xui-text-2xlarge` > `xui-text-3xlarge`
 - `xui-text-3xlarge` > `xui-text-4xlarge`
 
+### Flex utilities
+
+A new `xui-u-flex-align-baseline` flex utility has been added for aligning content on the page. Applying this class will align children so that their baselines align, by setting `align-items: baseline`.
+
 ### Removals
 
 Following classes have been **removed** because left space isn't needed for alignment after the "invalid" icon added:
@@ -117,6 +121,12 @@ Following classes have been **removed** because left space isn't needed for alig
   - `small` and `xsmall` size variants have been added. These change the size of the wrapper _only_ – the icon itself is the same size as the `medium` variant for legibility purposes.
 - `XUIButton` can now include an icon attached to the left or right of the button text, for more details see the ['Component props'](#Component-props) section below.
 - `XUITable` has long supported a `qaHook`, but if provided, this value will now also be added to a unique `data-automationid` for each row and checkboxes and overflow menus for each row. If you are using markup snapshots, they may need to be updated accordingly.
+- `XUITableCell` now supports a `qaHook` property which will add a `data-automationid` to the cell if provided.
+- `XUIAutocompleterEmptyState` now accepts
+  - `XUIIcon` passed as `iconComponent` prop (doing so ignores `icon` prop).
+  - additional icon component props padded as `iconProps` (can be used with `icon` prop but not `iconComponent`)
+- `XUIDropdown` has a new `onScroll` prop, which provides a callback for when the dropdown is scrolled.
+- `XUIDropdownPanel` has a new `onScroll` prop, which provides a callback for when the dropdown is scrolled (this is for use within a `XUINestedDropdown`).
 
 ### Removals
 

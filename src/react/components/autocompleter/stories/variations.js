@@ -75,6 +75,23 @@ const variations = [
     placeholder: 'Placeholder text',
     viewports: desktopPlus320,
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with empty state',
+    storyType: 'XUIAutocompleterEmptyState',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with empty state and custom props',
+    storyType: 'XUIAutocompleterEmptyState',
+    iconProps: { color: 'green' },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with empty state and custom icon',
+    storyType: 'XUIAutocompleterEmptyState',
+    iconComponent: true,
+  },
 ];
 
 Object.keys(fixedWidthDropdownSizes).map(dropdownSize =>

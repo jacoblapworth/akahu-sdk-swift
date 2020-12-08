@@ -3,7 +3,7 @@
 ### Components using stateful picklist
 
 - [Dropdown](#dropdown)
-- [Select box, inherited from dropdown](#selectbox)
+- [Select box, inherited from dropdown](#select-box)
 - [Autocompleter](#autocompleter)
 
 ### Using stateful picklist

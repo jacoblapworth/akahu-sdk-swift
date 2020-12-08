@@ -53,14 +53,17 @@ const componentsToTest = [
     ...fullPageSettings,
   },
   {
+    selectors: '#root',
     testsPrefix: 'XUI Avatar',
     variationsPath: `${variationsPath}/avatar/stories/variations.js`,
   },
   {
+    selectors: '#root',
     testsPrefix: 'XUI Banner',
     variationsPath: `${variationsPath}/banner/stories/variations.js`,
   },
   {
+    selectors: '#root',
     testsPrefix: 'XUI Bar Chart',
     variationsPath: `${variationsPath}/chart/stories/variations.js`,
     readyEvent: 'xui-bar-chart-ready-event',
@@ -75,32 +78,34 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/capsule/stories/variations.js`,
   },
   {
+    selectors: '#root',
     testsPrefix: 'XUI Checkbox',
     variationsPath: `${variationsPath}/checkbox/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI ContentBlock',
+    testsPrefix: 'XUI Content Block',
     variationsPath: `${variationsPath}/contentblock/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI DateInput',
+    testsPrefix: 'XUI Date Input',
     variationsPath: `${variationsPath}/dateinput/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI DatePicker',
+    testsPrefix: 'XUI Date Picker',
     variationsPath: `${variationsPath}/datepicker/stories/variations.js`,
   },
   {
+    selectors: '#root',
     testsPrefix: 'XUI Dropdown',
     variationsPath: `${variationsPath}/dropdown/stories/variations.js`,
     ...fullPageSettings,
   },
   {
-    testsPrefix: 'XUI Editable table',
+    testsPrefix: 'XUI Editable Table',
     variationsPath: `${variationsPath}/editabletable/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI FileUploader',
+    testsPrefix: 'XUI File Uploader',
     variationsPath: `${variationsPath}/fileUploader/stories/variations.js`,
   },
   {
@@ -113,6 +118,7 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/illustration/stories/variations.js`,
   },
   {
+    selectors: '#root',
     testsPrefix: 'XUI Loader',
     variationsPath: `${variationsPath}/loader/stories/variations.js`,
   },
@@ -122,11 +128,11 @@ const componentsToTest = [
     ...fullPageSettings,
   },
   {
-    testsPrefix: 'XUI OverviewBlock',
+    testsPrefix: 'XUI Overview Block',
     variationsPath: `${variationsPath}/overviewblock/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI PageHeader',
+    testsPrefix: 'XUI Page Header',
     variationsPath: `${variationsPath}/pageheader/stories/variations.js`,
   },
   {
@@ -167,7 +173,7 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/range/stories/variations.js`,
   },
   {
-    testsPrefix: 'Rollover Checkbox',
+    testsPrefix: 'XUI Rollover Checkbox',
     variationsPath: `${variationsPath}/rollovercheckbox/stories/variations.js`,
   },
   {
@@ -213,7 +219,7 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Tooltip',
     variationsPath: `${variationsPath}/tooltip/stories/variations.js`,
-    selectors: '#root > div > div > div',
+    selectors: '.xui-tooltip-test',
   },
   {
     testsPrefix: 'Structural',
@@ -321,6 +327,7 @@ backstop('test', {
       ignoreHTTPSErrors: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     },
+    fileNameTemplate: '{scenarioIndex}_{scenarioLabel}_{viewportLabel}',
     id: 'backstop_default',
     paths: {
       bitmaps_reference: './.visual-testing/reference',

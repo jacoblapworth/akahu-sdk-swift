@@ -2,9 +2,9 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { v4 as uuidv4 } from 'uuid';
 import XUIAccordion from '../XUIAccordion';
 import XUIAccordionItem from '../XUIAccordionItem';
-import { v4 as uuidv4 } from 'uuid';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -17,7 +17,7 @@ const qaHook = 'test-id';
 describe('<XUIAccordion />', () => {
   it('should render the base component with only required props passed', () => {
     const component = renderer.create(
-      <XUIAccordion toggleLabel="Toggle" emptyMessage="Nothing available to show" />,
+      <XUIAccordion emptyMessage="Nothing available to show" toggleLabel="Toggle" />,
     );
     expect(component).toMatchSnapshot();
   });
@@ -26,8 +26,8 @@ describe('<XUIAccordion />', () => {
     const component = renderer.create(
       <XUIAccordion
         className="testClass"
-        toggleLabel="Toggle"
         emptyMessage="Nothing available to show"
+        toggleLabel="Toggle"
       />,
     );
     expect(component).toMatchSnapshot();
@@ -36,9 +36,9 @@ describe('<XUIAccordion />', () => {
   it('should render the accordion with a custom qa hook', () => {
     const component = renderer.create(
       <XUIAccordion
+        emptyMessage="Nothing available to show"
         qaHook={qaHook}
         toggleLabel="Toggle"
-        emptyMessage="Nothing available to show"
       />,
     );
     expect(component).toMatchSnapshot();
@@ -46,7 +46,7 @@ describe('<XUIAccordion />', () => {
 
   it('should render a closed accordion item', () => {
     const component = renderer.create(
-      <XUIAccordion toggleLabel="Toggle" emptyMessage="Nothing available to show">
+      <XUIAccordion emptyMessage="Nothing available to show" toggleLabel="Toggle">
         <XUIAccordionItem primaryHeading="John smith">Accountant</XUIAccordionItem>
       </XUIAccordion>,
     );
@@ -56,7 +56,7 @@ describe('<XUIAccordion />', () => {
 
   it('should render an open accordion item', () => {
     const component = renderer.create(
-      <XUIAccordion toggleLabel="Toggle" emptyMessage="Nothing available to show">
+      <XUIAccordion emptyMessage="Nothing available to show" toggleLabel="Toggle">
         <XUIAccordionItem isOpen primaryHeading="John Smith">
           Accountant
         </XUIAccordionItem>
@@ -67,7 +67,7 @@ describe('<XUIAccordion />', () => {
 
   it('should render the default empty state', () => {
     const component = renderer.create(
-      <XUIAccordion toggleLabel="Toggle" emptyMessage="Nothing available to show">
+      <XUIAccordion emptyMessage="Nothing available to show" toggleLabel="Toggle">
         <XUIAccordionItem isOpen />
       </XUIAccordion>,
     );

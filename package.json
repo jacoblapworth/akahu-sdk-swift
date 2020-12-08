@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@xero/blind-date": "2.3.2",
-    "@xero/xui-icon": "^6.4.2",
+    "@xero/xui-icon": "^6.5.2",
     "autosize": "4.0.2",
     "babel-runtime": "^6.26.0",
     "classnames": "^2.2.6",

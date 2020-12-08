@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import XUIIcon from '../../icon/XUIIcon';
 import { ns } from '../../helpers/xuiClassNamespace';
 
-const XUIAccordionItemEmptyState = ({ children, qaHook, emptyIcon }) => (
+const XUIAccordionItemEmptyState = ({ children, emptyIcon, qaHook }) => (
   <div className={`${ns}-accordion--emptystate`} data-automationid={qaHook}>
     <XUIIcon icon={emptyIcon} isBoxed size="large" />
     <div>{children}</div>
@@ -13,11 +13,11 @@ const XUIAccordionItemEmptyState = ({ children, qaHook, emptyIcon }) => (
 export default XUIAccordionItemEmptyState;
 
 XUIAccordionItemEmptyState.propTypes = {
-  qaHook: PropTypes.string,
+  children: PropTypes.node.isRequired,
   emptyIcon: PropTypes.shape({
     height: PropTypes.number,
     path: PropTypes.string,
     width: PropTypes.number,
   }),
-  children: PropTypes.node.isRequired,
+  qaHook: PropTypes.string,
 };

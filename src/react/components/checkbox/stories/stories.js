@@ -4,7 +4,6 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import XUICheckboxGroup from '../XUICheckboxGroup';
@@ -13,7 +12,7 @@ import XUICheckbox from '../XUICheckbox';
 import { variations, storiesWithVariationsKindName } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => (
   <XUICheckbox
     hintMessage={text('hintMessage', '')}

@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, object, text, select, number } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import clearPath from '@xero/xui-icon/icons/clear';
@@ -16,7 +15,7 @@ import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 
-import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithVariationsKindName, variations } from './variations';
 import XUIPill from '../../pill/XUIPill';

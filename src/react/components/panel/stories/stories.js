@@ -4,7 +4,6 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { text, boolean } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import overflow from '@xero/xui-icon/icons/overflow';
@@ -20,6 +19,7 @@ import XUIPanelHeading from '../XUIPanelHeading';
 import XUIPanelFooter from '../XUIPanelFooter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const exampleTabs = (
   <XUIPicklist secondaryProps={{ role: 'menu' }}>

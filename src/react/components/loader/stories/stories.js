@@ -4,7 +4,6 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import { sizeClassNames } from '../private/constants';
@@ -20,7 +19,7 @@ const getContainerStyle = isRequired =>
   isRequired ? { position: 'relative', height: '40px', width: '100px' } : {};
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   const size = select('size', sizes, sizes[0]);
 

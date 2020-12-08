@@ -2,8 +2,9 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, number, boolean, text, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
+
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import {
   variations,
@@ -158,7 +159,6 @@ class EditableTablePlayground extends React.Component {
 
 const storiesWithKnobs = storiesOf(variationStoryKindName, module);
 storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <EditableTablePlayground
     ariaLabel={text('Aria label', '')}

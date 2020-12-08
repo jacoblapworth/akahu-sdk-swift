@@ -4,7 +4,6 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { select, text, boolean } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import overflow from '@xero/xui-icon/icons/overflow';
@@ -73,7 +72,7 @@ const buildExampleContentblockItem = children =>
 const exampleClickHandler = () => console.log('clicked');
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   const staticItems = [
     {

@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, object, array } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import XUIBanner from '../XUIBanner';
@@ -45,7 +44,7 @@ class DetailedBanner extends Component {
 }
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => (
   <DetailedBanner
     actionProps={object('actions', [

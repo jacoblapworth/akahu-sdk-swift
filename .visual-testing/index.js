@@ -33,8 +33,8 @@ const fullPageSettings = {
  * 	testsPrefix: 'XUI Pill',
  *	variationsPath: `${variationsPath}/pill/stories/variations.js`,
  *	variationsProp: 'myVariationsPropName', (defaults to 'variations')
- *	selectors: 'alternate > .selectors' (defaults to '#root > div > div')
- *	misMatchThreshold: 5 (percentage variance to allow. defaults to .6 or .4 for full-page capture)
+ *	selectors: 'alternate > .selectors' (defaults to '.xui-default-decorator')
+ *	misMatchThreshold: 5 (percentage variance to allow, defaults to 0)
  *	delay: adds a delay between onReady and capture
  * }
  */
@@ -279,7 +279,7 @@ function buildScenarios() {
           const scenarioProp = {
             label: `${component.testsPrefix} ${story.storyTitle}`,
             url: buildUrl(story.storyKind, story.storyTitle),
-            selectors: [story.selectors || component.selectors || '#root > div > div'],
+            selectors: [story.selectors || component.selectors || '.xui-default-decorator'],
             misMatchThreshold: story.misMatchThreshold || component.misMatchThreshold || 0,
             selectorExpansion: component.captureAllSelectors,
             delay,

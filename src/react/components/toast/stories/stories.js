@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, select, object } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import XUIToast from '../XUIToast';
@@ -14,6 +13,7 @@ import XUIToastActions from '../XUIToastActions';
 import { sentimentMap } from '../private/constants';
 
 import { variations, storiesWithVariationsKindName } from './variations';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const NOOP = () => {};
 

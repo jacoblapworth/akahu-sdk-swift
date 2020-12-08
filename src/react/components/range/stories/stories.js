@@ -4,13 +4,13 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, number, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIRange from '../XUIRange';
 
 import { storiesWithVariationsKindName, variations } from './variations';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);

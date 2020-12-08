@@ -171,7 +171,6 @@
     "sass-loader": "8.0.2",
     "serve-static": "1.14.1",
     "simple-mock": "0.8.0",
-    "storybook-readme": "5.0.8",
     "style-loader": "1.2.1",
     "stylelint": "13.6.1",
     "stylelint-order": "4.1.0",

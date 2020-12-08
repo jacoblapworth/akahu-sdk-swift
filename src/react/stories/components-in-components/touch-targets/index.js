@@ -1,8 +1,5 @@
 // Story book things
 import { storiesOf } from '@storybook/react';
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// import { withReadme } from 'storybook-readme';
-// import readme from './README.md';
 
 // Libs
 import React from 'react';
@@ -29,8 +26,6 @@ const displayMonth = new Date('Nov 01 2019 00:00:00');
 const test = storiesOf(compositionKind, module);
 
 test.addDecorator(revealTouchTargets);
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// test.addDecorator(withReadme(readme));
 
 test.add(storyNames.touchTargets, () => {
   class TouchTargets extends React.Component {

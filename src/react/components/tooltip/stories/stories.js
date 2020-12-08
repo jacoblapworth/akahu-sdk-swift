@@ -4,7 +4,6 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, select, number } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import info from '@xero/xui-icon/icons/info';
@@ -15,6 +14,7 @@ import XUIIconButton from '../../button/XUIIconButton';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import { positionOptions } from '../../positioning/private/constants';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const createTriggerInput = props => (
   <XUITextInput isLabelHidden label="Input label" placeholder="Placeholder text" {...props} />

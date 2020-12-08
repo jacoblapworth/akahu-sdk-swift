@@ -4,19 +4,17 @@ import React, { PureComponent } from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { object, boolean, text, select, number, color } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 import { variations, storiesWithVariationsKindName } from './variations';
 import { createArray } from '../../progressindicator/helpers/utilities';
 
 // Components we need to test with
 import XUIBarChart from '../XUIBarChart';
 
-import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 import logReadyState from '../../../stories/helpers/log-ready-state';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 
-storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   const chartWidth = number('Chart width', 500);
   const chartHeight = number('Chart height', 400);

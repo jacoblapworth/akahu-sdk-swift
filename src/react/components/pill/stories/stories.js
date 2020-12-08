@@ -4,7 +4,6 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, object, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import { sizeClasses } from '../private/constants';
@@ -12,6 +11,7 @@ import XUIPill from '../XUIPill';
 
 import NOOP from '../../helpers/noop';
 import { variations, avatarProps, storiesWithVariationsKindName } from './variations';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);

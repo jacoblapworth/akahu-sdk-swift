@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// import { addReadme } from 'storybook-readme';
-// import readme from './README.md';
 
 // Components we need to test with
 import arrow from '@xero/xui-icon/icons/arrow';
@@ -38,13 +35,6 @@ import { storyNames, compositionKind } from '../tests';
 const NOOP = () => {};
 
 const test = storiesOf(compositionKind, module);
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// test.addDecorator(addReadme);
-// test.addParameters({
-// 	readme: {
-// 		sidebar: readme
-// 	}
-// });
 
 const inputMap = {
   ah: 'account-holder',

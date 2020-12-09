@@ -24,6 +24,7 @@ const Test = ({ children }) => {
         value={{
           emptyStateComponent,
           openAccordionItemId: openItemId,
+          qaHook,
           setOpenAccordionItem: setOpenItemId,
           toggleLabel: 'Toggle',
         }}

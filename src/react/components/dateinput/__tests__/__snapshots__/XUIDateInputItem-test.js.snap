@@ -1,0 +1,286 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUIDateInput Single DateInput inserts selected date value 1`] = `
+<div>
+  <div
+    className="xui-dropdown--toggledwrapper"
+    data-ref="toggled-wrapper"
+    role="presentation"
+  >
+    <div
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+    >
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+        role="presentation"
+      >
+        <div
+          className="xui-dateinput xui-textinput xui-textinput-medium"
+        >
+          <div
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+          >
+            <div
+              className="xui-iconwrapper xui-iconwrapper-medium"
+            >
+              <svg
+                className="xui-icon xui-icon-color-black-faint"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
+              >
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm6-4h3v3H7V8z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
+          </div>
+          <input
+            aria-invalid={null}
+            className="xui-textinput--input xui-textinput--input-medium"
+            id="testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
+            }
+            value="15 Dec 2020"
+          />
+        </div>
+        <div
+          className="xui-validation xui-validation-layout"
+          id="testDateinputId-message"
+          role="status"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`XUIDateInput Single DateInput renders disabled 1`] = `
+<div>
+  <div
+    className="xui-dropdown--toggledwrapper"
+    data-ref="toggled-wrapper"
+    role="presentation"
+  >
+    <div
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+    >
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+        role="presentation"
+      >
+        <div
+          className="xui-dateinput xui-textinput xui-textinput-medium xui-textinput-is-disabled"
+        >
+          <div
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+          >
+            <div
+              className="xui-iconwrapper xui-iconwrapper-medium"
+            >
+              <svg
+                className="xui-icon xui-icon-color-black-faint"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
+              >
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm6-4h3v3H7V8z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
+          </div>
+          <input
+            aria-invalid={null}
+            className="xui-textinput--input xui-textinput--input-medium"
+            disabled={true}
+            id="testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
+            }
+            value="15 Dec 2020"
+          />
+        </div>
+        <div
+          className="xui-validation xui-validation-layout"
+          id="testDateinputId-message"
+          role="status"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`XUIDateInput Single DateInput renders with the provided hint label 1`] = `
+<div>
+  <div
+    className="xui-dropdown--toggledwrapper"
+    data-ref="toggled-wrapper"
+    role="presentation"
+  >
+    <div
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+    >
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+        role="presentation"
+      >
+        <label
+          className="xui-text-label xui-fieldlabel-layout"
+          htmlFor="testDateinputId-control"
+        >
+          hint message
+        </label>
+        <div
+          className="xui-dateinput xui-textinput xui-textinput-medium"
+        >
+          <div
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+          >
+            <div
+              className="xui-iconwrapper xui-iconwrapper-medium"
+            >
+              <svg
+                className="xui-icon xui-icon-color-black-faint"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
+              >
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm6-4h3v3H7V8z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
+          </div>
+          <input
+            aria-invalid={null}
+            className="xui-textinput--input xui-textinput--input-medium"
+            id="testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
+            }
+            value="15 Dec 2020"
+          />
+        </div>
+        <div
+          className="xui-validation xui-validation-layout"
+          id="testDateinputId-message"
+          role="status"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`XUIDateInput Single DateInput renders with validation message 1`] = `
+<div>
+  <div
+    className="xui-dropdown--toggledwrapper"
+    data-ref="toggled-wrapper"
+    role="presentation"
+  >
+    <div
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+    >
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+        role="presentation"
+      >
+        <label
+          className="xui-text-label xui-fieldlabel-layout"
+          htmlFor="testDateinputId-control"
+        >
+          hint message
+        </label>
+        <div
+          className="xui-dateinput xui-textinput xui-textinput-medium"
+        >
+          <div
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+          >
+            <div
+              className="xui-iconwrapper xui-iconwrapper-medium"
+            >
+              <svg
+                className="xui-icon xui-icon-color-black-faint"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
+              >
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm6-4h3v3H7V8z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
+          </div>
+          <input
+            aria-invalid={null}
+            className="xui-textinput--input xui-textinput--input-medium"
+            id="testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
+            }
+            value="15 Dec 2020"
+          />
+        </div>
+        <div
+          className="xui-validation xui-validation-layout"
+          id="testDateinputId-message"
+          role="status"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

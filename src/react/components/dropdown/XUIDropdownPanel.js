@@ -262,6 +262,7 @@ class XUIDropdownPanel extends PureComponent {
       ignoreKeyboardEvents,
       isHidden,
       onHighlightChange,
+      onScroll,
       onSelect,
       panelId,
       qaHook,
@@ -316,6 +317,7 @@ class XUIDropdownPanel extends PureComponent {
                 <div
                   className={`${baseClass}--scrollable-content`}
                   data-automationid={qaHook && `${qaHook}--scrollable-content`}
+                  onScroll={onScroll}
                   ref={this._scrollableContent}
                 >
                   {children}
@@ -331,6 +333,7 @@ class XUIDropdownPanel extends PureComponent {
               <div
                 className={`${baseClass}--scrollable-content`}
                 data-automationid={qaHook && `${qaHook}--scrollable-content`}
+                onScroll={onScroll}
                 ref={this._scrollableContent}
               >
                 {children}
@@ -368,6 +371,9 @@ XUIDropdownPanel.propTypes = {
 
   /** keydown event handler */
   onKeyDown: PropTypes.func,
+
+  /** Callback for adding additional onScroll functionality. */
+  onScroll: PropTypes.func,
 
   /** A generalised callback when an item has been selected. */
   onSelect: PropTypes.func,

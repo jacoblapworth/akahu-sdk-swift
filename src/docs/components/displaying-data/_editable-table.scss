@@ -124,6 +124,22 @@
 //
 // Styleguide: Components.DisplayingData.EditableTable.3.2.2
 
+// Pinned columns
+//
+// In tables that have content that horizontally scrolls, there may be columns that you wish to have visible at all times to help provide context to other data in the table, eg a drag handle or overflow menu. First and last columns in the editable table can be pinned by toggling the `hasPinnedFirstColumn` and `hasPinnedLastColumn` properties.
+//
+// Classes:
+// xui-editabletable-pinfirst: Applied to the table to pin the first column
+// xui-editabletable-pinlast: Applied to the table to pin the last column
+// xui-editabletableoverflow-pinoverflowleft: Applied to the editable table wrapper to provide overflow styling when the left column is pinned
+// xui-editabletableoverflow-pinoverflowright: Applied to the editable table wrapper to provide overflow styling when the right column is pinned
+//
+// Tips:
+// Do: Pin columns that help provide context to other column data as the user scrolls horizontally
+// Warning: Pinned columns should be narrow as to avoid covering other data in the table
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.2.3
+
 // Rows
 //
 // Rows in a table are used to represent individual line items in a dataset. Rows can contain data of any kind, but also could house interactive controls, for example, for editing cell data, navigating, or triggering actions relating to the item.

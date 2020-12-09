@@ -6,6 +6,8 @@ export interface XUIEditableTableContextShape {
     dragHandleDescribedBy?: string;
     rowPlaceholder?: React.ReactElement<HTMLElement> | null;
   };
+  hasPinnedFirstColumn?: boolean;
+  hasPinnedLastColumn?: boolean;
   rowOptions: {
     dragButtonAriaLabel?: string;
     isDraggable?: boolean;

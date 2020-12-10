@@ -1,10 +1,10 @@
 // Accessible Design
 //
-// Introduction: Guide to accessible design at Xero (WCAG 2.0 AA)
+// Introduction: Guide to accessible design at Xero (WCAG 2.1 AA)
 //
-// Designing accessible products at Xero is much more than just using the accessible components XUI provides. And many of us care deeply about accessibility, but might be unsure where to start. Additionally, the official guidelines are dense and not organised in a way that's particularly digestible. The intent of this document is to offer a condensed, plain-language summary of these guidelines, categorised in a way that better supports our team. What follows is our interpretation of the specifications for WCAG 2.0 AA compliance, and what is most relevant to you as a designer. Keep in mind, this is the minimum acceptable requirement for accessibility, but Xero has several additional usability guidelines in our [official documentation](xui.xero.com), that complement the ones below.
+// Designing accessible products at Xero is much more than just using the accessible components XUI provides. And many of us care deeply about accessibility, but might be unsure where to start. Additionally, the official guidelines are dense and not organised in a way that's particularly digestible. The intent of this document is to offer a condensed, plain-language summary of these guidelines, categorised in a way that better supports our team. What follows is our interpretation of the specifications for WCAG 2.1 AA compliance, and what is most relevant to you as a designer. Keep in mind, this is the minimum acceptable requirement for accessibility, but Xero has several additional usability guidelines in our [official documentation](xui.xero.com), that complement the ones below.
 //
-// For more information, be sure to read the full [WCAG specification ](https://www.w3.org/TR/UNDERSTANDING-WCAG20/)or check out another of our favourite resources, the [WUHCAG](https://www.wuhcag.com/).
+// For more information, be sure to read the full [WCAG specification ](w3.org/TR/WCAG21//)or check out another of our favourite resources, the [WUHCAG](https://www.wuhcag.com/).
 //
 // Weight: 1.42
 //
@@ -13,7 +13,8 @@
 // Color and contrast
 //
 // *   All text must have a minimum contrast ratio of 4:5:1 with the background.
-// *   All text larger than 18px must have a minimum contrast ratio of 3:1 with the background
+// *   All text larger than 18px must have a minimum contrast ratio of 3:1 with the background.
+// *   Meaningful graphical and UI components (and their states) must have a minimum contrast ratio of 3:1 against adjacent colours.
 // *   Don't rely on colour alone to communicate a message. Information should also be conveyed by text, iconography, or another clear stylistic change.
 // *   All focus states must be clear and highly visible.
 // *   Disabled controls are exempt from these rules.
@@ -24,6 +25,7 @@
 // Navigation and interaction
 //
 // *   Ensure your design is still usable when zoomed to 200%.
+// *   Allow display orientation to be freely changed by the user e.g. portrait to landscape
 // *   Keep a consistent navigation experience across all pages.
 // *   Build forgiving validation, accepting multiple formats, if possible, and format data for consistency after the fact.
 // *   Don't limit functionality to one input mechanism. For example, don't hide things behind a hover action alone. Always provide an additional method to interact with something.

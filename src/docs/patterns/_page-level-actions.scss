@@ -4,27 +4,28 @@
 //
 // Teaser: Best practices and placemenet for page-level actions like create, edit, finish, navigate, delete, and cancel.
 //
-// Introduction: Surfacing page level actions like create, delete, done, edit with a considered system in mind helps us to build interfaces that are familiar and easy to navigate for our users. 
-// </br>
-// Below you will find guidance for general best practice and placement of these page-level actions. These guidelines aim to consolidate a wide range of existing approaches that are currently in our products. This documentation will continue to evolve in detail over time as we begin to provide more predictable interfaces to our users.
+// Introduction: <p>Surfacing page level actions like create, delete, done, edit with a considered system in mind helps us to build interfaces that are familiar and easy to navigate for our users. </p>
 //
 // Styleguide: Patterns.Page-level-actions
 
 // Best practice
 //
+// Below you will find guidance for general best practice. These guidelines aim to consolidate a wide range of existing approaches that are currently in our products.
+//
+//
 // * <strong>Aim to use only 1 primary action on a single page. Primary actions initiate or conclude the main workflow, or navigate users to the next step.</strong>
 // </br>
 // Using as few primary actions as possible on a page creates a clear information hierarchy and presents a workflow that’s likely to be remembered ([Von Restorff Effect](https://lawsofux.com/von-restorff-effect))
 //
-// * <strong>Use appropriate [button styles](#) to ensure there’s a clear information hierarchy</strong>
+// * <strong>Use appropriate [button styles](./section-components-controls-button.html#components-controls-button-3) to ensure there’s a clear information hierarchy</strong>
 //
-// * <strong>Use appropriate [button layouts](#) when there are multiple actions in a form, modal, or linear flow</strong>
+// * <strong>Use appropriate [button layouts](./section-components-controls-button.html#components-controls-button-13) when there are multiple actions in a form, modal, or linear flow</strong>
 //
 // * <strong>Place actions close to the content they affect</strong>
 // </br>
 // [Read more about Fitts’s Law](https://lawsofux.com/fittss-law.html)
 //
-// * <strong>Choose a suitable [button size](#) for where a button is placed on a page</strong>
+// * <strong>Choose a suitable [button size](./section-components-controls-button.html#components-controls-button-4) for where a button is placed on a page</strong>
 // </br>
 // Use “small” and “xsmall” variants when nested inside other elements.
 //
@@ -34,7 +35,7 @@
 //
 // * <strong>Consider using an overflow icon button or a split button when grouping many actions together</strong>
 // </br>
-// Using an [overflow icon button](#) or a [split button](#) helps prioritise the most important actions and reduce a user’s cognitive load
+// Using an [overflow icon button](./section-components-controls-button.html#components-controls-button-6.html) or a [split button](./section-components-controls-button.html#components-controls-button-12.html) helps prioritise the most important actions and reduce a user’s cognitive load
 //
 // * <strong>Place actions where users expect them to be, and be consistent throughout the workflow</strong>
 // </br>
@@ -55,7 +56,7 @@
 // Do: Include actions that affect the entire page layout/content
 // Don't: Don’t include actions that only affect a part of the page
 // Don't: Don’t include actions that require consideration of the content before taking
-// Warning: [Read the Page header component guide](#)
+// Warning: [Read the Page header component guide](./section-components-navigation-page-header.html)
 //
 // Styleguide: Patterns.Page-level-actions.2.1
 
@@ -76,11 +77,11 @@
 // Main content areas might include:
 //
 // Related:
-// * [Accordion](#)
-// * [Content block](#)
-// * [Form](#)
-// * [Modal](#)
-// * [Table](#)
+// * [Accordion](./section-components-displayingdata-accordion.html)
+// * [Content block](./section-components-displayingdata-contentblock.html)
+// * [Form](./section-components-collectinginput-forms.html)
+// * [Modal](./section-components-collectinginput-modals.html)
+// * [Table](./section-components-displayingdata-table.html)
 //
 // Styleguide: Patterns.Page-level-actions.2.3
 
@@ -99,16 +100,16 @@
 // Do: Include actions that must always be visible
 // Do: Include actions that can be triggered at any time
 // Don't: Don’t include actions that require consideration of the content before triggering
-// Warning: [Read the Fixed footer component guide](#)
+// Warning: [Read the Fixed footer component guide](./section-components-navigation-fixedfooter.html)
 //
 // Styleguide: Patterns.Page-level-actions.2.5
 
 // Related links
 //
 // Related:
-// * [Button](./section-components-identifiers-loader.html)
-// * [Fixed Footer](./section-fundamentals-icons.html)
-// * [Isolation header](./section-components-controls-switch.html)
-// * [Page header](./section-components-controls-toggle.html)
+// * [Button](./section-components-controls-button.html)
+// * [Fixed Footer](./section-components-navigation-fixedfooter.html)
+// * [Isolation header](./section-components-navigation-isolation-header.html)
+// * [Page header](./section-components-navigation-page-header.html)
 //
 // Styleguide: Patterns.Page-level-actions.99

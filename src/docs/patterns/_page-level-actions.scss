@@ -54,6 +54,8 @@
 //
 // Image: page-level-actions/placement-page-header.svg
 //
+// Image-caption: Page header
+//
 // Tips:
 // Do: Include actions that start a new flow
 // Do: Include actions that affect the entire page layout/content
@@ -63,7 +65,17 @@
 //
 // Styleguide: Patterns.Page-level-actions.2.1
 
+// Example
+//
+// Image: page-level-actions/example-page-header.png
+//
+// <p><strong>Do</strong>: Include actions that start a new flow </br> <strong>Don’t</strong>: Include actions that require the user to consider all page content before triggering </p>
+// 
+// Styleguide: Patterns.Page-level-actions.2.1.1
+
 // Before the main content
+//
+// Image: page-level-actions/placement-before-main.svg
 //
 // Tips:
 // Do: Include actions that affect the main content below
@@ -90,6 +102,8 @@
 
 // After the main content
 //
+// Image: page-level-actions/placement-after-main.svg
+//
 // Tips:
 // Do: Include actions that require the user to consider all page content before triggering
 // Do: Include actions that conclude the current flow
@@ -98,6 +112,8 @@
 // Styleguide: Patterns.Page-level-actions.2.4
 
 // Fixed footer
+//
+// Image: page-level-actions/placement-fixed-footer.svg
 //
 // Tips:
 // Do: Include actions that must always be visible

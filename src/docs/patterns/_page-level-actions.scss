@@ -12,6 +12,7 @@
 //
 // Below you will find guidance for general best practice. These guidelines aim to consolidate a wide range of existing approaches that are currently in our products.
 //
+// </br>
 //
 // * <strong>Aim to use only 1 primary action on a single page. Primary actions initiate or conclude the main workflow, or navigate users to the next step.</strong>
 // </br>
@@ -51,12 +52,14 @@
 
 // Page header
 //
+// Image: page-level-actions/placement-page-header.svg
+//
 // Tips:
 // Do: Include actions that start a new flow
 // Do: Include actions that affect the entire page layout/content
 // Don't: Don’t include actions that only affect a part of the page
 // Don't: Don’t include actions that require consideration of the content before taking
-// Warning: [Read the Page header component guide](./section-components-navigation-page-header.html)
+// Info: [Read the Page header component guide](./section-components-navigation-page-header.html)
 //
 // Styleguide: Patterns.Page-level-actions.2.1
 

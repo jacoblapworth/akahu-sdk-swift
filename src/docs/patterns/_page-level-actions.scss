@@ -55,8 +55,7 @@
 // Do: Include actions that affect the entire page layout/content
 // Don't: Don’t include actions that only affect a part of the page
 // Don't: Don’t include actions that require consideration of the content before taking
-//
-// [Read the Page header component guide](#)
+// Warning: [Read the Page header component guide](#)
 //
 // Styleguide: Patterns.Page-level-actions.2.1
 
@@ -74,12 +73,14 @@
 //
 // Actions in the main content are considered component-level actions. Please refer to specific component pages for guidance.
 //
-// Main content areas might include
-// [Accordion](#)
-// [Content block](#)
-// [Form](#)
-// [Modal](#)
-// [Table](#)
+// Main content areas might include:
+//
+// Related:
+// * [Accordion](#)
+// * [Content block](#)
+// * [Form](#)
+// * [Modal](#)
+// * [Table](#)
 //
 // Styleguide: Patterns.Page-level-actions.2.3
 
@@ -98,7 +99,16 @@
 // Do: Include actions that must always be visible
 // Do: Include actions that can be triggered at any time
 // Don't: Don’t include actions that require consideration of the content before triggering
-//
-// [Read the Fixed footer component guide](#)
+// Warning: [Read the Fixed footer component guide](#)
 //
 // Styleguide: Patterns.Page-level-actions.2.5
+
+// Related links
+//
+// Related:
+// * [Button](./section-components-identifiers-loader.html)
+// * [Fixed Footer](./section-fundamentals-icons.html)
+// * [Isolation header](./section-components-controls-switch.html)
+// * [Page header](./section-components-controls-toggle.html)
+//
+// Styleguide: Patterns.Page-level-actions.99

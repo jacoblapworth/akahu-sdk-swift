@@ -52,10 +52,6 @@
 
 // Page header
 //
-// Image: page-level-actions/placement-page-header.svg
-//
-// Image-caption: Page header
-//
 // Tips:
 // Do: Include actions that start a new flow
 // Do: Include actions that affect the entire page layout/content
@@ -63,19 +59,28 @@
 // Don't: Don’t include actions that require consideration of the content before taking
 // Info: [Read the Page header component guide](./section-components-navigation-page-header.html)
 //
+//
 // Styleguide: Patterns.Page-level-actions.2.1
+
+// Placement
+//
+// Image: page-level-actions/placement-page-header.svg
+//
+// Image-caption: Red dotted line shows where to put page-level actions in the page header
+//
+// Styleguide: Patterns.Page-level-actions.2.1.1
 
 // Example
 //
 // Image: page-level-actions/example-page-header.png
 //
-// <p><strong>Do</strong>: Include actions that start a new flow </br> <strong>Don’t</strong>: Include actions that require the user to consider all page content before triggering </p>
+// Tips:
+// Do: Include actions that start a new flow
+// Don't: Include actions that require the user to consider all page content before triggerin
 // 
-// Styleguide: Patterns.Page-level-actions.2.1.1
+// Styleguide: Patterns.Page-level-actions.2.1.2
 
 // Before the main content
-//
-// Image: page-level-actions/placement-before-main.svg
 //
 // Tips:
 // Do: Include actions that affect the main content below
@@ -84,6 +89,24 @@
 // Don't: include actions that require consideration of the content before triggering
 //
 // Styleguide: Patterns.Page-level-actions.2.2
+
+// Placement
+//
+// Image: page-level-actions/placement-before-main.svg
+//
+// Image-caption: Red dotted line shows where to put page-level actions
+//
+// Styleguide: Patterns.Page-level-actions.2.2.1
+
+// Example
+//
+// Image: page-level-actions/example-before-main.png
+//
+// Tips:
+// Do: Include actions that affect the content below 
+// Don't: Include actions that affect the entire page layout/content
+// 
+// Styleguide: Patterns.Page-level-actions.2.2.2
 
 // In the main content
 //
@@ -102,8 +125,6 @@
 
 // After the main content
 //
-// Image: page-level-actions/placement-after-main.svg
-//
 // Tips:
 // Do: Include actions that require the user to consider all page content before triggering
 // Do: Include actions that conclude the current flow
@@ -111,9 +132,25 @@
 //
 // Styleguide: Patterns.Page-level-actions.2.4
 
-// Fixed footer
+// Placement
 //
-// Image: page-level-actions/placement-fixed-footer.svg
+// Image: page-level-actions/placement-after-main.svg
+//
+// Image-caption: Red dotted line shows where to put page-level actions
+//
+// Styleguide: Patterns.Page-level-actions.2.4.1
+
+// Example
+//
+// Image: page-level-actions/example-after-main.png
+//
+// Tips:
+// Do: Include actions that require consideration of the content before triggering
+// Don't: Include actions that start a new flow
+// 
+// Styleguide: Patterns.Page-level-actions.2.4.2
+
+// Fixed footer
 //
 // Tips:
 // Do: Include actions that must always be visible
@@ -122,6 +159,24 @@
 // Warning: [Read the Fixed footer component guide](./section-components-navigation-fixedfooter.html)
 //
 // Styleguide: Patterns.Page-level-actions.2.5
+
+// Placement
+//
+// Image: page-level-actions/placement-fixed-footer.svg
+//
+// Image-caption: Red dotted line shows where to put page-level actions
+//
+// Styleguide: Patterns.Page-level-actions.2.5.1
+
+// Example
+//
+// Image: page-level-actions/example-fixed-footer.png
+//
+// Tips:
+// Do: Include actions that must be always visible, or can be triggered any time
+// Don't: Include actions that affect the entire page or content
+// 
+// Styleguide: Patterns.Page-level-actions.2.5.2
 
 // Related links
 //

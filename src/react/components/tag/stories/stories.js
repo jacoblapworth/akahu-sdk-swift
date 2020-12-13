@@ -9,10 +9,8 @@ import { text, select } from '@storybook/addon-knobs';
 import XUITag, { variants, sizes } from '../XUITag';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => (
   <XUITag
     size={select('size', Object.keys(sizes), 'medium')}

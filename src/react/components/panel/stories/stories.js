@@ -19,7 +19,6 @@ import XUIPanelHeading from '../XUIPanelHeading';
 import XUIPanelFooter from '../XUIPanelFooter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const exampleTabs = (
   <XUIPicklist secondaryProps={{ role: 'menu' }}>
@@ -74,7 +73,6 @@ const section = settings => {
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const hasHeading = boolean('Has panel heading?', false);
   const hasFooter = boolean('Has panel footer?', false);

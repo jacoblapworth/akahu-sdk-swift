@@ -12,7 +12,6 @@ import XUITextInput from '../../../textinput';
 import XUIPopover, { XUIPopoverBody, XUIPopoverHeader, XUIPopoverFooter } from '../../../popover';
 
 import { variations, storyKind, variationStoryKind } from './variations';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const buildTrigger = (
   triggerText = 'trigger',
@@ -117,7 +116,7 @@ const Playground = props => {
 };
 
 const storiesWithKnobs = storiesOf(storyKind, module);
-storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   return (
     <Playground
@@ -131,7 +130,7 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(variationStoryKind, module);
-storiesWithVariations.addDecorator(centered);
+storiesWithVariations.addParameters({ layout: 'centered' });
 
 variations.forEach(({ storyKind, storyTitle, subVariants, ...variation }) => {
   storiesWithVariations.add(storyTitle, () => <PopoverWithTrigger {...variation} />);

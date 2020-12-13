@@ -14,7 +14,6 @@ import XUIIconButton from '../../button/XUIIconButton';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import { positionOptions } from '../../positioning/private/constants';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const createTriggerInput = props => (
   <XUITextInput isLabelHidden label="Input label" placeholder="Placeholder text" {...props} />
@@ -63,7 +62,7 @@ const createParaWithInlineTrigger = props => (
 );
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
+
 storiesWithKnobs.add('Playground', () => {
   const props = {
     triggerOnClick: boolean('triggerOnClick', false),
@@ -238,6 +237,7 @@ variations.forEach(variation => {
 
     return (
       <div
+        className="xui-tooltip-test"
         style={{
           width: '600px',
           height: '400px',

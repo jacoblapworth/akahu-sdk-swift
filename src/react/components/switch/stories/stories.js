@@ -11,10 +11,8 @@ import XUISwitchGroup from '../XUISwitchGroup';
 import XUISwitch from '../XUISwitch';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => (
   <XUISwitch
     hintMessage={text('hintMessage', '')}

@@ -10,8 +10,6 @@ import XUIOverviewBlock from '../XUIOverviewBlock';
 import XUIOverviewSection from '../XUIOverviewSection';
 import { overviewSentiments } from '../private/constants';
 
-import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
-
 import { variations, storiesWithVariationsKindName } from './variations';
 import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
 
@@ -19,7 +17,6 @@ const buildExampleSections = children =>
   children.map((child, index) => <XUIOverviewSection key={index} {...child} />);
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(customCentered);
 
 storiesWithKnobs.add('Playground', () => {
   const indicator = (

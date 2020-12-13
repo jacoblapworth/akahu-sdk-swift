@@ -1,4 +1,6 @@
-import { configure, addParameters } from '@storybook/react';
+import { configure, addParameters, addDecorator } from '@storybook/react';
+
+import xuiDefaultDecorator from './decorators/xuiDefaultDecorator';
 
 function requireAll(requireContext) {
   return requireContext.keys().map(requireContext);
@@ -12,5 +14,6 @@ function loadStories() {
   );
 }
 
-addParameters({ layout: 'fullscreen' }); // Removes default padding in storybook v6
+addDecorator(xuiDefaultDecorator);
+addParameters({ layout: 'fullscreen' });
 configure(loadStories, module);

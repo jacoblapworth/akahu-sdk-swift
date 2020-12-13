@@ -10,8 +10,6 @@ import XUIRow from '../XUIRow';
 import XUIColumn from '../XUIColumn';
 import { rowVariants } from '../private/constants';
 
-import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
-
 import { variations, storiesWithVariationsKindName } from './variations';
 
 const buildColumns = widths =>
@@ -29,7 +27,6 @@ const buildColumns = widths =>
   ));
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(customCentered);
 
 storiesWithKnobs.add('Columns Playground', () => {
   const columnCount = number('number of columns', 3);

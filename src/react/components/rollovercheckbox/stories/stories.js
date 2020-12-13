@@ -10,10 +10,8 @@ import XUIRolloverCheckbox from '../XUIRolloverCheckbox';
 import XUIAvatar from '../../avatar/XUIAvatar';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const sizedAvatar = (
     <XUIAvatar

@@ -53,17 +53,14 @@ const componentsToTest = [
     ...fullPageSettings,
   },
   {
-    selectors: '#root',
     testsPrefix: 'XUI Avatar',
     variationsPath: `${variationsPath}/avatar/stories/variations.js`,
   },
   {
-    selectors: '#root',
     testsPrefix: 'XUI Banner',
     variationsPath: `${variationsPath}/banner/stories/variations.js`,
   },
   {
-    selectors: '#root',
     testsPrefix: 'XUI Bar Chart',
     variationsPath: `${variationsPath}/chart/stories/variations.js`,
     readyEvent: 'xui-bar-chart-ready-event',
@@ -78,7 +75,6 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/capsule/stories/variations.js`,
   },
   {
-    selectors: '#root',
     testsPrefix: 'XUI Checkbox',
     variationsPath: `${variationsPath}/checkbox/stories/variations.js`,
   },
@@ -95,7 +91,6 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/datepicker/stories/variations.js`,
   },
   {
-    selectors: '#root',
     testsPrefix: 'XUI Dropdown',
     variationsPath: `${variationsPath}/dropdown/stories/variations.js`,
     ...fullPageSettings,
@@ -109,6 +104,12 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/fileUploader/stories/variations.js`,
   },
   {
+    testsPrefix: 'XUI Fixed Footer WIP',
+    variationsPath: `${variationsPath}/fixedfooter/stories/variations.js`,
+    readyEvent: 'xui-fixedfooter-ready-event',
+    ...fullPageSettings,
+  },
+  {
     testsPrefix: 'XUI Icon',
     variationsPath: `${variationsPath}/icon/stories/variations.js`,
     selectors: '.capture',
@@ -118,7 +119,10 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/illustration/stories/variations.js`,
   },
   {
-    selectors: '#root',
+    testsPrefix: 'XUI Isolation Header',
+    variationsPath: `${variationsPath}/isolationheader/stories/variations.js`,
+  },
+  {
     testsPrefix: 'XUI Loader',
     variationsPath: `${variationsPath}/loader/stories/variations.js`,
   },
@@ -150,10 +154,6 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Pill',
     variationsPath: `${variationsPath}/pill/stories/variations.js`,
-  },
-  {
-    testsPrefix: 'XUI Isolation Header',
-    variationsPath: `${variationsPath}/isolationheader/stories/variations.js`,
   },
   {
     testsPrefix: 'XUI Popover',
@@ -188,12 +188,6 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Stepper',
     variationsPath: `${variationsPath}/stepper/stories/variations.js`,
-  },
-  {
-    testsPrefix: 'XUI Fixed Footer WIP',
-    variationsPath: `${variationsPath}/fixedfooter/stories/variations.js`,
-    readyEvent: 'xui-fixedfooter-ready-event',
-    ...fullPageSettings,
   },
   {
     testsPrefix: 'XUI Table',
@@ -327,7 +321,7 @@ backstop('test', {
       ignoreHTTPSErrors: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     },
-    fileNameTemplate: '{scenarioIndex}_{scenarioLabel}_{viewportLabel}',
+    fileNameTemplate: '{configId}_{scenarioLabel}_{viewportLabel}',
     id: 'backstop_default',
     paths: {
       bitmaps_reference: './.visual-testing/reference',

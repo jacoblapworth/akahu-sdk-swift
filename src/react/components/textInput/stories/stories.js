@@ -15,8 +15,6 @@ import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
-
 import { storiesWithVariationsKindName, variations } from './variations';
 import XUIPill from '../../pill/XUIPill';
 import XUIAvatar from '../../avatar/XUIAvatar';
@@ -241,7 +239,8 @@ const elementTypeOptions = [null, 'icon', 'iconWithBackground', 'button', 'text'
 const elementAlignmentOptions = ['top', 'center', 'bottom'];
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addParameters({ layout: 'centered' });
+
 storiesWithKnobs.add('Playground', () => (
   <TextInputWrapper
     hintMessage={text('hint message', '')}

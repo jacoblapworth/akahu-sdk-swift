@@ -14,7 +14,6 @@ import XUIIcon from '../../icon/XUIIcon';
 
 import { COLORS } from '../helpers/constants';
 import { variations, storiesWithVariationsKindName } from './variations';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import ToolTipComparison from './components/ToolTipComparison';
 import ColorComparison from './components/ColorComparison';
@@ -62,7 +61,6 @@ const tinyWidthStyle = {
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground | Circular', () => {
   const totalColor =
     select('totalColor', colorOptions, defaultColor) === defaultColor

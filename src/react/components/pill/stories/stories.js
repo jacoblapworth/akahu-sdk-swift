@@ -11,10 +11,8 @@ import XUIPill from '../XUIPill';
 
 import NOOP from '../../helpers/noop';
 import { variations, avatarProps, storiesWithVariationsKindName } from './variations';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => (
   <XUIPill
     avatarProps={object('avatarProps', avatarProps)}

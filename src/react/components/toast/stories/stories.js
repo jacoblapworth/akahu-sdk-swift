@@ -13,7 +13,6 @@ import XUIToastActions from '../XUIToastActions';
 import { sentimentMap } from '../private/constants';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const NOOP = () => {};
 
@@ -62,7 +61,6 @@ class DetailedToast extends Component {
 }
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const sentiments = {
     '': 'No Sentiment',

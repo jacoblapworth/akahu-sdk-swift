@@ -179,7 +179,6 @@ const DropdownInDropdown = () => {
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   const forceDesktop = boolean('forceDesktop', false);
   const showHeader = boolean('show header?', false);

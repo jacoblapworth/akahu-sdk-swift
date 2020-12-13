@@ -10,10 +10,9 @@ import XUIRadioGroup from '../XUIRadioGroup';
 import XUIRadio from '../XUIRadio';
 
 import { storiesWithVariationsKindName, variations } from './variations';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
+
 storiesWithKnobs.add('Playground', () => (
   <XUIRadio
     hintMessage={text('hintMessage', '')}

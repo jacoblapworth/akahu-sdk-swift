@@ -15,7 +15,6 @@ import XUITag from '../../tag/XUITag';
 
 import logReadyState from '../../../stories/helpers/log-ready-state';
 import { variations, storiesWithVariationsKindName } from './variations';
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 import noop from '../../helpers/noop';
 
 const tableStyles = {
@@ -82,7 +81,6 @@ const createTags = total =>
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const data = {
     0: {},

@@ -31,35 +31,6 @@ $xui-table-z-alert: 4;
   width: 100%;
 }
 
-// The following blocks of nth-* selectors create rounded corners on the four
-// corner cells (top left, top right, bottom left, bottom right). If we do not
-// round the corners then some background color will bleed over the tables panel
-// border.
-
-// Originally we created a simple "overflow: hidden" on the table itself which
-// although simple had VERY bad performance in older browsers (IE11 for instance).
-// This is a more convoluted solution but is performant for 1000's or rows instead
-// of 10's in IE11.
-.#{$ns}-table-element > *:nth-child(1) > tr:nth-child(1) {
-  > *:nth-child(1) {
-    border-top-left-radius: $xui-radius;
-  }
-
-  > *:nth-last-child(1) {
-    border-top-right-radius: $xui-radius;
-  }
-}
-
-.#{$ns}-table-element > *:nth-last-child(1) > tr:nth-last-child(1) {
-  > *:nth-child(1) {
-    border-bottom-left-radius: $xui-radius;
-  }
-
-  > *:nth-last-child(1) {
-    border-bottom-right-radius: $xui-radius;
-  }
-}
-
 .#{$ns}-table-pinleft .#{$ns}-table-element:before,
 .#{$ns}-table-pinright .#{$ns}-table-element:after {
   background: $xui-table-bg-color;

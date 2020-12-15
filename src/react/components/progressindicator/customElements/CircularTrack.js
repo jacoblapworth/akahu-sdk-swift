@@ -15,18 +15,6 @@ const standardiseThickness = (width, thickness) => {
   return thickness < min ? min : Math.min(thickness, max);
 };
 
-// HACK: The addition of this <canvas /> is to address an IE11 bug where <svg />
-// options are not scaling accurately.
-// NOTE: http://nicolasgallagher.com/canvas-fix-svg-scaling-in-internet-explorer/
-const IE11SvgScaleHack = ({ viewBoxHeight, viewBoxWidth }) => (
-  <canvas className={`${NAME_SPACE}-circular-scaler`} height={viewBoxHeight} width={viewBoxWidth} />
-);
-
-IE11SvgScaleHack.propTypes = {
-  viewBoxHeight: PropTypes.number.isRequired,
-  viewBoxWidth: PropTypes.number.isRequired,
-};
-
 const createContentStyles = (strokeWidth, viewBoxWidth) => {
   // Content is placed inside the circle taking into account the thickness of the
   // track. We need to offset the <div /> container based on the <svg /> "viewbox"
@@ -93,14 +81,7 @@ const CircularTrack = ({
   });
   const contentStyles = createContentStyles(strokeWidth, viewBoxWidth);
 
-  // Feature detect IE11 (window.navigator.msPointerEnabled is false in Edge)
-  const isIE11 = !!(typeof window !== 'undefined' && window.navigator.msPointerEnabled);
-
   return [
-    isIE11 ? (
-      <IE11SvgScaleHack key="canvas" viewBoxHeight={viewBoxHeight} viewBoxWidth={viewBoxWidth} />
-    ) : null,
-
     customContent ? (
       <div
         className={`${NAME_SPACE}-circular-content`}
@@ -113,10 +94,7 @@ const CircularTrack = ({
     ) : null,
 
     <svg
-      className={cn(
-        `${NAME_SPACE}-circular-wrapper`,
-        isIE11 && `${NAME_SPACE}-circular-wrapper-ie11`,
-      )}
+      className={cn(`${NAME_SPACE}-circular-wrapper`)}
       height={viewBoxHeight}
       key="svg"
       viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}

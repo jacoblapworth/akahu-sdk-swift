@@ -15,7 +15,6 @@ exports[`XUICheckbox should be a small variant, if specified 1`] = `
       defaultChecked={false}
       disabled={false}
       onChange={[Function]}
-      onClick={[Function]}
       required={false}
       type="checkbox"
     />
@@ -51,7 +50,6 @@ exports[`XUICheckbox should be a xsmall variant, if specified 1`] = `
       defaultChecked={false}
       disabled={false}
       onChange={[Function]}
-      onClick={[Function]}
       required={false}
       type="checkbox"
     />
@@ -87,7 +85,6 @@ exports[`XUICheckbox should have a hidden label, if specified 1`] = `
       defaultChecked={false}
       disabled={false}
       onChange={[Function]}
-      onClick={[Function]}
       required={false}
       type="checkbox"
     />
@@ -118,7 +115,6 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
       defaultChecked={false}
       disabled={false}
       onChange={[Function]}
-      onClick={[Function]}
       required={false}
       type="checkbox"
     />
@@ -149,7 +145,6 @@ exports[`XUICheckbox should have a visible label, if specified 1`] = `
       defaultChecked={false}
       disabled={false}
       onChange={[Function]}
-      onClick={[Function]}
       required={false}
       type="checkbox"
     />
@@ -184,7 +179,6 @@ exports[`XUICheckbox should render with an icon when one is provided 1`] = `
       defaultChecked={false}
       disabled={false}
       onChange={[Function]}
-      onClick={[Function]}
       required={false}
       type="checkbox"
     />
@@ -231,7 +225,6 @@ exports[`XUICheckbox should render with validation message 1`] = `
       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
       defaultChecked={false}
       disabled={false}
-      onClick={[Function]}
       required={false}
       type="checkbox"
     />

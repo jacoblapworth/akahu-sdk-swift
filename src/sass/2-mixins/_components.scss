@@ -120,7 +120,6 @@ $justify - Property to use for justify-content
 // Unified styling for content blocks and accordion triggers
 @mixin xui-content-block-item($classname) {
   border-top: $xui-border-standard;
-  min-height: inherit; // IE11 bug fix TODO: Link to docs on what the bugfix is
   position: relative;
   text-decoration: none;
   &:first-child {
@@ -168,7 +167,6 @@ $justify - Property to use for justify-content
 
     .#{$classname}--rightcontent,
     .#{$classname}--leftcontent {
-      height: 1px; // Haxx to make flexbox vertical alignment behave in IE11
       min-height: $xui-control-size-standard + ($xui-s-xsmall * 2);
     }
     .#{$classname}--rightcontent {

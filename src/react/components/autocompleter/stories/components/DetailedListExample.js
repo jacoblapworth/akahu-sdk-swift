@@ -18,7 +18,6 @@ const filterPeople = (data, value, peopleToExclude) =>
   data.filter(node => {
     const val = (value && value.toLowerCase()) || '';
 
-    // You could use String.includes here, however you would need to add the polyfill for IE11 support.
     return (
       !peopleToExclude.find(person => person.id === node.id) &&
       (node.name.toLowerCase().indexOf(val) > -1 ||

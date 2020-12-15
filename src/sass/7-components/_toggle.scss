@@ -9,12 +9,6 @@
   flex-grow: 1;
 }
 
-// This forces text to wrap in IE11
-.#{$ns}-toggle-fullwidth-layout .#{$ns}-toggle--text {
-  display: block;
-  width: 100%;
-}
-
 // Medium variant
 .#{$ns}-toggle-medium .#{$ns}-toggle--label {
   @include xui-padding-vertical($xui-s-xsmall - 1);

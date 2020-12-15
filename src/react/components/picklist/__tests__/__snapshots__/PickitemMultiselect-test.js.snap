@@ -19,7 +19,6 @@ exports[`<PickitemMultiselect /> basic example 1`] = `
         defaultChecked={false}
         disabled={false}
         onChange={[Function]}
-        onClick={[Function]}
         required={false}
         tabIndex={-1}
         type="checkbox"
@@ -65,7 +64,6 @@ exports[`<PickitemMultiselect /> is selected, adds truncation and custom classes
         className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
         disabled={false}
         onChange={[Function]}
-        onClick={[Function]}
         required={false}
         tabIndex={-1}
         type="checkbox"

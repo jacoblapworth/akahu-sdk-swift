@@ -128,9 +128,6 @@
   // This is technically the same as word-wrap, but use both for maximum support
   overflow-wrap: break-word;
 
-  // auto-prefixer wasn't putting this in in my tests so manually add it for IE11 support
-  -ms-word-break: break-all;
-
   // This is for firefox support
   word-break: break-word;
 

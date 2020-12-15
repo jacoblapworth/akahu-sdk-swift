@@ -132,7 +132,6 @@ exports[`<XUISelectBoxOption /> should render checkboxes when the showCheckboxes
           className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
           disabled={false}
           onChange={[Function]}
-          onClick={[Function]}
           required={false}
           tabIndex={-1}
           type="checkbox"
@@ -273,7 +272,6 @@ exports[`<XUISelectBoxOption /> should render the option and the checkboxes as d
           className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
           disabled={true}
           onChange={[Function]}
-          onClick={[Function]}
           required={false}
           tabIndex={-1}
           type="checkbox"

@@ -37,8 +37,6 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   @include xui-padding-vertical($input-text-vertical-padding-standard);
   border: none;
   flex: 1 1 auto;
-  // Fix the following problem in IE 11:
-  // If min-width set in xui-textinput takes effect, the value (when over 40px) will overflow the input.
   min-width: $xui-minimum-touch-target;
   overflow: hidden;
 

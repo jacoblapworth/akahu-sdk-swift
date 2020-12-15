@@ -93,9 +93,6 @@ const Draggable: React.FunctionComponent<Props> = ({
         const transform = addOffsetToTransform(providedTransform, snapshot.isDragging);
 
         if (!snapshot.isDragging) {
-          const supportsTransform =
-            window && 'CSS' in window && CSS.supports('transform', 'translate(0px, 0px)');
-
           return children(
             {
               ...provided,
@@ -105,16 +102,6 @@ const Draggable: React.FunctionComponent<Props> = ({
                   ...provided.draggableProps.style,
                   pointerEvents: draggedRowIndex === undefined ? undefined : 'none',
                   transform,
-                  /**
-                   * IE 11 does not transform table rows. The properties below can be removed once
-                   * we stop supporting IE 11.
-                   */
-                  display:
-                    !supportsTransform && transform && transform !== 'none' ? 'table' : undefined,
-                  width:
-                    !supportsTransform && transform && transform !== 'none'
-                      ? `${tableRef?.current?.querySelector('tr')?.offsetWidth - 2}px`
-                      : undefined,
                 },
               },
             },

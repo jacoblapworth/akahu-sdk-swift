@@ -68,17 +68,14 @@ function getTriggerAlignmentStyles({
       ? '0px'
       : `${Math.round(popupLeftPos + scrollLeftAmount())}px`;
 
-  const translateYAmount = placeBelow ? `${triggerRect.height}px` : '-100%';
+  const translateYAmount = placeBelow
+    ? `${triggerRect.height + triggerDropdownGap}px`
+    : `calc(-100% - ${triggerDropdownGap}px)`;
   const transform = `translateY(${translateYAmount})`;
-  // Initially the gap offset here was done through css calc properties in the translate function.
-  // Unfortunately this caused issues, as calc is invalid as a parameter of translate within IE11
-  const topValue = placeBelow
-    ? triggerRect.top + scrollTopAmount() + triggerDropdownGap
-    : triggerRect.top + scrollTopAmount() - triggerDropdownGap;
 
   return {
     marginLeft,
-    top: topValue,
+    top: triggerRect.top + scrollTopAmount(),
     transform,
     bottom: null,
   };

@@ -25,7 +25,6 @@
 }
 
 .#{$ns}-pill-parentmaxwidth {
-  flex: 0 0 auto; // Otherwise IE11 doesn't truncate long text.
   max-width: 100%;
 }
 

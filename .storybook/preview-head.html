@@ -35,7 +35,6 @@
   .xui-custom-decorator-inner {
     display: inline-table;
     margin: auto;
-    max-height: 100%; /* Hack for centering correctly in IE11 */
     padding: 5px;
   }
   .xui-custom-decorator-inner > * {
@@ -61,12 +60,5 @@
   }
   .xui-loader-static .xui-loader--dot:nth-child(3) {
     transform: scale(0.5);
-  }
-  /* IE 11 Hack */
-  @media all and (-ms-high-contrast: none) {
-    *::-ms-backdrop,
-    #root > div > div {
-      margin: 0 !important; /* Fix for IE11 centering conflict with flexbox */
-    }
   }
 </style>

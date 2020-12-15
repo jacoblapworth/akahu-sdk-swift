@@ -192,7 +192,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       tabIndex={0}
                       type="checkbox"
@@ -260,7 +259,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -314,7 +312,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -368,7 +365,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -457,7 +453,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       tabIndex={0}
                       type="checkbox"
@@ -525,7 +520,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -579,7 +573,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -633,7 +626,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={true}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -722,7 +714,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       tabIndex={0}
                       type="checkbox"
@@ -790,7 +781,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -844,7 +834,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -898,7 +887,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -1818,7 +1806,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={true}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       tabIndex={0}
                       type="checkbox"
@@ -3165,7 +3152,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       tabIndex={0}
                       type="checkbox"
@@ -3296,7 +3282,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -3392,7 +3377,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -3488,7 +3472,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -4071,7 +4054,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       tabIndex={0}
                       type="checkbox"
@@ -4209,7 +4191,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -4345,7 +4326,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -4481,7 +4461,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -5761,7 +5740,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       tabIndex={0}
                       type="checkbox"
@@ -5836,7 +5814,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -5930,7 +5907,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -6024,7 +6000,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -7384,7 +7359,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       tabIndex={0}
                       type="checkbox"
@@ -7522,7 +7496,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -7658,7 +7631,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -7794,7 +7766,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                       disabled={false}
                       onChange={[Function]}
-                      onClick={[Function]}
                       required={false}
                       type="checkbox"
                     />
@@ -8140,7 +8111,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
                     className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
                     disabled={false}
                     onChange={[Function]}
-                    onClick={[Function]}
                     required={false}
                     tabIndex={0}
                     type="checkbox"
@@ -8201,7 +8171,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
                     data-automationid="testTableHook-row-0--rowcheckbox--input"
                     disabled={false}
                     onChange={[Function]}
-                    onClick={[Function]}
                     required={false}
                     type="checkbox"
                   />
@@ -8289,7 +8258,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
                     data-automationid="testTableHook-row-1--rowcheckbox--input"
                     disabled={false}
                     onChange={[Function]}
-                    onClick={[Function]}
                     required={false}
                     type="checkbox"
                   />

@@ -6,6 +6,12 @@ Please take some time to check that your projects' package.json dependencies mat
 
 We recommend running a bundles analyzer after upgrading (and regularly in general).
 
+## IE 11 support removed
+
+We have removed IE11 support for XUI in line with [Xero's decision to discontinue IE11 support for all products (except WFM and XPM) effective as of 1 December 2020](https://xero.slack.com/archives/C63PJSH25/p1606789311155600). The changes in this release includes alterations to existing components, styles and documents to remove workarounds and content specifically made for IE11 support.
+
+_Note: This will mean that many key functionalities that worked for IE11 users prior to this version will no function as before._
+
 ## XUI CSS
 
 ### File Uploader

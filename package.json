@@ -93,7 +93,7 @@
     "@typescript-eslint/eslint-plugin": "3.3.0",
     "@typescript-eslint/parser": "^3.3.0",
     "@xero/babel-preset-xero": "2.2.0",
-    "@xero/browserslist-autoprefixer": "2.4.4",
+    "@xero/browserslist-autoprefixer": "3.0.0",
     "@xero/eslint-config-xero-react": "2.0.3",
     "@xero/xuishift": "3.5.0",
     "array.prototype.find": "2.1.1",

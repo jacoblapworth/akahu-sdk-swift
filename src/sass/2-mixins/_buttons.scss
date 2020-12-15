@@ -180,7 +180,7 @@ $hover-bg-color - Background color to use when hovered
 }
 
 /*
-Sorts out alignment for icons in button-like things (mainly for IE11)
+Sorts out alignment for icons in button-like things
 */
 @mixin xui-button-has-icon {
   align-items: center;

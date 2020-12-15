@@ -64,17 +64,6 @@ describe('<XUIProgressIndicator />', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 
-  it('should render with a canvas element if it thinks the browser is IE11', () => {
-    // Hack IE11 feature detection
-    window.navigator.msPointerEnabled = true;
-
-    const component = mount(<XUIProgressCircular {...baseProps} />);
-
-    expect(toJson(component)).toMatchSnapshot();
-
-    delete window.navigator.msPointerEnabled;
-  });
-
   it('should render supplied content as a child of the nested progress indicator', () => {
     const qaHook = 'progress-indicator';
     const component = mount(

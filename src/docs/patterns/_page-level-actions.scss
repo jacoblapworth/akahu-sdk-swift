@@ -19,16 +19,20 @@
 // Using as few primary actions as possible on a page creates a clear information hierarchy and presents a workflow that’s likely to be remembered ([Von Restorff Effect](https://lawsofux.com/von-restorff-effect))
 //
 // * <strong>Use appropriate [button styles](./section-components-controls-button.html#components-controls-button-3) to ensure there’s a clear information hierarchy</strong>
+// </br>
+// When a button has more visual dominance, it leads the user's eye to that area in the interface, making it appear more important to interact with.
 //
 // * <strong>Use appropriate [button layouts](./section-components-controls-button.html#components-controls-button-13) when there are multiple actions in a form, modal, or linear flow</strong>
+// </br>
+// Using a predictable button layout ensures buttons are where users expect them to be.
 //
 // * <strong>Place actions close to the content they affect</strong>
 // </br>
-// [Read more about Fitts’s Law](https://lawsofux.com/fittss-law.html)
+// Placing buttons close to content they affect reduces the cognitive load for users when they are associating an action to the rest of the interface ([Fitts’s Law](https://lawsofux.com/fittss-law.html)).
 //
 // * <strong>Choose a suitable [button size](./section-components-controls-button.html#components-controls-button-4) for where a button is placed on a page</strong>
 // </br>
-// Use “small” and “xsmall” variants when nested inside other elements.
+// Button size affects visual hierarchy on a page and can give more or less visual dominance to a particular area in the interface. Use “small” and “xsmall” size variants when nesting buttons inside other elements.
 //
 // * <strong>Group no more than 5 individual buttons together in a single area</strong>
 // </br>
@@ -46,11 +50,13 @@
 
 // Placement
 //
-// Page-level actions can be located within the page header, before the main content, after the main content, and in the fixed footer.
+// Page-level actions can be located within the page header or isolation header, above the main content, below the main content, or in a fixed footer. The placement decision of actions is important to create the appropriate relationship between them and the surrounding content.
 // 
 // Styleguide: Patterns.Page-level-actions.2
 
-// Page header
+// Within header
+//
+// Actions placed within the page header or isolation header are used to control the entirety of the content below or start a new workflow. These actions are often interacted with frequently or are key to the whole product experience."
 //
 // Tips:
 // Do: Include actions that start a new flow
@@ -58,7 +64,7 @@
 // Don't: Don’t include actions that only affect a part of the page
 // Don't: Don’t include actions that require consideration of the content before taking
 // Info: [Page header component guide](./section-components-navigation-page-header.html)
-//
+// Info: [Isolation header component guide](./section-components-navigation-isolation-header.html)
 //
 // Styleguide: Patterns.Page-level-actions.2.1
 
@@ -80,7 +86,9 @@
 // 
 // Styleguide: Patterns.Page-level-actions.2.1.2
 
-// Before the main content
+// Above the main content
+//
+// Actions placed above the main page content, but beneath the header are used to affect the content directly below. Commonly, these actions control how content is displayed (e.g. search, filter and sort), or initate subtasks related to the content (e.g. add and export).
 //
 // Tips:
 // Do: Include actions that affect the main content below
@@ -123,12 +131,14 @@
 //
 // Styleguide: Patterns.Page-level-actions.2.3
 
-// After the main content
+// Below the main content
+//
+// Place actions below the main content when a user is concluding a workflow or needs to consider the content before moving forward in a workflow.
 //
 // Tips:
 // Do: Include actions that require the user to consider all page content before triggering
-// Do: Include actions that conclude the current flow
-// Don't: Don’t include actions that must always be visible
+// Do: Include actions that conclude the current flow or take a user to the next step in a process
+// Warning: Avoid including actions that are intended to be available at all times. Instead consider using a [fixed footer](#patterns-page-level-actions-2-5).
 //
 // Styleguide: Patterns.Page-level-actions.2.4
 
@@ -146,17 +156,19 @@
 //
 // Tips:
 // Do: Include actions that require consideration of the content before triggering
-// Don't: Include actions that start a new flow
+// Don't: Don't include actions that start a new flow
 // 
 // Styleguide: Patterns.Page-level-actions.2.4.2
 
 // Fixed footer
 //
+// Place actions in the fixed footer when there is a large amount of scrollable content and the actions are requied to be availabled at all times.
+//
 // Tips:
 // Do: Include actions that must always be visible
 // Do: Include actions that can be triggered at any time
 // Don't: Don’t include actions that require consideration of the content before triggering
-// Warning: [Fixed footer component guide](./section-components-navigation-fixedfooter.html)
+// Info: [Fixed footer component guide](./section-components-navigation-fixedfooter.html)
 //
 // Styleguide: Patterns.Page-level-actions.2.5
 

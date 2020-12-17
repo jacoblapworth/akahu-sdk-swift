@@ -15,6 +15,8 @@ import XUIIcon from '../../icon/XUIIcon';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 
+import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+
 import { storiesWithVariationsKindName, variations } from './variations';
 import XUIPill from '../../pill/XUIPill';
 import XUIAvatar from '../../avatar/XUIAvatar';
@@ -239,7 +241,6 @@ const elementTypeOptions = [null, 'icon', 'iconWithBackground', 'button', 'text'
 const elementAlignmentOptions = ['top', 'center', 'bottom'];
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addParameters({ layout: 'centered' });
 
 storiesWithKnobs.add('Playground', () => (
   <TextInputWrapper
@@ -276,27 +277,28 @@ storiesWithKnobs.add('Playground', () => (
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-const storiesWithResponsiveVariations = storiesOf(storiesWithVariationsKindName, module);
 
 variations.forEach(variation => {
-  const targetStories = variation.customDecorator
-    ? storiesWithResponsiveVariations
-    : storiesWithVariations;
+  const decorator = variation.customDecorator ? { decorators: [customCentered] } : {};
 
-  targetStories.add(variation.storyTitle, () => {
-    const variationMinusStoryDetails = { ...variation };
-    delete variationMinusStoryDetails.storyKind;
-    delete variationMinusStoryDetails.storyTitle;
-    delete variationMinusStoryDetails.customDecorator;
-    if (!variationMinusStoryDetails.label) {
-      variationMinusStoryDetails.label = 'Test label';
-      variationMinusStoryDetails.isLabelHidden = true;
-    }
-    if (variationMinusStoryDetails.noDefault) {
-      delete variationMinusStoryDetails.noDefault;
-      return <XUITextInput {...variationMinusStoryDetails} type="text" />;
-    }
+  storiesWithVariations.add(
+    variation.storyTitle,
+    () => {
+      const variationMinusStoryDetails = { ...variation };
+      delete variationMinusStoryDetails.storyKind;
+      delete variationMinusStoryDetails.storyTitle;
+      delete variationMinusStoryDetails.customDecorator;
+      if (!variationMinusStoryDetails.label) {
+        variationMinusStoryDetails.label = 'Test label';
+        variationMinusStoryDetails.isLabelHidden = true;
+      }
+      if (variationMinusStoryDetails.noDefault) {
+        delete variationMinusStoryDetails.noDefault;
+        return <XUITextInput {...variationMinusStoryDetails} type="text" />;
+      }
 
-    return <TextInputWrapper {...variationMinusStoryDetails} />;
-  });
+      return <TextInputWrapper {...variationMinusStoryDetails} />;
+    },
+    decorator,
+  );
 });

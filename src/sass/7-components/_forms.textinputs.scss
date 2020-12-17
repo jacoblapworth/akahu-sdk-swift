@@ -36,6 +36,8 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   @include xui-input-base;
   @include xui-padding-vertical($input-text-vertical-padding-standard);
   border: none;
+  // Some weird race condition breaks inheritance in Storybook, so declaring it explicitly here
+  box-sizing: border-box;
   flex: 1 1 auto;
   // Fix the following problem in IE 11:
   // If min-width set in xui-textinput takes effect, the value (when over 40px) will overflow the input.

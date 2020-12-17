@@ -199,7 +199,7 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/tag/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI TextInput',
+    testsPrefix: 'XUI Text Input',
     variationsPath: `${variationsPath}/textInput/stories/variations.js`,
   },
   {

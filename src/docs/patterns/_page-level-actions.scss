@@ -92,9 +92,9 @@
 //
 // Tips:
 // Do: Include actions that affect the main content below
-// Do: Include subtasks in the current flow
+// Do: Include actions that initiate subtasks related to the content below
 // Don't: Don’t include actions that change the entire page layout
-// Don't: include actions that require consideration of the content before triggering
+// Don't: Don't include actions that require consideration of the content before triggering
 //
 // Styleguide: Patterns.Page-level-actions.2.2
 
@@ -162,7 +162,7 @@
 
 // Fixed footer
 //
-// Place actions in the fixed footer when there is a large amount of scrollable content and the actions are requied to be availabled at all times.
+// A fixed footer should contain actions that are required to be available to the user at all times and there is a large amount of scrollable content on the page.
 //
 // Tips:
 // Do: Include actions that must always be visible

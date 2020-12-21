@@ -66,7 +66,7 @@ XUIBanner.propTypes = {
   /** Defines whether the default layout class should be supplied */
   defaultLayout: PropTypes.bool,
 
-  /** Applies a role attribute to the toast element. This will override any
+  /** Applies a role attribute to the banner element. This will override any
    * component-determined value. */
   role: PropTypes.string,
 };

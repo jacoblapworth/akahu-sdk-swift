@@ -59,26 +59,27 @@ export default XUIAvatar;
 
 XUIAvatar.propTypes = {
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-
-  /** The avatar variant */
-  variant: PropTypes.oneOf(Object.keys(variantClassNames)),
-
-  /** The text to display in the avatar */
-  value: PropTypes.string.isRequired,
-
-  /** the image the component should render. Initials rendered otherwise */
-  imageUrl: PropTypes.string,
-
-  /** The size of the avatar. Can be small, medium, large or xlarge */
-  size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
   /** A unique string that will be used to generate the color of the avatar if color is not
    * provided. If this is not set then value is used as the identifier. */
   identifier: PropTypes.string,
 
+  /** the image the component should render. Initials rendered otherwise */
+  imageUrl: PropTypes.string,
+
   /** Error handler if the avatar image fails to load */
   onError: PropTypes.func,
+
+  qaHook: PropTypes.string,
+
+  /** The size of the avatar. Can be small, medium, large or xlarge */
+  size: PropTypes.oneOf(Object.keys(sizeClassNames)),
+
+  /** The text to display in the avatar */
+  value: PropTypes.string.isRequired,
+
+  /** The avatar variant */
+  variant: PropTypes.oneOf(Object.keys(variantClassNames)),
 };
 
 XUIAvatar.defaultProps = {

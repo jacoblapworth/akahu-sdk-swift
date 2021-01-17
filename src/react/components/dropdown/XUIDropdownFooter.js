@@ -29,13 +29,13 @@ const XUIDropdownFooter = ({ children, className, qaHook, pickItems }) => {
 };
 
 XUIDropdownFooter.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node,
-  qaHook: PropTypes.string,
+  className: PropTypes.string,
   /** An optional array of one or more PickItem components to be added to the `XUIDropdownFooter`
    * in a PickList with standardised styling.
    */
   pickItems: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+  qaHook: PropTypes.string,
 };
 
 export default React.memo(XUIDropdownFooter);

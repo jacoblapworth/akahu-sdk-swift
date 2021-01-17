@@ -88,9 +88,16 @@ const XUIIsolationHeader = ({
 export default XUIIsolationHeader;
 
 XUIIsolationHeader.propTypes = {
+  /**
+   * Components or html to be right-aligned in the pageheading
+   */
+  actions: PropTypes.node,
+  /**
+   * Avatar
+   */
+  avatar: PropTypes.node,
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
   /**
    * CSS class(es) to add to the the pageheading--content element. xui-page-width-standard
    * would go here
@@ -101,17 +108,14 @@ XUIIsolationHeader.propTypes = {
    */
   hasLayout: PropTypes.bool,
   /**
-   * Title text or node
+   * Applies fixed positioning so the isolation mode header scrolls with the page
    */
-  title: PropTypes.node,
+  isPositionFixed: PropTypes.bool,
   /**
-   * Components or html to be right-aligned in the pageheading
+   * Navigation button
    */
-  actions: PropTypes.node,
-  /**
-   * Array of XUITags
-   */
-  tags: PropTypes.arrayOf(PropTypes.element),
+  navigationButton: PropTypes.node.isRequired,
+  qaHook: PropTypes.string,
   /**
    * Secondary title
    */
@@ -121,17 +125,13 @@ XUIIsolationHeader.propTypes = {
    */
   supplementary: PropTypes.string,
   /**
-   * Navigation button
+   * Array of XUITags
    */
-  navigationButton: PropTypes.node.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.element),
   /**
-   * Avatar
+   * Title text or node
    */
-  avatar: PropTypes.node,
-  /**
-   * Applies fixed positioning so the isolation mode header scrolls with the page
-   */
-  isPositionFixed: PropTypes.bool,
+  title: PropTypes.node,
 };
 
 XUIIsolationHeader.defaultProps = {

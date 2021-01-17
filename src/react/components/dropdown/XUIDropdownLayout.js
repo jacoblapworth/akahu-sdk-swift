@@ -72,28 +72,19 @@ const XUIDropdownLayout = ({
 };
 
 XUIDropdownLayout.propTypes = {
-  id: PropTypes.string,
-
-  /** Whether or not the list box is hidden. */
-  isHidden: PropTypes.bool,
-
-  /** Callback for when animation has ended on open. */
-  onOpenAnimationEnd: PropTypes.func,
-
-  /** Callback for when animation has ended on close. */
-  onCloseAnimationEnd: PropTypes.func,
-
   /** Will add the closing animation class */
   animateClosed: PropTypes.bool,
 
   /** Will add an opening animation class */
   animateOpen: PropTypes.bool,
 
-  className: PropTypes.string,
+  /**
+   * Aria role for dropdown layout
+   */
+  ariaRole: PropTypes.string,
 
-  /** Applies the correct XUI class based on the chosen size. Default will
-   * fit to children's width. */
-  size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 
   /** Whether the fixed width class variant should be used for the size prop.
    * Does nothing without the size prop. */
@@ -102,14 +93,24 @@ XUIDropdownLayout.propTypes = {
   /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
   forceDesktop: PropTypes.bool,
 
-  style: PropTypes.object,
+  id: PropTypes.string,
 
-  children: PropTypes.node.isRequired,
+  /** Whether or not the list box is hidden. */
+  isHidden: PropTypes.bool,
+
+  /** Callback for when animation has ended on close. */
+  onCloseAnimationEnd: PropTypes.func,
+
+  /** Callback for when animation has ended on open. */
+  onOpenAnimationEnd: PropTypes.func,
+
   qaHook: PropTypes.string,
-  /**
-   * Aria role for dropdown layout
-   */
-  ariaRole: PropTypes.string,
+
+  /** Applies the correct XUI class based on the chosen size. Default will
+   * fit to children's width. */
+  size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
+
+  style: PropTypes.object,
 };
 
 export default React.memo(XUIDropdownLayout);

@@ -348,14 +348,16 @@ class XUIDropdownPanel extends PureComponent {
 }
 
 XUIDropdownPanel.propTypes = {
-  children: PropTypes.node,
-  qaHook: PropTypes.string,
+  /** Class name to apply to the body element */
+  bodyClassName: PropTypes.string,
 
-  /** Inline CSS styles to add to the root DOM node of this component. */
-  style: PropTypes.object,
+  children: PropTypes.node,
 
   /** Items to be added to the menu's footer. */
   footer: PropTypes.element,
+
+  /** Force wrapping Panel children in a `XUIStatefulPicklist` */
+  forceStatefulPicklist: PropTypes.bool,
 
   /** Items to be added to the menu's header. */
   header: PropTypes.element,
@@ -381,14 +383,13 @@ XUIDropdownPanel.propTypes = {
   /** Used by `XUINestedDropdown` to identify each panel. */
   panelId: PropTypes.string,
 
-  /** Force wrapping Panel children in a `XUIStatefulPicklist` */
-  forceStatefulPicklist: PropTypes.bool,
-
-  /** Class name to apply to the body element */
-  bodyClassName: PropTypes.string,
+  qaHook: PropTypes.string,
 
   /** Whether the `XUIStatefulPicklist` manages highlighting of list elements */
   shouldManageInitialHighlight: PropTypes.bool,
+
+  /** Inline CSS styles to add to the root DOM node of this component. */
+  style: PropTypes.object,
 };
 
 XUIDropdownPanel.defaultProps = {

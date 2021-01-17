@@ -17,11 +17,10 @@ class XUITableColumn extends PureComponent {
 
 /* eslint-disable react/no-unused-prop-types */
 XUITableColumn.propTypes = {
-  /** The head Cell for the Column. Either all of the Columns have to have it or none of them. */
-  head: PropTypes.node,
-
   /** A function that passes in the current rows data and expects a Cell back. */
   body: PropTypes.func.isRequired,
+  /** The head Cell for the Column. Either all of the Columns have to have it or none of them. */
+  head: PropTypes.node,
 };
 /* eslint-enable react/no-unused-prop-types */
 

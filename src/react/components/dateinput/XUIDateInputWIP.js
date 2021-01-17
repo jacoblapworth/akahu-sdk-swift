@@ -69,6 +69,15 @@ XUIDateInputWIP.propTypes = {
   /** Whether or not the dropdown should automatically be hidden when the user selects something */
   closeOnSelect: PropTypes.bool,
 
+  /** Convenience dates */
+  convenienceDates: PropTypes.arrayOf(
+    PropTypes.shape({
+      getDate: PropTypes.func,
+      id: PropTypes.string,
+      text: PropTypes.string,
+    }),
+  ),
+
   /** A date which represents the year and month that the calendar will display. Could
    * be any day in the given day and month. */
   displayedMonth: PropTypes.instanceOf(Date),
@@ -91,25 +100,16 @@ XUIDateInputWIP.propTypes = {
   /** Callback for when the user selects a date */
   onSelectDate: PropTypes.func,
 
+  selectedDateDefaultValue: PropTypes.instanceOf(Date),
+
   /** Value of the date input. Must be a Date object */
   selectedDateValue: PropTypes.instanceOf(Date),
-
-  selectedDateDefaultValue: PropTypes.instanceOf(Date),
 
   /** CSS class(es) to go on the trigger element which contains the input */
   triggerClassName: PropTypes.string,
 
   /** Message to display below input when invalid date inputted */
   validationMessage: PropTypes.string,
-
-  /** Convenience dates */
-  convenienceDates: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      text: PropTypes.string,
-      getDate: PropTypes.func,
-    }),
-  ),
 };
 
 XUIDateInputWIP.defaultProps = {

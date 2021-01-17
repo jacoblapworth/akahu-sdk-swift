@@ -47,19 +47,19 @@ const XUIColumn = ({
 XUIColumn.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
   /**
    * Grid columns for the column to inhabit. Can be 1-12 or any of [full, half, third, quarter]
    */
   gridColumns: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
-   * Grid columns at viewport > 600px wide. Can be 1-12 or any of [full, half, third, quarter]
-   */
-  gridColumnsSmallUp: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /**
    * Grid columns at viewport > 1000px wide. Can be 1-12 or any of [full, half, third, quarter]
    */
   gridColumnsLargeUp: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /**
+   * Grid columns at viewport > 600px wide. Can be 1-12 or any of [full, half, third, quarter]
+   */
+  gridColumnsSmallUp: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  qaHook: PropTypes.string,
 };
 
 XUIColumn.defaultProps = {

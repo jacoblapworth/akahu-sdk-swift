@@ -53,22 +53,18 @@ const XUIBanner = ({
 export default XUIBanner;
 
 XUIBanner.propTypes = {
-  className: PropTypes.string,
-  qaHook: PropTypes.string,
   children: PropTypes.node,
-
-  /** Alters the banner to show positive or negative sentiment */
-  sentiment: PropTypes.oneOf(sentiments),
-
-  /** Handles the click event for the action */
-  onCloseClick: PropTypes.func,
-
+  className: PropTypes.string,
   /** Defines whether the default layout class should be supplied */
   defaultLayout: PropTypes.bool,
-
+  /** Handles the click event for the action */
+  onCloseClick: PropTypes.func,
+  qaHook: PropTypes.string,
   /** Applies a role attribute to the banner element. This will override any
    * component-determined value. */
   role: PropTypes.string,
+  /** Alters the banner to show positive or negative sentiment */
+  sentiment: PropTypes.oneOf(sentiments),
 };
 
 XUIBanner.defaultProps = {

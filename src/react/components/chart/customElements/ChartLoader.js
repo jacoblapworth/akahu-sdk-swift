@@ -21,8 +21,8 @@ const ChartLoader = ({ chartHeight, loadingAriaLabel, qaHook }) => {
 export default ChartLoader;
 
 ChartLoader.propTypes = {
-  qaHook: PropTypes.string,
   chartHeight: PropTypes.number,
   /** Accessibility label for the `<XUILoader>` */
   loadingAriaLabel: PropTypes.string.isRequired,
+  qaHook: PropTypes.string,
 };

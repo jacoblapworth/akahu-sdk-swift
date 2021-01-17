@@ -92,16 +92,16 @@ const YearSelector = ({
 export default YearSelector;
 
 YearSelector.propTypes = {
-  minDate: PropTypes.instanceOf(Date),
-  maxDate: PropTypes.instanceOf(Date),
   currentMonthDate: PropTypes.instanceOf(Date).isRequired,
   id: PropTypes.string.isRequired,
-  selectRef: PropTypes.shape({ current: PropTypes.object }),
-  onChange: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  qaHook: PropTypes.string,
   // TODO: Implement locale
   // eslint-disable-next-line react/no-unused-prop-types
   locale: PropTypes.string,
+  maxDate: PropTypes.instanceOf(Date),
+  minDate: PropTypes.instanceOf(Date),
+  onChange: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  qaHook: PropTypes.string,
+  selectRef: PropTypes.shape({ current: PropTypes.object }),
   size: PropTypes.oneOf(Object.keys(buttonSizeClasses)),
 };

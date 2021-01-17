@@ -23,8 +23,8 @@ export default class PanelSection extends React.PureComponent {
   }
 }
 PanelSection.propTypes = {
-  headerContent: PropTypes.any,
-  formLayout: PropTypes.bool,
-  className: PropTypes.string,
   children: PropTypes.any,
+  className: PropTypes.string,
+  formLayout: PropTypes.bool,
+  headerContent: PropTypes.any,
 };

@@ -44,15 +44,15 @@ const XUIEditableTableFootAction: React.FunctionComponent<Props> = ({
 
 XUIEditableTableFootAction.propTypes = {
   /**
-   * Props for the row-adding button
-   */
-  buttonProps: PropTypes.object,
-  /**
    * Content for row-adding button
    * <br />
    * Recommended English value: *Add new row*
    */
   addButtonContent: PropTypes.string.isRequired,
+  /**
+   * Props for the row-adding button
+   */
+  buttonProps: PropTypes.object,
   className: PropTypes.string,
   /**
    * Function to be fired when the row-adding button is clicked

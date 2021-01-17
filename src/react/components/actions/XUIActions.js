@@ -50,7 +50,6 @@ export default XUIActions;
 XUIActions.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
   /**
    * Applies standard layout settings. Defaults to true
    */
@@ -63,6 +62,7 @@ XUIActions.propTypes = {
    * XUIButton to style as primary. Alternately, pass in all the children
    */
   primaryAction: PropTypes.element,
+  qaHook: PropTypes.string,
   /**
    * XUIButton to style as secondary
    */

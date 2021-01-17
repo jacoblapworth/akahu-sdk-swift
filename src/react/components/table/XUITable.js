@@ -279,80 +279,14 @@ class XUITable extends Component {
 }
 
 XUITable.propTypes = {
-  /** The row data for the table body. Each row is differentiated by a unique object key.
-   * Pass the key `rowClassName` in a row object to apply a custom class.
-   */
-  data: PropTypes.object.isRequired,
-
-  /** The Column component(s) that will appear in the table layout. */
-  children: PropTypes.node.isRequired,
-
-  qaHook: PropTypes.string,
-
-  /** Attached to the outer most element of the table layout. */
-  className: PropTypes.string,
-
-  /** Allows the table to scroll horizontally when there is overflowing columns. */
-  isResponsive: PropTypes.bool,
-
-  /** Changes overflowing column data into a truncated column view if legibility can
-   * still be maintained. */
-  isTruncated: PropTypes.bool,
-
-  /** Whether the table should omit the xui-panel class to render without a border */
-  isBorderless: PropTypes.bool,
-
-  // - - - - //
-  // Loader. //
-  // - - - - //
-
-  /** Appends a XUILoader after the last row. */
-  isLoading: PropTypes.bool,
+  /** Turns the head column with the corresponding sort key into an active sorting state. */
+  activeSortKey: PropTypes.string,
 
   /**
-   * Accessibility label for the `<XUILoader>`. This is required if the
-   * `isLoading` prop is set to `true`.
-   * <br />
-   * Recommended English value: *Loading more data*
+   * A non-visible description of the table for accessibility purposes. Particularly useful
+   * for scrollable tables, to help screenreaders understand the scrollable element.
    */
-  loaderAriaLabel: PropTypes.string,
-
-  // - - - - - //
-  // Pinning.  //
-  // - - - - - //
-
-  /** If the first column is an action (Checkbox) visibly pin it to the left when scrolling. */
-  hasPinnedFirstColumn: PropTypes.bool,
-
-  /** If the last column is an action (Overflow Menu) visibly pin it to the right when scrolling. */
-  hasPinnedLastColumn: PropTypes.bool,
-
-  // - - - - - //
-  // Checkbox. //
-  // - - - - - //
-
-  /** Prepends a custom checkbox column to the table. */
-  hasCheckbox: PropTypes.bool,
-
-  /** Defines the unique row keys that are currently in a checked state. */
-  checkedIds: PropTypes.object,
-
-  /** Defines the unique row keys that are currently in a disabled state. */
-  disabledIds: PropTypes.object,
-
-  /** Callback for when the mast "toggle all" checkbox is clicked. */
-  onCheckAllToggle: PropTypes.func,
-
-  /** Callback to handle a single checkbox interaction inside of a row. */
-  onCheckOneToggle: PropTypes.func,
-
-  /**
-   * Describes "single row" checkbox functionality for accessibility.
-   * Required when `hasCheckbox` is set to true.
-   * <br />
-   * Recommended English value: *Select row*
-   */
-  checkOneRowAriaLabel: PropTypes.node,
+  caption: PropTypes.string,
 
   /**
    * Describes the "all rows" checkbox functionality for accessibility.
@@ -362,68 +296,37 @@ XUITable.propTypes = {
    */
   checkAllRowsAriaLabel: PropTypes.node,
 
-  // - - - - - - - //
-  // Overflow Menu. //
-  // - - - - - - - //
+  /** Defines the unique row keys that are currently in a checked state. */
+  checkedIds: PropTypes.object,
 
-  /** Appends a custom overflow menu column to the table. */
-  hasOverflowMenu: PropTypes.bool,
+  /**
+   * Describes "single row" checkbox functionality for accessibility.
+   * Required when `hasCheckbox` is set to true.
+   * <br />
+   * Recommended English value: *Select row*
+   */
+  checkOneRowAriaLabel: PropTypes.node,
+
+  /** The Column component(s) that will appear in the table layout. */
+  children: PropTypes.node.isRequired,
+
+  /** Attached to the outer most element of the table layout. */
+  className: PropTypes.string,
 
   /** A function that is supplied the data from each row and returns an array of
    * Pickitem components. */
   createOverflowMenu: PropTypes.func,
 
-  /**
-   * Describes overflow menu functionality for accessibility.
-   * Required when `hasOverflowMenu` is set to true.
-   * <br />
-   * Recommended English value: *More row options*
-   */
-  overflowMenuTitle: PropTypes.string,
-
-  // - - - - //
-  // Sorting //
-  // - - - - //
-
-  /** Turns the head column with the corresponding sort key into an active sorting state. */
-  activeSortKey: PropTypes.string,
-
-  /** Determines if the rows are arranged in an ascending or descending order. */
-  isSortAsc: PropTypes.bool,
-
-  /** Callback to handle a sort interaction. */
-  onSortChange: PropTypes.func,
-
   /** A function that replaces the default sort system. */
   customSort: PropTypes.func,
 
-  // - - - - - - - //
-  // Interaction.  //
-  // - - - - - - - //
+  /** The row data for the table body. Each row is differentiated by a unique object key.
+   * Pass the key `rowClassName` in a row object to apply a custom class.
+   */
+  data: PropTypes.object.isRequired,
 
-  /** A callback function for row interactions. */
-  onRowClick: PropTypes.func,
-
-  /** A function that receives a single rows data set and determines if that particular
-   * row should have the `onRowClick` click handler applied to it. */
-  shouldRowClick: PropTypes.func,
-
-  // - - - - - - //
-  // Appendages. //
-  // - - - - - - //
-
-  /** Prepends custom JSX above the table in a header position. */
-  header: PropTypes.node,
-
-  /** Appends custom JSX above the table in a footer position. */
-  footer: PropTypes.node,
-
-  // - - - - //
-  // Empty.  //
-  // - - - - //
-
-  /** Inject a custom "Empty State" design to override the default version. */
-  emptyStateComponent: PropTypes.node,
+  /** Defines the unique row keys that are currently in a disabled state. */
+  disabledIds: PropTypes.object,
 
   /**
    * The message to show if the chart is empty.
@@ -432,11 +335,8 @@ XUITable.propTypes = {
    */
   emptyMessage: PropTypes.node,
 
-  /**
-   * A non-visible description of the table for accessibility purposes. Particularly useful
-   * for scrollable tables, to help screenreaders understand the scrollable element.
-   */
-  caption: PropTypes.string,
+  /** Inject a custom "Empty State" design to override the default version. */
+  emptyStateComponent: PropTypes.node,
 
   /**
    * Optional prop for users to modify the empty state icon, if required for localisation.
@@ -447,6 +347,74 @@ XUITable.propTypes = {
     path: PropTypes.string,
     width: PropTypes.number,
   }),
+
+  /** Appends custom JSX above the table in a footer position. */
+  footer: PropTypes.node,
+
+  /** Prepends a custom checkbox column to the table. */
+  hasCheckbox: PropTypes.bool,
+
+  /** Appends a custom overflow menu column to the table. */
+  hasOverflowMenu: PropTypes.bool,
+
+  /** If the first column is an action (Checkbox) visibly pin it to the left when scrolling. */
+  hasPinnedFirstColumn: PropTypes.bool,
+
+  /** If the last column is an action (Overflow Menu) visibly pin it to the right when scrolling. */
+  hasPinnedLastColumn: PropTypes.bool,
+
+  /** Prepends custom JSX above the table in a header position. */
+  header: PropTypes.node,
+
+  /** Whether the table should omit the xui-panel class to render without a border */
+  isBorderless: PropTypes.bool,
+
+  /** Appends a XUILoader after the last row. */
+  isLoading: PropTypes.bool,
+
+  /** Allows the table to scroll horizontally when there is overflowing columns. */
+  isResponsive: PropTypes.bool,
+
+  /** Determines if the rows are arranged in an ascending or descending order. */
+  isSortAsc: PropTypes.bool,
+
+  /** Changes overflowing column data into a truncated column view if legibility can
+   * still be maintained. */
+  isTruncated: PropTypes.bool,
+
+  /**
+   * Accessibility label for the `<XUILoader>`. This is required if the
+   * `isLoading` prop is set to `true`.
+   * <br />
+   * Recommended English value: *Loading more data*
+   */
+  loaderAriaLabel: PropTypes.string,
+
+  /** Callback for when the mast "toggle all" checkbox is clicked. */
+  onCheckAllToggle: PropTypes.func,
+
+  /** Callback to handle a single checkbox interaction inside of a row. */
+  onCheckOneToggle: PropTypes.func,
+
+  /** A callback function for row interactions. */
+  onRowClick: PropTypes.func,
+
+  /** Callback to handle a sort interaction. */
+  onSortChange: PropTypes.func,
+
+  /**
+   * Describes overflow menu functionality for accessibility.
+   * Required when `hasOverflowMenu` is set to true.
+   * <br />
+   * Recommended English value: *More row options*
+   */
+  overflowMenuTitle: PropTypes.string,
+
+  qaHook: PropTypes.string,
+
+  /** A function that receives a single rows data set and determines if that particular
+   * row should have the `onRowClick` click handler applied to it. */
+  shouldRowClick: PropTypes.func,
 };
 
 XUITable.defaultProps = {

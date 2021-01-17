@@ -52,13 +52,11 @@ class BodyData extends PureComponent {
 BodyData.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-
-  // Interaction.
-  role: PropTypes.string,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
+  qaHook: PropTypes.string,
+  role: PropTypes.string,
 };
 
 export default BodyData;

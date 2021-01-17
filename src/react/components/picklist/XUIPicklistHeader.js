@@ -22,9 +22,9 @@ const XUIPicklistHeader = ({ ariaRole, children, className, id }) => {
 export default XUIPicklistHeader;
 
 XUIPicklistHeader.propTypes = {
+  /** ARIA attribute defining what purpose this item serves. */
+  ariaRole: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** ARIA attribute defining what purpose this item serves. */
-  ariaRole: PropTypes.string,
 };

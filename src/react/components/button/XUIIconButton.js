@@ -57,17 +57,29 @@ export default class XUIIconButton extends PureComponent {
 }
 
 XUIIconButton.propTypes = {
+  /** Required prop, providing the label to any assistive technologies */
+  ariaLabel: PropTypes.string.isRequired,
+
   className: PropTypes.string,
+
+  /** Description of the icon to be read by screen readers */
+  desc: PropTypes.string,
+
+  /** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
+  href: PropTypes.string,
 
   /** Required prop, an object describing the path, width and height. */
   icon: PropTypes.shape({
+    height: PropTypes.number.isRequired,
     path: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
   }).isRequired,
 
-  /** Required prop, providing the label to any assistive technologies */
-  ariaLabel: PropTypes.string.isRequired,
+  /** Adds a color modifier to the icon */
+  iconColor: PropTypes.oneOf(Object.keys(colorClasses)),
+
+  /** Adds a size modifier to the icon */
+  iconSize: PropTypes.oneOf(Object.keys(wrapperSizeClasses)),
 
   /** Determines if the iconButton is disabled or not. */
   isDisabled: PropTypes.bool,
@@ -76,43 +88,22 @@ XUIIconButton.propTypes = {
    * `window.opener`. Should be used for links pointing at external sites. * */
   isExternalLink: PropTypes.bool,
 
-  /** A keydown event handler for the iconButton */
-  onKeyDown: PropTypes.func,
-
-  /** Bind a function to fire when the iconButton is clicked */
-  onClick: PropTypes.func,
-
-  /**
-   * Modifier for the size of the iconButton. `medium`, `small`, or `xsmall`.
-   */
-  size: PropTypes.oneOf(Object.keys(sizeClassNames)),
+  /** Applies inverted styling */
+  isInverted: PropTypes.bool,
 
   /** Whether or not to render this iconButton using an <a> tag */
   isLink: PropTypes.bool,
 
-  /** The type attribute of this iconButton. `submit`, `button`, or `reset`. */
-  type: PropTypes.oneOf(Object.keys(buttonTypes).map(type => buttonTypes[type])),
+  /** Bind a function to fire when the iconButton is clicked */
+  onClick: PropTypes.func,
 
-  /** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
-  href: PropTypes.string,
+  /** A keydown event handler for the iconButton */
+  onKeyDown: PropTypes.func,
+
+  qaHook: PropTypes.string,
 
   /** The `rel` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
   rel: PropTypes.string,
-
-  /** The HTML tabIndex attribute value */
-  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-
-  /** The `target` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
-  target: PropTypes.string,
-
-  /** The `title` attribute */
-  title: PropTypes.string,
-
-  /** Adds a size modifier to the icon */
-  iconSize: PropTypes.oneOf(Object.keys(wrapperSizeClasses)),
-
-  /** Description of the icon to be read by screen readers */
-  desc: PropTypes.string,
 
   /** Role to be applied to the icon SVG for screen readers */
   role: PropTypes.string,
@@ -123,19 +114,28 @@ XUIIconButton.propTypes = {
     ...Object.keys(rotationClasses).map(n => parseInt(n)),
   ]),
 
-  /** Adds a color modifier to the icon */
-  iconColor: PropTypes.oneOf(Object.keys(colorClasses)),
+  /**
+   * Modifier for the size of the iconButton. `medium`, `small`, or `xsmall`.
+   */
+  size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 
-  /** Applies inverted styling */
-  isInverted: PropTypes.bool,
+  /** The HTML tabIndex attribute value */
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
-  qaHook: PropTypes.string,
+  /** The `target` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
+  target: PropTypes.string,
+
+  /** The `title` attribute */
+  title: PropTypes.string,
+
+  /** The type attribute of this iconButton. `submit`, `button`, or `reset`. */
+  type: PropTypes.oneOf(Object.keys(buttonTypes).map(type => buttonTypes[type])),
 };
 
 XUIIconButton.defaultProps = {
-  tabIndex: 0,
-  type: buttonTypes.button,
-  isLink: false,
   isDisabled: false,
   isExternalLink: false,
+  isLink: false,
+  tabIndex: 0,
+  type: buttonTypes.button,
 };

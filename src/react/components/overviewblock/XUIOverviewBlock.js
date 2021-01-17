@@ -36,22 +36,22 @@ export default XUIOverviewBlock;
 XUIOverviewBlock.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
+  /** Whether the block should have a solid background. Defaults to true */
+  hasBackground: PropTypes.bool,
+  /** Whether to show wrapping border on the entire block. Defaults to true */
+  hasBorder: PropTypes.bool,
   /**
    * Applies default layout styling.
    */
   hasLayout: PropTypes.bool,
+  qaHook: PropTypes.string,
   /** How to align text, generally, across all sections */
   textAlignment: PropTypes.oneOf(['left', 'center', 'right']),
-  /** Whether to show wrapping border on the entire block. Defaults to true */
-  hasBorder: PropTypes.bool,
-  /** Whether the block should have a solid background. Defaults to true */
-  hasBackground: PropTypes.bool,
 };
 
 XUIOverviewBlock.defaultProps = {
+  hasBackground: true,
+  hasBorder: true,
   hasLayout: true,
   textAlignment: 'center',
-  hasBorder: true,
-  hasBackground: true,
 };

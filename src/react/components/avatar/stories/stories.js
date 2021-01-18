@@ -22,7 +22,10 @@ storiesWithKnobs.add('Playground', () => {
     select('Variant', ['standard', 'business'], 'business') === 'standard' ? undefined : 'business';
   props.image = boolean('Turn image on', false);
   props.imageUrl = props.image
-    ? text('Image URL', 'https://xui.xero.com/static/xpert-avatar.png')
+    ? text(
+        'Image URL',
+        'https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c',
+      )
     : undefined;
   const size = select('Size', Object.keys(sizeClassNames), 'medium');
   props.size = size === 'medium' ? undefined : size;

@@ -204,10 +204,23 @@ class Demo extends React.Component {
                 id: 0,
                 x: 'Layla Abernathy',
                 y: 1,
-                avatarUrl: 'https://xui.xero.com/static/xpert-avatar.png'
+                avatarUrl:
+                  'https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c'
               },
-              { id: 1, x: 'Heloise Stanton', y: 2, avatarUrl: 'https://placekitten.com/100/100' },
-              { id: 2, x: 'Rollin McCullough', y: 3, avatarUrl: 'https://placekitten.com/200/200' }
+              {
+                id: 1,
+                x: 'Heloise Stanton',
+                y: 2,
+                avatarUrl:
+                  'https://i.picsum.photos/id/1044/100/100.jpg?hmac=IGzsuFyCgR4u_DgqnNlOHxY-ThKh9C02XhZAqHyVy0Q'
+              },
+              {
+                id: 2,
+                x: 'Rollin McCullough',
+                y: 3,
+                avatarUrl:
+                  'https://i.picsum.photos/id/931/100/100.jpg?hmac=BJxOJGnnDF4jriUgv211ZTiatGsYZ2ORIKXGZAu6VkA'
+              }
             ]}
             keyTitle="Graph key"
             emptyMessage="There is no data to display"

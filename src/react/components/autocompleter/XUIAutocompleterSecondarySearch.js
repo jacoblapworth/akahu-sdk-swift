@@ -147,6 +147,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
       placeholder,
       inputLabel,
       isInputLabelHidden,
+      isLegacyDisplay,
       inputProps,
       inputId,
       onOptionSelect,
@@ -237,6 +238,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
           dropdown={dropdown}
           forceDesktop={forceDesktop}
           isBlock={isBlock}
+          isLegacyDisplay={isLegacyDisplay}
           matchTriggerWidth={matchTriggerWidth}
           onClose={compose(onClose, this.clearValue)}
           onOpen={this.onOpen}
@@ -302,6 +304,12 @@ XUIAutocompleterSecondarySearch.propTypes = {
   /** Should label be applied as an aria-label, rather than being visibly displayed. */
   isInputLabelHidden: PropTypes.bool,
 
+  /**
+   * Whether the underlying DropdownToggled component uses the "legacy" (portaled) display.
+   * Defaults to "true."
+   */
+  isLegacyDisplay: PropTypes.bool,
+
   // TODO: Implement loading pattern
   // /**
   //  * When set to true a loader will be displayed instead of the picklist items.
@@ -356,6 +364,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
 
 XUIAutocompleterSecondarySearch.defaultProps = {
   // loading: false,
+  isLegacyDisplay: true,
   restrictFocus: true,
   searchThrottleInterval: 0,
 };

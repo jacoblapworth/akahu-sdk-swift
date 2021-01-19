@@ -4,7 +4,7 @@
 //
 // Teaser: Usage and placement best practice guidance for page-level actions like create, delete, done and edit.
 //
-// Introduction: Surfacing page level actions like create, delete, done, edit with a considered system in mind helps us to build interfaces that are familiar and easy to navigate for our users.
+// Introduction: Surfacing page-level actions like create, delete, done, edit with a considered system in mind helps us to build interfaces that are familiar and easy to navigate for our users.
 //
 // Styleguide: Patterns.Page-level-actions
 
@@ -51,7 +51,7 @@
 // Placement
 //
 // Page-level actions can be located within the page header or isolation header, above the main content, below the main content, or in a fixed footer. The placement decision of actions is important to create the appropriate relationship between them and the surrounding content.
-// 
+//
 // Styleguide: Patterns.Page-level-actions.2
 
 // Within header
@@ -83,7 +83,7 @@
 // Tips:
 // Do: Include actions that start a new flow
 // Don't: Don't include actions that require users to first consider all page content
-// 
+//
 // Styleguide: Patterns.Page-level-actions.2.1.2
 
 // Above the main content
@@ -110,9 +110,9 @@
 // Image: page-level-actions/example-before-main.png
 //
 // Tips:
-// Do: Include actions that affect the content below 
+// Do: Include actions that affect the content below
 // Don't: Don't include actions that conclude a flow
-// 
+//
 // Styleguide: Patterns.Page-level-actions.2.2.2
 
 // In the main content
@@ -154,9 +154,9 @@
 // Image: page-level-actions/example-after-main.png
 //
 // Tips:
-// Do: Include actions that require consideration of the content before triggering
+// Do: Include actions that require the user to consider all page content before triggering
 // Don't: Don't include actions that start a new flow
-// 
+//
 // Styleguide: Patterns.Page-level-actions.2.4.2
 
 // Fixed footer
@@ -166,7 +166,7 @@
 // Tips:
 // Do: Include actions that must always be visible
 // Do: Include actions that can be triggered at any time
-// Don't: Don’t include actions that require consideration of the content before triggering
+// Don't: Don't include actions that require the user to consider all page content before triggering
 // Info: [Fixed footer component guide](./section-components-navigation-fixedfooter.html)
 //
 // Styleguide: Patterns.Page-level-actions.2.5
@@ -186,7 +186,7 @@
 // Tips:
 // Do: Include actions that must be always visible, or can be triggered any time
 // Don't: Include actions that affect the entire page or content
-// 
+//
 // Styleguide: Patterns.Page-level-actions.2.5.2
 
 // Related links

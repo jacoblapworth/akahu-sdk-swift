@@ -133,8 +133,6 @@ const XUIBreadcrumbTrail = ({ breadcrumbs, className, qaHook, swapAtBreakpoint }
 export default XUIBreadcrumbTrail;
 
 XUIBreadcrumbTrail.propTypes = {
-  className: PropTypes.string,
-  qaHook: PropTypes.string,
   /**
    * Array of objects or nodes from which to build breadcrumbs.
    */
@@ -142,11 +140,13 @@ XUIBreadcrumbTrail.propTypes = {
     PropTypes.oneOfType([
       PropTypes.node,
       PropTypes.shape({
-        label: PropTypes.string.isRequired,
         href: PropTypes.string,
+        label: PropTypes.string.isRequired,
       }),
     ]),
   ),
+  className: PropTypes.string,
+  qaHook: PropTypes.string,
   /**
    * If a breadcrumb trail is more than two items long, items other than the last
    * will be condensed into a dropdown below this breakpoint. Functionality relies

@@ -61,23 +61,23 @@ export default class XUINestedPicklistTrigger extends PureComponent {
 }
 
 XUINestedPicklistTrigger.propTypes = {
-  children: PropTypes.node,
-  qaHook: PropTypes.string,
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  className: PropTypes.string,
-  isHighlighted: PropTypes.bool,
-  isSelected: PropTypes.bool,
-  onClick: PropTypes.func,
-  onMouseOver: PropTypes.func,
   /**
    * Specify an ARIA label for the trigger
    * <br />
    * Recommended English value: *Toggle submenu*
    */
   ariaLabel: PropTypes.string.isRequired,
-  secondaryProps: PropTypes.object,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  isHighlighted: PropTypes.bool,
+  isSelected: PropTypes.bool,
   /** Content to be added to the left of the pickitem */
   leftElement: PropTypes.node,
+  onClick: PropTypes.func,
+  onMouseOver: PropTypes.func,
+  qaHook: PropTypes.string,
+  secondaryProps: PropTypes.object,
 };
 
 XUINestedPicklistTrigger.defaultProps = {

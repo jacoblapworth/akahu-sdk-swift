@@ -83,11 +83,11 @@ const AvatarLabel = ({
 export default AvatarLabel;
 
 AvatarLabel.propTypes = {
-  updateToolTip: PropTypes.func,
+  index: PropTypes.number,
   isToolTipHidden: PropTypes.bool,
   labelHeight: PropTypes.number,
-  labelWidth: PropTypes.number,
   labelTop: PropTypes.number,
-  index: PropTypes.number,
+  labelWidth: PropTypes.number,
   text: PropTypes.string,
+  updateToolTip: PropTypes.func,
 };

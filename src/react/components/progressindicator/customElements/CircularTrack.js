@@ -169,14 +169,14 @@ const CircularTrack = ({
 };
 
 CircularTrack.propTypes = {
-  id: PropTypes.string.isRequired,
-  qaHook: PropTypes.string,
-  total: PropTypes.number.isRequired,
-  progress: PropTypes.number.isRequired,
-  isSegmented: PropTypes.bool,
   customContent: PropTypes.node,
-  thickness: PropTypes.number,
   elementWidth: PropTypes.number,
+  id: PropTypes.string.isRequired,
+  isSegmented: PropTypes.bool,
+  progress: PropTypes.number.isRequired,
+  qaHook: PropTypes.string,
+  thickness: PropTypes.number,
+  total: PropTypes.number.isRequired,
 };
 
 CircularTrack.defaultProps = {

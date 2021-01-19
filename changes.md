@@ -127,6 +127,7 @@ Following classes have been **removed** because left space isn't needed for alig
   - additional icon component props padded as `iconProps` (can be used with `icon` prop but not `iconComponent`)
 - `XUIDropdown` has a new `onScroll` prop, which provides a callback for when the dropdown is scrolled.
 - `XUIDropdownPanel` has a new `onScroll` prop, which provides a callback for when the dropdown is scrolled (this is for use within a `XUINestedDropdown`).
+- `XUIEditableTable` now supports pinned first and last columns, which can be achieved by supplying the `hasPinnedFirstColumn` and/or `hasPinnedLastColumn` props.
 
 ### Removals
 

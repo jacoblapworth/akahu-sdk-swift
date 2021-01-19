@@ -21,7 +21,8 @@ const avatarVariations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with image',
-    imageUrl: 'https://xui.xero.com/static/xpert-avatar.png',
+    imageUrl:
+      'https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c',
     value: 'value',
   },
   {

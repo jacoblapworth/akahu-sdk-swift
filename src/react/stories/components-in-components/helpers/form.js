@@ -82,6 +82,6 @@ Form.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
   inline: PropTypes.bool,
-  stacked: PropTypes.bool,
   noLayout: PropTypes.bool,
+  stacked: PropTypes.bool,
 };

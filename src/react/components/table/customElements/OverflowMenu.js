@@ -41,8 +41,8 @@ const OverflowMenu = ({ children, overflowMenuTitle, qaHook }) => {
 export default OverflowMenu;
 
 OverflowMenu.propTypes = {
-  overflowMenuTitle: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.bool]),
+  overflowMenuTitle: PropTypes.string,
   qaHook: PropTypes.string,
 };
 

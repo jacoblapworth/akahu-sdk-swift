@@ -169,29 +169,21 @@ class TableBodyRow extends PureComponent {
 }
 
 TableBodyRow.propTypes = {
-  rowData: PropTypes.object.isRequired,
-  rowIndex: PropTypes.number.isRequired,
+  checkOneRowAriaLabel: PropTypes.node,
   columns: PropTypes.node,
-  ensureCellVisibility: PropTypes.func,
-  qaHook: PropTypes.string,
-
-  // Divider.
   createDividerClasses: PropTypes.func,
-
-  // Checkbox.
+  createOverflowMenu: PropTypes.func,
+  ensureCellVisibility: PropTypes.func,
   hasCheckbox: PropTypes.bool,
+  hasOverflowMenu: PropTypes.bool,
   isChecked: PropTypes.bool,
   isDisabled: PropTypes.bool,
   onCheckOneToggle: PropTypes.func,
-  checkOneRowAriaLabel: PropTypes.node,
-
-  // Overflow Menu.
-  hasOverflowMenu: PropTypes.bool,
-  createOverflowMenu: PropTypes.func,
-  overflowMenuTitle: PropTypes.string,
-
-  // Interaction.
   onRowClick: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  overflowMenuTitle: PropTypes.string,
+  qaHook: PropTypes.string,
+  rowData: PropTypes.object.isRequired,
+  rowIndex: PropTypes.number.isRequired,
   shouldRowClick: PropTypes.func,
 };
 

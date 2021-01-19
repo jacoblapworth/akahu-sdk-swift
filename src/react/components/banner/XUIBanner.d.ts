@@ -15,7 +15,7 @@ interface Props {
   onCloseClick?: React.MouseEventHandler<HTMLButtonElement>;
   qaHook?: string;
   /**
-   * Applies a role attribute to the toast element. This will override any component-determined
+   * Applies a role attribute to the banner element. This will override any component-determined
    * value.
    */
   role?: string;

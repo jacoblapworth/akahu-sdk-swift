@@ -72,45 +72,45 @@ const XUIRange = props => {
 export default XUIRange;
 
 XUIRange.propTypes = {
-  qaHook: PropTypes.string,
-  /** Element on the left of the XUIRange component */
-  leftElement: PropTypes.node,
-  /** Element on the right of the XUIRange component */
-  rightElement: PropTypes.node,
-  /** Boolean to hide/show Input label */
-  isLabelHidden: PropTypes.node,
-  /** Input label */
-  label: PropTypes.node,
-  /** Name to be consumed by form objects etc */
-  name: PropTypes.string,
+  /** Additional classes to be applied to the container */
+  containerClasses: PropTypes.string,
+  /** Default value of the XUIRange component */
+  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** Hint message to be passed into the XUIControlWrapper */
   hintMessage: PropTypes.node,
   /** Id of Range Component */
   id: PropTypes.string,
-  /** Sizing of the circle touch object */
-  size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
-  /** The incremement of the XUIRange slider value */
-  step: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /** Default value of the XUIRange component */
-  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /** Minimum value of the XUIRange component */
-  min: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /** Additional classes to be applied to the input */
+  inputClasses: PropTypes.string,
+  /** Disables the XUIRange component */
+  isDisabled: PropTypes.bool,
+  /** Displays that the XUIRange component is invalid */
+  isInvalid: PropTypes.bool,
+  /** Boolean to hide/show Input label */
+  isLabelHidden: PropTypes.node,
+  /** Input label */
+  label: PropTypes.node,
+  /** Element on the left of the XUIRange component */
+  leftElement: PropTypes.node,
   /** Maximum value of the XUIRange component */
   max: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /** Minimum value of the XUIRange component */
+  min: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /** Name to be consumed by form objects etc */
+  name: PropTypes.string,
   /** Define a function for the onClick event of the slider being clicked */
   onClick: PropTypes.func,
   /** Define a function for the onInput event of when the value of the slider is set/changed */
   onInput: PropTypes.func,
-  /** Disables the XUIRange component */
-  isDisabled: PropTypes.bool,
+  qaHook: PropTypes.string,
+  /** Element on the right of the XUIRange component */
+  rightElement: PropTypes.node,
+  /** Sizing of the circle touch object */
+  size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
+  /** The incremement of the XUIRange slider value */
+  step: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** The message to show in validation */
   validationMessage: PropTypes.node,
-  /** Displays that the XUIRange component is invalid */
-  isInvalid: PropTypes.bool,
-  /** Additional classes to be applied to the container */
-  containerClasses: PropTypes.string,
-  /** Additional classes to be applied to the input */
-  inputClasses: PropTypes.string,
 };
 
 XUIRange.defaultProps = {

@@ -59,7 +59,9 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'react/jsx-indent': [0], // Prettier handles indentation
     'react/jsx-indent-props': [0], // Prettier handles indentation
+    'react/jsx-sort-default-props': [2],
     'react/jsx-sort-props': [2, {}],
+    'react/sort-prop-types': [2],
     'react/prefer-stateless-function': 0, // Worth disabling while PureComponent is more performant (the override of this rule for PureComponent doesn't work)
     'react/require-default-props': 0, // We would need to add default `qaHook` and `children` props for most components
     'react/sort-comp': 0, // TODO: Either remove class fields or implement this rule once they're supported

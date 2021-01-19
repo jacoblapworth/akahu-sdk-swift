@@ -354,14 +354,15 @@ export default class XUIModal extends Component {
 }
 
 XUIModal.propTypes = {
-  /** If the modal will be hidden when the user presses the Esc key */
-  hideOnEsc: PropTypes.bool,
+  /** ID for the element containing an appropriate description for screen readers */
+  ariaDescribedBy: PropTypes.string,
 
-  /** If the modal will be hidden when the user clicks the overlay */
-  hideOnOverlayClick: PropTypes.bool,
+  /** ID for the element containing an appropriate label for screen readers. If a ModalHeader
+   * is provided, it will automatically be used as the labelling element. */
+  ariaLabelledBy: PropTypes.string,
 
-  /** Bind a function to fire when the modal requests to be hidden */
-  onClose: PropTypes.func,
+  children: PropTypes.node,
+  className: PropTypes.string,
 
   /**
    * Title and accessibility label to be applied to the modal close "X" button.
@@ -370,15 +371,29 @@ XUIModal.propTypes = {
    */
   closeButtonLabel: PropTypes.string.isRequired,
 
-  /** The size (aka width) of this modal */
-  size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'fullscreen']),
+  /** Custom classes for the close button */
+  closeClassName: PropTypes.string,
 
-  /** Whether the modal is visible */
-  isOpen: PropTypes.bool,
+  /** If the modal will use the default XUI style layout */
+  defaultLayout: PropTypes.bool,
+
+  /** If the modal will be hidden when the user presses the Esc key */
+  hideOnEsc: PropTypes.bool,
+
+  /** If the modal will be hidden when the user clicks the overlay */
+  hideOnOverlayClick: PropTypes.bool,
+
+  id: PropTypes.string,
 
   /** Whether the modal wrapping element should be a `<form>` rather than a `<section>`.
    * Allows the enter key to activate the submit button inside native form controls. */
   isForm: PropTypes.bool,
+
+  /** Whether the modal is visible */
+  isOpen: PropTypes.bool,
+
+  /** Renders the modal to the bottom of the current document when true. Otherwise inline. */
+  isUsingPortal: PropTypes.bool,
 
   /** The target that should listen to key presses. Defaults to the window. */
   keyListenerTarget: PropTypes.object,
@@ -386,38 +401,25 @@ XUIModal.propTypes = {
   /** Custom classes for the mask */
   maskClassName: PropTypes.string,
 
-  /** Custom classes for the close button */
-  closeClassName: PropTypes.string,
+  /** Bind a function to fire when the modal requests to be hidden */
+  onClose: PropTypes.func,
+
+  qaHook: PropTypes.string,
 
   /** Restricts focus to elements within the modal while it is open */
   restrictFocus: PropTypes.bool,
 
-  /** ID for the element containing an appropriate label for screen readers. If a ModalHeader
-   * is provided, it will automatically be used as the labelling element. */
-  ariaLabelledBy: PropTypes.string,
-
-  /** ID for the element containing an appropriate description for screen readers */
-  ariaDescribedBy: PropTypes.string,
-
-  /** Renders the modal to the bottom of the current document when true. Otherwise inline. */
-  isUsingPortal: PropTypes.bool,
-
-  /** If the modal will use the default XUI style layout */
-  defaultLayout: PropTypes.bool,
-
-  children: PropTypes.node,
-  className: PropTypes.string,
-  id: PropTypes.string,
-  qaHook: PropTypes.string,
+  /** The size (aka width) of this modal */
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge', 'fullscreen']),
 };
 
 XUIModal.defaultProps = {
+  defaultLayout: true,
   hideOnEsc: true,
   hideOnOverlayClick: false,
-  isOpen: false,
-  size: 'medium',
-  defaultLayout: true,
-  restrictFocus: true,
-  isUsingPortal: true,
   isForm: false,
+  isOpen: false,
+  isUsingPortal: true,
+  restrictFocus: true,
+  size: 'medium',
 };

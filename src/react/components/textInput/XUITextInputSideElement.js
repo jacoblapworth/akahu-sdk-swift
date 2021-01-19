@@ -30,15 +30,15 @@ const XUITextInputSideElement = ({
 export default XUITextInputSideElement;
 
 XUITextInputSideElement.propTypes = {
-  children: PropTypes.node,
-  qaHook: PropTypes.string,
-  /** Classes to apply to the container element */
-  className: PropTypes.string,
+  /** Vertical alignment of the content */
+  alignment: PropTypes.oneOf(['top', 'center', 'bottom']),
   /** The background colour for the side element - should only be used with
    * icons where appropriate */
   backgroundColor: PropTypes.string,
-  /** Vertical alignment of the content */
-  alignment: PropTypes.oneOf(['top', 'center', 'bottom']),
+  children: PropTypes.node,
+  /** Classes to apply to the container element */
+  className: PropTypes.string,
+  qaHook: PropTypes.string,
   /** Type of the contents being used */
   type: PropTypes.oneOf(Object.keys(typeClasses)),
 };

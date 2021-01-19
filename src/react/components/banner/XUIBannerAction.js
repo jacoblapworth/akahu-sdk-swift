@@ -28,15 +28,15 @@ const XUIBannerAction = ({ className, qaHook, onClick, href, isLink, children })
 export default XUIBannerAction;
 
 XUIBannerAction.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node,
-  qaHook: PropTypes.string,
-  /** Click event handler for the banner action */
-  onClick: PropTypes.func,
+  className: PropTypes.string,
   /** URL of the link */
   href: PropTypes.string,
   /** Whether or not to render this button using an anchor element */
   isLink: PropTypes.bool,
+  /** Click event handler for the banner action */
+  onClick: PropTypes.func,
+  qaHook: PropTypes.string,
 };
 
 XUIBannerAction.defaultProps = {

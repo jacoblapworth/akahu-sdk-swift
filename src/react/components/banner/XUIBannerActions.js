@@ -16,7 +16,7 @@ const XUIBannerActions = ({ children, className, qaHook }) => {
 export default XUIBannerActions;
 
 XUIBannerActions.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node,
+  className: PropTypes.string,
   qaHook: PropTypes.string,
 };

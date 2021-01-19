@@ -35,14 +35,18 @@ storiesWithKnobs.add('Playground', () => {
   };
 
   const dateRangeProps = {
-    firstInputLabel: 'First Date',
-    secondInputLabel: 'Second Date',
-    firstHintMessage: 'This is the first hint note',
-    secondHintMessage: 'This is the second hint note',
-    firstSelectedDateValue: new Date(2019, 11, 20),
-    secondSelectedDateValue: new Date(),
-    onFirstSelectDate: sampleOnSelectDateFunction,
-    onSecondSelectDate: sampleOnSelectDateFunction,
+    startDateInputConfig: {
+      inputLabel: 'First Date',
+      hintMessage: 'This is the first hint note',
+      selectedDateValue: new Date(2019, 11, 20),
+      onInputChange: sampleOnSelectDateFunction,
+    },
+    endDateInputConfig: {
+      inputLabel: 'Second Date',
+      hintMessage: 'This is the second hint note',
+      selectedDateValue: new Date(),
+      onInputChange: sampleOnSelectDateFunction,
+    },
     convenienceDates: dateRangeInputConvenienceDates,
   };
 

@@ -42,14 +42,11 @@ const XUIAvatarGroup = ({ children, className, qaHook, maxAvatars, avatarSize })
 };
 
 XUIAvatarGroup.propTypes = {
-  className: PropTypes.string,
-  qaHook: PropTypes.string,
-  children: PropTypes.node,
-
   /** The size to apply to all avatars contained within the group. This will
    * override any individual avatar's size settings. */
   avatarSize: PropTypes.oneOf(Object.keys(sizeClassNames)),
-
+  children: PropTypes.node,
+  className: PropTypes.string,
   /** The maximum number of avatars to show */
   maxAvatars(props, propName) {
     const maxAvatars = props[propName];
@@ -63,6 +60,7 @@ XUIAvatarGroup.propTypes = {
     }
     return null;
   },
+  qaHook: PropTypes.string,
 };
 
 export default React.memo(XUIAvatarGroup);

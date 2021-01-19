@@ -346,38 +346,53 @@ export default class XUIDatePicker extends PureComponent {
 }
 
 XUIDatePicker.propTypes = {
-  qaHook: PropTypes.string,
-
-  /** Callback for when the user selects a date.  Will fire even if the date has
-   * already been selected.  Will not fire for disbled days. */
-  onSelectDate: PropTypes.func.isRequired,
-
-  /** Callback for when a user switches to a different month */
-  onMonthChange: PropTypes.func,
-
-  /** If you only want to display a single selected day without allowing the user
-   * to select a date range, pass that Date in here. */
-  selectedDate: PropTypes.instanceOf(Date),
-
-  /** If you want to disable every date before a given day, pass in the minimum enabled
-   * date here.  Can be used with the isDateDisabled function. */
-  minDate: PropTypes.instanceOf(Date),
-
-  /** If you want to disable every date after a given day, pass in the maximum enabled
-   * date here.  Can be used with the isDateDisabled function. */
-  maxDate: PropTypes.instanceOf(Date),
+  /** Whether the language is right-to-left or left-to-right */
+  dir: PropTypes.oneOf(['ltr', 'rtl']),
 
   /** A date which represents the year and month that the calendar will display. Could
    * be any day in the given day and month. */
   displayedMonth: PropTypes.instanceOf(Date),
 
+  /** Which day of the week should be displayed as the first day of the week?  Sunday === 0 */
+  firstDayOfWeek: PropTypes.number,
+
+  /** A function that we can use to determine whether or not a day should be disabled.  */
+  isDateDisabled: PropTypes.func,
+
+  /** The locale of the calendar */
+  locale: PropTypes.string,
+
+  /** If you want to disable every date after a given day, pass in the maximum enabled
+   * date here.  Can be used with the isDateDisabled function. */
+  maxDate: PropTypes.instanceOf(Date),
+
+  /** If you want to disable every date before a given day, pass in the minimum enabled
+   * date here.  Can be used with the isDateDisabled function. */
+  minDate: PropTypes.instanceOf(Date),
+
+  /** An array of localised month names */
+  months: PropTypes.arrayOf(PropTypes.string),
+
   /** An accessibility label for the next month button that will be read to users with
    * a screen reader.  */
   nextButtonAriaLabel: PropTypes.string,
 
+  /** Callback for when a user switches to a different month */
+  onMonthChange: PropTypes.func,
+
+  /** Callback for when the user selects a date.  Will fire even if the date has
+   * already been selected.  Will not fire for disbled days. */
+  onSelectDate: PropTypes.func.isRequired,
+
   /** An accessibility label for the previous month button that will be read to users
    * with a screen reader. */
   prevButtonAriaLabel: PropTypes.string,
+
+  qaHook: PropTypes.string,
+
+  /** If you only want to display a single selected day without allowing the user
+   * to select a date range, pass that Date in here. */
+  selectedDate: PropTypes.instanceOf(Date),
 
   /**
    * If the user is selecting a date range, this will contain the dates the user has
@@ -389,32 +404,17 @@ XUIDatePicker.propTypes = {
     to: PropTypes.instanceOf(Date),
   }),
 
-  /** A function that we can use to determine whether or not a day should be disabled.  */
-  isDateDisabled: PropTypes.func,
-
   /** Whether or not to display days that occur in months other than the one you're focused on */
   showDaysInOtherMonths: PropTypes.bool,
 
   /** Whether or not to show six full weeks no matter how many days are in the month. */
   showFixedNumberOfWeeks: PropTypes.bool,
 
-  /** The locale of the calendar */
-  locale: PropTypes.string,
-
-  /** An array of localised month names */
-  months: PropTypes.arrayOf(PropTypes.string),
-
   /** An array of localised full weekday names (e.g. ["Sunday", "Monday", ...]) */
   weekdaysLong: PropTypes.arrayOf(PropTypes.string),
 
   /** An array of localised short weekday names (e.g. ["Su", "Mo", ...]) */
   weekdaysShort: PropTypes.arrayOf(PropTypes.string),
-
-  /** Which day of the week should be displayed as the first day of the week?  Sunday === 0 */
-  firstDayOfWeek: PropTypes.number,
-
-  /** Whether the language is right-to-left or left-to-right */
-  dir: PropTypes.oneOf(['ltr', 'rtl']),
 };
 
 XUIDatePicker.defaultProps = {

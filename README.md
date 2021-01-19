@@ -62,7 +62,7 @@ Open http://localhost:9001 to view the storybook.
 
 This is running a webpack dev server for the docs site and watches to automatically rebuild. The CSS uses livereload and React docs use hot module replacement. It uses storybook for component development.
 
-#### Folder structure
+### Folder structure
 
 XUI has a number of top level folders. When contributing all the interesting files are under the `src` folder.
 
@@ -104,7 +104,7 @@ src/
    └─ 99-utils/
 ```
 
-#### npm scripts
+### npm scripts
 
 XUI has a few npm scripts. `npm start` should be enough for all development tasks.
 
@@ -125,6 +125,49 @@ XUI has a few npm scripts. `npm start` should be enough for all development task
 | `npm run review`                 | Runs React unit tests and visual regression tests and lints the React components, intended to be run before opening a pull request. This double-checks for visual regressions and ensures the TeamCity build will be successful.                 |
 | `npm run build`                  | Compiles the stylesheet, Builds the KSS docs, Styleguide and Storybook apps. Compiles tokens and creates the UMD bundle. Used for creating a release.                                                                                            |
 | `npm run release`                | This script is reserved for running before we plan on doing a release on a local and before doing the release PR. Updates all versions of XUI in package(-lock).json, and a few other files where required to the new version we plan to release |
+
+### Testing changes against another project
+
+When making changes to XUI you may want to test those changes against a project that consumes XUI.
+[NPM's link command](https://docs.npmjs.com/cli/v6/commands/npm-link) is the easiest way to do this.
+
+#### Step 1: Link XUI
+
+Navigate to the XUI directory and run the following command:
+
+```sh
+npm link
+```
+
+This will prepare a symlink to your local copy of XUI.
+
+#### Step 2: Use the link to XUI in your project
+
+Add the following to your project's `package.json` (presuming your `xui` folder sits next to your
+project folder):
+
+```json
+{
+  ...
+  "scripts": {
+    ...
+    "postinstall": "npm link @xero/xui && npm link ../xui/node_modules/react && npm link ../xui/node_modules/react-dom"
+  }
+}
+```
+
+This will replace your project's versions of XUI, React, and ReactDOM with your local copy of XUI
+and its respective packages every time you run `npm install`.
+
+#### Step 3: Watch for changes to XUI
+
+Navigate to the XUI directory and run the following command:
+
+```sh
+npm run link:watch
+```
+
+This will watch for changes and rebuild XUI to be consumed by another project.
 
 ## Hooks
 

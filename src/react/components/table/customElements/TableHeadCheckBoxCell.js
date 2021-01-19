@@ -44,10 +44,10 @@ const TableHeadCheckBoxCell = ({
 };
 
 TableHeadCheckBoxCell.propTypes = {
-  totalData: PropTypes.number,
+  checkAllRowsAriaLabel: PropTypes.string,
   checkedIds: PropTypes.array,
   onCheckAllToggle: PropTypes.func,
-  checkAllRowsAriaLabel: PropTypes.string,
+  totalData: PropTypes.number,
 };
 
 export default TableHeadCheckBoxCell;

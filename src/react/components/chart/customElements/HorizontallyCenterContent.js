@@ -74,7 +74,7 @@ class HorizontallyCenterContent extends PureComponent {
 export default HorizontallyCenterContent;
 
 HorizontallyCenterContent.propTypes = {
-  wrapperWidth: PropTypes.number,
-  wrapperHeight: PropTypes.number,
   children: PropTypes.element,
+  wrapperHeight: PropTypes.number,
+  wrapperWidth: PropTypes.number,
 };

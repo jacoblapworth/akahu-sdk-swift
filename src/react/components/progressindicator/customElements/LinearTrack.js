@@ -8,9 +8,9 @@ import { createArray } from '../helpers/utilities';
 const DEFAULT_THICKNESS = 4;
 
 const dashProps = {
-  total: PropTypes.number.isRequired,
   progress: PropTypes.number.isRequired,
   thickness: PropTypes.number,
+  total: PropTypes.number.isRequired,
 };
 
 const standardiseThickness = (thickness, isGrow, elementHeight) =>
@@ -126,8 +126,8 @@ const LinearTrack = ({
 
 LinearTrack.propTypes = {
   ...dashProps,
-  isSegmented: PropTypes.bool,
   elementHeight: PropTypes.number,
+  isSegmented: PropTypes.bool,
 };
 
 /* eslint-disable react/default-props-match-prop-types */

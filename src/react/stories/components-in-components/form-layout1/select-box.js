@@ -75,10 +75,10 @@ export default class LayoutSelect extends React.Component {
 
 LayoutSelect.propTypes = {
   children: PropTypes.any,
-  label: PropTypes.string,
-  title: PropTypes.string,
-  name: PropTypes.string,
-  onSelect: PropTypes.func,
   className: PropTypes.string,
   htmlFor: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  onSelect: PropTypes.func,
+  title: PropTypes.string,
 };

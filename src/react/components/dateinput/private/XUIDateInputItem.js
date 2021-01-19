@@ -251,17 +251,17 @@ XUIDateInputItem.propTypes = {
   /** CSS class(es) to go on the wrapping DOM node */
   className: PropTypes.string,
 
+  /** Whether or not the dropdown should automatically be hidden when the user selects something */
+  closeOnSelect: PropTypes.bool,
+
   /** TODO: Fill this out */
   convenienceDates: PropTypes.arrayOf(
     PropTypes.shape({
+      getDate: PropTypes.func,
       id: PropTypes.string,
       text: PropTypes.string,
-      getDate: PropTypes.func,
     }),
   ),
-
-  /** Whether or not the dropdown should automatically be hidden when the user selects something */
-  closeOnSelect: PropTypes.bool,
 
   /** A date which represents the year and month that the calendar will display. Could
    * be any day in the given day and month. */

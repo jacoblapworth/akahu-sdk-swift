@@ -1,10 +1,12 @@
 // Accessible Development
 //
-// Introduction: Guide to accessible app development at Xero (WCAG 2.0 AA)
+// Introduction: Guide to accessible app development at Xero (WCAG 2.1 AA)
 //
-// Building accessible apps is much more than just using components set up for accessibility, and we know product teams care deeply about this, but might be unsure where to begin. Additionally, the full specifications are dense and not organised in a way that's particularly helpful while building or optimising an app. So, we're offering a condensed, plain-language summary of the guidelines, categorised in a way that better supports development. What follows is based on our understanding of the specifications for WCAG 2.0 AA compliance, and what will be most relevant to developers at Xero. Linked numbers at the end of each item refer to specific guidelines.
+// Building accessible apps is much more than just using components set up for accessibility, and we know product teams care deeply about this, but might be unsure where to begin. Additionally, the full specifications are dense and not organised in a way that's particularly helpful while building or optimising an app. So, we're offering a condensed, plain-language summary of the guidelines, categorised in a way that better supports development. What follows is based on our understanding of the specifications for WCAG 2.1 AA compliance, and what will be most relevant to developers at Xero. Linked numbers at the end of each item refer to specific guidelines.
 //
-// For more information, be sure to read the full [WCAG specification ](https://www.w3.org/TR/UNDERSTANDING-WCAG20/)or check out another of our favourite resources, the [WUHCAG](https://www.wuhcag.com/).
+// The guidelines below apply to using XUI. If you are building your own custom components, there are additional guidelines that may be relevant.
+//
+// For more information, be sure to read the full [WCAG specification](w3.org/TR/WCAG21/) or check out another of our favourite resources, the [WUHCAG](https://www.wuhcag.com/).
 //
 // Weight: 1.43
 //
@@ -17,6 +19,7 @@
 // * Ensure all pages have a helpful and clear `<title>` ([2.4.2](https://www.wuhcag.com/page-titled/))
 // * Set the language of the overall page, and update this setting if the language of a page changes ([3.1.1](https://www.wuhcag.com/language-of-page/) & [3.1.2](https://www.wuhcag.com/language-of-parts/))
 // * Set the language on a sub element if part of a page is in an alternate language ([3.1.2](https://www.wuhcag.com/language-of-parts/))
+// * Do not lock display to a specific orientation, such as landscape or portrait. ([1.3.4](https://www.w3.org/TR/WCAG21/#orientation))
 // * Ensure you don't break native zooming functionality of the browser, and check that your app still works when zoomed to 200% ([1.4.4](https://www.wuhcag.com/resize-text/))
 // * Provide multiple ways (for example navigation + search) to reach any page that isn't part of a chronological workflow ([2.4.5](https://www.wuhcag.com/multiple-ways/))
 // * Keep a consistent navigation experience across all pages ([3.2.3](https://www.wuhcag.com/consistent-navigation/))
@@ -31,9 +34,12 @@
 //
 // * Use semantically meaningful HTML elements, when possible and appropriate. Validate to ensure acceptable element structure and nesting. ([1.3.1](https://www.wuhcag.com/info-and-relationships/))
 // * Present content in a meaningful order. Most often, the DOM should reflect the visible order of a page. Does the order of content seem correct, even with CSS turned off? ([1.3.2](https://www.wuhcag.com/meaningful-sequence/))
+// * Content must reflow at viewport sizes down to 320px width. XUI components support this. ([1.4.10](https://www.w3.org/TR/WCAG21/#reflow))
 // * Your app should be navigable for keyboard-only users, in addition to other input types, such as mouse and touch pointer. [Test your app with keyboard-only navigation](https://a11yproject.com/posts/navigate-using-just-your-keyboard/) ([2.1.1](https://www.wuhcag.com/keyboard/))
 // * Focusable elements should be in a logical order ([2.4.3](https://www.wuhcag.com/focus-order/))
 // * Tabbing all the way through the app should return the user to the first focusable element ([2.1.2](https://www.wuhcag.com/no-keyboard-trap/))
+// * Custom keyboard shortcuts should not interfere with existing browser or OS functionality ([2.1.4](https://www.w3.org/TR/WCAG21/#character-key-shortcuts))
+// * Use role="status" to communicate updates to assistive technologies, without stealing focus ([4.1.3](https://www.w3.org/TR/WCAG21/#status-messages))
 //
 // Styleguide: Getting Started.Accessibility.Development.2
 
@@ -43,6 +49,7 @@
 //
 // * Any non-text content, such as images, should have labels ([1.1.1](https://www.wuhcag.com/non-text-content/))
 // * Don't use images of text, except in the cases of brand logos or purely decorative text ([1.4.5](https://www.wuhcag.com/images-of-text/))
+// * If you must, accessible labels for images that contain text should include the same text that is visually presented ([2.5.3](https://www.w3.org/TR/WCAG21/#label-in-name))
 // * Instructions should be written not to rely on one sense exclusively, for example relying on audio cues or being able to identify the "green button on the left" ([1.3.3](https://www.wuhcag.com/sensory-characteristics/))
 // * Likewise, information conveyed by colour should also include text, iconography, or another non-colour indication. Don't rely on colour alone ([1.4.1](https://www.wuhcag.com/use-of-colour/))
 // * Link purpose should be clear from their text and context. Image links should have alt/title text that explain them ([2.4.4](https://www.wuhcag.com/link-purpose-in-context/))
@@ -58,13 +65,15 @@
 // Representing the majority of interactivity on Xero, it's important for forms to be highly accessible. In addition to the overall guidelines for all HTML, above, here are some form-specific requirements:
 //
 // * Provide simple, clear labels and instructions, including format, if applicable ([3.3.2](https://www.wuhcag.com/labels-or-instructions/))
+// * Use "autocomplete" attributes on inputs to provide [additional context about the purpose](https://www.w3.org/TR/WCAG21/#input-purposes) of an input ([1.3.5](https://www.w3.org/TR/WCAG21/#identify-input-purpose))
 // * Build forgiving validation, accepting multiple formats, if possible, and format data for consistency after the fact ([3.3.1](https://www.wuhcag.com/error-identification/))
-// * Errors:
-//  * Identification: Explain an erroneous input clearly, and with a clear connection to the input ([3.3.1](https://www.wuhcag.com/error-identification/))
-//  * Suggestion: Give helpful suggestions as to how the user might fix the error ([3.3.3](https://www.wuhcag.com/error-suggestion/))
-//  * Prevention: Legal commitments and financial transactions must be reversible, validated for errors before submission, OR provide a summary page before final confirmation ([3.3.4](https://www.wuhcag.com/error-prevention-legal-financial-data/))
+// * Any irreversible actions should be triggered by a full down-then-up “press” or "click" event, rather than a “down” interaction. ([2.5.2](https://www.w3.org/TR/WCAG21/#pointer-cancellation))
 // * Don't get fancy with onFocus behaviour. Controls should behave as you'd expect a native HTML control to behave. Avoid triggering any unexpected changes at focus time. ([3.2.1](https://www.wuhcag.com/on-focus/))
 // * Similarly, changing the value of a control should not change the "context" for the user by submitting a form, navigating to a new page, or changing focus to a new control. This includes auto-advancing focus from one input to another, while typing. ([3.2.2](https://www.wuhcag.com/on-input/))
+// * **Errors:**
+//     * Identification: Explain an erroneous input clearly, and with a clear connection to the input ([3.3.1](https://www.wuhcag.com/error-identification/))
+//     * Suggestion: Give helpful suggestions as to how the user might fix the error ([3.3.3](https://www.wuhcag.com/error-suggestion/))
+//     * Prevention: Legal commitments and financial transactions must be reversible, validated for errors before submission, OR provide a summary page before final confirmation ([3.3.4](https://www.wuhcag.com/error-prevention-legal-financial-data/))
 //
 // Styleguide: Getting Started.Accessibility.Development.4
 
@@ -72,19 +81,19 @@
 //
 // There are also requirements around some features that appear less often in Xero apps. Keep an eye out for these, if you include rich media or any timed features to your app:
 //
-// *   Provide multiple ways to access time-based media. Video and audio should include captioning or transcripts. ([1.2](https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv.html))
-// *   Provide play/stop/volume controls for any audio on the page that can play for more than 2 seconds ([1.4.2](https://www.wuhcag.com/audio-control/))
-// *   Provide enough time for users to interact with content. Avoid time limits, unless absolutely necessary, and allow users to pause/play content that automatically moves or updates ([2.2](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html))
-// *   Animations shouldn't last more than 5 seconds unless they're part of an activity where it is essential, like a progress bar ([2.2.2](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html))
-// *   Nothing on the page should flash more than 3 times per second ([2.3.1](https://www.wuhcag.com/three-flashes-or-below/))
+// * Provide multiple ways to access time-based media. Video and audio should include captioning or transcripts. ([1.2](https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv.html))
+// * Provide play/stop/volume controls for any audio on the page that can play for more than 2 seconds ([1.4.2](https://www.wuhcag.com/audio-control/))
+// * Provide enough time for users to interact with content. Avoid time limits, unless absolutely necessary, and allow users to pause/play content that automatically moves or updates ([2.2](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html))
+// * Animations shouldn't last more than 5 seconds unless they're part of an activity where it is essential, like a progress bar ([2.2.2](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html))
+// * Nothing on the page should flash more than 3 times per second ([2.3.1](https://www.wuhcag.com/three-flashes-or-below/))
 //
 // Styleguide: Getting Started.Accessibility.Development.5
 
 // Testing your app for accessibility
 //
-// 1.  Lint your code with the jsx-a11y plugin with the "recommended" settings. For XUI, at the time of writing, we are have set the "label-has-for" rule to "allowChildren", allowing implicit as well as explicit labeling. This plugin comes built in with create-react-app and create-xero-react-app.
-// 1.  Test rendered pages with a browser plugin. There are many, but we used aXe (for [Chrome](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd) and [Firefox](https://addons.mozilla.org/en-us/firefox/addon/axe-devtools/)).
-// 1.  Manually test for keyboard navigability and input interaction. It's [fairly straightforward](https://a11yproject.com/posts/navigate-using-just-your-keyboard/) to do so.
-// 1.  Get in touch with the UXE team with questions and concerns.
+// 1. Lint your code with the jsx-a11y plugin with the "recommended" settings. For XUI, at the time of writing, we are have set the "label-has-for" rule to "allowChildren", allowing implicit as well as explicit labeling. This plugin comes built in with create-react-app and create-xero-react-app.
+// 1. Test rendered pages with a browser plugin. There are many, but we used aXe (for [Chrome](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd) and [Firefox](https://addons.mozilla.org/en-us/firefox/addon/axe-devtools/)).
+// 1. Manually test for keyboard navigability and input interaction. It's [fairly straightforward](https://a11yproject.com/posts/navigate-using-just-your-keyboard/) to do so.
+// 1. Get in touch with the UXE team with questions and concerns.
 //
 // Styleguide: Getting Started.Accessibility.Development.6

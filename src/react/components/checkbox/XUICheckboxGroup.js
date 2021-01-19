@@ -80,25 +80,25 @@ XUICheckboxGroup.propTypes = {
   children: PropTypes.node,
   /** Class names to be added to bordered grouping element */
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-  /** Label to show above the checkbox group, or for accessibility when the checkbox group label is hidden. Highly recommended */
-  label: PropTypes.node,
-  /** Whether to hide the label and apply it as an ARIA label instead. Defaults to visible. */
-  isLabelHidden: PropTypes.bool,
-  /** Whether to use the field layout classes. Defaults to true. */
-  isFieldLayout: PropTypes.bool,
-  /** Class names to add to the label text element */
-  labelClassName: PropTypes.string,
   /** Class names to be added to the field wrapper element */
   fieldClassName: PropTypes.string,
-  /** Provide a specific label ID which will be used as the "labelleby" aria property */
-  labelId: PropTypes.string,
-  /** Whether the current input value is invalid */
-  isInvalid: PropTypes.bool,
-  /** Validation message to show under the input if `isInvalid` is true */
-  validationMessage: PropTypes.node,
   /** Hint message to show under the input */
   hintMessage: PropTypes.node,
+  /** Whether to use the field layout classes. Defaults to true. */
+  isFieldLayout: PropTypes.bool,
+  /** Whether the current input value is invalid */
+  isInvalid: PropTypes.bool,
+  /** Whether to hide the label and apply it as an ARIA label instead. Defaults to visible. */
+  isLabelHidden: PropTypes.bool,
+  /** Label to show above the checkbox group, or for accessibility when the checkbox group label is hidden. Highly recommended */
+  label: PropTypes.node,
+  /** Class names to add to the label text element */
+  labelClassName: PropTypes.string,
+  /** Provide a specific label ID which will be used as the "labelleby" aria property */
+  labelId: PropTypes.string,
+  qaHook: PropTypes.string,
+  /** Validation message to show under the input if `isInvalid` is true */
+  validationMessage: PropTypes.node,
 };
 
 XUICheckboxGroup.defaultProps = {

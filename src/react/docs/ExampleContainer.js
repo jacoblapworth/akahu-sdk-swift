@@ -20,7 +20,7 @@ export default ExampleContainer;
 
 ExampleContainer.propTypes = {
   children: PropTypes.node,
-  isInverted: PropTypes.bool,
   className: PropTypes.string,
+  isInverted: PropTypes.bool,
   style: PropTypes.object,
 };

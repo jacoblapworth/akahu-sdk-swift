@@ -3,44 +3,45 @@ const { promisify } = require('util');
 const path = require('path');
 const fs = require('fs');
 const { rootDirectory, taskRunner, taskRunnerReturns } = require('../helpers');
+
 const readFileAsync = promisify(fs.readFile);
 const writeFileAsync = promisify(fs.writeFile);
 const { succeed, fail } = taskRunnerReturns;
 
-const { edgeRegex, githubRegex, umdRegex } = require('./constants');
-const { version } = require('../../package.json');
+const { edgeRegex, githubRegex, umdRegex, yamlXUIRegex, yamlReactRegex } = require('./constants');
+const {
+  version,
+  dependencies: { react: reactVersion },
+} = require('../../package.json');
 
 const files = [
   path.resolve(rootDirectory, 'src', 'docs', 'getting-started', '_developers.scss'),
   path.resolve(rootDirectory, '.umd', 'index.html'),
+  path.resolve(rootDirectory, 'xop-library.yaml'),
 ];
 
 function getFile(file) {
   return readFileAsync(file, 'utf8');
 }
 
-function processFile(file, version) {
+function processFile(file, xuiVersion) {
   return file
-    .replace(edgeRegex, (...args) => {
-      return `${args[1]}${version}${args[3]}`;
-    })
-    .replace(githubRegex, (...args) => {
-      return `${args[1]}${version}${args[5]}`;
-    })
-    .replace(umdRegex, (...args) => {
-      return `${args[1]}.${version}.${args[3]}`;
-    });
+    .replace(edgeRegex, `$1${xuiVersion}$3`)
+    .replace(githubRegex, `$1${xuiVersion}`)
+    .replace(umdRegex, `$1${xuiVersion}$3`)
+    .replace(yamlXUIRegex, `$1${xuiVersion}$3`)
+    .replace(yamlReactRegex, `$1${reactVersion}$3`);
 }
 
 function writeFile(fileName, processedFile) {
   return writeFileAsync(fileName, processedFile);
 }
 
-async function processFiles(files, version, taskSpinner) {
+async function processFiles(filesToProcess = files, xuiVersion, taskSpinner) {
   try {
-    const filePromises = files.map(async file => {
+    const filePromises = filesToProcess.map(async file => {
       const fileToProcess = await getFile(file);
-      const processedFile = await processFile(fileToProcess, version);
+      const processedFile = await processFile(fileToProcess, xuiVersion);
       await writeFile(file, processedFile);
       await taskSpinner.info(`File written: ${file}`);
     });
@@ -60,7 +61,7 @@ function updateFiles(newVersion = version) {
       await processFiles(files, newVersion, taskSpinner);
       return succeed();
     } catch (error) {
-      fail(error);
+      return fail(error);
     }
   }, __filename);
 }

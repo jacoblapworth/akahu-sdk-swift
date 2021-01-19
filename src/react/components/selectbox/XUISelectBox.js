@@ -183,30 +183,14 @@ export default class XUISelectBox extends Component {
 }
 
 XUISelectBox.propTypes = {
-  children: PropTypes.node,
-  /** Input Label */
-  label: PropTypes.node.isRequired,
-
-  /** Additional classes to be applied to the label */
-  labelClassName: PropTypes.string,
-
-  /** Input Label visibility */
-  isLabelHidden: PropTypes.bool,
-
-  /** When a selection is made, close the dropdown */
-  closeAfterSelection: PropTypes.bool,
-
   /** Additional classes to be applied to the button */
   buttonClasses: PropTypes.string,
 
-  /** Additional classes to be applied to the container */
-  containerClasses: PropTypes.string,
+  /** Display text to be rendered on the `XUISelectBox` button. */
+  buttonContent: PropTypes.node.isRequired,
 
-  /** Additional classes to be applied to the dropDown */
-  dropDownClasses: PropTypes.string,
-
-  /** Additional classes to be applied to the inputGroup */
-  inputGroupClasses: PropTypes.string,
+  /** The XUI button variant to use as a trigger for the select box */
+  buttonVariant: PropTypes.string,
 
   /**
    * Title for the button caret
@@ -215,32 +199,49 @@ XUISelectBox.propTypes = {
    */
   caretTitle: PropTypes.string,
 
-  /** Optional callback to be executed when dropdown closes */
-  onDropdownHide: PropTypes.func,
+  children: PropTypes.node,
 
-  /** Optional callback to be executed when the trigger loses focus */
-  onBlur: PropTypes.func,
+  /** When a selection is made, close the dropdown */
+  closeAfterSelection: PropTypes.bool,
 
-  /** Optional callback to be executed when the trigger gains focus */
-  onFocus: PropTypes.func,
-
-  /** for adding automation ID to component as well as input and button sub-components */
-  qaHook: PropTypes.string,
+  /** Additional classes to be applied to the container */
+  containerClasses: PropTypes.string,
 
   /** Use XUI provided layout classes */
   defaultLayout: PropTypes.bool,
 
-  /** Display text to be rendered on the `XUISelectBox` button. */
-  buttonContent: PropTypes.node.isRequired,
+  /** Additional classes to be applied to the dropDown */
+  dropDownClasses: PropTypes.string,
 
-  /** Selection callback */
-  onSelect: PropTypes.func,
+  /** Force the desktop experience, even if the viewport is narrow enough for mobile */
+  forceDesktop: PropTypes.bool,
 
-  /** The XUI button variant to use as a trigger for the select box */
-  buttonVariant: PropTypes.string,
+  /**
+   * Modifier for the width of the XUISelectBox: `always`, `small-down`, or `never`.
+   */
+  fullWidth: PropTypes.oneOf(widths),
+
+  /** Hint message to show under the input */
+  hintMessage: PropTypes.node,
+
+  /** ID to apply to the dropdown. Used primarily to associate a label with it's matched content.
+   * If none is provided it's automatically generated. */
+  id: PropTypes.string,
+
+  /** Additional classes to be applied to the inputGroup */
+  inputGroupClasses: PropTypes.string,
 
   /** Whether the button trigger and functionality are disabled */
   isDisabled: PropTypes.bool,
+
+  /** Whether to use the field layout classes  */
+  isFieldLayout: PropTypes.bool,
+
+  /** Whether the current input value is invalid */
+  isInvalid: PropTypes.bool,
+
+  /** Input Label visibility */
+  isLabelHidden: PropTypes.bool,
 
   /** Whether or not the list should be forced open */
   isOpen: PropTypes.bool,
@@ -248,8 +249,11 @@ XUISelectBox.propTypes = {
   /** Optionally toggles the text truncation */
   isTextTruncated: PropTypes.bool,
 
-  /** Force the desktop experience, even if the viewport is narrow enough for mobile */
-  forceDesktop: PropTypes.bool,
+  /** Input Label */
+  label: PropTypes.node.isRequired,
+
+  /** Additional classes to be applied to the label */
+  labelClassName: PropTypes.string,
 
   /**
    * Setting to false will allow the dropdown's width to be set independent of the trigger width. <br>
@@ -259,31 +263,33 @@ XUISelectBox.propTypes = {
    */
   matchTriggerWidth: PropTypes.bool,
 
+  /** Optional callback to be executed when the trigger loses focus */
+  onBlur: PropTypes.func,
+
+  /** Optional callback to be executed when dropdown closes */
+  onDropdownHide: PropTypes.func,
+
+  /** Optional callback to be executed when the trigger gains focus */
+  onFocus: PropTypes.func,
+
+  /** Selection callback */
+  onSelect: PropTypes.func,
+
+  /** for adding automation ID to component as well as input and button sub-components */
+  qaHook: PropTypes.string,
+
   /** Whether focus should be restricted to the dropdown while it's open. */
   restrictFocus: PropTypes.bool,
 
-  /** ID to apply to the dropdown. Used primarily to associate a label with it's matched content.
-   * If none is provided it's automatically generated. */
-  id: PropTypes.string,
-
-  /** Whether the current input value is invalid */
-  isInvalid: PropTypes.bool,
-  /** Validation message to show under the input if `isInvalid` is true */
-  validationMessage: PropTypes.node,
-  /** Hint message to show under the input */
-  hintMessage: PropTypes.node,
-  /** Whether to use the field layout classes  */
-  isFieldLayout: PropTypes.bool,
   /**
    * Modifier for the size of the select box: `medium`, `small`, or `xsmall`.
    *
    * If `XUISelectBoxOption` does not have a size set, it will inherit the size from `XUISelectBox`.
    */
   size: PropTypes.oneOf(sizes),
-  /**
-   * Modifier for the width of the XUISelectBox: `always`, `small-down`, or `never`.
-   */
-  fullWidth: PropTypes.oneOf(widths),
+
+  /** Validation message to show under the input if `isInvalid` is true */
+  validationMessage: PropTypes.node,
 };
 
 XUISelectBox.defaultProps = {

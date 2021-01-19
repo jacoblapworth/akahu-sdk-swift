@@ -41,23 +41,23 @@ XUICapsule.propTypes = {
   className: PropTypes.string,
   /** The `href` attribute to use of the anchor element */
   href: PropTypes.string,
-  /** The target attribute specifies where to open the linked document */
-  target: PropTypes.string,
   /** Whether or not to render this button using an <a> tag */
   isLink: PropTypes.bool,
   /** Whether the element is valid (does not contain invalid formula, etc) */
   isValid: PropTypes.bool,
+  /** Bind a function to fire when the focus moves onto the element */
+  onBlur: PropTypes.func,
   /** Bind a function to fire when the button is clicked */
   onClick: PropTypes.func,
   /** Bind a function to fire when the focus moves off the element */
   onFocus: PropTypes.func,
-  /** Bind a function to fire when the focus moves onto the element */
-  onBlur: PropTypes.func,
+  /** The target attribute specifies where to open the linked document */
+  target: PropTypes.string,
 };
 
 XUICapsule.defaultProps = {
-  isValid: true,
   isLink: true,
+  isValid: true,
 };
 
 export default XUICapsule;

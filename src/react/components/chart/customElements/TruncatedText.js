@@ -84,11 +84,11 @@ class TruncatedText extends PureComponent {
 export default TruncatedText;
 
 TruncatedText.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.string,
-  textAnchor: PropTypes.string,
+  className: PropTypes.string,
+  maxWidth: PropTypes.number,
   style: PropTypes.object,
+  textAnchor: PropTypes.string,
   x: PropTypes.number,
   y: PropTypes.number,
-  maxWidth: PropTypes.number,
 };

@@ -203,20 +203,44 @@ export default XUIRadio;
 XUIRadio.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
+
+  /** Hint message to show under the input */
+  hintMessage: PropTypes.node,
+
+  /** Additional class names for the html input */
+  htmlClassName: PropTypes.string,
 
   /** The icon path to use for the radio */
   iconMain: PropTypes.shape({
-    path: PropTypes.string.isRequired,
     height: PropTypes.number.isRequired,
+    path: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
   }),
+
+  id: PropTypes.string,
+
+  /** Props to be spread onto the radio type of the input element itself */
+  inputProps: PropTypes.object,
 
   /** The input is selected */
   isChecked: PropTypes.bool,
 
+  /** Used to output an uncontrolled radio component.  If a value is passed to the
+   * isChecked prop, this prop will be ignored. */
+  isDefaultChecked: PropTypes.bool,
+
   /** The input is disabled */
   isDisabled: PropTypes.bool,
+
+  /** Used by XUI components to state whether the radio is part of a group */
+  isGrouped: PropTypes.bool,
+
+  /** Whether the current input value is invalid */
+  isInvalid: PropTypes.bool,
+
+  /** Prevents the label element from being displayed on the page. Label is still
+   * accessible to screen readers. */
+  isLabelHidden: PropTypes.bool,
 
   /** The input is required for form submission */
   isRequired: PropTypes.bool,
@@ -227,57 +251,39 @@ XUIRadio.propTypes = {
   /** Additional class names on the span (pseudo-label) element  */
   labelClassName: PropTypes.string,
 
+  /** Provide a specific label ID which will be used as the "labelleby" aria property */
+  labelId: PropTypes.string,
+
   /** The name to use as a reference for the value */
   name: PropTypes.string,
 
   /** onChange - The function to call when the control changes state */
   onChange: PropTypes.func,
 
-  /** The value to return on form submission */
-  value: PropTypes.string,
-
-  /** Additional class names on the svg element  */
-  svgClassName: PropTypes.string,
-
-  /** Additional class names for the html input */
-  htmlClassName: PropTypes.string,
-
-  /** The tabindex property to place on the radio input */
-  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-
-  /** Prevents the label element from being displayed on the page. Label is still
-   * accessible to screen readers. */
-  isLabelHidden: PropTypes.bool,
-
-  /** Used to output an uncontrolled radio component.  If a value is passed to the
-   * isChecked prop, this prop will be ignored. */
-  isDefaultChecked: PropTypes.bool,
+  qaHook: PropTypes.string,
 
   /** Role to be applied for screen readers */
   role: PropTypes.string,
 
-  id: PropTypes.string,
-
-  /** Provide a specific label ID which will be used as the "labelleby" aria property */
-  labelId: PropTypes.string,
-
-  /** Used by XUI components to state whether the radio is part of a group */
-  isGrouped: PropTypes.bool,
-  /** Whether the current input value is invalid */
-  isInvalid: PropTypes.bool,
-  /** Validation message to show under the input if `isInvalid` is true */
-  validationMessage: PropTypes.node,
-  /** Hint message to show under the input */
-  hintMessage: PropTypes.node,
   /** Size variant. Defaults to medium */
   size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
-  /** Props to be spread onto the radio type of the input element itself */
-  inputProps: PropTypes.object,
+
+  /** Additional class names on the svg element  */
+  svgClassName: PropTypes.string,
+
+  /** The tabindex property to place on the radio input */
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+
+  /** Validation message to show under the input if `isInvalid` is true */
+  validationMessage: PropTypes.node,
+
+  /** The value to return on form submission */
+  value: PropTypes.string,
 };
 
 XUIRadio.defaultProps = {
-  isLabelHidden: false,
   isDisabled: false,
+  isLabelHidden: false,
   isRequired: false,
   isReversed: false,
   role: 'radio',

@@ -16,7 +16,7 @@ exports[`<XUIPill /> renders the pill with the business avatar prop 1`] = `
       className="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-business xui-avatar-hidden"
       onError={[Function]}
       onLoad={[Function]}
-      src="https://xui.xero.com/static/xpert-avatar.png"
+      src="https://i.picsum.photos/id/1044/100/100.jpg?hmac=IGzsuFyCgR4u_DgqnNlOHxY-ThKh9C02XhZAqHyVy0Q"
     />
     <abbr
       className="xui-pill--avatar xui-avatar xui-avatar-small xui-avatar-business xui-avatar-color-7"

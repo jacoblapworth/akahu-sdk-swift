@@ -197,12 +197,12 @@ const AvatarLabel = ({
 export default AvatarLabel;
 
 AvatarLabel.propTypes = {
-  updateToolTip: PropTypes.func,
+  barsData: PropTypes.array,
+  index: PropTypes.number,
   isToolTipHidden: PropTypes.bool,
   labelHeight: PropTypes.number,
-  labelWidth: PropTypes.number,
   labelTop: PropTypes.number,
-  index: PropTypes.number,
+  labelWidth: PropTypes.number,
   text: PropTypes.string,
-  barsData: PropTypes.array,
+  updateToolTip: PropTypes.func,
 };

@@ -30,7 +30,7 @@ import XUIRolloverCheckbox from '@xero/xui/react/rollovercheckbox';
     <img
       style={{ width: '24px', height: '24px' }}
       className="xui-margin"
-      src="https://xui.xero.com/static/xpert-avatar.png"
+      src="https://i.picsum.photos/id/875/100/100.jpg?hmac=f_Pri81ET_AveaagT58xJNaG1s3j3GCI7tvgJbjeZzk"
       role="presentation"
     />
   }
@@ -49,7 +49,7 @@ import XUIRolloverCheckbox from '@xero/xui/react/rollovercheckbox';
   rolloverComponent={
     <img
       style={{ width: '24px', height: 'auto' }}
-      src="https://xui.xero.com/static/xpert-avatar.png"
+      src="https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c"
       role="presentation"
     />
   }

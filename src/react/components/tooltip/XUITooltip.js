@@ -215,63 +215,47 @@ export default class XUITooltip extends PureComponent {
 
 XUITooltip.propTypes = {
   children: PropTypes.node,
-  qaHook: PropTypes.string,
   className: PropTypes.string,
-  wrapperClassName: PropTypes.string,
+
+  /** Delay in ms for closing the tooltip. Defaults to 100 */
+  closeDelay: PropTypes.number,
 
   /** DOM ID of the tooltip */
   id: PropTypes.string,
 
+  /** Force the wrapping element to be a div, instead of a span */
+  isBlock: PropTypes.bool,
+
+  /** Allow the tooltip to be disabled, for cases of disabled inputs, narrow viewport etc. */
+  isDisabled: PropTypes.bool,
+
   /** Whether or not this component is hidden on initial render. */
   isHidden: PropTypes.bool,
 
-  /** Callback that gets triggered when the tooltip begins opening */
-  onOpen: PropTypes.func,
+  /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
+  isNotResponsive: PropTypes.bool,
 
-  /** Callback that gets triggered when the tooltip has finished closing */
-  onClose: PropTypes.func,
-
-  /** Delay in ms for opening the tooltip. Defaults to 500 */
-  openDelay: PropTypes.number,
-  /** Delay in ms for closing the tooltip. Defaults to 100 */
-  closeDelay: PropTypes.number,
-
-  /** Element used to trigger the tooltip opening/closing */
-  trigger: PropTypes.element.isRequired,
-
-  /** Setting a number here will force the maximum width of the tooltip to be the
-   * number provided (in pixels). */
-  maxWidth: PropTypes.number,
+  /**
+   * Limit width of tooltip's trigger to 100%.
+   */
+  limitWidth: PropTypes.bool,
 
   /** Setting a number here will force the maximum height of the tooltip to be the
    * number provided (in pixels). */
   maxHeight: PropTypes.number,
 
-  /** Whether clicking on the trigger should toggle the tooltip open/closed. Defaults to false. */
-  triggerOnClick: PropTypes.bool,
+  /** Setting a number here will force the maximum width of the tooltip to be the
+   * number provided (in pixels). */
+  maxWidth: PropTypes.number,
 
-  /** Whether giving focus to the trigger should toggle the tooltip open/closed.
-   * Defaults to false. */
-  triggerOnFocus: PropTypes.bool,
+  /** Callback that gets triggered when the tooltip has finished closing */
+  onClose: PropTypes.func,
 
-  /** Whether focusing off the trigger should change the tooltip to closed. Defaults to true. */
-  triggerOnBlur: PropTypes.bool,
+  /** Callback that gets triggered when the tooltip begins opening */
+  onOpen: PropTypes.func,
 
-  /** Whether hovering over the trigger should toggle the tooltip open/closed.
-   * Defaults to true. */
-  triggerOnHover: PropTypes.bool,
-
-  /** Allow the tooltip to be disabled, for cases of disabled inputs, narrow viewport etc. */
-  isDisabled: PropTypes.bool,
-
-  /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
-  isNotResponsive: PropTypes.bool,
-
-  /** Force the wrapping element to be a div, instead of a span */
-  isBlock: PropTypes.bool,
-
-  /** When tooltip is hidden, use display inline-flex instead of inline-block. */
-  useInlineFlex: PropTypes.bool,
+  /** Delay in ms for opening the tooltip. Defaults to 500 */
+  openDelay: PropTypes.number,
 
   /**
    * Preferred side of the trigger and alignment in relation to the trigger for showing the tip.
@@ -280,21 +264,40 @@ XUITooltip.propTypes = {
    */
   preferredPosition: PropTypes.oneOf(positionOptions),
 
-  /**
-   * Limit width of tooltip's trigger to 100%.
-   */
-  limitWidth: PropTypes.bool,
+  qaHook: PropTypes.string,
+
+  /** Element used to trigger the tooltip opening/closing */
+  trigger: PropTypes.element.isRequired,
+
+  /** Whether focusing off the trigger should change the tooltip to closed. Defaults to true. */
+  triggerOnBlur: PropTypes.bool,
+
+  /** Whether clicking on the trigger should toggle the tooltip open/closed. Defaults to false. */
+  triggerOnClick: PropTypes.bool,
+
+  /** Whether giving focus to the trigger should toggle the tooltip open/closed.
+   * Defaults to false. */
+  triggerOnFocus: PropTypes.bool,
+
+  /** Whether hovering over the trigger should toggle the tooltip open/closed.
+   * Defaults to true. */
+  triggerOnHover: PropTypes.bool,
+
+  /** When tooltip is hidden, use display inline-flex instead of inline-block. */
+  useInlineFlex: PropTypes.bool,
+
+  wrapperClassName: PropTypes.string,
 };
 
 XUITooltip.defaultProps = {
-  isHidden: true,
+  closeDelay: 100,
   isDisabled: false,
-  triggerOnClick: false,
-  triggerOnFocus: false,
-  triggerOnBlur: true,
-  triggerOnHover: true,
+  isHidden: true,
   maxWidth: 220,
   openDelay: 500,
-  closeDelay: 100,
   preferredPosition: 'top',
+  triggerOnBlur: true,
+  triggerOnClick: false,
+  triggerOnFocus: false,
+  triggerOnHover: true,
 };

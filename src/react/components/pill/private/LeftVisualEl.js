@@ -34,8 +34,8 @@ const LeftVisualEl = ({ avatar, avatarProps, isInvalid, size }) => {
 export default LeftVisualEl;
 
 LeftVisualEl.propTypes = {
-  isInvalid: PropTypes.bool,
-  avatarProps: PropTypes.object,
-  size: PropTypes.oneOf(childSizes),
   avatar: PropTypes.element,
+  avatarProps: PropTypes.object,
+  isInvalid: PropTypes.bool,
+  size: PropTypes.oneOf(childSizes),
 };

@@ -357,38 +357,39 @@ class XUIStatefulPicklist extends Component {
 }
 
 XUIStatefulPicklist.propTypes = {
+  /** Whether or not the user should be allowed to tab to this component */
+  canFocus: PropTypes.bool,
+
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-
-  /** AN array of keydown keycodes to be ignored from dropdown behaviour. */
-  ignoreKeyboardEvents: PropTypes.array,
 
   /** ID of the list */
   id: PropTypes.string,
 
-  /** Whether the StatefulPicklist manages highlighting of list elements */
-  shouldManageInitialHighlight: PropTypes.bool,
+  /** AN array of keydown keycodes to be ignored from dropdown behaviour. */
+  ignoreKeyboardEvents: PropTypes.array,
 
-  /** Enables a generalised callback when an item has been selected. */
-  onSelect: PropTypes.func,
-
-  /** Whether or not the user should be allowed to tab to this component */
-  canFocus: PropTypes.bool,
+  /** Whether to use left/right arrow keys to move between pickitems as opposed to up/down */
+  isHorizontal: PropTypes.bool,
 
   /** Callback when the highlighted element has changed. */
   onHighlightChange: PropTypes.func,
 
+  /** Enables a generalised callback when an item has been selected. */
+  onSelect: PropTypes.func,
+
+  qaHook: PropTypes.string,
+
   /** An object of props that can be spread on the stateful picklist, useful for aria attributes. */
   secondaryProps: PropTypes.object,
 
-  /** Whether to use left/right arrow keys to move between pickitems as opposed to up/down */
-  isHorizontal: PropTypes.bool,
+  /** Whether the StatefulPicklist manages highlighting of list elements */
+  shouldManageInitialHighlight: PropTypes.bool,
 };
 
 XUIStatefulPicklist.defaultProps = {
-  ignoreKeyboardEvents: [],
   canFocus: false,
+  ignoreKeyboardEvents: [],
   secondaryProps: {
     role: 'tree',
   },

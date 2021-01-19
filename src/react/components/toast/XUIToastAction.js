@@ -21,14 +21,14 @@ const XUIToastAction = ({ children, className, href, qaHook, ...props }) => (
 export default XUIToastAction;
 
 XUIToastAction.propTypes = {
-  /** Adds optional class to wrapping component */
-  className: PropTypes.string,
-  /** Adds QA hook to wrapping component */
-  qaHook: PropTypes.string,
   /** Facility to pass in custom children */
   children: PropTypes.node,
+  /** Adds optional class to wrapping component */
+  className: PropTypes.string,
   /** Turns the button into a link and gives it the href you provide */
   href: PropTypes.string,
+  /** Adds QA hook to wrapping component */
+  qaHook: PropTypes.string,
   /** Typically internal prop that, when used with the new XUIActions component,
    * removes the extra `<ul>` wrapping element */
   usesActions: PropTypes.bool,

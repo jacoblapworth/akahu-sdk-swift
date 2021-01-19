@@ -169,8 +169,6 @@ const XUIPill = ({
 export default XUIPill;
 
 XUIPill.propTypes = {
-  /** Props for the avatar to be displayed, must adhere to the XUIAvatar component API described at https://github.dev.xero.com/UXE/xui-avatar. Version 6.0.0+. Not providing props will omit the avatar entirely. */
-  avatarProps: PropTypes.object,
   /** An avatar component. May be used instead of avatarProps */
   avatar(props, propName) {
     if (props[propName] && props.avatarProps) {
@@ -178,8 +176,14 @@ XUIPill.propTypes = {
     }
     return null;
   },
+  /** Props for the avatar to be displayed, must adhere to the XUIAvatar component API described at https://github.dev.xero.com/UXE/xui-avatar. Version 6.0.0+. Not providing props will omit the avatar entirely. */
+  avatarProps: PropTypes.object,
   /** Apply classes to the outer Pill `div` element. */
   className: PropTypes.string,
+  /**
+   * @ignore
+   * Dev / debug prop to show the tooltip initially on mount instead of based on a user event */
+  debugShowToolTip: PropTypes.bool,
   /**
    * Specify a label attribute for the delete button.
    * <br />
@@ -199,26 +203,22 @@ XUIPill.propTypes = {
   href: PropTypes.string,
   /** When invalid, displays the text in a red colour. */
   isInvalid: PropTypes.bool,
+  /** Whether the pill should have a max-width of 200px */
+  isLimitedWidth: PropTypes.bool,
   /** Callback to fire when the main pill content is clicked. */
   onClick: PropTypes.func,
   /** Callback to fire when the delete pill button is clicked. When omitted, the delete button is also omitted from the view. If this is provided, you must also provide a `deleteButtonLabel` for accessibility. */
   onDeleteClick: PropTypes.func,
   /** add a qahook to the component */
   qaHook: PropTypes.string,
+  /** Adds a muted secondary text for the pill, appears before the main value. */
+  secondaryText: PropTypes.node,
+  /** The size of the pill to render. Can be `medium` or `small`. */
+  size: PropTypes.oneOf(Object.keys(sizeClasses)),
   /** When an `href` is supplied, adds a target attribute, else is ignored. */
   target: PropTypes.string,
   /** The title attribute to apply on the pill. */
   title: PropTypes.string,
-  /** Adds a muted secondary text for the pill, appears before the main value. */
-  secondaryText: PropTypes.node,
   /** The text to display inside the pill. */
   value: PropTypes.node,
-  /** Whether the pill should have a max-width of 200px */
-  isLimitedWidth: PropTypes.bool,
-  /** The size of the pill to render. Can be `medium` or `small`. */
-  size: PropTypes.oneOf(Object.keys(sizeClasses)),
-  /**
-   * @ignore
-   * Dev / debug prop to show the tooltip initially on mount instead of based on a user event */
-  debugShowToolTip: PropTypes.bool,
 };

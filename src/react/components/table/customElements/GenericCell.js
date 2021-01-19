@@ -62,14 +62,14 @@ export default class GenericCell extends PureComponent {
 
 GenericCell.propTypes = {
   cellLocation: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
   columnIndex: PropTypes.number,
-  isRowLink: PropTypes.bool,
   dividerClasses: PropTypes.string,
   ensureCellVisibility: PropTypes.func,
   handleCellInteraction: PropTypes.func,
-  onCellClick: PropTypes.func,
   hasWrapping: PropTypes.bool,
-  className: PropTypes.string,
-  children: PropTypes.node,
+  isRowLink: PropTypes.bool,
+  onCellClick: PropTypes.func,
   qaHook: PropTypes.string,
 };

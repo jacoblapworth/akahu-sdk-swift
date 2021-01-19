@@ -67,16 +67,16 @@ class XAxisLabelWrapper extends PureComponent {
 export default XAxisLabelWrapper;
 
 XAxisLabelWrapper.propTypes = {
-  shouldCalculateCenter: PropTypes.bool,
-  toolTipMessage: PropTypes.node,
-  toolTipOffset: PropTypes.number,
+  children: PropTypes.element,
   isToolTipHidden: PropTypes.bool,
-  updateToolTip: PropTypes.func,
+  labelHeight: PropTypes.number,
   labelLeft: PropTypes.number,
   labelTop: PropTypes.number,
   labelWidth: PropTypes.number,
-  labelHeight: PropTypes.number,
-  children: PropTypes.element,
+  shouldCalculateCenter: PropTypes.bool,
+  toolTipMessage: PropTypes.node,
+  toolTipOffset: PropTypes.number,
+  updateToolTip: PropTypes.func,
 };
 
 XAxisLabelWrapper.defaultProps = {

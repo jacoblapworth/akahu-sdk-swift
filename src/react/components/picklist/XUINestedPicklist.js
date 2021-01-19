@@ -34,12 +34,12 @@ const XUINestedPicklist = (props, context) => {
 export default XUINestedPicklist;
 
 XUINestedPicklist.propTypes = {
-  qaHook: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
-  secondaryProps: PropTypes.object,
   /** When true checkboxes will be added to the layout of the child components. */
   isMultiselect: PropTypes.bool,
+  qaHook: PropTypes.string,
+  secondaryProps: PropTypes.object,
   /** Whether to truncate text instead of wrapping. */
   shouldTruncate: PropTypes.bool,
 };

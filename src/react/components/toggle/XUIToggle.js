@@ -79,37 +79,37 @@ export default XUIToggle;
 XUIToggle.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
   /** The color of the toggle */
   color: PropTypes.oneOf(Object.keys(colorMap)),
-  /** The layout of the toggle */
-  layout: PropTypes.oneOf(Object.keys(layoutMap)),
-  /** The size of the toggle */
-  size: PropTypes.oneOf(Object.keys(sizeMap)),
-  /** Additional props to pass to the toggle element */
-  secondaryProps: PropTypes.object,
-  /** Label to show above the toggle */
-  label: PropTypes.node,
+  /** Class names to be added to the field wrapper element */
+  fieldClassName: PropTypes.string,
+  /** Hint message to show under the input */
+  hintMessage: PropTypes.node,
+  /** Whether to use the field layout classes */
+  isFieldLayout: PropTypes.bool,
+  /** Whether the current input value is invalid */
+  isInvalid: PropTypes.bool,
   /** Should label be applied as an aria-label, rather than being visibly displayed. */
   isLabelHidden: PropTypes.bool,
+  /** Label to show above the toggle */
+  label: PropTypes.node,
   /** Class names to add to the label */
   labelClassName: PropTypes.string,
   /** Provide a specific label ID which will be used as the "labelleby" aria property */
   labelId: PropTypes.string,
-  /** Whether to use the field layout classes */
-  isFieldLayout: PropTypes.bool,
-  /** Class names to be added to the field wrapper element */
-  fieldClassName: PropTypes.string,
-  /** Whether the current input value is invalid */
-  isInvalid: PropTypes.bool,
+  /** The layout of the toggle */
+  layout: PropTypes.oneOf(Object.keys(layoutMap)),
+  qaHook: PropTypes.string,
+  /** Additional props to pass to the toggle element */
+  secondaryProps: PropTypes.object,
+  /** The size of the toggle */
+  size: PropTypes.oneOf(Object.keys(sizeMap)),
   /** Validation message to show under the input if `isInvalid` is true */
   validationMessage: PropTypes.node,
-  /** Hint message to show under the input */
-  hintMessage: PropTypes.node,
 };
 
 XUIToggle.defaultProps = {
   color: 'standard',
-  size: 'medium',
   isFieldLayout: false,
+  size: 'medium',
 };

@@ -16,8 +16,8 @@ export default EmptyState;
 
 EmptyState.propTypes = {
   children: PropTypes.node.isRequired,
-  defaultLayout: PropTypes.bool,
   className: PropTypes.string,
+  defaultLayout: PropTypes.bool,
   icon: PropTypes.shape({
     height: PropTypes.number,
     path: PropTypes.string,

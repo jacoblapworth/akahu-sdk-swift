@@ -18,7 +18,7 @@ const XUIContentBlock = ({ children, className, qaHook }) => {
 export default XUIContentBlock;
 
 XUIContentBlock.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node,
+  className: PropTypes.string,
   qaHook: PropTypes.string,
 };

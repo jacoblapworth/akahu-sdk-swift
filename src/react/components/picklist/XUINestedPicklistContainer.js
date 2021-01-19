@@ -124,20 +124,20 @@ export default class XUINestedPicklistContainer extends PureComponent {
 
 XUINestedPicklistContainer.propTypes = {
   children: PropTypes.node,
-  qaHook: PropTypes.string,
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   className: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   /** _Uncontrolled only_: Whether the container is open or closed by default.  */
   isDefaultOpen: PropTypes.bool,
-  /** _Controlled only_: Whether the container is open or closed.  */
-  isOpen: PropTypes.bool,
-  /** Callback when the container is opened.  */
-  onOpen: PropTypes.func,
-  /** Callback when the container is closed.  */
-  onClose: PropTypes.func,
-  secondaryProps: PropTypes.object,
   /** When true checkboxes will be added to the layout of the child components. */
   isMultiselect: PropTypes.bool,
+  /** _Controlled only_: Whether the container is open or closed.  */
+  isOpen: PropTypes.bool,
+  /** Callback when the container is closed.  */
+  onClose: PropTypes.func,
+  /** Callback when the container is opened.  */
+  onOpen: PropTypes.func,
+  qaHook: PropTypes.string,
+  secondaryProps: PropTypes.object,
   /** Whether to truncate text instead of wrapping. */
   shouldTruncate: PropTypes.bool,
 };

@@ -286,64 +286,28 @@ export default class XUIDropdown extends PureComponent {
 }
 
 XUIDropdown.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  qaHook: PropTypes.string,
-
-  /** Inline styles to apply to this component's root node. */
-  style: PropTypes.object,
-
-  /** Whether or not this component is hidden. */
-  isHidden: PropTypes.bool,
-
-  /** Applies the correct XUI class based on the chosen size. Default will
-   * fit to children's width. */
-  size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
-
-  /** An array of keydown keycodes to be ignored from dropdown behaviour. */
-  ignoreKeyboardEvents: PropTypes.array,
-
-  /** DOM ID of the list */
-  id: PropTypes.string,
-
-  /** The header element. */
-  header: PropTypes.element,
-
-  /** Items to be added to the menu's footer. */
-  footer: PropTypes.element,
-
-  /** A generalised callback when an item has been selected. */
-  onSelect: PropTypes.func,
-
-  /** Whether or not the dropdown should take focus and handle keyboard events automatically */
-  hasKeyboardEvents: PropTypes.bool,
-
-  /** Callback for adding additional onKeyPress functionality */
-  onKeyDown: PropTypes.func,
-
-  /** Callback for adding additional onScroll functionality. */
-  onScroll: PropTypes.func,
-
-  /** Whether focus should be restricted to the dropdown while it's open. */
-  restrictFocus: PropTypes.bool,
-
-  /** Callback for when the highlighted item in the dropdown changes. */
-  onHighlightChange: PropTypes.func,
-
   /** Will cause the dropdown to animate when closing. */
   animateClosed: PropTypes.bool,
 
   /** Will cause the dropdown to animate when opening. */
   animateOpen: PropTypes.bool,
 
-  /** Callback for when the animation that closes the dropdown ends. */
-  onCloseAnimationEnd: PropTypes.func,
+  /**
+   * Aria role for dropdown layout element
+   */
+  ariaRole: PropTypes.string,
 
-  /** Callback for when animation has ended on open. */
-  onOpenAnimationEnd: PropTypes.func,
+  /** Class to apply to the body element of the dropdown */
+  bodyClassName: PropTypes.string,
+
+  children: PropTypes.node,
+  className: PropTypes.string,
 
   /** Whether the fixed width class variant should be used for the size prop */
   fixedWidth: PropTypes.bool,
+
+  /** Items to be added to the menu's footer. */
+  footer: PropTypes.element,
 
   /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
   forceDesktop: PropTypes.bool,
@@ -351,16 +315,53 @@ XUIDropdown.propTypes = {
   /** Force wrapping `XUIDropdownPanel` children in a `XUIStatefulPicklist` */
   forceStatefulPicklist: PropTypes.bool,
 
-  /** Class to apply to the body element of the dropdown */
-  bodyClassName: PropTypes.string,
+  /** Whether or not the dropdown should take focus and handle keyboard events automatically */
+  hasKeyboardEvents: PropTypes.bool,
+
+  /** The header element. */
+  header: PropTypes.element,
+
+  /** DOM ID of the list */
+  id: PropTypes.string,
+
+  /** An array of keydown keycodes to be ignored from dropdown behaviour. */
+  ignoreKeyboardEvents: PropTypes.array,
+
+  /** Whether or not this component is hidden. */
+  isHidden: PropTypes.bool,
+
+  /** Callback for when the animation that closes the dropdown ends. */
+  onCloseAnimationEnd: PropTypes.func,
+
+  /** Callback for when the highlighted item in the dropdown changes. */
+  onHighlightChange: PropTypes.func,
+
+  /** Callback for adding additional onKeyPress functionality */
+  onKeyDown: PropTypes.func,
+
+  /** Callback for when animation has ended on open. */
+  onOpenAnimationEnd: PropTypes.func,
+
+  /** Callback for adding additional onScroll functionality. */
+  onScroll: PropTypes.func,
+
+  /** A generalised callback when an item has been selected. */
+  onSelect: PropTypes.func,
+
+  qaHook: PropTypes.string,
+
+  /** Whether focus should be restricted to the dropdown while it's open. */
+  restrictFocus: PropTypes.bool,
 
   /** Whether the stateful picklist manages highlighting of list elements */
   shouldManageInitialHighlight: PropTypes.bool,
 
-  /**
-   * Aria role for dropdown layout element
-   */
-  ariaRole: PropTypes.string,
+  /** Applies the correct XUI class based on the chosen size. Default will
+   * fit to children's width. */
+  size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
+
+  /** Inline styles to apply to this component's root node. */
+  style: PropTypes.object,
 };
 
 XUIDropdown.defaultProps = {

@@ -15,9 +15,9 @@ const CircularIcon = ({ isComplete, isHardError, hardErrorAlert }) => (
 );
 
 CircularIcon.propTypes = {
+  hardErrorAlert: PropTypes.node,
   isComplete: PropTypes.bool,
   isHardError: PropTypes.bool,
-  hardErrorAlert: PropTypes.node,
 };
 
 export default CircularIcon;

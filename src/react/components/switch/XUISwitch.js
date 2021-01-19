@@ -137,10 +137,9 @@ export default XUISwitch;
 
 XUISwitch.propTypes = {
   children: PropTypes.node,
-  /** Fires when the switch is turned on or off. No longer required. */
-  onChange: PropTypes.func,
-  qaHook: PropTypes.string,
   className: PropTypes.string,
+  /** Hint message to show under the input */
+  hintMessage: PropTypes.node,
   /** Determines whether the switch is checked or unchecked.
    * This makes the switch a controlled component.
    * Omitting the isChecked prop will make it an uncontrolled component. */
@@ -150,31 +149,30 @@ XUISwitch.propTypes = {
   isDefaultChecked: PropTypes.bool,
   /** Determines whether the switch is enabled or disabled */
   isDisabled: PropTypes.bool,
-  /** Name attribute for the input */
-  name: PropTypes.string,
-  /** Value attribute for the input */
-  value: PropTypes.string,
-  /** Provide a specific label ID which will be used as the "labelleby" aria property */
-  labelId: PropTypes.string,
-  /** The label and control are displayed in reverse order */
-  isReversed: PropTypes.bool,
-
-  /** Additional class names on the span (pseudo-label) element  */
-  labelClassName: PropTypes.string,
-
+  /** Whether the current input value is invalid */
+  isInvalid: PropTypes.bool,
   /** Prevents the label element from being displayed on the page. Label is still
    * accessible to screen readers. */
   isLabelHidden: PropTypes.bool,
-  /** Whether the current input value is invalid */
-  isInvalid: PropTypes.bool,
+  /** The label and control are displayed in reverse order */
+  isReversed: PropTypes.bool,
+  /** Additional class names on the span (pseudo-label) element  */
+  labelClassName: PropTypes.string,
+  /** Provide a specific label ID which will be used as the "labelleby" aria property */
+  labelId: PropTypes.string,
+  /** Name attribute for the input */
+  name: PropTypes.string,
+  /** Fires when the switch is turned on or off. No longer required. */
+  onChange: PropTypes.func,
+  qaHook: PropTypes.string,
   /** Validation message to show under the input if `isInvalid` is true */
   validationMessage: PropTypes.node,
-  /** Hint message to show under the input */
-  hintMessage: PropTypes.node,
+  /** Value attribute for the input */
+  value: PropTypes.string,
 };
 
 XUISwitch.defaultProps = {
-  isLabelHidden: false,
   isDisabled: false,
+  isLabelHidden: false,
   isReversed: false,
 };

@@ -81,6 +81,11 @@ const XUIEditableTableCellControl = ({
 };
 
 XUIEditableTableCellControl.propTypes = {
+  /** Id of the control cell */
+  cellIds: PropTypes.shape({
+    control: PropTypes.string,
+    wrapper: PropTypes.string,
+  }),
   children: PropTypes.node,
   className: PropTypes.string,
   /**
@@ -99,11 +104,6 @@ XUIEditableTableCellControl.propTypes = {
    * Validation message to show under the input if `isInvalid` is true.
    */
   validationMessage: PropTypes.node,
-  /** Id of the control cell */
-  cellIds: PropTypes.shape({
-    wrapper: PropTypes.string,
-    control: PropTypes.string,
-  }),
 };
 
 export default XUIEditableTableCellControl;

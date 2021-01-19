@@ -50,15 +50,15 @@ const TableHeadGenericCell = ({
 };
 
 TableHeadGenericCell.propTypes = {
-  className: PropTypes.node,
-  children: PropTypes.node,
-  sortKey: PropTypes.string,
   activeSortKey: PropTypes.string,
+  cellLocation: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.node,
+  ensureCellVisibility: PropTypes.func,
   isSortAsc: PropTypes.bool,
   onSortChange: PropTypes.func,
-  cellLocation: PropTypes.string,
-  ensureCellVisibility: PropTypes.func,
   qaHook: PropTypes.string,
+  sortKey: PropTypes.string,
 };
 
 export default TableHeadGenericCell;

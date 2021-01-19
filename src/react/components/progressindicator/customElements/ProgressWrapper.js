@@ -55,20 +55,20 @@ const ProgressWrapper = props => {
 };
 
 ProgressWrapper.propTypes = {
-  children: PropTypes.func.isRequired,
-  qaHook: PropTypes.string,
-  classes: PropTypes.string.isRequired,
-  ariaNow: PropTypes.number.isRequired,
-  ariaMin: PropTypes.number.isRequired,
-  ariaMax: PropTypes.number.isRequired,
-  totalColor: PropTypes.string,
-  progressColor: PropTypes.string,
-  hasToolTip: PropTypes.bool,
-  toolTipId: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  toolTipMessage: PropTypes.string.isRequired,
-  thickness: PropTypes.number,
   ariaLabel: PropTypes.string,
   ariaLabelledBy: PropTypes.string,
+  ariaMax: PropTypes.number.isRequired,
+  ariaMin: PropTypes.number.isRequired,
+  ariaNow: PropTypes.number.isRequired,
+  children: PropTypes.func.isRequired,
+  classes: PropTypes.string.isRequired,
+  hasToolTip: PropTypes.bool,
+  progressColor: PropTypes.string,
+  qaHook: PropTypes.string,
+  thickness: PropTypes.number,
+  toolTipId: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  toolTipMessage: PropTypes.string.isRequired,
+  totalColor: PropTypes.string,
 };
 
 export default ProgressWrapper;

@@ -38,19 +38,26 @@ export default XUICompositionDetailSummaryHeader;
 
 XUICompositionDetailSummaryHeader.propTypes = {
   className: PropTypes.string,
-
-  /**
-   * Header content or component
-   */
-  header: PropTypes.element.isRequired,
-  /**
-   * Summary content or component
-   */
-  summary: PropTypes.element.isRequired,
   /**
    * Main content
    */
   detail: PropTypes.element.isRequired,
+  /**
+   * Whether to apply pre-set widths to columsn of the composition grid. Defaults to true.
+   */
+  hasAutoColumnWidths: PropTypes.bool,
+  /**
+   * Whether to apply pre-set spacing to the outside of the composition grid. Defaults to true.
+   */
+  hasAutoSpaceAround: PropTypes.bool,
+  /**
+   * Whether to apply a pre-set grid-gap between all grid areas. Defaults to true.
+   */
+  hasGridGap: PropTypes.bool,
+  /**
+   * Header content or component
+   */
+  header: PropTypes.element.isRequired,
   /**
    * Determines whether the main content takes full width of page. Defaults to false.
    */
@@ -61,21 +68,13 @@ XUICompositionDetailSummaryHeader.propTypes = {
    */
   retainWidth: PropTypes.oneOf(['', 'small']),
   /**
-   * Whether to apply a pre-set grid-gap between all grid areas. Defaults to true.
+   * Summary content or component
    */
-  hasGridGap: PropTypes.bool,
-  /**
-   * Whether to apply pre-set spacing to the outside of the composition grid. Defaults to true.
-   */
-  hasAutoSpaceAround: PropTypes.bool,
-  /**
-   * Whether to apply pre-set widths to columsn of the composition grid. Defaults to true.
-   */
-  hasAutoColumnWidths: PropTypes.bool,
+  summary: PropTypes.element.isRequired,
 };
 
 XUICompositionDetailSummaryHeader.defaultProps = {
-  hasGridGap: true,
-  hasAutoSpaceAround: true,
   hasAutoColumnWidths: true,
+  hasAutoSpaceAround: true,
+  hasGridGap: true,
 };

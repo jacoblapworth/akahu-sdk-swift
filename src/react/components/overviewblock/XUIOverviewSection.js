@@ -45,15 +45,11 @@ export default XUIOverviewSection;
 XUIOverviewSection.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
   /**
    * Label for the section
    */
   label: PropTypes.node,
-  /**
-   * Value to appear below the label
-   */
-  value: PropTypes.node,
+  qaHook: PropTypes.string,
   /**
    * Sentiment for styling the value. Can be 'positive', 'negative', 'muted', or
    * undefined for a default appearance
@@ -62,4 +58,8 @@ XUIOverviewSection.propTypes = {
   /** How to align text in this section. Leave undefined to default
    * to the alignment of the parent block. */
   textAlignment: PropTypes.oneOf(['left', 'center', 'right']),
+  /**
+   * Value to appear below the label
+   */
+  value: PropTypes.node,
 };

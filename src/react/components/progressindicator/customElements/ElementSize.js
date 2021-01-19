@@ -56,8 +56,8 @@ class ElementSize extends Component {
 }
 
 ElementSize.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 export default ElementSize;

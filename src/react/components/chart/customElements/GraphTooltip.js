@@ -31,14 +31,14 @@ const GraphTooltip = ({ height, left, message, offset, preferred, qaHook, top, w
 export default GraphTooltip;
 
 GraphTooltip.propTypes = {
-  qaHook: PropTypes.string,
+  height: PropTypes.number,
+  left: PropTypes.number,
   message: PropTypes.node,
   offset: PropTypes.number,
-  left: PropTypes.number,
+  preferred: PropTypes.string,
+  qaHook: PropTypes.string,
   top: PropTypes.number,
   width: PropTypes.number,
-  height: PropTypes.number,
-  preferred: PropTypes.string,
 };
 
 GraphTooltip.defaultProps = {

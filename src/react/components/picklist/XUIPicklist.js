@@ -131,17 +131,10 @@ XUIPicklist.propTypes = {
    * ⚠️ *Horizontal picklists only*
    */
   closeOnSelect: PropTypes.bool,
-  qaHook: PropTypes.string,
-  /** Id to be applied to the root HTML element */
-  id: PropTypes.string,
-  /** Keydown handler function added to the root HTML element */
-  onKeyDown: PropTypes.func,
-  /** Mousedown handler function added to the root HTML element */
-  onMouseDown: PropTypes.func,
-  /** Additional props to pass to the root HTML element */
-  secondaryProps: PropTypes.object,
   /** Whether to add the default layout class */
   defaultLayout: PropTypes.bool,
+  /** Id to be applied to the root HTML element */
+  id: PropTypes.string,
   /** Whether to render as horizontal pickitems */
   isHorizontal: PropTypes.bool,
   /**
@@ -149,6 +142,13 @@ XUIPicklist.propTypes = {
    * ⚠️ *Vertical picklists only*
    */
   isMultiselect: PropTypes.bool,
+  /** Keydown handler function added to the root HTML element */
+  onKeyDown: PropTypes.func,
+  /** Mousedown handler function added to the root HTML element */
+  onMouseDown: PropTypes.func,
+  qaHook: PropTypes.string,
+  /** Additional props to pass to the root HTML element */
+  secondaryProps: PropTypes.object,
   /** Whether to truncate text instead of wrapping. */
   shouldTruncate: PropTypes.bool,
   /**

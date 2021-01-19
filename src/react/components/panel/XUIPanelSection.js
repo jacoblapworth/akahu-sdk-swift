@@ -30,13 +30,13 @@ export default XUIPanelSection;
 XUIPanelSection.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-  /**
-   * Text or node to be placed in a "xui-panel--section-header" node
-   */
-  heading: PropTypes.node,
   /**
    * Classes to add to the "xui-panel--section-header" node
    */
   headerClassName: PropTypes.string,
+  /**
+   * Text or node to be placed in a "xui-panel--section-header" node
+   */
+  heading: PropTypes.node,
+  qaHook: PropTypes.string,
 };

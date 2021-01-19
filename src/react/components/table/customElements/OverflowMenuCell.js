@@ -39,7 +39,7 @@ export default OverflowMenuCell;
 
 OverflowMenuCell.propTypes = {
   createOverflowMenu: PropTypes.func,
-  overflowMenuTitle: PropTypes.string,
   dividerClasses: PropTypes.string,
+  overflowMenuTitle: PropTypes.string,
   qaHook: PropTypes.string,
 };

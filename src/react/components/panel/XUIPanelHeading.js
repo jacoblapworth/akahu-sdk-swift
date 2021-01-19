@@ -23,11 +23,11 @@ const XUIPanelHeading = ({ qaHook, children, className, hasLayout, tagName, ...s
 XUIPanelHeading.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
   /**
    * Whether to include standard styles on a panel heading. Defaults to true.
    */
   hasLayout: PropTypes.bool,
+  qaHook: PropTypes.string,
   /**
    * Main element tag type. Defaults to "header"
    */

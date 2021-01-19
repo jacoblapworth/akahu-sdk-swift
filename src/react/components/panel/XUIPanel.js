@@ -43,15 +43,15 @@ export default XUIPanel;
 XUIPanel.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-  /**
-   * The header for a panel. We recommend XUIPanelHeading.
-   */
-  heading: PropTypes.node,
   /**
    * The footer for a panel. We recommend XUIPanelFooter.
    */
   footer: PropTypes.node,
+  /**
+   * The header for a panel. We recommend XUIPanelHeading.
+   */
+  heading: PropTypes.node,
+  qaHook: PropTypes.string,
   /**
    * A node which will be wrapped and rendered as a panel sidebar.
    */

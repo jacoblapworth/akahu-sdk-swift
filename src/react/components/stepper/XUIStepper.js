@@ -161,24 +161,36 @@ export default XUIStepper;
 
 /* eslint-disable react/no-unused-prop-types */
 XUIStepper.propTypes = {
-  qaHook: PropTypes.string,
+  children: PropTypes.node,
+
+  /** Target a tab by its index in the "tabs" array and set it to its "active" state
+   * (index is zero based). */
+  currentStep: PropTypes.number.isRequired,
+
+  /** Set the tab buttons to have a "stacked" layout (only applicable in the "inline" layout) */
+  hasStackedButtons: PropTypes.bool,
 
   /** A unique ID that is used to generate Aria references. */
   id: PropTypes.string.isRequired,
 
-  children: PropTypes.node,
+  /** Whether step names and description truncate or wrap. Defaults to true. */
+  isTruncated: PropTypes.bool,
+
+  /** Lock the Stepper to only use a single layout style (the Stepper will augment its layout
+   * automatically by default). Setting `vertical` will render as either a sidebar or stacked
+   * depending on the space available. */
+  lockLayout: PropTypes.oneOf(['stacked', 'sidebar', 'inline', 'vertical']),
+
+  qaHook: PropTypes.string,
 
   /** The group of Stepper tabs */
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
-      /** Main display text. */
-      name: PropTypes.string.isRequired,
+      /** Set the current Progress Indicator value. */
+      currentProgress: PropTypes.number,
 
       /** Secondary display text. */
       description: PropTypes.node,
-
-      /** `. */
-      isError: PropTypes.bool,
 
       /** `. */
       isComplete: PropTypes.bool,
@@ -186,34 +198,22 @@ XUIStepper.propTypes = {
       /** `. */
       isDisabled: PropTypes.bool,
 
+      /** `. */
+      isError: PropTypes.bool,
+
       /** Render a Progress Indicator. */
       isProgress: PropTypes.bool,
 
+      /** Main display text. */
+      name: PropTypes.string.isRequired,
+
       /** Set the maximum Progress Indicator value. */
       totalProgress: PropTypes.number,
-
-      /** Set the current Progress Indicator value. */
-      currentProgress: PropTypes.number,
     }),
   ).isRequired,
 
-  /** Target a tab by its index in the "tabs" array and set it to its "active" state
-   * (index is zero based). */
-  currentStep: PropTypes.number.isRequired,
-
   /** A callback that receives an "index" value relating to the clicked "currentStep". */
   updateCurrentStep: PropTypes.func,
-
-  /** Set the tab buttons to have a "stacked" layout (only applicable in the "inline" layout) */
-  hasStackedButtons: PropTypes.bool,
-
-  /** Lock the Stepper to only use a single layout style (the Stepper will augment its layout
-   * automatically by default). Setting `vertical` will render as either a sidebar or stacked
-   * depending on the space available. */
-  lockLayout: PropTypes.oneOf(['stacked', 'sidebar', 'inline', 'vertical']),
-
-  /** Whether step names and description truncate or wrap. Defaults to true. */
-  isTruncated: PropTypes.bool,
 };
 
 XUIStepper.defaultProps = {

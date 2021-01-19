@@ -647,23 +647,17 @@ export default class XUIDropdownToggled extends PureComponent {
 }
 
 XUIDropdownToggled.propTypes = {
+  /**
+   * The "aria-haspopup" value. NOT just a boolean. Defaults to 'listbox' https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup
+   */
+  ariaPopupType: PropTypes.oneOf(['listbox', 'menu', 'tree', 'grid', 'dialog', false]),
+
+  /**
+   * Aria role for dropdown wrapper
+   */
+  ariaRole: PropTypes.string,
+
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-
-  /** Whether the dropdown is hidden on initial render */
-  isHidden: PropTypes.bool,
-
-  /** Callback that gets triggered when the dropdown begins opening */
-  onOpen: PropTypes.func,
-
-  /** Callback that gets triggered when the dropdown has finished closing */
-  onClose: PropTypes.func,
-
-  /** Element used to trigger the dropdown opening/closing (typically a button) */
-  trigger: PropTypes.element.isRequired,
-
-  /** The dropdown that will be rendered when triggered */
-  dropdown: PropTypes.element.isRequired,
 
   /** Whether or not the dropdown should be automatically hidden when the user selects something */
   closeOnSelect: PropTypes.bool,
@@ -673,31 +667,26 @@ XUIDropdownToggled.propTypes = {
    * component inside of a dropdown. */
   closeOnTab: PropTypes.bool,
 
-  /** Whether or not we should set a maxHeight on the dropdown to restrict it to the window */
-  restrictToViewPort: PropTypes.bool,
-
   /** Whether scroll locking behaviour should be disabled on mobile */
   disableScrollLocking: PropTypes.bool,
 
-  /** Function to be called once the closing animation has finished */
-  onCloseAnimationEnd: PropTypes.func,
-
-  /** Callback for when animation has ended on open. */
-  onOpenAnimationEnd: PropTypes.func,
-
-  /** What action to take when the user clicks the trigger.  Default is to toggle the dropdown
-   * open/close. Can just open ('open') or do nothing ('none'). */
-  triggerClickAction: PropTypes.oneOf(['none', 'toggle', 'open']),
+  /** The dropdown that will be rendered when triggered */
+  dropdown: PropTypes.element.isRequired,
 
   /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
   forceDesktop: PropTypes.bool,
 
+  /**
+   * This setting is only for non-legacy display. Whether to allow the dropdown to take the
+   * full width of the wrapper (as `XUISelectBox`) or wrap with an inline block. Defaults to false.
+   */
+  isBlock: PropTypes.bool,
+
+  /** Whether the dropdown is hidden on initial render */
+  isHidden: PropTypes.bool,
+
   /** Use the "legacy" (portaled) display. Currently defaults to "true." */
   isLegacyDisplay: PropTypes.bool,
-
-  /** Repositioning on scroll is usually just annoying.  However, if you have a fixed position
-   * trigger, it's essential to make sure that the dropdown stays next to the trigger. */
-  repositionOnScroll: PropTypes.bool,
 
   /**
    * Setting to true will for the dropdown to be as wide as the trigger. <br>
@@ -714,44 +703,60 @@ XUIDropdownToggled.propTypes = {
    */
   maxHeight: PropTypes.number,
 
-  /**
-   * This setting is only for non-legacy display. Whether to allow the dropdown to take the
-   * full width of the wrapper (as `XUISelectBox`) or wrap with an inline block. Defaults to false.
-   */
-  isBlock: PropTypes.bool,
+  /** Callback that gets triggered when the dropdown has finished closing */
+  onClose: PropTypes.func,
+
+  /** Function to be called once the closing animation has finished */
+  onCloseAnimationEnd: PropTypes.func,
+
+  /** Callback that gets triggered when the dropdown begins opening */
+  onOpen: PropTypes.func,
+
+  /** Callback for when animation has ended on open. */
+  onOpenAnimationEnd: PropTypes.func,
+
   /**
    * This setting is only for non-legacy display. Preferred position to display the dropdown,
    * relative to the trigger. Defaults to bottom-left.
    */
   preferredPosition: PropTypes.oneOf(dropdownPositionOptions),
+
+  qaHook: PropTypes.string,
+
+  /** Repositioning on scroll is usually just annoying.  However, if you have a fixed position
+   * trigger, it's essential to make sure that the dropdown stays next to the trigger. */
+  repositionOnScroll: PropTypes.bool,
+
+  /** Whether or not we should set a maxHeight on the dropdown to restrict it to the window */
+  restrictToViewPort: PropTypes.bool,
+
+  /** Element used to trigger the dropdown opening/closing (typically a button) */
+  trigger: PropTypes.element.isRequired,
+
+  /** What action to take when the user clicks the trigger.  Default is to toggle the dropdown
+   * open/close. Can just open ('open') or do nothing ('none'). */
+  triggerClickAction: PropTypes.oneOf(['none', 'toggle', 'open']),
+
   /**
    * This setting is only for non-legacy display. Space between trigger and dropdown, in pixels.
    * Defaults to 6.
    */
   triggerDropdownGap: PropTypes.number,
-  /**
-   * The "aria-haspopup" value. NOT just a boolean. Defaults to 'listbox' https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup
-   */
-  ariaPopupType: PropTypes.oneOf(['listbox', 'menu', 'tree', 'grid', 'dialog', false]),
-  /**
-   * Aria role for dropdown wrapper
-   */
-  ariaRole: PropTypes.string,
 };
 
 XUIDropdownToggled.defaultProps = {
-  isHidden: true,
+  ariaPopupType: 'listbox',
   closeOnSelect: true,
   closeOnTab: true,
-  restrictToViewPort: true,
   disableScrollLocking: false,
-  triggerClickAction: 'toggle',
   forceDesktop: false,
-  repositionOnScroll: false,
+  isBlock: false,
+  isHidden: true,
+  isLegacyDisplay: true,
   matchTriggerWidth: false,
   preferredPosition: 'bottom-left',
+  repositionOnScroll: false,
+  restrictToViewPort: true,
+  triggerClickAction: 'toggle',
   triggerDropdownGap: 6,
-  isLegacyDisplay: true,
-  isBlock: false,
-  ariaPopupType: 'listbox',
 };

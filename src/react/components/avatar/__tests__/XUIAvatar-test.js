@@ -3,14 +3,14 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 
-Enzyme.configure({ adapter: new Adapter() });
-
 import XUIAvatar from '../XUIAvatar';
 import { sizeClassNames, variantClassNames } from '../constants';
 
+Enzyme.configure({ adapter: new Adapter() });
+
 describe('XUIAvatar', () => {
   it('should render an `abbr` avatar when I give it an identifier and a value', () => {
-    const test = <XUIAvatar value="Test" identifier="12345-1234-1234-123456" />;
+    const test = <XUIAvatar identifier="12345-1234-1234-123456" value="Test" />;
 
     const snap = renderer.create(test);
     expect(snap).toMatchSnapshot();
@@ -32,7 +32,12 @@ describe('XUIAvatar', () => {
   });
 
   it('should render an `img` avatar when I give it an image', () => {
-    const test = <XUIAvatar value="Test" imageUrl="https://xui.xero.com/static/xpert-avatar.png" />;
+    const test = (
+      <XUIAvatar
+        imageUrl="https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c"
+        value="Test"
+      />
+    );
 
     const snap = renderer.create(test);
     expect(snap).toMatchSnapshot();
@@ -49,16 +54,16 @@ describe('XUIAvatar', () => {
 
     const jestDom = mount(
       <XUIAvatar
-        value="Test"
-        onError={performTestsAfterError}
         imageUrl="https://xui.xero.com/static/broken-path.jpg"
+        onError={performTestsAfterError}
+        value="Test"
       />,
     );
   });
 
   it('should render in a range of sizes', () => {
     Object.keys(sizeClassNames).forEach(size => {
-      const test = <XUIAvatar value="Test" size={size} />;
+      const test = <XUIAvatar size={size} value="Test" />;
 
       const snap = renderer.create(test);
       expect(snap).toMatchSnapshot();
@@ -79,9 +84,9 @@ describe('XUIAvatar', () => {
       const onErrorHandler = jest.fn();
       const mountedComponent = mount(
         <XUIAvatar
-          value="Test"
-          onError={onErrorHandler}
           imageUrl="https://xui.xero.com/static/broken-path.jpg"
+          onError={onErrorHandler}
+          value="Test"
         />,
       );
 
@@ -93,7 +98,7 @@ describe('XUIAvatar', () => {
   describe('Generic tests', () => {
     it('should accept a custom className', () => {
       const testClass = 'test-class';
-      const test = <XUIAvatar value="Test" className={testClass} />;
+      const test = <XUIAvatar className={testClass} value="Test" />;
 
       const snap = renderer.create(test);
       expect(snap).toMatchSnapshot();
@@ -104,7 +109,7 @@ describe('XUIAvatar', () => {
 
     it('should accept a custom qaHook', () => {
       const testHook = 'test-hook';
-      const test = <XUIAvatar value="Test" qaHook={testHook} />;
+      const test = <XUIAvatar qaHook={testHook} value="Test" />;
 
       const snap = renderer.create(test);
       expect(snap).toMatchSnapshot();

@@ -150,25 +150,25 @@ export default CustomNavbar;
 CustomNavbar.propTypes = {
   classNames: PropTypes.shape({
     navBar: PropTypes.string,
-    navButtonPrev: PropTypes.string,
     navButtonNext: PropTypes.string,
-  }),
-  showPreviousButton: PropTypes.bool,
-  showNextButton: PropTypes.bool,
-  onPreviousClick: PropTypes.func,
-  onNextClick: PropTypes.func,
-  labels: PropTypes.shape({
-    previousMonth: PropTypes.string.isRequired,
-    nextMonth: PropTypes.string.isRequired,
+    navButtonPrev: PropTypes.string,
   }),
   dir: PropTypes.string,
-  previousMonth: PropTypes.instanceOf(Date),
+  labels: PropTypes.shape({
+    nextMonth: PropTypes.string.isRequired,
+    previousMonth: PropTypes.string.isRequired,
+  }),
+  locale: PropTypes.string,
+  maxDate: PropTypes.instanceOf(Date),
+  minDate: PropTypes.instanceOf(Date),
   months: PropTypes.arrayOf(PropTypes.string),
   onMonthSelect: PropTypes.func,
-  minDate: PropTypes.instanceOf(Date),
-  maxDate: PropTypes.instanceOf(Date),
-  locale: PropTypes.string,
+  onNextClick: PropTypes.func,
+  onPreviousClick: PropTypes.func,
+  previousMonth: PropTypes.instanceOf(Date),
   qaHook: PropTypes.string,
+  showNextButton: PropTypes.bool,
+  showPreviousButton: PropTypes.bool,
 };
 
 CustomNavbar.defaultProps = {

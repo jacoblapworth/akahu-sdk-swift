@@ -119,26 +119,10 @@ export default class XUIPageHeader extends PureComponent {
 }
 
 XUIPageHeader.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  qaHook: PropTypes.string,
   /**
-   * CSS class(es) to add to the the pageheading--content element. xui-page-width-standard
-   * would go here
+   * Components or html to be right-aligned in the pageheading
    */
-  contentClassName: PropTypes.string,
-  /**
-   * Applies default layout styling.
-   */
-  hasLayout: PropTypes.bool,
-  /**
-   * Title text or node. Should almost certainly be present.
-   */
-  title: PropTypes.node,
-  /**
-   * Horizontal picklist to act as tabs. XUIPicklist
-   */
-  tabs: PropTypes.element,
+  actions: PropTypes.node,
   /**
    * Instantiated breadcrumb component. Use in conjunction with a title.
    */
@@ -148,14 +132,18 @@ XUIPageHeader.propTypes = {
     }
     return null;
   },
+  children: PropTypes.node,
+  className: PropTypes.string,
   /**
-   * Components or html to be right-aligned in the pageheading
+   * CSS class(es) to add to the the pageheading--content element. xui-page-width-standard
+   * would go here
    */
-  actions: PropTypes.node,
+  contentClassName: PropTypes.string,
   /**
-   * Array of XUITags
+   * Applies default layout styling.
    */
-  tags: PropTypes.arrayOf(PropTypes.element),
+  hasLayout: PropTypes.bool,
+  qaHook: PropTypes.string,
   /**
    * Secondary title
    */
@@ -164,6 +152,18 @@ XUIPageHeader.propTypes = {
    * Supplementary text to appear after the headings and tags
    */
   supplementary: PropTypes.node,
+  /**
+   * Horizontal picklist to act as tabs. XUIPicklist
+   */
+  tabs: PropTypes.element,
+  /**
+   * Array of XUITags
+   */
+  tags: PropTypes.arrayOf(PropTypes.element),
+  /**
+   * Title text or node. Should almost certainly be present.
+   */
+  title: PropTypes.node,
 };
 
 XUIPageHeader.defaultProps = {

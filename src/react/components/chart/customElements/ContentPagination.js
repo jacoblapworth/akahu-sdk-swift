@@ -48,12 +48,12 @@ const ContentPagination = ({
 export default ContentPagination;
 
 ContentPagination.propTypes = {
-  qaHook: PropTypes.string,
-  current: PropTypes.number,
-  total: PropTypes.number,
-  updatePanel: PropTypes.func,
   createMessage: PropTypes.func,
+  current: PropTypes.number,
   paginationLabel: PropTypes.string,
   paginationNextTitle: PropTypes.string,
   paginationPreviousTitle: PropTypes.string,
+  qaHook: PropTypes.string,
+  total: PropTypes.number,
+  updatePanel: PropTypes.func,
 };

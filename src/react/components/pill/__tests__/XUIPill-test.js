@@ -29,13 +29,14 @@ describe('<XUIPill />', () => {
   });
 
   it('renders the pill with the invalid class when the isInvalid prop is true', () => {
-    const pill = render(<XUIPill isInvalid={true} />);
+    const pill = render(<XUIPill isInvalid />);
 
     expect(pill.hasClass('xui-pill-is-invalid')).toBeTruthy();
   });
 
   it('will render avatars when passed as an avatar prop', () => {
-    const imageUrl = 'https://xui.xero.com/static/xpert-avatar.png';
+    const imageUrl =
+      'https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c';
     const avatarProps = {
       imageUrl,
       size: 'small',
@@ -48,14 +49,15 @@ describe('<XUIPill />', () => {
   });
 
   it('renders the pill with the provided avatar component', () => {
-    const avatar = <XUIAvatar value="value pill" size="small" />;
-    const pill = renderer.create(<XUIPill value="Value Pill" avatar={avatar} />);
+    const avatar = <XUIAvatar size="small" value="value pill" />;
+    const pill = renderer.create(<XUIPill avatar={avatar} value="Value Pill" />);
 
     expect(pill).toMatchSnapshot();
   });
 
   it('renders the pill with the business avatar prop', () => {
-    const imageUrl = 'https://xui.xero.com/static/xpert-avatar.png';
+    const imageUrl =
+      'https://i.picsum.photos/id/1044/100/100.jpg?hmac=IGzsuFyCgR4u_DgqnNlOHxY-ThKh9C02XhZAqHyVy0Q';
     const avatarProps = {
       imageUrl,
       size: 'small',
@@ -69,15 +71,16 @@ describe('<XUIPill />', () => {
   });
 
   it('renders the pill with the provided business avatar component', () => {
-    const avatar = <XUIAvatar value="value pill" size="small" variant="business" />;
-    const pill = renderer.create(<XUIPill value="Value Pill" avatar={avatar} />);
+    const avatar = <XUIAvatar size="small" value="value pill" variant="business" />;
+    const pill = renderer.create(<XUIPill avatar={avatar} value="Value Pill" />);
 
     expect(pill).toMatchSnapshot();
   });
 
   it('expect an error if both avatar and avatarProps are provided', () => {
-    const imageUrl = 'https://xui.xero.com/static/xpert-avatar.png';
-    const avatar = <XUIAvatar value="value pill" size="small" />;
+    const imageUrl =
+      'https://i.picsum.photos/id/931/100/100.jpg?hmac=BJxOJGnnDF4jriUgv211ZTiatGsYZ2ORIKXGZAu6VkA';
+    const avatar = <XUIAvatar size="small" value="value pill" />;
     const avatarProps = {
       imageUrl,
       size: 'small',
@@ -85,14 +88,14 @@ describe('<XUIPill />', () => {
       value: 'A',
     };
     expect(() =>
-      renderer.create(<XUIPill value="Value Pill" avatar={avatar} avatarProps={avatarProps} />),
+      renderer.create(<XUIPill avatar={avatar} avatarProps={avatarProps} value="Value Pill" />),
     ).toThrow();
   });
 
   it('invokes the callback passed into the onDeleteClick prop with itself passed in as an argument', () => {
     const callback = jest.fn();
     const pill = mount(
-      <XUIPill value="Pill" onDeleteClick={callback} deleteButtonLabel="Delete" />,
+      <XUIPill deleteButtonLabel="Delete" onDeleteClick={callback} value="Pill" />,
     );
 
     pill.find('.xui-pill--button-icon').first().simulate('click');
@@ -101,7 +104,7 @@ describe('<XUIPill />', () => {
 
   it('invokes the callback passed into the onClick prop', () => {
     const callback = jest.fn();
-    const pill = mount(<XUIPill value="Pill" onClick={callback} />);
+    const pill = mount(<XUIPill onClick={callback} value="Pill" />);
 
     pill.find('.xui-button').simulate('click');
     expect(callback.mock.calls.length).toEqual(1);
@@ -140,13 +143,14 @@ describe('<XUIPill />', () => {
   });
 
   it('should render an error icon when invalid', () => {
-    const pill = renderer.create(<XUIPill value="Error pill" isInvalid />);
+    const pill = renderer.create(<XUIPill isInvalid value="Error pill" />);
 
     expect(pill).toMatchSnapshot();
   });
 
   it('should render an error icon when invalid even with an avatar', () => {
-    const imageUrl = 'https://xui.xero.com/static/xpert-avatar.png';
+    const imageUrl =
+      'https://i.picsum.photos/id/2/100/100.jpg?hmac=Y2da7WhwSnMn7y41c8WEc1ZO_AGIhVD3zTzghi4-Hiw';
     const avatarProps = {
       imageUrl,
       size: 'small',
@@ -154,7 +158,7 @@ describe('<XUIPill />', () => {
       value: 'A',
     };
 
-    const pill = renderer.create(<XUIPill value="Error pill" isInvalid {...avatarProps} />);
+    const pill = renderer.create(<XUIPill isInvalid value="Error pill" {...avatarProps} />);
 
     expect(pill).toMatchSnapshot();
   });
@@ -168,7 +172,7 @@ describe('<XUIPill />', () => {
   });
 
   it("should render a delete button label of 'Delete' by default", () => {
-    const pill = mount(<XUIPill onDeleteClick={NOOP} deleteButtonLabel="Delete" />);
+    const pill = mount(<XUIPill deleteButtonLabel="Delete" onDeleteClick={NOOP} />);
 
     expect(pill.find('.xui-pill--button-icon').first().html()).toContain('title="Delete"');
   });
@@ -178,13 +182,13 @@ describe('<XUIPill />', () => {
     sizes.forEach(size => {
       const pill = renderer.create(
         <XUIPill
-          size={size}
-          value="Test"
           avatarProps={{
             value: 'Test Render',
           }}
-          onDeleteClick={NOOP}
           deleteButtonLabel="Delete"
+          onDeleteClick={NOOP}
+          size={size}
+          value="Test"
         />,
       );
       expect(pill).toMatchSnapshot();

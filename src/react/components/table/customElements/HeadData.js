@@ -11,13 +11,11 @@ const HeadData = ({ children, qaHook, ...props }) => (
 HeadData.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-
-  // Interaction.
-  role: PropTypes.string,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
+  qaHook: PropTypes.string,
+  role: PropTypes.string,
   tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 

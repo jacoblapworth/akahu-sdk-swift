@@ -19,8 +19,7 @@ export default XUIBannerMessageDetail;
 
 XUIBannerMessageDetail.propTypes = {
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-
   /** The banner message details to be displayed as a list */
   messageDetails: PropTypes.arrayOf(PropTypes.node).isRequired,
+  qaHook: PropTypes.string,
 };

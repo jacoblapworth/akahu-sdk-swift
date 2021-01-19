@@ -60,14 +60,14 @@ const SortButton = ({
 };
 
 SortButton.propTypes = {
+  activeSortKey: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
-  sortKey: PropTypes.string,
-  activeSortKey: PropTypes.string,
   isSortAsc: PropTypes.bool,
-  onSortChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onSortChange: PropTypes.func,
   qaHook: PropTypes.string,
+  sortKey: PropTypes.string,
 };
 
 export default SortButton;

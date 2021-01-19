@@ -46,11 +46,11 @@ export default class CheckBoxCell extends PureComponent {
 }
 
 CheckBoxCell.propTypes = {
-  rowId: PropTypes.string.isRequired,
+  checkOneRowAriaLabel: PropTypes.node,
+  dividerClasses: PropTypes.string,
   isChecked: PropTypes.bool,
   isDisabled: PropTypes.bool,
   onCheckOneToggle: PropTypes.func,
-  checkOneRowAriaLabel: PropTypes.node,
-  dividerClasses: PropTypes.string,
   qaHook: PropTypes.string,
+  rowId: PropTypes.string.isRequired,
 };

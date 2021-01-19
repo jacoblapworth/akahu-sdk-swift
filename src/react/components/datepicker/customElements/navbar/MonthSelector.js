@@ -100,14 +100,14 @@ const MonthSelector = ({
 export default MonthSelector;
 
 MonthSelector.propTypes = {
-  months: PropTypes.arrayOf(PropTypes.node),
-  minDate: PropTypes.instanceOf(Date),
-  maxDate: PropTypes.instanceOf(Date),
   currentMonthDate: PropTypes.instanceOf(Date).isRequired,
   id: PropTypes.string.isRequired,
-  selectRef: PropTypes.shape({ current: PropTypes.object }),
+  maxDate: PropTypes.instanceOf(Date),
+  minDate: PropTypes.instanceOf(Date),
+  months: PropTypes.arrayOf(PropTypes.node),
   onChange: PropTypes.func,
   onKeyDown: PropTypes.func,
   qaHook: PropTypes.string,
+  selectRef: PropTypes.shape({ current: PropTypes.object }),
   size: PropTypes.oneOf(Object.keys(buttonSizeClasses)),
 };

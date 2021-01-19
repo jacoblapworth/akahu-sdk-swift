@@ -44,8 +44,8 @@ class ChartKey extends PureComponent {
 export default ChartKey;
 
 ChartKey.propTypes = {
+  colors: PropTypes.arrayOf(PropTypes.string),
+  labels: PropTypes.arrayOf(PropTypes.string),
   qaHook: PropTypes.string,
   title: PropTypes.string,
-  labels: PropTypes.arrayOf(PropTypes.string),
-  colors: PropTypes.arrayOf(PropTypes.string),
 };

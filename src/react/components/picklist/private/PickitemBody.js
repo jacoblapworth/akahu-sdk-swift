@@ -84,31 +84,31 @@ const PickitemBody = ({
 };
 
 PickitemBody.propTypes = {
-  children: PropTypes.node,
-  href: PropTypes.string,
   checkboxClassName: PropTypes.string,
-  onClick: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onMouseOver: PropTypes.func,
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
-  target: PropTypes.string,
-  shouldTruncate: PropTypes.bool,
-  qaHook: PropTypes.string,
-  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /** Standard text */
-  primaryElement: PropTypes.node,
-  /** Less important text to appear beside primary. */
-  secondaryElement: PropTypes.node,
-  /** Less important text to appear pinned at the right. */
-  pinnedElement: PropTypes.node,
+  children: PropTypes.node,
+  headingElement: PropTypes.node,
+  href: PropTypes.string,
   /** Content to be added to the left of the pickitem. */
   leftElement: PropTypes.node,
+  onBlur: PropTypes.func,
+  onClick: PropTypes.func,
+  onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  onMouseOver: PropTypes.func,
+  /** Less important text to appear pinned at the right. */
+  pinnedElement: PropTypes.node,
+  /** Standard text */
+  primaryElement: PropTypes.node,
+  qaHook: PropTypes.string,
   /** Content to be added to the right of the pickitem. */
   rightElement: PropTypes.node,
-  headingElement: PropTypes.node,
+  /** Less important text to appear beside primary. */
+  secondaryElement: PropTypes.node,
+  shouldTruncate: PropTypes.bool,
   /** Show button caret. Used in `TabDropdown` */
   showButtonCaret: PropTypes.bool,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  target: PropTypes.string,
 };
 
 export default PickitemBody;

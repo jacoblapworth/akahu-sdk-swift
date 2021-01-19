@@ -145,12 +145,32 @@ const XUIDropdownHeader = ({
 };
 
 XUIDropdownHeader.propTypes = {
-  qaHook: PropTypes.string,
+  /**
+   * `aria-label` attribute for the back button
+   * <br />
+   * Recommended English value: *Back*
+   */
+  backButtonAriaLabel: PropTypes.string,
+
   children: PropTypes.node,
   className: PropTypes.string,
 
-  /** If present, is used in the header */
-  title: PropTypes.node,
+  /** Whether the primary button is disabled */
+  isPrimaryButtonDisabled: PropTypes.bool,
+
+  /** Whether the secondary button is disabled */
+  isSecondaryButtonDisabled: PropTypes.bool,
+
+  /** Content to be added on the left side of the header, will come after the back button
+   * if one is present */
+  leftContent: PropTypes.node,
+
+  /** Callback for when the back button is pressed (button will not be rendered
+   * if this is not provided) */
+  onBackButtonClick: PropTypes.func,
+
+  /** Whether the header should only be shown at mobile sizes. */
+  onlyShowForMobile: PropTypes.bool,
 
   /** Callback for when the primary button is clicked (button will not be
    * rendered if this is not provided) */
@@ -163,36 +183,17 @@ XUIDropdownHeader.propTypes = {
   /** Content to render within the primary button */
   primaryButtonContent: PropTypes.node,
 
-  /** Content to render within the secondary button */
-  secondaryButtonContent: PropTypes.node,
-
-  /** Whether the primary button is disabled */
-  isPrimaryButtonDisabled: PropTypes.bool,
-
-  /** Whether the secondary button is disabled */
-  isSecondaryButtonDisabled: PropTypes.bool,
-
-  /** Callback for when the back button is pressed (button will not be rendered
-   * if this is not provided) */
-  onBackButtonClick: PropTypes.func,
-
-  /**
-   * `aria-label` attribute for the back button
-   * <br />
-   * Recommended English value: *Back*
-   */
-  backButtonAriaLabel: PropTypes.string,
-
-  /** Whether the header should only be shown at mobile sizes. */
-  onlyShowForMobile: PropTypes.bool,
-
-  /** Content to be added on the left side of the header, will come after the back button
-   * if one is present */
-  leftContent: PropTypes.node,
+  qaHook: PropTypes.string,
 
   /** Content to be added on the right side of the header, will come before the
    * primary/secondary button present */
   rightContent: PropTypes.node,
+
+  /** Content to render within the secondary button */
+  secondaryButtonContent: PropTypes.node,
+
+  /** If present, is used in the header */
+  title: PropTypes.node,
 };
 
 export default React.memo(XUIDropdownHeader);

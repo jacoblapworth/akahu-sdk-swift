@@ -53,69 +53,47 @@ const XUIProgressCircular = props => (
 export default XUIProgressCircular;
 
 XUIProgressCircular.propTypes = {
-  /** A unique ID that is used to generate SVG mask references and "Tool Tip" Aria references. */
-  id: PropTypes.string.isRequired,
+  /** Specify an ARIA label for the progress indicator */
+  ariaLabel: PropTypes.string,
 
-  /** `. */
-  qaHook: PropTypes.string,
+  /** The id of an element that provides an ARIA label for the progress indicator */
+  ariaLabelledBy: PropTypes.string,
 
   /** Content to place inside the "track" circle. */
   children: PropTypes.node,
 
-  /** The "total" amount of "units" to represent visually on the progress scale. */
-  total: PropTypes.number,
+  /** Customise the "error" content. */
+  hardErrorAlert: PropTypes.node,
 
-  /** The amount of "progress" "units" in respect to the "total" value. */
-  progress: PropTypes.number,
+  /** Show a "tool tip" when the mouse "enters" the UI. */
+  hasToolTip: PropTypes.bool,
 
-  /** Change the "track" from solid to a set of evenly spaced "segments" (one for each
-   * "total" unit). */
-  isSegmented: PropTypes.bool,
+  /** A unique ID that is used to generate SVG mask references and "Tool Tip" Aria references. */
+  id: PropTypes.string.isRequired,
+
+  /** Show a "complete" icon when the "progress" and "total" units are equal. */
+  isAlertOnComplete: PropTypes.bool,
 
   /** Set the component to "grow" horizontally (with the height maintaining the proportions
    * of the circle) into its parent container and fill the space. */
   isGrow: PropTypes.bool,
 
-  /** The "thickness" of the progress track in "px". */
-  thickness: PropTypes.number,
-
-  /** Show a "tool tip" when the mouse "enters" the UI. */
-  hasToolTip: PropTypes.bool,
-
-  /** Customise the "tool tip" message. */
-  toolTipMessage: PropTypes.string,
+  /** Show an error icon. */
+  isHardError: PropTypes.bool,
 
   /** Allow the "progress" to be greater than the "total" and represent this discrepancy
    * in the UI. */
   isOverflow: PropTypes.bool,
 
-  /** Show a "complete" icon when the "progress" and "total" units are equal. */
-  isAlertOnComplete: PropTypes.bool,
+  /** Change the "track" from solid to a set of evenly spaced "segments" (one for each
+   * "total" unit). */
+  isSegmented: PropTypes.bool,
 
   /** Show the "progress" in an error state. */
   isSoftError: PropTypes.bool,
 
-  /** Show an error icon. */
-  isHardError: PropTypes.bool,
-
-  /** Customise the "error" content. */
-  hardErrorAlert: PropTypes.node,
-
-  /** A "color" key that overrides the default "total" gray track swatch. */
-  totalColor: PropTypes.oneOf([
-    'orange',
-    'yellow',
-    'green',
-    'mint',
-    'turquoise',
-    'blue',
-    'violet',
-    'grape',
-    'pink',
-    'grey',
-    'purple',
-    'lightGreen',
-  ]),
+  /** The amount of "progress" "units" in respect to the "total" value. */
+  progress: PropTypes.number,
 
   /** A "color" key that overrides the default "progress" blue track swatch. */
   progressColor: PropTypes.oneOf([
@@ -133,9 +111,31 @@ XUIProgressCircular.propTypes = {
     'lightGreen',
   ]),
 
-  /** Specify an ARIA label for the progress indicator */
-  ariaLabel: PropTypes.string,
+  /** `. */
+  qaHook: PropTypes.string,
 
-  /** The id of an element that provides an ARIA label for the progress indicator */
-  ariaLabelledBy: PropTypes.string,
+  /** The "thickness" of the progress track in "px". */
+  thickness: PropTypes.number,
+
+  /** Customise the "tool tip" message. */
+  toolTipMessage: PropTypes.string,
+
+  /** The "total" amount of "units" to represent visually on the progress scale. */
+  total: PropTypes.number,
+
+  /** A "color" key that overrides the default "total" gray track swatch. */
+  totalColor: PropTypes.oneOf([
+    'orange',
+    'yellow',
+    'green',
+    'mint',
+    'turquoise',
+    'blue',
+    'violet',
+    'grape',
+    'pink',
+    'grey',
+    'purple',
+    'lightGreen',
+  ]),
 };

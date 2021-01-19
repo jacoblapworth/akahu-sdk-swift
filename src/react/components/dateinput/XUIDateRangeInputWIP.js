@@ -173,38 +173,15 @@ XUIDateRangeInputWIP.propTypes = {
   /** Whether or not the dropdown should automatically be hidden when the user selects something */
   closeOnSelect: PropTypes.bool,
 
-  startDateInputConfig: PropTypes.shape({
-    /** A date which represents the year and month that the calendar will display. Could
-     * be any day in the given day and month. */
-    displayedMonth: PropTypes.instanceOf(Date),
-
-    /** Hint message to display below input */
-    hintMessage: PropTypes.string,
-
-    /** Input label */
-    inputLabel: PropTypes.string,
-
-    /** Whether the input is disabled */
-    isDisabled: PropTypes.bool,
-
-    /** Callback for when the user selects a date.  Will fire even if the date has
-     * already been selected. */
-    onSelectDate: PropTypes.func,
-
-    /** Callback for when the input changes  */
-    onInputChange: PropTypes.func,
-
-    /** Value of the date input. Must be a Date object */
-    selectedDateValue: PropTypes.instanceOf(Date),
-
-    selectedDateDefaultValue: PropTypes.instanceOf(Date),
-
-    /** CSS class(es) to go on the trigger element which contains the input */
-    triggerClassName: PropTypes.string,
-
-    /** Message to display below input when invalid date inputted */
-    validationMessage: PropTypes.string,
-  }),
+  /** Convenience dates */
+  convenienceDates: PropTypes.arrayOf(
+    PropTypes.shape({
+      getEndDate: PropTypes.func,
+      getStartDate: PropTypes.func,
+      id: PropTypes.string,
+      text: PropTypes.string,
+    }),
+  ).isRequired,
 
   endDateInputConfig: PropTypes.shape({
     /** A date which represents the year and month that the calendar will display. Could
@@ -220,17 +197,17 @@ XUIDateRangeInputWIP.propTypes = {
     /** Whether the input is disabled */
     isDisabled: PropTypes.bool,
 
+    /** Callback for when the input changes  */
+    onInputChange: PropTypes.func,
+
     /** Callback for when the user selects a date.  Will fire even if the date has
      * already been selected. */
     onSelectDate: PropTypes.func,
 
-    /** Callback for when the input changes  */
-    onInputChange: PropTypes.func,
+    selectedDateDefaultValue: PropTypes.instanceOf(Date),
 
     /** Value of the date input. Must be a Date object */
     selectedDateValue: PropTypes.instanceOf(Date),
-
-    selectedDateDefaultValue: PropTypes.instanceOf(Date),
 
     /** CSS class(es) to go on the trigger element which contains the input */
     triggerClassName: PropTypes.string,
@@ -242,28 +219,51 @@ XUIDateRangeInputWIP.propTypes = {
   /** The locale of the calendar. Defaults to En */
   locale: PropTypes.string,
 
-  /** Convenience dates */
-  convenienceDates: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      text: PropTypes.string,
-      getStartDate: PropTypes.func,
-      getEndDate: PropTypes.func,
-    }),
-  ).isRequired,
+  startDateInputConfig: PropTypes.shape({
+    /** A date which represents the year and month that the calendar will display. Could
+     * be any day in the given day and month. */
+    displayedMonth: PropTypes.instanceOf(Date),
+
+    /** Hint message to display below input */
+    hintMessage: PropTypes.string,
+
+    /** Input label */
+    inputLabel: PropTypes.string,
+
+    /** Whether the input is disabled */
+    isDisabled: PropTypes.bool,
+
+    /** Callback for when the input changes  */
+    onInputChange: PropTypes.func,
+
+    /** Callback for when the user selects a date.  Will fire even if the date has
+     * already been selected. */
+    onSelectDate: PropTypes.func,
+
+    selectedDateDefaultValue: PropTypes.instanceOf(Date),
+
+    /** Value of the date input. Must be a Date object */
+    selectedDateValue: PropTypes.instanceOf(Date),
+
+    /** CSS class(es) to go on the trigger element which contains the input */
+    triggerClassName: PropTypes.string,
+
+    /** Message to display below input when invalid date inputted */
+    validationMessage: PropTypes.string,
+  }),
 };
 
 XUIDateRangeInputWIP.defaultProps = {
   closeOnSelect: true,
-  startDateInputConfig: {
-    displayedMonth: new Date(),
-    inputLabel: 'Start date',
-  },
   endDateInputConfig: {
     displayedMonth: new Date(),
     inputLabel: 'End date',
   },
   locale: 'en',
+  startDateInputConfig: {
+    displayedMonth: new Date(),
+    inputLabel: 'Start date',
+  },
 };
 
 export default XUIDateRangeInputWIP;

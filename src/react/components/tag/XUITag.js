@@ -57,21 +57,21 @@ export { XUITag as default, variants, sizes };
 
 XUITag.propTypes = {
   children: PropTypes.node,
-  qaHook: PropTypes.string,
-  /** Id for tooltip */
-  id: PropTypes.string,
   className: PropTypes.string,
-  /** Variant of tag to render */
-  variant: PropTypes.oneOf(Object.keys(variants)),
-  /** Size of tag to render */
-  size: PropTypes.oneOf(Object.keys(sizes)),
   /**
    * @ignore
    * Dev / debug prop to show the tooltip initially on mount instead of based on a user event */
   debugShowToolTip: PropTypes.bool,
+  /** Id for tooltip */
+  id: PropTypes.string,
+  qaHook: PropTypes.string,
+  /** Size of tag to render */
+  size: PropTypes.oneOf(Object.keys(sizes)),
+  /** Variant of tag to render */
+  variant: PropTypes.oneOf(Object.keys(variants)),
 };
 
 XUITag.defaultProps = {
-  variant: 'standard',
   size: 'medium',
+  variant: 'standard',
 };

@@ -16,10 +16,10 @@ const XUIToastMessage = ({ className, children, qaHook }) => {
 export default XUIToastMessage;
 
 XUIToastMessage.propTypes = {
+  /** Facility to pass in custom children */
+  children: PropTypes.node,
   /** Adds optional class to wrapping component */
   className: PropTypes.string,
   /** Adds QA hook to wrapping component */
   qaHook: PropTypes.string,
-  /** Facility to pass in custom children */
-  children: PropTypes.node,
 };

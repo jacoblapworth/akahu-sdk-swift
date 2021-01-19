@@ -17,16 +17,13 @@ export default XUISplitButtonGroup;
 XUISplitButtonGroup.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-
   /** Determines if the button is disabled or not. */
   isDisabled: PropTypes.bool,
-
+  qaHook: PropTypes.string,
   /**
    * Modifier for the size of the split button. `medium`, `small`, or `xsmall`.
    */
   size: PropTypes.oneOf(Object.keys(sizeClassNames)),
-
   /**
    * Determines the styling variation to apply: `standard`, `primary`, `create`, or `negative`.
    */

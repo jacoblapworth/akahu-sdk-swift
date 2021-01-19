@@ -6,12 +6,12 @@ const CustomCaption = () => null;
 export default CustomCaption;
 
 CustomCaption.propTypes = {
-  date: PropTypes.instanceOf(Date),
-  months: PropTypes.arrayOf(PropTypes.string),
-  locale: PropTypes.string,
-  localeUtils: DayPicker.propTypes.localeUtils,
-  onClick: PropTypes.func,
   classNames: PropTypes.shape({
     caption: PropTypes.string,
   }),
+  date: PropTypes.instanceOf(Date),
+  locale: PropTypes.string,
+  localeUtils: DayPicker.propTypes.localeUtils,
+  months: PropTypes.arrayOf(PropTypes.string),
+  onClick: PropTypes.func,
 };

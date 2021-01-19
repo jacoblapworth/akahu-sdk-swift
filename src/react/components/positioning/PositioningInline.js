@@ -212,27 +212,14 @@ class PositioningInline extends Positioning {
 }
 
 PositioningInline.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node,
-  qaHook: PropTypes.string,
-  /** true when the component is rendered but not displayed */
-  isVisible: PropTypes.bool,
-  /** A DOM object of the parent node. */
-  parentRef: PropTypes.object,
-  /** A buffer value added to measure between the edge of the viewport and the
-   * component before flipping its position. */
-  viewportGutter: PropTypes.number,
-  /** A max height will mean an overflowed popup will scroll for the user rather
-   * than render outside of the viewport. True by default. */
-  shouldRestrictMaxHeight: PropTypes.bool,
+  className: PropTypes.string,
   /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
   isNotResponsive: PropTypes.bool,
-  /** The amount of space to put between the trigger and the dropdown */
-  triggerDropdownGap: PropTypes.number,
-  /** Callback for when the positioned element becomes visible  */
-  onVisible: PropTypes.func,
   /** Setting to true will for the dropdown to be as wide as the trigger. */
   isTriggerWidthMatched: PropTypes.bool,
+  /** true when the component is rendered but not displayed */
+  isVisible: PropTypes.bool,
   /**
    * Setting a number here will force the maximum size of the child to be the number
    * provided (in pixels). When the viewport is smaller than this number, it still
@@ -240,27 +227,40 @@ PositioningInline.propTypes = {
    */
   maxHeight: PropTypes.number,
   maxWidth: PropTypes.number,
+  /** Callback for when the positioned element becomes visible  */
+  onVisible: PropTypes.func,
+  /** A DOM object of the parent node. */
+  parentRef: PropTypes.object,
   /**
    * Preferred side of the trigger and alignment in relation to the trigger for showing the tip.
    * This will potentially be over-ridden by dimensions of the viewport and tip contents.
    * Providing only the side (top, right, bottom, left) will default to a center-aligned tip.
    */
   preferredPosition: PropTypes.oneOf(positionOptions),
+  qaHook: PropTypes.string,
+  /** A max height will mean an overflowed popup will scroll for the user rather
+   * than render outside of the viewport. True by default. */
+  shouldRestrictMaxHeight: PropTypes.bool,
+  /** The amount of space to put between the trigger and the dropdown */
+  triggerDropdownGap: PropTypes.number,
   /**
    * Limit positioning to standard dropdown behaviour. The positioned element will only show above
    * or below the trigger (never to the side), and will be flush to the left or right of the
    * trigger (never centered).
    */
   useDropdownPositioning: PropTypes.bool,
+  /** A buffer value added to measure between the edge of the viewport and the
+   * component before flipping its position. */
+  viewportGutter: PropTypes.number,
 };
 
 PositioningInline.defaultProps = {
-  viewportGutter: 10,
-  shouldRestrictMaxHeight: true,
   isNotResponsive: false,
-  triggerDropdownGap: 10,
   isTriggerWidthMatched: false,
   preferredPosition: 'bottom',
+  shouldRestrictMaxHeight: true,
+  triggerDropdownGap: 10,
+  viewportGutter: 10,
 };
 
 export default PositioningInline;

@@ -33,7 +33,7 @@
 
 // What does success look like?
 //
-// - The international standard for accessibility is [WCAG 2.0](https://www.w3.org/WAI/standards-guidelines/wcag/), and our goal is to meet the AA level. It includes many recommendations for making a web app accessible to people with a wide range of impairments.
+// - The international standard for accessibility is [WCAG 2.1](w3.org/TR/WCAG21/), and our goal is to meet the AA level. It includes many recommendations for making a web app accessible to people with a wide range of impairments.
 // - Performance of a web app is part of making it accessible to users with varying devices and internet speeds. Access may sometimes be a very literal concept.
 // - Responsive is mostly related to devices, but also refers to different working modes preferred, or at times, required, by users. Someone working on-the-go may wish to access advanced web app features from a small mobile device with a touch interface, while a power user at their desk may wish to display as much data as possible on a very large monitor and navigate quickly using only their keyboard. Support for lower resolution displays also plays a part in this.
 // - Localisation is also a closely related concept, especially as we expand into new markets. In order for something to be accessible, people to be able to successfully perceive it, and understand it. To do this, we need to simultaneously consider concerns like culturally-specific color associations, multi-language support, and even details like making sure we're optimising for variable line-lengths.
@@ -52,10 +52,10 @@
 // Accessibility in XUI Components
 //
 // Our recent improvement process has included:
-// 1. Rendered Storybook components have been assessed using an accessibility plugin powered by aXe against WCAG 2.0 – A & AA ratings, and Section 508.
+// 1. Rendered Storybook components have been assessed using an accessibility plugin powered by aXe against WCAG 2.x – A & AA ratings, and Section 508.
 // 2. Code has been linted with the jsx-a11y plugin with the "recommended" settings, except that we set the "label-has-for" rule to "allowChildren", allowing implicit as well as explicit labeling.
 // 3. Rendered components have been manually tested for keyboard navigability and input interaction both on a per-component level, and in some test environments with compositions of fuller pages.
-// 4. Color contrast has been evaluated against the WCAG 2.0 – AA standard, and a new palette developed to make XUI delightful for all users, including those with some level of vision impairment.
+// 4. Color contrast has been evaluated against the WCAG 2.1 – AA standard, and a new palette developed to make XUI delightful for all users, including those with some level of vision impairment.
 // 5. Non-default states of UI components have also been audited by the design team to ensure non-text information is clear for low-vision users. For example, error, hover, focus, selected, and disabled states are being continuously revised.
 // 6. Standard sizes across the design system have recently been adjusted for improved readability and interaction. This will take the form of larger base fonts, less dense interfaces, and larger controls. However, increased density is still supported where it makes sense.
 // 7. Very limited testing has been done with screen readers (primarily MacOS VoiceOver). We hope to dedicate additional resources to this, as the more readily-detected issues are resolved.

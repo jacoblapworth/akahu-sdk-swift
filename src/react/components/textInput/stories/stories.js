@@ -193,13 +193,18 @@ TextInputWrapper.defaultProps = {
 };
 
 TextInputWrapper.propTypes = {
-  label: PropTypes.node,
-  inputProps: PropTypes.object,
-  isBorderlessTransparent: PropTypes.bool,
-  isBorderlessSolid: PropTypes.bool,
-  isInvalid: PropTypes.bool,
-  validationMessage: PropTypes.string,
+  defaultValue: PropTypes.string,
   hintMessage: PropTypes.string,
+  inputProps: PropTypes.object,
+  isBorderlessSolid: PropTypes.bool,
+  isBorderlessTransparent: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  isInvalid: PropTypes.bool,
+  isLabelHidden: PropTypes.bool,
+  isMultiline: PropTypes.bool,
+  isValueReverseAligned: PropTypes.bool,
+  label: PropTypes.node,
+  leftElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
   leftElementType: PropTypes.oneOf([
     'icon',
     'iconWithBackground',
@@ -211,6 +216,10 @@ TextInputWrapper.propTypes = {
     'longText',
     'longButton',
   ]),
+  maxRows: PropTypes.number,
+  minRows: PropTypes.number,
+  placeholder: PropTypes.string,
+  rightElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
   rightElementType: PropTypes.oneOf([
     'icon',
     'iconWithBackground',
@@ -222,19 +231,10 @@ TextInputWrapper.propTypes = {
     'longText',
     'longButton',
   ]),
-  leftElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
-  rightElementAlignment: PropTypes.oneOf(['top', 'center', 'bottom']),
-  placeholder: PropTypes.string,
-  isDisabled: PropTypes.bool,
-  defaultValue: PropTypes.string,
-  value: PropTypes.string,
-  isMultiline: PropTypes.bool,
-  isValueReverseAligned: PropTypes.bool,
-  isLabelHidden: PropTypes.bool,
-  minRows: PropTypes.number,
-  maxRows: PropTypes.number,
   rows: PropTypes.number,
   size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
+  validationMessage: PropTypes.string,
+  value: PropTypes.string,
 };
 
 const elementTypeOptions = [null, 'icon', 'iconWithBackground', 'button', 'text', 'pill', 'avatar'];

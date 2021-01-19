@@ -57,7 +57,7 @@ export default XUIToggleOption;
 XUIToggleOption.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
+  id: PropTypes.string,
   /** The input is selected */
   isChecked: PropTypes.bool,
   /** The input is selected initially, but not in a controlled manner */
@@ -70,11 +70,11 @@ XUIToggleOption.propTypes = {
   name: PropTypes.string,
   /** onChange - The function to call when the control changes state */
   onChange: PropTypes.func.isRequired,
+  qaHook: PropTypes.string,
   /** The type of the input */
   type: PropTypes.oneOf(Object.keys(typeMap)),
   /** The value to return on form submission */
   value: PropTypes.string,
-  id: PropTypes.string,
 };
 
 XUIToggleOption.defaultProps = {

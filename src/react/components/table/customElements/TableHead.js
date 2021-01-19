@@ -75,21 +75,15 @@ const TableHead = ({
 export default TableHead;
 
 TableHead.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  columns: PropTypes.node.isRequired,
-  ensureCellVisibility: PropTypes.func,
-
-  // Checkbox.
-  hasCheckbox: PropTypes.bool,
-  checkedIds: PropTypes.array,
-  onCheckAllToggle: PropTypes.func,
-  checkAllRowsAriaLabel: PropTypes.node,
-
-  // Overflow Menu.
-  hasOverflowMenu: PropTypes.bool,
-
-  // Sorting
   activeSortKey: PropTypes.string,
+  checkAllRowsAriaLabel: PropTypes.node,
+  checkedIds: PropTypes.array,
+  columns: PropTypes.node.isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  ensureCellVisibility: PropTypes.func,
+  hasCheckbox: PropTypes.bool,
+  hasOverflowMenu: PropTypes.bool,
   isSortAsc: PropTypes.bool,
+  onCheckAllToggle: PropTypes.func,
   onSortChange: PropTypes.func,
 };

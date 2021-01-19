@@ -101,26 +101,11 @@ const XUIEditableTableCellSelectBox = ({
 };
 
 XUIEditableTableCellSelectBox.propTypes = {
-  cellProps: PropTypes.object,
-  children: PropTypes.node,
-  qaHook: PropTypes.string,
-  /** Input Label */
-  label: PropTypes.node.isRequired,
-
-  /** When a selection is made, close the dropdown */
-  closeAfterSelection: PropTypes.bool,
-
   /** Additional classes to be applied to the button */
   buttonClasses: PropTypes.string,
 
-  /** Additional classes to be applied to the container */
-  containerClasses: PropTypes.string,
-
-  /** Additional classes to be applied to the dropDown */
-  dropDownClasses: PropTypes.string,
-
-  /** Additional classes to be applied to the inputGroup */
-  inputGroupClasses: PropTypes.string,
+  /** Display text to be rendered on XUISelectBox button. */
+  buttonContent: PropTypes.node.isRequired,
 
   /**
    * Title for the button caret
@@ -129,20 +114,27 @@ XUIEditableTableCellSelectBox.propTypes = {
    */
   caretTitle: PropTypes.string,
 
-  /** Optional callback to be executed when dropdown closes */
-  onDropdownHide: PropTypes.func,
+  cellProps: PropTypes.object,
+  children: PropTypes.node,
 
-  /** Optional callback to be executed when the trigger loses focus */
-  onBlur: PropTypes.func,
+  /** When a selection is made, close the dropdown */
+  closeAfterSelection: PropTypes.bool,
 
-  /** Optional callback to be executed when the trigger gains focus */
-  onFocus: PropTypes.func,
+  /** Additional classes to be applied to the container */
+  containerClasses: PropTypes.string,
 
-  /** Display text to be rendered on XUISelectBox button. */
-  buttonContent: PropTypes.node.isRequired,
+  /** Additional classes to be applied to the dropDown */
+  dropDownClasses: PropTypes.string,
 
-  /** Selection callback */
-  onSelect: PropTypes.func,
+  /** Force the desktop experience, even if the viewport is narrow enough for mobile */
+  forceDesktop: PropTypes.bool,
+
+  /** ID to apply to the dropdown. Used primarily to associate a label with it's matched content.
+   * If none is provided it's automatically generated. */
+  id: PropTypes.string,
+
+  /** Additional classes to be applied to the inputGroup */
+  inputGroupClasses: PropTypes.string,
 
   /** Whether the button trigger and functionality are disabled */
   isDisabled: PropTypes.bool,
@@ -150,14 +142,11 @@ XUIEditableTableCellSelectBox.propTypes = {
   /** Whether the current input value is invalid */
   isInvalid: PropTypes.bool,
 
-  /** Validation message to show under the input if `isInvalid` is true */
-  validationMessage: PropTypes.node,
-
   /** Whether or not the list should be forced open */
   isOpen: PropTypes.bool,
 
-  /** Force the desktop experience, even if the viewport is narrow enough for mobile */
-  forceDesktop: PropTypes.bool,
+  /** Input Label */
+  label: PropTypes.node.isRequired,
 
   /**
    * Setting to false will allow the dropdown's width to be set independent of the trigger width. <br>
@@ -167,12 +156,25 @@ XUIEditableTableCellSelectBox.propTypes = {
    */
   matchTriggerWidth: PropTypes.bool,
 
+  /** Optional callback to be executed when the trigger loses focus */
+  onBlur: PropTypes.func,
+
+  /** Optional callback to be executed when dropdown closes */
+  onDropdownHide: PropTypes.func,
+
+  /** Optional callback to be executed when the trigger gains focus */
+  onFocus: PropTypes.func,
+
+  /** Selection callback */
+  onSelect: PropTypes.func,
+
+  qaHook: PropTypes.string,
+
   /** Whether focus should be restricted to the dropdown while it's open. */
   restrictFocus: PropTypes.bool,
 
-  /** ID to apply to the dropdown. Used primarily to associate a label with it's matched content.
-   * If none is provided it's automatically generated. */
-  id: PropTypes.string,
+  /** Validation message to show under the input if `isInvalid` is true */
+  validationMessage: PropTypes.node,
 };
 
 export default XUIEditableTableCellSelectBox;

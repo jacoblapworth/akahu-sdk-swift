@@ -24,19 +24,18 @@ export default XUICompositionDetail;
 
 XUICompositionDetail.propTypes = {
   className: PropTypes.string,
-
   /**
    * The main content
    */
   detail: PropTypes.element.isRequired,
   /**
-   * Determines whether the main content takes full width of page. Defaults to false.
-   */
-  isInfinite: PropTypes.bool,
-  /**
    * Whether to apply pre-set spacing to the outside of the composition grid. Defaults to true.
    */
   hasAutoSpaceAround: PropTypes.bool,
+  /**
+   * Determines whether the main content takes full width of page. Defaults to false.
+   */
+  isInfinite: PropTypes.bool,
 };
 
 XUICompositionDetail.defaultProps = {

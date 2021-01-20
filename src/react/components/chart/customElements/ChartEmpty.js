@@ -54,10 +54,9 @@ const ChartEmpty = ({
 export default ChartEmpty;
 
 ChartEmpty.propTypes = {
-  qaHook: PropTypes.string,
-  emptyStateComponent: PropTypes.element,
-  emptyMessage: PropTypes.node,
   chartHeight: PropTypes.number,
+  emptyMessage: PropTypes.node,
+  emptyStateComponent: PropTypes.element,
   /**
    * Optional prop for users to modify the empty chart state icon, if required for localisation.
    * Defaults to the chart icon, if no value is provided.
@@ -67,4 +66,5 @@ ChartEmpty.propTypes = {
     path: PropTypes.string,
     width: PropTypes.number,
   }),
+  qaHook: PropTypes.string,
 };

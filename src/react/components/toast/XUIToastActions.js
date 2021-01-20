@@ -25,18 +25,18 @@ const XUIToastActions = ({ className, children, primaryAction, qaHook, secondary
 export default XUIToastActions;
 
 XUIToastActions.propTypes = {
-  /** Adds optional class to wrapping component */
-  className: PropTypes.string,
-  /** Adds QA hook to wrapping component */
-  qaHook: PropTypes.string,
-  /** Pass in a XUIToastAction as a primary action  */
-  primaryAction: PropTypes.node,
-  /** Pass in a XUIToastAction as a secondary action */
-  secondaryAction: PropTypes.node,
   /** Old API. Accepts anything but typically only XUIToastAction components are used.
    * Cannot accept more than two components */
   children: (props, propName) =>
     React.Children.count(props.children) > 2
       ? new Error(`${propName} needs to be a maximum length of two actions`)
       : null,
+  /** Adds optional class to wrapping component */
+  className: PropTypes.string,
+  /** Pass in a XUIToastAction as a primary action  */
+  primaryAction: PropTypes.node,
+  /** Adds QA hook to wrapping component */
+  qaHook: PropTypes.string,
+  /** Pass in a XUIToastAction as a secondary action */
+  secondaryAction: PropTypes.node,
 };

@@ -236,22 +236,43 @@ export default class XUICheckbox extends PureComponent {
 }
 
 XUICheckbox.propTypes = {
+  /**
+   * Whether this checkbox was generated as part of a rollover checkbox
+   * @ignore
+   */
+  _isRollOver: PropTypes.bool,
+
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
+
+  /** Hint message to show under the input */
+  hintMessage: PropTypes.node,
+
+  /** Additional class names for the html input */
+  htmlClassName: PropTypes.string,
 
   /** The icon path to use for the checkbox */
   iconMain: PropTypes.shape({
-    path: PropTypes.string.isRequired,
     height: PropTypes.number.isRequired,
+    path: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
   }),
+
+  /** Props to be spread onto the checkbox element itself */
+  inputProps: PropTypes.object,
 
   /** The input is selected */
   isChecked: PropTypes.bool,
 
+  /** Used to output an uncontrolled checkbox component. If a value is passed to the
+   * isChecked prop, this prop will be ignored. */
+  isDefaultChecked: PropTypes.bool,
+
   /** The input is disabled */
   isDisabled: PropTypes.bool,
+
+  /** Used by XUI components to state whether the checkbox is part of a group */
+  isGrouped: PropTypes.bool,
 
   /**
    * The input is indeterminate.  In order for this prop value to
@@ -259,6 +280,13 @@ XUICheckbox.propTypes = {
    * will cause React to clear the indeterminate state.
    */
   isIndeterminate: PropTypes.bool,
+
+  /** Whether the current input value is invalid */
+  isInvalid: PropTypes.bool,
+
+  /** Prevents the label element from being displayed on the page. Label is still
+   * accessible to screen readers. */
+  isLabelHidden: PropTypes.bool,
 
   /** The input is required for form submission */
   isRequired: PropTypes.bool,
@@ -269,9 +297,8 @@ XUICheckbox.propTypes = {
   /** Additional class names on the span (pseudo-label) element  */
   labelClassName: PropTypes.string,
 
-  /** Prevents the label element from being displayed on the page. Label is still
-   * accessible to screen readers. */
-  isLabelHidden: PropTypes.bool,
+  /** Provide a specific label ID which will be used as the "labelleby" aria property */
+  labelId: PropTypes.string,
 
   /** The name to use as a reference for the value */
   name: PropTypes.string,
@@ -279,49 +306,28 @@ XUICheckbox.propTypes = {
   /** The function to call when the control changes state */
   onChange: PropTypes.func,
 
-  /** The value to return on form submission */
-  value: PropTypes.string,
+  qaHook: PropTypes.string,
+
+  /** Size variant. Defaults to medium */
+  size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
 
   /** Additional class names on the svg element  */
   svgClassName: PropTypes.string,
 
-  /** Additional class names for the html input */
-  htmlClassName: PropTypes.string,
-
   /** The tab-index property to place on the checkbox */
   tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
-  /** Used to output an uncontrolled checkbox component. If a value is passed to the
-   * isChecked prop, this prop will be ignored. */
-  isDefaultChecked: PropTypes.bool,
-
-  /** Provide a specific label ID which will be used as the "labelleby" aria property */
-  labelId: PropTypes.string,
-
-  /** Used by XUI components to state whether the checkbox is part of a group */
-  isGrouped: PropTypes.bool,
-
-  /** Whether the current input value is invalid */
-  isInvalid: PropTypes.bool,
   /** Validation message to show under the input if `isInvalid` is true */
   validationMessage: PropTypes.node,
-  /** Hint message to show under the input */
-  hintMessage: PropTypes.node,
-  /** Size variant. Defaults to medium */
-  size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
-  /**
-   * Whether this checkbox was generated as part of a rollover checkbox
-   * @ignore
-   */
-  _isRollOver: PropTypes.bool,
-  /** Props to be spread onto the checkbox element itself */
-  inputProps: PropTypes.object,
+
+  /** The value to return on form submission */
+  value: PropTypes.string,
 };
 
 XUICheckbox.defaultProps = {
-  isLabelHidden: false,
   isDisabled: false,
   isIndeterminate: false,
+  isLabelHidden: false,
   isRequired: false,
   isReversed: false,
   size: 'medium',

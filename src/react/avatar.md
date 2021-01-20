@@ -45,7 +45,10 @@ Although the CSS will attempt to scale the image to fit, as best practice we rec
 ```jsx harmony
 import XUIAvatar from '@xero/xui/react/avatar';
 
-<XUIAvatar value="Xero" imageUrl="https://xui.xero.com/static/xpert-avatar.png" />;
+<XUIAvatar
+  value="Xero"
+  imageUrl="https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c"
+/>;
 ```
 
 If the image supplied to `XUIAvatar` fails to load, the default avatar will be displayed as a fallback using the required `value` prop. If you need to handle other behaviour, you can also provide an `onError` handler.

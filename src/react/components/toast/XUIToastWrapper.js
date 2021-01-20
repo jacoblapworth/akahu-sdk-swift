@@ -22,7 +22,7 @@ const XUIToastWrapper = ({ children, className, qaHook }) => {
 export default XUIToastWrapper;
 
 XUIToastWrapper.propTypes = {
+  children: PropTypes.node,
   className: PropTypes.string,
   qaHook: PropTypes.string,
-  children: PropTypes.node,
 };

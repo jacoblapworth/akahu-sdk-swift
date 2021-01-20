@@ -16,7 +16,7 @@ const XUIBannerMessage = ({ className, children, qaHook }) => {
 export default XUIBannerMessage;
 
 XUIBannerMessage.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node,
+  className: PropTypes.string,
   qaHook: PropTypes.string,
 };

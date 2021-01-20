@@ -249,58 +249,10 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 }
 
 XUIAutocompleterSecondarySearch.propTypes = {
-  /** Callback to handle when an option has been selected from the dropdown */
-  onOptionSelect: PropTypes.func,
-
-  // TODO: Implement loading pattern
-  // /**
-  //  * When set to true a loader will be displayed instead of the picklist items.
-  //  * State for this should be managed externally and it's defaulted to false.
-  //  */
-  // loading: PropTypes.bool,
-
-  /** ID to be added to the dropdown element of the completer */
-  id: PropTypes.string,
-
-  /** Value that should be inside the input. */
-  searchValue: PropTypes.string,
+  children: PropTypes.node,
 
   /** CSS class(es) to go on the wrapping DOM node */
   className: PropTypes.string,
-
-  /** CSS class(es) to go on the dropdown list */
-  dropdownClassName: PropTypes.string,
-
-  /** CSS class(es) to go on the input */
-  inputClassName: PropTypes.string,
-
-  /** CSS class(es) to go on the input container */
-  inputContainerClassName: PropTypes.string,
-
-  /** Attributes to set on the native input element */
-  inputProps: PropTypes.object,
-
-  /** Placeholder for the input */
-  placeholder: PropTypes.string,
-
-  // /** A set of pills to show above the input.  Useful for showing what was selected
-  //  * in a multi-select */
-  // pills: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
-
-  /** Callback for when the list opens */
-  onOpen: PropTypes.func,
-
-  /** Callback for when the list closes */
-  onClose: PropTypes.func,
-
-  /** Callback for when the user types into the search box */
-  onSearch: PropTypes.func.isRequired,
-
-  /** If you want to throttle the input's onChange handler, put the throttle interval here */
-  searchThrottleInterval: PropTypes.number,
-
-  /** Maps to the 'size' property of the dropdown component. */
-  dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 
   /** Maps to the `closeOnSelect` property of the `XUIDropdownToggled` component. */
   closeOnSelect: PropTypes.bool,
@@ -309,17 +261,39 @@ XUIAutocompleterSecondarySearch.propTypes = {
    * if you've supplied a footer element with any links or interaction. */
   closeOnTab: PropTypes.bool,
 
-  /** Callback for adding additional onKeyPress functionality */
-  onKeyDown: PropTypes.func,
+  /** CSS class(es) to go on the dropdown list */
+  dropdownClassName: PropTypes.string,
 
-  /** Will be passed directly down to the `XUIDropdownToggled` component as the main trigger. */
-  trigger: PropTypes.element.isRequired,
+  /** If a size is set, this will force the dropdown to that size instead of setting it
+   * as a max width. */
+  dropdownFixedWidth: PropTypes.bool,
+
+  /** Maps to the 'size' property of the dropdown component. */
+  dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
+
+  /** A Footer element can be added. */
+  footer: PropTypes.element,
+
+  /** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
+  forceDesktop: PropTypes.bool,
+
+  /** ID to be added to the dropdown element of the completer */
+  id: PropTypes.string,
+
+  /** CSS class(es) to go on the input */
+  inputClassName: PropTypes.string,
+
+  /** CSS class(es) to go on the input container */
+  inputContainerClassName: PropTypes.string,
 
   /** ID to be applied to the input element. */
   inputId: PropTypes.string,
 
   /** Label to show above the input */
   inputLabel: PropTypes.node,
+
+  /** Attributes to set on the native input element */
+  inputProps: PropTypes.object,
 
   /** Whether to allow the dropdown to take the full width of the wrapper (as `XUISelectBox`)
    * or wrap with an inline block. */
@@ -328,15 +302,12 @@ XUIAutocompleterSecondarySearch.propTypes = {
   /** Should label be applied as an aria-label, rather than being visibly displayed. */
   isInputLabelHidden: PropTypes.bool,
 
-  /** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
-  forceDesktop: PropTypes.bool,
-
-  /** If a size is set, this will force the dropdown to that size instead of setting it
-   * as a max width. */
-  dropdownFixedWidth: PropTypes.bool,
-
-  /** Whether focus should be restricted to the dropdown while it's open. */
-  restrictFocus: PropTypes.bool,
+  // TODO: Implement loading pattern
+  // /**
+  //  * When set to true a loader will be displayed instead of the picklist items.
+  //  * State for this should be managed externally and it's defaulted to false.
+  //  */
+  // loading: PropTypes.bool,
 
   /**
    * Setting to true will allow the dropdown's width to be set dependent of the trigger width. <br>
@@ -346,15 +317,45 @@ XUIAutocompleterSecondarySearch.propTypes = {
    */
   matchTriggerWidth: PropTypes.bool,
 
-  /** A Footer element can be added. */
-  footer: PropTypes.element,
+  /** Callback for when the list closes */
+  onClose: PropTypes.func,
+
+  /** Callback for adding additional onKeyPress functionality */
+  onKeyDown: PropTypes.func,
+
+  /** Callback for when the list opens */
+  onOpen: PropTypes.func,
+
+  /** Callback to handle when an option has been selected from the dropdown */
+  onOptionSelect: PropTypes.func,
+
+  /** Callback for when the user types into the search box */
+  onSearch: PropTypes.func.isRequired,
+
+  // /** A set of pills to show above the input.  Useful for showing what was selected
+  //  * in a multi-select */
+  // pills: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+
+  /** Placeholder for the input */
+  placeholder: PropTypes.string,
 
   qaHook: PropTypes.string,
-  children: PropTypes.node,
+
+  /** Whether focus should be restricted to the dropdown while it's open. */
+  restrictFocus: PropTypes.bool,
+
+  /** If you want to throttle the input's onChange handler, put the throttle interval here */
+  searchThrottleInterval: PropTypes.number,
+
+  /** Value that should be inside the input. */
+  searchValue: PropTypes.string,
+
+  /** Will be passed directly down to the `XUIDropdownToggled` component as the main trigger. */
+  trigger: PropTypes.element.isRequired,
 };
 
 XUIAutocompleterSecondarySearch.defaultProps = {
   // loading: false,
-  searchThrottleInterval: 0,
   restrictFocus: true,
+  searchThrottleInterval: 0,
 };

@@ -241,83 +241,6 @@ export default class XUIButton extends React.PureComponent {
 }
 
 XUIButton.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-  qaHook: PropTypes.string,
-
-  /** Determines if the button is disabled or not. */
-  isDisabled: PropTypes.bool,
-
-  /** If true, sets appropriate `rel` values to prevent new page from having access to
-   * `window.opener`. Should be used for links pointing at external sites. */
-  isExternalLink: PropTypes.bool,
-
-  /** If true, shows a loader inside the button and also disables the button to prevent
-   * clicking. Can be used in conjunction with `isDisabled` (which also provides a disabled class)  */
-  isLoading: PropTypes.bool,
-
-  /**
-   * Accessibility label for the `<XUILoader>`. This is required if the
-   * `isLoading` prop is set to `true`.
-   */
-  loadingAriaLabel: PropTypes.string,
-
-  /** If this button is part of a parent button group */
-  isGrouped: PropTypes.bool,
-
-  /** A keydown event handler for the button */
-  onKeyDown: PropTypes.func,
-
-  /** Bind a function to fire when the button is clicked */
-  onClick: PropTypes.func,
-
-  /** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`,
-   * `borderless-standard`, `borderless-primary`, `borderless-create`, `borderless-negative`,
-   * or `unstyled`.
-   */
-  variant: PropTypes.oneOf(Object.keys(textButtonVariants)),
-
-  /**
-   * Modifier for the size of the button. `medium`, `small`, or `xsmall`.
-   * Buttons with `variant` set to `unstyled` will ignore the `size` property.
-   */
-  size: PropTypes.oneOf(Object.keys(sizeClassNames)),
-
-  /**
-   * Modifier for the width of the button. `always`, `small-down`, or `never`.
-   */
-  fullWidth: PropTypes.oneOf(Object.keys(widthClassNames)),
-
-  /** Whether or not to render this button using an <a> tag */
-  isLink: PropTypes.bool,
-
-  /** The type attribute of this button. `submit`, `button`, or `reset`. */
-  type: PropTypes.oneOf(Object.keys(buttonTypes).map(type => buttonTypes[type])),
-
-  /** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
-  href: PropTypes.string,
-
-  /** The `rel` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
-  rel: PropTypes.string,
-
-  /** The HTML tabIndex attribute value */
-  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-
-  /** The `target` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
-  target: PropTypes.string,
-
-  /** The `title` attribute */
-  title: PropTypes.string,
-
-  /** Applies inverted styling */
-  isInverted: PropTypes.bool,
-
-  /** When used with `isLoading` this allows the button to retain children width */
-  retainLayout: PropTypes.bool,
-
-  /** Use this to specify a min width on the button, when you want to swap to loading states */
-  minLoaderWidth: PropTypes.bool,
-
   /**
    * @ignore
    * Internal use only, used to pass in a class to style to the caret directly
@@ -330,15 +253,69 @@ XUIButton.propTypes = {
    */
   _useCellStyling: PropTypes.bool,
 
+  children: PropTypes.node,
+  className: PropTypes.string,
+
+  /**
+   * Modifier for the width of the button. `always`, `small-down`, or `never`.
+   */
+  fullWidth: PropTypes.oneOf(Object.keys(widthClassNames)),
+
   /** Has dropdown caret */
   hasCaret: PropTypes.bool,
 
+  /** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
+  href: PropTypes.string,
+
+  /** Determines if the button is disabled or not. */
+  isDisabled: PropTypes.bool,
+
+  /** If true, sets appropriate `rel` values to prevent new page from having access to
+   * `window.opener`. Should be used for links pointing at external sites. */
+  isExternalLink: PropTypes.bool,
+
+  /** If this button is part of a parent button group */
+  isGrouped: PropTypes.bool,
+
+  /** Applies inverted styling */
+  isInverted: PropTypes.bool,
+
+  /** Whether or not to render this button using an <a> tag */
+  isLink: PropTypes.bool,
+
+  /** If true, shows a loader inside the button and also disables the button to prevent
+   * clicking. Can be used in conjunction with `isDisabled` (which also provides a disabled class)  */
+  isLoading: PropTypes.bool,
+
   /** Icon to appear to the left of the button content */
   leftIcon: PropTypes.shape({
+    height: PropTypes.number.isRequired,
     path: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
   }),
+
+  /**
+   * Accessibility label for the `<XUILoader>`. This is required if the
+   * `isLoading` prop is set to `true`.
+   */
+  loadingAriaLabel: PropTypes.string,
+
+  /** Use this to specify a min width on the button, when you want to swap to loading states */
+  minLoaderWidth: PropTypes.bool,
+
+  /** Bind a function to fire when the button is clicked */
+  onClick: PropTypes.func,
+
+  /** A keydown event handler for the button */
+  onKeyDown: PropTypes.func,
+
+  qaHook: PropTypes.string,
+
+  /** The `rel` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
+  rel: PropTypes.string,
+
+  /** When used with `isLoading` this allows the button to retain children width */
+  retainLayout: PropTypes.bool,
 
   /** Icon to appear to the right of the button content */
   rightIcon: (props, propName, componentName) => {
@@ -352,9 +329,9 @@ XUIButton.propTypes = {
       PropTypes.checkPropTypes(
         {
           [propName]: PropTypes.shape({
+            height: PropTypes.number.isRequired,
             path: PropTypes.string.isRequired,
             width: PropTypes.number.isRequired,
-            height: PropTypes.number.isRequired,
           }),
         },
         props,
@@ -364,15 +341,39 @@ XUIButton.propTypes = {
     }
     return null;
   },
+
+  /**
+   * Modifier for the size of the button. `medium`, `small`, or `xsmall`.
+   * Buttons with `variant` set to `unstyled` will ignore the `size` property.
+   */
+  size: PropTypes.oneOf(Object.keys(sizeClassNames)),
+
+  /** The HTML tabIndex attribute value */
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+
+  /** The `target` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
+  target: PropTypes.string,
+
+  /** The `title` attribute */
+  title: PropTypes.string,
+
+  /** The type attribute of this button. `submit`, `button`, or `reset`. */
+  type: PropTypes.oneOf(Object.keys(buttonTypes).map(type => buttonTypes[type])),
+
+  /** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`,
+   * `borderless-standard`, `borderless-primary`, `borderless-create`, `borderless-negative`,
+   * or `unstyled`.
+   */
+  variant: PropTypes.oneOf(Object.keys(textButtonVariants)),
 };
 
 XUIButton.defaultProps = {
+  fullWidth: 'never',
   isDisabled: false,
   isExternalLink: false,
   isGrouped: false,
   isLink: false,
   isLoading: false,
-  fullWidth: 'never',
   retainLayout: true,
   tabIndex: 0,
   type: buttonTypes.button,

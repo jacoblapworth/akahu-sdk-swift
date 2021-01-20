@@ -33,8 +33,13 @@ const XUIAutocompleterEmptyState = ({
 export default XUIAutocompleterEmptyState;
 
 XUIAutocompleterEmptyState.propTypes = {
-  qaHook: PropTypes.string,
-  id: PropTypes.string,
+  /**
+   * Content to be displayed with the icon
+   * <br />
+   * Recommended English value: *No results found*
+   */
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   /** Used to specify a custom icon for the empty state. This will not be used if an `iconComponent` is supplied. */
   icon: PropTypes.object,
   /** An icon component. May be used instead of `iconProps` and `icon` */
@@ -46,13 +51,8 @@ XUIAutocompleterEmptyState.propTypes = {
   },
   /** Additional properties passed to the icon component. This will not be used if an `iconComponent` is supplied. */
   iconProps: PropTypes.object,
-  /**
-   * Content to be displayed with the icon
-   * <br />
-   * Recommended English value: *No results found*
-   */
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
+  id: PropTypes.string,
+  qaHook: PropTypes.string,
 };
 
 XUIAutocompleterEmptyState.defaultProps = {

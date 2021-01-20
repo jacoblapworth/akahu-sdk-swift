@@ -60,11 +60,39 @@ export default class XUISelectBoxOption extends PureComponent {
 }
 
 XUISelectBoxOption.propTypes = {
+  /** defaults to `option` for the aria role attribute, but can be defined for other uses. */
+  ariaRole: PropTypes.string,
+
   children: PropTypes.node,
+
+  /** link to be used in child, will render an a tag if used and button if not */
+  href: PropTypes.string,
+
   id: PropTypes.string.isRequired,
 
-  /** Restrict `XUISelectBoxOption` children which are strings to one line */
-  truncatedText: PropTypes.bool,
+  /** render the option disabled */
+  isDisabled: PropTypes.bool,
+
+  /** true if the item is highlighted */
+  isHighlighted: PropTypes.bool,
+
+  /** true if the item is selected */
+  isSelected: PropTypes.bool,
+
+  /** callback on blur of the pickitem */
+  onBlur: PropTypes.func,
+
+  /** callback when the pickitem is clicked. */
+  onClick: PropTypes.func,
+
+  /** callback on focus of the pickitem */
+  onFocus: PropTypes.func,
+
+  /** callback on keydown of the pickitem */
+  onKeyDown: PropTypes.func,
+
+  /** callback for mouseover event */
+  onMouseOver: PropTypes.func,
 
   /** Callback to be executed after a selection is made */
   onSelect: PropTypes.func,
@@ -72,44 +100,26 @@ XUISelectBoxOption.propTypes = {
   /** Additional classes to be applied to the  option insides */
   optionClasses: PropTypes.string,
 
-  /** render the option disabled */
-  isDisabled: PropTypes.bool,
-
-  /** The value associated with this option */
-  value: PropTypes.any.isRequired,
+  /** The automation-id to add to the item */
+  qaHook: PropTypes.string,
 
   /** Do the dropdown options show checkboxes */
   showCheckboxes: PropTypes.bool,
 
-  /** true if the item is selected */
-  isSelected: PropTypes.bool,
-  /** true if the item is highlighted */
-  isHighlighted: PropTypes.bool,
-  /** callback when the pickitem is clicked. */
-  onClick: PropTypes.func,
-  /** callback on blur of the pickitem */
-  onBlur: PropTypes.func,
-  /** callback on focus of the pickitem */
-  onFocus: PropTypes.func,
-  /** callback on keydown of the pickitem */
-  onKeyDown: PropTypes.func,
-  /** callback for mouseover event */
-  onMouseOver: PropTypes.func,
-  /** link to be used in child, will render an a tag if used and button if not */
-  href: PropTypes.string,
-  /** defaults to `option` for the aria role attribute, but can be defined for other uses. */
-  ariaRole: PropTypes.string,
-  /** The automation-id to add to the item */
-  qaHook: PropTypes.string,
+  /** Restrict `XUISelectBoxOption` children which are strings to one line */
+  truncatedText: PropTypes.bool,
+
+  /** The value associated with this option */
+  value: PropTypes.any.isRequired,
 };
 
 XUISelectBoxOption.defaultProps = {
-  isSelected: false,
-  isHighlighted: false,
-  showCheckboxes: false,
-  isDisabled: false,
-  truncatedText: false,
   ariaRole: 'option',
+  isDisabled: false,
+  isHighlighted: false,
+  isSelected: false,
+  showCheckboxes: false,
+  truncatedText: false,
   /*
 	 DO NOT REMOVE
 	 This property is needed so that the stateful picklist will properly recognize this

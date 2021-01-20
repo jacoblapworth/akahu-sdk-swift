@@ -54,20 +54,20 @@ const XUIIcon = React.forwardRef((props, ref) => {
 });
 
 XUIIcon.propTypes = {
-  /** An object describing the path, width and height. */
-  icon: PropTypes.shape({
-    path: PropTypes.string.isRequired,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-  }).isRequired,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-  /** Adds a size modifier to the icon */
-  size: PropTypes.oneOf(Object.keys(wrapperSizeClasses)),
-  /** Title to be read by screen readers */
-  title: PropTypes.string,
+  /** Adds a color modifier to the icon */
+  color: PropTypes.oneOf(Object.keys(colorClasses)),
   /** Description to be read by screen readers */
   desc: PropTypes.string,
+  /** An object describing the path, width and height. */
+  icon: PropTypes.shape({
+    height: PropTypes.number.isRequired,
+    path: PropTypes.string.isRequired,
+    width: PropTypes.number.isRequired,
+  }).isRequired,
+  /** Whether the icon should be wrapped in a wrapper with a set size */
+  isBoxed: PropTypes.bool,
+  qaHook: PropTypes.string,
   /** Role to be applied to the SVG for screen readers */
   role: PropTypes.string,
   /** Adds a rotation modifier to the icon. Accepted values are 0 (default), 90, 180, 270 */
@@ -75,15 +75,15 @@ XUIIcon.propTypes = {
     ...Object.keys(rotationClasses),
     ...Object.keys(rotationClasses).map(n => parseInt(n)),
   ]),
-  /** Adds a color modifier to the icon */
-  color: PropTypes.oneOf(Object.keys(colorClasses)),
-  /** Whether the icon should be wrapped in a wrapper with a set size */
-  isBoxed: PropTypes.bool,
+  /** Adds a size modifier to the icon */
+  size: PropTypes.oneOf(Object.keys(wrapperSizeClasses)),
+  /** Title to be read by screen readers */
+  title: PropTypes.string,
 };
 
 XUIIcon.defaultProps = {
-  size: 'medium',
   role: 'presentation',
+  size: 'medium',
 };
 
 export default XUIIcon;

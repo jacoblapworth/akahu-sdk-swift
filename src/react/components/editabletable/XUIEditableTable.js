@@ -109,60 +109,170 @@ XUIEditableTable.propTypes = {
    * for scrollable tables, to help screenreaders understand the scrollable element.
    */
   ariaLabel: PropTypes.string,
+
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-  rowOptions: PropTypes.shape({
-    isDraggable: PropTypes.bool,
-    isRemovable: PropTypes.bool,
-    /**
-     * Adds an aria-label to the drag button.
-     * <br />
-     * Recommended English value: *Drag handle*
-     */
-    dragButtonAriaLabel(props, propName, componentName) {
-      return conditionallyRequiredValidator(
-        props,
-        propName,
-        componentName,
-        props.isDraggable,
-        'rowOptions.isDraggable',
-        'string',
-      );
-    },
-    removeButtonAriaLabel(props, propName, componentName) {
-      return conditionallyRequiredValidator(
-        props,
-        propName,
-        componentName,
-        props.isRemovable,
-        'rowOptions.isRemovable',
-        'string',
-      );
-    },
-  }),
+
   /**
    * Array of columns widths to be applied in order. Can be explicit widths, percentages, "auto", or empty strings to skip styling a column and fall back to default behaviour. If values are not supplied, columns will default to equal widths, filling the available space.
    */
   columnWidths: PropTypes.arrayOf(PropTypes.string),
+
+  /**
+   * A function used to determine the message read by screen readers when the user cancels dragging.
+   *
+   * Recommended English return value:
+   * <br />
+   * *Movement cancelled. The item has returned to its starting position of ${startPosition}.*
+   */
+  dndDragCancelledMessage(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+
+  /**
+   * A function used to determine the message read by screen readers when the user drags a row
+   * outside of the table.
+   *
+   * Recommended English return value:
+   * <br />
+   * *You are currently not dragging over a droppable area.*
+   */
+  dndDragOutsideMessage(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+
+  /**
+   * A function used to determine the message read by screen readers when the user starts dragging a
+   * row.
+   *
+   * Recommended English return value:
+   * <br />
+   * *You have lifted an item in position ${startPosition}.*
+   */
+  dndDragStartMessage(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+
+  /**
+   * A function used to determine the message read by screen readers when the user drags a row to a
+   * new position.
+   *
+   * Recommended English return value:
+   * <br />
+   * *You have moved the item from position ${startPosition} to position ${endPosition}.*
+   */
+  dndDragUpdateMessage(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+
+  /**
+   * A function used to determine the message read by screen readers when the user drops a row
+   * outside of the table.
+   *
+   * Recommended English return value:
+   * <br />
+   * *The item has been dropped while not over a droppable area. The item has returned to its
+   * position of ${startPosition}.*
+   */
+  dndDropFailedMessage(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+
+  /**
+   * A function used to determine the message read by screen readers when the user drops a row in a
+   * new position.
+   *
+   * Recommended English return value:
+   * <br />
+   * *You have dropped the item. It has moved from position ${startPosition} to ${endPosition}.*
+   */
+  dndDropMessage(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'function',
+    );
+  },
+
+  /**
+   * The message to be read by screen readers when the user focuses on the drag handle.
+   *
+   * Recommended English value:
+   * <br />
+   * *Press space bar to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or forms mode.*
+   */
+  dndInstructions(props, propName, componentName) {
+    return conditionallyRequiredValidator(
+      props,
+      propName,
+      componentName,
+      props.rowOptions?.isDraggable,
+      'rowOptions.isDraggable',
+      'string',
+    );
+  },
+
+  hasPinnedFirstColumn: PropTypes.bool,
+  hasPinnedLastColumn: PropTypes.bool,
+
   /**
    * Array of column _indexes_ to be hidden. Zero-based. Hidden elements remain in the DOM.
    * Convenient and performant for when the available columns and their order will not be changing.
    * For more dynamic tables, consider an alternate approach.
    */
   hiddenColumns: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+
   /**
    * Optional id to be applied to the table. If one is not provided, a unique one will be generated.
    */
   id: PropTypes.string,
-  hasPinnedFirstColumn: PropTypes.bool,
-  hasPinnedLastColumn: PropTypes.bool,
+
   /**
    * Used to style the table as invalid.
    */
   isInvalid: PropTypes.bool,
+
   maxWidth: PropTypes.string,
   minWidth: PropTypes.string,
+
   /**
    * The `onReorderRow` callback must result in the synchronous reordering of rows in the source
    * data, such as through `setState()`.
@@ -183,133 +293,41 @@ XUIEditableTable.propTypes = {
       'function',
     );
   },
-  /**
-   * A function used to determine the message read by screen readers when the user cancels dragging.
-   *
-   * Recommended English return value:
-   * <br />
-   * *Movement cancelled. The item has returned to its starting position of ${startPosition}.*
-   */
-  dndDragCancelledMessage(props, propName, componentName) {
-    return conditionallyRequiredValidator(
-      props,
-      propName,
-      componentName,
-      props.rowOptions?.isDraggable,
-      'rowOptions.isDraggable',
-      'function',
-    );
-  },
-  /**
-   * A function used to determine the message read by screen readers when the user drags a row
-   * outside of the table.
-   *
-   * Recommended English return value:
-   * <br />
-   * *You are currently not dragging over a droppable area.*
-   */
-  dndDragOutsideMessage(props, propName, componentName) {
-    return conditionallyRequiredValidator(
-      props,
-      propName,
-      componentName,
-      props.rowOptions?.isDraggable,
-      'rowOptions.isDraggable',
-      'function',
-    );
-  },
-  /**
-   * A function used to determine the message read by screen readers when the user starts dragging a
-   * row.
-   *
-   * Recommended English return value:
-   * <br />
-   * *You have lifted an item in position ${startPosition}.*
-   */
-  dndDragStartMessage(props, propName, componentName) {
-    return conditionallyRequiredValidator(
-      props,
-      propName,
-      componentName,
-      props.rowOptions?.isDraggable,
-      'rowOptions.isDraggable',
-      'function',
-    );
-  },
-  /**
-   * A function used to determine the message read by screen readers when the user drags a row to a
-   * new position.
-   *
-   * Recommended English return value:
-   * <br />
-   * *You have moved the item from position ${startPosition} to position ${endPosition}.*
-   */
-  dndDragUpdateMessage(props, propName, componentName) {
-    return conditionallyRequiredValidator(
-      props,
-      propName,
-      componentName,
-      props.rowOptions?.isDraggable,
-      'rowOptions.isDraggable',
-      'function',
-    );
-  },
-  /**
-   * A function used to determine the message read by screen readers when the user drops a row
-   * outside of the table.
-   *
-   * Recommended English return value:
-   * <br />
-   * *The item has been dropped while not over a droppable area. The item has returned to its
-   * position of ${startPosition}.*
-   */
-  dndDropFailedMessage(props, propName, componentName) {
-    return conditionallyRequiredValidator(
-      props,
-      propName,
-      componentName,
-      props.rowOptions?.isDraggable,
-      'rowOptions.isDraggable',
-      'function',
-    );
-  },
-  /**
-   * A function used to determine the message read by screen readers when the user drops a row in a
-   * new position.
-   *
-   * Recommended English return value:
-   * <br />
-   * *You have dropped the item. It has moved from position ${startPosition} to ${endPosition}.*
-   */
-  dndDropMessage(props, propName, componentName) {
-    return conditionallyRequiredValidator(
-      props,
-      propName,
-      componentName,
-      props.rowOptions?.isDraggable,
-      'rowOptions.isDraggable',
-      'function',
-    );
-  },
-  /**
-   * The message to be read by screen readers when the user focuses on the drag handle.
-   *
-   * Recommended English value:
-   * <br />
-   * *Press space bar to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or forms mode.*
-   */
-  dndInstructions(props, propName, componentName) {
-    return conditionallyRequiredValidator(
-      props,
-      propName,
-      componentName,
-      props.rowOptions?.isDraggable,
-      'rowOptions.isDraggable',
-      'string',
-    );
-  },
+
+  qaHook: PropTypes.string,
+
+  rowOptions: PropTypes.shape({
+    /**
+     * Adds an aria-label to the drag button.
+     * <br />
+     * Recommended English value: *Drag handle*
+     */
+    dragButtonAriaLabel(props, propName, componentName) {
+      return conditionallyRequiredValidator(
+        props,
+        propName,
+        componentName,
+        props.isDraggable,
+        'rowOptions.isDraggable',
+        'string',
+      );
+    },
+    isDraggable: PropTypes.bool,
+    isRemovable: PropTypes.bool,
+    removeButtonAriaLabel(props, propName, componentName) {
+      return conditionallyRequiredValidator(
+        props,
+        propName,
+        componentName,
+        props.isRemovable,
+        'rowOptions.isRemovable',
+        'string',
+      );
+    },
+  }),
 
   style: PropTypes.object,
+
   /**
    * Validation message to show under the table if `isInvalid` is true.
    */

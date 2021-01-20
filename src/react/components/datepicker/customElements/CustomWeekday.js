@@ -29,9 +29,9 @@ const CustomWeekday = ({ locale, localeUtils, weekday, weekdaysLong, weekdaysSho
 export default CustomWeekday;
 
 CustomWeekday.propTypes = {
-  weekday: PropTypes.number,
   locale: PropTypes.string,
   localeUtils: DayPicker.propTypes.localeUtils,
+  weekday: PropTypes.number,
   weekdaysLong: PropTypes.arrayOf(PropTypes.string),
   weekdaysShort: PropTypes.arrayOf(PropTypes.string),
 };

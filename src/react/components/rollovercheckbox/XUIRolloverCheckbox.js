@@ -140,29 +140,29 @@ export default class XUIRolloverCheckbox extends PureComponent {
 }
 
 XUIRolloverCheckbox.propTypes = {
-  qaHook: PropTypes.string,
-  className: PropTypes.string,
-  /** Callback for when checkbox is selected */
-  onSelect: PropTypes.func,
-  /** Whether the checkbox is currently checked */
-  isChecked: PropTypes.bool,
-  /** Whether to show the checkbox instead of the rollover component */
-  isCheckboxHidden: PropTypes.bool,
-  /** Applies disabled styling when true */
-  isDisabled: PropTypes.bool,
-  /** Id to apply to the wrapping div */
-  id: PropTypes.string,
-  /** Component to render when isCheckboxHidden is true and mouse is not over the component */
-  rolloverComponent: PropTypes.node,
-  /** Input label for accessibility purposes. Will not be visibly displayed. */
-  label: PropTypes.node,
   /** Optionally provide the id of an element that provides a label for the checkbox */
   ariaLabelledBy: PropTypes.string,
   /** Set the size of the checkbox revealed on rollover. Defaults to 'medium' */
   checkboxSize: PropTypes.oneOf(['medium', 'small', 'xsmall']),
+  className: PropTypes.string,
+  /** Id to apply to the wrapping div */
+  id: PropTypes.string,
+  /** Whether to show the checkbox instead of the rollover component */
+  isCheckboxHidden: PropTypes.bool,
+  /** Whether the checkbox is currently checked */
+  isChecked: PropTypes.bool,
+  /** Applies disabled styling when true */
+  isDisabled: PropTypes.bool,
+  /** Input label for accessibility purposes. Will not be visibly displayed. */
+  label: PropTypes.node,
+  /** Callback for when checkbox is selected */
+  onSelect: PropTypes.func,
+  qaHook: PropTypes.string,
+  /** Component to render when isCheckboxHidden is true and mouse is not over the component */
+  rolloverComponent: PropTypes.node,
 };
 
 XUIRolloverCheckbox.defaultProps = {
-  isDisabled: false,
   checkboxSize: 'medium',
+  isDisabled: false,
 };

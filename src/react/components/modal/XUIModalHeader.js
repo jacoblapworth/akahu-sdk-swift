@@ -17,8 +17,7 @@ export default XUIModalHeader;
 XUIModalHeader.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  qaHook: PropTypes.string,
-
   /** Id for the modal header. Used for automatically providing a label to the modal. */
   id: PropTypes.string,
+  qaHook: PropTypes.string,
 };

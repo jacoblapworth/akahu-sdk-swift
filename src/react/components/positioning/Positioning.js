@@ -345,41 +345,41 @@ class Positioning extends PureComponent {
 
 Positioning.propTypes = {
   children: PropTypes.node,
-  qaHook: PropTypes.string,
+  /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
+  isNotResponsive: PropTypes.bool,
+  /** Setting to true will for the dropdown to be as wide as the trigger. */
+  isTriggerWidthMatched: PropTypes.bool,
   /** true when the component is rendered but not displayed */
   isVisible: PropTypes.bool,
   /** Prevent the positioned element from sitting over the trigger's validation message */
   leaveRoomForValidationMessage: PropTypes.bool,
-  /** A DOM object of the parent node. */
-  parentRef: PropTypes.object,
-  /** A buffer value added to measure between the edge of the viewport and the component before
-   * flipping its position. */
-  viewportGutter: PropTypes.number,
-  /** A max height will mean an overflowed popup will scroll for the user rather than render
-   * outside of the viewport. True by default. */
-  shouldRestrictMaxHeight: PropTypes.bool,
-  /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
-  isNotResponsive: PropTypes.bool,
-  /** The amount of space to put between the trigger and the dropdown */
-  triggerDropdownGap: PropTypes.number,
-  /** Callback for when the positioned element becomes visible  */
-  onVisible: PropTypes.func,
-  /** Setting to true will for the dropdown to be as wide as the trigger. */
-  isTriggerWidthMatched: PropTypes.bool,
   /**
    * Setting a number here will force the maximum height of the child to be the number provided
    * (in pixels) if the viewport is too big. When the viewport is smaller than this number, it
    * still shrinks, but never grows beyond that number.
    */
   maxHeight: PropTypes.number,
+  /** A DOM object of the parent node. */
+  /** Callback for when the positioned element becomes visible  */
+  onVisible: PropTypes.func,
+  parentRef: PropTypes.object,
+  qaHook: PropTypes.string,
+  /** A max height will mean an overflowed popup will scroll for the user rather than render
+   * outside of the viewport. True by default. */
+  shouldRestrictMaxHeight: PropTypes.bool,
+  /** The amount of space to put between the trigger and the dropdown */
+  triggerDropdownGap: PropTypes.number,
+  /** A buffer value added to measure between the edge of the viewport and the component before
+   * flipping its position. */
+  viewportGutter: PropTypes.number,
 };
 
 Positioning.defaultProps = {
-  viewportGutter: 10,
-  shouldRestrictMaxHeight: true,
   isNotResponsive: false,
-  triggerDropdownGap: 5,
   isTriggerWidthMatched: false,
+  shouldRestrictMaxHeight: true,
+  triggerDropdownGap: 5,
+  viewportGutter: 10,
 };
 
 export default Positioning;

@@ -96,71 +96,72 @@ export default class XUINestedDropdown extends XUIDropdown {
 }
 
 XUINestedDropdown.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  qaHook: PropTypes.string,
-
-  /** Style attribute on the dropdown node */
-  style: PropTypes.object,
-
-  /** Whether or not the dropdown is hidden */
-  isHidden: PropTypes.bool,
-
-  /** Applies correct XUI class based on prop value. Default will fits to children's width. */
-  size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
-
-  /** Pass in an array of KeyboardEvent keycodes to be ignored from dropdown behaviour. */
-  ignoreKeyboardEvents: PropTypes.array,
-
-  /** DOM ID of the list */
-  id: PropTypes.string,
-
-  /** Items to be added to the menu's footer */
-  footer: PropTypes.element,
-
-  /** Enable a generalised callback when an item has been selected. */
-  onSelect: PropTypes.func,
-
-  /** Whether or not the dropdown should take focus and handle keyboard events automatically */
-  hasKeyboardEvents: PropTypes.bool,
-
-  /** Callback for when the highlighted item in the dropdown changes. */
-  onHighlightChange: PropTypes.func,
-
-  /** The `panelId` property of the panel which should currently be open */
-  currentPanelId: PropTypes.string,
-
-  /** Callback for when the open `XUIDropdownPanel` changes. Receives the name of the selected panel,
-   * and the previously selected panel. */
-  onPanelChange: PropTypes.func,
-
-  /** Whether the fixed width class variant should be used for the size prop.  Does nothing if
-   * no size is provided. */
-  fixedWidth: PropTypes.bool,
-
-  /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
-  forceDesktop: PropTypes.bool,
-
   /** Will add the closing animation class */
   animateClosed: PropTypes.bool,
 
   /** Will add an opening animation class */
   animateOpen: PropTypes.bool,
 
+  children: PropTypes.node,
+  className: PropTypes.string,
+
+  /** The `panelId` property of the panel which should currently be open */
+  currentPanelId: PropTypes.string,
+
+  /** Whether the fixed width class variant should be used for the size prop.  Does nothing if
+   * no size is provided. */
+  fixedWidth: PropTypes.bool,
+
+  /** Items to be added to the menu's footer */
+  footer: PropTypes.element,
+
+  /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
+  forceDesktop: PropTypes.bool,
+
+  /** Whether or not the dropdown should take focus and handle keyboard events automatically */
+  hasKeyboardEvents: PropTypes.bool,
+
+  /** DOM ID of the list */
+  id: PropTypes.string,
+
+  /** Pass in an array of KeyboardEvent keycodes to be ignored from dropdown behaviour. */
+  ignoreKeyboardEvents: PropTypes.array,
+
+  /** Whether or not the dropdown is hidden */
+  isHidden: PropTypes.bool,
+
   /** Callback for when the closing animation has stopped. */
   onCloseAnimationEnd: PropTypes.func,
 
+  /** Callback for when the highlighted item in the dropdown changes. */
+  onHighlightChange: PropTypes.func,
+
   /** Callback for when animation has ended on open. */
   onOpenAnimationEnd: PropTypes.func,
+
+  /** Callback for when the open `XUIDropdownPanel` changes. Receives the name of the selected panel,
+   * and the previously selected panel. */
+  onPanelChange: PropTypes.func,
+
+  /** Enable a generalised callback when an item has been selected. */
+  onSelect: PropTypes.func,
+
+  qaHook: PropTypes.string,
+
+  /** Applies correct XUI class based on prop value. Default will fits to children's width. */
+  size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
+
+  /** Style attribute on the dropdown node */
+  style: PropTypes.object,
 };
 
 XUINestedDropdown.defaultProps = {
-  ignoreKeyboardEvents: [],
-  isHidden: false,
-  hasKeyboardEvents: true,
-  size: 'medium',
+  animateClosed: false,
+  animateOpen: false,
   fixedWidth: true,
   forceDesktop: false,
-  animateOpen: false,
-  animateClosed: false,
+  hasKeyboardEvents: true,
+  ignoreKeyboardEvents: [],
+  isHidden: false,
+  size: 'medium',
 };

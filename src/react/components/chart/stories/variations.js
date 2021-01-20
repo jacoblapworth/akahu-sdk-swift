@@ -250,6 +250,7 @@ const variations = [
   {
     storyKind,
     storyTitle: 'Avatar Image X-Axis Label',
+    delay: 3000,
     examples: [
       {
         chartId: 'tinyAvatarLabel',
@@ -257,7 +258,13 @@ const variations = [
         chartDescription: 'Show just the avatar icon',
         chartHeight: 200,
         barsData: [
-          { id: 0, x: 'Apple', y: 1, avatarUrl: 'https://xui.xero.com/static/xpert-avatar.png' },
+          {
+            id: 0,
+            x: 'Apple',
+            y: 1,
+            avatarUrl:
+              'https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c',
+          },
         ],
         xAxisType: 'avatar',
         testStyles: { flexGrow: 'initial', width: '110px' },
@@ -267,7 +274,15 @@ const variations = [
         chartTitle: 'Small Avatar Label',
         chartDescription: 'Show the small font stacked avatar and label variant',
         chartHeight: 200,
-        barsData: [{ id: 0, x: 'Apple', y: 1, avatarUrl: 'https://placekitten.com/100/100' }],
+        barsData: [
+          {
+            id: 0,
+            x: 'Apple',
+            y: 1,
+            avatarUrl:
+              'https://i.picsum.photos/id/1044/100/100.jpg?hmac=IGzsuFyCgR4u_DgqnNlOHxY-ThKh9C02XhZAqHyVy0Q',
+          },
+        ],
         xAxisType: 'avatar',
         testStyles: { flexGrow: 'initial', width: '130px' },
       },
@@ -276,7 +291,15 @@ const variations = [
         chartTitle: 'MediumAvatarLabel',
         chartDescription: 'Show the large font stacked avatar and label variant',
         chartHeight: 200,
-        barsData: [{ id: 0, x: 'Apple', y: 1, avatarUrl: 'https://placekitten.com/200/200' }],
+        barsData: [
+          {
+            id: 0,
+            x: 'Apple',
+            y: 1,
+            avatarUrl:
+              'https://i.picsum.photos/id/931/100/100.jpg?hmac=BJxOJGnnDF4jriUgv211ZTiatGsYZ2ORIKXGZAu6VkA',
+          },
+        ],
         xAxisType: 'avatar',
         testStyles: { flexGrow: 'initial', width: '160px' },
       },
@@ -285,7 +308,15 @@ const variations = [
         chartTitle: 'Label Avatar Label',
         chartDescription: 'Show the large font inline avatar and label variant',
         chartHeight: 200,
-        barsData: [{ id: 0, x: 'Apple', y: 1, avatarUrl: 'https://placekitten.com/300/300' }],
+        barsData: [
+          {
+            id: 0,
+            x: 'Apple',
+            y: 1,
+            avatarUrl:
+              'https://i.picsum.photos/id/2/100/100.jpg?hmac=Y2da7WhwSnMn7y41c8WEc1ZO_AGIhVD3zTzghi4-Hiw',
+          },
+        ],
         xAxisType: 'avatar',
       },
     ],

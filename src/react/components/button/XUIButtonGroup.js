@@ -18,11 +18,9 @@ export default XUIButtonGroup;
 XUIButtonGroup.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-
+  qaHook: PropTypes.string,
   /**
    * Modifier for the size of the button. `medium`, `small`, or `xsmall`.
    */
   size: PropTypes.oneOf(Object.keys(sizeClassNames)),
-
-  qaHook: PropTypes.string,
 };

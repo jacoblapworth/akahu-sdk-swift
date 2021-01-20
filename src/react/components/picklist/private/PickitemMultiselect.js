@@ -93,26 +93,26 @@ const PickitemMultiselect = ({
 };
 
 PickitemMultiselect.propTypes = {
-  children: PropTypes.node,
-  isSelected: PropTypes.bool,
   checkboxClassName: PropTypes.string,
-  onClick: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onMouseOver: PropTypes.func,
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
-  shouldTruncate: PropTypes.bool,
-  qaHook: PropTypes.string,
-  /** Standard text */
-  primaryElement: PropTypes.node,
-  /** Less important text to appear beside primary. */
-  secondaryElement: PropTypes.node,
-  /** Less important text to appear pinned at the right. */
-  pinnedElement: PropTypes.node,
-  /** Content to be added to the right of the pickitem. */
-  rightElement: PropTypes.node,
+  children: PropTypes.node,
   /** The disabled behaviour and styles are applied when this is true. */
   isDisabled: PropTypes.bool,
+  isSelected: PropTypes.bool,
+  onBlur: PropTypes.func,
+  onClick: PropTypes.func,
+  onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  onMouseOver: PropTypes.func,
+  /** Less important text to appear pinned at the right. */
+  pinnedElement: PropTypes.node,
+  /** Standard text */
+  primaryElement: PropTypes.node,
+  qaHook: PropTypes.string,
+  /** Content to be added to the right of the pickitem. */
+  rightElement: PropTypes.node,
+  /** Less important text to appear beside primary. */
+  secondaryElement: PropTypes.node,
+  shouldTruncate: PropTypes.bool,
 };
 
 export default PickitemMultiselect;

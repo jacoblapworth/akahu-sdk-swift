@@ -10,5 +10,19 @@ interface BaseProps {
 type Props = BaseProps &
   Omit<React.ComponentProps<typeof XUIAutocompleter>, 'hintMessage' | 'isInputLabelHidden'>;
 
-declare const XUIEditableTableCellAutocompleter: React.Component<Props>;
-export default XUIEditableTableCellAutocompleter;
+export default class XUIEditableTableCellAutocompleter extends React.Component<Props> {
+  /**
+   * Set the state as hidden in order to toggle the list closed.
+   */
+  closeDropdown: () => void;
+
+  /**
+   * Focus the input inside the cell.
+   */
+  focusInput: () => void;
+
+  /**
+   * Set the state as not hidden in order to toggle the list open.
+   */
+  openDropdown: () => void;
+}

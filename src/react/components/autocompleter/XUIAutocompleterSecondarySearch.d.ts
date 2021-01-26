@@ -74,6 +74,12 @@ interface Props {
    * Should label be applied as an aria-label, rather than being visibly displayed.
    */
   isInputLabelHidden?: boolean;
+  /**
+   * Whether the underlying DropdownToggled component uses the "legacy" (portaled) display.
+   *
+   * Defaults to "true."
+   */
+  isLegacyDisplay?: boolean;
 
   // TODO: Implement loading pattern
   // /**

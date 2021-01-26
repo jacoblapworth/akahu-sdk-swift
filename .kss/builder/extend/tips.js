@@ -27,7 +27,11 @@ const matchTitleToIcon = title => {
 		warning: {
 			iconClass: 'ds-tips-warning',
 			iconName: '#xui-icon-warning'
-		}
+		},
+		info: {
+			iconClass: 'ds-tips-info',
+			iconName: '#xui-icon-info'
+		},
 	}
 
 	return tipIcons[title];

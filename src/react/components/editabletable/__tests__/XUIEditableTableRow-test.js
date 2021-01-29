@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import XUIEditableTable from '../XUIEditableTable';
 import XUIEditableTableRow from '../XUIEditableTableRow';
@@ -15,8 +15,8 @@ import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testRowId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testRowId');
 
 jest.mock('../private/DragAndDrop/Draggable');
 Draggable.mockImplementation(({ children }) => children());

@@ -2,11 +2,11 @@ import React from 'react';
 import Enzyme, { render, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
+import { nanoid } from 'nanoid';
 import XUIToggleOption from '../XUIToggleOption';
-import { v4 as uuidv4 } from 'uuid';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testToggleId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testToggleId');
 
 Enzyme.configure({ adapter: new Adapter() });
 

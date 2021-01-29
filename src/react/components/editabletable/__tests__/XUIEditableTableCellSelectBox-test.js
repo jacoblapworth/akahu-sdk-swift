@@ -2,15 +2,15 @@ import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import XUISelectBox, { XUISelectBoxOption } from '../../../selectbox';
 import XUIEditableTableCell from '../XUIEditableTableCell';
 import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellSelectBox from '../XUIEditableTableCellSelectBox';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testGeneratedId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
 

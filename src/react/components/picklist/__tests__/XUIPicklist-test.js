@@ -2,14 +2,14 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { nanoid } from 'nanoid';
 import XUIPicklist from '../XUIPicklist';
 import XUIPickitem from '../XUIPickitem';
-import { v4 as uuidv4 } from 'uuid';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testPickitemCheckboxId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testPickitemCheckboxId');
 
 const setup = (props = {}, itemProps = {}) => {
   const expected = renderer.create(

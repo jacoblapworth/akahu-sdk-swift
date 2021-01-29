@@ -2,12 +2,12 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
 import XUIToggleOption from '../XUIToggleOption';
 import XUIToggle from '../XUIToggle';
-import { v4 as uuidv4 } from 'uuid';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testCheckboxId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testCheckboxId');
 
 Enzyme.configure({ adapter: new Adapter() });
 

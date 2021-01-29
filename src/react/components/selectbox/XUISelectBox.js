@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import XUIDropdown from '../dropdown/XUIDropdown';
 import XUIDropdownToggled from '../dropdown/XUIDropdownToggled';
@@ -32,7 +32,7 @@ function setQaHook(propsQaHook, suffix) {
 const selectBaseClass = `${ns}-select`;
 
 export default class XUISelectBox extends Component {
-  selectId = this.props.id || uuidv4();
+  selectId = this.props.id || `xui-${nanoid(10)}`;
 
   wrapperIds = generateIds(this.selectId);
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
 import XUIAutocompleter from '../XUIAutocompleter';
 import XUIPill from '../../pill/XUIPill';
 import XUIPicklist from '../../picklist/XUIPicklist';
@@ -9,12 +10,11 @@ import XUIPickitem from '../../picklist/XUIPickitem';
 import XUILoader from '../../loader/XUILoader';
 import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
 import XUIDropdownLayout from '../../dropdown/XUIDropdownLayout';
-import { v4 as uuidv4 } from 'uuid';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import wait from '../../../helpers/wait';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testAutocompleterId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testAutocompleterId');
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('XUIAutocompleter', () => {

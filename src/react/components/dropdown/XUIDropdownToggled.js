@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import verge from 'verge';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import cn from 'classnames';
 import PositioningInline from '../positioning/PositioningInline';
 import Positioning from '../positioning/Positioning';
@@ -103,7 +103,7 @@ export default class XUIDropdownToggled extends PureComponent {
     this.positioning = React.createRef();
   }
 
-  dropdownId = (this.props.dropdown && this.props.dropdown.props.id) || uuidv4();
+  dropdownId = (this.props.dropdown && this.props.dropdown.props.id) || `xui-${nanoid(10)}`;
 
   /**
    * `openedDropdowns` is used to keep track of nested dropdowns that have been opened.

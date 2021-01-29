@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import invalid from '@xero/xui-icon/icons/invalid';
 import cn from 'classnames';
 
@@ -39,7 +39,7 @@ const XUIEditableTable = ({
 }) => {
   const tableRef = React.useRef();
   // Ensures the table id is only generated once, but changes if the prop changes.
-  const [calculatedId, setId] = useState(id || `${tableName}-${uuidv4()}`);
+  const [calculatedId, setId] = useState(id || `${tableName}-${nanoid(10)}`);
 
   const wrapperIds = generateIdsFromControlId(calculatedId);
 

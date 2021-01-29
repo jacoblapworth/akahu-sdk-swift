@@ -20,7 +20,7 @@
 ```
 
 ```jsx harmony
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import { useState, useEffect } from 'react';
 import XUIButton from '@xero/xui/react/button';
 import XUIFileUploader from '@xero/xui/react/fileUploader';
@@ -28,12 +28,12 @@ import { defaultProps, fakeUpload } from './components/fileUploader/private/help
 
 const defaultFileList = [
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'uploading',
     originalFile: new File([new ArrayBuffer(123456)], 'test1.jpg', { type: 'image/jpeg' })
   },
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'done',
     originalFile: new File([new ArrayBuffer(12345678)], 'test2.pdf', { type: 'application/pdf' }),
     rightContent: (
@@ -43,12 +43,12 @@ const defaultFileList = [
     )
   },
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'error',
     originalFile: new File([new ArrayBuffer(12345)], 'test3.zip', { type: 'application/zip' })
   },
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'uploading',
     originalFile: new File([new ArrayBuffer(12345)], 'test4.zip', { type: 'application/zip' }),
     uploadProgressPercentage: 0
@@ -141,7 +141,7 @@ You can achieve this by supplying the `uploadProgressPercentage` value a percent
 
 ```jsx harmony static
 {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'uploading',
     originalFile: { name: 'test1.jpg', type: 'image/jpeg', size: 11111 },
     uploadProgressPercentage: 50,
@@ -332,24 +332,24 @@ Prop `showFilesAsMultiline` and `showIcon` are used to change the style of fileL
 **Note:** The styles for error status will not be influenced by these two props, and the uploading spinner will not be influenced by the `showIcon` prop.
 
 ```jsx harmony
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import XUIFileUploader from '@xero/xui/react/fileUploader';
 import { defaultProps, fakeUpload } from './components/fileUploader/private/helpers';
 
 const defaultFileList = [
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'uploading',
     originalFile: new File([new ArrayBuffer(123456)], 'test1.jpg', { type: 'image/jpeg' })
   },
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'done',
     originalFile: new File([new ArrayBuffer(12345678)], 'test2.pdf', { type: 'application/pdf' })
   },
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'error',
     originalFile: new File([new ArrayBuffer(12345)], 'test3.zip', { type: 'application/zip' })
   }

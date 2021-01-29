@@ -60,7 +60,7 @@ exports[`EditableTableWrapper renders correctly 1`] = `
             <Droppable>
               <ConnectFunction
                 direction="vertical"
-                droppableId="123"
+                droppableId="xui-123"
                 getContainerForClone={[Function]}
                 ignoreContainerClipping={false}
                 isCombineEnabled={false}
@@ -71,7 +71,7 @@ exports[`EditableTableWrapper renders correctly 1`] = `
               >
                 <Droppable
                   direction="vertical"
-                  droppableId="123"
+                  droppableId="xui-123"
                   getContainerForClone={[Function]}
                   ignoreContainerClipping={false}
                   isCombineEnabled={false}
@@ -95,19 +95,19 @@ exports[`EditableTableWrapper renders correctly 1`] = `
                   <ForwardRef
                     className="xui-editabletablewrapper"
                     data-rbd-droppable-context-id="1"
-                    data-rbd-droppable-id="123"
+                    data-rbd-droppable-id="xui-123"
                   >
                     <div
                       className="xui-editabletablewrapper xui-editabletableoverflow"
                       data-rbd-droppable-context-id="1"
-                      data-rbd-droppable-id="123"
+                      data-rbd-droppable-id="xui-123"
                     >
                       <div
                         className="xui-editabletablewrapper--scrollcontainer"
                       >
                         <div
                           className="xui-editabletablewrapper--dndinstructions"
-                          id="123"
+                          id="xui-123"
                         />
                       </div>
                       <div

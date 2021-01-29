@@ -2,16 +2,16 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import XUIRadio from '../XUIRadio';
+import { nanoid } from 'nanoid';
 import star from '@xero/xui-icon/icons/star';
-import { v4 as uuidv4 } from 'uuid';
+import XUIRadio from '../XUIRadio';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const NOOP = () => {};
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testRadioId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testRadioId');
 
 describe('XUIRadio', () => {
   // type radio

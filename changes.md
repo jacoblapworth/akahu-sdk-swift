@@ -6,6 +6,10 @@ Please take some time to check that your projects' package.json dependencies mat
 
 We recommend running a bundles analyzer after upgrading (and regularly in general).
 
+### Nanoid
+
+- XUI react components now use `nanoid` instead of `uuid` to generate ids. This package has been chosen as it [is significantly faster than `uuid` and is a much smaller package while maintaining comparable randomisation capabilities](https://github.com/ai/nanoid#comparison-with-uuid). If you are currently mocking the `uuid` package to change ids used by XUI components in your unit tests you will need to install the [`nanoid` package](https://www.npmjs.com/package/nanoid) and change your code to use this package instead.
+
 ## IE 11 support removed
 
 We have removed IE11 support for XUI in line with [Xero's decision to discontinue IE11 support for all products (except WFM and XPM) effective as of 1 December 2020](https://xero.slack.com/archives/C63PJSH25/p1606789311155600). The changes in this release includes alterations to existing components, styles and documents to remove workarounds and content specifically made for IE11 support.
@@ -40,6 +44,7 @@ XUIToggleOption now includes updated padding, horizontal and vertical, for both 
 ## XUI React components
 
 ### XUIAccordion
+
 - `XUIAccordion` continues to support a `qaHook` property, however this value will no longer be passed down to its `XUIAccordionItem` child component/s. This allows each individual `XUIAccordionItem` to have its own unique `data-automationid`. If you are using markup snapshots or using these generated `data-automationid`s for your testing, these will need to be updated accordingly.
 - `XUIAccordionItem` now supports its own `qaHook` property which, if provided, will add a `data-automationid` to the accordion item itself, as well as its child `trigger` and `content` elements.
 - All `XUIAccordion`-related `qahook`s have been updated to use a `--` instead of a single `-`, in line with XUI naming conventions.

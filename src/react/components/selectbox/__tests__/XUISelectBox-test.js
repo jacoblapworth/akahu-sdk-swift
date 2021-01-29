@@ -1,15 +1,16 @@
 import React from 'react';
-import XUISelectBox from '../XUISelectBox';
-import XUISelectBoxOption from '../XUISelectBoxOption';
-import { then } from './helpers';
+
 import Enzyme, { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
+import XUISelectBox from '../XUISelectBox';
+import XUISelectBoxOption from '../XUISelectBoxOption';
+import { then } from './helpers';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testSelectBoxId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testSelectBoxId');
 
 Enzyme.configure({ adapter: new Adapter() });
 

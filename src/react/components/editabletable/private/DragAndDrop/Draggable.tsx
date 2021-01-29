@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import {
@@ -7,7 +8,6 @@ import {
   DraggableStateSnapshot,
 } from 'react-beautiful-dnd';
 import { Portal } from 'react-portal';
-import { v4 as uuid } from 'uuid';
 
 import XUIEditableTableContext from '../../contexts/XUIEditableTableContext';
 import EditableTableColGroup from '../EditableTableColGroup';
@@ -56,7 +56,7 @@ const Draggable: React.FunctionComponent<Props> = ({
   useDraggable,
   ...spreadProps
 }) => {
-  const [generatedDraggableId] = React.useState(uuid());
+  const [generatedDraggableId] = React.useState(`${nanoid(10)}`);
 
   const { draggedRowHeight, draggedRowIndex } = React.useContext(DragDropDraggingContext);
   const { isDraggingOver } = React.useContext(DroppableContext);

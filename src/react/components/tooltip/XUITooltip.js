@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import compose from '../helpers/compose';
 import { eventKeyValues } from '../helpers/reactKeyHandler';
@@ -18,7 +18,7 @@ export default class XUITooltip extends PureComponent {
     isAnimating: false,
   };
 
-  tooltipId = this.props.id || uuidv4();
+  tooltipId = this.props.id || `xui-${nanoid(10)}`;
 
   /**
    * Show the tooltip.

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import verge from 'verge';
 import { Portal } from 'react-portal';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import cross from '@xero/xui-icon/icons/cross';
 import XUIIconButton from '../button/XUIIconButton';
 import XUIModalHeader from './XUIModalHeader';
@@ -39,7 +39,7 @@ export default class XUIModal extends Component {
     isTopModal: null, // This is handled and manipulated by helpers/modalManager
   };
 
-  generatedHeaderId = uuidv4();
+  generatedHeaderId = `xui-${nanoid(10)}`;
 
   componentDidMount() {
     const { isOpen } = this.props;

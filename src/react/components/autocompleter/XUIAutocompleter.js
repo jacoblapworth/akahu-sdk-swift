@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import debounce from 'lodash.debounce';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import XUIPicklist from '../picklist/XUIPicklist';
 import XUILoader from '../loader/XUILoader';
 import XUIDropdown from '../dropdown/XUIDropdown';
@@ -218,7 +218,9 @@ export default class XUIAutocompleter extends PureComponent {
   // We explicitly need to tie the label to the input element in HTML for autocompleter,
   // so we'll ensure there is an ID with which to do so.
   generatedInputId =
-    this.props.inputId || (this.props.inputProps && this.props.inputProps.id) || uuidv4();
+    this.props.inputId ||
+    (this.props.inputProps && this.props.inputProps.id) ||
+    `xui-${nanoid(10)}`;
 
   render() {
     const completer = this;

@@ -2,25 +2,25 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
 import XUIAutocompleterSecondarySearch from '../XUIAutocompleterSecondarySearch';
 import XUILoader from '../../loader/XUILoader';
 import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIPickitem from '../../picklist/XUIPickitem';
 import Pill from '../../pill/XUIPill';
-import { v4 as uuidv4 } from 'uuid';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testDropdownId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'xui-testDropdownId');
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const trigger = <button>trigger</button>;
 const createComponent = props => (
   <XUIAutocompleterSecondarySearch
-    trigger={trigger}
     onSearch={() => {}}
     restrictFocus={false}
+    trigger={trigger}
     {...props}
   >
     <XUIPicklist>
@@ -101,7 +101,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 
   it('should call the onOpen callback when the dropdown is opened', () => {
     const onOpen = jest.fn();
-    wrapper = mount(createComponent({ onOpen: onOpen, searchValue: 'on open', onSearch: onOpen }));
+    wrapper = mount(createComponent({ onOpen, searchValue: 'on open', onSearch: onOpen }));
 
     wrapper.instance().openDropdown();
 
@@ -111,7 +111,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
   // Skipped until we can work around rending content with portals in tests.
   it.skip('should call onSearch when a search is done', () => {
     const onSearch = jest.fn();
-    const searchComp = mount(createComponent({ onSearch: onSearch, value: 'old value' }));
+    const searchComp = mount(createComponent({ onSearch, value: 'old value' }));
 
     // Simulate opening the dropdown
     searchComp.find('button').simulate('click');
@@ -136,8 +136,8 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 
   it('should open the dropdown when space is pressed', () => {
     wrapper = mount(createComponent());
-    const trigger = wrapper.find('button');
-    trigger.simulate('keyDown', { key: eventKeyValues.space, keyCode: 32, which: 32 });
+    const triggerButton = wrapper.find('button');
+    triggerButton.simulate('keyDown', { key: eventKeyValues.space, keyCode: 32, which: 32 });
 
     expect(wrapper.instance().ddt.state.isHidden).toBeFalsy();
   });

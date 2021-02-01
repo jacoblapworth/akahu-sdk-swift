@@ -41,7 +41,7 @@ exports[`<XUIPickitem /> renders a multiselect pickitem with truncation 1`] = `
         role="presentation"
       >
         <input
-          aria-labelledby="testPickitemCheckboxId"
+          aria-labelledby="xui-testPickitemCheckboxId"
           checked={false}
           className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
           disabled={false}
@@ -59,7 +59,7 @@ exports[`<XUIPickitem /> renders a multiselect pickitem with truncation 1`] = `
         </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label xui-pickitem-text-truncated"
-          id="testPickitemCheckboxId"
+          id="xui-testPickitemCheckboxId"
         >
           <span
             className="xui-pickitem--pinned xui-pickitem-text-truncated"
@@ -204,7 +204,7 @@ exports[`<XUIPickitem /> renders a selected multiselect pickitem (overriding lef
         role="presentation"
       >
         <input
-          aria-labelledby="testPickitemCheckboxId"
+          aria-labelledby="xui-testPickitemCheckboxId"
           checked={true}
           className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
           disabled={false}
@@ -222,7 +222,7 @@ exports[`<XUIPickitem /> renders a selected multiselect pickitem (overriding lef
         </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
-          id="testPickitemCheckboxId"
+          id="xui-testPickitemCheckboxId"
         >
           <span
             className=""
@@ -256,7 +256,7 @@ exports[`<XUIPickitem /> renders a selected multiselect pickitem without selecte
         role="presentation"
       >
         <input
-          aria-labelledby="testPickitemCheckboxId"
+          aria-labelledby="xui-testPickitemCheckboxId"
           checked={true}
           className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
           disabled={false}
@@ -274,7 +274,7 @@ exports[`<XUIPickitem /> renders a selected multiselect pickitem without selecte
         </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
-          id="testPickitemCheckboxId"
+          id="xui-testPickitemCheckboxId"
         >
           <span
             className=""

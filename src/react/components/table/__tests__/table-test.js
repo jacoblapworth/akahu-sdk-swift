@@ -2,12 +2,12 @@ import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import TestScaffold from '../stories/stories';
 import { variations } from '../stories/variations';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testDropdownId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testDropdownId');
 
 Enzyme.configure({ adapter: new Adapter() });
 

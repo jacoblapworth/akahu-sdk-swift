@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
 import XUITextInput from '../XUITextInput';
 import XUITextInputSideElement from '../XUITextInputSideElement';
 import XUIIcon from '../../icon/XUIIcon';
@@ -11,10 +12,9 @@ import accessibility from '@xero/xui-icon/icons/accessibility';
 import NOOP from '../../helpers/noop';
 import { sizeShift } from '../../helpers/sizes';
 import EditableTableCellContext from '../../../contexts/EditableTableCellContext';
-import { v4 as uuidv4 } from 'uuid';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testGeneratedId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
 

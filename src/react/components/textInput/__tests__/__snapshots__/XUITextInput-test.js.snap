@@ -11,7 +11,7 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
     <input
       className="xui-textinput--input xui-textinput--input-medium"
       data-automationid="input-test--input"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       style={
@@ -54,7 +54,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       </div>
       <input
         className="xui-textinput--input xui-textinput--input-medium"
-        id="testGeneratedId-control"
+        id="xui-testGeneratedId-control"
         onBlurCapture={[Function]}
         onFocusCapture={[Function]}
         style={
@@ -73,7 +73,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
     >
       <input
         className="xui-textinput--input xui-textinput--input-medium"
-        id="testGeneratedId-control"
+        id="xui-testGeneratedId-control"
         onBlurCapture={[Function]}
         onFocusCapture={[Function]}
         style={
@@ -132,7 +132,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       </div>
       <input
         className="xui-textinput--input xui-textinput--input-medium"
-        id="testGeneratedId-control"
+        id="xui-testGeneratedId-control"
         onBlurCapture={[Function]}
         onFocusCapture={[Function]}
         style={
@@ -175,7 +175,7 @@ exports[`<XUITextInput> Text-only input forces resize visible class based on opt
   >
     <textarea
       className="xui-textinput--input xui-textinput--input-medium xui-textinput--input-resize-vertical"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       rows={3}
@@ -200,7 +200,7 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
     <input
       className="xui-textinput--input xui-textinput--input-medium"
       data-automationid="givenQAHook--input"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       style={
@@ -223,7 +223,7 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
     <input
       className="xui-textinput--input xui-textinput--input-medium"
       disabled={true}
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       style={
@@ -273,7 +273,7 @@ exports[`<XUITextInput> Text-only input is input value reverse-aligned 1`] = `
   >
     <input
       className="xui-textinput--input xui-textinput--input-medium xui-textinput--input-reverse-align"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       style={
@@ -296,7 +296,7 @@ exports[`<XUITextInput> Text-only input renders with a hidden label when one is 
     <input
       aria-label="test"
       className="xui-textinput--input xui-textinput--input-medium"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       style={
@@ -346,7 +346,7 @@ exports[`<XUITextInput> Text-only input sets the resize none class based on opti
   >
     <textarea
       className="xui-textinput--input xui-textinput--input-medium xui-textinput--input-resize-none"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       rows={3}

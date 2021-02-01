@@ -2,14 +2,14 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
 import XUIRange from '../XUIRange';
-import { v4 as uuidv4 } from 'uuid';
 import XUIIcon from '../../../icon';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testRangeId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testRangeId');
 
 describe('Range', () => {
   // type range

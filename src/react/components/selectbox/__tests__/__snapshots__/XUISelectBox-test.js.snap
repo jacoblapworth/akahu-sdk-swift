@@ -76,7 +76,7 @@ exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isD
     <label
       className="xui-text-label xui-fieldlabel-layout"
       data-automationid={null}
-      htmlFor="testSelectBoxId-control"
+      htmlFor="xui-testSelectBoxId-control"
     >
       test
     </label>
@@ -96,7 +96,7 @@ exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isD
           className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon xui-button-is-disabled"
           data-automationid={null}
           disabled={true}
-          id="testSelectBoxId-control"
+          id="xui-testSelectBoxId-control"
           onClick={[Function]}
           onKeyDown={null}
           onKeyUp={[Function]}

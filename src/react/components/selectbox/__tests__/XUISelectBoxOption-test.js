@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import XUISelectBoxOption from '../XUISelectBoxOption';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
+import XUISelectBoxOption from '../XUISelectBoxOption';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -17,8 +17,8 @@ createComponent.propTypes = {
   children: PropTypes.node,
 };
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testCheckboxId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testCheckboxId');
 
 describe('<XUISelectBoxOption />', () => {
   it('should render an automaion id when provided with a qaHook', () => {

@@ -2,15 +2,15 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
 import XUISwitch from '../XUISwitch';
-import { v4 as uuidv4 } from 'uuid';
 
 const NOOP = () => {};
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testSwitchId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testSwitchId');
 
 describe('XUISwitch', function () {
   it('should render not checked and not disabled', function () {

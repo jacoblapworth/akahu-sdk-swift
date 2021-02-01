@@ -2,14 +2,14 @@ import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
+import { nanoid } from 'nanoid';
 import XUIModal from '../XUIModal';
 import XUIModalBody from '../XUIModalBody';
 import XUIModalFooter from '../XUIModalFooter';
 import XUIModalHeader from '../XUIModalHeader';
-import { v4 as uuidv4 } from 'uuid';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'generatedHeaderId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'generatedHeaderId');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -20,8 +20,8 @@ describe('XUIModal', () => {
   it('Should be possible to do snapshot testing on the modal', () => {
     const component = renderer.create(
       <XUIModal
-        isUsingPortal={false}
         id="test-modal"
+        isUsingPortal={false}
         qaHook="xui-modal"
         onClose={NOOP}
         closeButtonLabel="Close"

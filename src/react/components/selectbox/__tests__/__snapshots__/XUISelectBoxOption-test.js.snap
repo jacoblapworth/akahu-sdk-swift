@@ -127,7 +127,7 @@ exports[`<XUISelectBoxOption /> should render checkboxes when the showCheckboxes
         role="presentation"
       >
         <input
-          aria-labelledby="testCheckboxId"
+          aria-labelledby="xui-testCheckboxId"
           checked={false}
           className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
           disabled={false}
@@ -145,7 +145,7 @@ exports[`<XUISelectBoxOption /> should render checkboxes when the showCheckboxes
         </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
-          id="testCheckboxId"
+          id="xui-testCheckboxId"
         >
           <span
             className=""
@@ -267,7 +267,7 @@ exports[`<XUISelectBoxOption /> should render the option and the checkboxes as d
         role="presentation"
       >
         <input
-          aria-labelledby="testCheckboxId"
+          aria-labelledby="xui-testCheckboxId"
           checked={false}
           className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
           disabled={true}
@@ -285,7 +285,7 @@ exports[`<XUISelectBoxOption /> should render the option and the checkboxes as d
         </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
-          id="testCheckboxId"
+          id="xui-testCheckboxId"
         >
           <span
             className=""

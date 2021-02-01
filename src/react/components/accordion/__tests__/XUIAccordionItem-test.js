@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -8,9 +9,8 @@ import XUIAccordionContext from '../XUIAccordionContext';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid', () => ({
-  v4: jest.fn(() => '123'),
-}));
+jest.mock('nanoid');
+nanoid.mockImplementation(() => '123');
 
 const emptyStateComponent = <div>Empty state component</div>;
 const qaHook = 'testHook';

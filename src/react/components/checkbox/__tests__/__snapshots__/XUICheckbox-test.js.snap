@@ -10,7 +10,7 @@ exports[`XUICheckbox should be a small variant, if specified 1`] = `
     role="presentation"
   >
     <input
-      aria-labelledby="testCheckboxId"
+      aria-labelledby="xui-testCheckboxId"
       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
       defaultChecked={false}
       disabled={false}
@@ -27,7 +27,7 @@ exports[`XUICheckbox should be a small variant, if specified 1`] = `
     </div>
     <span
       className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small"
-      id="testCheckboxId"
+      id="xui-testCheckboxId"
     >
       Howdy, folks!
     </span>
@@ -45,7 +45,7 @@ exports[`XUICheckbox should be a xsmall variant, if specified 1`] = `
     role="presentation"
   >
     <input
-      aria-labelledby="testCheckboxId"
+      aria-labelledby="xui-testCheckboxId"
       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-xsmall"
       defaultChecked={false}
       disabled={false}
@@ -62,7 +62,7 @@ exports[`XUICheckbox should be a xsmall variant, if specified 1`] = `
     </div>
     <span
       className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-xsmall"
-      id="testCheckboxId"
+      id="xui-testCheckboxId"
     >
       Howdy, folks!
     </span>
@@ -140,7 +140,7 @@ exports[`XUICheckbox should have a visible label, if specified 1`] = `
     role="presentation"
   >
     <input
-      aria-labelledby="testCheckboxId"
+      aria-labelledby="xui-testCheckboxId"
       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
       defaultChecked={false}
       disabled={false}
@@ -157,7 +157,7 @@ exports[`XUICheckbox should have a visible label, if specified 1`] = `
     </div>
     <span
       className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-medium"
-      id="testCheckboxId"
+      id="xui-testCheckboxId"
     >
       Visible label
     </span>
@@ -220,7 +220,7 @@ exports[`XUICheckbox should render with validation message 1`] = `
     role="presentation"
   >
     <input
-      aria-describedby="testCheckboxId-message"
+      aria-describedby="xui-testCheckboxId-message"
       aria-invalid={true}
       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
       defaultChecked={false}
@@ -238,7 +238,7 @@ exports[`XUICheckbox should render with validation message 1`] = `
   </label>
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid xui-styledcheckboxradio--message"
-    id="testCheckboxId-message"
+    id="xui-testCheckboxId-message"
     role="status"
   >
     <svg

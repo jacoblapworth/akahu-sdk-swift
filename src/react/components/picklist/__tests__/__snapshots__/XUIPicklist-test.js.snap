@@ -54,7 +54,7 @@ exports[`< Picklist /> example taking settings from first child and giving to al
           role="presentation"
         >
           <input
-            aria-labelledby="testPickitemCheckboxId"
+            aria-labelledby="xui-testPickitemCheckboxId"
             checked={false}
             className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
             disabled={false}
@@ -72,7 +72,7 @@ exports[`< Picklist /> example taking settings from first child and giving to al
           </div>
           <span
             className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
-            id="testPickitemCheckboxId"
+            id="xui-testPickitemCheckboxId"
           >
             <span
               className=""
@@ -103,7 +103,7 @@ exports[`< Picklist /> example taking settings from first child and giving to al
           role="presentation"
         >
           <input
-            aria-labelledby="testPickitemCheckboxId"
+            aria-labelledby="xui-testPickitemCheckboxId"
             checked={false}
             className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
             disabled={false}
@@ -121,7 +121,7 @@ exports[`< Picklist /> example taking settings from first child and giving to al
           </div>
           <span
             className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
-            id="testPickitemCheckboxId"
+            id="xui-testPickitemCheckboxId"
           >
             <span
               className=""

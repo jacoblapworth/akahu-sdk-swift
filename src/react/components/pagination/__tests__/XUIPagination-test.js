@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import XUIPagination from '../XUIPagination';
 import {
   defaultPerPageContent,
@@ -10,8 +10,8 @@ import {
   defaultCreatePagingContent,
 } from '../private/helpers';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testPaginationId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testPaginationId');
 Enzyme.configure({ adapter: new Adapter() });
 
 const defaultProps = {
@@ -82,7 +82,7 @@ describe('<XUIPagination/>', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should render with customized defaultPage', () => {
+  it('should render with customized defaultPerPageCount', () => {
     const component = renderer.create(<DefaultPagination defaultPerPageCount={25} />);
     expect(component).toMatchSnapshot();
   });

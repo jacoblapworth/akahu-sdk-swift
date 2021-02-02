@@ -6,15 +6,16 @@ export default class Form extends React.PureComponent {
   constructor() {
     super();
     this.onAllEvents = this.onAllEvents.bind(this);
+    this._form = React.createRef();
   }
 
   componentDidMount() {
-    this._regularInputs = this._form.querySelectorAll(
+    this._regularInputs = this._form?.current?.querySelectorAll(
       'input:not([type="radio"]):not([type="checkbox"]):not(.xui-autocompleter--input)',
     );
-    this._textareas = this._form.querySelectorAll('textarea');
-    this._radioGroups = this._form.querySelectorAll('input[type=radio]');
-    this._checkBoxes = this._form.querySelectorAll('input[type="checkbox"]');
+    this._textareas = this._form?.current?.querySelectorAll('textarea');
+    this._radioGroups = this._form?.current?.querySelectorAll('input[type=radio]');
+    this._checkBoxes = this._form?.current?.querySelectorAll('input[type="checkbox"]');
   }
 
   captureInputData() {
@@ -71,7 +72,7 @@ export default class Form extends React.PureComponent {
         onChange={this.onAllEvents}
         onClick={this.onAllEvents}
         onKeyUp={this.onAllEvents}
-        ref={c => (this._form = c)}
+        ref={this._form}
       >
         {children}
       </form>

@@ -20,11 +20,11 @@ describe('XUIModal', () => {
   it('Should be possible to do snapshot testing on the modal', () => {
     const component = renderer.create(
       <XUIModal
+        closeButtonLabel="Close"
         id="test-modal"
         isUsingPortal={false}
-        qaHook="xui-modal"
         onClose={NOOP}
-        closeButtonLabel="Close"
+        qaHook="xui-modal"
       >
         <XUIModalHeader>Test header</XUIModalHeader>
         <div>test</div>
@@ -36,13 +36,13 @@ describe('XUIModal', () => {
   it('Should render with any additional classes provided through the className, maskClassName and closeClassName props', function () {
     const component = mount(
       <XUIModal
-        isUsingPortal={false}
-        id="test-modal"
         className="classyMcClassFace"
+        closeButtonLabel="Close"
+        closeClassName="closeClassyMcClassFace"
+        id="test-modal"
+        isUsingPortal={false}
         maskClassName="maskClassyMcClassFace"
         onClose={NOOP}
-        closeClassName="closeClassyMcClassFace"
-        closeButtonLabel="Close"
       />,
     );
 
@@ -58,39 +58,39 @@ describe('XUIModal', () => {
     const component = mount(
       <div>
         <XUIModal
-          isUsingPortal={false}
+          closeButtonLabel="Close"
           id="test-modal-small"
+          isUsingPortal={false}
+          onClose={NOOP}
           size="small"
-          onClose={NOOP}
-          closeButtonLabel="Close"
         />
         <XUIModal
-          isUsingPortal={false}
+          closeButtonLabel="Close"
           id="test-modal-medium"
+          isUsingPortal={false}
+          onClose={NOOP}
           size="medium"
-          onClose={NOOP}
-          closeButtonLabel="Close"
         />
         <XUIModal
-          isUsingPortal={false}
+          closeButtonLabel="Close"
           id="test-modal-large"
+          isUsingPortal={false}
+          onClose={NOOP}
           size="large"
-          onClose={NOOP}
-          closeButtonLabel="Close"
         />
         <XUIModal
-          isUsingPortal={false}
+          closeButtonLabel="Close"
           id="test-modal-xlarge"
-          size="xlarge"
+          isUsingPortal={false}
           onClose={NOOP}
-          closeButtonLabel="Close"
+          size="xlarge"
         />
         <XUIModal
-          isUsingPortal={false}
-          id="test-modal-fullscreen"
-          size="fullscreen"
-          onClose={NOOP}
           closeButtonLabel="Close"
+          id="test-modal-fullscreen"
+          isUsingPortal={false}
+          onClose={NOOP}
+          size="fullscreen"
         />
       </div>,
     );
@@ -140,11 +140,11 @@ describe('XUIModal', () => {
 
     const component = mount(
       <XUIModal
+        closeButtonLabel="Close"
+        hideOnOverlayClick
+        isOpen
         isUsingPortal={false}
         onClose={demoFunction}
-        isOpen={true}
-        hideOnOverlayClick={true}
-        closeButtonLabel="Close"
       />,
     );
     const maskNode = component.find('.xui-mask');
@@ -166,12 +166,12 @@ describe('XUIModal', () => {
 
     const component = mount(
       <XUIModal
-        isUsingPortal={false}
-        id="test-modal-overlayClick"
-        onClose={demoFunction}
-        hideOnOverlayClick={false}
-        isOpen={true}
         closeButtonLabel="Close"
+        hideOnOverlayClick={false}
+        id="test-modal-overlayClick"
+        isOpen
+        isUsingPortal={false}
+        onClose={demoFunction}
       />,
     );
     const maskNode = component.find('.xui-mask');
@@ -189,11 +189,11 @@ describe('XUIModal', () => {
 
     const component = mount(
       <XUIModal
-        isUsingPortal={false}
-        id="test-modal-overlayClick"
-        onClose={demoFunction}
-        isOpen={true}
         closeButtonLabel="Close"
+        id="test-modal-overlayClick"
+        isOpen
+        isUsingPortal={false}
+        onClose={demoFunction}
       />,
     );
     const maskNode = component.find('.xui-mask');
@@ -207,18 +207,18 @@ describe('XUIModal', () => {
     const component = mount(
       <div>
         <XUIModal
-          isUsingPortal={false}
-          id="test-modal-nolayout"
-          defaultLayout={false}
-          isOpen={true}
-          onClose={NOOP}
           closeButtonLabel="Close"
+          defaultLayout={false}
+          id="test-modal-nolayout"
+          isOpen
+          isUsingPortal={false}
+          onClose={NOOP}
         />
         <XUIModal
-          isUsingPortal={false}
-          id="test-modal-layout"
-          onClose={NOOP}
           closeButtonLabel="Close"
+          id="test-modal-layout"
+          isUsingPortal={false}
+          onClose={NOOP}
         />
       </div>,
     );
@@ -232,11 +232,11 @@ describe('XUIModal', () => {
   it('Should not add margin or padding classes to subcomponents if defaultLayout is set to false', function () {
     const component = mount(
       <XUIModal
-        isUsingPortal={false}
+        closeButtonLabel="Close"
         defaultLayout={false}
         id="test-modal-layoutSecond"
-        isOpen={true}
-        closeButtonLabel="Close"
+        isOpen
+        isUsingPortal={false}
       >
         <XUIModalHeader defaultLayout={false} />
         <XUIModalBody defaultLayout={false} />
@@ -252,13 +252,7 @@ describe('XUIModal', () => {
 
   it('Should render as a form when isForm is true', function () {
     const component = mount(
-      <XUIModal
-        isUsingPortal={false}
-        isForm={true}
-        id="test-modal"
-        isOpen={true}
-        closeButtonLabel="Close"
-      >
+      <XUIModal closeButtonLabel="Close" id="test-modal" isForm isOpen isUsingPortal={false}>
         <XUIModalHeader />
         <XUIModalBody />
         <XUIModalFooter />
@@ -271,7 +265,7 @@ describe('XUIModal', () => {
 
   it('should not render as a form by default, or if isForm is set to false', () => {
     const component = mount(
-      <XUIModal isUsingPortal={false} id="test-modal" closeButtonLabel="Close">
+      <XUIModal closeButtonLabel="Close" id="test-modal" isUsingPortal={false}>
         <XUIModalHeader />
         <XUIModalBody />
         <XUIModalFooter />
@@ -282,7 +276,7 @@ describe('XUIModal', () => {
     expect(domNode.is('form')).toBeFalsy();
 
     const componentSet = mount(
-      <XUIModal isUsingPortal={false} isForm={false} id="test-modal" closeButtonLabel="Close">
+      <XUIModal closeButtonLabel="Close" id="test-modal" isForm={false} isUsingPortal={false}>
         <XUIModalHeader />
         <XUIModalBody />
         <XUIModalFooter />
@@ -295,7 +289,7 @@ describe('XUIModal', () => {
 
   it('should render an automation id when a qaHook is passed in', () => {
     const automationid = renderer.create(
-      <XUIModal isUsingPortal={false} qaHook="xui-modal" onClose={NOOP} closeButtonLabel="Close">
+      <XUIModal closeButtonLabel="Close" isUsingPortal={false} onClose={NOOP} qaHook="xui-modal">
         <div>test</div>
       </XUIModal>,
     );
@@ -305,7 +299,7 @@ describe('XUIModal', () => {
 
   it('should lock the scroll of a window when mounted and unlocked when unmounted', () => {
     const modalMounted = mount(
-      <XUIModal isUsingPortal={false} onClose={NOOP} isOpen={true} closeButtonLabel="Close">
+      <XUIModal closeButtonLabel="Close" isOpen isUsingPortal={false} onClose={NOOP}>
         <div>test</div>
       </XUIModal>,
     );
@@ -319,7 +313,7 @@ describe('XUIModal', () => {
 
   it('should render closed by default', () => {
     const modalMounted = shallow(
-      <XUIModal isUsingPortal={false} onClose={NOOP} closeButtonLabel="Close">
+      <XUIModal closeButtonLabel="Close" isUsingPortal={false} onClose={NOOP}>
         <div>test</div>
       </XUIModal>,
     );
@@ -329,7 +323,7 @@ describe('XUIModal', () => {
 
   it('should render open when isOpen is set to true', () => {
     const modalMounted = mount(
-      <XUIModal isUsingPortal={false} onClose={NOOP} isOpen={true} closeButtonLabel="Close">
+      <XUIModal closeButtonLabel="Close" isOpen isUsingPortal={false} onClose={NOOP}>
         <div>test</div>
       </XUIModal>,
     );
@@ -341,7 +335,7 @@ describe('XUIModal', () => {
     const onClose = jest.fn();
 
     const modalMounted = mount(
-      <XUIModal isUsingPortal={false} onClose={onClose} isOpen={true} closeButtonLabel="Close">
+      <XUIModal closeButtonLabel="Close" isOpen isUsingPortal={false} onClose={onClose}>
         <div>test</div>
       </XUIModal>,
     );
@@ -357,7 +351,7 @@ describe('XUIModal', () => {
     const onClose = jest.fn();
 
     const modalMounted = mount(
-      <XUIModal isUsingPortal={false} onClose={onClose} isOpen={true} closeButtonLabel="Close">
+      <XUIModal closeButtonLabel="Close" isOpen isUsingPortal={false} onClose={onClose}>
         <div>test</div>
       </XUIModal>,
     );
@@ -373,12 +367,12 @@ describe('XUIModal', () => {
 
     const modalMounted = mount(
       <XUIModal
+        closeButtonLabel="Close"
+        isUsingPortal={false}
         keyListenerTarget={{
           removeEventListener: mockRemoveKeyListener,
           addEventListener: NOOP,
         }}
-        isUsingPortal={false}
-        closeButtonLabel="Close"
       >
         <div>test</div>
       </XUIModal>,
@@ -401,12 +395,12 @@ describe('XUIModal', () => {
 
     const modalMounted = mount(
       <XUIModal
+        closeButtonLabel="Close"
+        isUsingPortal={false}
         keyListenerTarget={{
           removeEventListener: NOOP,
           addEventListener: NOOP,
         }}
-        isUsingPortal={false}
-        closeButtonLabel="Close"
       >
         <div>test</div>
       </XUIModal>,

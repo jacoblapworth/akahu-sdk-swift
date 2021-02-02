@@ -216,5 +216,5 @@ export default class XUITable extends React.Component<Props> {
   /**
    * Root node to enable users to access as a ref.
    */
-  rootNode: HTMLElement | null;
+  rootNode: React.RefObject<HTMLElement> | null;
 }

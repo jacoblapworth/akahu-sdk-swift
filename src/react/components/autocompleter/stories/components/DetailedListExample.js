@@ -219,7 +219,7 @@ class DetailedListExample extends Component {
         isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}
         isInvalid={isInvalid}
         loading={isLoading}
-        loadingLabel="Loading"
+        loadingAriaLabel="Loading"
         onBackspacePill={this.deleteLastPerson}
         onClose={() => this.onClose()}
         onSearch={example.onSearchChangeHandler}

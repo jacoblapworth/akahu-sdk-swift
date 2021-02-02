@@ -50,11 +50,13 @@ const getHref = href => (!href || href === '#' ? '' : href);
  * @private
  * @param {XUIButton} button
  */
-const focusRootNode = button => button.rootNode != null && button.rootNode.focus();
+const focusRootNode = button => button.rootNode?.current?.focus();
 
 const defaultSize = 'medium';
 
 export default class XUIButton extends React.PureComponent {
+  rootNode = React.createRef();
+
   /**
    * Focus the button.
    *
@@ -64,7 +66,7 @@ export default class XUIButton extends React.PureComponent {
     focusRootNode(this);
     // Apparently there are times when calling focus won't actually do it.  I think
     // React's getting in the way, but I'm not sure yet....
-    if (this.rootNode !== document.activeElement) {
+    if (this.rootNode?.current !== document.activeElement) {
       setTimeout(focusRootNode, 0, this);
     }
   }
@@ -76,7 +78,7 @@ export default class XUIButton extends React.PureComponent {
    * @return {boolean}
    */
   hasFocus() {
-    return this.rootNode == null ? false : this.rootNode.contains(document.activeElement);
+    return this.rootNode == null ? false : this.rootNode.current?.contains(document.activeElement);
   }
 
   render() {
@@ -226,11 +228,7 @@ export default class XUIButton extends React.PureComponent {
           };
 
           return (
-            <ElementType
-              ref={n => (this.rootNode = n)}
-              {...elementProps}
-              data-automationid={qaHook}
-            >
+            <ElementType ref={this.rootNode} {...elementProps} data-automationid={qaHook}>
               {buttonChildren}
             </ElementType>
           );

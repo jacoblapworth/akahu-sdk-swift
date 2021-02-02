@@ -144,7 +144,7 @@ export const enrichProps = (state, props, { tableNode }) => {
   const columns = React.Children.toArray(children);
   const hasHeader = columns.some(col => col && col.props && col.props.head);
 
-  const tableWidth = tableNode && tableNode.clientWidth;
+  const tableWidth = tableNode?.current && tableNode.current.clientWidth;
 
   // Even if truncation is requested we still need to ensure the columns will fall
   // under a min / max size threshold so that things do not look weird.

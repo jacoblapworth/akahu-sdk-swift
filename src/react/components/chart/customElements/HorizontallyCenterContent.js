@@ -4,7 +4,7 @@ import { testIsCloseEnough } from '../helpers/utilities';
 import getGroupPosition from '../helpers/groupposition';
 
 class HorizontallyCenterContent extends PureComponent {
-  contentNode;
+  contentNode = React.createRef();
 
   state = {
     /* contentWidth */
@@ -12,7 +12,7 @@ class HorizontallyCenterContent extends PureComponent {
 
   updateContentWidth = () => {
     const { state, contentNode } = this;
-    const contentWidth = contentNode && getGroupPosition(contentNode).width;
+    const contentWidth = contentNode?.current && getGroupPosition(contentNode.current).width;
     const shouldUpdate =
       contentNode && !testIsCloseEnough(contentWidth || 0, state.contentWidth || 0);
 
@@ -59,7 +59,7 @@ class HorizontallyCenterContent extends PureComponent {
     return (
       <svg
         height={wrapperHeight}
-        ref={node => (this.contentNode = node)}
+        ref={this.contentNode}
         viewBox={`0 0 ${wrapperWidth} ${wrapperHeight}`}
         width={wrapperWidth}
         x={centerOffset}

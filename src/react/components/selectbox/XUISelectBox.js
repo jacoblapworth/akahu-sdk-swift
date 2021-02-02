@@ -34,9 +34,13 @@ const selectBaseClass = `${ns}-select`;
 export default class XUISelectBox extends Component {
   selectId = this.props.id || `xui-${nanoid(10)}`;
 
+  trigger = React.createRef();
+
+  ddt = React.createRef();
+
   wrapperIds = generateIds(this.selectId);
 
-  isDropdownOpen = () => !!this.ddt && this.ddt.isDropdownOpen();
+  isDropdownOpen = () => this.ddt?.current?.isDropdownOpen();
 
   render() {
     return (
@@ -107,7 +111,7 @@ export default class XUISelectBox extends Component {
               onBlur={onBlur}
               onFocus={onFocus}
               qaHook={setQaHook(qaHook, qaHooks.button)}
-              ref={c => (selectBox.trigger = c)}
+              ref={selectBox.trigger}
               size={size}
               type="button"
               variant={buttonVariant}
@@ -168,7 +172,7 @@ export default class XUISelectBox extends Component {
                       matchTriggerWidth={matchTriggerWidth}
                       onClose={onDropdownHide}
                       qaHook={setQaHook(qaHook, qaHooks.dropdownToggled)}
-                      ref={c => (selectBox.ddt = c)}
+                      ref={selectBox.ddt}
                       trigger={trigger}
                     />
                   )}

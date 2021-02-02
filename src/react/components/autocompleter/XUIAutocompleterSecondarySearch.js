@@ -24,6 +24,8 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
       value: props.searchValue,
     };
     this.rootNode = React.createRef();
+    this.dropdown = React.createRef();
+    this.ddt = React.createRef();
   }
 
   componentDidUpdate(prevProps) {
@@ -78,7 +80,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
    * @public
    */
   openDropdown = () => {
-    this.ddt.openDropdown();
+    this.ddt?.current?.openDropdown();
   };
 
   /**
@@ -87,7 +89,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
    * @public
    */
   closeDropdown = () => {
-    this.ddt.closeDropdown();
+    this.ddt?.current?.closeDropdown();
   };
 
   /**
@@ -96,8 +98,8 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
    * @public
    */
   highlightItem = item => {
-    if (this.dropdown) {
-      this.dropdown.highlightItem(item);
+    if (this.dropdown?.current) {
+      this.dropdown.current?.highlightItem(item);
     }
   };
 
@@ -107,8 +109,8 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
    * @public
    */
   highlightFirstItem = () => {
-    if (this.dropdown) {
-      this.dropdown.highlightFirstItem();
+    if (this.dropdown?.current) {
+      this.dropdown.current.highlightFirstItem();
     }
   };
 
@@ -220,7 +222,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
         onKeyDown={onKeyDown}
         onSelect={onOptionSelect}
         qaHook={listQaHook}
-        ref={d => (this.dropdown = d)}
+        ref={this.dropdown}
         restrictFocus={restrictFocus}
         shouldManageInitialHighlight={false}
         size={dropdownSize}
@@ -242,7 +244,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
           matchTriggerWidth={matchTriggerWidth}
           onClose={compose(onClose, this.clearValue)}
           onOpen={this.onOpen}
-          ref={c => (this.ddt = c)}
+          ref={this.ddt}
           trigger={trigger}
         />
       </div>

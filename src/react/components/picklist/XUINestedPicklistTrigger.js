@@ -12,6 +12,8 @@ import {
 } from './private/constants';
 
 export default class XUINestedPicklistTrigger extends PureComponent {
+  rootNode = React.createRef();
+
   render() {
     const {
       className,
@@ -47,7 +49,7 @@ export default class XUINestedPicklistTrigger extends PureComponent {
         onFocus={onMouseOver}
         onKeyDown={onClick}
         onMouseOver={onMouseOver}
-        ref={n => (this.rootNode = n)}
+        ref={this.rootNode}
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
         role="button"
         tabIndex={0}

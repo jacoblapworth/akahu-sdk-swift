@@ -17,11 +17,11 @@ import { ns } from '../helpers/xuiClassNamespace';
 class XUITable extends Component {
   state = { rootWidth: null };
 
-  rootNode;
+  rootNode = React.createRef();
 
-  wrapperNode;
+  wrapperNode = React.createRef();
 
-  tableNode;
+  tableNode = React.createRef();
 
   instanceId = `xui-${nanoid(10)}`;
 
@@ -44,8 +44,8 @@ class XUITable extends Component {
 
   setCurrentWidth = () => {
     const { rootNode } = this;
-    const rootWidth = rootNode && rootNode.clientWidth;
-    const isRootWidthNew = rootNode && rootWidth !== this.state.rootWidth;
+    const rootWidth = rootNode?.current?.clientWidth;
+    const isRootWidthNew = rootNode?.current && rootWidth !== this.state.rootWidth;
 
     if (isRootWidthNew) {
       this.setState({ rootWidth });
@@ -54,22 +54,22 @@ class XUITable extends Component {
 
   setScrollOverflow = () => {
     const { rootNode, wrapperNode, tableNode } = this;
-    const scrollLeft = wrapperNode && wrapperNode.scrollLeft;
-    const wrapperWidth = wrapperNode && wrapperNode.clientWidth;
-    const tableWidth = tableNode && tableNode.clientWidth;
+    const scrollLeft = wrapperNode?.current?.scrollLeft;
+    const wrapperWidth = wrapperNode?.current?.clientWidth;
+    const tableWidth = tableNode?.current?.clientWidth;
     const leftAction = scrollLeft > 0;
     const rightAction = scrollLeft + wrapperWidth < tableWidth - 1; // `scrollLeft + wrapper width` is 1px less than `tableWidth` in Firefox when fully scrolled to the right
 
     if (leftAction) {
-      rootNode.classList.add(`${NAME_SPACE}-overflowleft`);
+      rootNode.current?.classList.add(`${NAME_SPACE}-overflowleft`);
     } else {
-      rootNode.classList.remove(`${NAME_SPACE}-overflowleft`);
+      rootNode.current?.classList.remove(`${NAME_SPACE}-overflowleft`);
     }
 
     if (rightAction) {
-      rootNode.classList.add(`${NAME_SPACE}-overflowright`);
+      rootNode.current?.classList.add(`${NAME_SPACE}-overflowright`);
     } else {
-      rootNode.classList.remove(`${NAME_SPACE}-overflowright`);
+      rootNode.current?.classList.remove(`${NAME_SPACE}-overflowright`);
     }
   };
 
@@ -86,8 +86,8 @@ class XUITable extends Component {
     // Generic measurements around where we are in the Table in respect to
     // width / scroll etc.
     const { clientWidth: cellWidth, offsetLeft: cellOffset } = event.currentTarget;
-    const scrollOffset = wrapperNode.scrollLeft;
-    const wrapperWidth = wrapperNode.clientWidth;
+    const scrollOffset = wrapperNode?.current?.scrollLeft;
+    const wrapperWidth = wrapperNode?.current?.clientWidth;
 
     // Where does the "left" and "right" of the Cell reside in respect to the
     // visible viewing area.
@@ -102,7 +102,7 @@ class XUITable extends Component {
       const overlap = relativeRightOffset - (wrapperWidth - ACTION_WIDTH);
       const hasRightOverlap = relativeRightOffset > wrapperWidth - ACTION_WIDTH;
 
-      wrapperNode.scrollLeft = hasRightOverlap ? scrollOffset + overlap : scrollOffset;
+      wrapperNode.current.scrollLeft = hasRightOverlap ? scrollOffset + overlap : scrollOffset;
       hasCellReset = hasRightOverlap;
     }
 
@@ -112,7 +112,7 @@ class XUITable extends Component {
       const overlap = ACTION_WIDTH - relativeLeftOffset;
       const hasLeftOverlap = hasPinnedFirstColumn && relativeLeftOffset < ACTION_WIDTH;
 
-      wrapperNode.scrollLeft = hasLeftOverlap ? scrollOffset - overlap : scrollOffset;
+      wrapperNode.current.scrollLeft = hasLeftOverlap ? scrollOffset - overlap : scrollOffset;
       hasCellReset = hasLeftOverlap;
     }
 
@@ -177,7 +177,7 @@ class XUITable extends Component {
     const handleScroll = hasPinnedFirstColumn || hasPinnedLastColumn ? this.scrollThrottled : noop;
 
     return (
-      <div className={className} data-automationid={qaHook} ref={node => (this.rootNode = node)}>
+      <div className={className} data-automationid={qaHook} ref={this.rootNode}>
         {header && (
           <div
             className={`${NAME_SPACE}--customheader`}
@@ -191,14 +191,14 @@ class XUITable extends Component {
           aria-labelledby={caption && `${this.instanceId}-caption`}
           className={`${NAME_SPACE}-wrapper`}
           onScroll={handleScroll}
-          ref={node => (this.wrapperNode = node)}
+          ref={this.wrapperNode}
           role={(isResponsive && 'group') || undefined}
           tabIndex={isResponsive ? 0 : undefined}
         >
           <table
             className={`${NAME_SPACE}-element`}
             data-automationid={qaHook && `${qaHook}-table`}
-            ref={node => (this.tableNode = node)}
+            ref={this.tableNode}
           >
             {caption && (
               <caption className={`${NAME_SPACE}--caption`} id={`${this.instanceId}-caption`}>

@@ -43,6 +43,22 @@ XUIToggleOption now includes updated padding, horizontal and vertical, for both 
 
 ## XUI React components
 
+### Refs implementation made consistent across XUI
+
+The following components have had refs updated to be implemented with `React.createRef()` so this approach is used to instantiate refs more consistently across the library. If you are calling or manipulating any of these refs, you may need to update those references to use `nameOfRef.current`
+- `XUIAutocompleterSecondarySearch` refs: `ddt` and `dropdown`
+- `XUIButton` refs: `rootNode`
+- `XUIIconButton` refs: `rootNode`
+- `XUIModal` ref: `_maskNode` and `_modalNode` (applications should not be using these internal properties)
+- `XUINestedPicklistTrigger` refs: `rootNode`
+- `XUIRolloverCheckbox` refs: `_checkbox` (applications should not be using this internal property)
+- `XUISelectBox` refs: `ddt` and `trigger`
+- `XUIStepper` refs: `rootNode`
+- `XUITable` refs: `rootNode`, `wrapperNode` and `tableNode`
+
+TypeScript types have also been made slightly more strict for instances of rootNode, as a result of this cleanup.
+
+
 ### XUIAccordion
 
 - `XUIAccordion` continues to support a `qaHook` property, however this value will no longer be passed down to its `XUIAccordionItem` child component/s. This allows each individual `XUIAccordionItem` to have its own unique `data-automationid`. If you are using markup snapshots or using these generated `data-automationid`s for your testing, these will need to be updated accordingly.

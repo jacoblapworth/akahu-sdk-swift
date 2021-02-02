@@ -15,7 +15,7 @@ nanoid.mockImplementation(() => 'xui-testDropdownId');
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const trigger = <button>trigger</button>;
+const trigger = <button type="button">trigger</button>;
 const createComponent = props => (
   <XUIAutocompleterSecondarySearch
     onSearch={() => {}}
@@ -139,6 +139,6 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
     const triggerButton = wrapper.find('button');
     triggerButton.simulate('keyDown', { key: eventKeyValues.space, keyCode: 32, which: 32 });
 
-    expect(wrapper.instance().ddt.state.isHidden).toBeFalsy();
+    expect(wrapper.instance().ddt.current.state.isHidden).toBeFalsy();
   });
 });

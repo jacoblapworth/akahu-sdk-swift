@@ -167,7 +167,7 @@ describe('XUIAutocompleter', () => {
       createComponent({
         onSearch: jest.fn(),
         disableWrapPills: true,
-        pills: [<XUIPill value="test" key="1" />],
+        pills: [<XUIPill key="1" value="test" />],
       }),
     );
     expect(disableWrapPills.find('.xui-autocompleter--pills-nopillwrap').length).toEqual(1);
@@ -279,6 +279,40 @@ describe('XUIAutocompleter', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  it('makes sure that onOptionSelect is called and verify keyboard bindings', async () => {
+    // Arrange
+    const onOptionSelect = jest.fn();
+
+    const wrapper = mount(
+      createComponent({
+        onSearch: jest.fn(),
+        onOptionSelect,
+      }),
+    );
+    const input = wrapper.find('input');
+
+    // Act
+    wrapper.instance().openDropdown();
+
+    input.simulate('change', {
+      target: {
+        value: 'item2',
+      },
+    });
+
+    input.simulate('keydown', { key: eventKeyValues.enter });
+
+    /**
+     * Why are we awaiting a 0ms timer?
+     * Rationale: To ensure that the test assertion runs after all the required re-renders have taken placed.
+     * Important: If jest.useFakeTimers() is used, this test must be placed in a separate describe test.
+     */
+    await wait();
+
+    // Assert
+    expect(onOptionSelect).toHaveBeenCalled();
+  });
+
   it('makes sure that onSearch gets called before onOptionSelect', async () => {
     // Arrange
     const onSearch = jest.fn();
@@ -286,7 +320,7 @@ describe('XUIAutocompleter', () => {
 
     const wrapper = mount(
       createComponent({
-        onSearch: onSearch,
+        onSearch,
         onOptionSelect,
       }),
     );

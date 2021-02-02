@@ -41,6 +41,10 @@ export default class XUIModal extends Component {
 
   generatedHeaderId = `xui-${nanoid(10)}`;
 
+  _maskNode = React.createRef();
+
+  _modalNode = React.createRef();
+
   componentDidMount() {
     const { isOpen } = this.props;
     const { isTopModal } = this.state;
@@ -54,8 +58,8 @@ export default class XUIModal extends Component {
 
       this.calcOffsetTop();
 
-      if (!this._maskNode.contains(activeElement)) {
-        this._modalNode.focus();
+      if (!this._maskNode?.current?.contains(activeElement)) {
+        this._modalNode?.current?.focus();
       }
     }
   }
@@ -96,9 +100,9 @@ export default class XUIModal extends Component {
       isOpen &&
       restrictFocus &&
       (!prevProps.isOpen || !prevProps.restrictFocus) &&
-      !this._maskNode.contains(activeElement)
+      !this._maskNode?.current?.contains(activeElement)
     ) {
-      this._modalNode.focus();
+      this._modalNode?.current?.focus();
     }
   }
 
@@ -143,7 +147,7 @@ export default class XUIModal extends Component {
    */
   calcOffsetTop = () => {
     const viewportH = verge.viewportH();
-    const modalHeight = this._modalNode.getBoundingClientRect().height;
+    const modalHeight = this._modalNode?.current?.getBoundingClientRect().height;
     /* subtracts 15px ($xui-s-standard) from `top` to take into account XUIMask's
      * (wrapping component) existing padding */
     const calculatedOffsetTop = Math.max((viewportH - modalHeight) / 2 - 15, 0);
@@ -176,7 +180,7 @@ export default class XUIModal extends Component {
   _restrictFocus = event => {
     const { isOpen, restrictFocus } = this.props;
 
-    if (!this._modalNode || !isOpen || !restrictFocus) {
+    if (!this._modalNode?.current || !isOpen || !restrictFocus) {
       return;
     }
 
@@ -188,7 +192,7 @@ export default class XUIModal extends Component {
     const maskAndPortalNodes = [...document.querySelectorAll(`.${portalClass}, .${maskClass}`)];
     if (!maskAndPortalNodes.some(node => node.contains(event.target))) {
       event.stopPropagation();
-      this._modalNode.focus();
+      this._modalNode?.current?.focus();
     }
   };
 
@@ -206,13 +210,13 @@ export default class XUIModal extends Component {
       return;
     }
 
-    const focusableDescendants = getFocusableDescendants(this._modalNode);
+    const focusableDescendants = getFocusableDescendants(this._modalNode?.current);
     const firstFocusableDescendant = focusableDescendants[0];
     const lastFocusableDescendant = [...focusableDescendants].slice(-1)[0];
 
     if (!event.shiftKey) {
       // Tabbing forwards
-      if (event.target === this._modalNode) {
+      if (event.target === this._modalNode?.current) {
         event.preventDefault();
         firstFocusableDescendant.focus();
       }
@@ -220,9 +224,9 @@ export default class XUIModal extends Component {
       // Tabbing backwards
       if (event.target === firstFocusableDescendant) {
         event.preventDefault();
-        this._modalNode.focus();
+        this._modalNode?.current?.focus();
       }
-      if (event.target === this._modalNode && !isUsingPortal) {
+      if (event.target === this._modalNode?.current && !isUsingPortal) {
         event.preventDefault();
         lastFocusableDescendant.focus();
       }
@@ -319,7 +323,7 @@ export default class XUIModal extends Component {
         data-automationid={qaHook && `${qaHook}--mask`}
         id={id}
         onClick={overlayClickHandler}
-        ref={m => (this._maskNode = m)}
+        ref={this._maskNode}
         role="presentation"
       >
         <MainElement
@@ -329,7 +333,7 @@ export default class XUIModal extends Component {
           className={modalClasses}
           data-automationid={qaHook}
           onKeyDown={this._manageTabFocus}
-          ref={m => (this._modalNode = m)}
+          ref={this._modalNode}
           role={isOpen ? 'dialog' : null}
           style={positionSettings}
           tabIndex={modalTabIndex}

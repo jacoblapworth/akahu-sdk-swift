@@ -164,8 +164,8 @@ describe('XUIRolloverCheckbox', () => {
 
     expected.instance().triggerCheckboxClick();
 
-    //Using a ref check here as the snapshot doesn't represent a checked state of the input.
-    expect(expected.instance()._checkbox._input.current.checked).toBeTruthy();
+    // Using a ref check here as the snapshot doesn't represent a checked state of the input.
+    expect(expected.instance()._checkbox.current?._input.current.checked).toBeTruthy();
   });
 
   it('should render the disabled classes and a disabled checkbox when isDisabled prop is true', () => {

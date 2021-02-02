@@ -37,6 +37,8 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
       value: '',
     };
 
+    _rootNode = React.createRef();
+
     onSearch = value => {
       this.setState(() => ({
         loading: true,
@@ -60,7 +62,7 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
 
     render() {
       return (
-        <div id="spl-wrapper" ref={comp => (this._rootNode = comp)} style={{ width: '300px' }}>
+        <div id="spl-wrapper" ref={this._rootNode} style={{ width: '300px' }}>
           <XUIAutoCompleter
             className="xui-u-fullwidth"
             footer={this.renderFooter(false)}

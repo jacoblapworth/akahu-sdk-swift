@@ -195,13 +195,13 @@ storiesWithKnobs.add('Playground', () => {
 class ScrollResetWrapper extends PureComponent {
   constructor() {
     super();
-    this.node = null;
+    this.node = React.createRef();
   }
 
   componentDidMount() {
     setTimeout(() => {
       const { node } = this;
-      const wrapper = node && node.querySelector('.xui-table-wrapper');
+      const wrapper = node?.current?.querySelector('.xui-table-wrapper');
       if (wrapper) {
         wrapper.scrollLeft = 0;
         logReadyState('xui-table-ready-event');
@@ -214,7 +214,7 @@ class ScrollResetWrapper extends PureComponent {
       props: { style, children },
     } = this;
     return (
-      <div className="xui-loader-static" ref={node => (this.node = node)} style={style}>
+      <div className="xui-loader-static" ref={this.node} style={style}>
         {children}
       </div>
     );

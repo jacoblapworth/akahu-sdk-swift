@@ -1,9 +1,11 @@
 import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import XUIIconButton from '../XUIIconButton';
 import renderer from 'react-test-renderer';
 import overflowIcon from '@xero/xui-icon/icons/overflow';
+import XUIIconButton from '../XUIIconButton';
+
+const { renderIntoDocument } = require('react-dom/test-utils');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -23,6 +25,12 @@ describe('<XUIIconButton/>', () => {
   it('should render an inverted iconButton with an `isInverted` prop', () => {
     const iconButton = renderer.create(<XUIIconButton {...requiredProps} isInverted />);
     expect(iconButton).toMatchSnapshot();
+  });
+
+  it('focus() should focus the DOM node', async () => {
+    const button = renderIntoDocument(<XUIIconButton {...requiredProps} />);
+    button.rootNode.current.focus();
+    expect(button.rootNode.current).toEqual(document.activeElement);
   });
 
   it('renders iconButtons with the correct icon size classes', () => {

@@ -17,6 +17,8 @@ export default class LayoutSelect extends React.Component {
     };
 
     this.onSelect = this.onSelect.bind(this);
+
+    this.selectOne = React.createRef();
   }
 
   onSelect(value) {
@@ -46,7 +48,7 @@ export default class LayoutSelect extends React.Component {
           isTextTruncated={false}
           label={label}
           name={name}
-          ref={c => (this.selectOne = c)}
+          ref={this.selectOne}
         >
           {children &&
             children.map((opt, idx) => (

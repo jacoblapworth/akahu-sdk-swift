@@ -13,6 +13,8 @@ import {
 import { colorClasses, wrapperSizeClasses, rotationClasses } from '../icon/private/constants';
 
 export default class XUIIconButton extends PureComponent {
+  rootNode = React.createRef();
+
   render() {
     const {
       ariaLabel,
@@ -39,7 +41,8 @@ export default class XUIIconButton extends PureComponent {
           iconSizeClass,
           iconVariantClassNames[isInverted ? 'icon-inverted' : 'icon'],
         )}
-        ref={n => (this.rootNode = n && n.rootNode)}
+        // NB: Passing up the rootNode ref of the XUIButton to be the rootNode ref of XUIIconButton
+        ref={n => (this.rootNode = n?.rootNode)}
         variant="unstyled"
       >
         <XUIIcon

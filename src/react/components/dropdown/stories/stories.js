@@ -48,6 +48,7 @@ const toggledShort = AddIdPropsToTextList(ShortListShortItems);
 const trigger = <XUIButton hasCaret>Open for goodies</XUIButton>;
 const header = (
   <XUIDropdownHeader
+    backButtonAriaLabel="Back"
     onPrimaryButtonClick={NOOP}
     onSecondaryButtonClick={NOOP}
     primaryButtonContent="Apply"
@@ -108,7 +109,7 @@ const nestedScrollable = (
     <XUIDropdownPanel
       header={
         <XUIDropdownHeader
-          backButtonLabel="Back"
+          backButtonAriaLabel="Back"
           onBackButtonClick={NOOP}
           onSecondaryButtonClick={NOOP}
           secondaryButtonContent="Cancel"
@@ -245,7 +246,7 @@ const createTriggerInput = props => (
 
 const createTriggerButton = () => <XUIButton fullWidth="always">A button</XUIButton>;
 
-const createTriggerLink = () => <a href="javascript:void(0);">A link</a>;
+const createTriggerLink = () => <a href="#">A link</a>;
 const createTriggerIcon = () => <XUIIconButton ariaLabel="Info" icon={info} />;
 
 const getPositioningTest = () => {

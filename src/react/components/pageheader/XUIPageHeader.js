@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
-import { observe, unobserve } from '../helpers/resizeObserver';
+import { observe, unobserve } from '../helpers/containerQuery';
 import WidthContext from '../../contexts/WidthContext';
 
 const baseClass = `${ns}-pageheading`;

@@ -10,6 +10,7 @@ import DragDropDraggingContext from './private/DragAndDrop/contexts/DragDropDrag
 import XUIEditableTableCell from './XUIEditableTableCell';
 import { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds, { generateIdsFromControlId } from '../controlwrapper/helpers';
+import useResizeObserver from '../helpers/useResizeObserver';
 
 const baseName = `${tableName}cell`;
 
@@ -23,7 +24,8 @@ const XUIEditableTableCellControl = ({
   validationMessage,
   ...spreadProps
 }) => {
-  const cellRef = React.useRef();
+  const { observedElementRef } = useResizeObserver();
+
   const controlBaseName = `${baseName}-control`;
   const { scrollContainerRef } = React.useContext(XUIEditableTableContext);
   const { draggedRowIndex } = React.useContext(DragDropDraggingContext);
@@ -44,13 +46,13 @@ const XUIEditableTableCellControl = ({
         isFocused && `${controlBaseName}-is-focused`,
         isInvalid && `${controlBaseName}-is-invalid`,
       )}
-      ref={cellRef}
+      ref={observedElementRef}
       {...spreadProps}
     >
       <EditableTableCellContext.Provider
         value={{
           cellAttributes,
-          cellRef,
+          cellRef: observedElementRef,
           useCellStyling: true,
         }}
       >
@@ -69,7 +71,7 @@ const XUIEditableTableCellControl = ({
           )}
           {isFocused && typeof draggedRowIndex !== 'number' && (
             <PortalFocus
-              focusedCellRef={cellRef}
+              focusedCellRef={observedElementRef}
               isFocused={isFocused}
               scrollContainerRef={scrollContainerRef}
             />

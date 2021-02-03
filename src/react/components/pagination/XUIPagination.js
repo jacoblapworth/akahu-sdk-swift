@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import Paging from './private/Paging';
 import ItemsElement from './private/ItemsElement';
-import useResizeObserver from '../helpers/useResizeObserver';
+import useContainerQuery from '../helpers/useContainerQuery';
 
 import { baseClass, defaultPerPageCountOptions } from './private/helpers';
 import checkRequiredProps from '../../helpers/checkRequiredProps';
@@ -32,7 +32,8 @@ const XUIPagination = ({
   showCount = true,
   showPerPageCountSelect = true,
 }) => {
-  const { ref, handleBreakpoint } = useResizeObserver();
+  const { observedElementRef, isWidthAboveBreakpoint } = useContainerQuery();
+
   const [currentPage, setCurrentPage] = useState(defaultPage);
   const [currentPerPageCount, setCurrentPerPageCount] = useState(defaultPerPageCount);
 
@@ -63,15 +64,20 @@ const XUIPagination = ({
   );
 
   const paginationClasses = cn(className, baseClass);
-  const isMedium = isResponsive && handleBreakpoint('medium');
-  const isSmall = isResponsive && handleBreakpoint('small');
+  const isMedium = isResponsive && !isWidthAboveBreakpoint('medium');
+  const isSmall = isResponsive && !isWidthAboveBreakpoint('small');
 
   const perPageCountNum = perPageCount || currentPerPageCount;
   const pageCount = Math.ceil(count / perPageCountNum);
   const currentPageNum = page || (currentPage > pageCount ? pageCount : currentPage);
 
   return (
-    <nav aria-label={ariaLabel} className={paginationClasses} data-automationid={qaHook} ref={ref}>
+    <nav
+      aria-label={ariaLabel}
+      className={paginationClasses}
+      data-automationid={qaHook}
+      ref={observedElementRef}
+    >
       {(showPerPageCountSelect || showCount) && (
         <ItemsElement
           count={count}

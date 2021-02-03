@@ -260,3 +260,14 @@ Components with invisible touch targets:
 - [XUICheckbox](https://xui.xero.com/17.0.0/section-components-controls-checkbox.html) and [XUIRolloverCheckbox](https://xui.xero.com/17.0.0/section-components-controls-checkbox.html#components-controls-checkbox-11)
 - [XUIRadio](https://xui.xero.com/17.0.0/section-components-controls-radio.html)
 - [XUISwitch](https://xui.xero.com/17.0.0/section-components-controls-switch.html)
+
+### Resize observers and container queries
+
+The XUI resize observer functionality has been split into two separate helpers: `resizeObserver.ts` and `containerQuery.ts`.
+
+- Resize observers can be used for monitoring and taking action depending on the size of individual elements.
+- Container queries combine resize observers with additional breakpoint logic based on the width of the observed element.
+
+We have also created two new React Hook versions of these helpers - `useResizeObserver.ts` and `useContainerQuery.ts` - designed for use in React function components.
+
+Read the [resize observers](https://xui.xero.com/latest/react/#resize-obervers) and [container queries](https://xui.xero.com/latest/react/#container-queries) sections of our docs for more information.

@@ -6,6 +6,7 @@ import XUIIconButton from '../button/XUIIconButton';
 import { sentimentMap, baseClass } from './private/constants';
 import XUIToastActions from './XUIToastActions';
 import XUIToastMessage from './XUIToastMessage';
+import shouldRender from '../helpers/shouldRender';
 
 const sentiments = Object.keys(sentimentMap);
 
@@ -29,7 +30,7 @@ const XUIToast = ({
   const sentimentClass = sentimentData && sentimentData.class;
   const a11yRole = role || (sentimentData && sentimentData.role) || 'status';
   const buttonQAHook = qaHook && `${qaHook}-close-button`;
-  const displayMessage = message && <XUIToastMessage>{message}</XUIToastMessage>;
+  const displayMessage = shouldRender(message) && <XUIToastMessage>{message}</XUIToastMessage>;
 
   const displayActions =
     actions && actions.length > 0 ? <XUIToastActions>{actions}</XUIToastActions> : null;

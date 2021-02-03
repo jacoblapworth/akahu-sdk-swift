@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import { ns } from '../../helpers/xuiClassNamespace';
+import shouldRender from '../../helpers/shouldRender';
 
 export default class LabelElement extends PureComponent {
   render() {
@@ -24,7 +25,7 @@ export default class LabelElement extends PureComponent {
     const isLabelTargetedByControl = isInline || isGroup;
     const TagType = isLabelTargetedByControl ? 'span' : 'label';
 
-    const labelElement = label != null && !isLabelHidden && (
+    const labelElement = shouldRender(label) && !isLabelHidden && (
       <TagType
         className={labelClasses}
         data-automationid={qaHook && `${qaHook}--label`}

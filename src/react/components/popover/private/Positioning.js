@@ -83,25 +83,35 @@ export default class Positioning extends React.Component {
       return;
     }
 
-    const contentRect = await execute(() => this.getContentRect(this.ref.current));
-    const triggerRect = await execute(() => this.props.triggerRef.current.getBoundingClientRect());
-
-    const positionHelper = await execute(
-      () =>
-        new PositioningHelper(preferredLocation, contentRect, triggerRect, triggerGap, pageGutter),
+    const contentRect = await execute(
+      () => this.ref.current && this.getContentRect(this.ref.current),
     );
+    const triggerRect = await execute(() => this.props.triggerRef.current?.getBoundingClientRect());
 
-    const location = await execute(() => positionHelper.getLocation());
-    const style = await execute(() => positionHelper.getPositionStyle());
-    const isFullWidth = await execute(() => positionHelper.isFullWidth());
+    if (triggerRect) {
+      const positionHelper = await execute(
+        () =>
+          new PositioningHelper(
+            preferredLocation,
+            contentRect,
+            triggerRect,
+            triggerGap,
+            pageGutter,
+          ),
+      );
 
-    // This function is called often so we only call `setState` if something has changed.
-    if (location !== this.state.location || !shallowCompare(style, this.state.style)) {
-      this.setState({
-        isFullWidth,
-        location,
-        style,
-      });
+      const location = await execute(() => positionHelper.getLocation());
+      const style = await execute(() => positionHelper.getPositionStyle());
+      const isFullWidth = await execute(() => positionHelper.isFullWidth());
+      // This function is called often so we only call `setState` if something has changed.
+
+      if (location !== this.state.location || !shallowCompare(style, this.state.style)) {
+        this.setState({
+          isFullWidth,
+          location,
+          style,
+        });
+      }
     }
 
     /**

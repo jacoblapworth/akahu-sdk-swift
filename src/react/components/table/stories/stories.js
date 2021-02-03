@@ -166,22 +166,18 @@ storiesWithKnobs.add('Playground', () => {
           body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
           head={<Cell sortKey="header-1">Header 1</Cell>}
         />
-
         <Column
           body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
           head={<Cell sortKey="header-2">Header 2</Cell>}
         />
-
         <Column
           body={data => <Cell {...cellProps}>Super looooooooonooooooooooog text {data._id}</Cell>}
           head={<Cell sortKey="header-3">Header 3</Cell>}
         />
-
         <Column
           body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
           head={<Cell sortKey="header-4">Header 4</Cell>}
         />
-
         <Column
           body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
           head={<Cell sortKey="header-5">Header 5</Cell>}

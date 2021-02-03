@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import invalid from '@xero/xui-icon/icons/invalid';
 import XUIIcon from '../../icon/XUIIcon';
+import shouldRender from '../../helpers/shouldRender';
 
 import { ns } from '../../helpers/xuiClassNamespace';
 
@@ -10,8 +11,8 @@ export default class MessageElement extends PureComponent {
   render() {
     const { className, isInvalid, validationMessage, hintMessage, qaHook, wrapperIds } = this.props;
 
-    const showingErrorMessage = isInvalid && validationMessage;
-    const messageElement = (validationMessage || hintMessage) && (
+    const showingErrorMessage = isInvalid && shouldRender(validationMessage);
+    const messageElement = [validationMessage, hintMessage].some(shouldRender) && (
       <div
         className={cn(
           `${ns}-validation`,

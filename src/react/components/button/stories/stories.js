@@ -32,7 +32,8 @@ const dropdownWithTrigger = (
         <p className="xui-padding-small">hello</p>
       </XUIDropdown>
     }
-    trigger={<XUISplitButton aria-label="Other actions" key="split" variant="primary" />}
+    key="ddt"
+    trigger={<XUISplitButton aria-label="Other actions" key="split3" variant="primary" />}
   />
 );
 
@@ -45,16 +46,16 @@ const buttonContents = {
     <XUIButton key="two">Additional very long content in a second button</XUIButton>,
   ],
   asSplitGroup: [
-    <XUIButton key="main">Main</XUIButton>,
-    <XUISplitButton aria-label="Other actions" key="split" />,
+    <XUIButton key="main1">Main</XUIButton>,
+    <XUISplitButton aria-label="Other actions" key="split1" />,
   ],
   asSplitGroupMulti: [
-    <XUIButton key="main">
+    <XUIButton key="main2">
       This is a bunch of multi line text to make sure the icon displays correctly
     </XUIButton>,
-    <XUISplitButton aria-label="Other actions" key="split" />,
+    <XUISplitButton aria-label="Other actions" key="split2" />,
   ],
-  asSplitGroupDropdown: [<XUIButton key="main">Main</XUIButton>, dropdownWithTrigger],
+  asSplitGroupDropdown: [<XUIButton key="main3">Main</XUIButton>, dropdownWithTrigger],
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);

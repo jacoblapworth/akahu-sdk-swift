@@ -18,20 +18,25 @@ import { XUITextInputSideElement } from '../../../textinput';
 import XUIPill from '../../../pill';
 import people from '../../autocompleter/private/people';
 
-const sampleReadOnly = (id, text) => (
-  <XUIEditableTableCellReadOnly id={id} key={id}>
+const sampleReadOnly = (id, text, settings, rowIndex) => (
+  <XUIEditableTableCellReadOnly id={id} key={`${rowIndex}_${id}`}>
     {text}
   </XUIEditableTableCellReadOnly>
 );
 
-const sampleTextInput = (id, text, { isDisabled, isInvalid, isMultiline, validationMessage }) => (
+const sampleTextInput = (
+  id,
+  text,
+  { isDisabled, isInvalid, isMultiline, validationMessage },
+  rowIndex,
+) => (
   <XUIEditableTableCellTextInput
     defaultValue={text}
     id={id}
     isDisabled={isDisabled}
     isInvalid={isInvalid}
     isMultiline={isMultiline}
-    key={id}
+    key={`${rowIndex}_${id}`}
     minRows={1}
     validationMessage={validationMessage}
   />
@@ -211,6 +216,7 @@ class AutoExample extends Component {
         inputLabel="autocompleter"
         isInputLabelHidden
         isInvalid={this.state.isInvalid}
+        key={`${this.props.rowIndex}_${this.props.index}`}
         leftElement={leftElement}
         onBackspacePill={this.deleteLastPerson}
         onSearch={this.onSearchChangeHandler}
@@ -227,8 +233,8 @@ class AutoExample extends Component {
   }
 }
 
-const sampleAutocompleter = (id, text, settings) => (
-  <AutoExample {...settings} index={id} key={id} placeholder={text} />
+const sampleAutocompleter = (id, text, settings, rowIndex) => (
+  <AutoExample {...settings} index={id} key={id} placeholder={text} rowIndex={rowIndex} />
 );
 
 const generateCell = ({
@@ -239,6 +245,7 @@ const generateCell = ({
   isDisabled,
   isInvalid,
   validationMessage,
+  rowIndex,
 }) => {
   const cellIndex = cellsCount.toString();
   const derivedCellType =
@@ -253,7 +260,7 @@ const generateCell = ({
   const text = (randomiseContent && texts[cellsCount % texts.length]) || derivedCellType;
   const cellGenerator = sampleTypes[derivedCellType];
   if (cellGenerator) {
-    return cellGenerator(cellIndex, text, settings);
+    return cellGenerator(columnIndex.toString(), text, settings, rowIndex);
   }
 };
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 import { isKeyClick } from '../helpers/reactKeyHandler';
+import shouldRender from '../helpers/shouldRender';
 
 const XUIContentBlockItem = ({
   _ariaControls,
@@ -38,10 +39,10 @@ const XUIContentBlockItem = ({
 
   const tagPositionInline = tagPosition === 'inline';
 
-  const builtHeadings = primaryHeading && (
+  const builtHeadings = shouldRender(primaryHeading) && (
     <div className={`${baseClass}--headings`}>
       <span className={`${baseClass}--primaryheading`}>{primaryHeading}</span>
-      {secondaryHeading && (
+      {shouldRender(secondaryHeading) && (
         <span className={`${baseClass}--secondaryheading`}>{secondaryHeading}</span>
       )}
       {tagPositionInline && tags}

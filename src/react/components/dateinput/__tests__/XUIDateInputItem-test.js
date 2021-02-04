@@ -3,7 +3,7 @@ import Enzyme, { mount } from 'enzyme';
 import { v4 as uuidv4 } from 'uuid';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import XUIDatePicker from '../private/XUIDateInputItem';
+import XUIDateInputItem from '../private/XUIDateInputItem';
 
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testDateinputId');
@@ -13,7 +13,7 @@ describe('XUIDateInput', () => {
   describe('Single DateInput', () => {
     const selectedDate = new Date(2020, 11, 15);
     const createComponent = props => (
-      <XUIDatePicker onSelectDate={() => {}} {...props} selectedDateValue={selectedDate} />
+      <XUIDateInputItem onSelectDate={() => {}} {...props} selectedDateValue={selectedDate} />
     );
 
     it.skip('inserts selected date value', () => {

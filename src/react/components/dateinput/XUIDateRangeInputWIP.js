@@ -97,6 +97,7 @@ class XUIDateRangeInputWIP extends Component {
       <XUIDropdown
         className={`${ns}-dateinput-rangedropdown--panel`}
         currentPanelId="convenienceDates"
+        size="small"
       >
         <XUIDropdownPanel panelId="convenienceDates">
           <XUIPicklist>

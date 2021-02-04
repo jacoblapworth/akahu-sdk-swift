@@ -46,8 +46,8 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
     const variationMinusStoryDetails = { ...variation };
-    variationMinusStoryDetails.storyKind = undefined;
-    variationMinusStoryDetails.storyTitle = undefined;
+    delete variationMinusStoryDetails.storyKind;
+    delete variationMinusStoryDetails.storyTitle;
 
     return (
       <div style={{ maxWidth: '600px' }}>

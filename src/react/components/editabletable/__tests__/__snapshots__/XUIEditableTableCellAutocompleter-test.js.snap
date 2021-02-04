@@ -25,6 +25,7 @@ exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
       }
     }
     isInputLabelHidden={true}
+    isLegacyDisplay={true}
     loading={false}
     matchTriggerWidth={true}
     onSearch={[Function]}

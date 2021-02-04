@@ -68,6 +68,7 @@ const PopoverWithTrigger = ({
       {buildTrigger(triggerText, triggerType, ref, () => setIsOpen(true), triggerStyle)}
       {isOpen && (
         <XUIPopover
+          id="test"
           {...props}
           onClickOutside={() => closeOnClickOutside && setIsOpen(false)}
           triggerRef={ref}

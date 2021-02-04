@@ -9,7 +9,7 @@ exports[`<XUIEditableTableCellControl /> composes the className correctly 1`] = 
       Object {
         "cellAttributes": undefined,
         "cellRef": Object {
-          "current": undefined,
+          "current": null,
         },
         "useCellStyling": true,
       }
@@ -31,7 +31,7 @@ exports[`<XUIEditableTableCellControl /> renders correctly 1`] = `
       Object {
         "cellAttributes": undefined,
         "cellRef": Object {
-          "current": undefined,
+          "current": null,
         },
         "useCellStyling": true,
       }

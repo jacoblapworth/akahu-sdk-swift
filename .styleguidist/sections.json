@@ -58,8 +58,8 @@
                 "content": "../src/react/components/button/button.icon.md"
               },
               {
-                "name": "Container Queries with Buttons",
-                "content": "../src/react/components/button/button.container.queries.md"
+                "name": "Resize Observers with Buttons",
+                "content": "../src/react/components/button/button.resize.observers.md"
               },
               {
                 "name": "Actions",
@@ -594,8 +594,12 @@
     "name": "Helpers",
     "sections": [
       {
-        "name": "Container Queries",
+        "name": "Resize Observers",
         "content": "../src/react/helpers/resizeObserver.md"
+      },
+      {
+        "name": "Container Queries",
+        "content": "../src/react/helpers/containerQueries.md"
       }
     ]
   }

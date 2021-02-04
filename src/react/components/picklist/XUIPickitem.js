@@ -5,6 +5,7 @@ import PickitemBody from './private/PickitemBody';
 import PickitemMultiselect from './private/PickitemMultiselect';
 import { pickitemClassName, sideElementClassName } from './private/constants';
 import { verticalOnlyProp } from './private/helpers';
+import shouldRender from '../helpers/shouldRender';
 
 /**
  * Presentational component used to display a selectable item in a
@@ -92,17 +93,17 @@ export default class XUIPickitem extends PureComponent {
     const wrappedRight = rightElement && (
       <span className={sideElementClassName}>{rightElement}</span>
     );
-    const secondaryWrapped = secondaryElement && (
+    const secondaryWrapped = shouldRender(secondaryElement) && (
       <span className={cn(`${pickitemClassName}--secondary`, truncationClassName)}>
         {secondaryElement}
       </span>
     );
-    const pinnedWrapped = pinnedElement && (
+    const pinnedWrapped = shouldRender(pinnedElement) && (
       <span className={cn(`${pickitemClassName}--pinned`, truncationClassName)}>
         {pinnedElement}
       </span>
     );
-    const headingWrapped = headingElement && (
+    const headingWrapped = shouldRender(headingElement) && (
       <span className={cn(`${pickitemClassName}--heading`, truncationClassName)}>
         {headingElement}
       </span>

@@ -107,7 +107,9 @@ class EditableTablePlayground extends React.Component {
             <XUIEditableTableHead>
               <XUIEditableTableRow>
                 {Array.from(Array(columnCount).keys()).map((item, index) => (
-                  <XUIEditableTableHeadingCell key={index}>I’m a cell</XUIEditableTableHeadingCell>
+                  <XUIEditableTableHeadingCell key={`head_${index}`}>
+                    I’m a cell
+                  </XUIEditableTableHeadingCell>
                 ))}
               </XUIEditableTableRow>
             </XUIEditableTableHead>
@@ -118,7 +120,7 @@ class EditableTablePlayground extends React.Component {
               <XUIEditableTableRow
                 disableRowControls={rowIndex === arr.length - 1 && disableRowControls}
                 index={rowIndex}
-                key={rowIndex}
+                key={`row_${rowIndex}`}
                 onRemove={() => console.log('remove me')}
               >
                 {Array.from(Array(columnCount).keys()).map((item, columnIndex) => {
@@ -133,6 +135,7 @@ class EditableTablePlayground extends React.Component {
                     isDisabled,
                     isInvalid,
                     validationMessage: cellsValidationMessage,
+                    rowIndex,
                   });
                 })}
               </XUIEditableTableRow>
@@ -205,7 +208,6 @@ storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
-    const variationMinusStoryDetails = { ...variation };
     const {
       columnCount,
       hasHeader,
@@ -213,18 +215,16 @@ variations.forEach(variation => {
       renderSmallerWrapper,
       showAddRowButton,
       cellType,
+      clickSelector,
       randomiseContent,
       scrollLeft,
+      storyKind,
+      storyTitle,
       withDisabled,
       withInvalid,
       validationMessage,
-    } = variationMinusStoryDetails;
-
-    delete variationMinusStoryDetails.storyKind;
-    delete variationMinusStoryDetails.storyTitle;
-    delete variationMinusStoryDetails.hasHeader;
-    delete variationMinusStoryDetails.renderSmallerWrapper;
-    delete variationMinusStoryDetails.showAddRowButton;
+      ...variationMinusStoryDetails
+    } = { ...variation };
 
     return (
       <EditableTableStoryWrapper
@@ -240,6 +240,7 @@ variations.forEach(variation => {
         variationMinusStoryDetails={variationMinusStoryDetails}
         withDisabled={withDisabled}
         withInvalid={withInvalid}
+        {...variationMinusStoryDetails}
       />
     );
   });
@@ -270,12 +271,18 @@ class EditableTableStoryWrapper extends React.Component {
     } = this.props;
     let cellsCount = 0;
     const editableTableComponent = (
-      <XUIEditableTable {...variationMinusStoryDetails} isInvalid={withInvalid}>
+      <XUIEditableTable
+        {...variationMinusStoryDetails}
+        isInvalid={withInvalid}
+        validationMessage={validationMessage}
+      >
         {(hasHeader && (
           <XUIEditableTableHead>
             <XUIEditableTableRow>
               {Array.from(Array(columnCount).keys()).map((item, index) => (
-                <XUIEditableTableHeadingCell key={index}>I’m a cell</XUIEditableTableHeadingCell>
+                <XUIEditableTableHeadingCell key={`head_${index}`}>
+                  I’m a cell
+                </XUIEditableTableHeadingCell>
               ))}
             </XUIEditableTableRow>
           </XUIEditableTableHead>
@@ -285,14 +292,14 @@ class EditableTableStoryWrapper extends React.Component {
           {Array.from(Array(rows).keys()).map((item, rowIndex) => (
             <XUIEditableTableRow
               index={rowIndex}
-              key={rowIndex}
+              key={`row_${rowIndex}`}
               onRemove={() => console.log('remove me')}
             >
               {Array.from(Array(columnCount).keys()).map((item, index) => {
                 cellsCount += 1;
 
                 return !cellType ? (
-                  <XUIEditableTableCellReadOnly id={index} key={index}>
+                  <XUIEditableTableCellReadOnly id={index} key={`${rowIndex}_${index}`}>
                     Cell text
                   </XUIEditableTableCellReadOnly>
                 ) : (
@@ -304,6 +311,7 @@ class EditableTableStoryWrapper extends React.Component {
                     isDisabled: withDisabled && index === 2,
                     isInvalid: withInvalid && rowIndex === 2,
                     validationMessage,
+                    rowIndex,
                   })
                 );
               })}

@@ -10,6 +10,7 @@ import {
   itemTextClassName,
   itemBodyClassName,
 } from './private/constants';
+import shouldRender from '../helpers/shouldRender';
 
 export default class XUINestedPicklistTrigger extends PureComponent {
   render() {
@@ -34,7 +35,9 @@ export default class XUINestedPicklistTrigger extends PureComponent {
       isHighlighted && `${pickitemClassName}-is-hovered`,
       isSelected && `${pickitemClassName}-is-selected`,
     );
-    const wrappedLeft = leftElement && <span className={sideElementClassName}>{leftElement}</span>;
+    const wrappedLeft = shouldRender(leftElement) && (
+      <span className={sideElementClassName}>{leftElement}</span>
+    );
 
     return (
       <label

@@ -46,6 +46,7 @@ XUIToggleOption now includes updated padding, horizontal and vertical, for both 
 ### Refs implementation made consistent across XUI
 
 The following components have had refs updated to be implemented with `React.createRef()` so this approach is used to instantiate refs more consistently across the library. If you are calling or manipulating any of these refs, you may need to update those references to use `nameOfRef.current`
+
 - `XUIAutocompleterSecondarySearch` refs: `ddt` and `dropdown`
 - `XUIButton` refs: `rootNode`
 - `XUIIconButton` refs: `rootNode`
@@ -57,7 +58,6 @@ The following components have had refs updated to be implemented with `React.cre
 - `XUITable` refs: `rootNode`, `wrapperNode` and `tableNode`
 
 TypeScript types have also been made slightly more strict for instances of rootNode, as a result of this cleanup.
-
 
 ### XUIAccordion
 

@@ -1,6 +1,10 @@
 import { ns } from './xuiClassNamespace';
 
-const breakpoints = {
+export type Breakpoints = {
+  [key: string]: number;
+};
+
+const breakpoints: Breakpoints = {
   xsmall: 400,
   small: 600, // $xui-breakpoint-small
   medium: 800, // $xui-breakpoint-medium
@@ -10,7 +14,7 @@ const breakpoints = {
 };
 
 export const widthBaseClass = `${ns}-width`;
-export const widthClasses = {
+export const widthClasses: { [key: string]: string } = {
   xsmall: `${widthBaseClass}-xsmall-up`,
   small: `${widthBaseClass}-small-up`,
   medium: `${widthBaseClass}-medium-up`,
@@ -24,6 +28,31 @@ export const userBreakpoints = {
   medium: breakpoints.medium,
   large: breakpoints.large,
   xlarge: breakpoints.xlarge,
+};
+
+export const handleBreakpoint = (
+  width: number,
+  breakpoint: string,
+  customBreakpoints?: Breakpoints,
+) => {
+  const breakpointToUse = customBreakpoints != null ? customBreakpoints : breakpoints;
+
+  return width >= breakpointToUse[breakpoint];
+};
+
+export const getWidthClassesFromState = (stateObj: { [key: string]: boolean }) => {
+  if (!stateObj) return [];
+  return Object.keys(widthClasses).map(width => stateObj[width] && widthClasses[width]);
+};
+
+export const getWidthClassesFromWidth = (width: number) => {
+  if (!width) return [];
+
+  const widthStateObj = Object.keys(breakpoints).reduce((accumulator, breakpoint) => {
+    return { ...accumulator, [breakpoint]: handleBreakpoint(width, breakpoint) };
+  }, {});
+
+  return getWidthClassesFromState(widthStateObj);
 };
 
 export default breakpoints;

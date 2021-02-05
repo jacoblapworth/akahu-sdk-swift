@@ -56,7 +56,9 @@ const sampleActions = ({ isLinear, actionsCount, hasLayout, hasSplitButton, hasD
     hasLayout={hasLayout}
     isLinear={isLinear}
     primaryAction={hasSplitButton ? splitButtonExample(hasDropdown) : simpleButton}
-    secondaryAction={actionsCount > 1 && <XUIButton href="https://xui.xero.com">XUI</XUIButton>}
+    secondaryAction={
+      (actionsCount > 1 && <XUIButton href="https://xui.xero.com">XUI</XUIButton>) || null
+    }
   />
 );
 

@@ -3,9 +3,9 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 import combineRefs from '../../helpers/combineRefs';
+import useResizeObserver from '../../helpers/useResizeObserver';
 import { ns } from '../../helpers/xuiClassNamespace';
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
-import useResizeObserver from './helpers/useResizeObserver';
 
 const baseName = `${ns}-editabletableoverflow`;
 
@@ -26,15 +26,7 @@ const EditableTableOverflow: React.FunctionComponent<Props> = React.forwardRef<H
     const [hasRightOverflow, setRightOverflow] = React.useState<boolean>();
     const [hasFirstPinOverflow, setFirstPinOverflow] = React.useState<boolean>();
     const [hasLastPinOverflow, setLastPinOverflow] = React.useState<boolean>();
-
-    const {
-      contentRect: { height, width, x, y },
-      observedElementRef,
-    } = useResizeObserver();
-
-    // Re-render on resize
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    React.useLayoutEffect(() => {}, [height, width, x, y]);
+    const { observedElementRef } = useResizeObserver();
 
     const combinedRef = combineRefs(ref, editableTableOverflowRef, observedElementRef);
 

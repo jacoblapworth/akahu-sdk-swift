@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import { ns } from '../helpers/xuiClassNamespace';
-import { observe, unobserve, getWidthClasses } from '../helpers/resizeObserver';
+import { getWidthClassesFromState, observe, unobserve } from '../helpers/containerQuery';
 
 export default class XUIGridAreaDetail extends PureComponent {
   _area = React.createRef();
@@ -19,7 +19,7 @@ export default class XUIGridAreaDetail extends PureComponent {
   render() {
     const { children, ...otherProps } = this.props;
 
-    const classNames = cn(`${ns}-gridarea-detail`, ...getWidthClasses(this.state));
+    const classNames = cn(`${ns}-gridarea-detail`, ...getWidthClassesFromState(this.state));
 
     return (
       <div className={classNames} ref={this._area} {...otherProps}>

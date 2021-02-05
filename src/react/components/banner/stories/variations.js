@@ -87,8 +87,8 @@ const variations = [
     onCloseClick: NOOP,
     detailItems: [
       'This is the detail message that appears below',
-      'This is the detail message that appears below',
-      'This is the detail message that appears below',
+      'This is the detail message that appears below ',
+      'This is the detail message that appears below  ',
     ],
     actionProps: [
       {

@@ -1055,7 +1055,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
 </nav>
 `;
 
-exports[`<XUIPagination/> should render with customized defaultPage 2`] = `
+exports[`<XUIPagination/> should render with customized defaultPerPageCount 1`] = `
 <nav
   aria-label="Pagination"
   className="xui-pagination"

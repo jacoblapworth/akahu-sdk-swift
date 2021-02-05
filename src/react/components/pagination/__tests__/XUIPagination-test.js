@@ -19,6 +19,7 @@ const defaultProps = {
   count: 97,
   createCountContent: defaultCreateCountContent,
   createPagingContent: defaultCreatePagingContent,
+  isResponsive: false,
   nextPageLabel: 'Next Page',
   pageSelectLabel: 'Select a page',
   perPageContent: defaultPerPageContent,
@@ -82,7 +83,7 @@ describe('<XUIPagination/>', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should render with customized defaultPage', () => {
+  it('should render with customized defaultPerPageCount', () => {
     const component = renderer.create(<DefaultPagination defaultPerPageCount={25} />);
     expect(component).toMatchSnapshot();
   });

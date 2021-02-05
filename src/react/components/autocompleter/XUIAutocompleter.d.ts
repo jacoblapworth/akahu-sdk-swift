@@ -94,6 +94,12 @@ interface Props {
    */
   isInvalid?: boolean;
   /**
+   * Whether the underlying DropdownToggled component uses the "legacy" (portaled) display.
+   *
+   * Defaults to "true."
+   */
+  isLegacyDisplay?: boolean;
+  /**
    * Left element to render within the `XUITextInput` component. Should not be used together with
    * the `pills` prop.
    */

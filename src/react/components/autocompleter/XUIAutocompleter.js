@@ -259,6 +259,7 @@ export default class XUIAutocompleter extends PureComponent {
       validationMessage,
       hintMessage,
       onKeyDown,
+      isLegacyDisplay,
     } = this.props;
     const { value, focused, inputWidth } = this.state;
     let inputQaHook = null;
@@ -369,6 +370,7 @@ export default class XUIAutocompleter extends PureComponent {
           dropdown={dropdown}
           forceDesktop={forceDesktop}
           isBlock
+          isLegacyDisplay={isLegacyDisplay}
           matchTriggerWidth={matchTriggerWidth && !dropdownSize}
           onClose={onClose}
           onOpen={onOpen}
@@ -450,6 +452,12 @@ XUIAutocompleter.propTypes = {
 
   /** Whether the current input value is invalid */
   isInvalid: PropTypes.bool,
+
+  /**
+   * Whether the underlying DropdownToggled component uses the "legacy" (portaled) display.
+   * Defaults to "true."
+   */
+  isLegacyDisplay: PropTypes.bool,
 
   /** Left element to render within the `XUITextInput` component. Should not be used together with
    * the `pills` prop */
@@ -534,6 +542,7 @@ XUIAutocompleter.defaultProps = {
   disableWrapPills: false,
   dropdownFixedWidth: false,
   forceDesktop: true,
+  isLegacyDisplay: true,
   loading: false,
   matchTriggerWidth: true,
   openOnFocus: false,

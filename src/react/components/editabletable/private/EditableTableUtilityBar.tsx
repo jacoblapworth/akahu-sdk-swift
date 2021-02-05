@@ -3,9 +3,9 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 import combineRefs from '../../helpers/combineRefs';
+import useResizeObserver from '../../helpers/useResizeObserver';
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
 import { tableName } from './constants';
-import useResizeObserver from './helpers/useResizeObserver';
 
 const baseName = `${tableName}utilitybar`;
 
@@ -36,11 +36,14 @@ const EditableTableUtilityBar: React.FunctionComponent<Props> = ({
   const combinedRef = combineRefs(observedElementRef);
 
   React.useLayoutEffect(() => {
-    if (scrollContainerRef?.current) {
-      const wrapperNode = scrollContainerRef.current;
-      // The action cell should stretch to the whole row
-      setColSpan(wrapperNode.querySelector('tr')?.children.length);
-      setWrapperWidth(wrapperNode.clientWidth - 2);
+    const wrapperNode = scrollContainerRef?.current;
+    if (wrapperNode) {
+      const tableCells = wrapperNode?.querySelector('tr')?.children;
+      if (tableCells) {
+        // The action cell should stretch to the whole row
+        setColSpan(tableCells.length);
+        setWrapperWidth(wrapperNode.clientWidth - 2);
+      }
     }
   }, [scrollContainerRef, width]);
 

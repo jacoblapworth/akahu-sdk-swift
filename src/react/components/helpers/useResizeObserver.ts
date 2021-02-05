@@ -12,8 +12,13 @@ import ResizeObserver from 'resize-observer-polyfill';
  */
 export default function useResizeObserver() {
   const observedElementRef = React.useRef<HTMLElement>(null);
-  const [entries, setEntries] = React.useState<ResizeObserverEntry[]>([]);
-  const [resizeObserver] = React.useState(new ResizeObserver(setEntries));
+  const [resizeObserverEntry, setResizeObserverEntry] = React.useState<ResizeObserverEntry>();
+  const [resizeObserver] = React.useState(
+    new ResizeObserver(entries => {
+      const currentEntry = entries.find(entry => entry.target === observedElementRef.current);
+      setResizeObserverEntry(currentEntry);
+    }),
+  );
 
   const observe = React.useCallback(() => {
     if (observedElementRef.current) {
@@ -32,8 +37,7 @@ export default function useResizeObserver() {
     return () => unobserve();
   }, [observedElementRef, observe, unobserve]);
 
-  const contentRect = (entries.find(entry => entry.target === observedElementRef.current)
-    ?.contentRect || {}) as Partial<DOMRectReadOnly>;
+  const contentRect = (resizeObserverEntry?.contentRect || {}) as Partial<DOMRectReadOnly>;
 
   return { observedElementRef, contentRect };
 }

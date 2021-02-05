@@ -1,123 +1,93 @@
-XUI provides container queries for monitoring and taking action depending on the size of individual elements. Rather than using CSS media queries to detect the size of the whole viewport, container queries are attached to a DOM node. To do this, we use the Resize Observer web API and polyfills for browsers that don't yet support it.
+**Note:** If you want to implement resize observers with width breakpoints, check out the [container queries](#container-queries) section.
+
+XUI provides resize observers for monitoring and taking action depending on the size of individual elements. Rather than using CSS media queries to detect the size of the whole viewport, resize observers are attached to a DOM node. To do this, we use the Resize Observer web API and polyfills for browsers that don't yet support it.
 
 If you are using Compositions, the grid areas already have resize observers that attach predefined width classes at XUI-standard breakpoints. It's likely you can build styles that leverage these existing observers. However, you may also wish to add your own; use these sparingly, to avoid negatively impacting browser performance.
 
-There are few steps to set up additional observers.
+XUI offers two versions of a resize observer: one built for function components (using React Hooks), and one built for class components. Steps to implement each are detailed below.
 
-1. Import or require `observe`, `unobserve` and optionally, `getWidthClasses` from `resizeObserver.js` in XUI
-2. Create a `ref` to the DOM node you wish to track, using React's `createRef` method. This should be stored in a component-level property named `_area`
-3. In `componentDidMount`, `observe` the component, after ensuring the node ref is present. Likewise, in `componentWillUnmount`, `unobserve` it
+### Function components (React Hooks)
 
-Once set up, there are a few ways to use the observers.
+1. Import `useResizeObserver` from `useResizeObserver.ts` in XUI.
+2. Inside the component, destructure `observedElementRef` and `contentRect` from `useResizeObserver()`.
+3. Attach the `observedElementRef` to the `HTMLElement` you wish to observe.
+4. To re-render a component on resize, you can use the properties of the provided `contentRect` as the dependencies of a `React.useLayoutEffect` within your component.
 
-1. Set the predefined width classes on the observed element, using `getWidthClasses`
-2. Provide a custom set of breakpoints as an object on the `_breakpoints` property of the component. `_breakpoints` should have string property names and numeric values. On resize, the properties of this object will be mapped to the component's state with a value of `true` if the element is greater than or equal to the specified pixel width, or `false` if not. See the first sample, below, for how this works with the predefined breakpoints.
-3. Provide an `_onResize` method of your component, which upon resize will be receive the `width` of the element, in pixels. We highly recommend debouncing or throttling this function
-
-## Examples
-
-### Applies predefined classes at standard sizes
+#### Component swapping on resize
 
 ```jsx harmony
-import { Component } from 'react';
-import cn from 'classnames';
-import { observe, unobserve, getWidthClasses } from '@xero/xui/react/helpers/resizeObserver';
+import React from 'react';
+import overflow from '@xero/xui-icon/icons/overflow';
+import XUIIcon from '@xero/xui/react/icon';
+import XUIButton, {
+  XUIButtonGroup,
+  XUISecondaryButton,
+  XUISplitButtonGroup,
+  XUIIconButton
+} from '@xero/xui/react/button';
+import useResizeObserver from '@xero/xui/react/helpers/useResizeObserver';
+
+const buttonGroup = (
+  <XUIButtonGroup>
+    <XUIButton key="one">One</XUIButton>
+    <XUIButton key="two">Two</XUIButton>
+  </XUIButtonGroup>
+);
+
+const splitButton = (
+  <XUISplitButtonGroup>
+    <XUIButton key="main">Main</XUIButton>
+    <XUISecondaryButton key="split" aria-label="Other actions" />
+  </XUISplitButtonGroup>
+);
+
+const overflowButton = (
+  <XUIIconButton icon={overflow} ariaLabel="More options" title="More options" />
+);
 
 const wrapperStyles = {
   resize: 'horizontal',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  maxWidth: '100%'
 };
 
-class SizeClassTest extends Component {
-  constructor(...args) {
-    super(...args);
-    this._area = React.createRef();
-  }
+const ComponentSwapper = () => {
+  const {
+    contentRect: { width },
+    observedElementRef
+  } = useResizeObserver();
 
-  componentDidMount() {
-    this._area.current && observe(this);
-  }
+  const [contentToDisplay, setContent] = React.useState(overflowButton);
 
-  componentWillUnmount() {
-    this._area.current && unobserve(this);
-  }
+  React.useLayoutEffect(() => {
+    let content;
+    if (width < 600) {
+      content = overflowButton;
+    } else if (width < 800) {
+      content = splitButton;
+    } else {
+      content = buttonGroup;
+    }
+    setContent(content);
+  }, [width]);
 
-  render() {
-    const classNames = cn(...getWidthClasses(this.state));
-
-    return (
-      <div
-        /* On a separate element so width-classes are easier to read */
-        className="xui-panel xui-padding-xsmall"
-        style={wrapperStyles}
-      >
-        <div ref={this._area} className={classNames}>
-          This panel is resizeable in some browsers. Try it (or resize your window), and check out
-          the classes on the inner element.
-        </div>
-      </div>
-    );
-  }
-}
-<SizeClassTest />;
-```
-
-### Applies custom breakpoints
-
-```jsx harmony
-import { Component } from 'react';
-import { XUIIconButton } from '@xero/xui/react/button';
-import { observe, unobserve } from '@xero/xui/react/helpers/resizeObserver';
-import info from '@xero/xui-icon/icons/info';
-import cross from '@xero/xui-icon/icons/cross';
-import search from '@xero/xui-icon/icons/search';
-import accessibility from '@xero/xui-icon/icons/accessibility';
-
-const wrapperStyles = {
-  resize: 'horizontal',
-  overflow: 'hidden'
+  return (
+    <div ref={observedElementRef} style={wrapperStyles} className="xui-panel xui-padding-xsmall">
+      {contentToDisplay}
+    </div>
+  );
 };
-
-class BreakpointsTest extends Component {
-  constructor(...args) {
-    super(...args);
-    this.state = {};
-    this._area = React.createRef();
-    this._breakpoints = {
-      info: 950,
-      cross: 750,
-      search: 550,
-      accessibility: 350
-    };
-  }
-
-  componentDidMount() {
-    this._area.current && observe(this);
-  }
-
-  componentWillUnmount() {
-    this._area.current && unobserve(this);
-  }
-
-  render() {
-    return (
-      <div ref={this._area} className="xui-panel xui-padding-xsmall" style={wrapperStyles}>
-        {this.state.accessibility && (
-          <XUIIconButton icon={accessibility} ariaLabel="Hello" title="Hello" />
-        )}
-        {this.state.search && <XUIIconButton icon={search} ariaLabel="Find one" title="Find one" />}
-        {this.state.cross && (
-          <XUIIconButton icon={cross} ariaLabel="Add another" title="Add another" />
-        )}
-        {this.state.info && <XUIIconButton icon={info} ariaLabel="More info" title="More info" />}
-      </div>
-    );
-  }
-}
-<BreakpointsTest />;
+<ComponentSwapper />;
 ```
 
-### Component swapping on resize
+### Class components
+
+1. Import or require `observe` and `unobserve` from `resizeObserver.ts` in XUI.
+2. Create a `ref` to the DOM node you wish to track, using React's `createRef` method. This should be stored in a component-level property named `_area`.
+3. In `componentDidMount`, `observe` the component, after ensuring the node ref is present. Likewise, in `componentWillUnmount`, `unobserve` it.
+4. Provide an `_onResize` method to your component, which upon resize will receive the `width` of the element, in pixels. We highly recommend debouncing or throttling this function.
+
+#### Component swapping on resize
 
 ```jsx harmony
 import { Component } from 'react';

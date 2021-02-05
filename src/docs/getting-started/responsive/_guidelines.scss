@@ -2,7 +2,7 @@
 //
 // Introduction: There are important things to consider when creating an experience that works well across a range of screen sizes and devices. Below are some tips for designing and developing responsive products, followed by other detailed responsive-specific guidelines.
 //
-// Weight: 1.53
+// Weight: 1.22 
 //
 // Styleguide: Getting Started.Responsive.Guidelines
 
@@ -30,7 +30,9 @@
 //
 // Our goal is to create the least amount of additional work for development teams, and instead do what we can to anticipate your needs. In this way, every component has a baseline acceptance for responsive support. This refers to small things like making sure all our CSS is using flexible units, and our JS is performant. For some high use components however, we go the extra mile to make sure the experience is better than just baseline. Components like dropdowns, steppers and tooltips render conditional markup based on screen width, position, and user-defined content. Similarly to accessibility however, if this is not a priority for your team, it will stop there. Extra effort must be added on your part to make sure this standard is maintained across your product.
 //
-// For React components, XUI provides [Container Queries](./react/#container-queries) for monitoring and taking action depending on the size of individual elements. Rather than using CSS media queries to detect the size of the whole viewport, container queries are attached to a DOM node.
+// For React components, XUI provides [Resize Observers](./react/#resize-observers) for monitoring and taking action depending on the size of individual elements. Rather than using CSS media queries to detect the size of the whole viewport, resize observers are attached to a DOM node.
+//
+// XUI also provides [Container Queries](./react/#container-queries) for React components, which combine the Resize Observers with additional breakpoint logic based on the width of the observed element.
 //
 // Tips:
 // Do: Use provided XUI composition components for handling responsive reflowing logic

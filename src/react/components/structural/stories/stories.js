@@ -78,12 +78,16 @@ const handleVariation = (variationSet, renderer) => {
   });
 };
 
-handleVariation(variations, variationMinusStoryDetails => (
-  <XUIRow
-    {...variationMinusStoryDetails}
-    className="xui-padding-small"
-    style={{ backgroundColor: '#028DDE' }}
-  >
-    {buildColumns(variationMinusStoryDetails.columnWidths)}
-  </XUIRow>
-));
+handleVariation(variations, variationMinusStoryDetails => {
+  const { columnWidths } = variationMinusStoryDetails;
+  delete variationMinusStoryDetails.columnWidths;
+  return (
+    <XUIRow
+      {...variationMinusStoryDetails}
+      className="xui-padding-small"
+      style={{ backgroundColor: '#028DDE' }}
+    >
+      {buildColumns(columnWidths)}
+    </XUIRow>
+  );
+});

@@ -257,6 +257,7 @@ const variations = [
       dragButtonAriaLabel: 'Reorder row',
     },
     rows: 5,
+    ...dragAndDropProps,
   },
   {
     storyKind: variationStoryKindName,

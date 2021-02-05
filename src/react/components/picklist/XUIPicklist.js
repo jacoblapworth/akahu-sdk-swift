@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { observe, unobserve } from '../helpers/resizeObserver';
+import { observe, unobserve } from '../helpers/containerQuery';
+
 import '../helpers/xuiGlobalChecks';
 import { picklistClassName } from './private/constants';
 import XUIPickitem from './XUIPickitem';

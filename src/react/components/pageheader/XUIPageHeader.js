@@ -2,8 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
-import { observe, unobserve } from '../helpers/resizeObserver';
+import { observe, unobserve } from '../helpers/containerQuery';
 import WidthContext from '../../contexts/WidthContext';
+import shouldRender from '../helpers/shouldRender';
 
 const baseClass = `${ns}-pageheading`;
 
@@ -64,16 +65,16 @@ export default class XUIPageHeader extends PureComponent {
         className: cn(tabs.props.className, `${baseClass}--tabs`),
       });
 
-    const titleTags = (title || secondary || supplementary || tags) && (
+    const titleTags = ([title, secondary, supplementary].some(shouldRender) || tags) && (
       <div
         className={cn(`${baseClass}--titlewrapper`, tags && `${baseClass}--titlewrapper-has-tags`)}
       >
-        {title && (
+        {shouldRender(title) && (
           <h1 className={`${baseClass}--title`} data-automationid={qaHook && `${qaHook}--title`}>
             {title}
           </h1>
         )}
-        {secondary && (
+        {shouldRender(secondary) && (
           <div
             className={`${baseClass}--secondarytitle`}
             data-automationid={qaHook && `${qaHook}--secondarytitle`}
@@ -82,7 +83,7 @@ export default class XUIPageHeader extends PureComponent {
           </div>
         )}
         {tags && <div className={`${baseClass}--tags`}>{tags}</div>}
-        {supplementary && (
+        {shouldRender(supplementary) && (
           <div
             className={`${baseClass}--supplementarytext`}
             data-automationid={qaHook && `${qaHook}--supplementarytext`}

@@ -19,6 +19,7 @@ const defaultProps = {
   count: 97,
   createCountContent: defaultCreateCountContent,
   createPagingContent: defaultCreatePagingContent,
+  isResponsive: false,
   nextPageLabel: 'Next Page',
   pageSelectLabel: 'Select a page',
   perPageContent: defaultPerPageContent,

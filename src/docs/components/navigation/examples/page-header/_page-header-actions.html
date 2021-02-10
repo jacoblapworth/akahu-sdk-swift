@@ -1,41 +1,55 @@
-<header class="xui-pageheading">
-  <div
-    class="xui-pageheading--content xui-pageheading--content-layout xui-pageheading--content-no-tabs"
-  >
+<header class="xui-pageheading xui-margin-bottom-xlarge">
+  <div class="xui-pageheading--content xui-pageheading--content-layout">
     <div class="xui-pageheading--leftcontent">
-      <div class="xui-pageheading--titlewrapper">
-        <h1 class="xui-pageheading--title">Employees</h1>
+      <div class="xui-pageheading--titlewrapper xui-pageheading--titlewrapper-has-tags">
+        <h1 class="xui-pageheading--title">Business snapshot</h1>
       </div>
     </div>
     <div class="xui-pageheading--rightcontent xui-pageheading--rightcontent-no-tabs">
       <div class="xui-pageheading--actions">
-        <div class="xui-buttongroup">
+        <div class="xui-actions xui-actions-layout">
           <button
+            class="xui-button xui-actions--secondary xui-button-standard xui-button-small"
+            tabindex="0"
             type="button"
-            class="xui-button xui-button-grouped xui-button-create xui-button-small"
           >
-            New employee
-          </button>
-          <button
-            type="button"
-            class="xui-button xui-button-grouped xui-button-create xui-button-split xui-button-small"
-            title="Other actions"
-          >
-            <svg focusable="false" class="xui-icon xui-button--caret" role="presentation">
-              <use xlink:href="#xui-icon-caret" />
-            </svg>
+            Print
           </button>
         </div>
-        <button
-          type="button"
-          class="xui-button xui-button-icon xui-button-icon-small"
-          title="More options"
-        >
-          <svg focusable="false" class="xui-icon" role="presentation">
-            <use xlink:href="#xui-icon-overflow" />
-          </svg>
-          <div class="xui-touchtarget"></div>
-        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<header class="xui-pageheading">
+  <div class="xui-pageheading--content xui-pageheading--content-layout">
+    <div class="xui-pageheading--leftcontent">
+      <div class="xui-pageheading--titlewrapper xui-pageheading--titlewrapper-has-tags">
+        <h1 class="xui-pageheading--title">Projects</h1>
+      </div>
+    </div>
+    <div class="xui-pageheading--rightcontent xui-pageheading--rightcontent-no-tabs">
+      <div class="xui-pageheading--actions">
+        <div class="xui-actions xui-actions-layout">
+          <button
+            class="xui-button xui-actions--primary xui-button-create xui-button-small xui-button-has-icon"
+            tabindex="0"
+            type="button"
+          >
+            New project
+            <div class="xui-button--caret xui-iconwrapper xui-iconwrapper-small">
+              <svg focusable="false" class="xui-icon" role="presentation">
+                <use xlink:href="#xui-icon-caret" />
+              </svg>
+            </div>
+          </button>
+          <button
+            class="xui-button xui-actions--secondary xui-button-standard xui-button-small"
+            tabindex="0"
+            type="button"
+          >
+            Project summary report
+          </button>
+        </div>
       </div>
     </div>
   </div>

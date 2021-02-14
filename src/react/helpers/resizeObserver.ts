@@ -1,7 +1,3 @@
-import {
-  getWidthClassesFromState as getWidthClasses,
-  observe,
-  unobserve,
-} from '../components/helpers/resizeObserver';
+import { observe, unobserve } from '../components/helpers/resizeObserver';
 
-export { getWidthClasses, observe, unobserve };
+export { observe, unobserve };

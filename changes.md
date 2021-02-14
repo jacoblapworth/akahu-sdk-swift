@@ -73,3 +73,11 @@ TypeScript types have also been made slightly more strict for instances of rootN
 _Note. The codemod will resolve most prop differences automatically when run._
 
 ## Other changes
+
+### Resize observers
+
+A few changes have been made to the XUI `resizeObserver` helper in order to bring the API in line with our `useResizeObserver` Hook.
+
+- `resizeObserver` no longer exports `getWidthClasses`. This has been moved to the `containerQuery` helper. Please refer to the [container queries](https://xui.xero.com/latest/react/#container-queries) section of our docs and update your code to use the `containerQuery` helper if you wish to retain this functionality.
+- `resizeObserver` no longer allows custom breakpoints to be set via `_breakpoints`. This has been moved to the `containerQuery` helper. Please refer to the [container queries](https://xui.xero.com/latest/react/#container-queries) section of our docs and update your code to use the `containerQuery` helper if you wish to retain this functionality.
+- The `_onResize` function will return the `contentRect` rather than the `contentRect.width`. This will allow the ability to apply changes on resize of other `contentRect` parameters.

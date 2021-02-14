@@ -1,12 +1,12 @@
 import * as React from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 
-import defaultBreakpoints, { Breakpoints, getWidthClassesFromState } from './breakpoints';
+import { Breakpoints } from './breakpoints';
 
 export type Component = {
   _area: React.RefObject<HTMLElement>;
   _breakpoints: Breakpoints;
-  _onResize: (width: number) => void;
+  _onResize: (contentRect: DOMRectReadOnly) => void;
 } & React.Component;
 
 type SetBreakpoints = (component: Component, width: number) => void;
@@ -29,24 +29,11 @@ const handleEntries = (entries: ResizeObserverEntry[]) => {
 
     if (typeof setBreakpoints === 'function') {
       setBreakpoints(component, entry.contentRect.width);
-    } else {
-      const customBreakpoints = component._breakpoints;
-      const breakpoints = customBreakpoints || defaultBreakpoints;
-
-      const newState = {};
-      Object.keys(breakpoints).forEach(breakpoint => {
-        const minWidth = breakpoints[breakpoint];
-        newState[breakpoint] = entry.contentRect.width >= minWidth;
-      });
-
-      component.setState(newState);
     }
 
     if (typeof component._onResize === 'function') {
-      // Currently returns 'width' in order to not introduce breaking changes
-      // This will later be changed to instead return 'entry.contentRect'
-      // This will allow implementers more flexibility with applying changes on resize
-      component._onResize(entry.contentRect.width);
+      // Specifying DOMRectReadOnly to avoid using the ResizeOberver polyfill's DOMRect
+      component._onResize(entry.contentRect as DOMRectReadOnly);
     }
   });
 };
@@ -77,7 +64,3 @@ export const unobserve = (component: Component) => {
   entryComponentMap.delete(element);
   ro?.unobserve(element);
 };
-
-// This will be removed as part of breaking changes
-// as this functionality will be elevated to 'containerQuery.ts'
-export { getWidthClassesFromState };

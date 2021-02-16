@@ -12,6 +12,7 @@ function loadStories() {
   requireAll(
     require.context('../src/react/stories/components-in-components', true, /index.(j|t)sx?$/),
   );
+  requireAll(require.context('../src/react/stories/form-controls', true, /index.(j|t)sx?$/));
 }
 
 addDecorator(xuiDefaultDecorator);

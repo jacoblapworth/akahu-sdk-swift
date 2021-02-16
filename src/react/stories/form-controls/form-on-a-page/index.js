@@ -68,7 +68,7 @@ test.add(storyNames.formOnAPage, () => {
   );
 
   return (
-    <div className="xui-panel xui-page-width-standard xui-margin-vertical-xlarge xui-padding-horizontal">
+    <div className="capture xui-panel xui-page-width-standard xui-margin-vertical-xlarge xui-padding-horizontal">
       <Form className="xui-padding-vertical" stacked>
         <XUIRow variant="grid">
           {/* Major section */}

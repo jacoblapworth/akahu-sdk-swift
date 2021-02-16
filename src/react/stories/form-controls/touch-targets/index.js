@@ -33,7 +33,7 @@ test.add(storyNames.touchTargets, () => {
       return (
         <XUICompositionDetail
           detail={
-            <XUIPanel>
+            <XUIPanel className="capture">
               <XUIPanelSection className="xui-padding-xlarge">
                 <XUIIconButton
                   ariaLabel="Overflow menu"

@@ -164,7 +164,7 @@ test.add(storyNames.formLayout, () => {
       const { banks } = this.props;
 
       return (
-        <div className="xui-panel xui-page-width-standard xui-margin-vertical-xlarge">
+        <div className="capture xui-panel xui-page-width-standard xui-margin-vertical-xlarge">
           <Form noLayout ref={c => (this._form = c)}>
             <header className="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-align-center">
               <div className="xui-panel--heading xui-margin-left-small">

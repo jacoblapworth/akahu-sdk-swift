@@ -224,7 +224,14 @@ const componentsToTest = [
     variationsPath: relativeToProjectDirectory(
       '.tmp/react-visualregression/stories/components-in-components/tests.js',
     ),
-    ...fullPageSettings,
+    selectors: '.xui-container',
+  },
+  {
+    testsPrefix: 'Form controls',
+    variationsPath: relativeToProjectDirectory(
+      '.tmp/react-visualregression/stories/form-controls/tests.js',
+    ),
+    selectors: '.capture',
   },
   /* Run `npm run test:visual Compositions` if you are working on Compositions.
    * There are 408 visual regression tests for Compositions. Compositions are

@@ -1,10 +1,12 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIRadio from '../XUIRadio';
 import XUIRadioGroup from '../XUIRadioGroup';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const NOOP = () => {};
 
@@ -60,5 +62,17 @@ describe('XUIRadioGroup', function () {
     const testLabel = 'Birds';
     const hiddenLabelTest = mount(<XUIRadioGroup label={testLabel} isLabelHidden />);
     expect(hiddenLabelTest.find('[aria-label="Birds"]')).toHaveLength(1);
+  });
+
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIRadioGroup>
+        <XUIRadio onChange={NOOP} />
+        <XUIRadio onChange={NOOP} />
+        <XUIRadio onChange={NOOP} />
+      </XUIRadioGroup>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

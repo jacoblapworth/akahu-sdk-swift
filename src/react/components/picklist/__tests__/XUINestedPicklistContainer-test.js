@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIStatefulPicklist from '../XUIStatefulPicklist';
 import XUIPicklist from '../XUIPicklist';
 import XUINestedPicklistContainer from '../XUINestedPicklistContainer';
@@ -9,6 +10,7 @@ import XUINestedPicklist from '../XUINestedPicklist';
 import XUIPickitem from '../XUIPickitem';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const MockNestedPicklistContainer = props => (
   <XUINestedPicklistContainer id="nested" {...props}>
@@ -36,6 +38,12 @@ const setup = (props = {}) => {
 };
 
 describe('<XUIPicklistContainer />', () => {
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(MockNestedPicklistContainer());
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
+  });
+
   describe('Uncontrolled component', () => {
     it('updates open state to isDefaultOpen prop value', () => {
       // Arrange

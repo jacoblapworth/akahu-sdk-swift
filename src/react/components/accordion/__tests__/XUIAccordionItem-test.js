@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAccordionItem from '../XUIAccordionItem';
 import XUIAccordionContext from '../XUIAccordionContext';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 jest.mock('uuid', () => ({
   v4: jest.fn(() => '123'),
@@ -58,5 +60,11 @@ describe('<XUIAccordionItem />', () => {
     const component = getAccordionItem('Children! 👩‍👧‍👧');
     component.find('[role="button"]').simulate('click');
     expect(component.instance()).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const component = getAccordionItem('Children! 👩‍👧‍👧');
+    const results = await axe(component.html());
+    expect(results).toHaveNoViolations();
   });
 });

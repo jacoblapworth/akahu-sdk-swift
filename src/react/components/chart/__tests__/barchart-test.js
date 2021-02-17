@@ -1,5 +1,6 @@
 import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import noop from '../../helpers/noop';
@@ -12,6 +13,7 @@ import { enrichParams } from '../helpers/bars';
 import { barChartTheme } from '../helpers/theme';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const getFirstCallsParams = handlers => handlers.mock.calls[0];
 
@@ -97,6 +99,19 @@ const createEnrichedParams = propsRaw => {
 };
 
 describe('<XUIBarChart />', () => {
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIBarChart
+        chartId="chartPlainBar"
+        chartTitle="Plain Bar Implementation"
+        emptyMessage="There is no data to display"
+        keyTitle="Graph key"
+      />,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
+  });
+
   describe('"Standard" to "Stacked" bar enrichment', () => {
     const propsRaw = {
       ...defaultChartProps,

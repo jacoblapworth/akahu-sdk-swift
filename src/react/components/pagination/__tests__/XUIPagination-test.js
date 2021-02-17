@@ -1,4 +1,5 @@
 import React from 'react';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -13,6 +14,7 @@ import {
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testPaginationId');
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const defaultProps = {
   ariaLabel: 'Pagination',
@@ -182,6 +184,12 @@ describe('<XUIPagination/>', () => {
     const firstPickitem = document.querySelector('.xui-pickitem button');
     firstPickitem.click();
     expect(onPerPageCountChange).toBeCalled();
+  });
+
+  it.skip('should pass accessibility testing', async () => {
+    wrapper = mount(<DefaultPagination />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   describe('as controlled', () => {

@@ -4,6 +4,7 @@ import XUISelectBoxOption from '../XUISelectBoxOption';
 import { then } from './helpers';
 import Enzyme, { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import Adapter from 'enzyme-adapter-react-16';
 import { v4 as uuidv4 } from 'uuid';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
@@ -12,6 +13,7 @@ jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testSelectBoxId');
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUISelectBox />', function () {
   const options = ['Santa Cruz', 'Transition', 'Lapierre', 'Surly', 'Kona'];
@@ -48,6 +50,12 @@ describe('<XUISelectBox />', function () {
         })}
       </XUISelectBox>,
     );
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUISelectBox buttonContent="Santa Cruz" label="Test Select" />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   it('should place the defaultValue as the initial input value', function () {

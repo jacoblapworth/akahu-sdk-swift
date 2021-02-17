@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import { v4 as uuidv4 } from 'uuid';
 
 import XUISelectBox, { XUISelectBoxOption } from '../../../selectbox';
@@ -13,6 +14,7 @@ jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUIEditableTableCellSelectBox />', () => {
   it('renders correctly', () => {
@@ -33,6 +35,33 @@ describe('<XUIEditableTableCellSelectBox />', () => {
       </XUIEditableTableCellSelectBox>,
     );
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <table>
+        <tbody>
+          <tr>
+            <XUIEditableTableCellSelectBox
+              buttonContent="EditableTable select box"
+              label="EditableTable select box"
+            >
+              <XUISelectBoxOption id="a" key="a" value="Apple">
+                Apple
+              </XUISelectBoxOption>
+              <XUISelectBoxOption id="b" key="b" value="Banana">
+                Banana
+              </XUISelectBoxOption>
+              <XUISelectBoxOption id="c" key="c" value="Cucumber">
+                Cucumber
+              </XUISelectBoxOption>
+            </XUIEditableTableCellSelectBox>
+          </tr>
+        </tbody>
+      </table>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   describe('focusing', () => {

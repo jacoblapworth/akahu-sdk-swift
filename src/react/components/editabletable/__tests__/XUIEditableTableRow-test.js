@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import { v4 as uuidv4 } from 'uuid';
 
 import XUIEditableTable from '../XUIEditableTable';
@@ -14,6 +15,7 @@ import NOOP from '../../helpers/noop';
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testRowId');
@@ -45,6 +47,18 @@ describe('<XUIEditableTableRow />', () => {
       </table>,
     );
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <table>
+        <tbody>
+          <XUIEditableTableRow className="test-classname" />
+        </tbody>
+      </table>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   describe('removable row', () => {

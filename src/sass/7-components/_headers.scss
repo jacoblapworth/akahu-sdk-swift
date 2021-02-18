@@ -151,7 +151,7 @@
 
 // Calculating these values here to avoid ‘random’ magic numbers
 $isolationheader-control-spacing: ($xui-navigation-height - $xui-control-size-standard) / 2;
-$isolationheader-text-spacing: ($xui-navigation-height - $xui-line-height-standard) / 2;
+$isolationheader-text-spacing: ($xui-navigation-height - $xui-s-xlarge) / 2;
 
 .#{$ns}-isolationheader {
   @include header('#{$ns}-isolationheader');

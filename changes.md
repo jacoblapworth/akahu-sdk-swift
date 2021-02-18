@@ -39,6 +39,10 @@ _Note: This will mean that many key functionalities that worked for IE11 users p
 
 XUIToggleOption now includes updated padding, horizontal and vertical, for both medium and small variants. If you currently apply utility classes to provide your own horizontal padding, they are expected to still take precedence, but you may be able to remove them to leverage the default layout. You will see a change to the overall height of ALL "small" toggles and all "medium" toggles that have multi-line content.
 
+### Typography variables updates
+
+- All `font-size` and `line-height` variables are using `rem` unit now to support browser-based text sizing.
+
 ### Removals
 
 ## XUI React components

@@ -18,7 +18,7 @@ $xui-invalid-icon-size: 18px; // Override default icon view-box to remove unwant
   margin-bottom: $xui-s-2xlarge;
 
   .#{$ns}-validation {
-    margin-bottom: -($xui-line-height-xsmall + $xui-s-xsmall); // Validation line-height + padding
+    margin-bottom: -($xui-s-standard + $xui-s-xsmall); // Validation line-height (px value) + padding
   }
 }
 

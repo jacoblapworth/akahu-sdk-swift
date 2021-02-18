@@ -278,3 +278,9 @@
 .#{$ns}-dropdown-fullwidth {
   @include xui-layout-width-fullwidth;
 }
+
+.#{$ns}-dropdown--toggledwrapper {
+  .#{$ns}-button-split {
+    height: 100%; // Fix the misaligned height when browser-based size is large
+  }
+}

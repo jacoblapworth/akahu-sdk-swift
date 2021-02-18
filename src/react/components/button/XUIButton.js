@@ -66,7 +66,7 @@ export default class XUIButton extends React.PureComponent {
     focusRootNode(this);
     // Apparently there are times when calling focus won't actually do it.  I think
     // React's getting in the way, but I'm not sure yet....
-    if (this.rootNode?.current !== document.activeElement) {
+    if (this.rootNode.current !== document.activeElement) {
       setTimeout(focusRootNode, 0, this);
     }
   }

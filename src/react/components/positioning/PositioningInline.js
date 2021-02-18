@@ -51,7 +51,7 @@ class PositioningInline extends Positioning {
 
     if (parentRef != null) {
       const triggerDOM = parentRef.firstChild;
-      const baseRect = this.positionEl?.current?.firstChild.getBoundingClientRect();
+      const baseRect = this.positionEl.current?.firstChild.getBoundingClientRect();
 
       if (isBaseRendered(baseRect)) {
         alignBaseWithTrigger(baseRect, triggerDOM, this);
@@ -70,7 +70,7 @@ class PositioningInline extends Positioning {
    *
    */
   calculateMaxDimensions = popupRect => {
-    const baseRect = popupRect || this.positionEl?.current?.firstChild.getBoundingClientRect();
+    const baseRect = popupRect || this.positionEl.current?.firstChild.getBoundingClientRect();
     const {
       viewportGutter,
       parentRef,

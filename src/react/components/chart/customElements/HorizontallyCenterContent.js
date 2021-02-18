@@ -12,7 +12,7 @@ class HorizontallyCenterContent extends PureComponent {
 
   updateContentWidth = () => {
     const { state, contentNode } = this;
-    const contentWidth = contentNode?.current && getGroupPosition(contentNode.current).width;
+    const contentWidth = contentNode.current && getGroupPosition(contentNode.current).width;
     const shouldUpdate =
       contentNode && !testIsCloseEnough(contentWidth || 0, state.contentWidth || 0);
 

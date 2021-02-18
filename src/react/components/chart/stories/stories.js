@@ -159,7 +159,7 @@ class EventReadyWrapper extends PureComponent {
     setTimeout(() => {
       const { rootNode } = this;
 
-      rootNode?.current
+      rootNode.current
         ?.querySelectorAll('.xui-chart--content')
         .forEach(contentNode => (contentNode.scrollLeft = 0));
       logReadyState('xui-bar-chart-ready-event');

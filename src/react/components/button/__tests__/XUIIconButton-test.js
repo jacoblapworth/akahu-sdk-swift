@@ -5,8 +5,6 @@ import renderer from 'react-test-renderer';
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 import XUIIconButton from '../XUIIconButton';
 
-const { renderIntoDocument } = require('react-dom/test-utils');
-
 Enzyme.configure({ adapter: new Adapter() });
 
 const requiredProps = {
@@ -27,10 +25,10 @@ describe('<XUIIconButton/>', () => {
     expect(iconButton).toMatchSnapshot();
   });
 
-  it('focus() should focus the DOM node', async () => {
-    const button = renderIntoDocument(<XUIIconButton {...requiredProps} />);
-    button.rootNode.current.focus();
-    expect(button.rootNode.current).toEqual(document.activeElement);
+  it('focus() should focus the DOM node', () => {
+    const button = mount(<XUIIconButton {...requiredProps} />);
+    button.instance().rootNode.current.focus();
+    expect(button.instance().rootNode.current).toEqual(document.activeElement);
   });
 
   it('renders iconButtons with the correct icon size classes', () => {

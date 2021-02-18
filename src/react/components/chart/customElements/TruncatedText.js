@@ -41,7 +41,7 @@ class TruncatedText extends PureComponent {
 
   render = () => {
     const { rootNode } = this;
-    const charNodes = rootNode?.current ? rootNode?.current.querySelectorAll('tspan') : [];
+    const charNodes = rootNode.current?.querySelectorAll('tspan') || [];
     const { style, maxWidth, children: text, ...textProps } = this.props;
     const createTextSpan = (character, key) => (
       <tspan key={key} style={style}>

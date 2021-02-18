@@ -169,7 +169,7 @@ export default class XUIDropdown extends React.PureComponent<Props> {
   /**
    * Root node to enable users to access as a ref.
    */
-  rootNode: React.RefObject<HTMLElement> | null;
+  rootNode: React.RefObject<HTMLElement>;
 
   /**
    * Fired when either the enter key or space bar is pressed and calls onclick of the menu item

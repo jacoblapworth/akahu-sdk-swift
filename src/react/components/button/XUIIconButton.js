@@ -13,8 +13,6 @@ import {
 import { colorClasses, wrapperSizeClasses, rotationClasses } from '../icon/private/constants';
 
 export default class XUIIconButton extends PureComponent {
-  rootNode = React.createRef();
-
   render() {
     const {
       ariaLabel,

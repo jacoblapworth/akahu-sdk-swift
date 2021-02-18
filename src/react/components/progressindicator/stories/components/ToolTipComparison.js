@@ -9,7 +9,7 @@ class ToolTipComparison extends PureComponent {
   componentDidMount() {
     setTimeout(() => {
       const { node } = this;
-      const wrapper = node?.current?.querySelector(
+      const wrapper = node.current?.querySelector(
         '.xui-progress [aria-describedby$="progress--tooltip"]',
       );
       if (wrapper) {

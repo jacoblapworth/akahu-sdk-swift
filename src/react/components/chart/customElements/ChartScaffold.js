@@ -110,7 +110,7 @@ class ChartScaffold extends PureComponent {
 
   updateChartWidth = () => {
     const { rootNode, state } = this;
-    const chartWidth = rootNode?.current?.offsetWidth;
+    const chartWidth = rootNode.current?.offsetWidth;
     const shouldUpdate = !testIsCloseEnough(chartWidth || CHART_WIDTH, state.chartWidth);
 
     if (shouldUpdate) {
@@ -121,7 +121,7 @@ class ChartScaffold extends PureComponent {
   updateXAxisHeight = () =>
     pause(this.testIsChartMounted, this.props.barsData, () => {
       const { rootNode, state } = this;
-      const xAxisNode = rootNode?.current?.querySelector(`.${NAME_SPACE}-chart--xaxis`);
+      const xAxisNode = rootNode.current?.querySelector(`.${NAME_SPACE}-chart--xaxis`);
       const xAxisHeight = xAxisNode && getGroupPosition(xAxisNode).height;
       const shouldUpdate = !testIsCloseEnough(xAxisHeight || X_AXIS_HEIGHT, state.xAxisHeight);
 
@@ -135,7 +135,7 @@ class ChartScaffold extends PureComponent {
   updateYAxisWidth = () =>
     pause(this.testIsChartMounted, this.props.barsData, () => {
       const { rootNode, state } = this;
-      const yAxisNode = rootNode?.current?.querySelector(`.${NAME_SPACE}-chart--yaxis`);
+      const yAxisNode = rootNode.current?.querySelector(`.${NAME_SPACE}-chart--yaxis`);
       const yAxisWidth = yAxisNode && getGroupPosition(yAxisNode).width;
       const shouldUpdate = !testIsCloseEnough(yAxisWidth || Y_AXIS_WIDTH, state.yAxisWidth);
 
@@ -152,12 +152,12 @@ class ChartScaffold extends PureComponent {
       contentNode,
       props: { hasPagination },
     } = this;
-    const victoryNode = contentNode?.current?.querySelector('.VictoryContainer');
-    const shouldUpdate = !hasPagination && rootNode?.current?.contentNode?.current && victoryNode;
+    const victoryNode = contentNode.current?.querySelector('.VictoryContainer');
+    const shouldUpdate = !hasPagination && rootNode.current?.contentNode?.current && victoryNode;
 
     if (shouldUpdate) {
-      const { scrollLeft } = contentNode?.current;
-      const panelWidth = contentNode?.current?.clientWidth;
+      const { scrollLeft } = contentNode.current;
+      const panelWidth = contentNode.current?.clientWidth;
       const victoryWidth = victoryNode.clientWidth;
       const hasLeftShadow = scrollLeft > 0;
       const hasRightShadow = scrollLeft + panelWidth < victoryWidth;
@@ -191,7 +191,7 @@ class ChartScaffold extends PureComponent {
   };
 
   findScrollOffset = ({ hasPagination, panelWidth, panelCurrent }) =>
-    hasPagination ? (panelCurrent - 1) * panelWidth : this.contentNode?.current?.scrollLeft || 0;
+    hasPagination ? (panelCurrent - 1) * panelWidth : this.contentNode.current?.scrollLeft || 0;
 
   render() {
     const { props, state } = this;

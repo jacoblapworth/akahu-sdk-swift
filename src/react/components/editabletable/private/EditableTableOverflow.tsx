@@ -60,7 +60,7 @@ const EditableTableOverflow: React.FunctionComponent<Props> = React.forwardRef<H
         // The CSS variable is used to calculate the overflow shadow height
         const scrollbarHeight =
           scrollContainerElement.offsetHeight - scrollContainerElement.clientHeight;
-        editableTableOverflowRef?.current?.style.setProperty(
+        editableTableOverflowRef.current?.style.setProperty(
           '--xui-editableoverflow--scrollbar-height',
           `${scrollbarHeight}px`,
         );

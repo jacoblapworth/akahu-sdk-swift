@@ -55,11 +55,11 @@ class XUIDateInputItem extends Component {
   }
 
   afterDdtOpens = () => {
-    this.inputRef?.current.focus();
+    this.inputRef.current?.focus();
   };
 
   closeDropdown = () => {
-    this.ddtRef?.current.closeDropdown();
+    this.ddtRef.current?.closeDropdown();
   };
 
   onInputChange = event => {

@@ -80,7 +80,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
    * @public
    */
   openDropdown = () => {
-    this.ddt?.current?.openDropdown();
+    this.ddt.current?.openDropdown();
   };
 
   /**
@@ -89,7 +89,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
    * @public
    */
   closeDropdown = () => {
-    this.ddt?.current?.closeDropdown();
+    this.ddt.current?.closeDropdown();
   };
 
   /**
@@ -98,7 +98,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
    * @public
    */
   highlightItem = item => {
-    if (this.dropdown?.current) {
+    if (this.dropdown.current) {
       this.dropdown.current?.highlightItem(item);
     }
   };
@@ -109,7 +109,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
    * @public
    */
   highlightFirstItem = () => {
-    if (this.dropdown?.current) {
+    if (this.dropdown.current) {
       this.dropdown.current.highlightFirstItem();
     }
   };

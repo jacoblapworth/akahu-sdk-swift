@@ -76,7 +76,7 @@ class XUIStepper extends Component {
 
     if (lockLayout && lockLayout !== 'vertical') {
       setLayout(lockLayout);
-    } else if (rootNode?.current) {
+    } else if (rootNode.current) {
       const isInline = testIsInlineRelevant(rootNode.current) && lockLayout !== 'vertical';
       const isSideBar = testIsSideBarRelevant(rootNode.current);
 

@@ -29,7 +29,7 @@ class ElementSize extends Component {
     const { rootNode } = this;
     const { elementWidth, elementHeight } = this.state;
 
-    if (rootNode?.current) {
+    if (rootNode.current) {
       const { clientWidth, clientHeight } = rootNode.current;
       const hasWidthChanged = clientWidth && elementWidth !== clientWidth;
       const hasHeightChanged = clientHeight && elementHeight !== clientHeight;

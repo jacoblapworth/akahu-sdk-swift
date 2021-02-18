@@ -181,7 +181,7 @@ class Positioning extends PureComponent {
    */
   positionOnShow = () => {
     // Safety check due to slim chance of unmount during setTimeout duration
-    if (this.positionEl?.current && document.body.contains(this.positionEl.current)) {
+    if (this.positionEl.current && document.body.contains(this.positionEl.current)) {
       this.positionComponent();
       if (this.props.shouldRestrictMaxHeight) {
         this.calculateMaxHeight();
@@ -218,7 +218,7 @@ class Positioning extends PureComponent {
     if (parentRef) {
       const triggerDOM = getTriggerNodeFromParentRef(parentRef, leaveRoomForValidationMessage);
       const popupRect =
-        this.positionEl?.current?.firstChild &&
+        this.positionEl.current?.firstChild &&
         getAbsoluteBoundingClientRect(this.positionEl.current.firstChild);
 
       if (isBaseRendered(popupRect)) {

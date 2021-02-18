@@ -3,22 +3,18 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 export default class Form extends React.PureComponent {
-  constructor() {
-    super();
-    this.onAllEvents = this.onAllEvents.bind(this);
-    this._form = React.createRef();
-  }
+  _form = React.createRef();
 
   componentDidMount() {
-    this._regularInputs = this._form?.current?.querySelectorAll(
+    this._regularInputs = this._form.current?.querySelectorAll(
       'input:not([type="radio"]):not([type="checkbox"]):not(.xui-autocompleter--input)',
     );
-    this._textareas = this._form?.current?.querySelectorAll('textarea');
-    this._radioGroups = this._form?.current?.querySelectorAll('input[type=radio]');
-    this._checkBoxes = this._form?.current?.querySelectorAll('input[type="checkbox"]');
+    this._textareas = this._form.current?.querySelectorAll('textarea');
+    this._radioGroups = this._form.current?.querySelectorAll('input[type=radio]');
+    this._checkBoxes = this._form.current?.querySelectorAll('input[type="checkbox"]');
   }
 
-  captureInputData() {
+  captureInputData = () => {
     const radioGroups = [...this._radioGroups].reduce((acc, cv) => {
       if (acc[cv.name] == null) {
         acc[cv.name] = '';
@@ -45,15 +41,13 @@ export default class Form extends React.PureComponent {
       acc[input.name] = input.value;
       return acc;
     }, {});
-  }
+  };
 
-  onAllEvents() {
+  onAllEvents = () => {
     setTimeout(() => this.captureInputData(), 50);
-  }
+  };
 
-  getInputs() {
-    return this._inputs;
-  }
+  getInputs = () => this._inputs;
 
   render() {
     const { children, className, inline, stacked, noLayout, ...other } = this.props;

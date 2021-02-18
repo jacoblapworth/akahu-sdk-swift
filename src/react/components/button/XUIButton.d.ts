@@ -145,5 +145,5 @@ export default class XUIButton extends React.PureComponent<Props> {
   /**
    * Root node of XUICompleter to enable users to access as a ref.
    */
-  rootNode: React.RefObject<HTMLElement> | null;
+  rootNode: React.RefObject<HTMLElement>;
 }

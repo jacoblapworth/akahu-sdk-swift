@@ -40,7 +40,7 @@ export default class XUISelectBox extends Component {
 
   wrapperIds = generateIds(this.selectId);
 
-  isDropdownOpen = () => this.ddt?.current?.isDropdownOpen();
+  isDropdownOpen = () => this.ddt.current?.isDropdownOpen();
 
   render() {
     return (

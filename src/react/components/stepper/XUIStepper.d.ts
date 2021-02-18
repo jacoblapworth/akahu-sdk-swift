@@ -51,5 +51,5 @@ export default class XUIStepper extends React.Component<Props> {
   /**
    * Root node to enable users to access as a ref.
    */
-  rootNode: React.RefObject<HTMLElement> | null;
+  rootNode: React.RefObject<HTMLElement>;
 }

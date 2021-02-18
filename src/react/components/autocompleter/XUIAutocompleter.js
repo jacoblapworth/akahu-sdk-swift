@@ -34,6 +34,7 @@ export default class XUIAutocompleter extends PureComponent {
     this.ddt = React.createRef();
     this.rootNode = React.createRef();
     this.noWrapPillContainer = React.createRef();
+    this.dropdown = React.createRef();
   }
 
   componentDidMount() {
@@ -109,7 +110,7 @@ export default class XUIAutocompleter extends PureComponent {
    * Set the state as not hidden in order to toggle the list open.
    */
   openDropdown = () => {
-    this.ddt?.current?.openDropdown();
+    this.ddt.current?.openDropdown();
   };
 
   /**
@@ -117,7 +118,7 @@ export default class XUIAutocompleter extends PureComponent {
    * Set the state as hidden in order to toggle the list closed.
    */
   closeDropdown = () => {
-    this.ddt?.current?.closeDropdown();
+    this.ddt.current?.closeDropdown();
   };
 
   /**
@@ -125,7 +126,7 @@ export default class XUIAutocompleter extends PureComponent {
    * Manually highlight an item in the list for selection.
    */
   highlightItem = item => {
-    this.dropdown?.highlightItem(item);
+    this.dropdown.current?.highlightItem(item);
   };
 
   /**
@@ -161,7 +162,7 @@ export default class XUIAutocompleter extends PureComponent {
        * This will ensure that dropdown onKeyDown event occurs after the re-rendering of the picklist selection is complete.
        * This implementation has been chosen as it allows us to ensure the correct behaviour without invasive changes to Autocompletion/dropdown/statefulPicklist components.
        */
-      setTimeout(() => this.dropdown?.onKeyDown && this.dropdown.onKeyDown(event));
+      setTimeout(() => this.dropdown.current?.onKeyDown?.(event));
     }
 
     if (
@@ -258,7 +259,6 @@ export default class XUIAutocompleter extends PureComponent {
       isInvalid,
       validationMessage,
       hintMessage,
-      onKeyDown,
       isLegacyDisplay,
     } = this.props;
     const { value, focused, inputWidth } = this.state;
@@ -338,7 +338,7 @@ export default class XUIAutocompleter extends PureComponent {
         onHighlightChange={this.onHighlightChange}
         onSelect={onOptionSelect}
         qaHook={listQaHook}
-        ref={c => (this.dropdown = c)} // This ref fails if initialised in the constructor
+        ref={this.dropdown}
         restrictFocus={false}
         size={dropdownSize}
       >

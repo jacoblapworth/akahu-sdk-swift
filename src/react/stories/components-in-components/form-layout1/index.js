@@ -105,12 +105,12 @@ test.add(storyNames.formLayout, () => {
 
     logForm() {
       const { selectedPeople: people, foodType } = this.state;
-      const data = { ...this._form?.current?.getInputs(), people, foodType };
+      const data = { ...this._form.current?.getInputs(), people, foodType };
       console.log(data); // eslint-disable-line
     }
 
     onSearchChangeHandler(value) {
-      this._autocompleter?.current?.openDropdown();
+      this._autocompleter.current?.openDropdown();
       this.setState(prevState => ({
         value,
         people: filterPeople(people, value, prevState.selectedPeople),

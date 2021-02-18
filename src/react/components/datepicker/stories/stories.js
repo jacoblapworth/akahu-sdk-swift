@@ -8,6 +8,7 @@ import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import XUIDatePicker from '../XUIDatePicker';
+import XUIPanel from '../../panel/XUIPanel';
 
 import NOOP from '../../helpers/noop';
 import {
@@ -81,24 +82,26 @@ class ExamplePicker extends React.Component {
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => (
-  <ExamplePicker
-    dir={select('direction', ['ltr', 'rtl'])}
-    displayedMonth={date('displayedMonth', '') ? new Date(date('displayedMonth', '')) : undefined}
-    firstDayOfWeek={parseInt(select('firstDayOfWeek', weekStarts, '0'))}
-    maxDate={date('maxDate', '') ? new Date(date('maxDate', '')) : undefined}
-    minDate={date('minDate', '') ? new Date(date('minDate', '')) : undefined}
-    months={
-      select('months', ['standard', 'custom'], 'standard') === 'custom' ? customMonths : undefined
-    }
-    selectRange={boolean('select range', false)}
-    showDaysInOtherMonths={boolean('showDaysInOtherMonths', false)}
-    showFixedNumberOfWeeks={boolean('showFixedNumberOfWeeks', false)}
-    weekdaysShort={
-      select('weekdaysShort', ['standard', 'custom'], 'standard') === 'custom'
-        ? wkdShort
-        : undefined
-    }
-  />
+  <XUIPanel>
+    <ExamplePicker
+      dir={select('direction', ['ltr', 'rtl'])}
+      displayedMonth={date('displayedMonth', '') ? new Date(date('displayedMonth', '')) : undefined}
+      firstDayOfWeek={parseInt(select('firstDayOfWeek', weekStarts, '0'))}
+      maxDate={date('maxDate', '') ? new Date(date('maxDate', '')) : undefined}
+      minDate={date('minDate', '') ? new Date(date('minDate', '')) : undefined}
+      months={
+        select('months', ['standard', 'custom'], 'standard') === 'custom' ? customMonths : undefined
+      }
+      selectRange={boolean('select range', false)}
+      showDaysInOtherMonths={boolean('showDaysInOtherMonths', false)}
+      showFixedNumberOfWeeks={boolean('showFixedNumberOfWeeks', false)}
+      weekdaysShort={
+        select('weekdaysShort', ['standard', 'custom'], 'standard') === 'custom'
+          ? wkdShort
+          : undefined
+      }
+    />
+  </XUIPanel>
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
@@ -113,6 +116,10 @@ variations.forEach(variation => {
     variationMinusStoryDetails.onSelectDate = NOOP;
     variationMinusStoryDetails.displayedMonth = currentMonth0;
 
-    return <XUIDatePicker {...variationMinusStoryDetails} />;
+    return (
+      <XUIPanel>
+        <XUIDatePicker {...variationMinusStoryDetails} />
+      </XUIPanel>
+    );
   });
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { render, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import Adapter from 'enzyme-adapter-react-16';
 import { nanoid } from 'nanoid';
 import XUIToggleOption from '../XUIToggleOption';
@@ -9,6 +10,7 @@ jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testToggleId');
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('XUIToggleOption', function () {
   // children property (label text)
@@ -104,5 +106,12 @@ describe('XUIToggleOption', function () {
   it('should have the correct value if one is provided', function () {
     const wrapper = mount(<XUIToggleOption value="64" onChange={() => {}} />);
     expect(wrapper.find('input').first().prop('value')).toEqual('64');
+  });
+
+  // accessibility
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIToggleOption onChange={() => {}} />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

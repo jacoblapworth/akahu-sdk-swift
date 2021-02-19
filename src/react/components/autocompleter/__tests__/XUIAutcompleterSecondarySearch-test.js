@@ -3,6 +3,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAutocompleterSecondarySearch from '../XUIAutocompleterSecondarySearch';
 import XUILoader from '../../loader/XUILoader';
 import XUIPicklist from '../../picklist/XUIPicklist';
@@ -14,6 +15,7 @@ jest.mock('nanoid');
 nanoid.mockImplementation(() => 'xui-testDropdownId');
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const trigger = <button type="button">trigger</button>;
 const createComponent = props => (
@@ -140,5 +142,11 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
     triggerButton.simulate('keyDown', { key: eventKeyValues.space, keyCode: 32, which: 32 });
 
     expect(wrapper.instance().ddt.current.state.isHidden).toBeFalsy();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const component = mount(createComponent());
+    const results = await axe(component.html());
+    expect(results).toHaveNoViolations();
   });
 });

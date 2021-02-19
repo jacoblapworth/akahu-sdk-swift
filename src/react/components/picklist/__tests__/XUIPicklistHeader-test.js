@@ -1,10 +1,12 @@
 import React from 'react';
-import Enzyme from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIPicklistHeader from '../XUIPicklistHeader';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUIPicklistHeader />', () => {
   it('basic example', () => {
@@ -19,5 +21,15 @@ describe('<XUIPicklistHeader />', () => {
       </XUIPicklistHeader>,
     );
     expect(allOptions).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <ul>
+        <XUIPicklistHeader>Some header text</XUIPicklistHeader>
+      </ul>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

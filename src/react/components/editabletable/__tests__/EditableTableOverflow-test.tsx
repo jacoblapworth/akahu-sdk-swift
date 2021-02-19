@@ -1,6 +1,7 @@
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import React from 'react';
 
 import NOOP from '../../helpers/noop';
@@ -8,6 +9,7 @@ import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
 import EditableTableOverflow from '../private/EditableTableOverflow';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('EditableTableOverflow', () => {
   it('renders correctly', () => {
@@ -167,5 +169,11 @@ describe('EditableTableOverflow', () => {
 
     // Assert
     expect(wrapper.html()).toContain('-pinoverflowright');
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<EditableTableOverflow />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

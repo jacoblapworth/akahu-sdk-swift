@@ -2,12 +2,14 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIProgressLinear from '../XUIProgressLinear';
 import XUIProgressCircular from '../XUIProgressCircular';
 import noop from '../../helpers/noop';
 import { variations } from '../stories/variations';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const baseProps = {
   id: 'myCustomProgressId',
@@ -167,6 +169,20 @@ describe('<XUIProgressIndicator />', () => {
       expect(totalColorClass).toHaveLength(0);
       expect(progressColorClass).toHaveLength(0);
       expect(toJson(component)).toMatchSnapshot();
+    });
+  });
+
+  describe('accessibility testing', () => {
+    it.skip('<XUIProgressCircular /> should pass accessibility testing', async () => {
+      const wrapper = mount(<XUIProgressCircular id="standard-circular" progress={3} total={5} />);
+      const results = await axe(wrapper.html());
+      expect(results).toHaveNoViolations();
+    });
+
+    it.skip('<XUIProgressLinear /> should pass accessibility testing', async () => {
+      const wrapper = mount(<XUIProgressLinear id="segments-linear" progress={3} total={5} />);
+      const results = await axe(wrapper.html());
+      expect(results).toHaveNoViolations();
     });
   });
 

@@ -2,11 +2,13 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import XUIAvatar from '../XUIAvatar';
 import { sizeClassNames, variantClassNames } from '../constants';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('XUIAvatar', () => {
   it('should render an `abbr` avatar when I give it an identifier and a value', () => {
@@ -77,6 +79,18 @@ describe('XUIAvatar', () => {
       const snap = renderer.create(test);
       expect(snap).toMatchSnapshot();
     });
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIAvatar
+        identifier="12345-1234-1234-123456"
+        imageUrl="https://xui.xero.com/static/xpert-avatar.png"
+        value="Test"
+      />,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   describe('Handlers', () => {

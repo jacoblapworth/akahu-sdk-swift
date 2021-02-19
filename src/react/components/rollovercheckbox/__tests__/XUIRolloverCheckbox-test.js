@@ -1,10 +1,12 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIRolloverCheckbox from '../XUIRolloverCheckbox';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const setup = (fn = renderer.create, props = {}) => {
   const onSelectSpy = jest.fn();
@@ -82,6 +84,12 @@ describe('XUIRolloverCheckbox', () => {
     });
 
     expect(expected).toMatchSnapshot();
+  });
+
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIRolloverCheckbox onSelect={jest.fn} />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   describe('renders a variety of size checkboxes', () => {

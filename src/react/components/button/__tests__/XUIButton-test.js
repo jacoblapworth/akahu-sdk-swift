@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 
 import external from '@xero/xui-icon/icons/external';
@@ -10,6 +11,7 @@ import XUIButton from '../XUIButton';
 const { renderIntoDocument } = require('react-dom/test-utils');
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const noop = () => {};
 
@@ -199,5 +201,11 @@ describe('<XUIButton/>', () => {
     expect(hasLeftIcon).toMatchSnapshot();
     expect(hasRightIcon).toMatchSnapshot();
     expect(hasCaret).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIButton onClick={noop}>test</XUIButton>);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

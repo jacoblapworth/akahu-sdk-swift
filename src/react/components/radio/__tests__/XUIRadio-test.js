@@ -1,12 +1,14 @@
 import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 import star from '@xero/xui-icon/icons/star';
 import XUIRadio from '../XUIRadio';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const NOOP = () => {};
 
@@ -166,5 +168,11 @@ describe('XUIRadio', () => {
     expect(
       component.find('input').getDOMNode().attributes.getNamedItem('autocomplete').value,
     ).toEqual('off');
+  });
+
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIRadio onChange={NOOP} />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

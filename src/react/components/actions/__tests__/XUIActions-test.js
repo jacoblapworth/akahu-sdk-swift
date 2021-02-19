@@ -4,8 +4,10 @@ import XUIActions from '../XUIActions';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUI Actions/>', () => {
   const qaHook = 'qaHook';
@@ -41,5 +43,14 @@ describe('<XUI Actions/>', () => {
   it('renders actions with automation id when qaHook prop is passed in', () => {
     const wrapper = renderer.create(<XUIActions primary={primary} qaHook={qaHook} />);
     expect(wrapper).toMatchSnapshot();
+  });
+  it('should pass accessibility testing', async () => {
+    const component = mount(
+      <XUIActions primary={primary} secondary={secondary}>
+        Testing
+      </XUIActions>,
+    );
+    const results = await axe(component.html());
+    expect(results).toHaveNoViolations();
   });
 });

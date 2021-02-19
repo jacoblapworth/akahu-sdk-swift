@@ -1,3 +1,85 @@
+<header class="xui-pageheading xui-margin-bottom-xlarge">
+  <div class="xui-pageheading--content xui-pageheading--content-layout">
+    <div class="xui-pageheading--leftcontent">
+      <div class="xui-pageheading--titlewrapper">
+        <h1 class="xui-pageheading--title">Expenses</h1>
+      </div>
+    </div>
+    <div class="xui-pageheading--rightcontent">
+      <ul
+        role="menu"
+        class="xui-picklist xui-picklist-medium xui-pageheading--tabs xui-picklist-horizontal"
+      >
+        <li
+          class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-is-selected xui-pickitem-medium"
+          id="one"
+          role="menuitem"
+        >
+          <button type="button" class="xui-pickitem--body">
+            <span class="xui-pickitem--text">Your own</span>
+          </button>
+        </li>
+        <li
+          class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium"
+          id="two"
+          role="menuitem"
+        >
+          <button type="button" class="xui-pickitem--body">
+            <span class="xui-pickitem--text">To review</span>
+          </button>
+        </li>
+        <li
+          class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium"
+          id="three"
+          role="menuitem"
+        >
+          <button type="button" class="xui-pickitem--body">
+            <span class="xui-pickitem--text">To pay</span>
+          </button>
+        </li>
+        <li
+          class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium"
+          id="three"
+          role="menuitem"
+        >
+          <button type="button" class="xui-pickitem--body">
+            <span class="xui-pickitem--text">All</span>
+          </button>
+        </li>
+        <li
+          class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium"
+          id="three"
+          role="menuitem"
+        >
+          <button type="button" class="xui-pickitem--body">
+            <span class="xui-pickitem--text">Explorer</span>
+          </button>
+        </li>
+      </ul>
+      <div class="xui-pageheading--actions">
+        <div class="xui-actions xui-actions-layout xui-u-flex-align-center">
+          <button
+            aria-label="More options"
+            class="xui-button xui-button-icon-medium xui-button-icon xui-actions--primary"
+            tabindex="0"
+            type="button"
+          >
+            <svg class="xui-icon" focusable="false" height="13" viewBox="0 0 3 13" width="3">
+              <use xlink:href="#xui-icon-overflow" />
+            </svg>
+            <div class="xui-touchtarget"></div></button
+          ><button
+            class="xui-button xui-actions--secondary xui-button-create xui-button-small"
+            tabindex="0"
+            type="button"
+          >
+            New expense
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 <header class="xui-pageheading">
   <div class="xui-pageheading--content xui-pageheading--content-layout">
     <div class="xui-pageheading--leftcontent">
@@ -8,36 +90,50 @@
     <div class="xui-pageheading--rightcontent">
       <ul
         role="menu"
-        class="xui-picklist xui-pageheading--tabs xui-picklist-horizontal xui-picklist-medium"
+        class="xui-picklist xui-picklist-medium xui-pageheading--tabs xui-picklist-horizontal"
       >
-        <li
-          class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium"
-          role="menuitem"
-          id="1"
+        <div
+          role="presentation"
+          class="xui-pageheading--tabs xui-dropdown--toggledwrapper"
+          data-ref="toggled-wrapper"
         >
-          <button type="button" class="xui-pickitem--body">
-            <span class="xui-pickitem--text">Apr</span>
-          </button>
-        </li>
-        <li
-          class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-is-selected xui-pickitem-medium"
-          role="menuitem"
-          id="2"
-        >
-          <button type="button" class="xui-pickitem--body">
-            <span class="xui-pickitem--text">May</span>
-          </button>
-        </li>
-        <li
-          class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-medium"
-          role="menuitem"
-          id="3"
-        >
-          <button type="button" class="xui-pickitem--body">
-            <span class="xui-pickitem--text">Jun</span>
-          </button>
-        </li>
+          <li
+            class="xui-pickitem xui-pickitem-is-horizontal xui-pickitem-is-selected xui-pickitem-medium"
+            id="tabDropdownTrigger-two"
+            role="menuitem"
+          >
+            <button type="button" class="xui-pickitem--body xui-pickitem--body-has-icon">
+              <span class="xui-pickitem--text">Your own</span>
+              <div class="xui-pickitem--caret xui-iconwrapper xui-iconwrapper-medium">
+                <svg focusable="false" class="xui-icon" role="presentation">
+                  <use xlink:href="#xui-icon-caret" />
+                </svg>
+              </div>
+            </button>
+          </li>
+        </div>
       </ul>
+      <div class="xui-pageheading--actions">
+        <div class="xui-actions xui-actions-layout xui-u-flex-align-center">
+          <button
+            aria-label="More options"
+            class="xui-button xui-button-icon-medium xui-button-icon xui-actions--primary"
+            tabindex="0"
+            type="button"
+          >
+            <svg class="xui-icon" focusable="false" height="13" viewBox="0 0 3 13" width="3">
+              <use xlink:href="#xui-icon-overflow" />
+            </svg>
+            <div class="xui-touchtarget"></div></button
+          ><button
+            class="xui-button xui-actions--secondary xui-button-create xui-button-small"
+            tabindex="0"
+            type="button"
+          >
+            New expense
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </header>

@@ -3,6 +3,7 @@ import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
 import { nanoid } from 'nanoid';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import XUITextInput from '../../textInput/XUITextInput';
 import XUIEditableTableCell from '../XUIEditableTableCell';
@@ -13,11 +14,26 @@ jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUIEditableTableCellTextInput />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(<XUIEditableTableCellTextInput />);
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <table>
+        <tbody>
+          <tr>
+            <XUIEditableTableCellTextInput />
+          </tr>
+        </tbody>
+      </table>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   describe('focusing', () => {

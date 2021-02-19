@@ -1,6 +1,7 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 
 import XUIAvatar from '../../avatar/XUIAvatar';
@@ -13,6 +14,7 @@ import cross from '@xero/xui-icon/icons/cross';
 import overflow from '@xero/xui-icon/icons/overflow';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUIIsolationHeader>', () => {
   const actions = (
@@ -70,5 +72,26 @@ describe('<XUIIsolationHeader>', () => {
       </XUIIsolationHeader>,
     );
     expect(isolationHeader.hasClass('xui-isolationheader-fixed')).toBeTruthy();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIIsolationHeader
+        actions={actions}
+        avatar={avatar}
+        className="my-awesome-classname"
+        hasLayout
+        navigationButton={navigationButton}
+        qaHook="qaHook"
+        secondary="My secondary title"
+        supplementary="My supplementary text"
+        tags={tags}
+        title="Main title"
+      >
+        <div>All my children</div>
+      </XUIIsolationHeader>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

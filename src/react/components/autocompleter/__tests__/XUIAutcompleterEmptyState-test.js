@@ -1,12 +1,14 @@
 import React from 'react';
-import Enzyme from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import filter from '@xero/xui-icon/icons/filter';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAutocompleterEmptyState from '../XUIAutocompleterEmptyState';
 import XUIIcon from '../../icon/XUIIcon';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUIAutocompleterEmptyState />', () => {
   it('should render an automation id when passed in the qaHook prop', () => {
@@ -80,5 +82,13 @@ describe('<XUIAutocompleterEmptyState />', () => {
     );
 
     expect(iconComp).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const component = mount(
+      <XUIAutocompleterEmptyState>No results found</XUIAutocompleterEmptyState>,
+    );
+    const results = await axe(component.html());
+    expect(results).toHaveNoViolations();
   });
 });

@@ -64,8 +64,9 @@ const XUIPagination = ({
   );
 
   const paginationClasses = cn(className, baseClass);
-  const isMedium = isResponsive && !isWidthAboveBreakpoint('medium');
-  const isSmall = isResponsive && !isWidthAboveBreakpoint('small');
+
+  const shouldShowSimplified = isResponsive && !isWidthAboveBreakpoint('small');
+  const shouldShowEnhancedCount = isResponsive && isWidthAboveBreakpoint('medium');
 
   const perPageCountNum = perPageCount || currentPerPageCount;
   const pageCount = Math.ceil(count / perPageCountNum);
@@ -83,8 +84,8 @@ const XUIPagination = ({
           count={count}
           createCountContent={createCountContent}
           currentPage={currentPageNum}
-          isEnhancedCount={!isMedium}
-          isSimple={isSmall}
+          isEnhancedCount={shouldShowEnhancedCount}
+          isSimple={shouldShowSimplified}
           onPerPageCountChange={handlePerPageCountChange}
           perPageContent={perPageContent}
           perPageCount={perPageCountNum}
@@ -99,7 +100,7 @@ const XUIPagination = ({
         <Paging
           createPagingContent={createPagingContent}
           currentPage={currentPageNum}
-          isSimple={isSmall}
+          isSimple={shouldShowSimplified}
           nextPageLabel={nextPageLabel}
           onPageChange={handlePageChange}
           pageCount={pageCount}

@@ -1,8 +1,8 @@
 // Page header
 //
-// Teaser: Guidance on how to use page-specific page navigation.
+// Teaser: Page header houses the top-level information of a page such as the page title, as well as appropriate actions relating to the content on the page below.
 //
-// Introduction: How to use page-specific navigation.
+// Introduction: Page header is a component that sits beneath the global navigation, housing the top-level information of a page such as the page title, as well as appropriate actions relating to the content on the page below.
 //
 // Components: Page-header
 //
@@ -12,115 +12,176 @@
 
 // Best practice
 //
+// The page header is used to title the page in view and surface actions that are used frequently or are key to the entirety of the relative product’s experience. Additionally, navigational elements such as tabs or a breadcrumb trail can be included in a page header, providing parent and child relationships to the content.
+//
+// Because the page header is one of the first things a user will read on a page, it’s a good place to house important contextual information that is directly relevant to all the content on the page.
+//
 // Tips:
-// Do: Use page headers on pages that sit beneath the global header
-// Warning: Avoid more than three tabs per page
-// Warning: Avoid nesting pages more than three levels deep
-// Warning: When content is long, provide an alternative layout for narrow viewports
-// Dont: Don't use page headers for full screen interfaces, use an isolation mode instead
-// Info: Visit our [Page-level actions guidance](./section-patterns-page-level-actions.html) for more information about page-level action patterns
+// Do: Always place page headers beneath the [global navigation](./section-components-navigation-global-navigation.html)
+// Do: Use text elements in a page header to outline the page content
+// Do: Use a [breadcrumb trail](./section-components-navigation-breadcrumb-trail.html) to provide navigational links to parent pages
+// Do: Use [tabs](./section-components-navigation-tabs.html) to to provide navigational links to child pages
+// Do: Only place actions in the page header that are highly used or key to the product workflow
+// Don't: Avoid cluttering the page header component with too many visual elements
+// Don't: Don't use a page header for full screen interfaces, instead use an [isolation header](./section-components-navigation-isolation-header.html)
+// Info: [Page-level actions pattern guide](./section-patterns-page-level-actions.html)
 //
 // Styleguide: Components.Navigation.Page header.1
 
-// Anatomy
+// Text content
+//
+// Text inside of a page header is used to describe the content on the current page and to provide context about the page’s relationship to its parent. Supplementary text or tags can also be used to describe the current state of the page.
+//
+// Occasionally, text content is determined by users, not predefined by the product. It's important to consider this when designing the content that will be placed inside a page header, as the text content may be longer than expected.
 //
 // Styleguide: Components.Navigation.Page header.2
 
-// Basic
+// Primary title
 //
-// At its most basic form, a page header contains a title. To create one, use the following classes.
+// Primary titles are used to label the page, providing context and a clear expectation of the featured content.
 //
-// Classes:
-// xui-pageheading: Page heading container
-// xui-pageheading--content: Page heading content container
-// xui-pageheading--content-layout: Content modifier to set recommended horizontal spacing
-// xui-pageheading--title: Page heading title
+// Tips:
+// Do: Keep primary title concise to create a clear reading experience and avoid uncomfortably tall page header at small viewports
+// Do: For user-generated content, encourage users to create short titles
 //
 // ExampleClass: ds-example-wide
 //
-// Markup: ./examples/page-header/_page-header.html
-//
-// For anything more complex, you'll need [additional structure](#components-navigation-page-header-2-2).
+// Markup: ./examples/page-header/_page-header-primary-title.html
 //
 // Styleguide: Components.Navigation.Page header.2.1
 
-// Extended
+// Secondary title
 //
-// Page headings are optimised to perform well with many types and combinations of content and in the narrowest viewports. They are designed to contain breadcrumb trails, secondary text, tags, tab navigation, and actions in addition to titles.
+// Secondary titles are used to provide additional context to a page – often useful for pages that are associated to a group or category. For example, a project that belongs to a client.
 //
-// Classes:
-// xui-pageheading--leftcontent: Elements that appear at the left side of the page heading when at full width, including breadcrumb trails and the title wrapper
-// xui-pageheading--titlewrapper: All left-side content other than breadcrumbs should be in this container, including title, secondary text, supplementary text, and/or tags
-// xui-pageheading--rightcontent: Elements that appear to the right of any title content when at full width. This should include any tabs and/or actions
+// Tips:
+// Do: Keep secondary titles concise to create a clear reading experience and avoid uncomfortably tall page header at small viewports
+// Do: Use a secondary title as a sub-heading of the primary title
+// Don't: Don’t provide a secondary title without a primary title
+// Don't: Don’t add a secondary title if it doesn’t provide additional page context
 //
 // ExampleClass: ds-example-wide
 //
-// Markup: ./examples/page-header/_page-header-extended.html
+// Markup: ./examples/page-header/_page-header-secondary-title.html
 //
 // Styleguide: Components.Navigation.Page header.2.2
 
-// Layout
+// Supplementary text
 //
-// flags: wip
+// Supplementary text content is used to provide tertiary-level information that’s relevant to the whole page. For example, “Saved 1 min ago”.
 //
-// At times it is desired to prevent the page header from extending wider than the width of the global header, or to match content that sits below it.
-// To do this, apply the following utility classes in addition to `xui-pageheading--content-layout`.
+// Tips:
+// Do: Use supplementary text for information that’s relevant to the whole page
+// Don't: Don’t use supplementary text for page title content
 //
-// Classes:
-// xui-page-width-standard: Sets a max width of 1000px and centers horizontally
-// xui-page-width-large: Sets a max width of 1200px and centers horizontally
+// ExampleClass: ds-example-wide
+//
+// Markup: ./examples/page-header/_page-header-supplementary-text.html
+//
+// Styleguide: Components.Navigation.Page header.2.3
+
+// Tags
+//
+// Tags placed in page headers are used to provide additional indication of a state for the content surfaced below. These should be key pieces of information that a user will be needing to reference often.
+//
+// Tips:
+// Do: Use a tag to indicate a page state or status (for example, “draft”)
+// Warning: Avoid using a tag to identify a new page unless it is imperative to the user experience
+// Don't: Avoid displaying more than 1 tag, as tags are generally used to represent a group of mutually exclusive states
+// Info: [Tag component guide](./section-components-identifiers-tag.html)
+//
+// ExampleClass: ds-example-wide
+//
+// Markup: ./examples/page-header/_page-header-tags.html
+//
+// Styleguide: Components.Navigation.Page header.2.4
+
+// Page actions
+//
+// Actions placed within the page header are used to control the entirety of the content below or start a new workflow. These actions are often interacted with frequently or are key to the whole product experience.
+//
+// Read the guidance on [page-level actions](./section-patterns-page-level-actions.html) for more information on design patterns for displaying actions on a page.
+//
+// Tips:
+// Do: Include actions that start a new flow
+// Do: Include actions that affect the entire page layout/content
+// Don't: Don’t include actions that only affect a part of the page
+// Don't: Don't include actions that require users to first consider all page content
+//
+// ExampleClass: ds-example-wide
+//
+// Markup: ./examples/page-header/_page-header-actions.html
 //
 // Styleguide: Components.Navigation.Page header.3
 
 // Breadcrumb Trail
 //
-// Breadcrumb Trails should not be used alone, but rather in combination with a title and any additional content. See [the complete breadcrumb trail documentation](./section-components-navigation-breadcrumb-trail.html) for more details.
+// Combine a breadcrumb trail with a title in a page header to give the user a sense of their location and an easy way to navigate to parent pages.
+//
+// Tips:
+// Do: Make every breadcrumb a useful navigation link
+// Do: Use the primary title to indicate the current page
+// Don't: Use breadcrumbs to illustrate the structure of the sitemap or information architecture – not the users' journey
+// Don't: Avoid nesting pages more than 3 levels deep
+// Info: [Breadcrumb trail component guide](./section-components-navigation-breadcrumb-trail.html)
 //
 // ExampleClass: ds-example-wide
 //
-// Markup: ./examples/page-header/_page-header-layout.html
+// Markup: ./examples/page-header/_page-header-breadcrumb-trail.html
 //
 // Styleguide: Components.Navigation.Page header.4
 
-// Titles
-//
-// The title area of a page heading will contain the title, as well as any secondary text and tags that apply to the title.
-//
-// Classes:
-// xui-pageheading--titlewrapper: Wraps all title-related content (including tags and supplementary text) and excludes breadcrumbs
-// xui-pageheading--title: Page heading title
-// xui-pageheading--secondarytitle: Secondary descriptive content to appear after the title
-// xui-pageheading--tags: A container for tags to appear after the title and subtitle
-// xui-pageheading--supplementarytext: Additional text to provide very simple messaging about the page, e.g. a unsaved/editing/saved status
-//
-// ExampleClass: ds-example-wide
-//
-// Markup: ./examples/page-header/_page-header-titles.html
-//
-// Styleguide: Components.Navigation.Page header.5
-
 // Tabs
 //
-// See [the complete tabs documentation](./section-components-navigation-tabs.html) for more details.
+// Tabs are used as navigational elements for sub-sections or sub-pages of the page in view. Placing these alongside the title(s) in the page header reinforces the parent-child relationship between the pages
+//
+// Tips:
+// Do: treat tabs as categories of the parent page, not as a substitute for a page title
+// Do: Consider using the compact tab variant when there are many tabs or text content is exceptionally long
+// Info: [Tabs component guide](./section-components-navigation-tabs.html)
 //
 // ExampleClass: ds-example-wide
 //
 // Markup: ./examples/page-header/_page-header-tabs.html
 //
-// Styleguide: Components.Navigation.Page header.6
+// Styleguide: Components.Navigation.Page header.5
 
-// Actions
+// Responsive
 //
-// To include page-specific actions, wrap them in the following class. If your pageheader has actions but no tabs, you'll want to add the `-no-tabs` modifier classes to the `content` and `rightcontent` containers, as well.
+// The page header component is fully responsive and adjusts to fit the viewport width. The various internal elements shift around to optimise the available space and text content wraps to ensure all content is legible. At smaller breakpoints, optimisations to content may be desired to show the most pertinent information and make the most of the available screen real estate.
 //
-// Classes:
-// xui-pageheading--actions: Sets default button layout and internal spacing
-// xui-pageheading--content-no-tabs: Adjusts the layout for a header without tabs
-// xui-pageheading--rightcontent-no-tabs: Adjusts the layout for a header without tabs
+// Tips:
+// Do: Keep text content concise to avoid page header height growing drastically on small viewports
+// Do: Consider using the compact variants of [breadcrumb trail](./section-components-navigation-breadcrumb-trail.html) and [tabs](./section-components-navigation-tabs.html) at smaller breakpoints
+// Do: Consider moving buttons to fall under an overflow [icon button](./section-components-controls-button.html#components-controls-button-6) at smaller breakpoints
+// Don't: Don’t remove pertinent page header details or functionality on small viewport widths
 //
 // ExampleClass: ds-example-wide
 //
-// Markup: ./examples/page-header/_page-header-actions.html
+// Markup: ./examples/page-header/_page-header-responsive.html
+//
+// Styleguide: Components.Navigation.Page header.6
+
+// Using HTML and CSS only
+//
+// For building a component without React, following these HTML classes will provide the appropriate styling. However, there is some functionality reliant on javascript that will not be available through this method of building, such as reformatting components based on container queries.
+//
+// ExampleClass: ds-example-wide
+//
+// Classes:
+// xui-pageheading: Page heading container
+// xui-pageheading--content: Page heading content container
+// xui-pageheading--content-layout: Content modifier to set recommended horizontal spacing
+// xui-pageheading--leftcontent: Wraps left page header content including the title wrapper, and breadcrumb trail if present
+// xui-pageheading--rightcontent: Wraps content that appears to the right of any title content
+// xui-pageheading--titlewrapper: Wraps all title-related content (including tags and supplementary text) and excludes breadcrumbs
+// xui-pageheading--title: Page heading title
+// xui-pageheading--secondarytitle: Secondary descriptive content to appear after the title
+// xui-pageheading--tags: A container for tags to appear after the title and subtitle
+// xui-pageheading--supplementarytext: Additional text to provide very simple messaging about the page, e.g. a unsaved/editing/saved status
+// xui-pageheading--actions: Sets default button layout and internal spacing
+// xui-pageheading--content-no-tabs: Adjusts the layout for a header without tabs
+// xui-pageheading--rightcontent-no-tabs: Adjusts the layout for a header without tabs
 //
 // Styleguide: Components.Navigation.Page header.7
 

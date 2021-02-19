@@ -1,12 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Enzyme from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { nanoid } from 'nanoid';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIPicklist from '../XUIPicklist';
 import XUIPickitem from '../XUIPickitem';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testPickitemCheckboxId');
@@ -25,6 +27,16 @@ describe('< Picklist />', () => {
   it('renders most basic example', () => {
     const basic = setup();
     expect(basic).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIPicklist>
+        <div>Pickitem</div>
+      </XUIPicklist>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   it('example with most compatible options', () => {

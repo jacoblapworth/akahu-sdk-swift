@@ -4,10 +4,12 @@ import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAccordionItem from '../XUIAccordionItem';
 import XUIAccordionContext from '../XUIAccordionContext';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => '123');
@@ -74,5 +76,11 @@ describe('<XUIAccordionItem />', () => {
       </XUIAccordionContext.Provider>,
     );
     expect(component).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const component = getAccordionItem('Children! 👩‍👧‍👧');
+    const results = await axe(component.html());
+    expect(results).toHaveNoViolations();
   });
 });

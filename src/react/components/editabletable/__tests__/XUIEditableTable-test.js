@@ -3,11 +3,13 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
 import { nanoid } from 'nanoid';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import XUIEditableTable from '../XUIEditableTable';
 import { tableName } from '../private/constants';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 jest.mock('nanoid');
 const mockedNanoid = 'testGeneratedId';
@@ -46,6 +48,12 @@ describe('<XUIEditableTable />', () => {
     expect(wrapper.text()).toContain(
       `#${tableName}-${mockedNanoid} .xui-editabletablerow > *:nth-child(3) { display: none; }`,
     );
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIEditableTable />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   describe('validation message', () => {

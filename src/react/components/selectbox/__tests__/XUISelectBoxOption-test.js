@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Enzyme from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 import XUISelectBoxOption from '../XUISelectBoxOption';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const createComponent = props => (
   <XUISelectBoxOption id="1" value="A sample option" label="test" {...props}>
@@ -197,5 +199,11 @@ describe('<XUISelectBoxOption />', () => {
     const ariaComp = renderer.create(createComponent());
 
     expect(ariaComp).toMatchSnapshot();
+  });
+
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(createComponent());
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 import arrow from '@xero/xui-icon/icons/arrow';
@@ -9,6 +10,7 @@ import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIIcon from '../../icon/XUIIcon';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testPickitemCheckboxId');
@@ -17,6 +19,12 @@ describe('<XUIPickitem />', () => {
   it('renders a basic example with no options', () => {
     const basic = renderer.create(<XUIPickitem id="item1">Item 1</XUIPickitem>);
     expect(basic).toMatchSnapshot();
+  });
+
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIPickitem id="item1">Item 1</XUIPickitem>);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   it('renders a pickitem with most compatible options', () => {

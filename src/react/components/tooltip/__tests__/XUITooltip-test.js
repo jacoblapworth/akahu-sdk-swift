@@ -1,13 +1,14 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUITooltip from '../XUITooltip';
 import PositioningInline from '../../positioning/PositioningInline';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
 Enzyme.configure({ adapter: new Adapter() });
-jest.useFakeTimers();
+expect.extend(toHaveNoViolations);
 
 const setup = (props = {}, fn = renderer.create) => {
   jest.clearAllTimers();
@@ -25,6 +26,17 @@ const setup = (props = {}, fn = renderer.create) => {
 };
 
 describe('XUITooltip', () => {
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUITooltip id="test" trigger={<a href="/">A link</a>}>
+        Tip goes here
+      </XUITooltip>,
+    );
+    const results = await axe(wrapper.html());
+
+    expect(results).toHaveNoViolations();
+  });
+
   it('renders correctly', () => {
     const { expected } = setup();
 
@@ -82,6 +94,10 @@ describe('XUITooltip', () => {
   });
 
   describe('tests triggering events', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
     it('shows the tooltip on mouseOver of the tip wrapper', () => {
       const onEventSpy = jest.fn();
       const { expected } = setup({ onOpen: onEventSpy }, mount);

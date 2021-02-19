@@ -3,6 +3,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
 import { nanoid } from 'nanoid';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import DragDropProvider from '../private/DragAndDrop/DragDropProvider';
 import EditableTableOverflow from '../private/EditableTableOverflow';
@@ -11,6 +12,7 @@ import EditableTableWrapper from '../private/EditableTableWrapper';
 import NOOP from '../../helpers/noop';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => '123');
@@ -20,6 +22,12 @@ describe('EditableTableWrapper', () => {
     expect(
       toJson(mount(<EditableTableWrapper onDragEnd={NOOP} tableRef={{}} />)),
     ).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<EditableTableWrapper onDragEnd={NOOP} tableRef={{}} />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   describe('onDragEnd', () => {

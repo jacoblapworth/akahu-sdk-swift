@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIToast from '../XUIToast';
 import XUIToastAction from '../XUIToastAction';
@@ -8,6 +9,7 @@ import XUIToastActions from '../XUIToastActions';
 import XUIToastMessage from '../XUIToastMessage';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('XUIToast', () => {
   it('should render without a sentiment modifier if no sentiment is provided', function () {
@@ -202,5 +204,11 @@ describe('XUIToast', () => {
     );
 
     expect(messageToast).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIToast />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

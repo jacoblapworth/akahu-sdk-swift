@@ -3,10 +3,12 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAccordion from '../XUIAccordion';
 import XUIAccordionItem from '../XUIAccordionItem';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => '123');
@@ -113,5 +115,13 @@ describe('<XUIAccordion />', () => {
     );
 
     expect(component.find('.xui-accordionwrapper--content-is-open').length).toBe(1);
+  });
+
+  it('should pass accessibility testing', async () => {
+    const component = mount(
+      <XUIAccordion emptyMessage="Nothing available to show" toggleLabel="Toggle" />,
+    );
+    const results = await axe(component.html());
+    expect(results).toHaveNoViolations();
   });
 });

@@ -1,6 +1,12 @@
 import React from 'react';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIToastAction from '../XUIToastAction';
+
+Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUIToastAction />', () => {
   it('should render a passed qaHook as an automation id', () => {
@@ -25,5 +31,11 @@ describe('<XUIToastAction />', () => {
     );
 
     expect(toastAction).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIToastAction>Action 1</XUIToastAction>);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

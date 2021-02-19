@@ -1,7 +1,21 @@
 import React from 'react';
+import Adapter from 'enzyme-adapter-react-16';
 import ReactDOM from 'react-dom';
+import Enzyme, { mount } from 'enzyme';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIToastWrapper from '../XUIToastWrapper';
+
+Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
+
+describe('<XUIToastWrapper /> accessibility tests', () => {
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIToastWrapper>Wrapper</XUIToastWrapper>);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
+  });
+});
 
 describe('<XUIToastWrapper />', () => {
   beforeAll(() => {

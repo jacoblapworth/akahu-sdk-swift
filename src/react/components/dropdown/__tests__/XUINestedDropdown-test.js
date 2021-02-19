@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUINestedDropdown from '../XUINestedDropdown';
 import XUIDropdownPanel from '../XUIDropdownPanel';
 import XUIPicklist from '../../picklist/XUIPicklist';
@@ -11,6 +12,7 @@ import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import { fixedWidthDropdownSizes, maxWidthDropdownSizes } from '../private/constants';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const createComponent = props => (
   <XUINestedDropdown id="1" {...props}>
@@ -28,6 +30,12 @@ const createComponent = props => (
 );
 
 describe('<XUINestedDropdown />', () => {
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(createComponent());
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
+  });
+
   it('should render a passed id instead of automatically generating one', () => {
     const automationid = renderer.create(createComponent());
 

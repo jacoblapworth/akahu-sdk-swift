@@ -1,4 +1,5 @@
 import React from 'react';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIPageHeader from '../XUIPageHeader';
 import XUIBreadcrumbTrail from '../XUIBreadcrumbTrail';
 import XUIPicklist from '../../picklist/XUIPicklist';
@@ -11,6 +12,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUI PageHeader and BreadcrumbTrail/>', () => {
   const qaHook = 'qaHook';
@@ -162,5 +164,10 @@ describe('<XUI PageHeader and BreadcrumbTrail/>', () => {
       </WidthContext.Provider>,
     );
     expect(contextualBc).toMatchSnapshot();
+  });
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIPageHeader title="Testing 💩" />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

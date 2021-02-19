@@ -1,11 +1,13 @@
 import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 import XUIIconButton from '../XUIIconButton';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const requiredProps = {
   icon: overflowIcon,
@@ -50,5 +52,11 @@ describe('<XUIIconButton/>', () => {
     expect(wrapper.hasClass('xui-button-icon-inverted')).toBeTruthy();
     expect(wrapper.hasClass('xui-button-borderless-inverted')).toBeFalsy();
     expect(wrapper.hasClass('xui-button-inverted')).toBeFalsy();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIIconButton {...requiredProps} />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

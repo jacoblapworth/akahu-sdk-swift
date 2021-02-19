@@ -1,4 +1,5 @@
 import React from 'react';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIPickitem from '../../picklist/XUIPickitem';
 import XUIButton from '../../button/XUIButton';
@@ -12,6 +13,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUI Panel and related components/>', () => {
   const qaHook = 'qaHook';
@@ -102,5 +104,10 @@ describe('<XUI Panel and related components/>', () => {
       </XUIPanel>,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIPanel>Content here</XUIPanel>);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

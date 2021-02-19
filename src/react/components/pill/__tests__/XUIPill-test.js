@@ -1,11 +1,13 @@
 import React from 'react';
 import Enzyme, { shallow, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIPill from '../XUIPill';
 import XUIAvatar from '../../avatar/XUIAvatar';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const NOOP = () => {};
 
@@ -205,5 +207,11 @@ describe('<XUIPill />', () => {
     const pill = renderer.create(<XUIPill isLimitedWidth />);
 
     expect(pill).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIPill value="Value Pill" />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

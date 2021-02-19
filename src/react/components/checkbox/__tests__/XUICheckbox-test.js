@@ -4,11 +4,13 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 import star from '@xero/xui-icon/icons/star';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUICheckbox from '../XUICheckbox';
 
 import div from './helpers/container';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const NOOP = () => {};
 
@@ -202,5 +204,10 @@ describe('XUICheckbox', function () {
     expect(
       component.find('input').getDOMNode().attributes.getNamedItem('autocomplete').value,
     ).toEqual('on');
+  });
+
+  it.skip('should pass accessibility testing', async () => {
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

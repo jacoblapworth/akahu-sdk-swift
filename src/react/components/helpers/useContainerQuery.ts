@@ -6,8 +6,14 @@ export default function useContainerQuery(customBreakpoints?: Breakpoints) {
 
   const { width } = contentRect;
 
-  const isWidthAboveBreakpoint = breakpoint =>
-    typeof width === 'number' && handleBreakpoint(width, breakpoint, customBreakpoints);
+  const isWidthAboveBreakpoint = breakpoint => {
+    if (typeof width !== 'number') {
+      // In many testing frameworks, a width will not be available.
+      // Return `true` in order to default to full-width behaviour.
+      return true;
+    }
+    return handleBreakpoint(width, breakpoint, customBreakpoints);
+  };
 
   const getWidthClasses = () => getWidthClassesFromWidth(width);
 

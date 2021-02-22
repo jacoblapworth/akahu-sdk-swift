@@ -69,7 +69,7 @@ const toggledItems = [
   </XUIPickitem>
 ));
 
-test.add(storyNames.formOnAPage, () => {
+const testFormOnAPage = () => {
   const trigger = <XUIButton hasCaret>Trigger Button</XUIButton>;
   const dropdown = (
     <XUIDropdown>
@@ -199,4 +199,7 @@ test.add(storyNames.formOnAPage, () => {
       </Form>
     </div>
   );
-});
+};
+
+test.add(storyNames.formOnAPage, testFormOnAPage);
+test.add(storyNames.formOnAPageUseCustomFontSize, testFormOnAPage);

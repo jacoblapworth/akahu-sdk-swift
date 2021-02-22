@@ -7,6 +7,7 @@ const storyNames = {
   dropDownInModal: 'Dropdown in a modal',
   multiDropdowns: 'Multiple dropdowns in a modal',
   formOnAPage: 'Form on a page',
+  formOnAPageUseCustomFontSize: 'Form on a page (reset font-size)',
   formLayout: 'Form layout',
   touchTargets: 'Invisible touch targets',
 };
@@ -26,6 +27,7 @@ Object.keys(storyNames).forEach(name => {
     storyKind: compositionKind,
     storyTitle: storyNames[name],
     viewports: name === 'formOnAPage' || name === 'formLayout' ? desktopPlus320 : undefined,
+    useCustomFontSize: name === 'formOnAPageUseCustomFontSize',
   });
 });
 

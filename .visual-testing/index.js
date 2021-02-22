@@ -279,7 +279,7 @@ function buildScenarios() {
 
           scenarioProp.onBeforeScript = 'onBefore.js';
 
-          const { clickSelector, hoverSelector } = story;
+          const { clickSelector, hoverSelector, useCustomFontSize } = story;
           // Ship with an onReady script that enables the click/hover selector
           if (clickSelector || hoverSelector) {
             if (clickSelector) {
@@ -288,6 +288,7 @@ function buildScenarios() {
               scenarioProp.hoverSelector = hoverSelector;
             }
           }
+          scenarioProp.useCustomFontSize = useCustomFontSize;
           scenarioProp.onReadyScript = 'onReady.js';
 
           return scenarioProp;

@@ -241,7 +241,7 @@ const componentsToTest = [
   {
     testsPrefix: 'Compositions',
     variationsPath: `${variationsPath}/compositions/stories/variations.js`,
-    selectors: '#root',
+    selectors: '.xui-composition',
   },
 ];
 

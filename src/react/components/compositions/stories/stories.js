@@ -1,5 +1,5 @@
 // Libs
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
@@ -350,6 +350,19 @@ storiesWithKnobs.add('Split', () => {
   return <Tag {...settings} {...areas} />;
 });
 
+// `display: flex` on the default decorator shrinks our compositions into invisibility
+const FixedDecorator = ({ children }) => {
+  const node = React.useRef();
+
+  useEffect(() => {
+    const wrapper = node?.current?.parentElement?.parentElement;
+
+    wrapper.style.display = 'unset';
+  });
+
+  return <div ref={node}>{children}</div>;
+};
+
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 
 variations.forEach(variation => {
@@ -378,6 +391,8 @@ variations.forEach(variation => {
   }
 
   storiesWithVariations.add(variation.storyTitle, () => (
-    <Tag {...compositionProps} {...areasInstance} />
+    <FixedDecorator>
+      <Tag {...compositionProps} {...areasInstance} />
+    </FixedDecorator>
   ));
 });

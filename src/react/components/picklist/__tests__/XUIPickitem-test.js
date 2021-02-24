@@ -152,6 +152,7 @@ describe('<XUIPickitem />', () => {
     const onBlurMock = jest.fn();
     const onFocusMock = jest.fn();
     const onMouseOverMock = jest.fn();
+    const onMouseUpMock = jest.fn();
     const onKeyDownMock = jest.fn();
     const wrapper = mount(
       <XUIPickitem
@@ -160,6 +161,7 @@ describe('<XUIPickitem />', () => {
         onBlur={onBlurMock}
         onKeyDown={onKeyDownMock}
         onMouseOver={onMouseOverMock}
+        onMouseUp={onMouseUpMock}
         id="item1"
       >
         Item 1
@@ -177,6 +179,8 @@ describe('<XUIPickitem />', () => {
     expect(onKeyDownMock).toHaveBeenCalledTimes(1);
     button.simulate('mouseover');
     expect(onMouseOverMock).toHaveBeenCalledTimes(1);
+    button.simulate('mouseup');
+    expect(onMouseUpMock).toHaveBeenCalledTimes(1);
   });
 
   it('passes event handlers to the PickitemBody (anchor)', () => {
@@ -184,6 +188,7 @@ describe('<XUIPickitem />', () => {
     const onBlurMock = jest.fn();
     const onFocusMock = jest.fn();
     const onMouseOverMock = jest.fn();
+    const onMouseUpMock = jest.fn();
     const onKeyDownMock = jest.fn();
     const wrapper = mount(
       <XUIPickitem
@@ -193,6 +198,7 @@ describe('<XUIPickitem />', () => {
         onBlur={onBlurMock}
         onKeyDown={onKeyDownMock}
         onMouseOver={onMouseOverMock}
+        onMouseUp={onMouseUpMock}
         id="item1"
       >
         Item 1
@@ -210,6 +216,8 @@ describe('<XUIPickitem />', () => {
     expect(onKeyDownMock).toHaveBeenCalledTimes(1);
     anchor.simulate('mouseover');
     expect(onMouseOverMock).toHaveBeenCalledTimes(1);
+    anchor.simulate('mouseup');
+    expect(onMouseUpMock).toHaveBeenCalledTimes(1);
   });
 
   it('passes event handlers to the PickitemMultiselect', () => {
@@ -217,6 +225,7 @@ describe('<XUIPickitem />', () => {
     const onBlurMock = jest.fn();
     const onFocusMock = jest.fn();
     const onMouseOverMock = jest.fn();
+    const onMouseUpMock = jest.fn();
     const onKeyDownMock = jest.fn();
     const wrapper = mount(
       <XUIPickitem
@@ -226,6 +235,7 @@ describe('<XUIPickitem />', () => {
         onBlur={onBlurMock}
         onKeyDown={onKeyDownMock}
         onMouseOver={onMouseOverMock}
+        onMouseUp={onMouseUpMock}
         id="item1"
       >
         Item 1
@@ -243,6 +253,8 @@ describe('<XUIPickitem />', () => {
     expect(onKeyDownMock).toHaveBeenCalledTimes(1);
     label.first().simulate('mouseover');
     expect(onMouseOverMock).toHaveBeenCalledTimes(1);
+    label.first().simulate('mouseup');
+    expect(onMouseUpMock).toHaveBeenCalledTimes(1);
   });
 
   describe('Horizontal Pickitem', () => {

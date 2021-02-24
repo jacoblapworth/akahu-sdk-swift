@@ -83,6 +83,10 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/contentblock/stories/variations.js`,
   },
   {
+    testsPrefix: 'XUI DateInput',
+    variationsPath: `${variationsPath}/dateinput/stories/variations.js`,
+  },
+  {
     testsPrefix: 'XUI DatePicker',
     variationsPath: `${variationsPath}/datepicker/stories/variations.js`,
   },

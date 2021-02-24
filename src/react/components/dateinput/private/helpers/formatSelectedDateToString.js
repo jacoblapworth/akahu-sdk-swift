@@ -1,7 +1,10 @@
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
 /** Text Input: Format selected date to DD MMM YYY format eg. 01 Jan 2020 */
-const formatSelectedDateToString = (selectedDate: Date, inputValue?: string) => {
+const formatSelectedDateToString = (selectedDate, inputValue) => {
+  if (inputValue === null && !selectedDate) {
+    return '';
+  }
   if (inputValue || inputValue === '') {
     return inputValue;
   }

@@ -1,19 +1,6 @@
 import * as React from 'react';
 
-interface Props {
-  /** CSS class(es) to go on the wrapping DOM node */
-  className?: string;
-
-  /** Whether or not the dropdown should automatically be hidden when the user selects something */
-  closeOnSelect?: boolean;
-
-  /** Convenience dates */
-  convenienceDates?: Array<{
-    getDate: () => Date;
-    id?: string;
-    text?: string;
-  }>;
-
+interface DateInputConfig {
   /** A date which represents the year and month that the calendar will display. Could
    * be any day in the given day and month. */
   displayedMonth?: Date;
@@ -30,9 +17,6 @@ interface Props {
   /** Whether the current input value is invalid */
   isInvalid?: boolean;
 
-  /** The locale of the calendar. Defaults to En */
-  locale?: string;
-
   /** If you want to disable every date after a given day, pass in the maximum enabled
    * date here.  Can be used with the isDateDisabled function. */
   maxDate?: Date;
@@ -47,8 +31,6 @@ interface Props {
   /** Callback for when the user selects a date */
   onSelectDate?: (day: Date) => void;
 
-  qaHook?: string;
-
   selectedDateDefaultValue?: Date;
 
   /** Value of the date input. Must be a Date object */
@@ -61,4 +43,29 @@ interface Props {
   validationMessage?: string;
 }
 
-export default class XUIDateInputWIP extends React.PureComponent<Props> {}
+interface Props {
+  /** CSS class(es) to go on the wrapping DOM node */
+  className?: string;
+
+  /** Whether or not the dropdown should automatically be hidden when the user selects something */
+  closeOnSelect?: boolean;
+
+  /** Convenience dates */
+  convenienceDates?: Array<{
+    getEndDate: () => Date;
+    getStartDate: () => Date;
+    id?: string;
+    text?: string;
+  }>;
+
+  endDateInputConfig: DateInputConfig;
+
+  /** The locale of the calendar. Defaults to En */
+  locale?: string;
+
+  qaHook?: string;
+
+  startDateInputConfig: DateInputConfig;
+}
+
+export default class XUIDateRangeInputWIP extends React.PureComponent<Props> {}

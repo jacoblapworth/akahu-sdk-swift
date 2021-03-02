@@ -17,7 +17,7 @@ const setup = (props = {}, fn = renderer.create) => {
   };
 
   const expected = fn(
-    <XUITooltip trigger={createTriggerLink()} id="test" {...props}>
+    <XUITooltip id="test" trigger={createTriggerLink()} {...props}>
       Tip goes here
     </XUITooltip>,
   );
@@ -221,6 +221,31 @@ describe('XUITooltip', () => {
       jest.runTimersToTime(1000);
 
       expect(onEventSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('closes the tooltip when hovered and "esc" is pressed', () => {
+      const map = {};
+      window.addEventListener = jest.fn((event, cb) => {
+        map[event] = cb;
+      });
+
+      const component = mount(
+        <XUITooltip
+          id="tooltip"
+          trigger={
+            <a href="/" id="trigger">
+              A link
+            </a>
+          }
+        >
+          Tip goes here
+        </XUITooltip>,
+      );
+      const spy = jest.spyOn(component.instance(), 'closeTooltip');
+      component.find('#trigger').simulate('mouseOver');
+      map.keydown({ key: eventKeyValues.escape });
+
+      expect(spy).toHaveBeenCalledTimes(1);
     });
 
     it('shows the tooltip on focus of the trigger, if triggerOnFocus is true', () => {

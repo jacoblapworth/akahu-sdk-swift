@@ -32,6 +32,10 @@ interface Props {
    */
   isNotResponsive?: boolean;
   /**
+   * The target that should listen to key presses. Defaults to the window.
+   */
+  keyListenerTarget?: HTMLElement;
+  /**
    * Limit `width` of tooltip's trigger to `100%`.
    */
   limitWidth?: boolean;

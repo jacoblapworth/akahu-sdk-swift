@@ -30,13 +30,13 @@ interface Props {
    */
   isMultiselect?: boolean;
   /**
+   * onClick handler function added to the root HTML element.
+   */
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  /**
    * Keydown handler function added to the root HTML element.
    */
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
-  /**
-   * Mousedown handler function added to the root HTML element.
-   */
-  onMouseDown?: React.MouseEventHandler<HTMLElement>;
   qaHook?: string;
   /**
    * Additional props to pass to the root HTML element.

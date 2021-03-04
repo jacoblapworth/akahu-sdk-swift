@@ -117,7 +117,7 @@ export default class XUIDropdownToggled extends PureComponent {
 
   /**
    * Attaches the event listeners based on state.
-   * Listeners attached on keydown and mousedown to control the open/close keyboard
+   * Listeners attached on keydown and click to control the open/close keyboard
    * shortcuts of the list.
    */
   componentDidMount() {
@@ -372,11 +372,11 @@ export default class XUIDropdownToggled extends PureComponent {
   };
 
   /**
-   * Fires when the window triggers a mouse down event
+   * Fires when the window triggers an onClick event
    *
    * @param {MouseEvent} event
    */
-  onMouseDown = event => {
+  onClick = event => {
     const { isHidden } = this.state;
     const { firstChild: trigger } = this.wrapper.current;
 

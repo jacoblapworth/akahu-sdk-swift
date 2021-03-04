@@ -89,8 +89,8 @@ export const checkIsNarrowViewport = () =>
  */
 export const addEventListeners = ddt => {
   if (typeof window !== 'undefined') {
-    window.addEventListener('mousedown', ddt.onMouseDown);
-    window.addEventListener('touchstart', ddt.onMouseDown);
+    window.addEventListener('mouseup', ddt.onClick);
+    window.addEventListener('touchend', ddt.onClick);
     window.addEventListener('resize', ddt.onResize);
     if (ddt.props.repositionOnScroll) {
       window.addEventListener('scroll', ddt.onScroll);
@@ -106,8 +106,8 @@ export const addEventListeners = ddt => {
  */
 export const removeEventListeners = ddt => {
   if (typeof window !== 'undefined') {
-    window.removeEventListener('mousedown', ddt.onMouseDown);
-    window.removeEventListener('touchstart', ddt.onMouseDown);
+    window.removeEventListener('mouseup', ddt.onClick);
+    window.removeEventListener('touchend', ddt.onClick);
     window.removeEventListener('resize', ddt.onResize);
     window.removeEventListener('scroll', ddt.onScroll);
   }

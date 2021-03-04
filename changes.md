@@ -76,6 +76,8 @@ TypeScript types have also been made slightly more strict for instances of rootN
 
 ### Component props
 
+- `XUIPicklist`: `onMouseDown` replaced with `onClick`.
+
 _Note. The codemod will resolve most prop differences automatically when run._
 
 ## Other changes

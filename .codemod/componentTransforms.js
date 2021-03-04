@@ -2,6 +2,17 @@ const stringReplace = require('@xero/xuishift/transforms/stringReplace');
 const remove = () => () => undefined;
 
 module.exports = {
+  picklist: [
+    {
+      name: 'XUIPicklist',
+      props: [
+        {
+          name: 'onMouseDown',
+          newName: 'onClick',
+        },
+      ],
+    },
+  ],
   // Example usage to copy
   // button: [
   //   {

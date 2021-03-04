@@ -55,7 +55,7 @@ export default class XUIPicklist extends Component {
       closeOnSelect,
       id,
       onKeyDown,
-      onMouseDown,
+      onClick,
       secondaryProps,
       defaultLayout,
       isHorizontal,
@@ -93,7 +93,7 @@ export default class XUIPicklist extends Component {
       ...secondaryProps,
       id,
       onKeyDown,
-      onMouseDown,
+      onClick,
       'data-automationid': qaHook,
     };
 
@@ -143,10 +143,10 @@ XUIPicklist.propTypes = {
    * ⚠️ *Vertical picklists only*
    */
   isMultiselect: PropTypes.bool,
+  /** onClick handler function added to the root HTML element */
+  onClick: PropTypes.func,
   /** Keydown handler function added to the root HTML element */
   onKeyDown: PropTypes.func,
-  /** Mousedown handler function added to the root HTML element */
-  onMouseDown: PropTypes.func,
   qaHook: PropTypes.string,
   /** Additional props to pass to the root HTML element */
   secondaryProps: PropTypes.object,

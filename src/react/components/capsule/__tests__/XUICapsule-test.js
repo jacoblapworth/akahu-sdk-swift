@@ -1,9 +1,11 @@
 import React from 'react';
 import Enzyme, { mount, render, shallow } from 'enzyme';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import Adapter from 'enzyme-adapter-react-16';
 import XUICapsule from '../XUICapsule';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUICapsule />', () => {
   it('renders the capsule with correct XUI classes', () => {
@@ -36,5 +38,11 @@ describe('<XUICapsule />', () => {
     const capsule = mount(<XUICapsule onClick={callback} />);
     capsule.find('a').simulate('click');
     expect(callback.mock.calls.length).toEqual(1);
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUICapsule />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

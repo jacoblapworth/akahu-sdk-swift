@@ -2,12 +2,14 @@ import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAvatar from '../XUIAvatar';
 import XUIAvatarGroup from '../XUIAvatarGroup';
 import XUIAvatarCounter from '../XUIAvatarCounter';
 import { classNames, sizeClassNames } from '../constants';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('XUIAvatarGroup', function () {
   it('should have the correct class', () => {
@@ -122,5 +124,15 @@ describe('XUIAvatarGroup', function () {
 
   it('should throw when maxAvatars attribute supplied, but is a number below 0', () => {
     expect(() => render(<XUIAvatarGroup maxAvatars={-1} />)).toThrow();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIAvatarGroup>
+        <XUIAvatar size="small" value="HAI" />
+      </XUIAvatarGroup>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

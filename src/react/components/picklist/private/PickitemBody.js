@@ -18,6 +18,7 @@ const PickitemBody = ({
   onKeyDown,
   shouldTruncate,
   onMouseOver,
+  onMouseUp,
   onBlur,
   onFocus,
   href,
@@ -38,6 +39,7 @@ const PickitemBody = ({
     className: cn(itemBodyClassName, showButtonCaret && `${itemBodyClassName}-has-icon`),
     onClick,
     onKeyDown,
+    onMouseUp,
     onMouseOver,
     onBlur,
     onFocus,
@@ -95,6 +97,7 @@ PickitemBody.propTypes = {
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
   onMouseOver: PropTypes.func,
+  onMouseUp: PropTypes.func,
   /** Less important text to appear pinned at the right. */
   pinnedElement: PropTypes.node,
   /** Standard text */

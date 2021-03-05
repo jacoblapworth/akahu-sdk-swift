@@ -1,11 +1,13 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIDropdownLayout from '../XUIDropdownLayout';
 import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIPickitem from '../../picklist/XUIPickitem';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 function getWrapper(props = {}) {
   return mount(
@@ -59,5 +61,14 @@ describe('onCloseAnimationEnd', () => {
       animationName: 'xui-dropdown-mobile-show',
     });
     expect(onCloseAnimationEnd).not.toBeCalled();
+  });
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIDropdownLayout>
+        <p>Meow</p>
+      </XUIDropdownLayout>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

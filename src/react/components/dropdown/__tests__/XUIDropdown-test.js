@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIDropdown from '../XUIDropdown';
 import XUIPicklist from '../../picklist/XUIPicklist';
@@ -8,6 +9,19 @@ import XUIPickitem from '../../picklist/XUIPickitem';
 import { maxWidthDropdownSizes, fixedWidthDropdownSizes } from '../private/constants';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
+
+describe('<XUIDropdown /> accessibility testing', () => {
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIDropdown>
+        <p>Panel Content</p>
+      </XUIDropdown>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
+  });
+});
 
 describe('<XUIDropdown /> size classes', () => {
   Object.keys(maxWidthDropdownSizes).forEach(size => {

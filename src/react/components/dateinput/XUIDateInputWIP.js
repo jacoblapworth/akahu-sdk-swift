@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
+import { ns } from '../helpers/xuiClassNamespace';
 
 import XUIDateInputItem from './private/XUIDateInputItem';
 import { logWarning } from '../helpers/developmentConsole';
 
 class XUIDateInputWIP extends React.Component {
   state = {
-    selectedDate: null,
+    selectedDate: this.props.selectedDateDefaultValue,
   };
 
   componentDidMount() {
     /** WIP flag logging */
     logWarning({ componentName: 'XUIDateInputWIP', flagType: 'wip' });
-
-    this.setState({ selectedDate: this.props.selectedDateDefaultValue });
   }
 
   onSelectDate = date => {
@@ -22,12 +22,10 @@ class XUIDateInputWIP extends React.Component {
     });
 
     this.props.onSelectDate?.(date);
-    // TODO: deselect focus
   };
 
   render() {
     const {
-      // TODO: classname
       className,
       closeOnSelect,
       convenienceDates,
@@ -35,29 +33,39 @@ class XUIDateInputWIP extends React.Component {
       hintMessage,
       inputLabel,
       isDisabled,
+      isInvalid,
       locale,
+      maxDate,
+      minDate,
       onInputChange,
       triggerClassName,
       validationMessage,
+      qaHook,
     } = this.props;
 
     const selectedDate = this.props.selectedDateValue || this.state.selectedDate;
 
     return (
-      <XUIDateInputItem
-        closeOnSelect={closeOnSelect}
-        convenienceDates={convenienceDates}
-        displayedMonth={displayedMonth}
-        hintMessage={hintMessage}
-        inputLabel={inputLabel}
-        isDisabled={isDisabled}
-        locale={locale}
-        onInputChange={onInputChange}
-        onSelectDate={this.onSelectDate}
-        selectedDate={selectedDate}
-        triggerClassName={triggerClassName}
-        validationMessage={validationMessage}
-      />
+      <div className={cn(`${ns}-dateinput`, className)} data-automationid={qaHook}>
+        <XUIDateInputItem
+          closeOnSelect={closeOnSelect}
+          convenienceDates={convenienceDates}
+          displayedMonth={displayedMonth}
+          hintMessage={hintMessage}
+          inputLabel={inputLabel}
+          isDisabled={isDisabled}
+          isInvalid={isInvalid}
+          locale={locale}
+          maxDate={maxDate}
+          minDate={minDate}
+          onInputChange={onInputChange}
+          onSelectDate={this.onSelectDate}
+          qaHook={qaHook && `${qaHook}-dateinput`}
+          selectedDate={selectedDate}
+          triggerClassName={triggerClassName}
+          validationMessage={validationMessage}
+        />
+      </div>
     );
   }
 }
@@ -78,8 +86,10 @@ XUIDateInputWIP.propTypes = {
     }),
   ),
 
-  /** A date which represents the year and month that the calendar will display. Could
-   * be any day in the given day and month. */
+  /**
+   * A date which represents the year and month that the calendar will display. Could
+   * be any day in the given day and month.
+   */
   displayedMonth: PropTypes.instanceOf(Date),
 
   /** Hint message to display below input */
@@ -91,14 +101,31 @@ XUIDateInputWIP.propTypes = {
   /** Whether the input is disabled */
   isDisabled: PropTypes.bool,
 
+  /** Whether the current input value is invalid */
+  isInvalid: PropTypes.bool,
+
   /** The locale of the calendar. Defaults to En */
   locale: PropTypes.string,
+
+  /**
+   * If you want to disable every date after a given day, pass in the maximum enabled
+   * date here. Can be used with the isDateDisabled function.
+   */
+  maxDate: PropTypes.instanceOf(Date),
+
+  /**
+   * If you want to disable every date before a given day, pass in the minimum enabled
+   * date here. Can be used with the isDateDisabled function.
+   */
+  minDate: PropTypes.instanceOf(Date),
 
   /** Callback for when the input changes  */
   onInputChange: PropTypes.func,
 
   /** Callback for when the user selects a date */
   onSelectDate: PropTypes.func,
+
+  qaHook: PropTypes.string,
 
   selectedDateDefaultValue: PropTypes.instanceOf(Date),
 

@@ -1,11 +1,13 @@
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import toJson from 'enzyme-to-json';
 import React from 'react';
 
 import XUIPopoverHeader from '../XUIPopoverHeader';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUIPopoverHeader />', () => {
   it('renders without crashing', () => {
@@ -60,5 +62,17 @@ describe('<XUIPopoverHeader />', () => {
 
     // Assert
     expect(onCloseMock).toBeCalled();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIPopoverHeader
+        closeButtonProps={{ ariaLabel: 'Close' }}
+        subtitle="Subtitle"
+        title="Test title"
+      />,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

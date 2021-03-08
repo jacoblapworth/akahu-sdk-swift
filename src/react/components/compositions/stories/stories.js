@@ -1,12 +1,9 @@
 // Libs
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// import { addReadme } from 'storybook-readme';
-// import readme from './README.md';
 
 // Components we need to test with
 import XUICompositionSplitHeader from '../XUICompositionSplitHeader';
@@ -91,13 +88,6 @@ const blockAreas = {
 
 const storiesWithKnobs = storiesOf('Compositions', module);
 
-// TODO: storybook-readme is commented out until the package fixes issues with IE11.
-// test.addDecorator(addReadme);
-// test.addParameters({
-// 	readme: {
-// 		sidebar: readme
-// 	}
-// });
 storiesWithKnobs.add('Master detail summary', () => {
   const Tag = boolean('Include content header', false, '1')
     ? XUICompositionMasterDetailSummaryHeader
@@ -360,6 +350,19 @@ storiesWithKnobs.add('Split', () => {
   return <Tag {...settings} {...areas} />;
 });
 
+// `display: flex` on the default decorator shrinks our compositions into invisibility
+const FixedDecorator = ({ children }) => {
+  const node = React.useRef();
+
+  useEffect(() => {
+    const wrapper = node?.current?.parentElement?.parentElement;
+
+    wrapper.style.display = 'unset';
+  });
+
+  return <div ref={node}>{children}</div>;
+};
+
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 
 variations.forEach(variation => {
@@ -388,6 +391,8 @@ variations.forEach(variation => {
   }
 
   storiesWithVariations.add(variation.storyTitle, () => (
-    <Tag {...compositionProps} {...areasInstance} />
+    <FixedDecorator>
+      <Tag {...compositionProps} {...areasInstance} />
+    </FixedDecorator>
   ));
 });

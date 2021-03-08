@@ -4,7 +4,6 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import { wrapperSizeClasses, rotationClasses, colorClasses } from '../private/constants';
@@ -14,7 +13,7 @@ import { variations, storiesWithVariationsKindName } from './variations';
 import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   const rotation = select('Rotation', [0, ...Object.keys(rotationClasses)]);
   const color = select('Color', Object.keys(colorClasses), 'standard');
@@ -35,7 +34,6 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 function generateSubVariants(subVariants, variant) {
   const examples = subVariants.map((prop, idx) => {

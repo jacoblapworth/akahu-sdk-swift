@@ -1,3 +1,3 @@
 module.exports = {
-  addons: ['@storybook/addon-a11y', '@storybook/addon-knobs/preset', 'storybook-readme'],
+  addons: ['@storybook/addon-knobs/preset', '@storybook/addon-a11y'],
 };

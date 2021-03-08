@@ -1,11 +1,9 @@
 // Libs
 import React from 'react';
-import dayjs from 'dayjs';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered';
+import { boolean, text } from '@storybook/addon-knobs';
 
 // Components we need to test with
 import XUIDateInputWIP from '../XUIDateInputWIP';
@@ -23,7 +21,6 @@ const sampleOnSelectDateFunction = date => {
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const isDateRangeDemo = boolean('isDateRangeInput', false);
 
@@ -88,7 +85,6 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {

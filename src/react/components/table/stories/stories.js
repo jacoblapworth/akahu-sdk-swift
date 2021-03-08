@@ -64,6 +64,10 @@ const createOverflowMenu = () => [
 
 const Appendage = ({ children }) => <div style={appendageStyles}>{children}</div>;
 
+const CustomHeader = () => <div style={{ width: '400px', height: '50px' }} />;
+
+const CustomFooter = () => <div style={{ width: '400px', height: '40px' }} />;
+
 Appendage.propTypes = { children: PropTypes.node };
 
 const createCustomStyles = () => {
@@ -110,6 +114,8 @@ storiesWithKnobs.add('Playground', () => {
 
   const prependHeader = boolean('prependHeader', false);
   const appendFooter = boolean('appendFooter', false);
+  const hasCustomHeader = boolean('hasCustomHeader', false);
+  const hasCustomFooter = boolean('hasCustomFooter', false);
 
   const sortKeyOptions = ['header-1', 'header-2', 'header-3', 'header-4', 'header-5'];
   const activeSortKey = select('activeSortKey', sortKeyOptions, sortKeyOptions[0]);
@@ -152,8 +158,12 @@ storiesWithKnobs.add('Playground', () => {
         className={text('className', '')}
         data={data}
         emptyMessage="Nothing to show here"
-        footer={appendFooter && <Appendage>Footer</Appendage>}
-        header={prependHeader && <Appendage>Header</Appendage>}
+        footer={
+          (appendFooter && <Appendage>Footer</Appendage>) || (hasCustomFooter && <CustomFooter />)
+        }
+        header={
+          (prependHeader && <Appendage>Header</Appendage>) || (hasCustomHeader && <CustomHeader />)
+        }
         isBorderless={boolean('isBorderless', false)}
         isLoading={boolean('isLoading', false)}
         isResponsive={boolean('isResponsive', false)}
@@ -241,8 +251,14 @@ const TestScaffold = (
       emptyStateComponent={
         tableProps.emptyStateComponent && <Appendage>Custom Empty State</Appendage>
       }
-      footer={tableProps.footer && <Appendage>Footer</Appendage>}
-      header={tableProps.header && <Appendage>Header</Appendage>}
+      footer={
+        (tableProps.footer && <Appendage>Footer</Appendage>) ||
+        (tableProps.hasCustomFooter && <CustomFooter />)
+      }
+      header={
+        (tableProps.header && <Appendage>Header</Appendage>) ||
+        (tableProps.hasCustomHeader && <CustomHeader />)
+      }
     >
       {new Array(columns).fill(0).map((_, columnIndex) => (
         <Column

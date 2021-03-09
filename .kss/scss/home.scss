@@ -6,166 +6,329 @@
 @import '../../src/sass/vars';
 @import './mixins';
 
-.ds-header--home {
-  margin: 0 0 100px 0.5vw;
-  h1 {
-    font-size: calc(2.4rem + 2vw);
-    margin: 0 0 40px;
+.ds-home {
+  .ds-nowrap {
+    word-wrap: none;
+    white-space: nowrap;
   }
-}
 
-.ds-panel--feedback {
-  background-color: $xui-color-white;
-  border-left: 4px solid $xui-color-orange;
-}
+  .ds-section-wrap {
+    max-width: 100%;
+  }
 
-.ds-tilegroup--home {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 0 0 100px;
-  @include xui-breakpoint-large-up {
-    @include embiggen;
+  .ds-main {
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 10vh;
+    @include xui-breakpoint-large-up {
+      padding-top: 12vh;
+    }
   }
-}
 
-.ds-tile--home-small {
-  background-color: $xui-color-white;
-  border-radius: $xui-radius;
-  box-shadow: $xui-shadow-border-all;
-  display: inline-block;
-  height: 210px;
-  margin: 1vw 0.5vw 20px;
-  transform: perspective(1px) translateZ(0);
-  transition: all $xui-motion-speed-medium $ds-motion-curve-bouncy;
-  vertical-align: middle;
-  width: calc(50% - 1vw);
-  &:hover {
-    box-shadow: $xui-shadow-depth-pop;
-    transform: translateY(-4px);
+  .ds-actions {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include xui-breakpoint-large-up {
+      justify-content: flex-start;
+    }
+    .xui-button {
+      min-width: calc(50% - #{$xui-s-xsmall});
+      @include xui-breakpoint-small-down {
+        &:nth-of-type(n + 2) {
+          margin-top: $xui-s-standard;
+        }
+      }
+      @include xui-breakpoint-large-up {
+        min-width: 0;
+        width: auto;
+        &:nth-of-type(n + 2) {
+          margin-left: $xui-s-xlarge;
+        }
+      }
+    }
   }
-  a {
-    color: $xui-color-blue;
+
+  .ds-section {
+    margin: 0 3vh $xui-s-5xlarge;
+    @include xui-breakpoint-medium-up {
+      @include xui-margin-horizontal(calc(7 * (1vw + 1vh - 1vmin)));
+      margin-bottom: $xui-s-5xlarge + $xui-s-5xlarge;
+      max-width: 46rem;
+    }
+    &--illustration {
+      display: none;
+      max-width: 50%;
+      width: 100%;
+      @include xui-breakpoint-large-up {
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    &--heading {
+      margin-bottom: $xui-s-xlarge;
+      padding-top: 0;
+    }
+    & > .ds-detail {
+      @include xui-text-large;
+      color: $xui-color-grey-3;
+      margin-bottom: $xui-s-2xlarge;
+    }
+    &-tenets {
+      @include xui-breakpoint-medium-up {
+        margin-bottom: $xui-s-5xlarge;
+      }
+      & > .ds-detail {
+        margin-bottom: $xui-s-5xlarge;
+      }
+    }
   }
-  p {
-    color: $xui-color-grey-1;
-    opacity: 1;
+
+  .ds-flexgrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+
+    .ds-flexgrid--subrow {
+      display: flex;
+      flex: 1 1 448px;
+      flex-direction: column;
+      @include xui-breakpoint-small-up {
+        flex-direction: row;
+      }
+    }
   }
-  .xui-heading-large {
-    color: $xui-color-blue;
-    line-height: 1;
-    margin: 0;
-    padding-bottom: $xui-s-small;
+
+  .ds-section-intro {
+    display: flex;
+    @include xui-breakpoint-xlarge-up {
+      max-width: 65vw;
+      width: 150%;
+    }
+    .ds-section--heading {
+      font-size: calc(2rem + 1vw);
+      margin-top: 0;
+      padding-right: 0;
+    }
+    .ds-section--content {
+      @include xui-breakpoint-xlarge-up {
+        width: 400px;
+      }
+    }
+    .ds-detail {
+      @include xui-text-large;
+      color: $xui-color-grey-3;
+      margin-bottom: $xui-s-2xlarge;
+    }
+    .ds-section--illustration {
+      @include xui-breakpoint-xlarge-up {
+        display: flex;
+      }
+      max-width: 660px;
+      width: 66%;
+    }
+    .xui-illustration {
+      max-height: 266px;
+      min-height: 220px;
+      min-width: 415px;
+      padding-left: 72px;
+    }
   }
-  @include xui-breakpoint-medium-to-large {
-    background-image: none !important;
-    height: 140px;
-    margin: 2vw 1vw 1vw;
+
+  .ds-tenet {
+    margin-bottom: $xui-s-5xlarge;
+    @include xui-breakpoint-large-up {
+      display: flex;
+      flex-direction: column;
+      max-width: calc((100% - #{$xui-s-5xlarge}) / 2);
+    }
+    &--header {
+      display: flex;
+      align-items: center;
+      margin-bottom: $xui-s-small;
+      min-height: $xui-s-3xlarge;
+    }
+    &--footer {
+      display: flex;
+      justify-content: space-between;
+    }
+    &--footer--link {
+      font-size: $xui-font-size-small;
+      line-height: $xui-line-height-standard;
+    }
+    .ds-tenet--headericon {
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-right: $xui-s-small;
+
+      img {
+        width: 100%;
+      }
+    }
+    .ds-tenet--heading {
+      font-size: $xui-font-size-large;
+      line-height: $xui-line-height-small;
+      margin: 0;
+    }
+    .ds-detail {
+      @include xui-text-medium;
+      color: $xui-color-grey-2;
+      margin-top: 0;
+      margin-bottom: $xui-s-xlarge;
+      @include xui-breakpoint-medium-up {
+        flex-grow: 1;
+        margin-bottom: $xui-s-2xlarge;
+      }
+    }
+    .ds-tenet--footer--personae {
+      display: flex;
+    }
+    .ds-xuiuser,
+    .ds-xuiteam {
+      display: flex;
+      position: relative;
+      text-decoration: none;
+      &:first-child {
+        margin-right: $xui-s-xsmall;
+      }
+      .xui-avatar:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .ds-section-resources {
+    @include xui-breakpoint-small-up {
+      margin-bottom: $xui-s-5xlarge + $xui-s-2xlarge;
+    }
+    @include xui-breakpoint-large-up {
+      max-width: 65vw;
+    }
+  }
+  .ds-resource {
+    border: $xui-border-standard;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-bottom: $xui-s-xlarge;
+    min-width: 200px;
+    text-decoration: none;
     width: 100%;
-  }
-  @include xui-breakpoint-small-to-medium {
-    background-image: none !important;
-    height: 150px;
-    margin: 2vw 1vw 1vw;
-    width: 100%;
-  }
-  @include xui-breakpoint-small-down {
-    background-image: none !important;
-    height: 150px;
-    margin: 2vw 1vw 1vw;
-    width: 100%;
-  }
-}
-
-.ds-tile--home {
-  background-color: $xui-color-blue-xdark;
-  background-position: 50% 100%;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  border-radius: $xui-radius;
-  box-shadow: $xui-shadow-depth-pop;
-  display: inline-block;
-  height: 220px;
-  margin: 1vw 0.5vw 0;
-  transform: perspective(1px) translateZ(0);
-  transition: all $xui-motion-speed-medium $ds-motion-curve-bouncy;
-  vertical-align: middle;
-  width: calc(25% - 1vw);
-  svg {
-    fill: $xui-color-white;
-  }
-  .xui-heading {
-    color: $xui-color-white;
-    line-height: 1.15;
-    margin: 0;
-    padding-bottom: $xui-s-small;
+    &:hover,
+    &:focus {
+      background-color: $xui-color-grey-8;
+      cursor: pointer;
+    }
+    &:active {
+      background-color: $xui-color-grey-7;
+    }
+    @include xui-breakpoint-small-up {
+      margin-bottom: $xui-s-2xlarge;
+      width: calc((100% - #{$xui-s-xlarge}) / 2);
+      &:first-child {
+        margin-right: $xui-s-xlarge;
+      }
+    }
+    &:first-child {
+      @include xui-breakpoint-large-up {
+        margin-right: $xui-s-xlarge;
+      }
+    }
+    &:last-child {
+      @include xui-breakpoint-xlarge-up {
+        margin-right: $xui-s-xlarge;
+      }
+    }
+    &--heading {
+      @include xui-heading-large;
+      color: $xui-color-grey-1;
+      margin: $xui-s-2xlarge $xui-s-large $xui-s-standard;
+    }
+    .ds-detail {
+      @include xui-text-small;
+      color: $xui-text-muted-color;
+      margin: 0 $xui-s-xlarge $xui-s-3xlarge $xui-s-large;
+    }
   }
 
-  @include xui-breakpoint-medium-to-large {
-    height: 150px;
-    margin: 2vw 1vw 0;
-    width: calc(50% - 2vw);
+  .ds-section-helpevolve {
+    display: flex;
+    @include xui-breakpoint-medium-up {
+      margin-bottom: 0;
+      padding-bottom: 3 * $xui-s-4xlarge;
+    }
+    .ds-section--content {
+      @include xui-breakpoint-large-up {
+        max-width: 50%;
+        min-width: 380px;
+      }
+    }
+    .ds-section--illustration {
+      @include xui-breakpoint-large-up {
+        display: flex;
+      }
+    }
+    .xui-illustration {
+      max-height: 220px;
+      min-width: 270px;
+      padding-right: 40px;
+    }
   }
-  @include xui-breakpoint-small-to-medium {
-    height: 180px;
-    margin: 2vw 1vw 0;
-    width: calc(50% - 2vw);
+
+  .ds-tenet--footer--personae {
+    .hover-tooltip {
+      @include xui-text-medium;
+      background: $xui-color-white;
+      border: $xui-border-standard;
+      border-radius: $xui-radius;
+      bottom: 90%;
+      box-sizing: border-box;
+      box-shadow: $xui-shadow-depth-lift;
+      color: $xui-color-grey-1;
+      display: block;
+      left: 5%;
+      min-height: 25px;
+      opacity: 0;
+      padding: $xui-s-standard $xui-s-large;
+      text-align: left;
+      transform: translateX(-5%);
+      width: max-content;
+      @include xui-breakpoint-medium-up {
+        max-width: 300px;
+      }
+      &:after {
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid $xui-color-white;
+        bottom: 0;
+        left: 8%; // Very magic number
+        transform: rotate(90deg) translateX(7px);
+      }
+      &:hover {
+        color: inherit;
+        cursor: default;
+      }
+      .attribution {
+        color: $xui-text-muted-color;
+        display: inline-block;
+        margin-top: 1rem;
+      }
+    }
+    .ds-xuiuser,
+    .ds-xuiteam {
+      &:hover > .hover-tooltip,
+      &:focus > .hover-tooltip {
+        bottom: 110%;
+        opacity: 1;
+      }
+    }
   }
-  @include xui-breakpoint-small-down {
-    height: 180px;
-    margin: 2vw 1vw 0;
-    width: calc(50% - 2vw);
+  .ds-nav--menu {
+    padding-top: $xui-s-3xlarge;
+    @include xui-breakpoint-medium-up {
+      padding-top: 0;
+    }
   }
-}
-
-.ds-tile--home:hover {
-  background-color: $xui-color-blue-dark;
-  background-image: none;
-  box-shadow: $xui-shadow-depth-pop;
-  transform: scale(1.05);
-  p {
-    opacity: 1;
-  }
-}
-
-.ds-tile--home p {
-  color: $xui-color-white-alpha-2;
-}
-
-.ds-tile--home a,
-.ds-tile--home-small a {
-  display: block;
-  height: 100%;
-  left: 0;
-  padding: calc(0.5rem + 1vw);
-  position: absolute;
-  text-decoration: none;
-  top: 0;
-  width: 100%;
-}
-
-// Specific background images
-
-.ds-tile--home-fundamentals {
-  background-image: linear-gradient(to bottom, $xui-color-white 0%, rgba(255, 255, 255, 0.8) 100%),
-    url(./kss-assets/illustration/spiral.png);
-  background-size: 220%;
-  background-repeat: no-repeat;
-  background-position: 50% 20px;
-}
-
-.ds-tile--home-elements {
-  background-image: linear-gradient(to bottom, $xui-color-white 0%, rgba(255, 255, 255, 0.9) 100%),
-    url(./kss-assets/illustration/block.png);
-  background-size: 200%;
-  background-repeat: no-repeat;
-  background-position: 5% 20px;
-}
-
-.ds-tile--home-compounds {
-  background-image: linear-gradient(to bottom, $xui-color-white 0%, rgba(255, 255, 255, 0.9) 100%),
-    url(./kss-assets/illustration/gradient.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: 0 60px;
 }

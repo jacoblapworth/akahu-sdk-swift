@@ -5,7 +5,7 @@ import defaultBreakpoints, { Breakpoints, getWidthClassesFromState } from './bre
 
 export type Component = {
   _area: React.RefObject<HTMLElement>;
-  _breakpoints: Breakpoints;
+  _breakpoints?: Breakpoints;
   _onResize: (width: number) => void;
 } & React.Component;
 

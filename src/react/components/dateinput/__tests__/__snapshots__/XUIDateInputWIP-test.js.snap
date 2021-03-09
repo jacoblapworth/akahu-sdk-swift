@@ -67,11 +67,6 @@ exports[`XUIDateInput inserts selected date value 1`] = `
             value="15 Dec 2020"
           />
         </div>
-        <div
-          className="xui-validation xui-validation-layout"
-          id="testDateinputId-message"
-          role="status"
-        />
       </div>
     </div>
   </div>
@@ -145,11 +140,6 @@ exports[`XUIDateInput renders default component 1`] = `
             value="15 Dec 2020"
           />
         </div>
-        <div
-          className="xui-validation xui-validation-layout"
-          id="testDateinputId-message"
-          role="status"
-        />
       </div>
     </div>
   </div>

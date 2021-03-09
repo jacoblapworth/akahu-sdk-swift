@@ -7,7 +7,10 @@ import { XUIDropdown, XUIDropdownToggled } from '../../dropdown';
 import { XUISecondaryButton } from '../../button';
 import XUIPicklist, { XUIPickitem } from '../../picklist';
 import XUIDateInputItem from './private/XUIDateInputItem';
+import XUIInputGroup from '../inputgroup/XUIInputGroup';
 import { logWarning } from '../helpers/developmentConsole';
+
+const baseClass = `${ns}-daterangeinput`;
 
 class XUIDateRangeInputWIP extends Component {
   state = {
@@ -56,6 +59,7 @@ class XUIDateRangeInputWIP extends Component {
       closeOnSelect,
       convenienceDates,
       endDateInputConfig,
+      groupConfig,
       startDateInputConfig,
       locale,
       qaHook,
@@ -74,6 +78,7 @@ class XUIDateRangeInputWIP extends Component {
       inputLabel: startInputLabel,
       isDisabled: isStartDisabled,
       isInvalid: isStartInvalid,
+      isLabelHidden: isStartLabelHidden,
       maxDate: startMaxDate,
       minDate: startMinDate,
       onInputChange: onStartInputChange,
@@ -87,6 +92,7 @@ class XUIDateRangeInputWIP extends Component {
       inputLabel: endInputLabel,
       isDisabled: isEndDisabled,
       isInvalid: isEndInvalid,
+      isLabelHidden: isEndLabelHidden,
       maxDate: endMaxDate,
       minDate: endMinDate,
       onInputChange: onEndInputChange,
@@ -94,16 +100,26 @@ class XUIDateRangeInputWIP extends Component {
       triggerClassName: endTriggerClassName,
       validationMessage: endValidationMessage,
     } = { ...defaultEndDateInputConfig, ...endDateInputConfig };
+    const {
+      hintMessage: groupHintMessage,
+      groupLabel,
+      isDisabled: isGroupDisabled,
+      isInvalid: isGroupInvalid,
+      isGroupLabelHidden,
+      validationMessage: groupValidationMessage,
+      ...groupSpread
+    } = groupConfig;
 
     const { selectedConvenienceDateId } = this.state;
 
     const selectedStartDate = selectedStateDateValue || this.state.selectedStartDate;
     const selectedEndDate = selectedEndDateValue || this.state.selectedEndDate;
-    const hasNoLabel = !startInputLabel && !endInputLabel;
-    const isDisabled = isStartDisabled || isEndDisabled;
+    const needsMessageSpace =
+      startHintMessage || endHintMessage || startValidationMessage || endValidationMessage;
+    const isAnyDisabled = isStartDisabled || isEndDisabled || isGroupDisabled;
 
     const dateInputDropdown = (
-      <XUIDropdown className={`${ns}-daterangeinput--conveniencedatesdropdown`} size="small">
+      <XUIDropdown className={`${baseClass}--conveniencedatesdropdown`}>
         <XUIPicklist>
           {convenienceDates.map(({ id, text, description }) => (
             <XUIPickitem
@@ -121,20 +137,34 @@ class XUIDateRangeInputWIP extends Component {
     );
 
     return (
-      <div className={cn(`${ns}-daterangeinput`, className)} data-automationid={qaHook}>
+      <XUIInputGroup
+        columnWidths="1fr 1fr 40px"
+        fieldClassName={cn(`${baseClass}`, className)}
+        hintMessage={groupHintMessage}
+        isBottomAligned // This can be overridden via groupSpread
+        isDisabled={isGroupDisabled}
+        isInvalid={isGroupInvalid}
+        isLabelHidden={isGroupLabelHidden}
+        label={groupLabel}
+        qaHook={qaHook}
+        validationMessage={groupValidationMessage}
+        {...groupSpread}
+      >
         <XUIDateInputItem
           closeOnSelect={closeOnSelect}
           displayedMonth={displayedStartMonth}
           hintMessage={startHintMessage}
           inputFieldClassName={cn(
-            `${ns}-daterangeinput--firstinput`,
-            // adjustment is needed when only one label is provided
-            !startInputLabel && endInputLabel && `${ns}-daterangeinput--label-blank`,
+            `${baseClass}--firstinput`,
+            needsMessageSpace &&
+              !startHintMessage &&
+              !startValidationMessage &&
+              `${baseClass}--firstinput-withspace`,
           )}
           inputLabel={startInputLabel}
-          isDateRangeInput
-          isDisabled={isStartDisabled}
-          isInvalid={isStartInvalid}
+          isDisabled={isStartDisabled || isGroupDisabled}
+          isInvalid={isStartInvalid || isGroupInvalid}
+          isLabelHidden={isStartLabelHidden}
           locale={locale}
           maxDate={startMaxDate}
           minDate={startMinDate}
@@ -148,17 +178,18 @@ class XUIDateRangeInputWIP extends Component {
         <XUIDateInputItem
           closeOnSelect={closeOnSelect}
           displayedMonth={displayedEndMonth}
-          hasRangeSecondaryButton
           hintMessage={endHintMessage}
           inputFieldClassName={cn(
-            `${ns}-daterangeinput--secondinput`,
-            // adjustment is needed when only one label is provided
-            !endInputLabel && startInputLabel && `${ns}-daterangeinput--label-blank`,
+            `${baseClass}--secondinput`,
+            needsMessageSpace &&
+              !endHintMessage &&
+              !endValidationMessage &&
+              `${baseClass}--secondinput-withspace`,
           )}
           inputLabel={endInputLabel}
-          isDateRangeInput
-          isDisabled={isEndDisabled}
-          isInvalid={isEndInvalid}
+          isDisabled={isEndDisabled || isGroupDisabled}
+          isInvalid={isEndInvalid || isGroupInvalid}
+          isLabelHidden={isEndLabelHidden}
           locale={locale}
           maxDate={endMaxDate}
           minDate={endMinDate}
@@ -172,9 +203,9 @@ class XUIDateRangeInputWIP extends Component {
 
         <XUIDropdownToggled
           className={cn(
-            `${ns}-daterangeinput--convenience`,
-            hasNoLabel && `${ns}-daterangeinput--convenience--labels--blank`,
-            isDisabled && `${ns}-daterangeinput--convenience-disabled`,
+            `${baseClass}--convenience`,
+            needsMessageSpace && `${baseClass}--convenience-withspace`,
+            isAnyDisabled && `${baseClass}--convenience-disabled`,
           )}
           closeOnSelect={closeOnSelect}
           closeOnTab={false}
@@ -184,13 +215,13 @@ class XUIDateRangeInputWIP extends Component {
           restrictedToViewPort={false}
           trigger={
             <XUISecondaryButton
-              isDisabled={isDisabled}
+              isDisabled={isAnyDisabled}
               onClick={() => this.secondaryButtonDdtRef.current.openDropdown()}
             />
           }
           triggerClickAction="none"
         />
-      </div>
+      </XUIInputGroup>
     );
   }
 }
@@ -222,7 +253,7 @@ XUIDateRangeInputWIP.propTypes = {
     /** Hint message to display below input */
     hintMessage: PropTypes.string,
 
-    /** Input label */
+    /** Label for the second input. Recommended for accessibility purposes. */
     inputLabel: PropTypes.string,
 
     /** Whether the input is disabled */
@@ -230,6 +261,9 @@ XUIDateRangeInputWIP.propTypes = {
 
     /** Whether the current input value is invalid */
     isInvalid: PropTypes.bool,
+
+    /** Whether to hide the label and apply it as an ARIA label instead. Defaults to visible */
+    isLabelHidden: PropTypes.bool,
 
     /**
      * If you want to disable every date after a given day, pass in the maximum enabled
@@ -263,6 +297,25 @@ XUIDateRangeInputWIP.propTypes = {
     /** Message to display below input when invalid date inputted */
     validationMessage: PropTypes.string,
   }),
+  groupConfig: PropTypes.shape({
+    /** Label to display for the entire date range group. Recommended for accessibility purposes. */
+    groupLabel: PropTypes.string,
+
+    /** Hint message to display below range */
+    hintMessage: PropTypes.string,
+
+    /** Whether the group is disabled */
+    isDisabled: PropTypes.bool,
+
+    /** Whether to hide the label and apply it as an ARIA label instead. Defaults to visible */
+    isGroupLabelHidden: PropTypes.bool,
+
+    /** Whether the group is invalid. Will pass isInvalid down to both inputs */
+    isInvalid: PropTypes.bool,
+
+    /** Message to display below range when invalid */
+    validationMessage: PropTypes.string,
+  }),
 
   /** The locale of the calendar. Defaults to En */
   locale: PropTypes.string,
@@ -279,7 +332,7 @@ XUIDateRangeInputWIP.propTypes = {
     /** Hint message to display below input */
     hintMessage: PropTypes.string,
 
-    /** Input label */
+    /** Label for the first input. Recommended for accessibility purposes. */
     inputLabel: PropTypes.string,
 
     /** Whether the input is disabled */
@@ -287,6 +340,9 @@ XUIDateRangeInputWIP.propTypes = {
 
     /** Whether the current input value is invalid */
     isInvalid: PropTypes.bool,
+
+    /** Whether to hide the label and apply it as an ARIA label instead. Defaults to visible */
+    isLabelHidden: PropTypes.bool,
 
     /**
      * If you want to disable every date after a given day, pass in the maximum enabled
@@ -325,6 +381,7 @@ XUIDateRangeInputWIP.propTypes = {
 // Default values for `startDateInputConfig` and `endDateInputConfig` are defined in the class above.
 XUIDateRangeInputWIP.defaultProps = {
   closeOnSelect: true,
+  groupConfig: {},
   locale: 'en',
 };
 

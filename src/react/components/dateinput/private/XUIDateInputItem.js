@@ -199,10 +199,13 @@ class XUIDateInputItem extends Component {
       locale,
       maxDate,
       minDate,
+      onInputChange, // Destructured so as not to spread.
+      onSelectDate, // Destructured so as not to spread.
       selectedDate,
       triggerClassName,
       validationMessage,
       qaHook,
+      ...spreadProps
     } = this.props;
     const { activePanel, selectedConvenienceDate, inputValue } = this.state;
 
@@ -232,6 +235,7 @@ class XUIDateInputItem extends Component {
           qaHook={qaHook && `${qaHook}-dateinputitem--input`}
           validationMessage={validationMessage}
           value={formatSelectedDateToString(selectedDate, inputValue)}
+          {...spreadProps}
         />
       </div>
     );
@@ -387,7 +391,6 @@ XUIDateInputItem.defaultProps = {
   closeOnSelect: true,
   displayedMonth: new Date(),
   locale: 'en',
-  validationMessage: 'Invalid date',
 };
 
 export default XUIDateInputItem;

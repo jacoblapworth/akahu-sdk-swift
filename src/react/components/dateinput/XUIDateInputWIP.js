@@ -38,12 +38,15 @@ class XUIDateInputWIP extends React.Component {
       maxDate,
       minDate,
       onInputChange,
+      onSelectDate, // Destructured so as not to spread.
+      selectedDateValue, // Destructured so as not to spread.
       triggerClassName,
       validationMessage,
       qaHook,
+      ...spreadProps
     } = this.props;
 
-    const selectedDate = this.props.selectedDateValue || this.state.selectedDate;
+    const selectedDate = selectedDateValue || this.state.selectedDate;
 
     return (
       <div className={cn(`${ns}-dateinput`, className)} data-automationid={qaHook}>
@@ -64,6 +67,7 @@ class XUIDateInputWIP extends React.Component {
           selectedDate={selectedDate}
           triggerClassName={triggerClassName}
           validationMessage={validationMessage}
+          {...spreadProps}
         />
       </div>
     );

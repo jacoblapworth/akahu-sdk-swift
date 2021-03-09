@@ -8,7 +8,7 @@ interface DateInputConfig {
   /** Hint message to display below input */
   hintMessage?: string;
 
-  /** Input label */
+  /** Label for an input. Recommended for accessibility purposes. */
   inputLabel?: string;
 
   /** Whether the input is disabled */
@@ -16,6 +16,9 @@ interface DateInputConfig {
 
   /** Whether the current input value is invalid */
   isInvalid?: boolean;
+
+  /** Whether to hide the label and apply it as an ARIA label instead. Defaults to visible */
+  isLabelHidden?: boolean;
 
   /** If you want to disable every date after a given day, pass in the maximum enabled
    * date here.  Can be used with the isDateDisabled function. */
@@ -43,6 +46,26 @@ interface DateInputConfig {
   validationMessage?: string;
 }
 
+interface GroupConfig {
+  /** Label to display for the entire date range group. Recommended for accessibility purposes. */
+  groupLabel?: string;
+
+  /** Hint message to display below range */
+  hintMessage?: string;
+
+  /** Whether the group is disabled */
+  isDisabled?: boolean;
+
+  /** Whether to hide the label and apply it as an ARIA label instead. Defaults to visible */
+  isGroupLabelHidden?: boolean;
+
+  /** Whether the group is invalid. Will pass isInvalid down to both inputs */
+  isInvalid?: boolean;
+
+  /** Message to display below range when invalid */
+  validationMessage?: string;
+}
+
 interface Props {
   /** CSS class(es) to go on the wrapping DOM node */
   className?: string;
@@ -59,6 +82,8 @@ interface Props {
   }>;
 
   endDateInputConfig: DateInputConfig;
+
+  groupConfig: GroupConfig;
 
   /** The locale of the calendar. Defaults to En */
   locale?: string;

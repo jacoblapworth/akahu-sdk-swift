@@ -9,50 +9,25 @@ $xui-dateinput-label-vertical-offset: 25px;
 }
 
 .#{$ns}-daterangeinput {
-  display: flex;
-}
+  .#{$ns}-textinput--input {
+    width: 100%;
+  }
+  &--firstinput-withspace,
+  &--secondinput-withspace,
+  &--convenience-withspace {
+    margin-bottom: $xui-s-2xlarge + $xui-s-2xsmall; // Overall height of validation and hint messages
+  }
 
-.#{$ns}-daterangeinput .#{$ns}-textinput.#{$ns}-dateinputitem--input {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-}
+  .#{$ns}-button-split {
+    color: $xui-color-grey-3;
+  }
 
-.#{$ns}-daterangeinput--secondinput .#{$ns}-textinput.#{$ns}-dateinputitem--input {
-  border-left: 0;
-  border-radius: 0;
-}
-
-.#{$ns}-daterangeinput .#{$ns}-button-split {
-  border-bottom-right-radius: $xui-radius;
-  border-left: 0;
-  border-top-right-radius: $xui-radius;
-  color: $xui-color-grey-3;
-  /** @todo: below is a temporary fix to space the secondary button in the same manner as the inputs with labels */
-  top: $xui-dateinput-label-vertical-offset;
-}
-
-.#{$ns}-daterangeinput--conveniencedatesdropdown {
-  width: 400px;
-}
-
-.#{$ns}-daterangeinput .#{$ns}-textinput--input {
-  width: 100%;
-}
-
-.#{$ns}-daterangeinput--label-blank {
-  position: relative;
-  top: $xui-dateinput-label-vertical-offset;
-}
-
-.#{$ns}-daterangeinput--convenience--labels--blank .#{$ns}-button-split {
-  top: 0;
-}
-
-.#{$ns}-daterangeinput--convenience-disabled button {
-  @include xui-dateinput-disabled;
-
-  &:focus,
-  &:hover {
+  &--convenience-disabled .#{$ns}-button {
     @include xui-dateinput-disabled;
+
+    &:focus,
+    &:hover {
+      @include xui-dateinput-disabled;
+    }
   }
 }

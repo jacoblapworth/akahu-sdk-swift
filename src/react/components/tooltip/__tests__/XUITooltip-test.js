@@ -1,13 +1,14 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUITooltip from '../XUITooltip';
 import PositioningInline from '../../positioning/PositioningInline';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
 Enzyme.configure({ adapter: new Adapter() });
-jest.useFakeTimers();
+expect.extend(toHaveNoViolations);
 
 const setup = (props = {}, fn = renderer.create) => {
   jest.clearAllTimers();
@@ -16,7 +17,7 @@ const setup = (props = {}, fn = renderer.create) => {
   };
 
   const expected = fn(
-    <XUITooltip trigger={createTriggerLink()} id="test" {...props}>
+    <XUITooltip id="test" trigger={createTriggerLink()} {...props}>
       Tip goes here
     </XUITooltip>,
   );
@@ -25,6 +26,17 @@ const setup = (props = {}, fn = renderer.create) => {
 };
 
 describe('XUITooltip', () => {
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUITooltip id="test" trigger={<a href="/">A link</a>}>
+        Tip goes here
+      </XUITooltip>,
+    );
+    const results = await axe(wrapper.html());
+
+    expect(results).toHaveNoViolations();
+  });
+
   it('renders correctly', () => {
     const { expected } = setup();
 
@@ -82,6 +94,10 @@ describe('XUITooltip', () => {
   });
 
   describe('tests triggering events', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
     it('shows the tooltip on mouseOver of the tip wrapper', () => {
       const onEventSpy = jest.fn();
       const { expected } = setup({ onOpen: onEventSpy }, mount);
@@ -205,6 +221,31 @@ describe('XUITooltip', () => {
       jest.runTimersToTime(1000);
 
       expect(onEventSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('closes the tooltip when hovered and "esc" is pressed', () => {
+      const map = {};
+      window.addEventListener = jest.fn((event, cb) => {
+        map[event] = cb;
+      });
+
+      const component = mount(
+        <XUITooltip
+          id="tooltip"
+          trigger={
+            <a href="/" id="trigger">
+              A link
+            </a>
+          }
+        >
+          Tip goes here
+        </XUITooltip>,
+      );
+      const spy = jest.spyOn(component.instance(), 'closeTooltip');
+      component.find('#trigger').simulate('mouseOver');
+      map.keydown({ key: eventKeyValues.escape });
+
+      expect(spy).toHaveBeenCalledTimes(1);
     });
 
     it('shows the tooltip on focus of the trigger, if triggerOnFocus is true', () => {

@@ -1,11 +1,12 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIDatePicker from '../XUIDatePicker';
 import { DateUtils } from 'react-day-picker';
-import { wrapperSizeClasses } from '../../icon/private/constants';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const MockXUIDatePicker = props => <XUIDatePicker onSelectDate={() => {}} {...props} />;
 const setup = (props = {}) => {
@@ -85,5 +86,10 @@ describe('<XUIDatePicker />', () => {
     // Assert
     expect(monthState.getFullYear()).toBe(2010);
     expect(monthState.getMonth()).toBe(2);
+  });
+
+  it('should pass accessibility testing', async () => {
+    const results = await axe(setup().html());
+    expect(results).toHaveNoViolations();
   });
 });

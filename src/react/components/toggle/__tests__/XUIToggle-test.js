@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIToggleOption from '../XUIToggleOption';
 import XUIToggle from '../XUIToggle';
@@ -10,6 +11,7 @@ jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testCheckboxId');
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('XUIToggle', function () {
   // children property toggles
@@ -75,5 +77,16 @@ describe('XUIToggle', function () {
   it('should use the fullwidth layout if defined', function () {
     const wrapper = mount(<XUIToggle layout="fullwidth" />);
     expect(wrapper.find('.xui-toggle-fullwidth-layout')).toHaveLength(1);
+  });
+
+  // accessibility
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIToggle>
+        <XUIToggleOption onChange={() => {}} />
+      </XUIToggle>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

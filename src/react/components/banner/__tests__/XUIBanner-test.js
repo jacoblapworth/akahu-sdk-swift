@@ -1,9 +1,11 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIBanner from '../XUIBanner';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const NOOP = () => {};
 
@@ -46,5 +48,11 @@ describe('XUIBanner', () => {
     expect(status.props().role).toEqual('status');
     expect(alert.props().role).toEqual('alert');
     expect(statusNeutral.props().role).toEqual('status');
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIBanner />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAutocompleter from '../XUIAutocompleter';
 import XUIPill from '../../pill/XUIPill';
 import XUIPicklist from '../../picklist/XUIPicklist';
@@ -16,6 +17,7 @@ import wait from '../../../helpers/wait';
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testAutocompleterId');
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('XUIAutocompleter', () => {
   const createComponent = props => (
@@ -425,5 +427,12 @@ describe('XUIAutocompleter', () => {
       // Assert
       expect(onKeyDownMock).toHaveBeenCalled();
     });
+  });
+
+  it.skip('should pass accessibility testing', async () => {
+    const onSearch = jest.fn();
+    const component = mount(createComponent({ onSearch }));
+    const results = await axe(component.html());
+    expect(results).toHaveNoViolations();
   });
 });

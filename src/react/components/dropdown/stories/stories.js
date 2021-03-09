@@ -4,7 +4,6 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import info from '@xero/xui-icon/icons/info';
@@ -180,7 +179,6 @@ const DropdownInDropdown = () => {
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const forceDesktop = boolean('forceDesktop', false);
   const showHeader = boolean('show header?', false);
@@ -427,7 +425,6 @@ const splitButtonInline = () => (
 );
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {

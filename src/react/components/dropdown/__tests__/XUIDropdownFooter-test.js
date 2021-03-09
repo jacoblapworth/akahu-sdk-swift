@@ -1,7 +1,13 @@
 import React from 'react';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIDropdownFooter from '../XUIDropdownFooter.js';
 import XUIPickitem from '../../picklist/XUIPickitem';
+
+Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUIDropdownFooter />', () => {
   it('should render an automation id when a qaHook is passed', () => {
@@ -17,5 +23,10 @@ describe('<XUIDropdownFooter />', () => {
     );
 
     expect(automationId).toMatchSnapshot();
+  });
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIDropdownFooter>content</XUIDropdownFooter>);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

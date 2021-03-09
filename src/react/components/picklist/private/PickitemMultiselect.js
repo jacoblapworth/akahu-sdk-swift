@@ -19,6 +19,7 @@ const PickitemMultiselect = ({
   onClick,
   onKeyDown,
   shouldTruncate,
+  onMouseUp,
   onMouseOver,
   onBlur,
   onFocus,
@@ -65,6 +66,7 @@ const PickitemMultiselect = ({
       onFocus={onFocus || onMouseOver}
       onKeyDown={onKeyDown}
       onMouseOver={onMouseOver}
+      onMouseUp={onMouseUp}
       role="presentation"
     >
       <XUICheckbox
@@ -103,6 +105,7 @@ PickitemMultiselect.propTypes = {
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
   onMouseOver: PropTypes.func,
+  onMouseUp: PropTypes.func,
   /** Less important text to appear pinned at the right. */
   pinnedElement: PropTypes.node,
   /** Standard text */

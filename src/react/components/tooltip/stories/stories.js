@@ -4,7 +4,6 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, select, number } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import info from '@xero/xui-icon/icons/info';
@@ -63,7 +62,7 @@ const createParaWithInlineTrigger = props => (
 );
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
+
 storiesWithKnobs.add('Playground', () => {
   const props = {
     triggerOnClick: boolean('triggerOnClick', false),
@@ -205,7 +204,6 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
@@ -239,6 +237,7 @@ variations.forEach(variation => {
 
     return (
       <div
+        className="xui-tooltip-test"
         style={{
           width: '600px',
           height: '400px',

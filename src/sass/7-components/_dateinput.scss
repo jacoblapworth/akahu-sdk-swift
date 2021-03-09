@@ -1,35 +1,33 @@
 @import '../vars';
 @import '../mixins';
 
-.#{$ns}-dateinput-item--daterange {
-  /** @todo: This needs to be fixed as there are problems with exact widths and border attributes being applied */
-  width: 360px;
+$xui-dateinput-label-vertical-offset: 25px;
+
+@mixin xui-dateinput-disabled {
+  @include xui-disabled-form-control;
+  @include xui-disabled-form-control-state-borders;
 }
 
-.#{$ns}-dateinput-item--daterange .#{$ns}-textinput.#{$ns}-dateinput {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-}
+.#{$ns}-daterangeinput {
+  .#{$ns}-textinput--input {
+    width: 100%;
+  }
+  &--firstinput-withspace,
+  &--secondinput-withspace,
+  &--convenience-withspace {
+    margin-bottom: $xui-s-2xlarge + $xui-s-2xsmall; // Overall height of validation and hint messages
+  }
 
-.#{$ns}-dateinput-item--daterange--secondinput .#{$ns}-textinput.#{$ns}-dateinput {
-  border-left: 0;
-  border-radius: 0;
-}
+  .#{$ns}-button-split {
+    color: $xui-color-grey-3;
+  }
 
-.#{$ns}-dateinput-item--daterange .#{$ns}-button-split {
-  border-bottom-right-radius: $xui-radius;
-  border-left: 0;
-  border-top-right-radius: $xui-radius;
-  color: $xui-color-grey-3;
-  /** @todo: below is a temporary fix to space the secondary button in the same manner as the inputs with labels */
-  top: 25px;
-}
+  &--convenience-disabled .#{$ns}-button {
+    @include xui-dateinput-disabled;
 
-.#{$ns}-dateinput-rangedropdown--panel {
-  width: 400px;
-}
-
-.#{$ns}-dateinput-item--daterange .#{$ns}-textinputwrapper {
-  float: left;
-  width: 160px;
+    &:focus,
+    &:hover {
+      @include xui-dateinput-disabled;
+    }
+  }
 }

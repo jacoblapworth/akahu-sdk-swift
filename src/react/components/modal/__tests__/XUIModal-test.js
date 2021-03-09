@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIModal from '../XUIModal';
 import XUIModalBody from '../XUIModalBody';
 import XUIModalFooter from '../XUIModalFooter';
@@ -12,6 +13,7 @@ jest.mock('uuid');
 uuidv4.mockImplementation(() => 'generatedHeaderId');
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const NOOP = () => {};
 
@@ -31,6 +33,14 @@ describe('XUIModal', () => {
       </XUIModal>,
     );
     expect(component).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIModal closeButtonLabel="Close" isUsingPortal={false} onClose={NOOP} />,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   it('Should render with any additional classes provided through the className, maskClassName and closeClassName props', function () {

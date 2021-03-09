@@ -1,4 +1,5 @@
 import React from 'react';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIOverviewBlock from '../XUIOverviewBlock';
 import XUIOverviewSection from '../XUIOverviewSection';
 import { overviewSentiments } from '../private/constants';
@@ -7,6 +8,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUI OverviewBlock and OverviewSection/>', () => {
   const qaHook = 'qaHook';
@@ -63,5 +65,10 @@ describe('<XUI OverviewBlock and OverviewSection/>', () => {
       </XUIOverviewBlock>,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIOverviewBlock />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

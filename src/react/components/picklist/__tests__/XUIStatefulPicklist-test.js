@@ -1,14 +1,33 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIStatefulPicklist, { findNextItem, findPreviousItem } from '../XUIStatefulPicklist';
 import XUIPickitem from '../XUIPickitem';
 import XUIPicklist from '../XUIPicklist';
 import div from './helpers/container';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 let wrapper;
+
+describe('<XUIStatefulPicklist /> Accessibility Testing', () => {
+  it.skip('should pass accessibility testing', async () => {
+    wrapper = mount(
+      <XUIStatefulPicklist>
+        <XUIPicklist>
+          <XUIPickitem id="item1">Example Item 1</XUIPickitem>
+          <XUIPickitem id="item2">Example Item 2</XUIPickitem>
+          <XUIPickitem id="item3">Example Item 3</XUIPickitem>
+          <XUIPickitem id="item4">Example Item 4</XUIPickitem>
+        </XUIPicklist>
+      </XUIStatefulPicklist>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
+  });
+});
 
 describe('</XUIStatefulPicklist /> API Methods', () => {
   describe('Multiple Items', () => {

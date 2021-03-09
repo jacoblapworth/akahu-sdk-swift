@@ -8,8 +8,10 @@ import overflow from '@xero/xui-icon/icons/overflow';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUI ContentBlock and ContentBlockItem/>', () => {
   const qaHook = 'qaHook';
@@ -248,5 +250,15 @@ describe('<XUI ContentBlock and ContentBlockItem/>', () => {
       </XUIContentBlock>,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIContentBlock>
+        <XUIContentBlockItem primaryHeading={testPrimaryHeading} />
+      </XUIContentBlock>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

@@ -19,6 +19,13 @@ export const dateInputConvenienceDates = [
       return today;
     },
   },
+  {
+    id: 'jan2019',
+    text: 'January 2019',
+    getDate: () => {
+      return new Date(Date.UTC(2019, 0, 10));
+    },
+  },
 ];
 
 export const dateRangeInputConvenienceDates = [
@@ -44,13 +51,13 @@ export const dateRangeInputConvenienceDates = [
     text: 'This quarter',
     getStartDate: () => {
       const today = new Date();
-      today.setMonth(today.getMonth());
+      today.setMonth(Math.floor(today.getMonth() / 4) * 4);
       today.setDate(1);
       return today;
     },
     getEndDate: () => {
       const today = new Date();
-      today.setMonth(today.getMonth() + 3);
+      today.setMonth(Math.floor(today.getMonth() / 4) * 4 + 3);
       const daysInMonth = dayjs(today).daysInMonth();
       today.setDate(daysInMonth);
       return today;
@@ -61,13 +68,14 @@ export const dateRangeInputConvenienceDates = [
     text: 'This financial year',
     getStartDate: () => {
       const today = new Date();
-      today.setMonth(today.getMonth());
+      today.setMonth(5);
       today.setDate(1);
       return today;
     },
     getEndDate: () => {
       const today = new Date();
-      today.setMonth(today.getMonth() + 3);
+      today.setMonth(4);
+      today.setFullYear(today.getFullYear() + 1);
       const daysInMonth = dayjs(today).daysInMonth();
       today.setDate(daysInMonth);
       return today;
@@ -95,13 +103,13 @@ export const dateRangeInputConvenienceDates = [
     text: 'Last quarter',
     getStartDate: () => {
       const today = new Date();
-      today.setMonth(today.getMonth() - 1);
+      today.setMonth(Math.floor(today.getMonth() / 4) * 4 - 4);
       today.setDate(1);
       return today;
     },
     getEndDate: () => {
       const today = new Date();
-      today.setMonth(today.getMonth() + 3);
+      today.setMonth(Math.floor(today.getMonth() / 4) * 4 - 1);
       const daysInMonth = dayjs(today).daysInMonth();
       today.setDate(daysInMonth);
       return today;

@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, select, object } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import XUIToast from '../XUIToast';
@@ -62,7 +61,6 @@ class DetailedToast extends Component {
 }
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const sentiments = {
     '': 'No Sentiment',
@@ -98,7 +96,6 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {

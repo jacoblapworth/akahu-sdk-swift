@@ -39,6 +39,7 @@ describe('XUIDateRangeInputWIP', () => {
         displayedMonth: selectedEndDate,
         selectedDateDefaultValue: selectedEndDate,
       }}
+      qaHook="test"
       startDateInputConfig={{
         displayedMonth: selectedStartDate,
         selectedDateDefaultValue: selectedStartDate,
@@ -104,7 +105,9 @@ describe('XUIDateRangeInputWIP', () => {
   it('opens convenience date dropdown', () => {
     const wrapper = mount(createComponent());
 
-    wrapper.find('.xui-button--caret .xui-iconwrapper').simulate('click');
+    wrapper
+      .find('[data-automationid="test-daterangeinput-conveniencedates"] button')
+      .simulate('click');
     expect(wrapper.find('.xui-dropdown-is-open').length).toEqual(1);
   });
 });

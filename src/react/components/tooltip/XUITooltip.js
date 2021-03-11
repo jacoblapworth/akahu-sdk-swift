@@ -16,6 +16,7 @@ export default class XUITooltip extends PureComponent {
     isHidden: this.props.isHidden,
     isFocused: false,
     isAnimating: false,
+    hasBeenDismissed: false,
   };
 
   tooltipId = this.props.id || `xui-${nanoid(10)}`;
@@ -104,6 +105,7 @@ export default class XUITooltip extends PureComponent {
     }
     const { display } = window.getComputedStyle(rootNode.current || rootNode);
     this.triggerIsInline = /inline/.test(display);
+    this.addListeners();
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -115,12 +117,77 @@ export default class XUITooltip extends PureComponent {
         this.closeTooltip();
       }
     }
+    if (this.shouldUpdateListeners(this.props, prevProps)) {
+      this.removeListeners(prevProps.keyListenerTarget);
+      this.addListeners();
+    }
   }
 
   componentWillUnmount() {
     clearTimeout(this.animationStartTimer);
     clearTimeout(this.animationFinishTimer);
+    this.removeListeners(this.props.keyListenerTarget);
   }
+
+  /**
+   * Dismisses any active tooltips when escape is pressed.
+   * @private
+   * @param {KeyboardEvent} event
+   */
+  _keyDownHandler = event => {
+    const { isHidden } = this.state;
+    if (event.key === eventKeyValues.escape) {
+      /**  This `hasBeenDismissed` state is only required due to an unusual behaviour from Firefox,
+       * where it will continually trigger the `mouseOver` event without the pointer being moved. */
+      if (!isHidden) {
+        this.setState({ hasBeenDismissed: true });
+      }
+      this.closeTooltip(true);
+    }
+  };
+
+  /**
+   * Opens the tooltip, if it has not already been dismissed.
+   * @private
+   */
+  handleMouseOver = () => {
+    const { hasBeenDismissed } = this.state;
+    const { triggerOnHover } = this.props;
+    if (hasBeenDismissed || !triggerOnHover) {
+      return;
+    }
+    this.openTooltip();
+  };
+
+  /**
+   * Dismisses the tooltip and resets the manually dismissed state.
+   * @private
+   */
+  handleMouseOut = () => {
+    const { triggerOnHover, triggerOnFocus } = this.props;
+    const ignoreFocus = !this.state.isFocused || !triggerOnFocus;
+    if (triggerOnHover && ignoreFocus) {
+      this.setState({ hasBeenDismissed: false });
+      this.closeTooltip();
+    }
+  };
+
+  addListeners = () => {
+    const { keyListenerTarget } = this.props;
+    const listenerTarget = keyListenerTarget || window;
+
+    listenerTarget?.addEventListener('keydown', this._keyDownHandler);
+  };
+
+  removeListeners = keyListenerTarget => {
+    const listenerTarget = keyListenerTarget || window;
+
+    listenerTarget?.removeEventListener('keydown', this._keyDownHandler);
+  };
+
+  shouldUpdateListeners = (props, otherProps) => {
+    return props.keyListenerTarget !== otherProps.keyListenerTarget;
+  };
 
   render() {
     const {
@@ -133,7 +200,6 @@ export default class XUITooltip extends PureComponent {
       triggerOnFocus,
       triggerOnBlur,
       triggerOnClick,
-      triggerOnHover,
       isBlock,
       useInlineFlex,
       limitWidth,
@@ -185,8 +251,8 @@ export default class XUITooltip extends PureComponent {
       // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
       <WrappingElement
         className={wrapperClasses}
-        onMouseOut={triggerOnHover && ignoreFocus ? this.closeTooltip : undefined}
-        onMouseOver={triggerOnHover ? this.openTooltip : undefined}
+        onMouseOut={this.handleMouseOut}
+        onMouseOver={this.handleMouseOver}
         ref={c => this.setState({ wrapper: c })}
       >
         {clonedTrigger}
@@ -234,6 +300,9 @@ XUITooltip.propTypes = {
 
   /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
   isNotResponsive: PropTypes.bool,
+
+  /** The target that should listen to key presses. Defaults to the window. */
+  keyListenerTarget: PropTypes.object,
 
   /**
    * Limit width of tooltip's trigger to 100%.

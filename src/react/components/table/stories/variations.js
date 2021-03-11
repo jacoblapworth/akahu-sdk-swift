@@ -500,6 +500,28 @@ const variations = [
       },
     ],
   },
+
+  {
+    storyKind,
+    storyTitle: 'custom header and footer with pinned columns',
+    examples: [
+      {
+        columns: 10,
+        tableProps: {
+          ...tableProps,
+          hasPinnedFirstColumn: true,
+          hasPinnedLastColumn: true,
+          hasCheckbox: true,
+          onCheckAllToggle: noop,
+          onCheckOneToggle: noop,
+          hasOverflowMenu: true,
+          createOverflowMenu: noop,
+          hasCustomHeader: true,
+          hasCustomFooter: true,
+        },
+      },
+    ],
+  },
 ];
 
 export { storyKind as storiesWithVariationsKindName, variations };

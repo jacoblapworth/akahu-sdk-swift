@@ -4,14 +4,11 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { select, boolean } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import XUIOverviewBlock from '../XUIOverviewBlock';
 import XUIOverviewSection from '../XUIOverviewSection';
 import { overviewSentiments } from '../private/constants';
-
-import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
@@ -20,7 +17,6 @@ const buildExampleSections = children =>
   children.map((child, index) => <XUIOverviewSection key={index} {...child} />);
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(customCentered);
 
 storiesWithKnobs.add('Playground', () => {
   const indicator = (
@@ -67,7 +63,6 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   const { storyTitle, storyKind, sections, ...variationMinusStoryDetails } = variation;

@@ -204,6 +204,7 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-table--customheader,
 .#{$ns}-table--customfooter {
+  background-color: $xui-table-bg-color;
   position: relative;
   z-index: $xui-table-z-pinned-appendages;
 }

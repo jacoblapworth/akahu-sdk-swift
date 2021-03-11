@@ -353,6 +353,12 @@
             "components": "../src/react/components/datepicker/XUIDatePicker.js"
           },
           {
+            "name": "Dateinput",
+            "content": "../src/react/dateinput.md",
+            "components": "../src/react/components/dateinput/*(XUIDateInputWIP|XUIDateRangeInputWIP).js",
+            "description": "**Work in progress: Subject to breaking changes at any time, including patch and minor releases.**"
+          },
+          {
             "name": "Dropdown",
             "components": "../src/react/components/dropdown/XUIDropdown.js",
             "content": "../src/react/dropdown.md",

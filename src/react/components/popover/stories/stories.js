@@ -5,7 +5,6 @@ import info from '@xero/xui-icon/icons/info';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, number, text, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import XUIButton, { XUIIconButton } from '../../../button';
@@ -117,7 +116,7 @@ const Playground = props => {
 };
 
 const storiesWithKnobs = storiesOf(storyKind, module);
-storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   return (
     <Playground
@@ -131,7 +130,7 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(variationStoryKind, module);
-storiesWithVariations.addDecorator(centered);
+storiesWithVariations.addParameters({ layout: 'centered' });
 
 variations.forEach(({ storyKind, storyTitle, subVariants, ...variation }) => {
   storiesWithVariations.add(storyTitle, () => <PopoverWithTrigger {...variation} />);

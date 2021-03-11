@@ -27,6 +27,7 @@ export default class XUIPickitem extends PureComponent {
       onKeyDown,
       onClick,
       onMouseOver,
+      onMouseUp,
       ariaRole,
       disableSelectedStyles,
       isMultiselect,
@@ -82,6 +83,7 @@ export default class XUIPickitem extends PureComponent {
           onFocus,
           onKeyDown,
           onMouseOver,
+          onMouseUp,
         }
       : null;
 
@@ -219,6 +221,8 @@ XUIPickitem.propTypes = {
   onFocus: PropTypes.func,
   /** Callback on keydown of the pickitem */
   onKeyDown: PropTypes.func,
+  /** Callback on mouseup of the pickitem */
+  onMouseUp: PropTypes.func,
   /** Callback when this item is selected by a parent component */
   onSelect: PropTypes.func,
   /** Props to pass to the pickitem body */

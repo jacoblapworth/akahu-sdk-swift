@@ -10,6 +10,7 @@ const XUITextInputSideElement = ({
   className,
   qaHook,
   type,
+  ...spreadProps
 }) => {
   const classes = cn(
     sideElementBaseClass,
@@ -21,7 +22,7 @@ const XUITextInputSideElement = ({
   );
 
   return (
-    <div className={classes} data-automationid={qaHook}>
+    <div className={classes} data-automationid={qaHook} {...spreadProps}>
       {children}
     </div>
   );

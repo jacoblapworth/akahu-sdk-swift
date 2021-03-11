@@ -24,7 +24,7 @@ exports[`XUIDateInput inserts selected date value 1`] = `
       >
         <label
           className="xui-text-label xui-fieldlabel-layout"
-          htmlFor="testDateinputId-control"
+          htmlFor="xui-testDateinputId-control"
         >
           Start date
         </label>
@@ -55,7 +55,7 @@ exports[`XUIDateInput inserts selected date value 1`] = `
           <input
             aria-invalid={null}
             className="xui-textinput--input xui-textinput--input-medium"
-            id="testDateinputId-control"
+            id="xui-testDateinputId-control"
             onBlurCapture={[Function]}
             onChange={[Function]}
             onFocusCapture={[Function]}
@@ -97,7 +97,7 @@ exports[`XUIDateInput renders default component 1`] = `
       >
         <label
           className="xui-text-label xui-fieldlabel-layout"
-          htmlFor="testDateinputId-control"
+          htmlFor="xui-testDateinputId-control"
         >
           Start date
         </label>
@@ -128,7 +128,7 @@ exports[`XUIDateInput renders default component 1`] = `
           <input
             aria-invalid={null}
             className="xui-textinput--input xui-textinput--input-medium"
-            id="testDateinputId-control"
+            id="xui-testDateinputId-control"
             onBlurCapture={[Function]}
             onChange={[Function]}
             onFocusCapture={[Function]}

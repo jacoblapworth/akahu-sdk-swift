@@ -46,7 +46,7 @@ exports[`XUIDateInputItem inserts selected date value 1`] = `
         <input
           aria-invalid={null}
           className="xui-textinput--input xui-textinput--input-medium"
-          id="testDateinputId-control"
+          id="xui-testDateinputId-control"
           onBlurCapture={[Function]}
           onChange={[Function]}
           onFocusCapture={[Function]}
@@ -110,7 +110,7 @@ exports[`XUIDateInputItem renders disabled 1`] = `
           aria-invalid={null}
           className="xui-textinput--input xui-textinput--input-medium"
           disabled={true}
-          id="testDateinputId-control"
+          id="xui-testDateinputId-control"
           onBlurCapture={[Function]}
           onChange={[Function]}
           onFocusCapture={[Function]}
@@ -171,10 +171,10 @@ exports[`XUIDateInputItem renders with a hint 1`] = `
           </div>
         </div>
         <input
-          aria-describedby="testDateinputId-message"
+          aria-describedby="xui-testDateinputId-message"
           aria-invalid={null}
           className="xui-textinput--input xui-textinput--input-medium"
-          id="testDateinputId-control"
+          id="xui-testDateinputId-control"
           onBlurCapture={[Function]}
           onChange={[Function]}
           onFocusCapture={[Function]}
@@ -188,7 +188,7 @@ exports[`XUIDateInputItem renders with a hint 1`] = `
       </div>
       <div
         className="xui-validation xui-validation-layout"
-        id="testDateinputId-message"
+        id="xui-testDateinputId-message"
         role="status"
       >
         hint message
@@ -219,7 +219,7 @@ exports[`XUIDateInputItem renders with the provided label 1`] = `
     >
       <label
         className="xui-text-label xui-fieldlabel-layout"
-        htmlFor="testDateinputId-control"
+        htmlFor="xui-testDateinputId-control"
       >
         Select date
       </label>
@@ -250,7 +250,7 @@ exports[`XUIDateInputItem renders with the provided label 1`] = `
         <input
           aria-invalid={null}
           className="xui-textinput--input xui-textinput--input-medium"
-          id="testDateinputId-control"
+          id="xui-testDateinputId-control"
           onBlurCapture={[Function]}
           onChange={[Function]}
           onFocusCapture={[Function]}
@@ -311,10 +311,10 @@ exports[`XUIDateInputItem renders with validation message 1`] = `
           </div>
         </div>
         <input
-          aria-describedby="testDateinputId-message"
+          aria-describedby="xui-testDateinputId-message"
           aria-invalid={true}
           className="xui-textinput--input xui-textinput--input-medium"
-          id="testDateinputId-control"
+          id="xui-testDateinputId-control"
           onBlurCapture={[Function]}
           onChange={[Function]}
           onFocusCapture={[Function]}
@@ -328,7 +328,7 @@ exports[`XUIDateInputItem renders with validation message 1`] = `
       </div>
       <div
         className="xui-validation xui-validation-layout xui-validation-is-invalid"
-        id="testDateinputId-message"
+        id="xui-testDateinputId-message"
         role="status"
       >
         <svg

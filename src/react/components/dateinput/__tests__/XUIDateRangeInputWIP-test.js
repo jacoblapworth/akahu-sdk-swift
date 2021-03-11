@@ -1,13 +1,12 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import XUIDateRangeInputWIP from '../XUIDateRangeInputWIP';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testDateinputId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testDateinputId');
 
 Enzyme.configure({ adapter: new Adapter() });
 

@@ -2,12 +2,13 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import XUIInputGroup from '../XUIInputGroup';
 
 Enzyme.configure({ adapter: new Adapter() });
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testInputGroupId');
+
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testInputGroupId');
 
 describe('<XUIInputGroup/>', () => {
   it('renders expected markup', () => {

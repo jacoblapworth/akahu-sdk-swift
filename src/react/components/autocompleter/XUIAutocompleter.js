@@ -39,7 +39,7 @@ export default class XUIAutocompleter extends PureComponent {
     this.dropdown = React.createRef();
   }
 
-  _onResize(width) {
+  _onResize({ width }) {
     this.setState({ placeholderWidth: width });
 
     this.scrollPillContainer();

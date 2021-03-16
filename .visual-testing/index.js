@@ -162,6 +162,7 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Popover',
     variationsPath: `${variationsPath}/popover/stories/variations.js`,
+    readyEvent: 'xui-popover-ready-event',
   },
   {
     testsPrefix: 'XUI Progress Indicator',

@@ -4,7 +4,8 @@ import info from '@xero/xui-icon/icons/info';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { boolean, number, text, select } from '@storybook/addon-knobs';
+import { boolean, text, select } from '@storybook/addon-knobs';
+import logReadyState from '../../../stories/helpers/log-ready-state';
 
 // Components we need to test with
 import XUIButton, { XUIIconButton } from '../../../button';
@@ -61,6 +62,13 @@ const PopoverWithTrigger = ({
 }) => {
   const ref = React.useRef();
   const [isOpen, setIsOpen] = React.useState(true);
+
+  React.useEffect(() => {
+    // Wait until the popover has its final position
+    setTimeout(() => {
+      logReadyState('xui-popover-ready-event');
+    }, 100);
+  });
 
   return (
     <div>

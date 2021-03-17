@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUIDateInput inserts selected date value 1`] = `
+<div
+  className="xui-dateinput"
+>
+  <div
+    className="xui-dropdown--toggledwrapper"
+    data-ref="toggled-wrapper"
+    role="presentation"
+  >
+    <div
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      className="xui-dateinputitem"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+    >
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+        role="presentation"
+      >
+        <label
+          className="xui-text-label xui-fieldlabel-layout"
+          htmlFor="xui-testDateinputId-control"
+        >
+          Start date
+        </label>
+        <div
+          className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+        >
+          <div
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+            onClick={[Function]}
+          >
+            <div
+              className="xui-iconwrapper xui-iconwrapper-medium"
+            >
+              <svg
+                className="xui-icon xui-icon-color-black-faint"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
+              >
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm6-4h3v3H7V8z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
+          </div>
+          <input
+            aria-invalid={null}
+            className="xui-textinput--input xui-textinput--input-medium"
+            id="xui-testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
+            }
+            value="15 Dec 2020"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`XUIDateInput renders default component 1`] = `
+<div
+  className="xui-dateinput"
+>
+  <div
+    className="xui-dropdown--toggledwrapper"
+    data-ref="toggled-wrapper"
+    role="presentation"
+  >
+    <div
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      className="xui-dateinputitem"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+    >
+      <div
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+        role="presentation"
+      >
+        <label
+          className="xui-text-label xui-fieldlabel-layout"
+          htmlFor="xui-testDateinputId-control"
+        >
+          Start date
+        </label>
+        <div
+          className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+        >
+          <div
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+            onClick={[Function]}
+          >
+            <div
+              className="xui-iconwrapper xui-iconwrapper-medium"
+            >
+              <svg
+                className="xui-icon xui-icon-color-black-faint"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
+              >
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm6-4h3v3H7V8z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
+          </div>
+          <input
+            aria-invalid={null}
+            className="xui-textinput--input xui-textinput--input-medium"
+            id="xui-testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
+            }
+            value="15 Dec 2020"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

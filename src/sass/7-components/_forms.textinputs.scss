@@ -35,6 +35,8 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-s-xlar
   @include xui-input-base;
   @include xui-padding-vertical($input-text-vertical-padding-standard);
   border: none;
+  // Some weird race condition breaks inheritance in Storybook, so declaring it explicitly here
+  box-sizing: border-box;
   flex: 1 1 auto;
   min-width: $xui-minimum-touch-target;
   overflow: hidden;

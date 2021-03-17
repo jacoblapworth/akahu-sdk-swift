@@ -4,7 +4,6 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import XUITag, { variants, sizes } from '../XUITag';
@@ -12,7 +11,6 @@ import XUITag, { variants, sizes } from '../XUITag';
 import { variations, storiesWithVariationsKindName } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => (
   <XUITag
     size={select('size', Object.keys(sizes), 'medium')}
@@ -23,7 +21,6 @@ storiesWithKnobs.add('Playground', () => (
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   const { storyTitle, storyKind, ...props } = variation;

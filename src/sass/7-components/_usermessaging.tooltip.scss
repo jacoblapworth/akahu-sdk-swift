@@ -69,7 +69,10 @@
   position: absolute;
   right: 0;
   text-align: center;
-  transition: opacity $xui-motion-speed-fast linear;
+  transition: opacity $xui-motion-speed-fast linear, visibility $xui-motion-speed-fast linear;
+  // visibility: hidden ensures the tooltip is not 'invisibly present' shortly after being closed,
+  // which potentially causes an unexpected hover event. It also has much greater support than opacity for screen readers
+  visibility: hidden;
   width: max-content;
   width: intrinsic; // Safari's non-standard implementation of max-content.
   // Tooltip should be above surrounding content, but below any other overlays.
@@ -81,6 +84,8 @@
   &.#{$ns}-tooltip--tip-open {
     opacity: 1;
     pointer-events: auto;
+    transition: opacity $xui-motion-speed-fast linear, visibility $xui-motion-speed-fast linear;
+    visibility: visible;
   }
   &.#{$ns}-tooltip--tip-animating {
     pointer-events: auto;

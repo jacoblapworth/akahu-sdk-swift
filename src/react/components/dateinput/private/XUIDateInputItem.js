@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import dateIcon from '@xero/xui-icon/icons/date-end';
 import { parseDate, DateFormat } from '@xero/blind-date';
 import { nanoid } from 'nanoid';
+import cn from 'classnames';
 import { ns } from '../../helpers/xuiClassNamespace';
 
 import {
@@ -16,6 +17,7 @@ import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
 import XUIIcon from '../../icon/XUIIcon';
 import formatSelectedDateToString from './helpers/formatSelectedDateToString';
+import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
 /**
  * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and
@@ -52,7 +54,42 @@ class XUIDateInputItem extends Component {
     this.setState({
       activePanel: this.convenienceDatesId,
     });
+
+    this.addListeners();
   }
+
+  componentWillUnmount() {
+    this.removeListeners();
+  }
+
+  /**
+   * Add the global event listeners.
+   */
+  addListeners = () => {
+    if (window) {
+      window.addEventListener('keyup', this._keyUpHandler);
+    }
+  };
+
+  /**
+   * Remove any global event listeners associated with a given date input.
+   */
+  removeListeners = () => {
+    if (window) {
+      window.removeEventListener('keyup', this._keyUpHandler);
+    }
+  };
+
+  /**
+   * @param {Object} event - A keyUp event which is set to be listened to by componentDidMount.
+   * For DatePicker to close when the user presses the esc key, we need to attach a key
+   * listener to a parent (`window` by default) to catch this key press
+   */
+  _keyUpHandler = event => {
+    if (event.key === eventKeyValues.escape) {
+      this.closeDropdown();
+    }
+  };
 
   afterDdtOpens = () => {
     this.inputRef.current?.focus();
@@ -79,8 +116,13 @@ class XUIDateInputItem extends Component {
     this.ddtRef.current.openDropdown();
   };
 
+  onIconFocus = () => {
+    this.inputRef?.current.focus();
+    this.ddtRef.current.openDropdown();
+  };
+
   onInputKeyDown = event => {
-    if (event.key === 'Enter' || event.key === 'Tab') {
+    if (event.key === eventKeyValues.enter || event.key === eventKeyValues.tab) {
       this.ddtRef.current.closeDropdown();
       this.inputRef.current.blur();
       this.setDate();
@@ -96,7 +138,7 @@ class XUIDateInputItem extends Component {
     const parsedDate = parseDate({ now, base, dateFormat }, this.state.inputValue);
 
     if (parsedDate) {
-      this.onSelectDate(parsedDate);
+      this.onSelectDate(parsedDate, true);
     } else {
       this.setState({
         isDateInvalid: true,
@@ -104,16 +146,19 @@ class XUIDateInputItem extends Component {
     }
   };
 
-  onSelectDate = date => {
+  onSelectDate = (date, isFocusEvent) => {
     this.setState({
       inputValue: null,
       isDateInvalid: false,
       selectedConvenienceDate: 'custom',
     });
 
+    this.inputRef?.current.focus();
     this.props.onSelectDate?.(date);
 
-    this.props.closeOnSelect && this.closeDropdown();
+    if (!isFocusEvent) {
+      this.props.closeOnSelect && this.closeDropdown();
+    }
   };
 
   showDatepickerPanel = () => {
@@ -136,13 +181,12 @@ class XUIDateInputItem extends Component {
     this.setState({
       selectedConvenienceDate: convenienceDate.id,
     });
+
     this.onSelectDate(convenienceDate.getDate());
   };
 
   render() {
     const {
-      // TODO: className
-      className,
       closeOnSelect,
       convenienceDates,
       displayedMonth,
@@ -151,19 +195,27 @@ class XUIDateInputItem extends Component {
       inputFieldClassName,
       inputLabel,
       isDisabled,
+      isInvalid,
       locale,
+      maxDate,
+      minDate,
+      onInputChange, // Destructured so as not to spread.
+      onSelectDate, // Destructured so as not to spread.
       selectedDate,
       triggerClassName,
       validationMessage,
+      qaHook,
+      ...spreadProps
     } = this.props;
+    const { activePanel, selectedConvenienceDate, inputValue } = this.state;
 
-    const { activePanel, selectedConvenienceDate, inputValue, isDateInvalid } = this.state;
+    const isDateInvalid = isInvalid || this.state.isDateInvalid;
 
     /** Trigger where users focus to select date or type in a date shortcut */
     const trigger = (
-      <div className={triggerClassName} ref={this.triggerRef}>
+      <div className={cn(`${ns}-dateinputitem`, triggerClassName)} ref={this.triggerRef}>
         <XUITextInput
-          containerClassName={`${ns}-dateinput`}
+          containerClassName={`${ns}-dateinputitem--input`}
           fieldClassName={inputFieldClassName}
           hintMessage={hintMessage}
           inputClassName={inputClassName}
@@ -172,7 +224,7 @@ class XUIDateInputItem extends Component {
           isInvalid={isDateInvalid}
           label={inputLabel}
           leftElement={
-            <XUITextInputSideElement>
+            <XUITextInputSideElement onClick={this.onIconFocus}>
               <XUIIcon color="black-faint" icon={dateIcon} isBoxed />
             </XUITextInputSideElement>
           }
@@ -180,8 +232,10 @@ class XUIDateInputItem extends Component {
           onChange={this.onInputChange}
           onFocus={this.onInputFocus}
           onKeyDown={this.onInputKeyDown}
+          qaHook={qaHook && `${qaHook}-dateinputitem--input`}
           validationMessage={validationMessage}
           value={formatSelectedDateToString(selectedDate, inputValue)}
+          {...spreadProps}
         />
       </div>
     );
@@ -203,17 +257,27 @@ class XUIDateInputItem extends Component {
         currentPanelId={convenienceDates ? activePanel : this.customDatesId}
         ignoreKeyboardEvents={ignoreKeyboardEvents}
         onPanelChange={this.focusDatePicker}
+        qaHook={qaHook && `${qaHook}-dateinputitem-dropdown`}
       >
-        <XUIDropdownPanel panelId={this.customDatesId}>
+        <XUIDropdownPanel
+          panelId={this.customDatesId}
+          qaHook={qaHook && `${qaHook}-dateinputitem-datepicker`}
+        >
           <XUIDatePicker
             displayedMonth={displayedMonth}
             locale={locale}
+            maxDate={maxDate}
+            minDate={minDate}
             onSelectDate={this.onSelectDate}
             ref={this.datepickerRef}
             selectedDate={selectedDate}
           />
         </XUIDropdownPanel>
-        <XUIDropdownPanel footer={dropdownFooter} panelId={this.convenienceDatesId}>
+        <XUIDropdownPanel
+          footer={dropdownFooter}
+          panelId={this.convenienceDatesId}
+          qaHook={qaHook && `${qaHook}-dateinputitem-conveniencedates`}
+        >
           <XUIPicklist>
             {convenienceDates?.map(({ id, text }) => (
               <XUIPickitem
@@ -248,13 +312,13 @@ class XUIDateInputItem extends Component {
 }
 
 XUIDateInputItem.propTypes = {
-  /** CSS class(es) to go on the wrapping DOM node */
-  className: PropTypes.string,
-
   /** Whether or not the dropdown should automatically be hidden when the user selects something */
   closeOnSelect: PropTypes.bool,
 
-  /** TODO: Fill this out */
+  /**
+   * An array of objects with convenience dates for users to select quickly.
+   * Each object consists of an `id`, display `text` and `getDate` function returning the date to be selected.
+   */
   convenienceDates: PropTypes.arrayOf(
     PropTypes.shape({
       getDate: PropTypes.func,
@@ -263,8 +327,10 @@ XUIDateInputItem.propTypes = {
     }),
   ),
 
-  /** A date which represents the year and month that the calendar will display. Could
-   * be any day in the given day and month. */
+  /**
+   * A date which represents the year and month that the calendar will display. Could
+   * be any day in the given day and month.
+   */
   displayedMonth: PropTypes.instanceOf(Date),
 
   /** Hint message to display below input */
@@ -282,15 +348,34 @@ XUIDateInputItem.propTypes = {
   /** Whether the input is disabled */
   isDisabled: PropTypes.bool,
 
+  /** Whether the current input value is invalid */
+  isInvalid: PropTypes.bool,
+
   /** The locale of the calendar. Defaults to En */
   locale: PropTypes.string,
+
+  /**
+   * If you want to disable every date after a given day, pass in the maximum enabled
+   * date here. Can be used with the isDateDisabled function.
+   */
+  maxDate: PropTypes.instanceOf(Date),
+
+  /**
+   * If you want to disable every date before a given day, pass in the minimum enabled
+   * date here. Can be used with the isDateDisabled function.
+   */
+  minDate: PropTypes.instanceOf(Date),
 
   /** Callback for when the input changes  */
   onInputChange: PropTypes.func,
 
-  /** Callback for when the user selects a date.  Will fire even if the date has
-   * already been selected. */
+  /**
+   * Callback for when the user selects a date. Will fire even if the date has
+   * already been selected.
+   */
   onSelectDate: PropTypes.func,
+
+  qaHook: PropTypes.string,
 
   /** Value of the date input. Must be a Date object */
   selectedDate: PropTypes.instanceOf(Date),
@@ -306,8 +391,6 @@ XUIDateInputItem.defaultProps = {
   closeOnSelect: true,
   displayedMonth: new Date(),
   locale: 'en',
-  selectedDate: new Date(),
-  validationMessage: 'Invalid date',
 };
 
 export default XUIDateInputItem;

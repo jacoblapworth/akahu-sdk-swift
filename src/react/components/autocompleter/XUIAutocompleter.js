@@ -11,6 +11,7 @@ import XUITextInput from '../textInput/XUITextInput';
 import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 import { eventKeyValues, isKeyClick } from '../helpers/reactKeyHandler';
+import { observe, unobserve } from '../helpers/resizeObserver';
 
 /**
  * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and
@@ -26,26 +27,37 @@ export default class XUIAutocompleter extends PureComponent {
     super(props);
     this.state = {
       focused: false,
+      placeholderWidth: 0,
       value: props.searchValue,
     };
     this.bindOnChange(props.searchDebounceTimeout);
+    this._area = React.createRef();
     this.tg = React.createRef();
-    this.placeholder = React.createRef();
     this.ddt = React.createRef();
     this.rootNode = React.createRef();
     this.noWrapPillContainer = React.createRef();
     this.dropdown = React.createRef();
   }
 
+  _onResize({ width }) {
+    this.setState({ placeholderWidth: width });
+
+    this.scrollPillContainer();
+  }
+
   componentDidMount() {
+    this._area.current && observe(this);
+
     this.calculatePlaceholderWidth();
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     const { pills, disableWrapPills, searchDebounceTimeout, searchValue, placeholder } = this.props;
+
     if (prevProps.searchDebounceTimeout !== searchDebounceTimeout) {
       this.bindOnChange(searchDebounceTimeout);
     }
+
     if (prevProps.searchValue !== searchValue) {
       // TODO: Investigate whether setState can be moved
       // eslint-disable-next-line
@@ -53,16 +65,25 @@ export default class XUIAutocompleter extends PureComponent {
         value: searchValue,
       });
     }
-    if (prevProps.placeholder !== placeholder) {
+
+    if (
+      prevProps.placeholder !== placeholder ||
+      prevState.placeholderWidth !== this.state.placeholderWidth
+    ) {
       this.calculatePlaceholderWidth();
     }
-    const morePillsExist = React.Children.count(pills) > React.Children.count(prevProps.pills);
-    if (morePillsExist && disableWrapPills) {
-      this.noWrapPillContainer.current.scrollLeft = this.noWrapPillContainer.current.scrollWidth;
+
+    if (React.Children.count(pills) > React.Children.count(prevProps.pills) && disableWrapPills) {
+      this.scrollPillContainer();
     }
+
     if (React.Children.count(pills) < React.Children.count(prevProps.pills)) {
       this.ddt.current.repositionDropdown();
     }
+  }
+
+  componentWillUnmount() {
+    this._area.current && unobserve(this);
   }
 
   /**
@@ -89,14 +110,15 @@ export default class XUIAutocompleter extends PureComponent {
   };
 
   calculatePlaceholderWidth = () => {
-    if (this.placeholder.current != null) {
-      const placeholderWidth = getComputedStyle(this.placeholder.current).width;
+    if (this._area.current != null) {
+      const { placeholderWidth } = this.state;
       const inputStyle = getComputedStyle(this.inputNode);
       const inputWidth = `${
         parseFloat(inputStyle.paddingLeft) +
         parseFloat(inputStyle.paddingRight) +
         parseFloat(placeholderWidth)
       }px`;
+
       if (this.state.inputWidth !== inputWidth) {
         this.setState({
           inputWidth,
@@ -215,6 +237,16 @@ export default class XUIAutocompleter extends PureComponent {
     );
   };
 
+  scrollPillContainer = () => {
+    if (this.noWrapPillContainer.current) {
+      const { scrollLeft, scrollWidth } = this.noWrapPillContainer.current;
+
+      if (scrollLeft !== scrollWidth) {
+        this.noWrapPillContainer.current.scrollLeft = scrollWidth;
+      }
+    }
+  };
+
   // We explicitly need to tie the label to the input element in HTML for autocompleter,
   // so we'll ensure there is an ID with which to do so.
   generatedInputId =
@@ -287,11 +319,7 @@ export default class XUIAutocompleter extends PureComponent {
         onFocus={openOnFocus ? this.onInputFocus : null}
         ref={this.tg}
       >
-        <div
-          aria-hidden
-          className={`${ns}-autocompleter--textinputplaceholder`}
-          ref={this.placeholder}
-        >
+        <div aria-hidden className={`${ns}-autocompleter--textinputplaceholder`} ref={this._area}>
           {placeholder}
         </div>
         <XUITextInput

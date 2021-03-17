@@ -2,6 +2,7 @@
 @import '../mixins';
 
 .#{$ns}-tag {
+  align-items: baseline; // This ensures Firefox baseline behaviour is the same as Chrome
   display: inline-grid; // now long tags without parents take only screen width, not more.
   max-width: 100%;
   min-width: $xui-minimum-touch-target;

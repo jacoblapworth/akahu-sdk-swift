@@ -97,6 +97,8 @@ XUIEditableTableCellTextInput.propTypes = {
   containerClassName: PropTypes.string,
   /** Default value of the text input */
   defaultValue: PropTypes.string,
+  /** After rendering set focus at the end of the input */
+  focusByDefault: PropTypes.bool,
   /** Class names to add to the input element */
   inputClassName: PropTypes.string,
   /** Props to be spread onto the input element itself */

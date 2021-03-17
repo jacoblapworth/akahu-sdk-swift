@@ -5,7 +5,7 @@ import { Breakpoints } from './breakpoints';
 
 export type Component = {
   _area: React.RefObject<HTMLElement>;
-  _breakpoints: Breakpoints;
+  _breakpoints?: Breakpoints;
   _onResize: (contentRect: DOMRectReadOnly) => void;
 } & React.Component;
 

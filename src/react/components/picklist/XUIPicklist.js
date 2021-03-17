@@ -166,6 +166,6 @@ XUIPicklist.propTypes = {
 XUIPicklist.defaultProps = {
   defaultLayout: true,
   secondaryProps: {
-    role: 'group',
+    role: 'tree',
   },
 };

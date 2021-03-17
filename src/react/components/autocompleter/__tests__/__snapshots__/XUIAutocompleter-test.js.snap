@@ -8,6 +8,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid="baseAC--dropdown"
     data-ref="toggled-wrapper"
@@ -66,6 +67,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -124,6 +126,7 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -183,6 +186,7 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -248,6 +252,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -306,6 +311,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -364,6 +370,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -422,6 +429,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -481,6 +489,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -543,6 +552,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -602,6 +612,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -660,6 +671,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -719,6 +731,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"

@@ -18,9 +18,7 @@ const MockNestedPicklistContainer = props => (
       Nested List
     </XUINestedPicklistTrigger>
     <XUINestedPicklist>
-      <XUIPickitem ariaRole="treeitem" id="a">
-        A
-      </XUIPickitem>
+      <XUIPickitem id="a">A</XUIPickitem>
     </XUINestedPicklist>
   </XUINestedPicklistContainer>
 );

@@ -82,6 +82,13 @@ _Note. The codemod will resolve most prop differences automatically when run._
 
 ## Other changes
 
+- Corrections to `role` attributes to meet WCAG 2.1 AA Standard, these changes may influence your snapshot tests.
+  - `XUITag`: `role=”status”` has been removed.
+  - `XUIPicklist`: default `role` value has been updated to `tree`.
+  - `XUIPickitem`: default `role` value has been updated to `treeitem`.
+  - `XUISelectBox`: default `role` value has been updated to `listbox`.
+  - `XUIAutocompleter`: `aria-expanded={false}`has been added when the dropdown is collapsed.
+
 ### Resize observers
 
 A few changes have been made to the XUI `resizeObserver` helper in order to bring the API in line with our `useResizeObserver` Hook.

@@ -5924,7 +5924,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 1
                   </span>
@@ -5934,7 +5933,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 2
                   </span>
@@ -5944,7 +5942,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 3
                   </span>
@@ -5959,7 +5956,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 1
                   </span>
@@ -5969,7 +5965,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 2
                   </span>
@@ -5979,7 +5974,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 3
                   </span>
@@ -5994,7 +5988,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 1
                   </span>
@@ -6004,7 +5997,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 2
                   </span>
@@ -6014,7 +6006,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 3
                   </span>
@@ -6033,7 +6024,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 1
                   </span>
@@ -6043,7 +6033,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 2
                   </span>
@@ -6058,7 +6047,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 1
                   </span>
@@ -6068,7 +6056,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 2
                   </span>
@@ -6083,7 +6070,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 1
                   </span>
@@ -6093,7 +6079,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 2
                   </span>
@@ -6112,7 +6097,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 1
                   </span>
@@ -6127,7 +6111,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 1
                   </span>
@@ -6142,7 +6125,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                 >
                   <span
                     className="xui-tagcontent"
-                    role="status"
                   >
                     tag 1
                   </span>

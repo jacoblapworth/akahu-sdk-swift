@@ -52,7 +52,7 @@ XUINestedPicklist.defaultProps = {
 	 */
   _isGroup: true, // eslint-disable-line
   secondaryProps: {
-    role: 'group',
+    role: 'tree',
   },
 };
 

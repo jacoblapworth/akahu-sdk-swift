@@ -129,7 +129,6 @@ storiesWithKnobs.add('Playground', () => {
         defaultLayout={boolean('defaultLayout', true)}
         isHorizontal={boolean('isHorizontal', false)}
         isMultiselect={isMultiselect}
-        secondaryProps={{ role: 'listbox' }}
         shouldTruncate={shouldTruncate}
         swapAtBreakpoint={useCustomBreakpoint ? customSwapAtBreakpoint : swapAtBreakpoint}
       >

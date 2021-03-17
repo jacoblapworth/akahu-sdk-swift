@@ -28,7 +28,6 @@ const XUITag = ({ children, className, debugShowToolTip, id, qaHook, size, varia
       className={cn(`${baseClass}content`, tooltipIsAttached && `${baseClass}-is-block`)}
       data-automationid={qaHook}
       ref={_tag}
-      role="status"
     >
       {children}
     </span>

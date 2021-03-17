@@ -32,7 +32,7 @@ describe('< Picklist />', () => {
   it('should pass accessibility testing', async () => {
     const wrapper = mount(
       <XUIPicklist>
-        <div>Pickitem</div>
+        <div role="treeitem">Pickitem</div>
       </XUIPicklist>,
     );
     const results = await axe(wrapper.html());

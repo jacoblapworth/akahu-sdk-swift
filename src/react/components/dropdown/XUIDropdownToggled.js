@@ -605,7 +605,7 @@ export default class XUIDropdownToggled extends PureComponent {
 
           const wrapperAria = {
             role: ariaRole || 'presentation',
-            'aria-expanded': (ariaRole && !isHidden) || undefined,
+            'aria-expanded': ariaRole ? !isHidden : undefined,
             'aria-owns': (!isHidden && this.dropdownId) || undefined,
           };
 

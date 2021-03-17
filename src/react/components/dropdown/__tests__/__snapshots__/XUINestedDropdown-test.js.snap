@@ -50,13 +50,13 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -120,13 +120,13 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -202,13 +202,13 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -272,13 +272,13 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -354,13 +354,13 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -424,13 +424,13 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -506,13 +506,13 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -576,13 +576,13 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -658,13 +658,13 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -728,13 +728,13 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -810,13 +810,13 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -880,13 +880,13 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -962,13 +962,13 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -1032,13 +1032,13 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -1116,13 +1116,13 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -1186,13 +1186,13 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -1268,13 +1268,13 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -1338,13 +1338,13 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -1420,13 +1420,13 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -1490,13 +1490,13 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -1572,13 +1572,13 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -1642,13 +1642,13 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -1724,13 +1724,13 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"
@@ -1794,13 +1794,13 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
           >
             <ul
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="tree"
             >
               <li
                 aria-selected={null}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
-                role="option"
+                role="treeitem"
               >
                 <button
                   className="xui-pickitem--body"

@@ -9,13 +9,13 @@ exports[`<XUI Panel and related components/> renders a panel with all the bells 
   >
     <ul
       className="xui-picklist xui-picklist-layout xui-picklist-medium"
-      role="group"
+      role="tree"
     >
       <li
         aria-selected={null}
         className="xui-pickitem xui-pickitem-medium"
         id="1"
-        role="option"
+        role="treeitem"
       >
         <button
           className="xui-pickitem--body"
@@ -33,7 +33,7 @@ exports[`<XUI Panel and related components/> renders a panel with all the bells 
         aria-selected={null}
         className="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium"
         id="2"
-        role="option"
+        role="treeitem"
       >
         <button
           className="xui-pickitem--body"
@@ -51,7 +51,7 @@ exports[`<XUI Panel and related components/> renders a panel with all the bells 
         aria-selected={null}
         className="xui-pickitem xui-pickitem-medium"
         id="3"
-        role="option"
+        role="treeitem"
       >
         <button
           className="xui-pickitem--body"

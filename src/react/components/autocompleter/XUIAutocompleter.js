@@ -37,6 +37,7 @@ export default class XUIAutocompleter extends PureComponent {
     this.rootNode = React.createRef();
     this.noWrapPillContainer = React.createRef();
     this.dropdown = React.createRef();
+    this.inputNode = React.createRef();
   }
 
   _onResize({ width }) {
@@ -112,7 +113,7 @@ export default class XUIAutocompleter extends PureComponent {
   calculatePlaceholderWidth = () => {
     if (this._area.current != null) {
       const { placeholderWidth } = this.state;
-      const inputStyle = getComputedStyle(this.inputNode);
+      const inputStyle = getComputedStyle(this.inputNode.current);
       const inputWidth = `${
         parseFloat(inputStyle.paddingLeft) +
         parseFloat(inputStyle.paddingRight) +
@@ -156,7 +157,7 @@ export default class XUIAutocompleter extends PureComponent {
    * Focuses the text input
    */
   focusInput = () => {
-    this.inputNode && this.inputNode.focus();
+    this.inputNode.current?.focus();
   };
 
   /**
@@ -189,7 +190,7 @@ export default class XUIAutocompleter extends PureComponent {
 
     if (
       event.key === eventKeyValues.backspace &&
-      this.inputNode.value === '' &&
+      this.inputNode.current.value === '' &&
       onBackspacePill &&
       pills &&
       (pills.length > 0 || React.isValidElement(pills))
@@ -337,7 +338,7 @@ export default class XUIAutocompleter extends PureComponent {
               flexBasis: inputWidth,
             },
           }}
-          inputRef={i => (this.inputNode = i)}
+          inputRef={this.inputNode}
           isDisabled={isDisabled}
           isInvalid={isInvalid}
           isLabelHidden={isInputLabelHidden}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import autosize from 'autosize';
 
-import compose from '../helpers/compose';
+import combineRefs from '../helpers/combineRefs';
 import { inputBaseClass, inputSizeClasses, baseSizeClasses } from './private/constants';
 import { calculateMaxHeight } from './private/helpers';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
@@ -203,7 +203,7 @@ class XUITextInput extends PureComponent {
                       onChange={onChange}
                       onFocusCapture={input.onFocus}
                       placeholder={placeholder}
-                      ref={compose(inputRef, i => (this.input = i))}
+                      ref={combineRefs(inputRef, i => (this.input = i))}
                       type={type}
                       value={value}
                       {...ariaAttributes}

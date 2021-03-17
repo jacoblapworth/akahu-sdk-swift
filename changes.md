@@ -51,7 +51,7 @@ XUIToggleOption now includes updated padding, horizontal and vertical, for both 
 
 The following components have had refs updated to be implemented with `React.createRef()` so this approach is used to instantiate refs more consistently across the library. If you are calling or manipulating any of these refs, you may need to update those references to use `nameOfRef.current`
 
-- `XUIAutocompleter` refs: `dropdown`
+- `XUIAutocompleter` refs: `dropdown` and `inputNode`
 - `XUIAutocompleterSecondarySearch` refs: `ddt` and `dropdown`
 - `XUIButton` refs: `rootNode`
 - `XUIDropdownToggled` refs: `trigger` and `dropdown`

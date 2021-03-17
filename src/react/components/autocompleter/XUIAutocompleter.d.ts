@@ -228,4 +228,9 @@ export default class XUIAutocompleter extends React.PureComponent<Props> {
    * Root node to enable users to access as a ref.
    */
   rootNode: React.RefObject<HTMLElement>;
+
+  /**
+   * Ref to the text input element.
+   */
+  inputNode: React.RefObject<HTMLElement>;
 }

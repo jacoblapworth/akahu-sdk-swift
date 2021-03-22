@@ -1,5 +1,5 @@
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import { nanoid } from 'nanoid';
 import React from 'react';
 import { DragDropContext, Droppable as RBDDroppable } from 'react-beautiful-dnd';

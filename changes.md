@@ -1,5 +1,17 @@
 # XUI 18 Changes
 
+## React 17
+
+React has been updated to version 17. Please ensure your repo's version of `react`, `react-dom` and `@types/react` are adjusted to version `^17.0.0` to match XUI's version of React.
+
+React 17 has several breaking-changes and these will be separate from breaking changes that XUI includes. If you are upgrading from previous versions of React we advise you to read the [official react 17 blog post](https://reactjs.org/blog/2020/10/20/react-v17.html) before upgrading.
+
+For Enzyme users, please note before upgrading that there is currently no official enzyme adapter and `enzyme-adapter-react-16` will no longer work with React 17 (as of March 2021). We recommend that you take one of the following options:
+
+1. [**Use the unofficial `enzyme-adapter-react-17` package**](https://www.npmjs.com/package/@wojtekmaj/enzyme-adapter-react-17): While this is not officially endorsed by the Enzyme maintainers, it is a popular package used by many developers using React 17.
+
+2. [**Migrate to using the React Testing Library **](https://testing-library.com/): This is the testing library officially endorsed by the React team.
+
 ## Dependency updates
 
 Please take some time to check that your projects' package.json dependencies match those of XUI's package.json dependencies to avoid multiple versions of a dependency being bundled in your projects.

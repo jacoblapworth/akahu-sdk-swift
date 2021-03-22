@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { render, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { nanoid } from 'nanoid';
 import XUIToggleOption from '../XUIToggleOption';
 

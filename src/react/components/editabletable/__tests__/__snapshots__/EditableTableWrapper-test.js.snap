@@ -58,7 +58,7 @@ exports[`EditableTableWrapper renders correctly 1`] = `
             }
           >
             <Droppable>
-              <ConnectFunction
+              <Connect(Droppable)
                 direction="vertical"
                 droppableId="xui-123"
                 getContainerForClone={[Function]}
@@ -116,7 +116,7 @@ exports[`EditableTableWrapper renders correctly 1`] = `
                     </div>
                   </ForwardRef>
                 </Droppable>
-              </ConnectFunction>
+              </Connect(Droppable)>
             </Droppable>
           </Provider>
         </App>

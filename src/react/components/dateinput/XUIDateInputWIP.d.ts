@@ -49,6 +49,9 @@ interface Props {
 
   qaHook?: string;
 
+  /** Label for an item opening DatePicker (with convenience date mode) */
+  selectDateLabel?: string;
+
   selectedDateDefaultValue?: Date;
 
   /** Value of the date input. Must be a Date object */

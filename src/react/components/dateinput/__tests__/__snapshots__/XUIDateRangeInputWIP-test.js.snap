@@ -32,7 +32,9 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
           role="presentation"
         >
           <div
+            autoComplete="off"
             className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+            onClick={[Function]}
           >
             <div
               className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
@@ -67,7 +69,7 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
                   "maxHeight": undefined,
                 }
               }
-              value="05 Jun 1999"
+              value="5 Jun 1999"
             />
           </div>
         </div>
@@ -92,7 +94,9 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
           role="presentation"
         >
           <div
+            autoComplete="off"
             className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+            onClick={[Function]}
           >
             <div
               className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
@@ -203,7 +207,9 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
           role="presentation"
         >
           <div
+            autoComplete="off"
             className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+            onClick={[Function]}
           >
             <div
               className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
@@ -263,7 +269,9 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
           role="presentation"
         >
           <div
+            autoComplete="off"
             className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+            onClick={[Function]}
           >
             <div
               className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"

@@ -34,7 +34,6 @@ const YearSelector = ({
   };
 
   const currentYear = currentMonthDate.getFullYear();
-  // TODO: ask design about time span when min/max should only prevent selecting but not browsing...
   const startYear = minDate ? minDate.getFullYear() : currentYear - 10;
   const maxYear = maxDate ? maxDate.getFullYear() : currentYear + 10;
   const visibleYears = [];

@@ -69,7 +69,7 @@ describe('XUIDateInputItem', () => {
     const wrapper = mount(createComponent({ qaHook: 'date-input-test' }));
     const dropdownOpened = jest.spyOn(wrapper.instance().ddtRef.current, 'openDropdown');
 
-    wrapper.find('input').simulate('focus');
+    wrapper.find('input').simulate('click');
 
     expect(dropdownOpened).toHaveBeenCalled();
   });
@@ -95,7 +95,7 @@ describe('XUIDateInputItem', () => {
     const wrapper = mount(createComponent({ triggerClassName: 'date-input-trigger' }));
     const dropdownOpened = jest.spyOn(wrapper.instance().ddtRef.current, 'openDropdown');
 
-    wrapper.find('input').simulate('focus');
+    wrapper.find('input').simulate('click');
 
     expect(dropdownOpened).toHaveBeenCalled();
   });
@@ -106,7 +106,7 @@ describe('XUIDateInputItem', () => {
       createComponent({ selectedDate: newSelectedDate, displayedMonth: newSelectedDate }),
     );
 
-    wrapper.find('input').simulate('focus');
+    wrapper.find('input').simulate('click');
     expect(wrapper.find('.xui-datepicker').length).toBe(1);
     const calendarHeadingLabels = wrapper.find('.xui-datepicker--heading-dates label');
     expect(calendarHeadingLabels.length).toBe(2);

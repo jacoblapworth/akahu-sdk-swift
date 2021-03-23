@@ -37,7 +37,6 @@ const MonthSelector = ({
   const allMonths = Array.isArray(months) ? months : englishMonths;
   const currentMonth = currentMonthDate.getMonth();
   const currentYear = currentMonthDate.getFullYear();
-  // TODO: ask design about time span when min/max should only prevent selecting but not browsing...
   const startMonth =
     minDate != null && currentYear === minDate.getFullYear() ? minDate.getMonth() : 0;
   const maxMonth =

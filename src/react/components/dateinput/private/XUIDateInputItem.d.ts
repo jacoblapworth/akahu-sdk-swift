@@ -15,6 +15,9 @@ interface Props {
    * be any day in the given day and month. */
   displayedMonth?: Date;
 
+  /** Sets a ref for the input element */
+  exposeInputRef?: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
+
   /** Hint message to display below input */
   hintMessage?: string;
 
@@ -51,6 +54,9 @@ interface Props {
   onSelectDate?: (day: Date) => void;
 
   qaHook?: string;
+
+  /** Label for an item opening DatePicker (with convenience date mode) */
+  selectDateLabel?: string;
 
   /** Value of the date input. Must be a Date object */
   selectedDate?: Date;

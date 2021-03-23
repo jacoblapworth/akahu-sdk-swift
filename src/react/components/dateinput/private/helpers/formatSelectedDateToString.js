@@ -8,7 +8,7 @@ const formatSelectedDateToString = (selectedDate, inputValue) => {
   if (inputValue || inputValue === '') {
     return inputValue;
   }
-  return dayjs().isValid() ? dayjs(selectedDate).format('DD MMM YYYY') : selectedDate;
+  return dayjs().isValid() ? dayjs(selectedDate).format('D MMM YYYY') : selectedDate;
 };
 
 export default formatSelectedDateToString;

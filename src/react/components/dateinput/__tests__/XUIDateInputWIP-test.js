@@ -54,7 +54,7 @@ describe('XUIDateInput', () => {
       />,
     );
 
-    wrapper.find('input').simulate('focus');
+    wrapper.find('input').simulate('click');
     wrapper.find('.xui-datepicker--day-selectable').first().simulate('click');
 
     expect(onSelectDate).toHaveBeenCalled();
@@ -69,7 +69,7 @@ describe('XUIDateInput', () => {
 
     expect(wrapper.find('.xui-datepicker').length).toBe(0);
 
-    wrapper.find('input').simulate('focus');
+    wrapper.find('input').simulate('click');
 
     expect(wrapper.find('.xui-datepicker').length).toBe(1);
     expect(wrapper.find('li#jan2019').length).toBe(1);
@@ -84,7 +84,7 @@ describe('XUIDateInput', () => {
       }),
     );
 
-    wrapper.find('input').simulate('focus');
+    wrapper.find('input').simulate('click');
     wrapper.find('li#jan2019 button').simulate('click');
 
     expect(onSelectProp).toHaveBeenCalledWith(convenienceDateResult);
@@ -103,7 +103,7 @@ describe('XUIDateInput', () => {
 
     expect(wrapper.find('input').instance().value).toBe('');
 
-    wrapper.find('input').simulate('focus');
+    wrapper.find('input').simulate('click');
     wrapper.find('li#jan2019 button').simulate('click');
 
     expect(onSelectProp).toHaveBeenCalledWith(convenienceDateResult);

@@ -133,7 +133,7 @@ const Draggable: React.FunctionComponent<Props> = ({
           : columnWidths;
 
         return (
-          <Portal node={tableWrapperRef.current}>
+          <Portal node={tableWrapperRef?.current}>
             <table
               {...provided.draggableProps}
               style={{

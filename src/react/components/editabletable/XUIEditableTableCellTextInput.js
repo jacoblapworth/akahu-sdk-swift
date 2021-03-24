@@ -4,9 +4,9 @@ import cn from 'classnames';
 
 import XUIEditableTableCellControl from './XUIEditableTableCellControl';
 import XUITextInput from '../textInput/XUITextInput';
-import { tableName } from './private/constants';
+import { tableVariantClassNames } from './private/constants';
 
-const baseName = `${tableName}celltextinput`;
+const baseName = `${tableVariantClassNames.editable}celltextinput`;
 
 const XUIEditableTableCellTextInput = ({
   cellProps = {},

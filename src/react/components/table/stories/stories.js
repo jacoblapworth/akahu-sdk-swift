@@ -205,7 +205,7 @@ class ScrollResetWrapper extends PureComponent {
   componentDidMount() {
     setTimeout(() => {
       const { node } = this;
-      const wrapper = node?.current?.querySelector('.xui-table-wrapper');
+      const wrapper = node?.current?.querySelector('.xui-readonlytablewrapper');
       if (wrapper) {
         wrapper.scrollLeft = 0;
         logReadyState('xui-table-ready-event');

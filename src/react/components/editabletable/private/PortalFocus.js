@@ -2,9 +2,10 @@ import React, { useState, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Portal } from 'react-portal';
-import { tableName } from './constants';
+import { tableVariantClassNames } from './constants';
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
 
+const tableName = tableVariantClassNames.editable;
 const baseName = `${tableName}--portalfocus`;
 
 const PortalFocus = ({ focusedCellRef, isFocused, scrollContainerRef }) => {

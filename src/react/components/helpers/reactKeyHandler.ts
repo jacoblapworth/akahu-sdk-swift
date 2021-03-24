@@ -30,7 +30,8 @@ const clickKeys = [eventKeyValues.space, eventKeyValues.enter];
  * @param {Array} keysToCheck
  * @returns {boolean}
  */
-export const matchOneOfKeys = (event, keysToCheck) => keysToCheck.indexOf(event.key) > -1;
+export const matchOneOfKeys = (event: React.KeyboardEvent, keysToCheck: string[]) =>
+  keysToCheck.indexOf(event.key) > -1;
 /**
  * Is the keyboard event triggered by a directional arrow key
  *
@@ -38,7 +39,7 @@ export const matchOneOfKeys = (event, keysToCheck) => keysToCheck.indexOf(event.
  * @param {SyntheticEvent} event
  * @returns {boolean}
  */
-export const isKeyArrow = event => matchOneOfKeys(event, arrowKeys);
+export const isKeyArrow = (event: React.KeyboardEvent) => matchOneOfKeys(event, arrowKeys);
 
 /**
  * Is the keyboard event from a spacebar or enter press
@@ -47,7 +48,7 @@ export const isKeyArrow = event => matchOneOfKeys(event, arrowKeys);
  * @param {SyntheticEvent} event
  * @returns {boolean}
  */
-export const isKeyClick = event => matchOneOfKeys(event, clickKeys);
+export const isKeyClick = (event: React.KeyboardEvent) => matchOneOfKeys(event, clickKeys);
 
 /**
  * Is the keyboard event from a spacebar
@@ -56,7 +57,7 @@ export const isKeyClick = event => matchOneOfKeys(event, clickKeys);
  * @param {SyntheticEvent} event
  * @returns {boolean}
  */
-export const isKeySpacebar = event => event.key === eventKeyValues.space;
+export const isKeySpacebar = (event: React.KeyboardEvent) => event.key === eventKeyValues.space;
 
 /**
  * Is the keyboard event a press of the Tab with shift held.
@@ -65,7 +66,8 @@ export const isKeySpacebar = event => event.key === eventKeyValues.space;
  * @param {SyntheticEvent} event
  * @returns {boolean}
  */
-export const isKeyShiftTab = event => event.key === eventKeyValues.tab && event.shiftKey;
+export const isKeyShiftTab = (event: React.KeyboardEvent) =>
+  event.key === eventKeyValues.tab && event.shiftKey;
 
 /**
  * Is the keyboard event from a functional key (tab, enter, escape, backspace, shift, control, alt or meta).
@@ -74,7 +76,7 @@ export const isKeyShiftTab = event => event.key === eventKeyValues.tab && event.
  * @param {SyntheticEvent} event
  * @returns {boolean}
  */
-export const isKeyFunctional = event =>
+export const isKeyFunctional = (event: React.KeyboardEvent) =>
   matchOneOfKeys(event, [
     eventKeyValues.tab,
     eventKeyValues.enter,

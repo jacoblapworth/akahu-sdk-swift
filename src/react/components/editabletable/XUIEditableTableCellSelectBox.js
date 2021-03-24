@@ -4,9 +4,9 @@ import cn from 'classnames';
 
 import XUIEditableTableCellControl from './XUIEditableTableCellControl';
 import XUISelectBox from '../selectbox/XUISelectBox';
-import { tableName } from './private/constants';
+import { tableVariantClassNames } from './private/constants';
 
-const baseName = `${tableName}cellselectbox`;
+const baseName = `${tableVariantClassNames.editable}cellselectbox`;
 
 const XUIEditableTableCellSelectBox = ({
   cellProps = {},

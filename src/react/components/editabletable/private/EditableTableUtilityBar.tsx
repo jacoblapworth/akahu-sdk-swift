@@ -5,9 +5,9 @@ import * as React from 'react';
 import combineRefs from '../../helpers/combineRefs';
 import useResizeObserver from '../../helpers/useResizeObserver';
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
-import { tableName } from './constants';
+import { tableVariantClassNames } from './constants';
 
-const baseName = `${tableName}utilitybar`;
+const baseName = `${tableVariantClassNames.editable}utilitybar`;
 
 interface BaseProps {
   children?: React.ReactNode;
@@ -63,7 +63,7 @@ const EditableTableUtilityBar: React.FunctionComponent<Props> = ({
 };
 
 EditableTableUtilityBar.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+  children: PropTypes.node,
   className: PropTypes.string,
   qaHook: PropTypes.string,
 };

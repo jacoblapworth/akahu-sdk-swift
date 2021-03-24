@@ -35,7 +35,10 @@ describe('EditableTableHeadRow', () => {
     // Arrange
     const wrapper = mount(
       <XUIEditableTableContext.Provider
-        value={{ dragAndDrop: {}, rowOptions: { isDraggable: true, isRemovable: true } }}
+        value={{
+          dragAndDrop: {},
+          rowOptions: { isDraggable: true, isRemovable: true },
+        }}
       >
         <table>
           <thead>

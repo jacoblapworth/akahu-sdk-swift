@@ -47,6 +47,37 @@ _Note: This will mean that many key functionalities that worked for IE11 users p
 - `xui-pickitem--body-has-leftelement` should be added to the pickitem body element when a left element is present (not required if using React `XUIPickitem` component).
 - `xui-pickitem--body-has-rightelement` should be added to the pickitem body element when a right element is present (not required if using React `XUIPickitem` component).
 
+### XUITable
+
+- Captions are now handled by adding an `aria-label` to the table element.
+- XUITable's cell contents will now vertically align to the top of the cell instead of the middle.
+
+#### XUITable classes
+
+- `xui-table--*` classes have been renamed to `xui-readonlytable*`
+  - `xui-table-wrapper` -> `xui-readonlytablewrapper`
+  - `xui-table` -> `xui-readonlytable`
+  - `xui-table--head` -> `xui-readonlytablehead`
+  - `xui-table--body` -> `xui-readonlytablebody`
+  - `xui-table--row` -> `xui-readonlytablerow`
+  - `xui-table--cell` -> `xui-readonlytablecell`
+  - `xui-table--row-link` -> `xui-readonlytablerow-link`
+  - `xui-table--cell-link` -> `xui-readonlytablecell-link`
+  - `xui-table--cell-action` -> `xui-readonlytablecell-action`
+  - `xui-table--checkbox-head` -> `xui-readonlytable--checkbox-head`
+  - `xui-table--checkbox-body` -> `xui-readonlytable--checkbox-head`
+- `xui-heading-separator` has been replaced with `xui-readonlytableheadingcell` (only for tables)
+- `xui-panel` has been replaced with `xui-readonlytable-hasborder` (only for tables)
+- `xui-table-responsive` has been replaced with `xui-readonlytablewrapper--scrollcontainer` and should be nested under `xui-readonlytable-hasborder` when applicable (see [our XUITable documentation](https://xui.xero.com/18.0.0/section-components-displayingdata-table.html#components-displayingdata-table-4) for examples)
+- `xui-table--cell-divider` has been removed and is no longer needed
+- `xui-readonlytableheadingcell--placeholder` and `xui-readonlytablecell--placeholder` have been added
+  - Used to set the size of checkboxes and/or overflow menu cells in rows without checkboxes and/or overflow menus
+- Classes for pinned actions have also been renamed
+  - `xui-table-pinleft` -> `xui-readonlytable-pinfirst`
+  - `xui-table-pinright` -> `xui-readonlytable-pinright`
+  - `xui-table-overflowleft` -> `xui-readonlytableoverflow-pinoverflowleft`
+  - `xui-table-overflowright` -> `xui-readonlytableoverflow-pinoverflowright`
+
 ### ToggleOptions
 
 XUIToggleOption now includes updated padding, horizontal and vertical, for both medium and small variants. If you currently apply utility classes to provide your own horizontal padding, they are expected to still take precedence, but you may be able to remove them to leverage the default layout. You will see a change to the overall height of ALL "small" toggles and all "medium" toggles that have multi-line content.
@@ -83,6 +114,11 @@ TypeScript types have also been made slightly more strict for instances of rootN
 - `XUIAccordionItem` now supports its own `qaHook` property which, if provided, will add a `data-automationid` to the accordion item itself, as well as its child `trigger` and `content` elements.
 - All `XUIAccordion`-related `qahook`s have been updated to use a `--` instead of a single `-`, in line with XUI naming conventions.
   - e.g. `{qaHook}-empty` has been renamed to `{qaHook}--empty`
+
+### XUITable
+
+- Captions are now handled by adding an `ariaLabel` to the table element.
+- XUITable's cell contents will now vertically align to the top of the cell instead of the middle.
 
 ### Removals
 

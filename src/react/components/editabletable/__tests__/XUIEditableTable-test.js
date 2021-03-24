@@ -6,7 +6,8 @@ import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import XUIEditableTable from '../XUIEditableTable';
-import { tableName } from '../private/constants';
+import { tableVariantClassNames } from '../private/constants';
+const tableName = tableVariantClassNames.editable;
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);

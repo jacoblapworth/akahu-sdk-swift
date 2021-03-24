@@ -138,7 +138,7 @@ const config = {
   ignore: ['**/Positioning.js', '**/Constants.js', '**/TextHelpers.js', '**/__tests__/**'],
   sections: componentSections,
   getComponentPathLine(componentPath) {
-    let name = path.basename(componentPath, '.js');
+    let name = path.basename(componentPath).replace(/\.(j|t)sx?/g, '');
     const dir = path.dirname(componentPath).split('/').pop();
 
     // TODO: Normalise casing strategy between files and component directory names. Currently mismatched.

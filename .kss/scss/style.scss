@@ -242,7 +242,7 @@ code {
     width: 100%;
   }
 
-  td:not(.xui-table--cell) {
+  td:not(.xui-readonlytablecell) {
     border: $xui-border-standard;
     padding: $xui-s-2xsmall $xui-s-xsmall;
   }

@@ -4,10 +4,10 @@ import cn from 'classnames';
 
 import XUIEditableTableCellControl from './XUIEditableTableCellControl';
 import XUIAutocompleter from '../autocompleter/XUIAutocompleter';
-import { tableName } from './private/constants';
+import { tableVariantClassNames } from './private/constants';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 
-const baseName = `${tableName}cellautocompleter`;
+const baseName = `${tableVariantClassNames.editable}cellautocompleter`;
 
 class XUIEditableTableCellAutocompleter extends Component {
   completerRef = React.createRef();

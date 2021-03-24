@@ -3,6 +3,10 @@ const { EventEmitter } = require('events');
 const path = require('path');
 const { argv } = require('yargs');
 
+const NOOP = () => {};
+// Polyfill `Element` for Node JS
+global.Element = typeof Element === 'undefined' ? NOOP : Element;
+
 const projectDirectory = argv.docker ? '../' : './';
 function relativeToProjectDirectory(path) {
   return `${projectDirectory}${path}`;

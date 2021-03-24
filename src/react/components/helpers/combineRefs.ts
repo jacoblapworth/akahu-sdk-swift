@@ -1,6 +1,4 @@
-const combineRefs = <T = HTMLElement>(
-  ...refs: Array<((instance: T) => void) | React.MutableRefObject<T> | null>
-) => (element: T) => {
+const combineRefs = <T = HTMLElement>(...refs: Array<React.Ref<T>>) => (element: T) => {
   refs.forEach(ref => {
     if (!ref) {
       return;
@@ -10,7 +8,7 @@ const combineRefs = <T = HTMLElement>(
     }
     if ('current' in ref) {
       // eslint-disable-next-line no-param-reassign
-      ref.current = element;
+      (ref as React.MutableRefObject<T>).current = element;
     }
   });
 };

@@ -243,8 +243,8 @@ class Example extends PureComponent {
           <XUIModalBody>
             <div className="xui-u-flex xui-u-flex-column xui-u-flex-align-center">
               <img
-                src="https://s3-ap-southeast-2.amazonaws.com/uxe-internal/spaceship_for_react_modal_demo.png"
-                style={{ maxWidth: '100%' }}
+                src="https://edge.xero.com/illustration/scene/scientists-whiteboard-01/scientists-whiteboard-01.svg"
+                style={{ maxWidth: '100%', maxHeight: '10em' }}
               />
               <h2>Welcome to Projects</h2>
               <div className="xui-padding-2xlarge">

@@ -24,26 +24,26 @@ describe('<XUISelectBox />', function () {
   beforeEach(function () {
     select = mount(
       <XUISelectBox
-        label="Test Select Box"
-        value={options[0]}
-        name="Test"
+        buttonClassName="blah"
         buttonContent={options[0]}
-        buttonClasses="blah"
-        forceDesktop
         caretTitle="Toggle list"
+        forceDesktop
+        label="Test Select Box"
+        name="Test"
+        value={options[0]}
       >
         {options.map((opt, idx) => {
           return (
             <XUISelectBoxOption
               id={opt}
               key={opt + idx}
-              selected={opt === options[0]}
               onSelect={() => {
                 wasSelected = true;
               }}
+              selected={opt === options[0]}
+              showCheckboxes
+              truncateText
               value={opt}
-              showCheckboxes={true}
-              truncatedText={true}
             >
               {opt}
             </XUISelectBoxOption>
@@ -73,14 +73,14 @@ describe('<XUISelectBox />', function () {
   it('should not open the dropdown on click of the button when it does not have children', function () {
     select = mount(
       <XUISelectBox
-        value="Test"
+        buttonClassName="blah"
+        buttonContent="test"
+        caretTitle="Toggle list"
+        forceDesktop
+        isOpen={false}
         label="Does not have children"
         name="Test"
-        buttonContent="test"
-        buttonClasses="blah"
-        isOpen={false}
-        forceDesktop
-        caretTitle="Toggle list"
+        value="Test"
       />,
     );
 
@@ -91,15 +91,15 @@ describe('<XUISelectBox />', function () {
   it('should not open the dropdown on click if the control is disabled', function () {
     select = mount(
       <XUISelectBox
-        label="test"
+        buttonClassName="blah"
         buttonContent="test"
-        buttonClasses="blah"
-        isOpen={false}
+        caretTitle="Toggle list"
         forceDesktop
         isDisabled
-        caretTitle="Toggle list"
+        isOpen={false}
+        label="test"
       >
-        <XUISelectBoxOption id="1" value="A sample option" label="test">
+        <XUISelectBoxOption id="1" label="test" value="A sample option">
           A sample option
         </XUISelectBoxOption>
       </XUISelectBox>,
@@ -128,18 +128,18 @@ describe('<XUISelectBox />', function () {
   it("should render the appropriate automation id's when a qaHook is provided", () => {
     const select = renderer.create(
       <XUISelectBox
-        qaHook="test-selectbox"
-        label="test"
         buttonContent="test"
-        id="testThisSelect"
-        forceDesktop
         caretTitle="Toggle list"
+        forceDesktop
+        id="testThisSelect"
+        label="test"
+        qaHook="test-selectbox"
       >
         <XUISelectBoxOption
           id="1"
-          value="A sample option"
           label="test"
           qaHook="test-selectboxoption"
+          value="A sample option"
         >
           A sample option
         </XUISelectBoxOption>
@@ -152,13 +152,13 @@ describe('<XUISelectBox />', function () {
   it('should render the trigger in a disabled state if `isDisabled` is set', () => {
     const select = renderer.create(
       <XUISelectBox
-        label="test"
         buttonContent="test"
+        caretTitle="Toggle list"
         forceDesktop
         isDisabled
-        caretTitle="Toggle list"
+        label="test"
       >
-        <XUISelectBoxOption id="1" value="A sample option" label="test">
+        <XUISelectBoxOption id="1" label="test" value="A sample option">
           A sample option
         </XUISelectBoxOption>
       </XUISelectBox>,

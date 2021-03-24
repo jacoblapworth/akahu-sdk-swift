@@ -23,10 +23,6 @@ interface Props {
   children?: React.ReactNode;
   className?: string;
   /**
-   * Whether the fixed width class variant should be used for the size prop.
-   */
-  fixedWidth?: boolean;
-  /**
    * Items to be added to the menu's footer.
    */
   footer?: React.ReactElement;
@@ -38,6 +34,10 @@ interface Props {
    * Force wrapping `XUIDropdownPanel` children in a `XUIStatefulPicklist`.
    */
   forceStatefulPicklist?: boolean;
+  /**
+   * Whether the fixed width class variant should be used for the size prop.
+   */
+  hasFixedWidth?: boolean;
   /**
    * Whether or not the dropdown should take focus and handle keyboard events automatically.
    */

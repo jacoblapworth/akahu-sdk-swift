@@ -11,7 +11,7 @@ const sentiments = Object.keys(sentimentMap);
 const XUIBanner = ({
   children,
   className,
-  defaultLayout,
+  hasDefaultLayout,
   onCloseClick,
   qaHook,
   role,
@@ -37,7 +37,7 @@ const XUIBanner = ({
     className,
     `${ns}-banner`,
     {
-      [`${ns}-banner-layout`]: defaultLayout,
+      [`${ns}-banner-layout`]: hasDefaultLayout,
     },
     sentimentClass,
   );
@@ -56,7 +56,7 @@ XUIBanner.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   /** Defines whether the default layout class should be supplied */
-  defaultLayout: PropTypes.bool,
+  hasDefaultLayout: PropTypes.bool,
   /** Handles the click event for the action */
   onCloseClick: PropTypes.func,
   qaHook: PropTypes.string,
@@ -68,5 +68,5 @@ XUIBanner.propTypes = {
 };
 
 XUIBanner.defaultProps = {
-  defaultLayout: true,
+  hasDefaultLayout: true,
 };

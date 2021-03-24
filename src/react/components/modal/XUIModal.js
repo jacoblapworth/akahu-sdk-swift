@@ -243,7 +243,7 @@ export default class XUIModal extends Component {
       maskClassName,
       closeClassName,
       children,
-      defaultLayout,
+      hasDefaultLayout,
       ariaLabelledBy,
       ariaDescribedBy,
       qaHook,
@@ -265,7 +265,7 @@ export default class XUIModal extends Component {
     const modalClasses = cn(
       baseClass,
       modalSizes[size],
-      defaultLayout && `${baseClass}-layout`,
+      hasDefaultLayout && `${baseClass}-layout`,
       className,
     );
     const overlayClickHandler =
@@ -379,7 +379,7 @@ XUIModal.propTypes = {
   closeClassName: PropTypes.string,
 
   /** If the modal will use the default XUI style layout */
-  defaultLayout: PropTypes.bool,
+  hasDefaultLayout: PropTypes.bool,
 
   /** If the modal will be hidden when the user presses the Esc key */
   hideOnEsc: PropTypes.bool,
@@ -418,7 +418,7 @@ XUIModal.propTypes = {
 };
 
 XUIModal.defaultProps = {
-  defaultLayout: true,
+  hasDefaultLayout: true,
   hideOnEsc: true,
   hideOnOverlayClick: false,
   isForm: false,

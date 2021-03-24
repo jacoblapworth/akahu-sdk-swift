@@ -159,7 +159,7 @@ exports[`<XUISelectBoxOption /> should render checkboxes when the showCheckboxes
 </li>
 `;
 
-exports[`<XUISelectBoxOption /> should render extra classes on the option element when values are added to the optionClasses prop 1`] = `
+exports[`<XUISelectBoxOption /> should render extra classes on the option element when values are added to the optionClassName prop 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem option-class xui-pickitem-medium"
@@ -180,7 +180,7 @@ exports[`<XUISelectBoxOption /> should render extra classes on the option elemen
 </li>
 `;
 
-exports[`<XUISelectBoxOption /> should render text as truncated when the truncatedText prop is set to true 1`] = `
+exports[`<XUISelectBoxOption /> should render text as truncated when the truncateText prop is set to true 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem xui-pickitem-medium"
@@ -383,7 +383,7 @@ exports[`<XUISelectBoxOption /> shouldn't render checkboxes when the showCheckbo
 </li>
 `;
 
-exports[`<XUISelectBoxOption /> shouldn't render text as truncated when the truncatedText prop is set to false 1`] = `
+exports[`<XUISelectBoxOption /> shouldn't render text as truncated when the truncateText prop is set to false 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem xui-pickitem-medium"

@@ -8,7 +8,7 @@ interface Props {
   /**
    * Defines whether the default layout class should be supplied.
    */
-  defaultLayout?: boolean;
+  hasDefaultLayout?: boolean;
   /**
    * Handles the click event for the action.
    */

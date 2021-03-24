@@ -2,16 +2,16 @@ import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import XUIIcon from '../XUIIcon';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 import renderer from 'react-test-renderer';
+import XUIIcon from '../XUIIcon';
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
 describe('XUIIcon', () => {
   it('Should render with any additional classes provided through the className prop', function () {
-    const wrapper = mount(<XUIIcon icon={accessibility} className={'classyMcClassFace'} />);
+    const wrapper = mount(<XUIIcon className="classyMcClassFace" icon={accessibility} />);
     expect(wrapper.getDOMNode().getAttribute('class')).toEqual(
       expect.stringContaining('classyMcClassFace'),
     );
@@ -57,15 +57,15 @@ describe('XUIIcon', () => {
     const wrapper = mount(
       <div>
         <XUIIcon icon={accessibility} />
-        <XUIIcon icon={accessibility} color={'black-muted'} />
-        <XUIIcon icon={accessibility} color={'red'} />
-        <XUIIcon icon={accessibility} color={'green'} />
-        <XUIIcon icon={accessibility} color={'white'} />
-        <XUIIcon icon={accessibility} color={'blue'} />
-        <XUIIcon icon={accessibility} color={'file_spreadsheet'} />
-        <XUIIcon icon={accessibility} color={'file_pdf'} />
-        <XUIIcon icon={accessibility} color={'white_faint'} />
-        <XUIIcon icon={accessibility} color={'white_muted'} />
+        <XUIIcon color="black-muted" icon={accessibility} />
+        <XUIIcon color="red" icon={accessibility} />
+        <XUIIcon color="green" icon={accessibility} />
+        <XUIIcon color="white" icon={accessibility} />
+        <XUIIcon color="blue" icon={accessibility} />
+        <XUIIcon color="file_spreadsheet" icon={accessibility} />
+        <XUIIcon color="file_pdf" icon={accessibility} />
+        <XUIIcon color="white_faint" icon={accessibility} />
+        <XUIIcon color="white_muted" icon={accessibility} />
       </div>,
     );
 
@@ -101,7 +101,7 @@ describe('XUIIcon', () => {
 
   it('Should render title and desc elements within the SVG element based on the props provided', function () {
     const wrapper = render(
-      <XUIIcon icon={accessibility} title="Happy poop title 💩" desc="Happy poop desc 💩" />,
+      <XUIIcon description="Happy poop desc 💩" icon={accessibility} title="Happy poop title 💩" />,
     );
 
     const title = wrapper.find('title').first();

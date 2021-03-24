@@ -202,7 +202,7 @@ export default class XUITooltip extends PureComponent {
       triggerOnClick,
       isBlock,
       useInlineFlex,
-      limitWidth,
+      hasLimitedWidth,
     } = this.props;
     const { isHidden, isAnimating } = this.state;
     const ignoreFocus = !this.state.isFocused || !triggerOnFocus;
@@ -217,7 +217,7 @@ export default class XUITooltip extends PureComponent {
       isAnimating && `${baseClass}-tipanimating`,
       isBlock && `${baseClass}-is-block`,
       useInlineFlex && `${baseClass}-inline-flex`,
-      limitWidth && `${baseClass}-limitwidth`,
+      hasLimitedWidth && `${baseClass}-limitwidth`,
     );
 
     const tipClasses = cn(
@@ -286,6 +286,11 @@ XUITooltip.propTypes = {
   /** Delay in ms for closing the tooltip. Defaults to 100 */
   closeDelay: PropTypes.number,
 
+  /**
+   * Limit width of tooltip's trigger to 100%.
+   */
+  hasLimitedWidth: PropTypes.bool,
+
   /** DOM ID of the tooltip */
   id: PropTypes.string,
 
@@ -303,11 +308,6 @@ XUITooltip.propTypes = {
 
   /** The target that should listen to key presses. Defaults to the window. */
   keyListenerTarget: PropTypes.object,
-
-  /**
-   * Limit width of tooltip's trigger to 100%.
-   */
-  limitWidth: PropTypes.bool,
 
   /** Setting a number here will force the maximum height of the tooltip to be the
    * number provided (in pixels). */

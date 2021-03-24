@@ -15,6 +15,10 @@ interface BaseProps {
    */
   deleteButtonLabel?: string;
   /**
+   * Whether the pill should have a `max-width` of `200px`.
+   */
+  hasLimitedWidth?: boolean;
+  /**
    * This will make the value an anchor element instead of a span element and adds the `href` as
    * the link.
    */
@@ -23,10 +27,6 @@ interface BaseProps {
    * When invalid, displays the text in a red colour.
    */
   isInvalid?: boolean;
-  /**
-   * Whether the pill should have a `max-width` of `200px`.
-   */
-  isLimitedWidth?: boolean;
   /**
    * Callback to fire when the main pill content is clicked.
    */

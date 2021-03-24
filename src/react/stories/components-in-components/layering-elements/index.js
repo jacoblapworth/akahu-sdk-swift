@@ -43,7 +43,7 @@ const splitButtonExample = (
     <XUIButton size="small">Split action</XUIButton>
     <XUIDropdownToggled
       dropdown={
-        <XUIDropdown fixedWidth size="small">
+        <XUIDropdown hasFixedWidth size="small">
           <XUIPicklist>
             <XUIPickitem id="aa" key="aa" value="aa">
               Option 1

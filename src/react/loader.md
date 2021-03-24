@@ -18,12 +18,12 @@ import XUILoader from '@xero/xui/react/loader';
 
 ### Disabled Layout
 
-For more flexibility in styling and using Loaders in your application, set the prop `defaultLayout` to `false`.
+For more flexibility in styling and using Loaders in your application, set the prop `hasDefaultLayout` to `false`.
 
 ```jsx harmony
 import XUILoader from '@xero/xui/react/loader';
 
-<XUILoader ariaLabel="Loading" defaultLayout={false} />;
+<XUILoader ariaLabel="Loading" hasDefaultLayout={false} />;
 ```
 
 ### Sizes
@@ -33,7 +33,7 @@ Apart from the `medium` size, Loaders can also be `small` or `xsmall`.
 ```jsx harmony
 import XUILoader from '@xero/xui/react/loader';
 
-<XUILoader ariaLabel="Loading" size="medium" defaultLayout={false} />;
+<XUILoader ariaLabel="Loading" size="medium" hasDefaultLayout={false} />;
 ```
 
 ### Inverted

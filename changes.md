@@ -124,7 +124,72 @@ TypeScript types have also been made slightly more strict for instances of rootN
 
 ### Component props
 
-- `XUIPicklist`: `onMouseDown` replaced with `onClick`.
+#### Replacements
+
+- `XUIPicklist`
+  - `onMouseDown` replaced with `onClick`.
+
+#### Renaming
+
+- `XUIAutocompleter`
+  - `dropdownFixedWidth` renamed to `dropdownHasFixedWidth`.
+  - `loading` renamed to `isLoading`.
+- `XUIAutocompleterSecondarySearch`
+  - `dropdownFixedWidth` renamed to `dropdownHasFixedWidth`.
+- `XUIBanner`
+  - `defaultLayout` renamed to `hasDefaultLayout`.
+- `XUIButton`
+  - `minLoaderWidth` renamed to `hasMinLoaderWidth`.
+- `XUIDropdown`
+  - `fixedWidth` renamed to `hasFixedWidth`.
+- `XUIDropdownLayout`
+  - `fixedWidth` renamed to `hasFixedWidth`.
+- `XUIEditableTableCellAutocompleter`
+  - `dropdownFixedWidth` renamed to `dropdownHasFixedWidth`.
+  - `loading` renamed to `isLoading`.
+- `XUIEditableTableCellSelectBox`
+  - `buttonClasses` renamed to `buttonClassName`.
+  - `containerClasses` renamed to `containerClassName`.
+  - `defaultLayout` renamed to `hasDefaultLayout`.
+  - `dropDownClasses` renamed to `dropdownClassName`.
+  - `inputGroupClasses` renamed to `inputGroupClassName`.
+- `XUIEditableTableCellTextInput`
+  - `focusByDefault` renamed to `focusOnMount`.
+- `XUIIconButton`
+  - `desc` renamed to `description`.
+  - `minLoaderWidth` renamed to `hasMinLoaderWidth`.
+- `XUIIcon`
+  - `desc` renamed to `description`.
+- `XUILoader`
+  - `defaultLayout` renamed to `hasDefaultLayout`.
+- `XUIModal`
+  - `defaultLayout` renamed to `hasDefaultLayout`.
+- `XUINestedDropdown`
+  - `fixedWidth` renamed to `hasFixedWidth`.
+- `XUIPicklist`
+  - `defaultLayout` renamed to `hasDefaultLayout`.
+- `XUIStatefulPicklist`
+  - `canFocus` renamed to `isFocusable`.
+- `XUIRange`
+  - `containerClasses` renamed to `containerClassName`.
+  - `inputClasses` renamed to `inputClassName`.
+- `XUISecondaryButton`
+  - `minLoaderWidth` renamed to `hasMinLoaderWidth`.
+- `XUISelectBox`
+  - `buttonClasses` renamed to `buttonClassName`.
+  - `containerClasses` renamed to `containerClassName`.
+  - `defaultLayout` renamed to `hasDefaultLayout`.
+  - `dropDownClasses` renamed to `dropdownClassName`.
+  - `inputGroupClasses` renamed to `inputGroupClassName`.
+- `XUISelectBoxOption`
+  - `optionClasses` renamed to `optionClassName`.
+  - `truncatedText` renamed to `truncateText`.
+- `XUITextInput`
+  - `focusByDefault` renamed to `focusOnMount`.
+- `XUIToast`
+  - `defaultLayout` renamed to `hasDefaultLayout`.
+- `XUITooltip`
+  - `limitWidth` renamed to `hasLimitedWidth`.
 
 _Note. The codemod will resolve most prop differences automatically when run._
 

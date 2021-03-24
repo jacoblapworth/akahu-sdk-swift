@@ -34,7 +34,7 @@ interface Props {
    */
   fieldClassName?: string;
   /** After rendering set focus at the end of the input */
-  focusByDefault?: boolean;
+  focusOnMount?: boolean;
   /**
    * Hint message to show under the input.
    */

@@ -286,7 +286,7 @@ test.add(storyNames.formLayout, () => {
               <InputLabel htmlFor={inputMap.people}>Add people</InputLabel>
               <XUIAutocompleter
                 className="xui-field-layout"
-                dropdownFixedWidth
+                dropdownHasFixedWidth
                 id={inputMap.people}
                 inputLabel="input label"
                 isInputLabelHidden

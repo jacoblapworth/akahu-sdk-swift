@@ -105,7 +105,7 @@ storiesWithKnobs.add('Playground', () => {
   const showLongStrings = boolean('showLongStrings', false);
   const showPinned = boolean('showPinned', false);
   const shouldTruncate = boolean('shouldTruncate', false);
-  const limitWidth = boolean('limit width?', false);
+  const hasLimitedWidth = boolean('limit width?', false);
 
   const longStrings = {
     primaryElement: "James Magness is a guy who works at Xero, y'all",
@@ -123,10 +123,10 @@ storiesWithKnobs.add('Playground', () => {
   const swapAtBreakpoint = select('swapAtBreakpoint', [null, ...Object.keys(userBreakpoints)]);
 
   return (
-    <XUIPanel style={{ width: limitWidth && '400px' }}>
+    <XUIPanel style={{ width: hasLimitedWidth && '400px' }}>
       <XUIPicklist
         closeOnSelect={boolean('closeOnSelect', true)}
-        defaultLayout={boolean('defaultLayout', true)}
+        hasDefaultLayout={boolean('hasDefaultLayout', true)}
         isHorizontal={boolean('isHorizontal', false)}
         isMultiselect={isMultiselect}
         shouldTruncate={shouldTruncate}

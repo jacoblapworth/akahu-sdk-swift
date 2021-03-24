@@ -14,7 +14,7 @@ interface Props {
   /**
    * Whether to add the default layout class.
    */
-  defaultLayout?: boolean;
+  hasDefaultLayout?: boolean;
   /**
    * Id to be applied to the root HTML element.
    */

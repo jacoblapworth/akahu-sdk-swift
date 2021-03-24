@@ -22,7 +22,7 @@ const XUIPill = ({
   deleteButtonLabel,
   href,
   isInvalid,
-  isLimitedWidth,
+  hasLimitedWidth,
   onClick,
   onDeleteClick,
   qaHook,
@@ -85,7 +85,7 @@ const XUIPill = ({
             const pillClasses = cn(
               className,
               baseClass,
-              isLimitedWidth && `${baseClass}-maxwidth`,
+              hasLimitedWidth && `${baseClass}-maxwidth`,
               size && sizeClasses[size],
               isInvalid && `${baseClass}-is-invalid`,
               isFocused && `${baseClass}-is-focused`,
@@ -194,13 +194,13 @@ XUIPill.propTypes = {
 
     return null;
   },
+  /** Whether the pill should have a max-width of 200px */
+  hasLimitedWidth: PropTypes.bool,
   /** This will make the value an `anchor` element instead of a `span` element and adds the
    * href as the link. */
   href: PropTypes.string,
   /** When invalid, displays the text in a red colour. */
   isInvalid: PropTypes.bool,
-  /** Whether the pill should have a max-width of 200px */
-  isLimitedWidth: PropTypes.bool,
   /** Callback to fire when the main pill content is clicked. */
   onClick: PropTypes.func,
   /** Callback to fire when the delete pill button is clicked. When omitted, the delete button is also omitted from the view. If this is provided, you must also provide a `deleteButtonLabel` for accessibility. */

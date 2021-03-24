@@ -205,17 +205,17 @@ const EditableNewRowOnKeyDownDemo = () => {
           {demoData.map(row => (
             <XUIEditableTableRow key={row.id}>
               <XUIEditableTableCellTextInput
-                focusByDefault={row.id === focusId && 'fruit' === focusCell}
+                focusOnMount={row.id === focusId && 'fruit' === focusCell}
                 value={row.fruit}
                 onChange={event => inputOnChangeHandler(event, row.id, 'fruit')}
               />
               <XUIEditableTableCellTextInput
-                focusByDefault={row.id === focusId && 'color' === focusCell}
+                focusOnMount={row.id === focusId && 'color' === focusCell}
                 value={row.color}
                 onChange={event => inputOnChangeHandler(event, row.id, 'color')}
               />
               <XUIEditableTableCellTextInput
-                focusByDefault={row.id === focusId && 'price' === focusCell}
+                focusOnMount={row.id === focusId && 'price' === focusCell}
                 value={String(row.price)}
                 onChange={event => inputOnChangeHandler(event, row.id, 'price')}
               />

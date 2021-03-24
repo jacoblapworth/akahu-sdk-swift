@@ -34,7 +34,7 @@ export default class CustomForm extends PureComponent {
 
           <XUISelect
             buttonContent="Choose a project"
-            containerClasses="xui-field-layout"
+            containerClassName="xui-field-layout"
             label="Project"
           />
 

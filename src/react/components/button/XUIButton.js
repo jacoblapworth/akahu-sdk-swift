@@ -99,7 +99,7 @@ export default class XUIButton extends React.PureComponent {
             isLoading,
             leftIcon,
             loadingAriaLabel,
-            minLoaderWidth,
+            hasMinLoaderWidth,
             onClick,
             onKeyDown,
             qaHook,
@@ -156,7 +156,7 @@ export default class XUIButton extends React.PureComponent {
             <XUILoader
               ariaLabel={loadingAriaLabel}
               className={`${ns}-button--loader`}
-              defaultLayout={false}
+              hasDefaultLayout={false}
               key={retainLayout && isLoading ? 'button-loader' : null}
               retainLayout={retainLayout}
               size="small"
@@ -184,7 +184,7 @@ export default class XUIButton extends React.PureComponent {
                 ? `${ns}-button-borderless-inverted`
                 : `${ns}-button-inverted`),
             isGrouped && `${ns}-button-grouped`,
-            minLoaderWidth && `${ns}-button-min-loader-width`,
+            hasMinLoaderWidth && `${ns}-button-min-loader-width`,
             (leftIcon || rightIcon || hasCaret) && `${ns}-button-has-icon`,
           );
 
@@ -262,6 +262,9 @@ XUIButton.propTypes = {
   /** Has dropdown caret */
   hasCaret: PropTypes.bool,
 
+  /** Use this to specify a min width on the button, when you want to swap to loading states */
+  hasMinLoaderWidth: PropTypes.bool,
+
   /** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
   href: PropTypes.string,
 
@@ -297,9 +300,6 @@ XUIButton.propTypes = {
    * `isLoading` prop is set to `true`.
    */
   loadingAriaLabel: PropTypes.string,
-
-  /** Use this to specify a min width on the button, when you want to swap to loading states */
-  minLoaderWidth: PropTypes.bool,
 
   /** Bind a function to fire when the button is clicked */
   onClick: PropTypes.func,

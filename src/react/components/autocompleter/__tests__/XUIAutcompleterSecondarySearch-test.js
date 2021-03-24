@@ -59,16 +59,16 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
     expect(classComp).toMatchSnapshot();
   });
 
-  it('displays a XUILoader when loading is true', () => {
-    wrapper = mount(createComponent({ loading: true }));
+  it('displays a XUILoader when isLoading is true', () => {
+    wrapper = mount(createComponent({ isLoading: true }));
 
     expect(wrapper.find(XUILoader)).toBeDefined();
-    expect(wrapper.prop('loading')).toBeTruthy();
+    expect(wrapper.prop('isLoading')).toBeTruthy();
   });
 
-  it('renders with loading as false by default', () => {
+  it('renders with isLoading as false by default', () => {
     wrapper = mount(createComponent());
-    expect(wrapper.prop('loading')).toBeFalsy();
+    expect(wrapper.prop('isLoading')).toBeFalsy();
   });
 
   it('should render a placeholder inside the input when passed in', () => {

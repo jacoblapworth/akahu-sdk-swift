@@ -10,7 +10,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'without default layout',
-    defaultLayout: false,
+    hasDefaultLayout: false,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -25,7 +25,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with sizes',
-    defaultLayout: false,
+    hasDefaultLayout: false,
     sizes: Object.keys(constants.sizeClassNames),
   },
 ];

@@ -213,12 +213,12 @@ describe('XUIModal', () => {
     }, 0);
   });
 
-  it('Should only add default layout classes if defaultLayout is explicitly set to true or by default', function () {
+  it('Should only add default layout classes if hasDefaultLayout is explicitly set to true or by default', function () {
     const component = mount(
       <div>
         <XUIModal
           closeButtonLabel="Close"
-          defaultLayout={false}
+          hasDefaultLayout={false}
           id="test-modal-nolayout"
           isOpen
           isUsingPortal={false}
@@ -239,18 +239,18 @@ describe('XUIModal', () => {
     expect(secondModal.hasClass('xui-modal-layout')).toBeTruthy();
   });
 
-  it('Should not add margin or padding classes to subcomponents if defaultLayout is set to false', function () {
+  it('Should not add margin or padding classes to subcomponents if hasDefaultLayout is set to false', function () {
     const component = mount(
       <XUIModal
         closeButtonLabel="Close"
-        defaultLayout={false}
+        hasDefaultLayout={false}
         id="test-modal-layoutSecond"
         isOpen
         isUsingPortal={false}
       >
-        <XUIModalHeader defaultLayout={false} />
-        <XUIModalBody defaultLayout={false} />
-        <XUIModalFooter defaultLayout={false} />
+        <XUIModalHeader hasDefaultLayout={false} />
+        <XUIModalBody hasDefaultLayout={false} />
+        <XUIModalFooter hasDefaultLayout={false} />
       </XUIModal>,
     );
     const modal = component.find('#test-modal-layoutSecond .xui-modal');

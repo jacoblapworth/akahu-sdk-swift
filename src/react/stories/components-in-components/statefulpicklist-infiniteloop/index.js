@@ -23,7 +23,7 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
 
   class BasicStatefulPicklist extends React.Component {
     state = {
-      loading: false,
+      isLoading: false,
       value: '',
     };
 
@@ -31,7 +31,7 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
 
     onSearch = value => {
       this.setState(() => ({
-        loading: true,
+        isLoading: true,
         value,
       }));
     };
@@ -58,7 +58,7 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
             footer={this.renderFooter(false)}
             inputLabel="label here"
             isInputLabelHidden
-            loading={this.state.loading}
+            isLoading={this.state.isLoading}
             loadingAriaLabel="Loading"
             onSearch={this.onSearch}
             openOnFocus

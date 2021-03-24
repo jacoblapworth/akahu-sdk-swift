@@ -16,7 +16,7 @@ exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
     className="xui-editabletablecellautocompleter--control"
     closeOnTab={true}
     disableWrapPills={false}
-    dropdownFixedWidth={false}
+    dropdownHasFixedWidth={false}
     forceDesktop={true}
     inputProps={
       Object {
@@ -26,7 +26,7 @@ exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
     }
     isInputLabelHidden={true}
     isLegacyDisplay={true}
-    loading={false}
+    isLoading={false}
     matchTriggerWidth={true}
     onSearch={[Function]}
     openOnFocus={false}

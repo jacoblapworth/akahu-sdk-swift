@@ -17,7 +17,7 @@ export default class XUIIconButton extends PureComponent {
     const {
       ariaLabel,
       className,
-      desc,
+      description,
       icon,
       iconColor,
       iconSize,
@@ -45,7 +45,7 @@ export default class XUIIconButton extends PureComponent {
       >
         <XUIIcon
           color={iconColor}
-          desc={desc}
+          description={description}
           icon={icon}
           role={role}
           rotation={rotation}
@@ -64,7 +64,7 @@ XUIIconButton.propTypes = {
   className: PropTypes.string,
 
   /** Description of the icon to be read by screen readers */
-  desc: PropTypes.string,
+  description: PropTypes.string,
 
   /** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
   href: PropTypes.string,

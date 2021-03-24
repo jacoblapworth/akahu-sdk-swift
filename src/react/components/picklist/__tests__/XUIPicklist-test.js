@@ -16,7 +16,7 @@ nanoid.mockImplementation(() => 'testPickitemCheckboxId');
 const setup = (props = {}, itemProps = {}) => {
   const expected = renderer.create(
     <XUIPicklist {...props}>
-      <XUIPickitem primaryElement="Item content" id="pi1" {...itemProps} />
+      <XUIPickitem id="pi1" primaryElement="Item content" {...itemProps} />
     </XUIPicklist>,
   );
 
@@ -44,7 +44,7 @@ describe('< Picklist />', () => {
       className: 'custom-picklist-class',
       id: 'picklistId',
       isHorizontal: true,
-      defaultLayout: false,
+      hasDefaultLayout: false,
       shouldTruncate: true,
       secondaryProps: { role: 'presentation' },
       qaHook: 'picklist-example',
@@ -68,8 +68,8 @@ describe('< Picklist />', () => {
   it('example taking settings from first child and giving to all', () => {
     const fromItems = renderer.create(
       <XUIPicklist>
-        <XUIPickitem primaryElement="Item content" id="pi1" isMultiselect={true} />
-        <XUIPickitem primaryElement="Item two" id="pi2" />
+        <XUIPickitem id="pi1" isMultiselect primaryElement="Item content" />
+        <XUIPickitem id="pi2" primaryElement="Item two" />
       </XUIPicklist>,
     );
     expect(fromItems).toMatchSnapshot();

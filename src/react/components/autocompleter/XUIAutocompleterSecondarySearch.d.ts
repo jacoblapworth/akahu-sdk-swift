@@ -26,7 +26,7 @@ interface Props {
    * If a size is set, this will force the dropdown to that size instead of setting it as a max
    * width.
    */
-  dropdownFixedWidth?: boolean;
+  dropdownHasFixedWidth?: boolean;
   /**
    * Maps to the 'size' property of the dropdown component.
    */
@@ -88,7 +88,7 @@ interface Props {
   //  *
   //  * Defaults to `false`.
   //  */
-  // loading?: boolean;
+  // isLoading?: boolean;
 
   /**
    * Setting to `true` will allow the dropdown's width to be set dependent of the trigger width.

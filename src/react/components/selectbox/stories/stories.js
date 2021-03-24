@@ -46,7 +46,7 @@ storiesWithKnobs.add('Playground', () => {
   const fullWidth = select('fullWidth', ['always', 'small-down', 'never']);
   return (
     <XUISelectBox
-      buttonClasses={text('buttonClasses', '')}
+      buttonClassName={text('buttonClassName', '')}
       buttonContent={
         <span className="xui-u-flex">
           <XUIIcon className="xui-margin-right-xsmall" icon={education} />
@@ -59,13 +59,13 @@ storiesWithKnobs.add('Playground', () => {
           : select('buttonVariant', ['none', ...Object.keys(textButtonVariants)], 'none')
       }
       caretTitle={text('caretTitle', 'Toggle list')}
-      containerClasses={text('containerClasses', '')}
-      defaultLayout={boolean('defaultLayout', true)}
-      dropDownClasses={text('dropDownClasses', '')}
+      containerClassName={text('containerClassName', '')}
+      dropdownClassName={text('dropdownClassName', '')}
       forceDesktop={boolean('forceDesktop', true)}
       fullWidth={fullWidth}
+      hasDefaultLayout={boolean('hasDefaultLayout', true)}
       hintMessage={text('hintMessage', '')}
-      inputGroupClasses={text('inputGroupClasses', '')}
+      inputGroupClassName={text('inputGroupClassName', '')}
       isDisabled={boolean('isDisabled', false)}
       isInvalid={boolean('isInvalid', false)}
       isLabelHidden={boolean('isLabelHidden', false)}
@@ -91,7 +91,7 @@ variations.forEach(variation => {
     };
     const items = variationMinusStoryDetails.items || toggledItems;
     if (variationMinusStoryDetails.isTextTruncated) {
-      items.forEach(i => (i.props.truncatedText = true));
+      items.forEach(i => (i.props.truncateText = true));
     }
     delete variationMinusStoryDetails.items;
     delete variationMinusStoryDetails.storyKind;
@@ -103,7 +103,7 @@ variations.forEach(variation => {
         <XUISelectBox
           {...variationMinusStoryDetails}
           caretTitle="Toggle list"
-          containerClasses={`xui-margin-horizontal-auto ${variation.containerClasses}`}
+          containerClassName={`xui-margin-horizontal-auto ${variation.containerClassName}`}
           label={variation.storyTitle}
         >
           {createItems({ items })}

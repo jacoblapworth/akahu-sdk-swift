@@ -204,7 +204,7 @@ describe('<XUIPill />', () => {
   });
 
   it('should render a pill with the maxwidth limiting class', () => {
-    const pill = renderer.create(<XUIPill isLimitedWidth />);
+    const pill = renderer.create(<XUIPill hasLimitedWidth />);
 
     expect(pill).toMatchSnapshot();
   });

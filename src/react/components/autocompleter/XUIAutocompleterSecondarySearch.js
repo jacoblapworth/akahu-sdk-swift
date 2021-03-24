@@ -154,7 +154,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
       inputId,
       onOptionSelect,
       id,
-      dropdownFixedWidth,
+      dropdownHasFixedWidth,
       footer,
       restrictFocus,
       children,
@@ -211,13 +211,13 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
       <XUIDropdown
         ariaRole="combobox"
         className={dropdownClasses}
-        fixedWidth={dropdownFixedWidth}
         footer={footer}
         forceStatefulPicklist
+        hasFixedWidth={dropdownHasFixedWidth}
         hasKeyboardEvents={false}
         header={searchItem}
-        id={id}
         // Space doesn't select in an autocompleter; left and right arrow keys should move cursor in the input
+        id={id}
         ignoreKeyboardEvents={[32, 37, 39]}
         onKeyDown={onKeyDown}
         onSelect={onOptionSelect}
@@ -270,7 +270,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
 
   /** If a size is set, this will force the dropdown to that size instead of setting it
    * as a max width. */
-  dropdownFixedWidth: PropTypes.bool,
+  dropdownHasFixedWidth: PropTypes.bool,
 
   /** Maps to the 'size' property of the dropdown component. */
   dropdownSize: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
@@ -317,7 +317,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
   //  * When set to true a loader will be displayed instead of the picklist items.
   //  * State for this should be managed externally and it's defaulted to false.
   //  */
-  // loading: PropTypes.bool,
+  // isLoading: PropTypes.bool,
 
   /**
    * Setting to true will allow the dropdown's width to be set dependent of the trigger width. <br>
@@ -365,7 +365,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
 };
 
 XUIAutocompleterSecondarySearch.defaultProps = {
-  // loading: false,
+  // isLoading: false,
   isLegacyDisplay: true,
   restrictFocus: true,
   searchThrottleInterval: 0,

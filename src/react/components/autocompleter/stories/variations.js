@@ -25,7 +25,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'shows loading when passed loading prop and dropdown is open',
+    storyTitle: 'shows loading when passed isLoading prop and dropdown is open',
     openDrawer: true,
     isLoading: true,
   },

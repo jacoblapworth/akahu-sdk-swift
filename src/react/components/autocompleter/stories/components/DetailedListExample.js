@@ -201,14 +201,14 @@ class DetailedListExample extends Component {
       />
     );
 
-    const dropdownFixedWidth = dropdownSize == null;
+    const dropdownHasFixedWidth = dropdownSize == null;
 
     return (
       <XUIAutocompleter
         closeOnTab={noDrawerFooter}
         disableWrapPills={disableWrapPills}
         dropdownClassName="xui-loader-static"
-        dropdownFixedWidth={dropdownFixedWidth}
+        dropdownHasFixedWidth={dropdownHasFixedWidth}
         dropdownSize={dropdownSize}
         footer={noDrawerFooter ? null : footer}
         hintMessage={hintMessage}
@@ -218,7 +218,7 @@ class DetailedListExample extends Component {
         isDisabled={isDisabled}
         isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}
         isInvalid={isInvalid}
-        loading={isLoading}
+        isLoading={isLoading}
         loadingAriaLabel="Loading"
         onBackspacePill={this.deleteLastPerson}
         onClose={() => this.onClose()}

@@ -12,7 +12,18 @@ import {
 } from './private/constants';
 
 const XUIIcon = React.forwardRef((props, ref) => {
-  const { className, qaHook, size, title, desc, role, rotation, color, icon, isBoxed } = props;
+  const {
+    className,
+    qaHook,
+    size,
+    title,
+    description,
+    role,
+    rotation,
+    color,
+    icon,
+    isBoxed,
+  } = props;
 
   const svgClasses = cn(
     baseClass,
@@ -22,7 +33,7 @@ const XUIIcon = React.forwardRef((props, ref) => {
   );
 
   const optionalTitle = title ? <title>{title}</title> : null;
-  const optionalDescription = desc ? <desc>{desc}</desc> : null;
+  const optionalDescription = description ? <desc>{description}</desc> : null;
   const sizeMultiplier = iconSizeMultipliers[size] || 1;
 
   const svgElement = (
@@ -58,7 +69,7 @@ XUIIcon.propTypes = {
   /** Adds a color modifier to the icon */
   color: PropTypes.oneOf(Object.keys(colorClasses)),
   /** Description to be read by screen readers */
-  desc: PropTypes.string,
+  description: PropTypes.string,
   /** An object describing the path, width and height. */
   icon: PropTypes.shape({
     height: PropTypes.number.isRequired,

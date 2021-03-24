@@ -25,6 +25,10 @@ interface BaseProps {
    */
   hasCaret?: boolean;
   /**
+   * Use this to specify a min width on the button, when you want to swap to loading states.
+   */
+  hasMinLoaderWidth?: boolean;
+  /**
    * The `href` attribute to use on the anchor element.
    *
    * Ignored unless `isLink` is `true`.
@@ -67,10 +71,6 @@ interface BaseProps {
    * `true`.
    */
   loadingAriaLabel?: string;
-  /**
-   * Use this to specify a min width on the button, when you want to swap to loading states.
-   */
-  minLoaderWidth?: boolean;
   /**
    * Bind a function to fire when the button is clicked.
    */

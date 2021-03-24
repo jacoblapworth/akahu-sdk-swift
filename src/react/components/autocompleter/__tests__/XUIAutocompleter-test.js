@@ -112,18 +112,18 @@ describe('XUIAutocompleter', () => {
     ]);
   });
 
-  it('renders with loading as false by default', () => {
+  it('renders with isLoading as false by default', () => {
     const wrapper = mount(createComponent({ onSearch: jest.fn() }));
-    expect(wrapper.prop('loading')).toBeFalsy();
+    expect(wrapper.prop('isLoading')).toBeFalsy();
   });
 
-  it('displays a XUILoader when loading is true', () => {
+  it('displays a XUILoader when isLoading is true', () => {
     const wrapper = mount(
-      createComponent({ onSearch: jest.fn(), loading: true, loadingAriaLabel: '' }),
+      createComponent({ onSearch: jest.fn(), isLoading: true, loadingAriaLabel: '' }),
     );
 
     expect(wrapper.find(XUILoader)).toBeDefined();
-    expect(wrapper.prop('loading')).toBeTruthy();
+    expect(wrapper.prop('isLoading')).toBeTruthy();
   });
 
   it('renders pills as children passed in through the pills prop', () => {

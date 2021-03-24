@@ -57,7 +57,7 @@ export default class XUIPicklist extends Component {
       onKeyDown,
       onClick,
       secondaryProps,
-      defaultLayout,
+      hasDefaultLayout,
       isHorizontal,
       qaHook,
       shouldTruncate,
@@ -85,7 +85,7 @@ export default class XUIPicklist extends Component {
 
     const listClasses = cn(
       `${picklistClassName}`,
-      defaultLayout && !isHorizontal && `${picklistClassName}-layout`,
+      hasDefaultLayout && !isHorizontal && `${picklistClassName}-layout`,
       `${picklistClassName}-${listLevelProps.listSize}`,
     );
 
@@ -133,7 +133,7 @@ XUIPicklist.propTypes = {
    */
   closeOnSelect: PropTypes.bool,
   /** Whether to add the default layout class */
-  defaultLayout: PropTypes.bool,
+  hasDefaultLayout: PropTypes.bool,
   /** Id to be applied to the root HTML element */
   id: PropTypes.string,
   /** Whether to render as horizontal pickitems */
@@ -164,7 +164,7 @@ XUIPicklist.propTypes = {
 };
 
 XUIPicklist.defaultProps = {
-  defaultLayout: true,
+  hasDefaultLayout: true,
   secondaryProps: {
     role: 'tree',
   },

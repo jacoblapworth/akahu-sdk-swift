@@ -44,7 +44,7 @@ class StatefulMultiselectPicklist extends React.Component {
     const smp = this;
 
     return (
-      <XUIStatefulPicklist onSelect={this.onOptionSelect} canFocus>
+      <XUIStatefulPicklist onSelect={this.onOptionSelect} isFocusable>
         <XUIPicklist>
           <XUINestedPicklistContainer id="nested">
             <XUINestedPicklistTrigger
@@ -153,7 +153,7 @@ class StatefulMultiselectPicklist extends React.Component {
         <XUIButton onClick={() => this.setState({ picklistOpen: !this.state.picklistOpen })}>
           Toggle picklist
         </XUIButton>
-        <XUIStatefulPicklist onSelect={this.onOptionSelect} canFocus>
+        <XUIStatefulPicklist onSelect={this.onOptionSelect} isFocusable>
           <XUIPicklist>
             <XUINestedPicklistContainer
               id="nested2"

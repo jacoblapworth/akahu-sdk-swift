@@ -171,7 +171,7 @@ describe('<XUIButton/>', () => {
 
   it('adds minwidth when we need it to, for short buttons', () => {
     const shortButton = renderer.create(
-      <XUIButton minLoaderWidth variant="primary">
+      <XUIButton hasMinLoaderWidth variant="primary">
         75px
       </XUIButton>,
     );

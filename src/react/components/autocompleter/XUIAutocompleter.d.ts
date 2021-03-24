@@ -29,7 +29,7 @@ interface Props {
    * If a size is set, this will force the dropdown to that size instead of setting it as a max
    * width.
    */
-  dropdownFixedWidth?: boolean;
+  dropdownHasFixedWidth?: boolean;
   /**
    * ID to be added to the dropdown element of the completer.
    */
@@ -100,19 +100,19 @@ interface Props {
    */
   isLegacyDisplay?: boolean;
   /**
-   * Left element to render within the `XUITextInput` component. Should not be used together with
-   * the `pills` prop.
-   */
-  leftElement?: React.ReactNode;
-  /**
    * When set to true a loader will be displayed instead of the picklist items. State for this
    * should be managed externally.
    *
    * Defaults to `false`.
    */
-  loading?: boolean;
+  isLoading?: boolean;
   /**
-   * Accessibility label for the `XUILoader`. This is required if the `loading` prop is set to
+   * Left element to render within the `XUITextInput` component. Should not be used together with
+   * the `pills` prop.
+   */
+  leftElement?: React.ReactNode;
+  /**
+   * Accessibility label for the `XUILoader`. This is required if the `isLoading` prop is set to
    * `true`.
    *
    * Recommended English value: *Loading*

@@ -37,7 +37,13 @@ const XUITag = ({ children, className, debugShowToolTip, id, qaHook, size, varia
 
   if (tooltipIsAttached || debugShowToolTip) {
     componentNode = (
-      <XUITooltip id={id} isHidden={!debugShowToolTip} limitWidth ref={_tooltip} trigger={tagNode}>
+      <XUITooltip
+        hasLimitedWidth
+        id={id}
+        isHidden={!debugShowToolTip}
+        ref={_tooltip}
+        trigger={tagNode}
+      >
         {children}
       </XUITooltip>
     );

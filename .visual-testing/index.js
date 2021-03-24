@@ -329,8 +329,6 @@ backstop('test', {
     scenarios,
     viewports: [standardDesktopViewport],
   },
-}).catch(error => {
-  if (error.message !== 'Mismatch errors found.') {
-    throw error;
-  }
+}).catch(() => {
+  process.exit(1);
 });

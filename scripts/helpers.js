@@ -12,9 +12,9 @@ const convertExecTaskToWindows = execTask => execTask.replace(/\//g, '\\');
 
 const taskSpinners = new TaskSpinners();
 if (!process.env.CI) {
-  console.log = message => taskSpinners.addLog(message);
-  console.warn = message => taskSpinners.addWarning(message);
-  console.error = message => taskSpinners.addError(message);
+  console.log = (...messages) => taskSpinners.addLog(...messages);
+  console.warn = (...messages) => taskSpinners.addWarning(...messages);
+  console.error = (...messages) => taskSpinners.addError(...messages);
 }
 
 function logScriptRunOutput(time, taskName) {

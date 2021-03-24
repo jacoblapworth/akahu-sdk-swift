@@ -20,7 +20,8 @@ class TaskSpinners {
     this.render();
   }
 
-  addLog(message) {
+  addLog(...messages) {
+    const message = messages.join(' ');
     message &&
       this.logs.push({
         created: Number(new Date()),
@@ -33,7 +34,9 @@ class TaskSpinners {
     }
   }
 
-  addWarning(message) {
+  addWarning(...messages) {
+    const message = messages.join(' ');
+
     message &&
       this.warnings.push({
         created: Number(new Date()),
@@ -46,7 +49,9 @@ class TaskSpinners {
     }
   }
 
-  addError(message) {
+  addError(...messages) {
+    const message = messages.join(' ');
+
     message &&
       this.errors.push({
         created: Number(new Date()),

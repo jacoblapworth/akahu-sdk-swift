@@ -2,19 +2,22 @@
 const chalk = require('chalk');
 const { execSync } = require('child_process');
 const fs = require('fs');
-const md5File = require('md5-file');
 const open = require('open');
 const path = require('path');
 const { argv } = require('yargs');
 
-const Docker = require('./helpers/Docker');
-
-const { rootDirectory } = require('../helpers');
+const {
+  logScriptRunOutput,
+  logTaskTitle,
+  Performance,
+  rootDirectory,
+  twoDecimals,
+} = require('../helpers');
 const babelVisualRegression = require('../build/babel_visualregression');
-const { Performance, logTaskTitle, logScriptRunOutput, twoDecimals } = require('../helpers');
-const perf = new Performance();
+const Docker = require('./helpers/Docker');
+const md5FileHash = require('./helpers/md5FileHash');
 
-async function test() {
+async function runVisualRegresionTestsInDocker() {
   logTaskTitle(__filename);
 
   await babelVisualRegression();
@@ -28,6 +31,7 @@ async function test() {
     console.log(`stderr: ${stderr}`);
   });
 
+  const perf = new Performance();
   perf.start();
 
   const docker = new Docker();
@@ -45,22 +49,9 @@ async function test() {
   await docker.startContainer();
 
   // Install project dependencies inside `/.docker`
-  const newDependencyHash = await new Promise(async resolve => {
-    try {
-      const packageHash = await md5File.sync('package.json');
-      return resolve(packageHash);
-    } catch (e) {
-      return resolve();
-    }
-  });
-  const currentDependencyHash = await new Promise(async resolve => {
-    try {
-      const packageHash = await md5File.sync('.docker/package.json');
-      return resolve(packageHash);
-    } catch (e) {
-      return resolve();
-    }
-  });
+  const newDependencyHash = await md5FileHash('package.json');
+  const currentDependencyHash = await md5FileHash('.docker/package.json');
+
   if (newDependencyHash !== currentDependencyHash) {
     console.log(chalk.blue('[Docker]'), 'Installing dependencies');
     await docker.exec(['cp', '../.npmrc', './']);
@@ -71,18 +62,33 @@ async function test() {
 
   // Copy required files from `./.visual-testing` to `/.docker/.visual-testing`
   console.log(chalk.blue('[Docker]'), 'Preparing visual regression tests');
-  await docker.exec(['mkdir', '-p', '.visual-testing']);
+
+  try {
+    await docker.exec(['mkdir', '-p', '.visual-testing']);
+    // eslint-disable-next-line no-empty
+  } catch {}
+
   const filesToCopy = fs
     .readdirSync(path.resolve(rootDirectory, '.visual-testing'))
     .filter(file => file.startsWith('.') === false)
     .filter(file => file !== 'tests');
-  for (const file of filesToCopy) {
-    await docker.exec(['cp', '-r', `../.visual-testing/${file}`, './.visual-testing/']);
-  }
+
+  await Promise.all(
+    filesToCopy.map(file =>
+      docker.exec(['cp', '-r', `../.visual-testing/${file}`, './.visual-testing/']),
+    ),
+  );
 
   // Run visual regression tests and copy results to /.visual-testing
   console.log(chalk.blue('[Docker]'), 'Running visual regression tests');
-  await docker.exec(['node', './.visual-testing/index.js', ...argv._, '--docker']);
+
+  try {
+    await docker.exec(['node', './.visual-testing/index.js', ...argv._, '--docker']);
+  } catch (error) {
+    console.error(error);
+    process.exitCode = 1;
+  }
+
   await docker.exec(['cp', '-r', './.visual-testing/ci-report', '../.visual-testing/']);
   await docker.exec(['cp', '-r', './.visual-testing/tests', '../.visual-testing/']);
   await docker.exec(['cp', '-r', './.visual-testing/web-report', '../.visual-testing/']);
@@ -97,5 +103,5 @@ async function test() {
   return logScriptRunOutput(twoDecimals(perf.delta), 'Visual regression tests');
 }
 
-module.exports = test;
+module.exports = runVisualRegresionTestsInDocker;
 require('make-runnable/custom')({ printOutputFrame: false });

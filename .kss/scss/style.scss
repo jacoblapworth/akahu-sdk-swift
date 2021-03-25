@@ -1131,13 +1131,14 @@ $kss-color-padding: #eeebff;
   position: relative;
   text-decoration: none;
   top: -0.2em;
-  &:not(:first-child) {
+  &:nth-child(n + 2) {
     margin-left: 0.8em;
   }
   .ds-title--level-1 & {
     line-height: $xui-line-height-compact;
   }
-  &:hover {
+  &:hover,
+  &:focus {
     color: $xui-color-white;
     text-decoration: underline;
   }

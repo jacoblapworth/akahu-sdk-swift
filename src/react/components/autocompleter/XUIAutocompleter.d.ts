@@ -227,5 +227,20 @@ export default class XUIAutocompleter extends React.PureComponent<Props> {
   /**
    * Root node to enable users to access as a ref.
    */
-  rootNode: HTMLElement | null;
+  rootNode: React.Ref<HTMLElement>;
+
+  /**
+   * Ref to the dropdown trigger of the autocompleter.
+   */
+  tg: React.Ref<HTMLElement>;
+
+  /**
+   * Ref to the placeholder element.
+   */
+  placeholder: React.Ref<HTMLElement>;
+
+  /**
+   * Ref to the XUIDropdownToggled component used in the autocompleter.
+   */
+  ddt: React.Ref<HTMLElement>;
 }

@@ -45,8 +45,8 @@ class Docker {
 
     console.log(chalk.blue('[Docker]'), 'Creating container');
 
-    return await this.dockerode.createContainer({
-      Binds: [rootDirectory + ':/usr/src/app'],
+    return this.dockerode.createContainer({
+      Binds: [`${rootDirectory}:/usr/src/app`],
       Image: this.name,
       name: this.name,
       Volumes: {
@@ -79,35 +79,43 @@ class Docker {
           reject();
         });
       });
+
+      const { ExitCode } = await exec.inspect();
+
+      if (ExitCode !== 0) {
+        throw new Error(`${command.join(' ')} exited with status code ${ExitCode}`);
+      }
     }
   }
 
   async getContainerId() {
     const containers = await this.dockerode.listContainers({ all: true });
-    const container = containers.find(container => container.Names.includes('/xui-backstop'));
-    return container ? container.Id : undefined;
+    const xuiBackstopContainer = containers.find(container =>
+      container.Names.includes('/xui-backstop'),
+    );
+    return xuiBackstopContainer ? xuiBackstopContainer.Id : undefined;
   }
 
   async getContainer() {
     const containerId = await this.getContainerId();
     if (containerId) {
-      return await this.dockerode.getContainer(containerId);
+      return this.dockerode.getContainer(containerId);
     }
-    return;
+    return null;
   }
 
   async getImageId() {
     const images = await this.dockerode.listImages({ all: true });
-    const image = images.find(image => image.RepoTags.includes('xui-backstop:latest'));
-    return image ? image.Id : undefined;
+    const xuiBackstopImage = images.find(image => image.RepoTags.includes('xui-backstop:latest'));
+    return xuiBackstopImage ? xuiBackstopImage.Id : undefined;
   }
 
   async getImage() {
     const imageId = await this.getImageId();
     if (imageId) {
-      return await this.dockerode.getImage(imageId);
+      return this.dockerode.getImage(imageId);
     }
-    return;
+    return null;
   }
 
   async ping() {

@@ -1,10 +1,12 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUILoader from '../XUILoader';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('XUILoader', function () {
   it('should render with an aria label describing its purpose', function () {
@@ -61,5 +63,11 @@ describe('XUILoader', function () {
       <XUILoader retainLayout={true} ariaLabel="Something is loading, please wait" />,
     );
     expect(wrapper.getDOMNode().classList.contains('xui-loader-retain-layout')).toBeTruthy();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUILoader ariaLabel="Something is loading, please wait" />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

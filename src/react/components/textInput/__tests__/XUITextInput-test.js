@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUITextInput from '../XUITextInput';
 import XUITextInputSideElement from '../XUITextInputSideElement';
@@ -17,8 +18,15 @@ jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUITextInput>', () => {
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUITextInput />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
+  });
+
   describe('General Functionality', () => {
     let wrapper;
     const className = 'containerClassName';

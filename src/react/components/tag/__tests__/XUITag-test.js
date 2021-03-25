@@ -3,9 +3,11 @@ import XUITag from '../XUITag';
 import { variants, sizes } from '../private/constants';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUITag/>', () => {
   it('renders with just the base class when no variant is passed in', () => {
@@ -52,5 +54,11 @@ describe('<XUITag/>', () => {
       </XUITag>,
     );
     expect(automationid).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUITag>Testing</XUITag>);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

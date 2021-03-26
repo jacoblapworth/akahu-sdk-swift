@@ -35,6 +35,7 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
           <div
             autoComplete="off"
             className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+            data-automationid="test-daterangeinput-firstinput-dateinputitem--input"
             onClick={[Function]}
           >
             <div
@@ -98,6 +99,7 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
           <div
             autoComplete="off"
             className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+            data-automationid="test-daterangeinput-secondinput-dateinputitem--input"
             onClick={[Function]}
           >
             <div

@@ -18,10 +18,10 @@
 // We recommend using the **XUI React** Table component to easily create layout compositions and more advanced table functionality.
 //
 // Classes:
-// xui-table: Apply to table
-// xui-table--caption: Apply to an optional caption element, which will be visually hidden but accessible for screen readers
-// xui-table--row: Apply to each row, including headers
-// xui-table--cell: Apply to each individual cell, including headers
+// xui-readonlytable-hasborder: Applies the border around the table
+// xui-readonlytable: Apply to table
+// xui-readonlytablerow: Apply to each row, including headers
+// xui-readonlytablecell: Apply to each individual cell, including headers
 //
 // Styleguide: Components.DisplayingData.Table.1
 
@@ -31,8 +31,10 @@
 // In the case of a sortable table, make sure to include an inline sort icon also.
 //
 // Classes:
-// xui-table--head: Apply to the table head section
-// xui-heading-separator: Sets correct text style for table headers
+// xui-readonlytablehead: Apply to the table head section
+// xui-readonlytablerow: Apply to the heading row
+// xui-readonlytablecell: Apply to each individual cell in the header
+// xui-readonlytableheadingcell: Apply to each individual cell in the header
 //
 // Styleguide: Components.DisplayingData.Table.2
 
@@ -61,9 +63,10 @@
 // Body content inherits a standard typographic preset with the option to provide visual overrides *(**Boldening** the first column for example)*.
 //
 // Classes:
-// xui-table--body: Apply to the table body section
-// xui-table--cell-divider: Apply a horizontal divider to separate content from the cell above
-// xui-table--cell-layout: Apply the recommended cell padding
+// xui-readonlytablebody: Apply to the table body section
+// xui-readonlytablerow: Apply to each row, including headers
+// xui-readonlytablecell: Apply to each individual cell, including headers
+// xui-readonlytablecell-layout: Apply to each individual cell, not including headers
 //
 // Styleguide: Components.DisplayingData.Table.3
 
@@ -82,6 +85,14 @@
 // Do: Include an overflow menu to surface any actions that can be performed on the individual row
 // Do: Always include bulk select controls if any action can be performed, as this is an advanced view mode
 // Warning: Only show resulting bulk actions on select
+//
+// Classes:
+// xui-readonlytablecell-action: Apply to cells containing an action, including headers
+// xui-readonlytable--checkbox-head: Apply to the checkbox wrapper in the header
+// xui-readonlytable--checkbox-body: Apply to the checkbox wrappers in the body
+// xui-readonlytableheadingcell--placeholder: Apply to the placeholder heading cell for the overflow menu (only for tables with an overflow menu)
+// xui-readonlytablecell--placeholder: Apply to the placeholder body cell for rows without an overflow menu (only for tables with an overflow menu)
+// xui-readonlytable--overflowmenu-body: Apply to the overflow button wrapper
 //
 // Markup: ./examples/table/_table-actions.html
 //
@@ -103,11 +114,11 @@
 // When the available space in a table cannot fit the information desired, it is appropriate to overflow the table on the X-axis.
 //
 // Classes:
-// xui-table-responsive: Applies overflow
-// xui-table-pinleft: Fixes action to left
-// xui-table-pinright: Fixes action to right
-// xui-table-overflowleft: Applies border to fixed action
-// xui-table-overflowright: Applies border to fixed action
+// xui-readonlytablewrapper--scrollcontainer: Applies overflow scrolling
+// xui-readonlytable-pinfirst: Apply to table to pin the first column to the left
+// xui-readonlytable-pinlast: Apply to table to pin the last column to the right
+// xui-readonlytableoverflow-pinoverflowleft: Apply to the scroll container to add a border to the pinned column on the left
+// xui-readonlytableoverflow-pinoverflowright: Apply to the scroll container to add a border to the pinned column on the right
 //
 // Tips:
 // Do: Overflow content when there is not enough room to display all tablular information
@@ -124,7 +135,7 @@
 // Target individual table rows or cells *(but not both)*.
 //
 // Classes:
-// xui-table--row-link: Applies visual feedback on row interaction
+// xui-readonlytablerow-link: Applies visual feedback on row interaction
 //
 // Styleguide: Components.DisplayingData.Table.5
 
@@ -144,7 +155,7 @@
 // Dont: Don't nest buttons or anchor tags inside each other
 //
 // Classes:
-// xui-table--cell-link: Applies visual feedback on cell interaction
+// xui-readonlytablecell-link: Applies visual feedback on cell interaction
 //
 // Markup: ./examples/table/_table-link-multiple.html
 //

@@ -1,5 +1,5 @@
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Enzyme, { mount, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import React from 'react';
@@ -35,7 +35,10 @@ describe('EditableTableHeadRow', () => {
     // Arrange
     const wrapper = mount(
       <XUIEditableTableContext.Provider
-        value={{ dragAndDrop: {}, rowOptions: { isDraggable: true, isRemovable: true } }}
+        value={{
+          dragAndDrop: {},
+          rowOptions: { isDraggable: true, isRemovable: true },
+        }}
       >
         <table>
           <thead>

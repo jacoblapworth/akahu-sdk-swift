@@ -1,158 +1,99 @@
-<div class="xui-table xui-panel xui-table-hasheader">
-  <div class="xui-table-wrapper">
-    <table class="xui-table-element">
-      <thead class="xui-table--head">
-        <tr class="xui-table--row xui-text-align-left">
-          <th
-            class="xui-table--cell xui-heading-separator xui-table--cell-first xui-table--sortbutton xui-table--sortbutton-active"
-            role="button"
-            tabindex="0"
-            scope="col"
+<table class="xui-readonlytable xui-readonlytable-hasborder">
+  <thead class="xui-readonlytablehead">
+    <tr class="xui-readonlytablerow">
+      <th class="xui-readonlytableheadingcell xui-readonlytablecell">
+        <div class="xui-readonlytable--sortbutton" role="button" tabindex="0">
+          <div
+            class="xui-readonlytable--sortbuttoncontent xui-readonlytable--sortbuttoncontent-active"
           >
-            <div>
-              <span>Fruit</span
-              ><svg
+            Fruit
+            <div class="xui-readonlytable--sorticonwrapper">
+              <svg
+                class="xui-icon xui-icon-rotate-180 xui-readonlytable--sorticon"
                 focusable="false"
-                class="xui-icon xui-table--sortbutton-icon"
-                width="8"
                 height="11"
                 viewBox="0 0 8 11"
-                role="presentation"
-              >
-                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"></path>
-              </svg>
-            </div>
-          </th>
-          <th
-            class="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--sortbutton"
-            role="button"
-            tabindex="0"
-            scope="col"
-          >
-            <div>
-              <span>Color</span
-              ><svg
-                focusable="false"
-                class="xui-icon xui-table--sortbutton-icon"
                 width="8"
-                height="11"
-                viewBox="0 0 8 11"
-                role="presentation"
               >
-                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"></path>
+                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path>
               </svg>
             </div>
-          </th>
-          <th
-            class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast xui-table--sortbutton"
-            role="button"
-            tabindex="0"
-            scope="col"
-          >
-            <div>
-              <span>Inventory</span
-              ><svg
-                focusable="false"
-                class="xui-icon xui-table--sortbutton-icon"
-                width="8"
-                height="11"
-                viewBox="0 0 8 11"
-                role="presentation"
-              >
-                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"></path>
-              </svg>
-            </div>
-          </th>
-          <th
-            class="xui-table--cell xui-heading-separator xui-table--cell-last xui-table--sortbutton"
-            role="button"
-            tabindex="0"
-            scope="col"
-          >
-            <div>
-              <span>Price</span
-              ><svg
-                focusable="false"
-                class="xui-icon xui-table--sortbutton-icon"
-                width="8"
-                height="11"
-                viewBox="0 0 8 11"
-                role="presentation"
-              >
-                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"></path>
-              </svg>
-            </div>
-          </th>
-        </tr>
-      </thead>
-      <tbody class="xui-table--body">
-        <tr class="xui-table--row">
-          <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-          >
-            <span class="xui-text-emphasis">Apple</span>
-          </td>
-          <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
-          >
-            Red
-          </td>
-          <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
-          >
-            348
-          </td>
-          <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
-          >
-            $2.99
-          </td>
-        </tr>
-        <tr class="xui-table--row">
-          <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-          >
-            <span class="xui-text-emphasis">Banana</span>
-          </td>
-          <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
-          >
-            Yellow
-          </td>
-          <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
-          >
-            46
-          </td>
-          <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
-          >
-            $3.49
-          </td>
-        </tr>
-        <tr class="xui-table--row">
-          <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-          >
-            <span class="xui-text-emphasis">Strawberries</span>
-          </td>
-          <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
-          >
-            Red
-          </td>
-          <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
-          >
-            179
-          </td>
-          <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-table--cell-singleline"
-          >
-            $1.49
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+          </div>
+        </div>
+      </th>
+      <th class="xui-readonlytableheadingcell xui-readonlytablecell">
+        <div class="xui-readonlytable--sortbutton" role="button" tabindex="0">
+          <div class="xui-readonlytable--sortbuttoncontent">
+            Color
+          </div>
+        </div>
+      </th>
+      <th class="xui-readonlytableheadingcell xui-readonlytablecell">
+        <div class="xui-readonlytable--sortbutton" role="button" tabindex="0">
+          <div class="xui-readonlytable--sortbuttoncontent">
+            Inventory
+          </div>
+        </div>
+      </th>
+      <th
+        class="xui-readonlytableheadingcell xui-readonlytablecell-rightaligned xui-readonlytablecell"
+      >
+        <div class="xui-readonlytable--sortbutton" role="button" tabindex="0">
+          <div class="xui-readonlytable--sortbuttoncontent">
+            Price
+          </div>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody class="xui-readonlytablebody">
+    <tr class="xui-readonlytablerow">
+      <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+        <span>Apple</span>
+      </td>
+      <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+        <span>Red</span>
+      </td>
+      <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+        <span>348</span>
+      </td>
+      <td
+        class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-rightaligned"
+      >
+        <span>$2.99</span>
+      </td>
+    </tr>
+    <tr class="xui-readonlytablerow">
+      <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+        <span>Banana</span>
+      </td>
+      <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+        <span>Yellow</span>
+      </td>
+      <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+        <span>46</span>
+      </td>
+      <td
+        class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-rightaligned"
+      >
+        <span>$3.49</span>
+      </td>
+    </tr>
+    <tr class="xui-readonlytablerow">
+      <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+        <span>Strawberries</span>
+      </td>
+      <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+        <span>Red</span>
+      </td>
+      <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+        <span>179</span>
+      </td>
+      <td
+        class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-rightaligned"
+      >
+        <span>$1.49</span>
+      </td>
+    </tr>
+  </tbody>
+</table>

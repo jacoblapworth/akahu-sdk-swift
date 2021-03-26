@@ -6,14 +6,14 @@ exports[`<XUIControlWrapperInline> renders a hidden label, invalid, and an error
     role="presentation"
   >
     <input
-      aria-describedby="testGeneratedId-message"
+      aria-describedby="xui-testGeneratedId-message"
       aria-invalid={true}
       type="checkbox"
     />
   </label>
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid"
-    id="testGeneratedId-message"
+    id="xui-testGeneratedId-message"
     role="status"
   >
     <svg
@@ -43,7 +43,7 @@ exports[`<XUIControlWrapperInline> renders a simple HTML label, when provided 1`
       type="checkbox"
     />
     <span
-      id="testGeneratedId"
+      id="xui-testGeneratedId"
     >
       <span>
         Impressive input label

@@ -1,5 +1,5 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import XUIButton from '../../button/XUIButton';
 import { defaultFileList } from '../private/helpers';
@@ -28,7 +28,7 @@ const variations = [
     storyTitle: 'with custom rightContent for uploaded file',
     fileList: [
       {
-        uid: uuidv4(),
+        uid: nanoid(10),
         status: 'done',
         originalFile: {
           name: 'hello.pdf',
@@ -86,7 +86,7 @@ const variations = [
     hasDragAndDrop: true,
     fileList: [
       {
-        uid: uuidv4(),
+        uid: nanoid(10),
         status: 'error',
         originalFile: {
           name: 'I am test333333333333333333333333tset ma I.zip',
@@ -97,6 +97,52 @@ const variations = [
     ],
     dropZoneMessage: 'Droooooooooooooooooooooop drooooop drooop your file',
     viewports: desktopPlus320,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with various uploadProgressPercentage',
+    fileList: [
+      {
+        uid: nanoid(10),
+        status: 'uploading',
+        originalFile: {
+          name: 'No Progress.zip',
+          type: 'application/zip',
+          size: 44444444,
+        },
+        uploadProgressPercentage: 0,
+      },
+      {
+        uid: nanoid(10),
+        status: 'uploading',
+        originalFile: {
+          name: 'Half Progress.zip',
+          type: 'application/zip',
+          size: 44444444,
+        },
+        uploadProgressPercentage: 50,
+      },
+      {
+        uid: nanoid(10),
+        status: 'uploading',
+        originalFile: {
+          name: 'Full Progress.zip',
+          type: 'application/zip',
+          size: 44444444,
+        },
+        uploadProgressPercentage: 100,
+      },
+      {
+        uid: nanoid(10),
+        status: 'done',
+        originalFile: {
+          name: 'Done.zip',
+          type: 'application/zip',
+          size: 44444444,
+        },
+        uploadProgressPercentage: 100,
+      },
+    ],
   },
 ];
 

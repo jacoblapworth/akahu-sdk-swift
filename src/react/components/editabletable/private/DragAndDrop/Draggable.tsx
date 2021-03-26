@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import {
@@ -7,7 +8,6 @@ import {
   DraggableStateSnapshot,
 } from 'react-beautiful-dnd';
 import { Portal } from 'react-portal';
-import { v4 as uuid } from 'uuid';
 
 import XUIEditableTableContext from '../../contexts/XUIEditableTableContext';
 import EditableTableColGroup from '../EditableTableColGroup';
@@ -56,7 +56,7 @@ const Draggable: React.FunctionComponent<Props> = ({
   useDraggable,
   ...spreadProps
 }) => {
-  const [generatedDraggableId] = React.useState(uuid());
+  const [generatedDraggableId] = React.useState(`${nanoid(10)}`);
 
   const { draggedRowHeight, draggedRowIndex } = React.useContext(DragDropDraggingContext);
   const { isDraggingOver } = React.useContext(DroppableContext);
@@ -93,9 +93,6 @@ const Draggable: React.FunctionComponent<Props> = ({
         const transform = addOffsetToTransform(providedTransform, snapshot.isDragging);
 
         if (!snapshot.isDragging) {
-          const supportsTransform =
-            window && 'CSS' in window && CSS.supports('transform', 'translate(0px, 0px)');
-
           return children(
             {
               ...provided,
@@ -105,16 +102,6 @@ const Draggable: React.FunctionComponent<Props> = ({
                   ...provided.draggableProps.style,
                   pointerEvents: draggedRowIndex === undefined ? undefined : 'none',
                   transform,
-                  /**
-                   * IE 11 does not transform table rows. The properties below can be removed once
-                   * we stop supporting IE 11.
-                   */
-                  display:
-                    !supportsTransform && transform && transform !== 'none' ? 'table' : undefined,
-                  width:
-                    !supportsTransform && transform && transform !== 'none'
-                      ? `${tableRef?.current?.querySelector('tr')?.offsetWidth - 2}px`
-                      : undefined,
                 },
               },
             },
@@ -146,7 +133,7 @@ const Draggable: React.FunctionComponent<Props> = ({
           : columnWidths;
 
         return (
-          <Portal node={tableWrapperRef.current}>
+          <Portal node={tableWrapperRef?.current}>
             <table
               {...provided.draggableProps}
               style={{

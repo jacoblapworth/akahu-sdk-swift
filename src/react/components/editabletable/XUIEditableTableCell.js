@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import { tableName } from './private/constants';
-
-const baseName = `${tableName}cell`;
+import XUIEditableTableClassContext from './contexts/XUIEditableTableClassContext';
 
 const XUIEditableTableCell = React.forwardRef(
   ({ children, className, qaHook, ...spreadProps }, ref) => {
+    const tableClassName = React.useContext(XUIEditableTableClassContext);
+    const baseName = `${tableClassName}cell`;
+
     return (
       <td className={cn(baseName, className)} data-automationid={qaHook} ref={ref} {...spreadProps}>
         {children}

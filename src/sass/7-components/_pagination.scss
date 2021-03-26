@@ -9,9 +9,6 @@
 .#{$ns}-pagination {
   @include xui-text-small;
   @include xui-flex-children(center, space-between);
-  // IE11 doesn’t respect `min-height` if an element doesn’t have an explicit height
-  // https://github.com/philipwalton/flexbugs/issues/231
-  height: 0;
   min-height: $xui-s-4xlarge;
   padding: $xui-s-xsmall $xui-s-standard;
 }

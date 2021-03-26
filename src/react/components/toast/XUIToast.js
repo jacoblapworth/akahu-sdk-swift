@@ -14,7 +14,7 @@ const XUIToast = ({
   actions,
   children,
   className,
-  defaultLayout,
+  hasDefaultLayout,
   isHidden,
   message,
   onCloseClick,
@@ -45,7 +45,7 @@ const XUIToast = ({
   const classNames = cn(
     baseClass,
     isHidden && `${baseClass}-is-hidden`,
-    defaultLayout && `${baseClass}-layout`,
+    hasDefaultLayout && `${baseClass}-layout`,
     sentimentClass,
     className,
   );
@@ -91,7 +91,7 @@ XUIToast.propTypes = {
   /** Adds optional class to wrapping component */
   className: PropTypes.string,
   /** Applies default layout class to the component */
-  defaultLayout: PropTypes.bool,
+  hasDefaultLayout: PropTypes.bool,
   /** Hides the component when set to true */
   isHidden: PropTypes.bool,
   /** Custom toast message */
@@ -122,6 +122,6 @@ XUIToast.propTypes = {
 };
 
 XUIToast.defaultProps = {
-  defaultLayout: true,
+  hasDefaultLayout: true,
   isHidden: false,
 };

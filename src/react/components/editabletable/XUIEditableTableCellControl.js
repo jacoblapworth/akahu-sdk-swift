@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import { tableName } from './private/constants';
+import { tableVariantClassNames } from './private/constants';
 import PortalFocus from './private/PortalFocus';
 import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
@@ -12,7 +12,7 @@ import { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
 import generateIds, { generateIdsFromControlId } from '../controlwrapper/helpers';
 import useResizeObserver from '../helpers/useResizeObserver';
 
-const baseName = `${tableName}cell`;
+const baseName = `${tableVariantClassNames.editable}cell`;
 
 const XUIEditableTableCellControl = ({
   children,

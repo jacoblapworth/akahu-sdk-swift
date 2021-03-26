@@ -8,9 +8,9 @@ exports[`<XUIInputGroup/> renders expected markup 1`] = `
     isGroup={true}
     wrapperIds={
       Object {
-        "control": "testInputGroupId-control",
-        "label": "testInputGroupId",
-        "message": "testInputGroupId-message",
+        "control": "xui-testInputGroupId-control",
+        "label": "xui-testInputGroupId",
+        "message": "xui-testInputGroupId-message",
       }
     }
   >
@@ -21,9 +21,9 @@ exports[`<XUIInputGroup/> renders expected markup 1`] = `
         isGroup={true}
         wrapperIds={
           Object {
-            "control": "testInputGroupId-control",
-            "label": "testInputGroupId",
-            "message": "testInputGroupId-message",
+            "control": "xui-testInputGroupId-control",
+            "label": "xui-testInputGroupId",
+            "message": "xui-testInputGroupId-message",
           }
         }
       />
@@ -41,9 +41,9 @@ exports[`<XUIInputGroup/> renders expected markup 1`] = `
       <MessageElement
         wrapperIds={
           Object {
-            "control": "testInputGroupId-control",
-            "label": "testInputGroupId",
-            "message": "testInputGroupId-message",
+            "control": "xui-testInputGroupId-control",
+            "label": "xui-testInputGroupId",
+            "message": "xui-testInputGroupId-message",
           }
         }
       />
@@ -67,9 +67,9 @@ exports[`<XUIInputGroup/> renders expected markup for vertical variant with non-
     label="Group label"
     wrapperIds={
       Object {
-        "control": "testInputGroupId-control",
-        "label": "testInputGroupId",
-        "message": "testInputGroupId-message",
+        "control": "xui-testInputGroupId-control",
+        "label": "xui-testInputGroupId",
+        "message": "xui-testInputGroupId-message",
       }
     }
   >
@@ -82,14 +82,14 @@ exports[`<XUIInputGroup/> renders expected markup for vertical variant with non-
         label="Group label"
         wrapperIds={
           Object {
-            "control": "testInputGroupId-control",
-            "label": "testInputGroupId",
-            "message": "testInputGroupId-message",
+            "control": "xui-testInputGroupId-control",
+            "label": "xui-testInputGroupId",
+            "message": "xui-testInputGroupId-message",
           }
         }
       />
       <div
-        aria-describedby="testInputGroupId-message"
+        aria-describedby="xui-testInputGroupId-message"
         aria-label="Group label"
         className="xui-inputgroup xui-inputgroup-vertical"
         role="radioGroup"
@@ -105,15 +105,15 @@ exports[`<XUIInputGroup/> renders expected markup for vertical variant with non-
         hintMessage="Group hint"
         wrapperIds={
           Object {
-            "control": "testInputGroupId-control",
-            "label": "testInputGroupId",
-            "message": "testInputGroupId-message",
+            "control": "xui-testInputGroupId-control",
+            "label": "xui-testInputGroupId",
+            "message": "xui-testInputGroupId-message",
           }
         }
       >
         <div
           className="xui-validation xui-validation-layout"
-          id="testInputGroupId-message"
+          id="xui-testInputGroupId-message"
           role="status"
         >
           Group hint

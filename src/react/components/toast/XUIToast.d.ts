@@ -18,7 +18,7 @@ interface BaseProps {
   /**
    * Applies default layout class to the component.
    */
-  defaultLayout?: boolean;
+  hasDefaultLayout?: boolean;
   /**
    * Hides the component when set to `true`.
    */

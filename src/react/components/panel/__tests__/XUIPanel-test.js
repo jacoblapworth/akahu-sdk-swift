@@ -9,7 +9,7 @@ import XUIPanelSection from '../XUIPanelSection';
 import XUIPanelHeading from '../XUIPanelHeading';
 import XUIPanelFooter from '../XUIPanelFooter';
 import Enzyme, { mount, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });

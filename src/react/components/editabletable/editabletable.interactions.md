@@ -48,7 +48,7 @@ const onRemove = () => alert('Row deleted!');
 For a table-affecting action like adding a row, use `XUIEditableTableFootAction` nested within `XUIEditableTableFoot`.
 
 ```jsx harmony
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import {
   XUIEditableTable,
@@ -61,14 +61,14 @@ import {
   XUIEditableTableFootAction
 } from '@xero/xui/react/editabletable';
 const data = [
-  { fruit: 'Banana', colour: 'Yellow', price: 2.99, uid: uuidv4() },
-  { fruit: 'Orange', colour: 'Orange', price: 3.99, uid: uuidv4() }
+  { fruit: 'Banana', colour: 'Yellow', price: 2.99, uid: nanoid(10) },
+  { fruit: 'Orange', colour: 'Orange', price: 3.99, uid: nanoid(10) }
 ];
 const blankItem = { fruit: undefined, colour: undefined, price: undefined, isDisabled: true };
 const Example = () => {
   const [tableData, setTableData] = useState(data);
   const addNewRow = () => {
-    setTableData([...tableData, { ...blankItem, uid: uuidv4() }]);
+    setTableData([...tableData, { ...blankItem, uid: nanoid(10) }]);
   };
   return (
     <XUIEditableTable ariaLabel="List of fruits with colour and price per kg">
@@ -112,7 +112,7 @@ Adding new row can be also based on user's keyboard interaction and this pattern
 
 ```jsx harmony
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import {
   XUIEditableTable,
   XUIEditableTableRow,
@@ -124,8 +124,8 @@ import {
 import { isKeyArrow, isKeyFunctional } from '@xero/xui/react/helpers/reactKeyHandler';
 
 const data = [
-  { id: uuidv4(), fruit: 'Banana', color: 'Yellow', price: 2.99 },
-  { id: uuidv4(), fruit: 'Orange', color: 'Orange', price: 3.99 }
+  { id: nanoid(10), fruit: 'Banana', color: 'Yellow', price: 2.99 },
+  { id: nanoid(10), fruit: 'Orange', color: 'Orange', price: 3.99 }
 ];
 
 const EditableNewRowOnKeyDownDemo = () => {
@@ -157,7 +157,7 @@ const EditableNewRowOnKeyDownDemo = () => {
    */
   const newRowHandler = (event, source) => {
     if (!isKeyFunctional(event) && !isKeyArrow(event)) {
-      const id = uuidv4();
+      const id = nanoid(10);
 
       setDemoData([
         ...demoData,
@@ -205,17 +205,17 @@ const EditableNewRowOnKeyDownDemo = () => {
           {demoData.map(row => (
             <XUIEditableTableRow key={row.id}>
               <XUIEditableTableCellTextInput
-                focusByDefault={row.id === focusId && 'fruit' === focusCell}
+                focusOnMount={row.id === focusId && 'fruit' === focusCell}
                 value={row.fruit}
                 onChange={event => inputOnChangeHandler(event, row.id, 'fruit')}
               />
               <XUIEditableTableCellTextInput
-                focusByDefault={row.id === focusId && 'color' === focusCell}
+                focusOnMount={row.id === focusId && 'color' === focusCell}
                 value={row.color}
                 onChange={event => inputOnChangeHandler(event, row.id, 'color')}
               />
               <XUIEditableTableCellTextInput
-                focusByDefault={row.id === focusId && 'price' === focusCell}
+                focusOnMount={row.id === focusId && 'price' === focusCell}
                 value={String(row.price)}
                 onChange={event => inputOnChangeHandler(event, row.id, 'price')}
               />
@@ -273,7 +273,7 @@ const DragAndDropExample = () => {
       dndDropMessage={(startPosition, endPosition) =>
         `You have dropped the item. It has moved from position ${startPosition} to ${endPosition}.`
       }
-      dndInstructions="Press space bar or enter to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or forms mode."
+      dndInstructions="Press Space bar or Enter to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or to use your pass through key."
       onReorderRow={(startIndex, destinationIndex) => {
         const newRows = [...rows];
         const rowToReorder = newRows.splice(startIndex, 1)[0];
@@ -311,7 +311,7 @@ const DragAndDropExample = () => {
 To disable built-in controls (including drag and remove icons) in a row, use prop `disableRowControls` of `XUIEditableTableRow`.
 
 ```jsx harmony
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import {
   XUIEditableTable,
   XUIEditableTableBody,
@@ -322,7 +322,7 @@ import {
 } from '@xero/xui/react/editabletable';
 
 const DisableControlsExample = () => {
-  const [rows, setRows] = React.useState([{ id: uuidv4(), fruit: '', colour: '', price: '' }]);
+  const [rows, setRows] = React.useState([{ id: nanoid(10), fruit: '', colour: '', price: '' }]);
 
   const onInputChange = (value, id, key) => {
     setRows(rows.map(row => (id === row.id ? { ...row, [key]: value } : row)));
@@ -337,7 +337,7 @@ const DisableControlsExample = () => {
       dndDragUpdateMessage={() => 'You have moved the item.'}
       dndDropFailedMessage={() => 'The item has been dropped while not over a droppable area.'}
       dndDropMessage={() => 'You have dropped the item.'}
-      dndInstructions="Press space bar or enter to start a drag."
+      dndInstructions="Press Space bar or Enter to start a drag."
       onReorderRow={() => {}}
       rowOptions={{
         isDraggable: true,
@@ -395,7 +395,7 @@ const DisableControlsExample = () => {
 To disable custom controls, use prop `isDisabled` of the cell component.
 
 ```jsx harmony
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import {
   XUIEditableTable,
   XUIEditableTableBody,
@@ -408,7 +408,7 @@ import {
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 
 const DisableControlsExample = () => {
-  const [rows, setRows] = React.useState([{ id: uuidv4(), fruit: '', colour: '', price: '' }]);
+  const [rows, setRows] = React.useState([{ id: nanoid(), fruit: '', colour: '', price: '' }]);
 
   const onInputChange = (value, id, key) => {
     setRows(rows.map(row => (id === row.id ? { ...row, [key]: value } : row)));
@@ -423,7 +423,7 @@ const DisableControlsExample = () => {
       dndDragUpdateMessage={() => 'You have moved the item.'}
       dndDropFailedMessage={() => 'The item has been dropped while not over a droppable area.'}
       dndDropMessage={() => 'You have dropped the item.'}
-      dndInstructions="Press space bar or enter to start a drag."
+      dndInstructions="Press Space bar or Enter to start a drag."
       onReorderRow={() => {}}
       rowOptions={{ isDraggable: true, dragButtonAriaLabel: 'Drag row' }}
     >

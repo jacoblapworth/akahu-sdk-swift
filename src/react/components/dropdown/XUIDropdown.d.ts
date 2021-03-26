@@ -23,10 +23,6 @@ interface Props {
   children?: React.ReactNode;
   className?: string;
   /**
-   * Whether the fixed width class variant should be used for the size prop.
-   */
-  fixedWidth?: boolean;
-  /**
    * Items to be added to the menu's footer.
    */
   footer?: React.ReactElement;
@@ -38,6 +34,10 @@ interface Props {
    * Force wrapping `XUIDropdownPanel` children in a `XUIStatefulPicklist`.
    */
   forceStatefulPicklist?: boolean;
+  /**
+   * Whether the fixed width class variant should be used for the size prop.
+   */
+  hasFixedWidth?: boolean;
   /**
    * Whether or not the dropdown should take focus and handle keyboard events automatically.
    */
@@ -169,7 +169,7 @@ export default class XUIDropdown extends React.PureComponent<Props> {
   /**
    * Root node to enable users to access as a ref.
    */
-  rootNode: HTMLElement | null;
+  rootNode: React.RefObject<HTMLElement>;
 
   /**
    * Fired when either the enter key or space bar is pressed and calls onclick of the menu item

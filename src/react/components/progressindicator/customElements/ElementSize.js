@@ -8,7 +8,7 @@ class ElementSize extends Component {
     elementHeight: null,
   };
 
-  rootNode;
+  rootNode = React.createRef();
 
   throttled;
 
@@ -29,8 +29,8 @@ class ElementSize extends Component {
     const { rootNode } = this;
     const { elementWidth, elementHeight } = this.state;
 
-    if (rootNode) {
-      const { clientWidth, clientHeight } = rootNode;
+    if (rootNode.current) {
+      const { clientWidth, clientHeight } = rootNode.current;
       const hasWidthChanged = clientWidth && elementWidth !== clientWidth;
       const hasHeightChanged = clientHeight && elementHeight !== clientHeight;
 
@@ -48,7 +48,7 @@ class ElementSize extends Component {
     const isWrapperSizeCalculated = this.state.elementWidth && this.state.elementHeight;
 
     return (
-      <div className={className} ref={node => (this.rootNode = node)}>
+      <div className={className} ref={this.rootNode}>
         {isWrapperSizeCalculated && children(this.state)}
       </div>
     );

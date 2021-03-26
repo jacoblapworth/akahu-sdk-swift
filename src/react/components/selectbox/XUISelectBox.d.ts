@@ -7,7 +7,7 @@ interface Props {
   /**
    * Additional classes to be applied to the button.
    */
-  buttonClasses?: string;
+  buttonClassName?: string;
   /**
    * Display text to be rendered on the `XUISelectBox` button.
    */
@@ -30,15 +30,11 @@ interface Props {
   /**
    * Additional classes to be applied to the container.
    */
-  containerClasses?: string;
-  /**
-   * Use XUI provided layout classes.
-   */
-  defaultLayout?: boolean;
+  containerClassName?: string;
   /**
    * Additional classes to be applied to the dropDown.
    */
-  dropDownClasses?: string;
+  dropdownClassName?: string;
   /**
    * Force the desktop experience, even if the viewport is narrow enough for mobile.
    */
@@ -47,6 +43,10 @@ interface Props {
    * Modifier for the width of the `XUISelectBox`.
    */
   fullWidth?: typeof widths[number];
+  /**
+   * Use XUI provided layout classes.
+   */
+  hasDefaultLayout?: boolean;
   /**
    * Hint message to show under the input.
    */
@@ -59,7 +59,7 @@ interface Props {
   /**
    * Additional classes to be applied to the input group.
    */
-  inputGroupClasses?: string;
+  inputGroupClassName?: string;
   /**
    * Whether the button trigger and functionality are disabled.
    */

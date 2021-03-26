@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import dateIcon from '@xero/xui-icon/icons/date-end';
 import { parseDate, DateFormat } from '@xero/blind-date';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import cn from 'classnames';
 import { ns } from '../../helpers/xuiClassNamespace';
 
@@ -48,9 +48,9 @@ class XUIDateInputItem extends Component {
   triggerRef = createRef(null);
 
   /** Generate id's for panels */
-  customDatesId = uuidv4();
+  customDatesId = `xui-${nanoid(10)}`;
 
-  convenienceDatesId = uuidv4();
+  convenienceDatesId = `xui-${nanoid(10)}`;
 
   componentDidMount() {
     this.setState({
@@ -105,7 +105,7 @@ class XUIDateInputItem extends Component {
   // };
 
   closeDropdown = () => {
-    this.ddtRef?.current.closeDropdown();
+    this.ddtRef.current?.closeDropdown();
     this.setState({ pickitemInitialHighlight: true });
   };
 

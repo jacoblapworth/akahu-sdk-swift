@@ -51,7 +51,7 @@ const createTabs = (
 class XUIStepper extends Component {
   state = { layout: STACKED };
 
-  rootNode = null;
+  rootNode = React.createRef();
 
   throttled = null;
 
@@ -76,9 +76,9 @@ class XUIStepper extends Component {
 
     if (lockLayout && lockLayout !== 'vertical') {
       setLayout(lockLayout);
-    } else if (rootNode) {
-      const isInline = testIsInlineRelevant(rootNode) && lockLayout !== 'vertical';
-      const isSideBar = testIsSideBarRelevant(rootNode);
+    } else if (rootNode.current) {
+      const isInline = testIsInlineRelevant(rootNode.current) && lockLayout !== 'vertical';
+      const isSideBar = testIsSideBarRelevant(rootNode.current);
 
       if (isInline) {
         setLayout(INLINE);
@@ -127,7 +127,7 @@ class XUIStepper extends Component {
     const hiddenTabs = createTabs(tabProps, { isHidden: true, isProgress: false });
 
     return (
-      <div className={NAME_SPACE} data-automationid={qaHook} ref={node => (this.rootNode = node)}>
+      <div className={NAME_SPACE} data-automationid={qaHook} ref={this.rootNode}>
         {!lockLayout && (
           <div aria-hidden="true" className={`${NAME_SPACE}-hidden-content`}>
             {/* Render "dummy" UI scenarios in secret to determine what layout the

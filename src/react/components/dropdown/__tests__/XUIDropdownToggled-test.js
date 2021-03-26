@@ -1,9 +1,9 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import XUIDropdown from '../XUIDropdown';
 import XUIDropdownToggled from '../XUIDropdownToggled';
 import XUIPicklist from '../../picklist/XUIPicklist';
@@ -12,8 +12,8 @@ import XUIModal from '../../modal/XUIModal';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
 const testId = 'testDropdownId';
-jest.mock('uuid');
-uuidv4.mockImplementation(() => testId);
+jest.mock('nanoid');
+nanoid.mockImplementation(() => testId);
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
@@ -165,9 +165,9 @@ describe('<XUIDropdownToggled />', () => {
     });
 
     it('expects a matching id on the dropdown and referenced by aria attributes', () => {
-      expect(wrapper.html().includes(`aria-owns="${testId}"`)).toBeTruthy();
+      expect(wrapper.html().includes(`aria-owns="xui-${testId}"`)).toBeTruthy();
       expect(
-        wrapper.find('button').first().html().includes(`aria-controls="${testId}"`),
+        wrapper.find('button').first().html().includes(`aria-controls="xui-${testId}"`),
       ).toBeTruthy();
     });
 

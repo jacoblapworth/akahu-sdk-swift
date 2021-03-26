@@ -81,7 +81,7 @@ storiesWithKnobs.add('Playground', () => {
         },
       ])}
       className={text('className', '')}
-      defaultLayout={boolean('defaultLayout', true)}
+      hasDefaultLayout={boolean('hasDefaultLayout', true)}
       messageText={text('message', 'Message text')}
       onBlur={NOOP}
       onCloseClick={NOOP}

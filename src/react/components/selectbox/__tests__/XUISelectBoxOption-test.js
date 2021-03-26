@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import XUISelectBoxOption from '../XUISelectBoxOption';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
+import XUISelectBoxOption from '../XUISelectBoxOption';
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
 const createComponent = props => (
-  <XUISelectBoxOption id="1" value="A sample option" label="test" {...props}>
+  <XUISelectBoxOption id="1" label="test" value="A sample option" {...props}>
     {(props && props.children) || '.'}
   </XUISelectBoxOption>
 );
@@ -19,8 +19,8 @@ createComponent.propTypes = {
   children: PropTypes.node,
 };
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testCheckboxId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testCheckboxId');
 
 describe('<XUISelectBoxOption />', () => {
   it('should render an automaion id when provided with a qaHook', () => {
@@ -31,10 +31,10 @@ describe('<XUISelectBoxOption />', () => {
     expect(automationid).toMatchSnapshot();
   });
 
-  it('should render text as truncated when the truncatedText prop is set to true', () => {
+  it('should render text as truncated when the truncateText prop is set to true', () => {
     const truncated = renderer.create(
       createComponent({
-        truncatedText: true,
+        truncateText: true,
         children:
           "This text should be truncated and only visible on one line because it's so long.",
       }),
@@ -43,10 +43,10 @@ describe('<XUISelectBoxOption />', () => {
     expect(truncated).toMatchSnapshot();
   });
 
-  it("shouldn't render text as truncated when the truncatedText prop is set to false", () => {
+  it("shouldn't render text as truncated when the truncateText prop is set to false", () => {
     const truncated = renderer.create(
       createComponent({
-        truncatedText: false,
+        truncateText: false,
         children: "This text should not be truncated even though it's long.",
       }),
     );
@@ -74,14 +74,14 @@ describe('<XUISelectBoxOption />', () => {
     expect(checkboxes).toMatchSnapshot();
   });
 
-  it('should render extra classes on the option element when values are added to the optionClasses prop', () => {
-    const optionClasses = renderer.create(
+  it('should render extra classes on the option element when values are added to the optionClassName prop', () => {
+    const optionClassName = renderer.create(
       createComponent({
-        optionClasses: 'option-class',
+        optionClassName: 'option-class',
       }),
     );
 
-    expect(optionClasses).toMatchSnapshot();
+    expect(optionClassName).toMatchSnapshot();
   });
 
   it('should render the option as disabled when the isDisabled prop is true', () => {

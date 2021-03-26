@@ -1,19 +1,19 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
+import arrow from '@xero/xui-icon/icons/arrow';
 import XUIPickitem from '../XUIPickitem';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIIcon from '../../icon/XUIIcon';
-import arrow from '@xero/xui-icon/icons/arrow';
-import { v4 as uuidv4 } from 'uuid';
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testPickitemCheckboxId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testPickitemCheckboxId');
 
 describe('<XUIPickitem />', () => {
   it('renders a basic example with no options', () => {

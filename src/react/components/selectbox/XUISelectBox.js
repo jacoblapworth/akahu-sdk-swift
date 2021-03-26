@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import XUIDropdown from '../dropdown/XUIDropdown';
 import XUIDropdownToggled from '../dropdown/XUIDropdownToggled';
@@ -32,11 +32,15 @@ function setQaHook(propsQaHook, suffix) {
 const selectBaseClass = `${ns}-select`;
 
 export default class XUISelectBox extends Component {
-  selectId = this.props.id || uuidv4();
+  selectId = this.props.id || `xui-${nanoid(10)}`;
+
+  trigger = React.createRef();
+
+  ddt = React.createRef();
 
   wrapperIds = generateIds(this.selectId);
 
-  isDropdownOpen = () => !!this.ddt && this.ddt.isDropdownOpen();
+  isDropdownOpen = () => this.ddt.current?.isDropdownOpen();
 
   render() {
     return (
@@ -44,19 +48,19 @@ export default class XUISelectBox extends Component {
         {({ useCellStyling, cellAttributes }) => {
           const selectBox = this;
           const {
-            buttonClasses,
+            buttonClassName,
             buttonContent,
             buttonVariant,
             caretTitle,
             children,
             closeAfterSelection,
-            containerClasses,
-            defaultLayout,
-            dropDownClasses,
+            containerClassName,
+            hasDefaultLayout,
+            dropdownClassName,
             forceDesktop,
             fullWidth,
             hintMessage,
-            inputGroupClasses,
+            inputGroupClassName,
             isDisabled,
             isFieldLayout,
             isInvalid,
@@ -79,17 +83,17 @@ export default class XUISelectBox extends Component {
           const buttonClassNames = cn(
             `${selectBaseClass}--button`,
             !buttonVariant && `${selectBaseClass}--button-no-variant`,
-            buttonClasses,
+            buttonClassName,
           );
           const inputGroupClassNames = cn(
-            defaultLayout && `${selectBaseClass}-layout`,
-            inputGroupClasses,
+            hasDefaultLayout && `${selectBaseClass}-layout`,
+            inputGroupClassName,
             !useCellStyling && isInvalid && `${selectBaseClass}-is-invalid`,
           );
 
           const containerClassNames = cn(
             useCellStyling && `${selectBaseClass}-cell`,
-            containerClasses,
+            containerClassName,
           );
 
           const ariaAttributes = cellAttributes || getAriaAttributes(this.wrapperIds, this.props);
@@ -107,7 +111,7 @@ export default class XUISelectBox extends Component {
               onBlur={onBlur}
               onFocus={onFocus}
               qaHook={setQaHook(qaHook, qaHooks.button)}
-              ref={c => (selectBox.trigger = c)}
+              ref={selectBox.trigger}
               size={size}
               type="button"
               variant={buttonVariant}
@@ -127,13 +131,13 @@ export default class XUISelectBox extends Component {
             <XUIDropdown
               // These aria attributes currently go nowhere
               ariaAttributes={getAriaAttributes(this.wrapperIds.control, this.props)}
-              className={dropDownClasses}
+              className={dropdownClassName}
               id={selectBox.selectId}
               onSelect={onSelect}
               qaHook={setQaHook(qaHook, qaHooks.dropdown)}
               restrictFocus={restrictFocus}
             >
-              <XUIPicklist>{children}</XUIPicklist>
+              <XUIPicklist secondaryProps={{ role: 'listbox' }}>{children}</XUIPicklist>
             </XUIDropdown>
           );
 
@@ -168,7 +172,7 @@ export default class XUISelectBox extends Component {
                       matchTriggerWidth={matchTriggerWidth}
                       onClose={onDropdownHide}
                       qaHook={setQaHook(qaHook, qaHooks.dropdownToggled)}
-                      ref={c => (selectBox.ddt = c)}
+                      ref={selectBox.ddt}
                       trigger={trigger}
                     />
                   )}
@@ -184,7 +188,7 @@ export default class XUISelectBox extends Component {
 
 XUISelectBox.propTypes = {
   /** Additional classes to be applied to the button */
-  buttonClasses: PropTypes.string,
+  buttonClassName: PropTypes.string,
 
   /** Display text to be rendered on the `XUISelectBox` button. */
   buttonContent: PropTypes.node.isRequired,
@@ -205,13 +209,10 @@ XUISelectBox.propTypes = {
   closeAfterSelection: PropTypes.bool,
 
   /** Additional classes to be applied to the container */
-  containerClasses: PropTypes.string,
-
-  /** Use XUI provided layout classes */
-  defaultLayout: PropTypes.bool,
+  containerClassName: PropTypes.string,
 
   /** Additional classes to be applied to the dropDown */
-  dropDownClasses: PropTypes.string,
+  dropdownClassName: PropTypes.string,
 
   /** Force the desktop experience, even if the viewport is narrow enough for mobile */
   forceDesktop: PropTypes.bool,
@@ -221,6 +222,9 @@ XUISelectBox.propTypes = {
    */
   fullWidth: PropTypes.oneOf(widths),
 
+  /** Use XUI provided layout classes */
+  hasDefaultLayout: PropTypes.bool,
+
   /** Hint message to show under the input */
   hintMessage: PropTypes.node,
 
@@ -229,7 +233,7 @@ XUISelectBox.propTypes = {
   id: PropTypes.string,
 
   /** Additional classes to be applied to the inputGroup */
-  inputGroupClasses: PropTypes.string,
+  inputGroupClassName: PropTypes.string,
 
   /** Whether the button trigger and functionality are disabled */
   isDisabled: PropTypes.bool,
@@ -294,9 +298,9 @@ XUISelectBox.propTypes = {
 
 XUISelectBox.defaultProps = {
   closeAfterSelection: true,
-  defaultLayout: true,
   forceDesktop: false,
   fullWidth: 'always',
+  hasDefaultLayout: true,
   isOpen: false,
   isTextTruncated: true,
   matchTriggerWidth: true,

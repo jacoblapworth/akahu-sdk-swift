@@ -1,12 +1,12 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
+import renderer from 'react-test-renderer';
 import XUINestedDropdown from '../XUINestedDropdown';
 import XUIDropdownPanel from '../XUIDropdownPanel';
 import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIPickitem from '../../picklist/XUIPickitem';
-import renderer from 'react-test-renderer';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 
 import { fixedWidthDropdownSizes, maxWidthDropdownSizes } from '../private/constants';
@@ -39,7 +39,7 @@ describe('<XUINestedDropdown />', () => {
   it('should render a passed id instead of automatically generating one', () => {
     const automationid = renderer.create(createComponent());
 
-    //id should be "1".
+    // id should be "1".
     expect(automationid).toMatchSnapshot();
   });
 
@@ -89,7 +89,7 @@ describe('<XUINestedDropdown />', () => {
 
   it("should call the onSelect callback any item nested in a panel when it's selected", () => {
     const onSelect = jest.fn();
-    const comp = mount(createComponent({ onSelect: onSelect }));
+    const comp = mount(createComponent({ onSelect }));
 
     comp.find('#option1').hostNodes().simulate('click');
     setTimeout(() => {
@@ -99,7 +99,7 @@ describe('<XUINestedDropdown />', () => {
 
   it('should call the onHighlightChange callback when an item is highlighted', () => {
     const onHighlightChange = jest.fn();
-    const comp = mount(createComponent({ onHighlightChange: onHighlightChange }));
+    const comp = mount(createComponent({ onHighlightChange }));
 
     expect(onHighlightChange.mock.calls.length).toEqual(0);
 
@@ -114,9 +114,7 @@ describe('<XUINestedDropdown />', () => {
 
   it("shouldn't respect keyboard events if the ignoreKeyboardEvents lists that event", () => {
     const onHighlightChange = jest.fn();
-    const comp = mount(
-      createComponent({ onHighlightChange: onHighlightChange, ignoreKeyboardEvents: [40] }),
-    );
+    const comp = mount(createComponent({ onHighlightChange, ignoreKeyboardEvents: [40] }));
 
     expect(onHighlightChange.mock.calls.length).toEqual(0);
 
@@ -135,7 +133,7 @@ describe('<XUINestedDropdown />', () => {
     const comp = mount(
       createComponent(
         <XUINestedDropdown id="1" onHighlightChange={onHighlightChange}>
-          <XUIDropdownPanel qaHook="nestedDropdown-panelone" ignoreKeyboardEvents={[40]}>
+          <XUIDropdownPanel ignoreKeyboardEvents={[40]} qaHook="nestedDropdown-panelone">
             <XUIPicklist>
               <XUIPickitem id="option1">Option 1</XUIPickitem>
             </XUIPicklist>
@@ -185,39 +183,39 @@ describe('<XUINestedDropdown />', () => {
     expect(animateOpen).toMatchSnapshot();
   });
 
-  it('should render fixed width classes when a size is passed and fixedWidth prop is set to true', () => {
-    const fixedWidth = mount(createComponent({ size: 'medium', fixedWidth: true }));
+  it('should render fixed width classes when a size is passed and hasFixedWidth prop is set to true', () => {
+    const hasFixedWidth = mount(createComponent({ size: 'medium', hasFixedWidth: true }));
 
     expect(
-      fixedWidth.find('.xui-dropdown-layout').hasClass(fixedWidthDropdownSizes.medium),
+      hasFixedWidth.find('.xui-dropdown-layout').hasClass(fixedWidthDropdownSizes.medium),
     ).toBeTruthy();
   });
 
-  it('should render max width classes when a size is passed and fixedWidth prop is set to false', () => {
-    const fixedWidth = mount(createComponent({ size: 'medium', fixedWidth: false }));
+  it('should render max width classes when a size is passed and hasFixedWidth prop is set to false', () => {
+    const hasFixedWidth = mount(createComponent({ size: 'medium', hasFixedWidth: false }));
 
     expect(
-      fixedWidth.find('.xui-dropdown-layout').hasClass(maxWidthDropdownSizes.medium),
+      hasFixedWidth.find('.xui-dropdown-layout').hasClass(maxWidthDropdownSizes.medium),
     ).toBeTruthy();
   });
 
   it('should render max width classes by default when a size is passed', () => {
-    const fixedWidth = mount(createComponent({ size: 'medium', fixedWidth: false }));
+    const hasFixedWidth = mount(createComponent({ size: 'medium', hasFixedWidth: false }));
 
     expect(
-      fixedWidth.find('.xui-dropdown-layout').hasClass(maxWidthDropdownSizes.medium),
+      hasFixedWidth.find('.xui-dropdown-layout').hasClass(maxWidthDropdownSizes.medium),
     ).toBeTruthy();
   });
 
   it('should render the correct open panel when an id is passed to the currentPanel prop', () => {
     const currentPanel = mount(
-      <XUINestedDropdown id="1" currentPanelId="two">
-        <XUIDropdownPanel panelId="one" id="panel-one" qaHook="nestedDropdown-panelone">
+      <XUINestedDropdown currentPanelId="two" id="1">
+        <XUIDropdownPanel id="panel-one" panelId="one" qaHook="nestedDropdown-panelone">
           <XUIPicklist>
             <XUIPickitem id="option1">Option 1</XUIPickitem>
           </XUIPicklist>
         </XUIDropdownPanel>
-        <XUIDropdownPanel panelId="two" id="panel-two" qaHook="nestedDropdown-paneltwo">
+        <XUIDropdownPanel id="panel-two" panelId="two" qaHook="nestedDropdown-paneltwo">
           <XUIPicklist>
             <XUIPickitem id="option2">Option 2</XUIPickitem>
           </XUIPicklist>

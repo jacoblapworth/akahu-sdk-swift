@@ -55,9 +55,9 @@ export default class XUIPicklist extends Component {
       closeOnSelect,
       id,
       onKeyDown,
-      onMouseDown,
+      onClick,
       secondaryProps,
-      defaultLayout,
+      hasDefaultLayout,
       isHorizontal,
       qaHook,
       shouldTruncate,
@@ -85,7 +85,7 @@ export default class XUIPicklist extends Component {
 
     const listClasses = cn(
       `${picklistClassName}`,
-      defaultLayout && !isHorizontal && `${picklistClassName}-layout`,
+      hasDefaultLayout && !isHorizontal && `${picklistClassName}-layout`,
       `${picklistClassName}-${listLevelProps.listSize}`,
     );
 
@@ -93,7 +93,7 @@ export default class XUIPicklist extends Component {
       ...secondaryProps,
       id,
       onKeyDown,
-      onMouseDown,
+      onClick,
       'data-automationid': qaHook,
     };
 
@@ -133,7 +133,7 @@ XUIPicklist.propTypes = {
    */
   closeOnSelect: PropTypes.bool,
   /** Whether to add the default layout class */
-  defaultLayout: PropTypes.bool,
+  hasDefaultLayout: PropTypes.bool,
   /** Id to be applied to the root HTML element */
   id: PropTypes.string,
   /** Whether to render as horizontal pickitems */
@@ -143,10 +143,10 @@ XUIPicklist.propTypes = {
    * ⚠️ *Vertical picklists only*
    */
   isMultiselect: PropTypes.bool,
+  /** onClick handler function added to the root HTML element */
+  onClick: PropTypes.func,
   /** Keydown handler function added to the root HTML element */
   onKeyDown: PropTypes.func,
-  /** Mousedown handler function added to the root HTML element */
-  onMouseDown: PropTypes.func,
   qaHook: PropTypes.string,
   /** Additional props to pass to the root HTML element */
   secondaryProps: PropTypes.object,
@@ -164,8 +164,8 @@ XUIPicklist.propTypes = {
 };
 
 XUIPicklist.defaultProps = {
-  defaultLayout: true,
+  hasDefaultLayout: true,
   secondaryProps: {
-    role: 'group',
+    role: 'tree',
   },
 };

@@ -88,16 +88,19 @@ test.add(storyNames.formLayout, () => {
       this.selectPerson = this.selectPerson.bind(this);
       this.deletePerson = this.deletePerson.bind(this);
       this.getItems = this.getItems.bind(this);
+
+      this._form = React.createRef();
+      this._autocompleter = React.createRef();
     }
 
     logForm() {
       const { selectedPeople: people, foodType } = this.state;
-      const data = { ...this._form.getInputs(), people, foodType };
+      const data = { ...this._form.current?.getInputs(), people, foodType };
       console.log(data); // eslint-disable-line
     }
 
     onSearchChangeHandler(value) {
-      this._autocompleter.openDropdown();
+      this._autocompleter.current?.openDropdown();
       this.setState(prevState => ({
         value,
         people: filterPeople(people, value, prevState.selectedPeople),
@@ -165,7 +168,7 @@ test.add(storyNames.formLayout, () => {
 
       return (
         <div className="capture xui-panel xui-page-width-standard xui-margin-vertical-xlarge">
-          <Form noLayout ref={c => (this._form = c)}>
+          <Form noLayout ref={this._form}>
             <header className="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-align-center">
               <div className="xui-panel--heading xui-margin-left-small">
                 All major inputs in various formats
@@ -283,7 +286,7 @@ test.add(storyNames.formLayout, () => {
               <InputLabel htmlFor={inputMap.people}>Add people</InputLabel>
               <XUIAutocompleter
                 className="xui-field-layout"
-                dropdownFixedWidth
+                dropdownHasFixedWidth
                 id={inputMap.people}
                 inputLabel="input label"
                 isInputLabelHidden
@@ -300,7 +303,7 @@ test.add(storyNames.formLayout, () => {
                   />
                 ))}
                 placeholder="Search"
-                ref={ac => (this._autocompleter = ac)}
+                ref={this._autocompleter}
                 searchValue={value}
               >
                 {this.getItems()}

@@ -10,7 +10,7 @@ exports[`<TabDropdown /> renders correctly 1`] = `
     aria-selected={null}
     className="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium"
     id="tabDropdownTrigger-pi1"
-    role="option"
+    role="treeitem"
   >
     <button
       className="xui-pickitem--body xui-pickitem--body-has-icon"
@@ -24,22 +24,18 @@ exports[`<TabDropdown /> renders correctly 1`] = `
       >
         Item 1
       </span>
-      <div
-        className="xui-pickitem--caret xui-iconwrapper xui-iconwrapper-medium"
+      <svg
+        className="xui-icon xui-pickitem--caret"
+        focusable="false"
+        height={5}
+        viewBox="0 0 10 5"
+        width={10}
       >
-        <svg
-          className="xui-icon"
-          focusable="false"
-          height={5}
-          viewBox="0 0 10 5"
-          width={10}
-        >
-          <path
-            d="M0 0l5 5 5-5z"
-            role="presentation"
-          />
-        </svg>
-      </div>
+        <path
+          d="M0 0l5 5 5-5z"
+          role="presentation"
+        />
+      </svg>
     </button>
   </li>
 </div>

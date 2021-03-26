@@ -1,11 +1,11 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
 import star from '@xero/xui-icon/icons/star';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUICheckbox from '../XUICheckbox';
-import { v4 as uuidv4 } from 'uuid';
 
 import div from './helpers/container';
 
@@ -14,8 +14,8 @@ expect.extend(toHaveNoViolations);
 
 const NOOP = () => {};
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testCheckboxId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testCheckboxId');
 
 describe('XUICheckbox', function () {
   let wrapper;

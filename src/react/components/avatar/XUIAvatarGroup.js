@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import XUIAvatarCounter from './XUIAvatarCounter';
 import { sizeClassNames, classNames } from './constants';
 
@@ -19,9 +19,10 @@ const XUIAvatarGroup = ({ children, className, qaHook, maxAvatars, avatarSize })
     avatarSize || extraChildCount
       ? React.Children.map(children, (child, idx) => {
           ({ variant } = child.props);
+          const [id] = nanoid(10);
           return idx < lastChildIndex
             ? React.cloneElement(child, {
-                key: uuidv4(),
+                key: `xui-${id}`,
                 ...child.props,
                 size: avatarSize,
               })

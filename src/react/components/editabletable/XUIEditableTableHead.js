@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
+import XUIEditableTableClassContext from './contexts/XUIEditableTableClassContext';
 import XUIEditableTableHeadContext from './contexts/XUIEditableTableHeadContext';
-import { tableName } from './private/constants';
-
-const baseName = `${tableName}head`;
 
 const XUIEditableTableHead = ({ children, className, qaHook, ...spreadProps }) => {
+  const tableClassName = React.useContext(XUIEditableTableClassContext);
+  const baseName = `${tableClassName}head`;
+
   return (
     <thead className={cn(baseName, className)} data-automationid={qaHook} {...spreadProps}>
       {/* eslint-disable-next-line react/jsx-boolean-value */}
@@ -19,7 +20,7 @@ const XUIEditableTableHead = ({ children, className, qaHook, ...spreadProps }) =
 };
 
 XUIEditableTableHead.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+  children: PropTypes.node,
   className: PropTypes.string,
   qaHook: PropTypes.string,
 };

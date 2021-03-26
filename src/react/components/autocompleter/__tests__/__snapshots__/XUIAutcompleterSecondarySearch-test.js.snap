@@ -15,6 +15,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render a placeholder inside 
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      type="button"
     >
       trigger
     </button>
@@ -37,6 +38,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an automation id when
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      type="button"
     >
       trigger
     </button>
@@ -59,6 +61,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the dropdown
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      type="button"
     >
       trigger
     </button>
@@ -81,6 +84,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input wh
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      type="button"
     >
       trigger
     </button>
@@ -103,6 +107,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render as disabled when isDi
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      type="button"
     >
       trigger
     </button>
@@ -125,6 +130,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      type="button"
     >
       trigger
     </button>
@@ -147,6 +153,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      type="button"
     >
       trigger
     </button>
@@ -170,6 +177,7 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes when pa
       onClick={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      type="button"
     >
       trigger
     </button>

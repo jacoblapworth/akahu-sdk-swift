@@ -12,6 +12,10 @@ interface Props {
    */
   closeDelay?: number;
   /**
+   * Limit `width` of tooltip's trigger to `100%`.
+   */
+  hasLimitedWidth?: boolean;
+  /**
    * DOM ID of the tooltip.
    */
   id?: string;
@@ -35,10 +39,6 @@ interface Props {
    * The target that should listen to key presses. Defaults to the window.
    */
   keyListenerTarget?: HTMLElement;
-  /**
-   * Limit `width` of tooltip's trigger to `100%`.
-   */
-  limitWidth?: boolean;
   /**
    * Setting a number here will force the maximum height of the tooltip to be the number provided
    * (in pixels).

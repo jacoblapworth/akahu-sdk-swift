@@ -4,6 +4,10 @@ import { XUIEditableTableContextShape } from './contexts/XUIEditableTableContext
 
 interface BaseProps {
   /**
+   * Internal use only, used to recognize it's an editable or read-only table.
+   */
+  _variant?: 'editable' | 'readonly';
+  /**
    * A non-visible description of the table for accessibility purposes. Particularly useful
    * for scrollable tables, to help screenreaders understand the scrollable element.
    */
@@ -75,8 +79,9 @@ interface BaseProps {
    *
    * Recommended English value:
    *
-   * *Press space bar to start a drag. When dragging you can use the arrow keys to move the item
-   * around and escape to cancel. Ensure your screen reader is in focus mode or forms mode.*
+   * *Press Space bar or Enter to start a drag. When dragging you can use the arrow keys to move the
+   * item around and escape to cancel. Ensure your screen reader is in focus mode or to use your
+   * pass through key.*
    */
   dndInstructions?: string;
   /**
@@ -110,7 +115,12 @@ interface BaseProps {
   onReorderRow?: (startIndex: number, destinationIndex: number) => void;
   qaHook?: string;
   rowOptions?: XUIEditableTableContextShape['rowOptions'];
+  scrollContainerRef?: React.Ref<HTMLDivElement>;
   style?: React.CSSProperties;
+  /**
+   * Custom class(es) to add to the table element.
+   */
+  tableClassName?: string;
   /**
    * Validation message to show under the table if `isInvalid` is true.
    */

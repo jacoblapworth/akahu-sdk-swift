@@ -1,17 +1,17 @@
 import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
 import XUIRange from '../XUIRange';
-import { v4 as uuidv4 } from 'uuid';
 import XUIIcon from '../../../icon';
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testRangeId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testRangeId');
 
 describe('Range', () => {
   it.skip('should pass accessibility testing', async () => {
@@ -30,12 +30,12 @@ describe('Range', () => {
   it('invalid', () => {
     const invalidRangeComponent = renderer.create(
       <XUIRange
-        label="invalid"
         id="range1"
         isInvalid
-        validationMessage="validationMessage"
-        min={16}
+        label="invalid"
         max={80}
+        min={16}
+        validationMessage="validationMessage"
       />,
     );
     expect(invalidRangeComponent).toMatchSnapshot();
@@ -44,12 +44,12 @@ describe('Range', () => {
   it('should be disabled', () => {
     const disabledRangeComponent = renderer.create(
       <XUIRange
-        label="disabled"
         id="range1"
-        validationMessage="validationMessage"
-        min={16}
-        max={80}
         isDisabled
+        label="disabled"
+        max={80}
+        min={16}
+        validationMessage="validationMessage"
       />,
     );
     expect(disabledRangeComponent).toMatchSnapshot();
@@ -59,11 +59,11 @@ describe('Range', () => {
     const { default: plus } = require('@xero/xui-icon/icons/plus');
     const svgRangeComponent = renderer.create(
       <XUIRange
-        label="svgs work"
-        leftElement={<XUIIcon size="large" icon={plus} />}
-        rightElement={<XUIIcon size="large" icon={plus} />}
-        id="range1"
         hintMessage="hintMessage"
+        id="range1"
+        label="svgs work"
+        leftElement={<XUIIcon icon={plus} size="large" />}
+        rightElement={<XUIIcon icon={plus} size="large" />}
         validationMessage="validationMessage"
       />,
     );
@@ -84,22 +84,22 @@ describe('Range', () => {
     const { default: plus } = require('@xero/xui-icon/icons/plus');
     const allOptionsRangeComponent = renderer.create(
       <XUIRange
-        label="All options selected"
-        leftElement={<XUIIcon size="large" icon={plus} />}
-        rightElement={<XUIIcon size="large" icon={plus} />}
-        qaHook="qaHook"
+        containerClassName="containerClassName"
+        defaultValue="20"
         hintMessage="hintMessage"
         id="range1"
-        inputClasses="inputClasses"
-        containerClasses="containerClasses"
-        isInvalid
-        validationMessage="validationMessage"
+        inputClassName="inputClassName"
         isDisabled
-        min={'16'}
-        max={'80'}
+        isInvalid
+        label="All options selected"
+        leftElement={<XUIIcon icon={plus} size="large" />}
+        max="80"
+        min="16"
+        qaHook="qaHook"
+        rightElement={<XUIIcon icon={plus} size="large" />}
         size="xsmall"
-        step={'4'}
-        defaultValue={'20'}
+        step="4"
+        validationMessage="validationMessage"
       />,
     );
     expect(allOptionsRangeComponent).toMatchSnapshot();

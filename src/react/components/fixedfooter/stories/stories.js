@@ -97,19 +97,21 @@ fixedStories.add('Simple HTML fixed footer (BYO padding)', () => {
 });
 
 class ScrollToBottomWrapper extends React.PureComponent {
+  rootNode = React.createRef();
+
   componentDidMount() {
     setTimeout(() => {
       const { rootNode } = this;
-      const scrollable = rootNode.parentElement.parentElement;
+      const scrollable = rootNode.current?.parentElement.parentElement;
       scrollable.style.position = '';
+      scrollable.scrollTop = rootNode.current?.clientHeight;
 
-      scrollable.scrollTop = rootNode.clientHeight;
       logReadyState('xui-fixedfooter-ready-event');
     }, 100);
   }
 
   render() {
-    return <div ref={node => (this.rootNode = node)}>{this.props.children}</div>;
+    return <div ref={this.rootNode}>{this.props.children}</div>;
   }
 }
 

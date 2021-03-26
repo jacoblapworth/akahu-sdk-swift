@@ -1,0 +1,341 @@
+@import '../vars';
+@import '../mixins';
+
+$xui-table-action-offset: $xui-s-4xlarge;
+$xui-table-z-pinned-shadow: 1;
+$xui-table-z-pinned-column: 2;
+$xui-table-z-pinned-appendages: 3;
+$xui-table-z-alert: 4;
+
+@mixin xui-readonlytable-overflow {
+  border-left: 1px solid $xui-table-divider-bg-color;
+  content: '';
+  display: block;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+}
+
+.#{$ns}-readonlytable {
+  width: 100%;
+
+  &-is-truncated {
+    table-layout: fixed;
+  }
+}
+
+.#{$ns}-readonlytable-noscroll .#{$ns}-readonlytablewrapper--scrollcontainer {
+  overflow-x: hidden;
+}
+
+.#{$ns}-readonlytable-hasborder {
+  border-radius: $xui-radius;
+  box-shadow: $xui-shadow-border-all;
+  overflow: hidden;
+}
+
+.#{$ns}-readonlytablerow {
+  background: $xui-table-bg-color;
+  transition: {
+    duration: $xui-motion-speed-fast;
+    property: background;
+  }
+}
+
+.#{$ns}-readonlytablerow-link {
+  cursor: pointer;
+  outline: 0;
+
+  &:focus {
+    background: $xui-table-link-focus-bg-color;
+  }
+}
+
+// Here we are creating the "row link" visual interaction. When the interface has
+// pinned columns we need to ensure that they to change their background color
+// while overlapping the content below.
+.#{$ns}-readonlytable-nopointerevents .#{$ns}-readonlytablerow-link,
+.#{$ns}-readonlytablerow-hasprecedence.#{$ns}-readonlytablerow-link {
+  @at-root {
+    &:hover,
+    .#{$ns}-readonlytable-pinfirst#{&}:hover .#{$ns}-readonlytablecell-action,
+    .#{$ns}-readonlytable-pinlast#{&}:hover .#{$ns}-readonlytablecell-action {
+      background: $xui-table-link-hover-bg-color;
+    }
+
+    &:active,
+    .#{$ns}-readonlytable-pinfirst#{&}:active .#{$ns}-readonlytablecell-action,
+    .#{$ns}-readonlytable-pinlast#{&}:active .#{$ns}-readonlytablecell-action {
+      background: $xui-table-link-active-bg-color;
+    }
+
+    &:focus,
+    .#{$ns}-readonlytable-pinfirst#{&}:focus .#{$ns}-readonlytablecell-action,
+    .#{$ns}-readonlytable-pinlast#{&}:focus .#{$ns}-readonlytablecell-action {
+      outline: 0;
+    }
+  }
+}
+
+.#{$ns}-readonlytable--sortbutton {
+  background: $xui-table-bg-color;
+  cursor: pointer;
+  height: 100%;
+  line-height: $xui-line-height-standard;
+  min-width: $xui-minimum-touch-target;
+  outline: 0;
+  overflow: hidden;
+  padding: $xui-s-xsmall $xui-s-small;
+  position: relative;
+  transition: {
+    duration: $xui-motion-speed-fast;
+    property: background, color;
+  }
+
+  &:hover {
+    color: $xui-table-sortbutton-hover-color;
+  }
+
+  &:focus {
+    background: $xui-table-sortbutton-focus-bg-color;
+  }
+
+  &:active {
+    background: $xui-table-sortbutton-active-bg-color;
+  }
+}
+
+.#{$ns}-readonlytable--sortbuttoncontent {
+  padding: 0;
+  transition: padding $xui-motion-speed-fast;
+
+  // Left aligned sort button: Always create space for the sort icon.
+  &-active,
+  .#{$ns}-readonlytablecell:not(.#{$ns}-readonlytablecell-rightaligned) &:not(&-rightaligned) {
+    padding-right: $xui-s-standard;
+  }
+
+  // Right aligned sort button: Only create space for the sort icon when the sort icon is visible.
+  &-rightaligned#{&}-active,
+  .#{$ns}-readonlytablecell-rightaligned &-active {
+    padding-right: $xui-s-standard;
+  }
+
+  // Table columns will change widths when the following is true:
+  // - Column width is auto
+  // - Column header is the widest column
+  // - Column header content changes
+  //
+  // This makes adding padding-right problematic as it will cause the table columns to potentially
+  // change width. To fix this we add a padding-left as placeholder padding.
+
+  &-rightaligned:not(&-active),
+  .#{$ns}-readonlytablecell-rightaligned &:not(&-active) {
+    padding-left: $xui-s-standard;
+  }
+}
+
+.#{$ns}-readonlytable--sorticonwrapper {
+  display: inline-block;
+  margin-left: $xui-s-xsmall;
+  position: absolute;
+}
+
+.#{$ns}-readonlytable--sorticonwrapper-hidden {
+  opacity: 0;
+}
+
+.#{$ns}-readonlytable--sorticon {
+  transition: transform $xui-motion-speed-fast;
+  vertical-align: middle;
+}
+
+.#{$ns}-readonlytable-pinfirst {
+  .#{$ns}-readonlytablecell {
+    &:first-child {
+      background-color: $xui-editabletable-bg-color;
+      left: 0;
+      position: sticky;
+      z-index: $xui-table-z-pinned-column;
+    }
+  }
+}
+
+.#{$ns}-readonlytable-pinlast {
+  .#{$ns}-readonlytablecell {
+    &:last-child {
+      background-color: $xui-editabletable-bg-color;
+      position: sticky;
+      right: 0;
+      z-index: $xui-table-z-pinned-column;
+    }
+  }
+}
+
+.#{$ns}-readonlytableoverflow-pinoverflowleft {
+  .#{$ns}-readonlytablecell:first-child {
+    &:before {
+      @include xui-readonlytable-overflow;
+      left: 100%;
+    }
+  }
+}
+
+.#{$ns}-readonlytableoverflow-pinoverflowright {
+  .#{$ns}-readonlytablecell:last-child {
+    &:before {
+      @include xui-readonlytable-overflow;
+      right: 100%;
+    }
+  }
+}
+
+.#{$ns}-readonlytable--checkbox-body,
+.#{$ns}-readonlytable--checkbox-head {
+  margin: 2px;
+  position: absolute;
+}
+
+.#{$ns}-readonlytable--checkbox-body {
+  left: $xui-s-small;
+  top: $xui-s-small;
+}
+
+.#{$ns}-readonlytable--checkbox-head {
+  left: 0;
+  padding: $xui-s-xsmall $xui-s-small;
+  top: 0;
+}
+
+.#{$ns}-readonlytable--overflowmenu-body {
+  position: absolute;
+  right: $xui-s-2xsmall;
+  top: $xui-s-2xsmall;
+}
+
+.#{$ns}-readonlytable--customheader {
+  border-bottom: $xui-border-standard;
+  > * {
+    border-radius: $xui-radius $xui-radius 0 0;
+  }
+}
+
+.#{$ns}-readonlytable--customfooter {
+  border-top: $xui-border-standard;
+  > * {
+    border-radius: 0 0 $xui-radius $xui-radius;
+  }
+}
+
+.#{$ns}-readonlytable--alert {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 140px;
+  position: relative;
+  z-index: $xui-table-z-alert;
+}
+
+.#{$ns}-readonlytable--loader {
+  @include xui-shadow-border-top($xui-standard-border-color);
+}
+
+.#{$ns}-readonlytablecell {
+  @include xui-shadow-border-bottom($xui-standard-border-color, true);
+
+  background: inherit;
+  padding: 0;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.#{$ns}-readonlytableheadingcell {
+  @include xui-heading-separator;
+  vertical-align: middle;
+}
+
+.#{$ns}-readonlytablecell-rightaligned {
+  text-align: right;
+}
+
+.#{$ns}-readonlytableheadingcell--placeholder,
+.#{$ns}-readonlytablecell--placeholder {
+  width: $xui-s-4xlarge;
+}
+
+// Don't add a top border to the first row of cells
+.#{$ns}-readonlytable > :first-child > :first-child > .#{$ns}-readonlytablecell {
+  box-shadow: none;
+}
+
+.#{$ns}-readonlytablebody .#{$ns}-readonlytablecell {
+  height: $xui-s-4xlarge;
+  min-height: $xui-s-4xlarge;
+}
+
+.#{$ns}-readonlytablehead .#{$ns}-readonlytablecell {
+  background: $xui-table-bg-color;
+  height: $xui-s-3xlarge;
+  min-height: $xui-s-3xlarge;
+  padding: 0;
+  white-space: nowrap;
+  > span {
+    padding: $xui-s-xsmall $xui-s-small;
+    white-space: nowrap;
+  }
+}
+
+.#{$ns}-readonlytablecell-singleline {
+  white-space: nowrap;
+}
+
+.#{$ns}-readonlytablecell:not(.#{$ns}-readonlytablecell-singleline) {
+  max-width: 300px;
+  overflow-wrap: break-word;
+}
+
+.#{$ns}-readonlytablecell-link {
+  cursor: pointer;
+  outline: 0;
+  transition: {
+    duration: $xui-motion-speed-fast;
+    property: background;
+  }
+
+  &:focus {
+    background: $xui-table-link-focus-bg-color;
+  }
+}
+
+.#{$ns}-readonlytable-nopointerevents .#{$ns}-readonlytablecell-link,
+.#{$ns}-readonlytablecell-hasprecedence.#{$ns}-readonlytablecell-link {
+  &:hover {
+    background: $xui-table-link-hover-bg-color;
+  }
+  &:active {
+    background: $xui-table-link-active-bg-color;
+  }
+}
+
+.#{$ns}-readonlytablecell-action {
+  min-width: $xui-table-action-offset;
+  width: $xui-table-action-offset;
+}
+
+.#{$ns}-readonlytablecell-layout {
+  padding: $xui-s-small;
+}
+
+.#{$ns}-readonlytable--emptystate {
+  align-items: center;
+  color: $xui-color-grey-alpha-2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.#{$ns}-readonlytablewrapper--scrollcontainer {
+  @include xui-tablewrapper-scrollcontainer;
+}

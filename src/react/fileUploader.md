@@ -6,33 +6,34 @@
 
 `XUIFileUploader` is responsible for the file input and file list rendering, not the actual uploading process.
 
-`onFilesChange` (`(fileList, event) => {}`) is called when the file input is changed (open or drop files). `fileList` is controlled by implementors and is passed to `XUIFileUploader`. The structure of `fileList`:
+`onFilesChange` (`(fileList, event) => {}`) is called when the file input is changed (open or drop files). `fileList` is controlled by implementors and is passed to `XUIFileUploader`. `fileList` should be an array of `FileObject`s:
 
-```markup
+```js static
 {
   uid: String, // Unique identifier used as a file key. This value is generated when the file input changed, and should not be modified
   status: String, // User could change it to: uploading / done / error
   originalFile: File, // Original File object
   errorMessage: String, // Optional, custom error message, will overwrite prop `defaultErrorMessage`
   rightContent: ReactNode, // Optional, custom rightContent for files with `done` status, shows in the left of delete icon
+  uploadProgressPercentage: Number // Optional, percentage of upload completed. When present, the progress icon will illustrate completion amount. Must be an integer between 0 and 100 inclusive.
 }
 ```
 
 ```jsx harmony
-import { v4 as uuidv4 } from 'uuid';
-import { useState } from 'react';
+import { nanoid } from 'nanoid';
+import { useState, useEffect } from 'react';
 import XUIButton from '@xero/xui/react/button';
 import XUIFileUploader from '@xero/xui/react/fileUploader';
 import { defaultProps, fakeUpload } from './components/fileUploader/private/helpers';
 
 const defaultFileList = [
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'uploading',
     originalFile: new File([new ArrayBuffer(123456)], 'test1.jpg', { type: 'image/jpeg' })
   },
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'done',
     originalFile: new File([new ArrayBuffer(12345678)], 'test2.pdf', { type: 'application/pdf' }),
     rightContent: (
@@ -42,14 +43,34 @@ const defaultFileList = [
     )
   },
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'error',
     originalFile: new File([new ArrayBuffer(12345)], 'test3.zip', { type: 'application/zip' })
+  },
+  {
+    uid: nanoid(10),
+    status: 'uploading',
+    originalFile: new File([new ArrayBuffer(12345)], 'test4.zip', { type: 'application/zip' }),
+    uploadProgressPercentage: 0
   }
 ];
 
 const Example = () => {
   const [fileList, setFileList] = useState(defaultFileList);
+
+  useEffect(() => {
+    const incrementUpload = setInterval(() => {
+      let newFileList = fileList;
+      newFileList[3].uploadProgressPercentage += 10;
+      if (newFileList[3].uploadProgressPercentage === 100) {
+        newFileList[3].uploadProgressPercentage = 0;
+      }
+      setFileList([...newFileList]);
+    }, 2000);
+    return () => {
+      clearInterval(incrementUpload);
+    };
+  });
 
   const handleFileUpload = (files, newFileList) => {
     files.forEach(file => {
@@ -112,6 +133,22 @@ const Example = () => {
 };
 <Example />;
 ```
+
+### Communicating Upload Progress
+
+If your users may be uploading large files, it's a good idea to visually communicate the upload progress to them, so they know it's making progress.
+You can achieve this by supplying the `uploadProgressPercentage` value a percentage of upload completed in your `FileObject`.
+
+```jsx harmony static
+{
+    uid: nanoid(10),
+    status: 'uploading',
+    originalFile: { name: 'test1.jpg', type: 'image/jpeg', size: 11111 },
+    uploadProgressPercentage: 50,
+},
+```
+
+**Note:** Currently, the native `fetch` method does not support tracking the progress of the upload. You can achieve this via Axios or XHR, examples of each can be found [here](https://confluence.teamxero.com/display/~alexander.lee/Upload+Progress+in+XUIFileUploader).
 
 ## Drag and Drop
 
@@ -295,24 +332,24 @@ Prop `showFilesAsMultiline` and `showIcon` are used to change the style of fileL
 **Note:** The styles for error status will not be influenced by these two props, and the uploading spinner will not be influenced by the `showIcon` prop.
 
 ```jsx harmony
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import XUIFileUploader from '@xero/xui/react/fileUploader';
 import { defaultProps, fakeUpload } from './components/fileUploader/private/helpers';
 
 const defaultFileList = [
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'uploading',
     originalFile: new File([new ArrayBuffer(123456)], 'test1.jpg', { type: 'image/jpeg' })
   },
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'done',
     originalFile: new File([new ArrayBuffer(12345678)], 'test2.pdf', { type: 'application/pdf' })
   },
   {
-    uid: uuidv4(),
+    uid: nanoid(10),
     status: 'error',
     originalFile: new File([new ArrayBuffer(12345)], 'test3.zip', { type: 'application/zip' })
   }

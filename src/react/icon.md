@@ -7,7 +7,7 @@
 1. Import required icon paths (the below examples use require; you should use es2015 import).
 1. Instance `XUIIcon` with imported icon path (for standardised viewbox sizing) or the icon object (for icon-specific sizing that is only as big as the underlying icon)
 
-We recommend supplying values to the `title` and/or `desc` props to include text descriptions of the icon, unless copy in a sibling element provides ample context or the icon is non-functional. For example, descriptive text would probably not be necessary for a bank icon on a select box with a label of _Select your bank_, but for an overflow menu icon or a file type icon, descriptive text would provide crucial information to assistive technology.
+We recommend supplying values to the `title` and/or `description` props to include text descriptions of the icon, unless copy in a sibling element provides ample context or the icon is non-functional. For example, descriptive text would probably not be necessary for a bank icon on a select box with a label of _Select your bank_, but for an overflow menu icon or a file type icon, descriptive text would provide crucial information to assistive technology.
 
 ```jsx harmony
 import star from '@xero/xui-icon/icons/star';

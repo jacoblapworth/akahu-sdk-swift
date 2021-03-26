@@ -1,7 +1,8 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAutocompleter from '../XUIAutocompleter';
 import XUIPill from '../../pill/XUIPill';
@@ -10,12 +11,11 @@ import XUIPickitem from '../../picklist/XUIPickitem';
 import XUILoader from '../../loader/XUILoader';
 import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
 import XUIDropdownLayout from '../../dropdown/XUIDropdownLayout';
-import { v4 as uuidv4 } from 'uuid';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import wait from '../../../helpers/wait';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testAutocompleterId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testAutocompleterId');
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
@@ -112,18 +112,18 @@ describe('XUIAutocompleter', () => {
     ]);
   });
 
-  it('renders with loading as false by default', () => {
+  it('renders with isLoading as false by default', () => {
     const wrapper = mount(createComponent({ onSearch: jest.fn() }));
-    expect(wrapper.prop('loading')).toBeFalsy();
+    expect(wrapper.prop('isLoading')).toBeFalsy();
   });
 
-  it('displays a XUILoader when loading is true', () => {
+  it('displays a XUILoader when isLoading is true', () => {
     const wrapper = mount(
-      createComponent({ onSearch: jest.fn(), loading: true, loadingAriaLabel: '' }),
+      createComponent({ onSearch: jest.fn(), isLoading: true, loadingAriaLabel: '' }),
     );
 
     expect(wrapper.find(XUILoader)).toBeDefined();
-    expect(wrapper.prop('loading')).toBeTruthy();
+    expect(wrapper.prop('isLoading')).toBeTruthy();
   });
 
   it('renders pills as children passed in through the pills prop', () => {
@@ -169,7 +169,7 @@ describe('XUIAutocompleter', () => {
       createComponent({
         onSearch: jest.fn(),
         disableWrapPills: true,
-        pills: [<XUIPill value="test" key="1" />],
+        pills: [<XUIPill key="1" value="test" />],
       }),
     );
     expect(disableWrapPills.find('.xui-autocompleter--pills-nopillwrap').length).toEqual(1);
@@ -281,6 +281,40 @@ describe('XUIAutocompleter', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  it('makes sure that onOptionSelect is called and verify keyboard bindings', async () => {
+    // Arrange
+    const onOptionSelect = jest.fn();
+
+    const wrapper = mount(
+      createComponent({
+        onSearch: jest.fn(),
+        onOptionSelect,
+      }),
+    );
+    const input = wrapper.find('input');
+
+    // Act
+    wrapper.instance().openDropdown();
+
+    input.simulate('change', {
+      target: {
+        value: 'item2',
+      },
+    });
+
+    input.simulate('keydown', { key: eventKeyValues.enter });
+
+    /**
+     * Why are we awaiting a 0ms timer?
+     * Rationale: To ensure that the test assertion runs after all the required re-renders have taken placed.
+     * Important: If jest.useFakeTimers() is used, this test must be placed in a separate describe test.
+     */
+    await wait();
+
+    // Assert
+    expect(onOptionSelect).toHaveBeenCalled();
+  });
+
   it('makes sure that onSearch gets called before onOptionSelect', async () => {
     // Arrange
     const onSearch = jest.fn();
@@ -288,7 +322,7 @@ describe('XUIAutocompleter', () => {
 
     const wrapper = mount(
       createComponent({
-        onSearch: onSearch,
+        onSearch,
         onOptionSelect,
       }),
     );

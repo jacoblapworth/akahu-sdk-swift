@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIDropdown from '../XUIDropdown';
@@ -34,9 +34,9 @@ describe('<XUIDropdown /> size classes', () => {
       expect(wrapper.getDOMNode().classList.contains(maxWidthDropdownSizes[size])).toBeTruthy();
     });
 
-    it(`${size} outputs fixed-width class when fixedWidth prop is set`, () => {
+    it(`${size} outputs fixed-width class when hasFixedWidth prop is set`, () => {
       const wrapper = mount(
-        <XUIDropdown size={size} fixedWidth>
+        <XUIDropdown hasFixedWidth size={size}>
           <strong>test</strong>
         </XUIDropdown>,
       );
@@ -90,7 +90,7 @@ describe('forceStatefulPicklist prop', () => {
 
   it('renders a automation id when a qaHook is passed', () => {
     const automationid = renderer.create(
-      <XUIDropdown qaHook="dropdown-test" id="1">
+      <XUIDropdown id="1" qaHook="dropdown-test">
         <XUIPicklist>
           <XUIPickitem id="required-id">List Item</XUIPickitem>
         </XUIPicklist>
@@ -102,7 +102,7 @@ describe('forceStatefulPicklist prop', () => {
 
   it('renders qaHooks on inner components when stateful picklist is not being used', () => {
     const automationid = renderer.create(
-      <XUIDropdown qaHook="dropdown-test" id="1">
+      <XUIDropdown id="1" qaHook="dropdown-test">
         <ul>
           <li id="required-id">List Item</li>
         </ul>

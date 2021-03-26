@@ -105,8 +105,13 @@ import React from 'react';
 import XUITooltip from './tooltip';
 
 class ClassComponentExample extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.rootNode = React.createRef();
+  }
   render() {
-    return <span ref={el => (this.rootNode = el)}>class component example</span>;
+    return <span ref={this.rootNode}>class component example</span>;
   }
 }
 

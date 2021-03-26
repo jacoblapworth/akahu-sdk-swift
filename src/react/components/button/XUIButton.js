@@ -14,7 +14,6 @@ import {
 import { ns } from '../helpers/xuiClassNamespace';
 import noop from '../helpers/noop';
 import SizeContext from '../../contexts/SizeContext';
-import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 
 /**
  * Returns true if the button is a borderless variant
@@ -51,11 +50,13 @@ const getHref = href => (!href || href === '#' ? '' : href);
  * @private
  * @param {XUIButton} button
  */
-const focusRootNode = button => button.rootNode != null && button.rootNode.focus();
+const focusRootNode = button => button.rootNode?.current?.focus();
 
 const defaultSize = 'medium';
 
 export default class XUIButton extends React.PureComponent {
+  rootNode = React.createRef();
+
   /**
    * Focus the button.
    *
@@ -65,7 +66,7 @@ export default class XUIButton extends React.PureComponent {
     focusRootNode(this);
     // Apparently there are times when calling focus won't actually do it.  I think
     // React's getting in the way, but I'm not sure yet....
-    if (this.rootNode !== document.activeElement) {
+    if (this.rootNode.current !== document.activeElement) {
       setTimeout(focusRootNode, 0, this);
     }
   }
@@ -77,7 +78,7 @@ export default class XUIButton extends React.PureComponent {
    * @return {boolean}
    */
   hasFocus() {
-    return this.rootNode == null ? false : this.rootNode.contains(document.activeElement);
+    return this.rootNode == null ? false : this.rootNode.current?.contains(document.activeElement);
   }
 
   render() {
@@ -98,7 +99,7 @@ export default class XUIButton extends React.PureComponent {
             isLoading,
             leftIcon,
             loadingAriaLabel,
-            minLoaderWidth,
+            hasMinLoaderWidth,
             onClick,
             onKeyDown,
             qaHook,
@@ -144,12 +145,9 @@ export default class XUIButton extends React.PureComponent {
                 />
               )}
               {hasCaret && (
-                <XUIIcon
-                  className={cn(`${ns}-button--caret`, _caretClassName)}
-                  icon={caret}
-                  isBoxed
-                  size={size}
-                />
+                <div className={cn(`${ns}-button--caret`, _caretClassName)}>
+                  <XUIIcon icon={caret} size={size} />
+                </div>
               )}
             </>
           );
@@ -158,7 +156,7 @@ export default class XUIButton extends React.PureComponent {
             <XUILoader
               ariaLabel={loadingAriaLabel}
               className={`${ns}-button--loader`}
-              defaultLayout={false}
+              hasDefaultLayout={false}
               key={retainLayout && isLoading ? 'button-loader' : null}
               retainLayout={retainLayout}
               size="small"
@@ -186,7 +184,7 @@ export default class XUIButton extends React.PureComponent {
                 ? `${ns}-button-borderless-inverted`
                 : `${ns}-button-inverted`),
             isGrouped && `${ns}-button-grouped`,
-            minLoaderWidth && `${ns}-button-min-loader-width`,
+            hasMinLoaderWidth && `${ns}-button-min-loader-width`,
             (leftIcon || rightIcon || hasCaret) && `${ns}-button-has-icon`,
           );
 
@@ -230,11 +228,7 @@ export default class XUIButton extends React.PureComponent {
           };
 
           return (
-            <ElementType
-              ref={n => (this.rootNode = n)}
-              {...elementProps}
-              data-automationid={qaHook}
-            >
+            <ElementType ref={this.rootNode} {...elementProps} data-automationid={qaHook}>
               {buttonChildren}
             </ElementType>
           );
@@ -267,6 +261,9 @@ XUIButton.propTypes = {
 
   /** Has dropdown caret */
   hasCaret: PropTypes.bool,
+
+  /** Use this to specify a min width on the button, when you want to swap to loading states */
+  hasMinLoaderWidth: PropTypes.bool,
 
   /** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
   href: PropTypes.string,
@@ -303,9 +300,6 @@ XUIButton.propTypes = {
    * `isLoading` prop is set to `true`.
    */
   loadingAriaLabel: PropTypes.string,
-
-  /** Use this to specify a min width on the button, when you want to swap to loading states */
-  minLoaderWidth: PropTypes.bool,
 
   /** Bind a function to fire when the button is clicked */
   onClick: PropTypes.func,

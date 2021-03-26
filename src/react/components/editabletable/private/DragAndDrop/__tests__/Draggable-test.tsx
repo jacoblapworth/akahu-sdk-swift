@@ -1,8 +1,8 @@
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { nanoid } from 'nanoid';
 import React from 'react';
 import { DragDropContext, Draggable as RBDDraggable, Droppable } from 'react-beautiful-dnd';
-import { v4 as uuidv4 } from 'uuid';
 
 import NOOP from '../../../../helpers/noop';
 import { borderSpacing } from '../../constants';
@@ -12,8 +12,10 @@ import Draggable from '../Draggable';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => '123');
+jest.mock('nanoid');
+// eslint-disable-next-line
+// @ts-ignore: Ignoring mocked nanoid type
+nanoid.mockImplementation(() => '123');
 
 describe('Draggable', () => {
   describe('general changes the wrapper makes', () => {

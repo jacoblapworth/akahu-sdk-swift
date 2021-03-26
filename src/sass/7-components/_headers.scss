@@ -14,7 +14,6 @@
     align-items: stretch;
     display: flex;
     justify-content: space-between;
-    min-height: inherit; // IE11 bug fix
   }
   &--content-layout {
     flex-flow: row wrap;
@@ -152,7 +151,7 @@
 
 // Calculating these values here to avoid ‘random’ magic numbers
 $isolationheader-control-spacing: ($xui-navigation-height - $xui-control-size-standard) / 2;
-$isolationheader-text-spacing: ($xui-navigation-height - $xui-line-height-standard) / 2;
+$isolationheader-text-spacing: ($xui-navigation-height - $xui-s-xlarge) / 2;
 
 .#{$ns}-isolationheader {
   @include header('#{$ns}-isolationheader');
@@ -178,7 +177,6 @@ $isolationheader-text-spacing: ($xui-navigation-height - $xui-line-height-standa
     @include xui-padding-vertical($isolationheader-control-spacing);
     align-items: flex-start;
     display: flex;
-    flex: 0 0 auto; // For IE11
     .#{$ns}-button {
       @include xui-margin-right($xui-s-small);
     }

@@ -229,12 +229,11 @@
 // Dropdowns
 //
 // To create a button that triggers a dropdown, include a caret icon to indicate additional options are available behind the button.
-// To do this, include the SVG in an [icon wrapper](/section-fundamentals-icons.html#fundamentals-icons-3) alongside the button
-// and apply the following modifier to provide the correct layout.
+// To do this, include the SVG alongside the button and apply the following modifier to provide the correct layout.
 //
 // Classes:
 // xui-button-has-icon: Apply to button to ensure the content has the correct layout
-// xui-button--caret: Apply to icon wrapper
+// xui-button--caret: Apply to icon to ensure the caret has the correct layout
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -259,12 +258,10 @@
 // Split
 //
 // To seperate an action from similar, but secondary actions that appear behind a dropdown, use a split button.
-// Use a button group, but for the last child, insert an icon instead of text. As with any icon-only button, add an aria-label for accessibility.
-// The following modifiers must also be applied to provide the correct layout.
 //
-// Classes:
-// xui-button-split: Apply to dropdown trigger button
-// xui-button--caret: Apply to icon
+// Use a button group, but for the last child, insert a caret icon instead of text. To do this, include the SVG in an [icon wrapper](/section-fundamentals-icons.html#fundamentals-icons-3). As with any icon-only button, add an aria-label for accessibility.
+//
+// Classes: xui-button-split: Apply to dropdown trigger button
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //

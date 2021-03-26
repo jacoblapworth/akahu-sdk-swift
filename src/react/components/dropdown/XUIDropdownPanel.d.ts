@@ -136,5 +136,5 @@ export default class XUIDropdownPanel extends React.PureComponent<Props> {
   /**
    * Root node to enable users to access as a ref.
    */
-  rootNode: HTMLElement | null;
+  rootNode: React.RefObject<HTMLElement>;
 }

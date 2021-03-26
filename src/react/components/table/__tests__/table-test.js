@@ -1,14 +1,20 @@
 import React from 'react';
-import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Enzyme, { mount, render } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import toJson from 'enzyme-to-json';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import TestScaffold from '../stories/stories';
 import { variations } from '../stories/variations';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testDropdownId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testDropdownId');
+
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useLayoutEffect: jest.requireActual('react').useEffect,
+}));
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
@@ -17,10 +23,11 @@ describe('<XUITable />', () => {
   describe('emulate stories', () => {
     variations.forEach(({ storyKind, storyTitle, examples }) => {
       it(`should render scenario "${storyKind} ${storyTitle}" correctly`, () => {
-        const Comparison = examples.map(TestScaffold);
-        const component = renderer.create(<div>{Comparison}</div>);
+        // Arrange
+        const wrapper = render(<div>{examples.map(TestScaffold)}</div>);
 
-        expect(component).toMatchSnapshot();
+        // Assert
+        expect(toJson(wrapper)).toMatchSnapshot();
       });
     });
   });

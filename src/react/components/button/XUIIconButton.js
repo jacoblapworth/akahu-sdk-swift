@@ -17,7 +17,7 @@ export default class XUIIconButton extends PureComponent {
     const {
       ariaLabel,
       className,
-      desc,
+      description,
       icon,
       iconColor,
       iconSize,
@@ -39,12 +39,13 @@ export default class XUIIconButton extends PureComponent {
           iconSizeClass,
           iconVariantClassNames[isInverted ? 'icon-inverted' : 'icon'],
         )}
-        ref={n => (this.rootNode = n && n.rootNode)}
+        // NB: Passing up the rootNode ref of the XUIButton to be the rootNode ref of XUIIconButton
+        ref={n => (this.rootNode = n?.rootNode)}
         variant="unstyled"
       >
         <XUIIcon
           color={iconColor}
-          desc={desc}
+          description={description}
           icon={icon}
           role={role}
           rotation={rotation}
@@ -63,7 +64,7 @@ XUIIconButton.propTypes = {
   className: PropTypes.string,
 
   /** Description of the icon to be read by screen readers */
-  desc: PropTypes.string,
+  description: PropTypes.string,
 
   /** The `href` attribute to use on the anchor element (ignored unless `isLink` is `true`) */
   href: PropTypes.string,

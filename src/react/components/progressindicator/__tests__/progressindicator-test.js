@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIProgressLinear from '../XUIProgressLinear';
@@ -64,17 +64,6 @@ describe('<XUIProgressIndicator />', () => {
 
     expect(isHardError).toBeTruthy();
     expect(toJson(component)).toMatchSnapshot();
-  });
-
-  it('should render with a canvas element if it thinks the browser is IE11', () => {
-    // Hack IE11 feature detection
-    window.navigator.msPointerEnabled = true;
-
-    const component = mount(<XUIProgressCircular {...baseProps} />);
-
-    expect(toJson(component)).toMatchSnapshot();
-
-    delete window.navigator.msPointerEnabled;
   });
 
   it('should render supplied content as a child of the nested progress indicator', () => {

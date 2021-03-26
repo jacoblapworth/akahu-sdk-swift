@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { shallow, mount, render } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIPill from '../XUIPill';
@@ -204,7 +204,7 @@ describe('<XUIPill />', () => {
   });
 
   it('should render a pill with the maxwidth limiting class', () => {
-    const pill = renderer.create(<XUIPill isLimitedWidth />);
+    const pill = renderer.create(<XUIPill hasLimitedWidth />);
 
     expect(pill).toMatchSnapshot();
   });

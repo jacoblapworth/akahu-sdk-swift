@@ -1,8 +1,8 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAccordion from '../XUIAccordion';
 import XUIAccordionItem from '../XUIAccordionItem';
@@ -10,9 +10,8 @@ import XUIAccordionItem from '../XUIAccordionItem';
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
-jest.mock('uuid', () => ({
-  v4: jest.fn(() => '123'),
-}));
+jest.mock('nanoid');
+nanoid.mockImplementation(() => '123');
 
 const qaHook = 'test-id';
 
@@ -102,7 +101,7 @@ describe('<XUIAccordion />', () => {
 
   it('should render only one item open by default', () => {
     // Multiple XUIAccordionItems can't have the same id because it will render all of them as open.
-    uuidv4.mockReturnValue('abc').mockReturnValueOnce('001').mockReturnValueOnce('002');
+    nanoid.mockReturnValue('abc').mockReturnValueOnce('001').mockReturnValueOnce('002');
 
     const component = mount(
       <XUIAccordion

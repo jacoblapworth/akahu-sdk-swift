@@ -336,7 +336,7 @@ class XUIStatefulPicklist extends Component {
 
   render() {
     const spl = this;
-    const { children, qaHook, className, canFocus, id, secondaryProps } = spl.props;
+    const { children, qaHook, className, isFocusable, id, secondaryProps } = spl.props;
 
     return (
       <XUIStatefulPicklistWrapper
@@ -346,9 +346,8 @@ class XUIStatefulPicklist extends Component {
         data-automationid={qaHook}
         id={id}
         onKeyDown={spl.onKeyDown}
-        onMouseDown={e => e.preventDefault()}
         ref={spl.list}
-        tabIndex={canFocus ? 0 : null}
+        tabIndex={isFocusable ? 0 : null}
       >
         {cloneChildren(children, spl)}
       </XUIStatefulPicklistWrapper>
@@ -357,9 +356,6 @@ class XUIStatefulPicklist extends Component {
 }
 
 XUIStatefulPicklist.propTypes = {
-  /** Whether or not the user should be allowed to tab to this component */
-  canFocus: PropTypes.bool,
-
   children: PropTypes.node,
   className: PropTypes.string,
 
@@ -368,6 +364,9 @@ XUIStatefulPicklist.propTypes = {
 
   /** AN array of keydown keycodes to be ignored from dropdown behaviour. */
   ignoreKeyboardEvents: PropTypes.array,
+
+  /** Whether or not the user should be allowed to tab to this component */
+  isFocusable: PropTypes.bool,
 
   /** Whether to use left/right arrow keys to move between pickitems as opposed to up/down */
   isHorizontal: PropTypes.bool,
@@ -388,8 +387,8 @@ XUIStatefulPicklist.propTypes = {
 };
 
 XUIStatefulPicklist.defaultProps = {
-  canFocus: false,
   ignoreKeyboardEvents: [],
+  isFocusable: false,
   secondaryProps: {
     role: 'tree',
   },

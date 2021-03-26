@@ -1,16 +1,16 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
 import PickitemMultiselect from '../private/PickitemMultiselect';
-import { v4 as uuidv4 } from 'uuid';
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testPickitemCheckboxId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testPickitemCheckboxId');
 
 describe('<PickitemMultiselect />', () => {
   it('basic example', () => {
@@ -20,7 +20,7 @@ describe('<PickitemMultiselect />', () => {
 
   it('is selected, adds truncation and custom classes', () => {
     const truncation = renderer.create(
-      <PickitemMultiselect shouldTruncate isSelected checkboxClassName="custom-checkbox">
+      <PickitemMultiselect checkboxClassName="custom-checkbox" isSelected shouldTruncate>
         Item
       </PickitemMultiselect>,
     );

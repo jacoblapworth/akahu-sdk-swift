@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import XUIButton from '../button/XUIButton';
 import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
@@ -55,7 +55,7 @@ const XUIFileUploader = ({
 
   const handleOnChange = (files, event) => {
     const enhancedFileList = [...files].map(file => ({
-      uid: uuidv4(), // A unique identifier used as the key of file items
+      uid: nanoid(10), // A unique identifier used as the key of file items
       status: '', // user could change it to: uploading / error / done
       originalFile: file, // original File object
     }));
@@ -207,6 +207,7 @@ XUIFileUploader.propTypes = {
    *   originalFile: File, // Original File object
    *   errorMessage: String, // Optional, custom error message, will overwrite prop `defaultErrorMessage`
    *   rightContent: ReactNode, // Optional, custom rightContent for files with `done` status, shows in the left of delete icon
+   *   uploadProgressPercentage: Number, // Optional, percentage of upload completed. When present, the progress icon will illustrate completion amount. Must be an integer between 0 and 100 inclusive.
    * }
    */
   fileList: PropTypes.array.isRequired,

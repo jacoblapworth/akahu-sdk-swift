@@ -150,16 +150,16 @@ class EventReadyWrapper extends PureComponent {
   constructor() {
     super();
     this.node = null;
+    this.rootNode = React.createRef();
   }
 
   componentDidMount() {
     setTimeout(() => {
       const { rootNode } = this;
 
-      rootNode &&
-        rootNode
-          .querySelectorAll('.xui-chart--content')
-          .forEach(contentNode => (contentNode.scrollLeft = 0));
+      rootNode.current
+        ?.querySelectorAll('.xui-chart--content')
+        .forEach(contentNode => (contentNode.scrollLeft = 0));
       logReadyState('xui-bar-chart-ready-event');
     }, 100);
   }
@@ -167,7 +167,7 @@ class EventReadyWrapper extends PureComponent {
   render() {
     return (
       <div
-        ref={node => (this.rootNode = node)}
+        ref={this.rootNode}
         style={{
           display: 'flex',
           flexWrap: 'wrap',

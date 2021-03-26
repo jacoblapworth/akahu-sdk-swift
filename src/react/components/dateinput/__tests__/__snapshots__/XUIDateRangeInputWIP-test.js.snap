@@ -6,6 +6,7 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
 >
   <div
     className="xui-inputgroup xui-inputgroup-horizontal xui-inputgroup-is-bottomaligned"
+    data-automationid="test"
     role="group"
     style={
       Object {
@@ -60,7 +61,8 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
             <input
               aria-invalid={null}
               className="xui-textinput--input xui-textinput--input-medium"
-              id="testDateinputId-control"
+              data-automationid="test-daterangeinput-firstinput-dateinputitem--input--input"
+              id="xui-testDateinputId-control"
               onBlurCapture={[Function]}
               onChange={[Function]}
               onFocusCapture={[Function]}
@@ -122,7 +124,8 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
             <input
               aria-invalid={null}
               className="xui-textinput--input xui-textinput--input-medium"
-              id="testDateinputId-control"
+              data-automationid="test-daterangeinput-secondinput-dateinputitem--input--input"
+              id="xui-testDateinputId-control"
               onBlurCapture={[Function]}
               onChange={[Function]}
               onFocusCapture={[Function]}
@@ -139,13 +142,14 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
     </div>
     <div
       className="xui-daterangeinput--convenience xui-dropdown--toggledwrapper"
+      data-automationid="test-daterangeinput-conveniencedates"
       data-ref="toggled-wrapper"
       role="presentation"
     >
       <button
         aria-activedescendant={null}
         aria-haspopup="listbox"
-        className="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped xui-button-has-icon"
+        className="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped"
         disabled={false}
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -153,22 +157,18 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
         tabIndex={0}
         type="button"
       >
-        <div
-          className="xui-button--caret xui-iconwrapper xui-iconwrapper-medium"
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={5}
+          viewBox="0 0 10 5"
+          width={10}
         >
-          <svg
-            className="xui-icon"
-            focusable="false"
-            height={5}
-            viewBox="0 0 10 5"
-            width={10}
-          >
-            <path
-              d="M0 0l5 5 5-5z"
-              role="presentation"
-            />
-          </svg>
-        </div>
+          <path
+            d="M0 0l5 5 5-5z"
+            role="presentation"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -235,7 +235,7 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
             <input
               aria-invalid={null}
               className="xui-textinput--input xui-textinput--input-medium"
-              id="testDateinputId-control"
+              id="xui-testDateinputId-control"
               onBlurCapture={[Function]}
               onChange={[Function]}
               onFocusCapture={[Function]}
@@ -297,7 +297,7 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
             <input
               aria-invalid={null}
               className="xui-textinput--input xui-textinput--input-medium"
-              id="testDateinputId-control"
+              id="xui-testDateinputId-control"
               onBlurCapture={[Function]}
               onChange={[Function]}
               onFocusCapture={[Function]}
@@ -320,7 +320,7 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
       <button
         aria-activedescendant={null}
         aria-haspopup="listbox"
-        className="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped xui-button-has-icon"
+        className="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped"
         disabled={false}
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -328,22 +328,18 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
         tabIndex={0}
         type="button"
       >
-        <div
-          className="xui-button--caret xui-iconwrapper xui-iconwrapper-medium"
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={5}
+          viewBox="0 0 10 5"
+          width={10}
         >
-          <svg
-            className="xui-icon"
-            focusable="false"
-            height={5}
-            viewBox="0 0 10 5"
-            width={10}
-          >
-            <path
-              d="M0 0l5 5 5-5z"
-              role="presentation"
-            />
-          </svg>
-        </div>
+          <path
+            d="M0 0l5 5 5-5z"
+            role="presentation"
+          />
+        </svg>
       </button>
     </div>
   </div>

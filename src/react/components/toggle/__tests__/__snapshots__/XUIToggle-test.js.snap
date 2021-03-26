@@ -30,12 +30,12 @@ exports[`XUIToggle should have a visible label if provided 1`] = `
 >
   <span
     className="xui-text-label xui-fieldlabel-layout"
-    id="testCheckboxId"
+    id="xui-testCheckboxId"
   >
     This is a toggle
   </span>
   <div
-    aria-labelledby="testCheckboxId"
+    aria-labelledby="xui-testCheckboxId"
     className="xui-toggle xui-toggle-medium"
     role="radiogroup"
   />

@@ -22,6 +22,12 @@ exports[`XUIDateInput inserts selected date value 1`] = `
         onKeyDown={[Function]}
         role="presentation"
       >
+        <label
+          className="xui-text-label xui-fieldlabel-layout"
+          htmlFor="xui-testDateinputId-control"
+        >
+          Start date
+        </label>
         <div
           autoComplete="off"
           className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
@@ -51,7 +57,7 @@ exports[`XUIDateInput inserts selected date value 1`] = `
           <input
             aria-invalid={null}
             className="xui-textinput--input xui-textinput--input-medium"
-            id="testDateinputId-control"
+            id="xui-testDateinputId-control"
             onBlurCapture={[Function]}
             onChange={[Function]}
             onFocusCapture={[Function]}
@@ -91,6 +97,12 @@ exports[`XUIDateInput renders default component 1`] = `
         onKeyDown={[Function]}
         role="presentation"
       >
+        <label
+          className="xui-text-label xui-fieldlabel-layout"
+          htmlFor="xui-testDateinputId-control"
+        >
+          Start date
+        </label>
         <div
           autoComplete="off"
           className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
@@ -120,7 +132,7 @@ exports[`XUIDateInput renders default component 1`] = `
           <input
             aria-invalid={null}
             className="xui-textinput--input xui-textinput--input-medium"
-            id="testDateinputId-control"
+            id="xui-testDateinputId-control"
             onBlurCapture={[Function]}
             onChange={[Function]}
             onFocusCapture={[Function]}

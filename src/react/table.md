@@ -906,3 +906,41 @@ const emptyStateComponent = (
   <Column head={<Cell>Price / kg</Cell>} body={({ price }) => <Cell>{`$${price}`}</Cell>} />
 </Table>;
 ```
+
+## TypeScript
+
+XUITable components take an optional generic type that represents the shape of an individual row's
+data. The `ValueType` helper can be used to determine the type of your row data.
+
+```tsx harmony static
+import XUITable, { XUITableColumn, XUITableCell } from '@xero/xui/react/table';
+import ValueType from '@xero/xui/react/helpers/ValueType';
+
+const data = { abc123: { fruit: 'apple' }, def456: { fruit: 'banana' } };
+
+<XUITable data={data}>
+  <XUITableColumn<ValueType<typeof data>> // Will be used to determine the shape of the `head` and `body` props
+    body={({ fruit }) => (
+      <XUITableCell<ValueType<typeof data>> // Will be used to determine the shape of `rowData` the onCellClick prop
+        onCellClick={rowData => console.log(rowData)}
+      >
+        {fruit}
+      </XUITableCell>
+    )}
+  />
+</XUITable>;
+```
+
+The `customSort` prop will infer types where it can, but in some cases you'll need to specify the
+type of your `customSort` function. The key to getting this type to work correctly is using a
+generic to ensure the input and output data are the same shape.
+
+```ts
+function customSort<Items extends Array<Record<string, unknown>>>(
+  items: Items,
+  isAscending?: boolean,
+  activeSortKey?: string
+): Items {
+  return items;
+}
+```

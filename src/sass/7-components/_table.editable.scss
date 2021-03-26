@@ -19,7 +19,7 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
 @mixin xui-editabletablecell {
   @include xui-shadow-border-all($xui-standard-border-color);
   height: $xui-minimum-touch-target;
-  padding: 0px;
+  padding: 0;
   vertical-align: top;
 }
 
@@ -83,11 +83,7 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
 }
 
 .#{$ns}-editabletablewrapper--scrollcontainer {
-  background: $xui-dropzone-active-background-color;
-  border-radius: $xui-radius;
-  box-shadow: 0 0 0 1px $xui-standard-border-color inset;
-  display: block;
-  overflow-x: auto;
+  @include xui-tablewrapper-scrollcontainer;
 }
 
 .#{$ns}-editabletable {

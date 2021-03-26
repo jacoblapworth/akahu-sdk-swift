@@ -4,14 +4,14 @@ import cn from 'classnames';
 
 import XUIEditableTableCellControl from './XUIEditableTableCellControl';
 import XUISelectBox from '../selectbox/XUISelectBox';
-import { tableName } from './private/constants';
+import { tableVariantClassNames } from './private/constants';
 
-const baseName = `${tableName}cellselectbox`;
+const baseName = `${tableVariantClassNames.editable}cellselectbox`;
 
 const XUIEditableTableCellSelectBox = ({
   cellProps = {},
   children,
-  containerClasses,
+  containerClassName,
   onBlur,
   onFocus,
   isDisabled,
@@ -84,8 +84,8 @@ const XUIEditableTableCellSelectBox = ({
     >
       <XUISelectBox
         {...spreadProps}
-        containerClasses={cn(`${baseName}--control`, containerClasses)}
-        defaultLayout={false}
+        containerClassName={cn(`${baseName}--control`, containerClassName)}
+        hasDefaultLayout={false}
         isDisabled={isDisabled}
         isInvalid={isInvalid}
         isLabelHidden
@@ -102,7 +102,7 @@ const XUIEditableTableCellSelectBox = ({
 
 XUIEditableTableCellSelectBox.propTypes = {
   /** Additional classes to be applied to the button */
-  buttonClasses: PropTypes.string,
+  buttonClassName: PropTypes.string,
 
   /** Display text to be rendered on XUISelectBox button. */
   buttonContent: PropTypes.node.isRequired,
@@ -121,10 +121,10 @@ XUIEditableTableCellSelectBox.propTypes = {
   closeAfterSelection: PropTypes.bool,
 
   /** Additional classes to be applied to the container */
-  containerClasses: PropTypes.string,
+  containerClassName: PropTypes.string,
 
   /** Additional classes to be applied to the dropDown */
-  dropDownClasses: PropTypes.string,
+  dropdownClassName: PropTypes.string,
 
   /** Force the desktop experience, even if the viewport is narrow enough for mobile */
   forceDesktop: PropTypes.bool,
@@ -134,7 +134,7 @@ XUIEditableTableCellSelectBox.propTypes = {
   id: PropTypes.string,
 
   /** Additional classes to be applied to the inputGroup */
-  inputGroupClasses: PropTypes.string,
+  inputGroupClassName: PropTypes.string,
 
   /** Whether the button trigger and functionality are disabled */
   isDisabled: PropTypes.bool,

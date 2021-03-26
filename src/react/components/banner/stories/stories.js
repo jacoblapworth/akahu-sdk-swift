@@ -53,8 +53,8 @@ storiesWithKnobs.add('Playground', () => (
       },
     ])}
     className={text('className', '')}
-    defaultLayout={boolean('hasLayout', true)}
     detailItems={array('detailItems', [])}
+    hasDefaultLayout={boolean('hasLayout', true)}
     messageText={text('messageText', "A Banner's Message")}
     onCloseClick={NOOP}
     qaHook={text('qaHook', '')}

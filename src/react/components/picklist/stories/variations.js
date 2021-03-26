@@ -168,6 +168,27 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'horizontal with right element',
+    lists: [
+      {
+        isHorizontal: true,
+        items: [
+          {
+            value: 'Status',
+            rightElement: <XUIIcon icon={iconsList[0]} />,
+            isSelected: true,
+          },
+          { value: 'Date range', rightElement: <XUIIcon icon={iconsList[1]} /> },
+          {
+            value: 'Created by',
+            rightElement: <XUIIcon icon={iconsList[3]} />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'as Truncating horizontal with avatars',
     panelSize: '600px',
     lists: [

@@ -81,7 +81,7 @@ const XUIEditableTableRow = ({
               className={`${baseName}--draghandle`}
               iconReference={dragIcon}
               isDisabled={isDragDisabled}
-              onClick={event => event.currentTarget.focus()}
+              onMouseDown={event => event.currentTarget.focus()}
               qaHook={qaHook && `${qaHook}--button-drag`}
             />
           )}

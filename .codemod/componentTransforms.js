@@ -2,6 +2,20 @@ const stringReplace = require('@xero/xuishift/transforms/stringReplace');
 const remove = () => () => undefined;
 
 module.exports = {
+  editabletable: [
+    {
+      name: 'XUIEditableTable',
+      props: [
+        {
+          name: 'dndInstructions',
+          valueTransform: (_, j) =>
+            j.literal(
+              'Press Space bar or Enter to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or to use your pass through key.',
+            ),
+        },
+      ],
+    },
+  ],
   picklist: [
     {
       name: 'XUIPicklist',

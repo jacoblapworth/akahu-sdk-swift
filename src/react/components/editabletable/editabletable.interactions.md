@@ -273,7 +273,7 @@ const DragAndDropExample = () => {
       dndDropMessage={(startPosition, endPosition) =>
         `You have dropped the item. It has moved from position ${startPosition} to ${endPosition}.`
       }
-      dndInstructions="Press space bar or enter to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or forms mode."
+      dndInstructions="Press Space bar or Enter to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or to use your pass through key."
       onReorderRow={(startIndex, destinationIndex) => {
         const newRows = [...rows];
         const rowToReorder = newRows.splice(startIndex, 1)[0];
@@ -337,7 +337,7 @@ const DisableControlsExample = () => {
       dndDragUpdateMessage={() => 'You have moved the item.'}
       dndDropFailedMessage={() => 'The item has been dropped while not over a droppable area.'}
       dndDropMessage={() => 'You have dropped the item.'}
-      dndInstructions="Press space bar or enter to start a drag."
+      dndInstructions="Press Space bar or Enter to start a drag."
       onReorderRow={() => {}}
       rowOptions={{
         isDraggable: true,
@@ -423,7 +423,7 @@ const DisableControlsExample = () => {
       dndDragUpdateMessage={() => 'You have moved the item.'}
       dndDropFailedMessage={() => 'The item has been dropped while not over a droppable area.'}
       dndDropMessage={() => 'You have dropped the item.'}
-      dndInstructions="Press space bar or enter to start a drag."
+      dndInstructions="Press Space bar or Enter to start a drag."
       onReorderRow={() => {}}
       rowOptions={{ isDraggable: true, dragButtonAriaLabel: 'Drag row' }}
     >

@@ -115,6 +115,13 @@ TypeScript types have also been made slightly more strict for instances of rootN
 - All `XUIAccordion`-related `qahook`s have been updated to use a `--` instead of a single `-`, in line with XUI naming conventions.
   - e.g. `{qaHook}-empty` has been renamed to `{qaHook}--empty`
 
+### XUIEditableTable
+
+- Drag and drop can now be triggered with the `enter` key. The recommended text for XUIEditableTable's `dndInstructions` is now:
+  - "Press Space bar or Enter to start a drag. When dragging you can use the arrow keys to move the
+    item around and escape to cancel. Ensure your screen reader is in focus mode or to use your pass
+    through key."
+
 ### XUITable
 
 - Captions are now handled by adding an `ariaLabel` to the table element.

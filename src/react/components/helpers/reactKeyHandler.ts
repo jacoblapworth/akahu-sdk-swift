@@ -12,6 +12,10 @@ export const eventKeyValues = {
   meta: 'Meta',
   control: 'Control',
   alt: 'Alt',
+  pageUp: 'PageUp',
+  pageDown: 'PageDown',
+  home: 'Home',
+  end: 'End',
 };
 
 const arrowKeys = [

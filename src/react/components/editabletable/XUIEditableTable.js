@@ -11,6 +11,7 @@ import conditionallyRequiredValidator from '../helpers/conditionallyRequiredVali
 import XUIIcon from '../icon/XUIIcon';
 import { generateIdsFromControlId } from '../controlwrapper/helpers';
 import combineRefs from '../helpers/combineRefs';
+import Element from '../helpers/polyfills/Element';
 
 const XUIEditableTable = React.forwardRef(
   (

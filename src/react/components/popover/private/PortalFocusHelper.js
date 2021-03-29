@@ -6,6 +6,7 @@ import getFocusableDescendants, {
 } from '../../helpers/getFocusableDescendants';
 import { eventKeyValues, isKeyShiftTab } from '../../helpers/reactKeyHandler';
 import getFocusableElement from './helpers/getFocusableElement';
+import Element from '../../helpers/polyfills/Element';
 
 export default class PortalFocusHelper extends React.Component {
   wrapperRef = React.createRef();

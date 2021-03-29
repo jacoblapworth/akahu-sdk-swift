@@ -10,6 +10,7 @@ import DragDropProvider from './DragAndDrop/DragDropProvider';
 import Droppable from './DragAndDrop/Droppable';
 import EditableTableOverflow from './EditableTableOverflow';
 import combineRefs from '../../helpers/combineRefs';
+import Element from '../../helpers/polyfills/Element';
 
 const EditableTableWrapper = ({
   children,

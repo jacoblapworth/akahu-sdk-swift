@@ -49,13 +49,13 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
         >
           <ul
             className="xui-picklist xui-picklist-layout xui-picklist-medium"
-            role="tree"
+            role="listbox"
           >
             <li
               aria-selected={null}
               className="xui-pickitem xui-pickitem-medium"
               id="required-id"
-              role="treeitem"
+              role="option"
             >
               <button
                 className="xui-pickitem--body"

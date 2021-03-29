@@ -56,7 +56,7 @@ export default class XUIPicklist extends Component {
       id,
       onKeyDown,
       onClick,
-      secondaryProps,
+      secondaryProps = {},
       hasDefaultLayout,
       isHorizontal,
       qaHook,
@@ -65,23 +65,31 @@ export default class XUIPicklist extends Component {
     } = this.props;
 
     const listLevelProps = getPropsFromFirstChildOrList(children, this.props);
-    const newChildren = React.Children.map(children, child =>
-      child &&
-      (child.type === XUIPickitem ||
-        child.type === XUISelectBoxOption ||
-        child.type === XUINestedPicklistContainer)
-        ? React.cloneElement(child, {
-            size: listLevelProps.listSize,
-            isMultiselect: listLevelProps.listMultiselect,
-            _isHorizontal: isHorizontal,
-            // This is ok to be set at either the item level or the list level.
-            shouldTruncate:
-              child.props.shouldTruncate === undefined
-                ? shouldTruncate
-                : child.props.shouldTruncate,
-          })
-        : child,
-    );
+    const newChildren = React.Children.map(children, child => {
+      if (
+        child &&
+        (child.type === XUIPickitem ||
+          child.type === XUISelectBoxOption ||
+          child.type === XUINestedPicklistContainer)
+      ) {
+        // Nested picklists are an implementation of a tree control.
+        if (child.type === XUINestedPicklistContainer && !secondaryProps?.role) {
+          secondaryProps.role = 'tree';
+        }
+        return React.cloneElement(child, {
+          // Set the `option` role for pickitem when picklist has a `listbox` role
+          ariaRole:
+            child.type === XUIPickitem && secondaryProps?.role === 'listbox' ? 'option' : undefined,
+          size: listLevelProps.listSize,
+          isMultiselect: listLevelProps.listMultiselect,
+          _isHorizontal: isHorizontal,
+          // This is ok to be set at either the item level or the list level.
+          shouldTruncate:
+            child.props.shouldTruncate === undefined ? shouldTruncate : child.props.shouldTruncate,
+        });
+      }
+      return child;
+    });
 
     const listClasses = cn(
       `${picklistClassName}`,
@@ -165,7 +173,4 @@ XUIPicklist.propTypes = {
 
 XUIPicklist.defaultProps = {
   hasDefaultLayout: true,
-  secondaryProps: {
-    role: 'tree',
-  },
 };

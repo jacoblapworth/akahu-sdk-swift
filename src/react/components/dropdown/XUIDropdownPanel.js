@@ -279,6 +279,18 @@ class XUIDropdownPanel extends PureComponent {
     const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
     const scrollableContainerClasses = `${baseClass}--scrollable-container`;
 
+    const newChildren = React.Children.map(
+      children,
+      child =>
+        child &&
+        React.cloneElement(
+          child,
+          child.type === XUIPicklist && {
+            secondaryProps: { role: child.props?.secondaryProps?.role || 'listbox' },
+          },
+        ),
+    );
+
     return (
       <div
         aria-hidden={isHidden}
@@ -320,7 +332,7 @@ class XUIDropdownPanel extends PureComponent {
                   onScroll={onScroll}
                   ref={this._scrollableContent}
                 >
-                  {children}
+                  {newChildren}
                 </div>
               </XUIStatefulPicklist>
               {footer}
@@ -336,7 +348,7 @@ class XUIDropdownPanel extends PureComponent {
                 onScroll={onScroll}
                 ref={this._scrollableContent}
               >
-                {children}
+                {newChildren}
               </div>
               {footer}
             </div>

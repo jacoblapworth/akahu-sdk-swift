@@ -258,7 +258,6 @@ XUIPickitem.propTypes = {
 };
 
 XUIPickitem.defaultProps = {
-  ariaRole: 'treeitem',
   disableSelectedStyles: false,
   isDisabled: false,
   isSelected: false,

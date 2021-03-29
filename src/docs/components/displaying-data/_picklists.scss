@@ -193,12 +193,10 @@
 // The resulting behaviour is that each picklist is a single tab stop with arrow keys being used to navigate to each pickitem.
 // For more information on keyboard accessibility, view the [W3 documentation](https://www.w3.org/WAI/GL/wiki/Using_ARIA_trees#Keyboard_Support).
 //
-// A picklist is an implementation of a tree control.
-// To be accessible, each picklist must have the `tree` role applied as well as an `aria-label` or `aria-labelledby` attribute directing to the desired label.
-// Individual pickitems must have the `treeitem` role applied.
-// For more information on tree controls, view the [W3 documentation](https://www.w3.org/WAI/GL/wiki/Using_ARIA_trees).
+// A default picklist implementation is a list of links.
+// To be accessible, each picklist and pickitem must have a proper role applied as well as an `aria-label` or `aria-labelledby` attribute directing to the desired label.
 //
-// In the case of an expanding pickitem, the parent must have the `group` role applied, and children must have the `option` role applied instead.
+// In the case of an expanding pickitem, the parent must have the `group` role applied, and children must have the `treeitem` role applied instead.
 // Use the `aria-hidden` and `aria-expended` attributes when expanding or collapsing a pickitem with children.
 //
 // For selected pickitems, make sure to apply the `aria-selected` attribute.

@@ -13,7 +13,7 @@ expect.extend(toHaveNoViolations);
 let wrapper;
 
 describe('<XUIStatefulPicklist /> Accessibility Testing', () => {
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     wrapper = mount(
       <XUIStatefulPicklist>
         <XUIPicklist>

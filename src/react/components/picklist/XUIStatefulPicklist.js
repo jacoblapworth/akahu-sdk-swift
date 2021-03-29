@@ -389,9 +389,6 @@ XUIStatefulPicklist.propTypes = {
 XUIStatefulPicklist.defaultProps = {
   ignoreKeyboardEvents: [],
   isFocusable: false,
-  secondaryProps: {
-    role: 'tree',
-  },
   shouldManageInitialHighlight: true,
 };
 

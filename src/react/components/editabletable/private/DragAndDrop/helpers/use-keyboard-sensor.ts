@@ -16,7 +16,7 @@ import preventStandardKeyEvents from './react-beautiful-dnd/prevent-standard-key
 import supportedEventname from './react-beautiful-dnd/supported-page-visibility-event-name';
 
 type KeyMap = {
-  [key: number]: true;
+  [key: number]: boolean;
 };
 
 const scrollJumpKeys: KeyMap = {
@@ -40,7 +40,7 @@ function getDraggingBindings(actions: SnapDragActions, stop: () => void) {
   return [
     {
       eventName: 'keydown',
-      fn: (event: KeyboardEvent) => {
+      fn: (event: React.KeyboardEvent) => {
         if (event.key === eventKeyValues.escape) {
           event.preventDefault();
           cancel();
@@ -136,7 +136,7 @@ export default function useKeyboardSensor(api: SensorAPI) {
   const startCaptureBinding = React.useMemo(
     () => ({
       eventName: 'keydown',
-      fn: function onKeyDown(event: KeyboardEvent) {
+      fn: function onKeyDown(event: React.KeyboardEvent) {
         // Event already used
         if (event.defaultPrevented) {
           return;
@@ -147,7 +147,7 @@ export default function useKeyboardSensor(api: SensorAPI) {
           return;
         }
 
-        const draggableId: DraggableId | undefined = api.findClosestDraggableId(event);
+        const draggableId: DraggableId | undefined = api.findClosestDraggableId(event as any);
 
         if (!draggableId) {
           return;
@@ -158,7 +158,7 @@ export default function useKeyboardSensor(api: SensorAPI) {
           // abort function not defined yet
           // eslint-disable-next-line no-use-before-define
           stop,
-          { sourceEvent: event },
+          { sourceEvent: event as any },
         );
 
         // Cannot start capturing at this time

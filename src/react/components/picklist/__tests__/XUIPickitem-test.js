@@ -21,8 +21,12 @@ describe('<XUIPickitem />', () => {
     expect(basic).toMatchSnapshot();
   });
 
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIPickitem id="item1">Item 1</XUIPickitem>);
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <ul>
+        <XUIPickitem id="item1">Item 1</XUIPickitem>
+      </ul>,
+    );
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

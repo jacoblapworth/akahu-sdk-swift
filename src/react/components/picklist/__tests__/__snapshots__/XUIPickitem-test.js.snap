@@ -5,7 +5,6 @@ exports[`<XUIPickitem /> renders a basic example with no options 1`] = `
   aria-selected={null}
   className="xui-pickitem xui-pickitem-medium"
   id="item1"
-  role="treeitem"
 >
   <button
     className="xui-pickitem--body"
@@ -26,7 +25,6 @@ exports[`<XUIPickitem /> renders a multiselect pickitem with truncation 1`] = `
   aria-selected={false}
   className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-multiselect xui-pickitem-medium"
   id="item1"
-  role="treeitem"
 >
   <div
     className="xui-pickitem--body"
@@ -92,7 +90,6 @@ exports[`<XUIPickitem /> renders a pickitem with most compatible options 1`] = `
   aria-selected={null}
   className="xui-pickitem custom-classname xui-pickitem-multiline xui-pickitem-is-selected xui-pickitem-is-disabled xui-pickitem-medium xui-pickitem-is-invalid"
   id="item1"
-  role="treeitem"
 >
   <button
     className="xui-pickitem--body xui-pickitem--body-has-leftelement xui-pickitem--body-has-rightelement"
@@ -154,7 +151,6 @@ exports[`<XUIPickitem /> renders a regular pickitem with truncation 1`] = `
   aria-selected={null}
   className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium"
   id="item1"
-  role="treeitem"
 >
   <button
     className="xui-pickitem--body"
@@ -189,7 +185,6 @@ exports[`<XUIPickitem /> renders a selected multiselect pickitem (overriding lef
   aria-selected={true}
   className="xui-pickitem custom-classname xui-pickitem-is-selected xui-pickitem-multiselect xui-pickitem-medium"
   id="item1"
-  role="treeitem"
 >
   <div
     className="xui-pickitem--body"
@@ -241,7 +236,6 @@ exports[`<XUIPickitem /> renders a selected multiselect pickitem without selecte
   aria-selected={true}
   className="xui-pickitem xui-pickitem-multiselect xui-pickitem-medium"
   id="item1"
-  role="treeitem"
 >
   <div
     className="xui-pickitem--body"
@@ -293,7 +287,6 @@ exports[`<XUIPickitem /> renders a truncating pickitem with leftelement 1`] = `
   aria-selected={null}
   className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium xui-pickitem-has-leftelement"
   id="item1"
-  role="treeitem"
 >
   <button
     className="xui-pickitem--body xui-pickitem--body-has-leftelement"
@@ -328,7 +321,6 @@ exports[`<XUIPickitem /> renders a truncating pickitem with secondary text 1`] =
   aria-selected={null}
   className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium xui-pickitem-has-secondarytext"
   id="item1"
-  role="treeitem"
 >
   <button
     className="xui-pickitem--body"
@@ -358,7 +350,6 @@ exports[`<XUIPickitem /> renders a truncating pickitem with secondary text and l
   aria-selected={null}
   className="xui-pickitem xui-pickitem-text-truncated xui-pickitem-medium xui-pickitem-has-leftelement-secondarytext"
   id="item1"
-  role="treeitem"
 >
   <button
     className="xui-pickitem--body xui-pickitem--body-has-leftelement"
@@ -399,7 +390,6 @@ exports[`<XUIPickitem /> should set an automation id when a qaHook is provided 1
   className="xui-pickitem xui-pickitem-medium"
   data-automationid="test-pickitem"
   id="item1"
-  role="treeitem"
 >
   <button
     className="xui-pickitem--body"

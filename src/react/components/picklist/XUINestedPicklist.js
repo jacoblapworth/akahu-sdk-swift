@@ -12,6 +12,7 @@ const XUINestedPicklist = (props, context) => {
   const newChildren = React.Children.map(children, child =>
     child.type === XUIPickitem
       ? React.cloneElement(child, {
+          ariaRole: 'treeitem',
           isMultiselect: listLevelProps.listMultiselect,
           // This is ok to be set at either the item level or the list level.
           shouldTruncate:
@@ -52,7 +53,7 @@ XUINestedPicklist.defaultProps = {
 	 */
   _isGroup: true, // eslint-disable-line
   secondaryProps: {
-    role: 'tree',
+    role: 'group',
   },
 };
 

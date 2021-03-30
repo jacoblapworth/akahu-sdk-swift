@@ -6,13 +6,11 @@ exports[`<XUIDropdownFooter /> should render a picklist with context class when 
 >
   <ul
     className="xui-picklist xui-picklist-layout xui-picklist-medium xui-dropdown--footer--picklist"
-    role="tree"
   >
     <li
       aria-selected={null}
       className="xui-pickitem xui-pickitem-medium"
       id="footerAction"
-      role="treeitem"
     >
       <button
         className="xui-pickitem--body"

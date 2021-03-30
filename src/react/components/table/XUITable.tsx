@@ -261,7 +261,7 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
           className,
           !isBorderless && `${tableName}-hasborder`,
           !isResponsive && `${tableName}-noscroll`,
-          !window.PointerEvent && `${tableName}-nopointerevents`,
+          !(typeof window !== 'undefined' && window.PointerEvent) && `${tableName}-nopointerevents`,
         )}
         data-automationid={qaHook}
         ref={this.rootNode}

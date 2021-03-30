@@ -935,7 +935,7 @@ The `customSort` prop will infer types where it can, but in some cases you'll ne
 type of your `customSort` function. The key to getting this type to work correctly is using a
 generic to ensure the input and output data are the same shape.
 
-```ts
+```ts harmony static
 function customSort<Items extends Array<Record<string, unknown>>>(
   items: Items,
   isAscending?: boolean,

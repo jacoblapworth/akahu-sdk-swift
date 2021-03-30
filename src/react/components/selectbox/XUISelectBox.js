@@ -137,7 +137,7 @@ export default class XUISelectBox extends Component {
               qaHook={setQaHook(qaHook, qaHooks.dropdown)}
               restrictFocus={restrictFocus}
             >
-              <XUIPicklist secondaryProps={{ role: 'listbox' }}>{children}</XUIPicklist>
+              <XUIPicklist>{children}</XUIPicklist>
             </XUIDropdown>
           );
 

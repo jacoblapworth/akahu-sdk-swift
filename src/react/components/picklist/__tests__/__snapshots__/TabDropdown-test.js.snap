@@ -10,7 +10,6 @@ exports[`<TabDropdown /> renders correctly 1`] = `
     aria-selected={null}
     className="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium"
     id="tabDropdownTrigger-pi1"
-    role="treeitem"
   >
     <button
       className="xui-pickitem--body xui-pickitem--body-has-icon"

@@ -204,8 +204,15 @@ _Note. The codemod will resolve most prop differences automatically when run._
 
 - Corrections to `role` attributes to meet WCAG 2.1 AA Standard, these changes may influence your snapshot tests.
   - `XUITag`: `role=”status”` has been removed.
-  - `XUIPicklist`: default `role` value has been updated to `tree`.
-  - `XUIPickitem`: default `role` value has been updated to `treeitem`.
+  - `XUIPicklist`:
+    - Default `role` value has been removed.
+    - `role` value `tree` will be applied if it has a child `XUINestedPicklistContainer`.
+  - `XUIPickitem`: default `role` value has been removed.
+  - `XUINestedPicklist`
+    - Default `role` value has been updated to `group`.
+    - If a child `XUIPickitem` component is provided, this will now have a role of `treeitem`.
+  - `XUIDropdown`: If children `XUIPicklist` / `XUIPickitem` components are provided, they will now have a role of `listbox` / `option`.
+  - `XUIStatefulPicklist`: default `role` value has been removed.
   - `XUISelectBox`: default `role` value has been updated to `listbox`.
   - `XUIAutocompleter`: `aria-expanded={false}`has been added when the dropdown is collapsed.
 

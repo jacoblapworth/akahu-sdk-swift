@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid';
 import cn from 'classnames';
 import { ns } from '../../helpers/xuiClassNamespace';
 
+import compose from '../../helpers/compose';
 import {
   XUIDropdownFooter,
   XUIDropdownPanel,
@@ -33,17 +34,18 @@ class XUIDateInputItem extends Component {
     activePanel: null,
     inputValue: null,
     isDateInvalid: null,
+    pickitemInitialHighlight: true,
   };
 
   ddtRef = createRef(null);
 
   datepickerRef = createRef(null);
 
+  convenienceDatePanelRef = createRef(null);
+
   inputRef = createRef(null);
 
   triggerRef = createRef(null);
-
-  secondaryButtonDdtRef = createRef(null);
 
   /** Generate id's for panels */
   customDatesId = `xui-${nanoid(10)}`;
@@ -52,7 +54,7 @@ class XUIDateInputItem extends Component {
 
   componentDidMount() {
     this.setState({
-      activePanel: this.convenienceDatesId,
+      activePanel: this.props.convenienceDates ? this.convenienceDatesId : this.customDatesId,
     });
 
     this.addListeners();
@@ -88,15 +90,23 @@ class XUIDateInputItem extends Component {
   _keyUpHandler = event => {
     if (event.key === eventKeyValues.escape) {
       this.closeDropdown();
+      this.inputRef?.current.focus();
+    }
+
+    if (event.key === eventKeyValues.tab && event.target === this.inputRef?.current) {
+      this.handleInitialFocus();
     }
   };
 
-  afterDdtOpens = () => {
-    this.inputRef.current?.focus();
-  };
+  // Can't use this this because when you first interact with DI you open DP and focus DI,
+  // but if you press down arrow, you open DP but focus DP instead of DI.
+  // afterDdtOpens = focusDatePicker => {
+  //   this.inputRef?.current.focus();
+  // };
 
   closeDropdown = () => {
     this.ddtRef.current?.closeDropdown();
+    this.setState({ pickitemInitialHighlight: true });
   };
 
   onInputChange = event => {
@@ -111,21 +121,58 @@ class XUIDateInputItem extends Component {
     }
   };
 
-  onInputFocus = event => {
-    event.target.select();
-    this.ddtRef.current.openDropdown();
+  handleInitialFocus = () => {
+    if (!this.props.isDisabled) {
+      this.setState({ pickitemInitialHighlight: false });
+      this.ddtRef.current.openDropdown(() => {
+        // This has to be in a timeout until Dropdown is extended to open a panel without focusing it.
+        // DropdownPanel will always focus the opened panel so this has to happen after.
+        // This doesn't solve everything because input focus will flick if input is focused again.
+        // onOpenAnimationEnd can't be used here because down arrow interaction requires different behaviour,
+        // after opening DD panel, DatePicker has to be focused instead of DateInput like in this case.
+        setTimeout(() => {
+          this.inputRef?.current.focus();
+        }, 100);
+      });
+    }
   };
 
+  // When focused with a down arrow, it should open DP but not focus DI back.
+  // When pressing 'esc' you need to focus the input but don't open DP.
+  // onInputFocus = event => {
+  //   event.target.select();
+  // };
+
   onIconFocus = () => {
-    this.inputRef?.current.focus();
-    this.ddtRef.current.openDropdown();
+    if (!this.props.isDisabled) {
+      this.inputRef?.current.focus();
+      this.ddtRef.current.openDropdown();
+    }
   };
 
   onInputKeyDown = event => {
     if (event.key === eventKeyValues.enter || event.key === eventKeyValues.tab) {
       this.ddtRef.current.closeDropdown();
-      this.inputRef.current.blur();
       this.setDate();
+    }
+
+    if (event.key === eventKeyValues.down) {
+      this.ddtRef.current.openDropdown(() => {
+        // Focus first item only after pressing down arrow (not when dropdown is visible during initial input focus).
+        if (this.props.convenienceDates) {
+          this.ddtRef.current.dropdown.highlightFirstItem();
+        }
+
+        // This is in a timeout due to DropdownPanel focusing the panel after it's opened.
+        setTimeout(() => {
+          this.datepickerRef?.current?.focus();
+
+          // focus convenience panel for single input
+          if (this.props.convenienceDates) {
+            this.convenienceDatePanelRef?.current?.focus();
+          }
+        }, 100);
+      });
     }
   };
 
@@ -170,7 +217,7 @@ class XUIDateInputItem extends Component {
   onDropdownClose = () => {
     this.state.inputValue && this.setDate();
     this.setState({
-      activePanel: this.convenienceDatesId,
+      activePanel: this.props.convenienceDates ? this.convenienceDatesId : this.customDatesId,
     });
   };
 
@@ -190,6 +237,7 @@ class XUIDateInputItem extends Component {
       closeOnSelect,
       convenienceDates,
       displayedMonth,
+      exposeInputRef,
       hintMessage,
       inputClassName,
       inputFieldClassName,
@@ -201,6 +249,7 @@ class XUIDateInputItem extends Component {
       minDate,
       onInputChange, // Destructured so as not to spread.
       onSelectDate, // Destructured so as not to spread.
+      selectDateLabel,
       selectedDate,
       triggerClassName,
       validationMessage,
@@ -208,18 +257,31 @@ class XUIDateInputItem extends Component {
       ...spreadProps
     } = this.props;
     const { activePanel, selectedConvenienceDate, inputValue } = this.state;
-
     const isDateInvalid = isInvalid || this.state.isDateInvalid;
 
     /** Trigger where users focus to select date or type in a date shortcut */
     const trigger = (
-      <div className={cn(`${ns}-dateinputitem`, triggerClassName)} ref={this.triggerRef}>
+      <div
+        className={cn(
+          `${ns}-dateinputitem`,
+          triggerClassName,
+          isDisabled && `${ns}-dateinputitem-is-disabled`,
+        )}
+        ref={this.triggerRef}
+      >
         <XUITextInput
+          autoComplete="off"
           containerClassName={`${ns}-dateinputitem--input`}
           fieldClassName={inputFieldClassName}
           hintMessage={hintMessage}
           inputClassName={inputClassName}
-          inputRef={el => (this.inputRef.current = el)}
+          inputRef={el => {
+            if (exposeInputRef) {
+              exposeInputRef(el);
+            }
+
+            this.inputRef.current = el;
+          }}
           isDisabled={isDisabled}
           isInvalid={isDateInvalid}
           label={inputLabel}
@@ -230,7 +292,7 @@ class XUIDateInputItem extends Component {
           }
           onBlur={this.setDate}
           onChange={this.onInputChange}
-          onFocus={this.onInputFocus}
+          onClick={this.handleInitialFocus}
           onKeyDown={this.onInputKeyDown}
           qaHook={qaHook && `${qaHook}-dateinputitem--input`}
           validationMessage={validationMessage}
@@ -245,7 +307,7 @@ class XUIDateInputItem extends Component {
       <XUIDropdownFooter
         pickItems={
           <XUIPickitem id="custom" key="custom" onClick={this.showDatepickerPanel}>
-            Select Date
+            {selectDateLabel}
           </XUIPickitem>
         }
       />
@@ -254,7 +316,7 @@ class XUIDateInputItem extends Component {
     /** The main dropdown */
     const dateInputDropdown = (
       <XUINestedDropdown
-        currentPanelId={convenienceDates ? activePanel : this.customDatesId}
+        currentPanelId={activePanel}
         ignoreKeyboardEvents={ignoreKeyboardEvents}
         onPanelChange={this.focusDatePicker}
         qaHook={qaHook && `${qaHook}-dateinputitem-dropdown`}
@@ -276,7 +338,9 @@ class XUIDateInputItem extends Component {
         <XUIDropdownPanel
           footer={dropdownFooter}
           panelId={this.convenienceDatesId}
+          panelRef={el => (this.convenienceDatePanelRef.current = el)}
           qaHook={qaHook && `${qaHook}-dateinputitem-conveniencedates`}
+          shouldManageInitialHighlight={this.state.pickitemInitialHighlight}
         >
           <XUIPicklist>
             {convenienceDates?.map(({ id, text }) => (
@@ -301,7 +365,6 @@ class XUIDateInputItem extends Component {
         closeOnTab={false}
         dropdown={dateInputDropdown}
         onClose={this.onDropdownClose}
-        onOpenAnimationEnd={this.afterDdtOpens}
         ref={this.ddtRef}
         restrictedToViewPort={false}
         trigger={trigger}
@@ -332,6 +395,9 @@ XUIDateInputItem.propTypes = {
    * be any day in the given day and month.
    */
   displayedMonth: PropTypes.instanceOf(Date),
+
+  /** Sets a ref for the input element */
+  exposeInputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 
   /** Hint message to display below input */
   hintMessage: PropTypes.string,
@@ -376,6 +442,9 @@ XUIDateInputItem.propTypes = {
   onSelectDate: PropTypes.func,
 
   qaHook: PropTypes.string,
+
+  /** Label for an item opening DatePicker (with convenience date mode) */
+  selectDateLabel: PropTypes.string,
 
   /** Value of the date input. Must be a Date object */
   selectedDate: PropTypes.instanceOf(Date),

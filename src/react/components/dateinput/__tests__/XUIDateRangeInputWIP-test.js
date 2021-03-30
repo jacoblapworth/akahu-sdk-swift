@@ -81,7 +81,7 @@ describe('XUIDateRangeInputWIP', () => {
     );
     wrapper
       .find(`[data-automationid="${qaHook}-daterangeinput-firstinput-dateinputitem--input"] input`)
-      .simulate('focus');
+      .simulate('click');
     wrapper
       .find(
         `[data-automationid="${qaHook}-daterangeinput-firstinput-dateinputitem-dropdown"] .xui-datepicker--day-selectable`,
@@ -92,7 +92,7 @@ describe('XUIDateRangeInputWIP', () => {
 
     wrapper
       .find(`[data-automationid="${qaHook}-daterangeinput-secondinput-dateinputitem--input"] input`)
-      .simulate('focus');
+      .simulate('click');
     wrapper
       .find(
         `[data-automationid="${qaHook}-daterangeinput-secondinput-dateinputitem-dropdown"] .xui-datepicker--day-selectable`,

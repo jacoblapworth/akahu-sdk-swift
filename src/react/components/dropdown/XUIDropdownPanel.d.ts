@@ -49,6 +49,8 @@ interface Props {
    * Used by `XUINestedDropdown` to identify each panel.
    */
   panelId?: string;
+  /** Sets a ref for the input element */
+  panelRef?: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
   qaHook?: string;
   /**
    * Whether the `XUIStatefulPicklist` manages highlighting of list elements.

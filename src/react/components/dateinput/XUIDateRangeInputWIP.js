@@ -21,6 +21,8 @@ class XUIDateRangeInputWIP extends Component {
 
   secondaryButtonDdtRef = createRef(null);
 
+  endInputRef = createRef(null);
+
   componentDidMount() {
     /** WIP flag logging */
     logWarning({ componentName: 'XUIDateRangeInputWIP', flagType: 'wip' });
@@ -30,6 +32,8 @@ class XUIDateRangeInputWIP extends Component {
     this.setState({
       selectedStartDate: date,
     });
+
+    this.endInputRef?.current.focus();
 
     this.props.startDateInputConfig?.onSelectDate?.(date);
   };
@@ -118,7 +122,7 @@ class XUIDateRangeInputWIP extends Component {
       startHintMessage || endHintMessage || startValidationMessage || endValidationMessage;
     const isAnyDisabled = isStartDisabled || isEndDisabled || isGroupDisabled;
 
-    const dateInputDropdown = (
+    const dateInputDropdown = convenienceDates && (
       <XUIDropdown className={`${baseClass}--conveniencedatesdropdown`}>
         <XUIPicklist>
           {convenienceDates.map(({ id, text, description }) => (
@@ -139,7 +143,11 @@ class XUIDateRangeInputWIP extends Component {
     return (
       <XUIInputGroup
         columnWidths="1fr 1fr 40px"
-        fieldClassName={cn(`${baseClass}`, className)}
+        fieldClassName={cn(
+          `${baseClass}`,
+          className,
+          !convenienceDates && `${baseClass}--onlyinputs`,
+        )}
         hintMessage={groupHintMessage}
         isBottomAligned // This can be overridden via groupSpread
         isDisabled={isGroupDisabled}
@@ -178,6 +186,7 @@ class XUIDateRangeInputWIP extends Component {
         <XUIDateInputItem
           closeOnSelect={closeOnSelect}
           displayedMonth={displayedEndMonth}
+          exposeInputRef={el => (this.endInputRef.current = el)}
           hintMessage={endHintMessage}
           inputFieldClassName={cn(
             `${baseClass}--secondinput`,
@@ -185,6 +194,7 @@ class XUIDateRangeInputWIP extends Component {
               !endHintMessage &&
               !endValidationMessage &&
               `${baseClass}--secondinput-withspace`,
+            !isStartInvalid && isEndInvalid && `${baseClass}-singleinvalid`,
           )}
           inputLabel={endInputLabel}
           isDisabled={isEndDisabled || isGroupDisabled}
@@ -200,27 +210,29 @@ class XUIDateRangeInputWIP extends Component {
           triggerClassName={endTriggerClassName}
           validationMessage={endValidationMessage}
         />
-
-        <XUIDropdownToggled
-          className={cn(
-            `${baseClass}--convenience`,
-            needsMessageSpace && `${baseClass}--convenience-withspace`,
-            isAnyDisabled && `${baseClass}--convenience-disabled`,
-          )}
-          closeOnSelect={closeOnSelect}
-          closeOnTab={false}
-          dropdown={dateInputDropdown}
-          qaHook={qaHook && `${qaHook}-daterangeinput-conveniencedates`}
-          ref={this.secondaryButtonDdtRef}
-          restrictedToViewPort={false}
-          trigger={
-            <XUISecondaryButton
-              isDisabled={isAnyDisabled}
-              onClick={() => this.secondaryButtonDdtRef.current.openDropdown()}
-            />
-          }
-          triggerClickAction="none"
-        />
+        {convenienceDates && (
+          <XUIDropdownToggled
+            className={cn(
+              `${baseClass}--convenience`,
+              needsMessageSpace && `${baseClass}--convenience-withspace`,
+              isAnyDisabled && `${baseClass}--convenience-disabled`,
+              (isStartInvalid || isEndInvalid) && `${baseClass}--convenience-shifted`,
+            )}
+            closeOnSelect={closeOnSelect}
+            closeOnTab={false}
+            dropdown={dateInputDropdown}
+            qaHook={qaHook && `${qaHook}-daterangeinput-conveniencedates`}
+            ref={this.secondaryButtonDdtRef}
+            restrictedToViewPort={false}
+            trigger={
+              <XUISecondaryButton
+                isDisabled={isAnyDisabled}
+                onClick={() => this.secondaryButtonDdtRef.current.openDropdown()}
+              />
+            }
+            triggerClickAction="none"
+          />
+        )}
       </XUIInputGroup>
     );
   }
@@ -241,7 +253,7 @@ XUIDateRangeInputWIP.propTypes = {
       id: PropTypes.string,
       text: PropTypes.string,
     }),
-  ).isRequired,
+  ),
 
   endDateInputConfig: PropTypes.shape({
     /**

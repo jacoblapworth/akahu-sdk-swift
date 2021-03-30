@@ -1,6 +1,8 @@
 import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+
+import compose from '../helpers/compose';
 // eslint-disable-next-line import/no-cycle
 import XUIPicklist from '../picklist/XUIPicklist';
 import XUIStatefulPicklist from '../picklist/XUIStatefulPicklist';
@@ -265,6 +267,7 @@ class XUIDropdownPanel extends PureComponent {
       onScroll,
       onSelect,
       panelId,
+      panelRef,
       qaHook,
       style,
       bodyClassName,
@@ -298,7 +301,7 @@ class XUIDropdownPanel extends PureComponent {
         data-automationid={qaHook}
         id={panelId}
         onKeyDown={this.keyDownHandler}
-        ref={this.rootNode}
+        ref={compose(panelRef, i => (this.rootNode.current = i))}
         role="presentation"
         style={style}
         tabIndex={-1}
@@ -394,6 +397,9 @@ XUIDropdownPanel.propTypes = {
 
   /** Used by `XUINestedDropdown` to identify each panel. */
   panelId: PropTypes.string,
+
+  /** Sets a ref for the input element */
+  panelRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 
   qaHook: PropTypes.string,
 

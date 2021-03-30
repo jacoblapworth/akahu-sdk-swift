@@ -83,7 +83,7 @@ module.exports = function (handlebars) {
         />
       </div>
       <div class="ds-nav--searchDropdown xui-u-hidden-visually" id="search-select-dropdown">
-        <div class="xui-dropdown--body" role="listbox">
+        <div class="xui-dropdown--body" role="listbox" aria-label="Search results">
           <ul class="xui-picklist xui-picklist-medium xui-picklist-layout" id="search-results">
             <li class="xui-pickitem xui-pickitem-medium" role="option">
               <a tabindex="-1" class="xui-pickitem--body">

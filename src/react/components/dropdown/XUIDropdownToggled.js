@@ -238,12 +238,19 @@ export default class XUIDropdownToggled extends PureComponent {
    *
    * @public
    */
-  openDropdown = () => {
-    this.setState(() => ({
-      isHidden: false,
-      isOpening: false,
-      isNarrowViewport: checkIsNarrowViewport(),
-    }));
+  openDropdown = onOpenSetState => {
+    this.setState(
+      () => ({
+        isHidden: false,
+        isOpening: false,
+        isNarrowViewport: checkIsNarrowViewport(),
+      }),
+      () => {
+        if (onOpenSetState) {
+          onOpenSetState();
+        }
+      },
+    );
   };
 
   /**

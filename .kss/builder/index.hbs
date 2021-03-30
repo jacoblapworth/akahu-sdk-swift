@@ -86,10 +86,10 @@
 						<span>{{header}}</span>
 						{{#if flags}}
 							{{#renderFlags flags}}
-								<a href="./section-getting-started.html#getting-started-5" class="ds-flag {{#if flag.shortName}}{{getStatusClass flag.shortName}}{{/if}}">
+								<a href="./section-getting-started.html#getting-started-5" class="ds-flag {{#if flag.shortName}}{{getStatusClass flag.shortName}}{{/if}}" {{#if flag.shortName}}aria-describedby="{{flag.shortName}}"{{/if}}>
 										{{flag.label}}
 										{{#if flag.desc}}
-											<button class="hover-tooltip hover-tooltip-below xui-button">{{flag.desc}}</button>
+											<span class="hover-tooltip hover-tooltip-below xui-button" {{#if flag.shortName}}id="{{flag.shortName}}"{{/if}}>{{flag.desc}}</span>
 										{{/if}}
 								</a>
 							{{/renderFlags}}

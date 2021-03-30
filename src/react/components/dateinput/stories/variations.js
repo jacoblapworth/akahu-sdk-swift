@@ -15,6 +15,7 @@ const variations = [
     storyTitle: 'with initial date',
     selectedDateDefaultValue: new Date(2020, 1, 20),
     qaHook: 'qatest',
+    inputLabel: 'Start date',
   },
   // {
   //   storyKind: storiesWithVariationsKindName,
@@ -25,17 +26,22 @@ const variations = [
     storyTitle: 'With convenience dates',
     selectedDateDefaultValue: new Date(2021, 0, 1),
     convenienceDates: dateInputConvenienceDates,
+    inputLabel: 'Start date',
+    selectDateLabel: 'Select date',
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'Empty with convenience dates',
     convenienceDates: dateInputConvenienceDates,
+    inputLabel: 'Start date',
+    selectDateLabel: 'Select date',
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'With a hint',
     hintMessage: 'Sample hint message',
     selectedDateDefaultValue: new Date(2021, 0, 1),
+    inputLabel: 'Start date',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -43,18 +49,21 @@ const variations = [
     isInvalid: true,
     validationMessage: 'Please correct your input',
     selectedDateDefaultValue: new Date(2021, 0, 1),
+    inputLabel: 'Start date',
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'Disabled',
     isDisabled: true,
     selectedDateDefaultValue: new Date(2021, 0, 1),
+    inputLabel: 'Start date',
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'With specified DatePicker month picker',
     selectedDateDefaultValue: new Date(2020, 5, 10),
     displayedMonth: new Date(2020, 3, 10),
+    inputLabel: 'Start date',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -137,6 +146,53 @@ const variations = [
     endDateInputConfig: {
       selectedDateDefaultValue: new Date(2000, 11, 15),
       inputLabel: 'Second Date',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Daterange without convenience dates',
+    isDateRangeInput: true,
+    startDateInputConfig: {
+      selectedDateDefaultValue: new Date(1999, 5, 5),
+      inputLabel: 'First Date',
+    },
+    endDateInputConfig: {
+      selectedDateDefaultValue: new Date(2000, 11, 15),
+      inputLabel: 'Second Date',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Darerange with two errors',
+    isDateRangeInput: true,
+    convenienceDates: dateRangeInputConvenienceDates,
+    startDateInputConfig: {
+      selectedDateDefaultValue: new Date(1999, 5, 5),
+      inputLabel: 'First Date',
+      isInvalid: true,
+      validationMessage: 'Please correct your input',
+    },
+    endDateInputConfig: {
+      selectedDateDefaultValue: new Date(2000, 11, 15),
+      inputLabel: 'Second Date',
+      isInvalid: true,
+      validationMessage: 'Please correct your input',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Darerange with just one error',
+    isDateRangeInput: true,
+    convenienceDates: dateRangeInputConvenienceDates,
+    startDateInputConfig: {
+      selectedDateDefaultValue: new Date(1999, 5, 5),
+      inputLabel: 'First Date',
+    },
+    endDateInputConfig: {
+      selectedDateDefaultValue: new Date(2000, 11, 15),
+      inputLabel: 'Second Date',
+      isInvalid: true,
+      validationMessage: 'Please correct your input',
     },
   },
 ];

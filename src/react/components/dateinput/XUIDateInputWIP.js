@@ -40,6 +40,7 @@ class XUIDateInputWIP extends React.Component {
       onInputChange,
       onSelectDate, // Destructured so as not to spread.
       selectedDateValue, // Destructured so as not to spread.
+      selectDateLabel,
       triggerClassName,
       validationMessage,
       qaHook,
@@ -64,6 +65,7 @@ class XUIDateInputWIP extends React.Component {
           onInputChange={onInputChange}
           onSelectDate={this.onSelectDate}
           qaHook={qaHook && `${qaHook}-dateinput`}
+          selectDateLabel={selectDateLabel}
           selectedDate={selectedDate}
           triggerClassName={triggerClassName}
           validationMessage={validationMessage}
@@ -131,6 +133,9 @@ XUIDateInputWIP.propTypes = {
 
   qaHook: PropTypes.string,
 
+  /** Label for an item opening DatePicker (with convenience date mode) */
+  selectDateLabel: PropTypes.string,
+
   selectedDateDefaultValue: PropTypes.instanceOf(Date),
 
   /** Value of the date input. Must be a Date object */
@@ -146,7 +151,6 @@ XUIDateInputWIP.propTypes = {
 XUIDateInputWIP.defaultProps = {
   closeOnSelect: true,
   displayedMonth: new Date(),
-  inputLabel: 'Start date',
   locale: 'en',
 };
 

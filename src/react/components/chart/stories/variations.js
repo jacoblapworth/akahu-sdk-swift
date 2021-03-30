@@ -1,4 +1,5 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
+import chipper from './chipper';
 
 const storyKind = 'Instances/XUIBarChart';
 
@@ -262,8 +263,7 @@ const variations = [
             id: 0,
             x: 'Apple',
             y: 1,
-            avatarUrl:
-              'https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c',
+            avatarUrl: chipper,
           },
         ],
         xAxisType: 'avatar',
@@ -279,8 +279,7 @@ const variations = [
             id: 0,
             x: 'Apple',
             y: 1,
-            avatarUrl:
-              'https://i.picsum.photos/id/1044/100/100.jpg?hmac=IGzsuFyCgR4u_DgqnNlOHxY-ThKh9C02XhZAqHyVy0Q',
+            avatarUrl: chipper,
           },
         ],
         xAxisType: 'avatar',
@@ -296,8 +295,7 @@ const variations = [
             id: 0,
             x: 'Apple',
             y: 1,
-            avatarUrl:
-              'https://i.picsum.photos/id/931/100/100.jpg?hmac=BJxOJGnnDF4jriUgv211ZTiatGsYZ2ORIKXGZAu6VkA',
+            avatarUrl: chipper,
           },
         ],
         xAxisType: 'avatar',
@@ -313,8 +311,7 @@ const variations = [
             id: 0,
             x: 'Apple',
             y: 1,
-            avatarUrl:
-              'https://i.picsum.photos/id/2/100/100.jpg?hmac=Y2da7WhwSnMn7y41c8WEc1ZO_AGIhVD3zTzghi4-Hiw',
+            avatarUrl: chipper,
           },
         ],
         xAxisType: 'avatar',

@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 export const dateInputConvenienceDates = [
   {
     id: 'week',
-    text: 'Next Week',
+    text: 'Next week',
     getDate: () => {
       const today = new Date();
       today.setDate(today.getDate() + 7);
@@ -12,7 +12,7 @@ export const dateInputConvenienceDates = [
   },
   {
     id: 'month',
-    text: 'Next Month',
+    text: 'Next month',
     getDate: () => {
       const today = new Date();
       today.setMonth(today.getMonth() + 1);
@@ -31,7 +31,7 @@ export const dateInputConvenienceDates = [
 export const dateRangeInputConvenienceDates = [
   {
     id: 'monthThis',
-    text: 'This Month',
+    text: 'This month',
     getStartDate: () => {
       const today = new Date();
       today.setMonth(today.getMonth());
@@ -83,7 +83,7 @@ export const dateRangeInputConvenienceDates = [
   },
   {
     id: 'monthLast',
-    text: 'Last Month',
+    text: 'Last month',
     getStartDate: () => {
       const today = new Date();
       today.setMonth(today.getMonth() - 1);

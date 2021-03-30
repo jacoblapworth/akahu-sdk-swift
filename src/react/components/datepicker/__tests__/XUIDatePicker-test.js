@@ -2,8 +2,9 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import XUIDatePicker from '../XUIDatePicker';
 import { DateUtils } from 'react-day-picker';
+
+import XUIDatePicker from '../XUIDatePicker';
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
@@ -18,7 +19,7 @@ describe('<XUIDatePicker />', () => {
     const wrapper = setup({ displayedMonth: new Date(2018, 10) });
 
     // Act
-    const currentMonth = wrapper.state().currentMonth;
+    const { currentMonth } = wrapper.state();
     const result = DateUtils.isSameMonth(currentMonth, new Date(2018, 10));
 
     // Assert

@@ -14,22 +14,6 @@ pastMonth.setMonth(currentMonth2.getMonth() - 1);
 const nextMonth = new Date(currentMonth2);
 nextMonth.setMonth(currentMonth2.getMonth() + 1);
 
-const wkdShort = ['d', 'l', 'ma', 'me', 'j', 'v', 's'];
-const customMonths = [
-  'janvier',
-  'fevrier',
-  'mars',
-  'avril',
-  'mai',
-  'juin',
-  'juillet',
-  'aout',
-  'septembre',
-  'octobre',
-  'novembre',
-  'decembre',
-];
-
 const variations = [
   {
     storyKind: storiesWithVariationsKindName,
@@ -69,8 +53,6 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'as Weeks Starting on Monday with Custom Labels',
     firstDayOfWeek: 1,
-    weekdaysShort: wkdShort,
-    months: customMonths,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -79,4 +61,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations, wkdShort, customMonths, currentMonth0 };
+export { storiesWithVariationsKindName, variations, currentMonth0 };

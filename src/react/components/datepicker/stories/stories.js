@@ -3,20 +3,14 @@ import React from 'react';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { boolean, select, date } from '@storybook/addon-knobs';
+import { boolean, date, number, text } from '@storybook/addon-knobs';
 
 // Components we need to test with
 import XUIDatePicker from '../XUIDatePicker';
 import XUIPanel from '../../panel/XUIPanel';
 
 import NOOP from '../../helpers/noop';
-import {
-  storiesWithVariationsKindName,
-  variations,
-  wkdShort,
-  customMonths,
-  currentMonth0,
-} from './variations';
+import { storiesWithVariationsKindName, variations, currentMonth0 } from './variations';
 
 const weekStarts = {
   0: 'Sun (0)',
@@ -83,22 +77,14 @@ storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => (
   <XUIPanel>
     <ExamplePicker
-      dir={select('direction', ['ltr', 'rtl'])}
       displayedMonth={date('displayedMonth', '') ? new Date(date('displayedMonth', '')) : undefined}
-      firstDayOfWeek={parseInt(select('firstDayOfWeek', weekStarts, '0'))}
+      firstDayOfWeek={number('firstDayOfWeek', weekStarts, '')}
+      locale={text('locale', 'en')}
       maxDate={date('maxDate', '') ? new Date(date('maxDate', '')) : undefined}
       minDate={date('minDate', '') ? new Date(date('minDate', '')) : undefined}
-      months={
-        select('months', ['standard', 'custom'], 'standard') === 'custom' ? customMonths : undefined
-      }
       selectRange={boolean('select range', false)}
       showDaysInOtherMonths={boolean('showDaysInOtherMonths', false)}
       showFixedNumberOfWeeks={boolean('showFixedNumberOfWeeks', false)}
-      weekdaysShort={
-        select('weekdaysShort', ['standard', 'custom'], 'standard') === 'custom'
-          ? wkdShort
-          : undefined
-      }
     />
   </XUIPanel>
 ));

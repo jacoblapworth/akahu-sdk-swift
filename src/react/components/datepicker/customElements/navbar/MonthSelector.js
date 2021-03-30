@@ -4,7 +4,7 @@ import cn from 'classnames';
 import caret from '@xero/xui-icon/icons/caret';
 
 import XUIIcon from '../../../icon/XUIIcon';
-import { englishMonths, baseClassName } from '../../helpers/constants';
+import { baseClassName } from '../../helpers/constants';
 import { ns } from '../../../helpers/xuiClassNamespace';
 
 const buttonSizeClasses = {
@@ -34,14 +34,13 @@ const MonthSelector = ({
     setHasFocus(false);
   };
 
-  const allMonths = Array.isArray(months) ? months : englishMonths;
   const currentMonth = currentMonthDate.getMonth();
   const currentYear = currentMonthDate.getFullYear();
   const startMonth =
     minDate != null && currentYear === minDate.getFullYear() ? minDate.getMonth() : 0;
   const maxMonth =
     maxDate != null && currentYear === maxDate.getFullYear() ? maxDate.getMonth() : 11;
-  const visibleMonths = allMonths
+  const visibleMonths = months
     .map((name, idx) => ({ name, value: idx }))
     .filter(opt => opt.value >= startMonth && opt.value <= maxMonth);
   const label = (
@@ -56,7 +55,7 @@ const MonthSelector = ({
       )}
       htmlFor={id}
     >
-      {allMonths[currentMonth]}
+      {months[currentMonth]}
       <XUIIcon className={`${ns}-datepicker--heading-label-icon`} icon={caret} />
     </label>
   );

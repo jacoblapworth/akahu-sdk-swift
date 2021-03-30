@@ -69,7 +69,9 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
 
 .#{$ns}-textinput-is-invalid:not(.#{$ns}-textinput-cell) {
   border-color: $xui-textinput-invalid-border-color;
-  z-index: $xui-z-index-body;
+  &:not(.#{$ns}-textinput-focus) {
+    z-index: $xui-z-index-body;
+  }
 
   &:focus,
   &:hover {

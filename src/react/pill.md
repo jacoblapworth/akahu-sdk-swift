@@ -59,7 +59,8 @@ import XUIPill from '@xero/xui/react/pill';
     className="xui-margin-right-xsmall"
     avatarProps={{
       value: 'SJ',
-      imageUrl: 'https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c'
+      imageUrl:
+        'https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c'
     }}
   />
   <XUIPill value="Avatar pill" avatarProps={{ value: 'SJ' }} />

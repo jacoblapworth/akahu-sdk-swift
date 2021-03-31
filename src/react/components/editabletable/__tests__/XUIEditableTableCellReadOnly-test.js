@@ -34,12 +34,7 @@ describe('<XUIEditableTableCellReadOnly />', () => {
           </tbody>
         </table>,
       );
-      expect(
-        wrapper
-          .find(XUIEditableTableCell)
-          .getDOMNode()
-          .getAttribute('width'),
-      ).toBe('50px');
+      expect(wrapper.find(XUIEditableTableCell).getDOMNode().getAttribute('width')).toBe('50px');
     });
 
     it('spreads everything else, too', () => {

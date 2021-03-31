@@ -30,17 +30,14 @@ describe('<TabDropdown />', () => {
       <TabDropdown dropdownList={[<XUIPickitem primaryElement="Item 1" id="pi1" />]} />,
     );
 
-    wrapper
-      .find('.xui-pickitem--body')
-      .first()
-      .simulate('click');
+    wrapper.find('.xui-pickitem--body').first().simulate('click');
 
     document.querySelector('.xui-portal .xui-pickitem--body').click();
 
     expect(document.querySelector('.xui-portal .xui-container')).toBeFalsy();
   });
 
-  it('does not close the dropdown on select if closeOnSelect is set to false', function() {
+  it('does not close the dropdown on select if closeOnSelect is set to false', function () {
     const wrapper = mount(
       <TabDropdown
         closeOnSelect={false}
@@ -48,10 +45,7 @@ describe('<TabDropdown />', () => {
       />,
     );
 
-    wrapper
-      .find('.xui-pickitem--body')
-      .first()
-      .simulate('click');
+    wrapper.find('.xui-pickitem--body').first().simulate('click');
 
     document.querySelector('.xui-portal .xui-pickitem--body').click();
 

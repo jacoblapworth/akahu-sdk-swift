@@ -99,8 +99,8 @@ class TaskSpinners {
 
       const details = verbose
         ? task.details.map(detail => `  ↳ ${chalk.gray(detail)}`)
-        : task.status === 'spinning' && lastDetail
-        ? [`  ↳ ${chalk.gray(lastDetail)}`]
+        : task.status !== 'succeed' && lastDetail
+        ? [`  ↳ ${(task.status === 'fail' ? chalk.red : chalk.gray)(lastDetail)}`]
         : [];
 
       return {
@@ -150,11 +150,8 @@ class TaskSpinner {
 
   fail(error) {
     this.status = 'fail';
+    this.details.push(error);
     this.taskSpinners.render();
-
-    if (error) {
-      throw error;
-    }
   }
 
   info(info) {

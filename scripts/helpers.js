@@ -98,7 +98,7 @@ async function taskRunner(task, fileName) {
     if (error.signal === 'SIGINT') {
       process.exit();
     } else {
-      console.warn(error);
+      thisTask.fail(error);
     }
   }
 }

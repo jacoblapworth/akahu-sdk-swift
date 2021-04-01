@@ -248,9 +248,9 @@ describe('<XUIEditableTableRow />', () => {
       );
 
       // Assert
-      expect(wrapper.find('[data-automationid="test-row--cell-drag"]').props().test).toStrictEqual(
-        dragHandleProps.test,
-      );
+      expect(
+        wrapper.find('[data-automationid="test-row--button-drag"]').props().test,
+      ).toStrictEqual(dragHandleProps.test);
     });
 
     it('merges props.style with provided.draggableProps.style', () => {

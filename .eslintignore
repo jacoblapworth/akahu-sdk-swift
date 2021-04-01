@@ -1,2 +1,45 @@
-# ESLint is configured to use .gitignore instead of .eslintignore. If you want ESLint to ignore a
-# specific path or file, please add it to the ignorePatterns array in scripts/lint/eslint.js.
+scripts/
+src/react/components/*/__tests__/*-test.js
+
+# The following entries are copied verbatim from .gitignore
+
+# Library and framework files/directories
+/.bundle
+/node_modules
+npm-debug.log*
+yarn.lock
+
+# Build/Output files/directories
+/dist
+/react
+/react-es6
+/sass
+/codemod
+src/react/umd.js
+.tmp
+
+# IDE files/directores
+/.idea
+*.iml
+.vscode/chrome/*
+.vscode/settings.json
+
+#OSX
+.DS_Store
+
+# Generated Colours Page
+src/sass/tmp
+
+# Code quality / coverage
+/coverage
+
+# Visual Regression / backstop
+.docker/
+.visual-testing/tests/*
+.visual-testing/ci-report/*
+.visual-testing/web-report/*
+.out/*
+.tmp
+
+# NPM debug logs
+npm-debug.log.*

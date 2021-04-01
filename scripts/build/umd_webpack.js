@@ -1,17 +1,10 @@
 /* eslint-disable no-console */
-const { promisify } = require('util');
-const { exec } = require('child_process');
-const path = require('path');
+const chalk = require('chalk');
+const webpack = require('webpack');
 const createEntryPoint = require('../umd/create_entry_point');
-const asyncExec = promisify(exec);
-const {
-  taskRunner,
-  rootDirectory,
-  copyFile,
-  taskRunnerReturns,
-  isWindowsPlatform,
-  convertExecTaskToWindows,
-} = require('../helpers');
+const webpackConfig = require('../../webpack.umd.config');
+const { taskRunner, taskRunnerReturns } = require('../helpers');
+
 const { succeed, fail } = taskRunnerReturns;
 
 function build() {
@@ -19,21 +12,49 @@ function build() {
     try {
       await createEntryPoint();
 
-      let execTask =
-        './node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack --config webpack.umd.config.js --color=always';
+      process.env.NODE_ENV = 'production';
 
-      if (isWindowsPlatform) {
-        execTask = convertExecTaskToWindows(execTask);
-      }
+      await new Promise((resolve, reject) => {
+        webpack(webpackConfig, (error, stats) => {
+          if (error) {
+            console.error(chalk.blue('[Webpack]'), error.stack || error);
+            if (error.details) {
+              console.error(chalk.blue('[Webpack]'), error.details);
+            }
+            return reject();
+          }
 
-      taskSpinner.info(`Executing task: ${execTask}`);
-      const { stdout } = await asyncExec(execTask, { stdio: [0, 1, 2] });
+          const info = stats.toJson();
 
-      console.log(stdout);
-      copyFile(
-        path.resolve(rootDirectory, '.umd', 'index.html'),
-        path.resolve(rootDirectory, 'dist', 'umd', 'index.html'),
-      );
+          console.log(chalk.blue('[Webpack]'), `Hash: ${info.hash}`);
+          console.log(chalk.blue('[Webpack]'), `Version: webpack ${chalk.bold(info.version)}`);
+          console.log(chalk.blue('[Webpack]'), `Time: ${chalk.bold(info.time)}ms`);
+          console.log(chalk.blue('[Webpack]'), `${chalk.bold('Assets')}`);
+          info.assets.forEach(asset => {
+            console.log(
+              chalk.blue('[Webpack]'),
+              (asset.isOverSizeLimit ? chalk.bold.yellow : chalk.bold.green)(asset.name),
+              (asset.isOverSizeLimit ? chalk.bold.yellow : chalk)(
+                `${Number((asset.size / 1024).toPrecision(3))} KiB`,
+              ),
+            );
+          });
+
+          if (stats.hasErrors()) {
+            info.errors.forEach(errorInfo => {
+              console.error(chalk.blue('[Webpack]'), chalk.bold(`ERROR in ${errorInfo}\n`));
+            });
+          }
+
+          if (stats.hasWarnings()) {
+            info.warnings.forEach(warningInfo => {
+              console.warn(chalk.blue('[Webpack]'), chalk.bold(`WARNING in ${warningInfo}\n`));
+            });
+          }
+
+          return resolve();
+        });
+      });
 
       return succeed();
     } catch (error) {

@@ -13,16 +13,6 @@ $xui-dateinput-label-vertical-offset: 25px;
     width: 100%;
   }
 
-  .#{$ns}-inputgroup:not(.#{$ns}-inputgroup-vertical) {
-    .#{$ns}-daterangeinput-singleinvalid {
-      &.#{$ns}-daterangeinput--secondinput {
-        .#{$ns}-textinput-is-invalid {
-          border-left: 1px solid $xui-color-red;
-        }
-      }
-    }
-  }
-
   &--firstinput-withspace,
   &--secondinput-withspace,
   &--convenience-withspace {
@@ -31,12 +21,6 @@ $xui-dateinput-label-vertical-offset: 25px;
 
   .#{$ns}-button-split {
     color: $xui-color-grey-3;
-  }
-
-  .#{$ns}-daterangeinput--convenience-shifted {
-    .#{$ns}-button-split {
-      margin-left: -1px;
-    }
   }
 
   &--convenience-disabled .#{$ns}-button {

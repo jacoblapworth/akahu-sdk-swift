@@ -62,7 +62,7 @@ const XUIPill = ({
   }, [hasTooltip, isFocused, debugShowToolTip]);
 
   const toggleFocus = () => {
-    setIsFocused(prevState => !prevState.isFocused);
+    setIsFocused(prevState => !prevState);
   };
 
   const hoverHandler = () => {

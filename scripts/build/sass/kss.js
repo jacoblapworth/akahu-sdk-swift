@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 const path = require('path');
 const compileSass = require('./compileSass');
-const { rootDirectory, taskRunner } = require('../../helpers');
+const {
+  rootDirectory,
+  taskRunner,
+  taskRunnerReturns: { succeed, fail },
+} = require('../../helpers');
 const cleanCSS = require('../../clean/css');
 
 const files = [
@@ -16,11 +20,16 @@ const files = [
 const createFolders = [path.resolve(rootDirectory, 'dist', 'docs')];
 
 module.exports = clean => {
-  return taskRunner(taskSpinner => {
-    if (clean) {
-      cleanCSS();
+  return taskRunner(async taskSpinner => {
+    try {
+      if (clean) {
+        await cleanCSS();
+      }
+      await compileSass({ files, taskSpinner, createFolders });
+      return succeed();
+    } catch (error) {
+      return fail(error);
     }
-    return compileSass({ files, taskSpinner, createFolders });
   }, __filename);
 };
 require('make-runnable/custom')({

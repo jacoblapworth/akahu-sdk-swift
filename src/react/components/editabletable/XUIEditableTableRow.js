@@ -71,11 +71,10 @@ const XUIEditableTableRow = ({
         >
           {isDraggable && (
             <XUIEditableTableCellIconButton
+              {...provided?.dragHandleProps}
               aria-describedby={dragHandleDescribedBy}
               ariaLabel={dragButtonAriaLabel}
               cellProps={{
-                ...provided?.dragHandleProps,
-                tabIndex: -1,
                 qaHook: qaHook && `${qaHook}--cell-drag`,
               }}
               className={`${baseName}--draghandle`}

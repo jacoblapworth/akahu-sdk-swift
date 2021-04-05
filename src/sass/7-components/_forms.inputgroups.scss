@@ -10,6 +10,21 @@
   }
 }
 
+// Top-level containers, only
+@mixin xui-inputgroup-containers-toplevel($ordinal: '') {
+  .#{$ns}-textinput#{$ordinal},
+  .#{$ns}-button#{$ordinal},
+  .#{$ns}-buttongroup#{$ordinal},
+  .#{$ns}-select#{$ordinal},
+  .#{$ns}-selectwrapper#{$ordinal},
+  .#{$ns}-textinputwrapper#{$ordinal},
+  .#{$ns}-autocompleter#{$ordinal},
+  .#{$ns}-dropdown--toggledwrapper#{$ordinal},
+  .#{$ns}-dateinput#{$ordinal} {
+    @content;
+  }
+}
+
 // Specific bordered elements with top-level containers
 @mixin xui-inputgroup-bordered-toplevel($ordinal: '') {
   // Specific bordered elements with top-level containers
@@ -59,9 +74,10 @@
 
 // These "not" selectors are for backwards compatibility with .xui-inputgroup. TODO: change to xui-inputgroup-horizontal for 18
 .#{$ns}-inputgroup:not(.#{$ns}-inputgroup-vertical) > {
-  // omit left border for items other than the first
-  @include xui-inputgroup-bordered-all(':nth-child(n + 2)') {
-    border-left: 0;
+  // This rule allows the side borders for "interior" elements to overlap.
+  // Overlap is key, so the correct border takes precedence at the correct time.
+  @include xui-inputgroup-containers-toplevel(':nth-child(n + 2)') {
+    margin-left: -1px;
   }
 
   // round left borders for the first item
@@ -74,10 +90,6 @@
   @include xui-inputgroup-bordered-all(':last-child') {
     border-bottom-right-radius: $xui-radius;
     border-top-right-radius: $xui-radius;
-  }
-
-  .#{$ns}-buttongroup:nth-child(n + 2) {
-    margin-left: -1px;
   }
 }
 .#{$ns}-inputgroup-vertical > {
@@ -113,21 +125,6 @@
   .#{$ns}-textinput,
   .#{$ns}-select .#{$ns}-select--button {
     border-radius: $xui-radius !important;
-  }
-}
-
-// TODO: change to xui-inputgroup-horizontal for 18
-.#{$ns}-inputgroup:not(.#{$ns}-inputgroup-vertical) {
-  .#{$ns}-textinput-is-invalid:nth-child(n + 2),
-  .#{$ns}-textinputwrapper-is-invalid:nth-child(n + 2),
-  .#{$ns}-select:nth-child(n + 2) > .#{$ns}-select--control.#{$ns}-textinput-is-invalid,
-  .#{$ns}-daterangeinput--secondinput.#{$ns}-textinput {
-    margin-left: -1px; // This just straight up doesn't work if you have a mix of valid and invalid. or with individual labels
-  }
-  .#{$ns}-textinput-is-invalid:nth-child(n + 2),
-  .#{$ns}-textinputwrapper-is-invalid:nth-child(n + 2) .#{$ns}-textinput-is-invalid,
-  .#{$ns}-select:nth-child(n + 2) > .#{$ns}-select--control.#{$ns}-textinput-is-invalid {
-    border-left: 1px solid $xui-color-red;
   }
 }
 

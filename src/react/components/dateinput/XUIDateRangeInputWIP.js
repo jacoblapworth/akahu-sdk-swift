@@ -194,7 +194,6 @@ class XUIDateRangeInputWIP extends Component {
               !endHintMessage &&
               !endValidationMessage &&
               `${baseClass}--secondinput-withspace`,
-            !isStartInvalid && isEndInvalid && `${baseClass}-singleinvalid`,
           )}
           inputLabel={endInputLabel}
           isDisabled={isEndDisabled || isGroupDisabled}
@@ -216,7 +215,6 @@ class XUIDateRangeInputWIP extends Component {
               `${baseClass}--convenience`,
               needsMessageSpace && `${baseClass}--convenience-withspace`,
               isAnyDisabled && `${baseClass}--convenience-disabled`,
-              (isStartInvalid || isEndInvalid) && `${baseClass}--convenience-shifted`,
             )}
             closeOnSelect={closeOnSelect}
             closeOnTab={false}

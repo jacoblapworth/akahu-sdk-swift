@@ -13,6 +13,13 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with a neutral sentiment',
+    sentiment: 'neutral',
+    messageText: 'Neutral Banner Message',
+    onCloseClick: NOOP,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with a negative sentiment',
     sentiment: 'negative',
     messageText: 'Negative Banner Message',

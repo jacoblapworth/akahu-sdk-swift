@@ -25,6 +25,7 @@ interface BarData {
 type BarsData = BarData[];
 
 interface InteractionParams extends BarData {
+  barIndex?: number;
   stackIndex?: number;
 }
 
@@ -80,7 +81,7 @@ interface BaseProps {
    * Function to create a custom pagination message based on the charts "current" and "total"
    * pagination "panels".
    */
-  createPaginationMessage?: (current: string, total: number) => React.ReactNode;
+  createPaginationMessage?: (current: number, total: number) => React.ReactNode;
   /**
    * Function to create a custom representation of the y-axis labels.
    */
@@ -146,7 +147,7 @@ interface BaseProps {
    */
   paginationNextTitle?: string;
   /**
-   * Accessibility title for pagination button This is required if `hasPagination` is `true`.
+   * Accessibility title for pagination button. This is required if `hasPagination` is `true`.
    *
    * Recommended English value: *Previous page*
    */

@@ -36,7 +36,6 @@ exports[`<XUIPickitem /> renders a multiselect pickitem with truncation 1`] = `
       <label
         className="xui-styledcheckboxradio"
         onClick={[Function]}
-        role="presentation"
       >
         <input
           aria-labelledby="xui-testPickitemCheckboxId"
@@ -196,7 +195,6 @@ exports[`<XUIPickitem /> renders a selected multiselect pickitem (overriding lef
       <label
         className="xui-styledcheckboxradio"
         onClick={[Function]}
-        role="presentation"
       >
         <input
           aria-labelledby="xui-testPickitemCheckboxId"
@@ -247,7 +245,6 @@ exports[`<XUIPickitem /> renders a selected multiselect pickitem without selecte
       <label
         className="xui-styledcheckboxradio"
         onClick={[Function]}
-        role="presentation"
       >
         <input
           aria-labelledby="xui-testPickitemCheckboxId"

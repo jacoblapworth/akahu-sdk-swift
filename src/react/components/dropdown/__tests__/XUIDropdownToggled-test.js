@@ -171,7 +171,13 @@ describe('<XUIDropdownToggled />', () => {
       ).toBeTruthy();
     });
 
-    it.skip('should pass accessibility testing', async () => {
+    it('should pass accessibility testing', async () => {
+      wrapper = mount(
+        <div>
+          <XUIDropdownToggled dropdown={getDropdown()} isHidden={false} trigger={getTrigger()} />
+          <div id="xui-testDropdownId">Mock dropdown for test purposes</div>
+        </div>,
+      );
       const results = await axe(wrapper.html());
       expect(results).toHaveNoViolations();
     });
@@ -197,11 +203,6 @@ describe('<XUIDropdownToggled />', () => {
       expect(wrapper.instance().isDropdownOpen()).toBeTruthy();
 
       wrapper.unmount();
-    });
-
-    it.skip('should pass accessibility testing', async () => {
-      const results = await axe(wrapper.html());
-      expect(results).toHaveNoViolations();
     });
   });
 

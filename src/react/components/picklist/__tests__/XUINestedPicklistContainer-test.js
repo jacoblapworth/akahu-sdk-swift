@@ -36,8 +36,8 @@ const setup = (props = {}) => {
 };
 
 describe('<XUIPicklistContainer />', () => {
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(MockNestedPicklistContainer());
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<ul role="tree">{MockNestedPicklistContainer()}</ul>);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

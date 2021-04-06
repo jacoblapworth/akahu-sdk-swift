@@ -22,12 +22,12 @@ describe('<XUIEditableTableCellTextInput />', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     const wrapper = mount(
       <table>
         <tbody>
           <tr>
-            <XUIEditableTableCellTextInput />
+            <XUIEditableTableCellTextInput label="Text input cell" />
           </tr>
         </tbody>
       </table>,

@@ -10,7 +10,7 @@ Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
 describe('<XUIStepper />', () => {
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     const tabs = [{ name: 'Tab 1' }, { name: 'Tab 2' }];
     const wrapper = mount(<XUIStepper currentStep={0} id="test-stepper" tabs={tabs} />);
 

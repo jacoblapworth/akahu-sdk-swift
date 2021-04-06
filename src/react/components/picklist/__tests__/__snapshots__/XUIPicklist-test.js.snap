@@ -47,7 +47,6 @@ exports[`< Picklist /> example taking settings from first child and giving to al
         <label
           className="xui-styledcheckboxradio"
           onClick={[Function]}
-          role="presentation"
         >
           <input
             aria-labelledby="xui-testPickitemCheckboxId"
@@ -95,7 +94,6 @@ exports[`< Picklist /> example taking settings from first child and giving to al
         <label
           className="xui-styledcheckboxradio"
           onClick={[Function]}
-          role="presentation"
         >
           <input
             aria-labelledby="xui-testPickitemCheckboxId"

@@ -7,7 +7,6 @@ exports[`XUISwitch should accept an isChecked prop that determines the value of 
   <label
     className="xui-switch"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={true}
@@ -42,7 +41,6 @@ exports[`XUISwitch should include a reversed class when a text label is present 
   <label
     className="xui-switch xui-switch-reversed"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={false}
@@ -77,7 +75,6 @@ exports[`XUISwitch should include a text label when label is passed 1`] = `
   <label
     className="xui-switch"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={false}
@@ -112,7 +109,6 @@ exports[`XUISwitch should include an aria-label when label is passed and hidden 
   <label
     className="xui-switch"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={false}
@@ -142,7 +138,6 @@ exports[`XUISwitch should render an automationid for most elements when a qaHook
     className="xui-switch"
     data-automationid="switch-test"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={false}
@@ -180,7 +175,6 @@ exports[`XUISwitch should render checked 1`] = `
   <label
     className="xui-switch"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={true}
@@ -208,7 +202,6 @@ exports[`XUISwitch should render not checked and not disabled 1`] = `
   <label
     className="xui-switch"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={false}
@@ -236,7 +229,6 @@ exports[`XUISwitch should render with validation message 1`] = `
   <label
     className="xui-switch"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={false}

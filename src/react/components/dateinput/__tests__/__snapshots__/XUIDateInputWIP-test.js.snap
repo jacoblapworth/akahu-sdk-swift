@@ -7,7 +7,6 @@ exports[`XUIDateInput inserts selected date value 1`] = `
   <div
     className="xui-dropdown--toggledwrapper"
     data-ref="toggled-wrapper"
-    role="presentation"
   >
     <div
       aria-activedescendant={null}
@@ -76,7 +75,6 @@ exports[`XUIDateInput renders default component 1`] = `
   <div
     className="xui-dropdown--toggledwrapper"
     data-ref="toggled-wrapper"
-    role="presentation"
   >
     <div
       aria-activedescendant={null}

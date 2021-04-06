@@ -124,7 +124,6 @@ exports[`<XUISelectBoxOption /> should render checkboxes when the showCheckboxes
       <label
         className="xui-styledcheckboxradio"
         onClick={[Function]}
-        role="presentation"
       >
         <input
           aria-labelledby="xui-testCheckboxId"
@@ -264,7 +263,6 @@ exports[`<XUISelectBoxOption /> should render the option and the checkboxes as d
       <label
         className="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
         onClick={[Function]}
-        role="presentation"
       >
         <input
           aria-labelledby="xui-testCheckboxId"

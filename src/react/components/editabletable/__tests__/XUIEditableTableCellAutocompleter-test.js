@@ -23,11 +23,11 @@ describe('<XUIEditableTableCellAutocompleter />', () => {
   });
 
   // prettier-ignore
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     const wrapper = mount(
       <table>
         <tbody>
-          <tr><XUIEditableTableCellAutocompleter onSearch={() => {}} /></tr>
+          <tr><XUIEditableTableCellAutocompleter inputLabel="Autocompleter cell" onSearch={() => {}} /></tr>
         </tbody>
       </table>,
     );

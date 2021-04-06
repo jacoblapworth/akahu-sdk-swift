@@ -17,7 +17,6 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
     <div
       className="xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
-      role="presentation"
     >
       <div
         aria-activedescendant={null}
@@ -81,7 +80,6 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
     <div
       className="xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
-      role="presentation"
     >
       <div
         aria-activedescendant={null}
@@ -146,7 +144,6 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
       className="xui-daterangeinput--convenience xui-dropdown--toggledwrapper"
       data-automationid="test-daterangeinput-conveniencedates"
       data-ref="toggled-wrapper"
-      role="presentation"
     >
       <button
         aria-activedescendant={null}
@@ -193,7 +190,6 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
     <div
       className="xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
-      role="presentation"
     >
       <div
         aria-activedescendant={null}
@@ -255,7 +251,6 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
     <div
       className="xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
-      role="presentation"
     >
       <div
         aria-activedescendant={null}
@@ -317,7 +312,6 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
     <div
       className="xui-daterangeinput--convenience xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
-      role="presentation"
     >
       <button
         aria-activedescendant={null}

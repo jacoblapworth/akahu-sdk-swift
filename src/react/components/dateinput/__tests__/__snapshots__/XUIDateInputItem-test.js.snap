@@ -4,7 +4,6 @@ exports[`XUIDateInputItem inserts selected date value 1`] = `
 <div
   className="xui-dropdown--toggledwrapper"
   data-ref="toggled-wrapper"
-  role="presentation"
 >
   <div
     aria-activedescendant={null}
@@ -69,7 +68,6 @@ exports[`XUIDateInputItem renders disabled 1`] = `
 <div
   className="xui-dropdown--toggledwrapper"
   data-ref="toggled-wrapper"
-  role="presentation"
 >
   <div
     aria-activedescendant={null}
@@ -135,7 +133,6 @@ exports[`XUIDateInputItem renders with a hint 1`] = `
 <div
   className="xui-dropdown--toggledwrapper"
   data-ref="toggled-wrapper"
-  role="presentation"
 >
   <div
     aria-activedescendant={null}
@@ -208,7 +205,6 @@ exports[`XUIDateInputItem renders with the provided label 1`] = `
 <div
   className="xui-dropdown--toggledwrapper"
   data-ref="toggled-wrapper"
-  role="presentation"
 >
   <div
     aria-activedescendant={null}
@@ -279,7 +275,6 @@ exports[`XUIDateInputItem renders with validation message 1`] = `
 <div
   className="xui-dropdown--toggledwrapper"
   data-ref="toggled-wrapper"
-  role="presentation"
 >
   <div
     aria-activedescendant={null}

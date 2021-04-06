@@ -295,6 +295,8 @@ class XUIDropdownPanel extends PureComponent {
     );
 
     return (
+      // The <div> element is being used to capture bubbled events from child elements
+      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div
         aria-hidden={isHidden}
         className={`${baseClass}--panel`}
@@ -302,7 +304,6 @@ class XUIDropdownPanel extends PureComponent {
         id={panelId}
         onKeyDown={this.keyDownHandler}
         ref={compose(panelRef, i => (this.rootNode.current = i))}
-        role="presentation"
         style={style}
         tabIndex={-1}
       >
@@ -325,8 +326,6 @@ class XUIDropdownPanel extends PureComponent {
                 onSelect={onSelect}
                 qaHook={qaHook && `${qaHook}--scrollable-container`}
                 ref={this.list}
-                // Need the role here, because ARIA state needs to be managed at the same level.
-                secondaryProps={{ role: 'listbox' }}
                 shouldManageInitialHighlight={shouldManageInitialHighlight}
               >
                 <div

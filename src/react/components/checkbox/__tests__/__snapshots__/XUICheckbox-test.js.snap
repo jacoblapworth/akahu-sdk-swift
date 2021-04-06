@@ -7,7 +7,6 @@ exports[`XUICheckbox should be a small variant, if specified 1`] = `
   <label
     className="xui-styledcheckboxradio"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-labelledby="xui-testCheckboxId"
@@ -42,7 +41,6 @@ exports[`XUICheckbox should be a xsmall variant, if specified 1`] = `
   <label
     className="xui-styledcheckboxradio"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-labelledby="xui-testCheckboxId"
@@ -77,7 +75,6 @@ exports[`XUICheckbox should have a hidden label, if specified 1`] = `
   <label
     className="xui-styledcheckboxradio"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-label="Hidden label"
@@ -107,7 +104,6 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
     className="xui-styledcheckboxradio"
     data-automationid="test-checkbox"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
@@ -137,7 +133,6 @@ exports[`XUICheckbox should have a visible label, if specified 1`] = `
   <label
     className="xui-styledcheckboxradio"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-labelledby="xui-testCheckboxId"
@@ -172,7 +167,6 @@ exports[`XUICheckbox should render with an icon when one is provided 1`] = `
   <label
     className="xui-styledcheckboxradio"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
@@ -217,7 +211,6 @@ exports[`XUICheckbox should render with validation message 1`] = `
   <label
     className="xui-styledcheckboxradio"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-describedby="xui-testCheckboxId-message"

@@ -54,7 +54,7 @@ describe('<TabDropdown />', () => {
     expect(document.querySelector('.xui-portal .xui-container')).toBeTruthy();
   });
 
-  it('should pass accessibility testing', async () => {
+  it.skip('should pass accessibility testing', async () => {
     const wrapper = mount(
       <TabDropdown dropdownList={[<XUIPickitem id="pi1" isSelected primaryElement="Item 1" />]} />,
     );

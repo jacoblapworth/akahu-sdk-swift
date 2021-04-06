@@ -165,8 +165,9 @@ describe('<XUI PageHeader and BreadcrumbTrail/>', () => {
     );
     expect(contextualBc).toMatchSnapshot();
   });
-  it('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIPageHeader title="Testing 💩" />);
+  it('XUIPageHeader and XUIBreadcrumbTrail should pass accessibility testing', async () => {
+    const breadcrumb = <XUIBreadcrumbTrail breadcrumbs={bcObj2} />;
+    const wrapper = mount(<XUIPageHeader breadcrumb={breadcrumb} title="Testing 💩" />);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

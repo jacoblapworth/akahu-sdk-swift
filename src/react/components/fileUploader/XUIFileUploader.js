@@ -21,6 +21,7 @@ const XUIFileUploader = ({
   defaultErrorMessage,
   deleteLabel,
   dropZoneMessage,
+  errorIconAriaLabel,
   fieldClassName,
   fileList,
   fileListClassName,
@@ -42,6 +43,7 @@ const XUIFileUploader = ({
   retryButtonText,
   showFilesAsMultiline = true,
   showIcon = true,
+  uploadingIconAriaLabel,
   uploadingMessage,
   validationMessage,
 }) => {
@@ -133,6 +135,7 @@ const XUIFileUploader = ({
         cancelButtonText={cancelButtonText}
         defaultErrorMessage={defaultErrorMessage}
         deleteLabel={deleteLabel}
+        errorIconAriaLabel={errorIconAriaLabel}
         fileList={fileList}
         fileListClassName={fileListClassName}
         fileSizeUnits={fileSizeUnits}
@@ -143,6 +146,7 @@ const XUIFileUploader = ({
         retryButtonText={retryButtonText}
         showFilesAsMultiline={showFilesAsMultiline}
         showIcon={showIcon}
+        uploadingIconAriaLabel={uploadingIconAriaLabel}
         uploadingMessage={uploadingMessage}
       />
     </div>
@@ -194,6 +198,10 @@ XUIFileUploader.propTypes = {
    * Recommended English value: *Drag and drop file(s) or select manually*
    */
   dropZoneMessage: PropTypes.string.isRequired,
+  /**
+   * Aria label for the error progress icon
+   */
+  errorIconAriaLabel: PropTypes.string,
   /**
    * Class names to be added to the div wrapping the select button/drop zone
    */
@@ -298,6 +306,10 @@ XUIFileUploader.propTypes = {
    * Show icon in the file list item
    */
   showIcon: PropTypes.bool,
+  /**
+   * Aria label for the uploading progress icon
+   */
+  uploadingIconAriaLabel: PropTypes.string,
   /**
    * Message to display while the file is uploading. Required if the `showFilesAsMultiline` prop is set to `true`
    * <br />

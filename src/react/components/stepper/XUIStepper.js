@@ -18,7 +18,10 @@ const createTabs = (
     const isFirst = index === 0;
     const isLast = index === tabs.length - 1;
     const isActive = currentStep === index;
-    const ariaTabId = createAriaTabId(id, index);
+    const ariaTabId =
+      overrides && overrides.layout
+        ? createAriaTabId(`${id}-${overrides.layout}`, index)
+        : createAriaTabId(id, index);
     const enrichedProps = enrichTabProps({
       ...tabProps,
       ...overrides,
@@ -124,7 +127,16 @@ class XUIStepper extends Component {
     // instances with the same `id` value (which will blow up the page). The
     // progress indicator does not augment the space taken up by the tab (we fall
     // back to the icon layout that uses the same size) so it will not effect the math.
-    const hiddenTabs = createTabs(tabProps, { isHidden: true, isProgress: false });
+    const hiddenInlineTabs = createTabs(tabProps, {
+      isHidden: true,
+      isProgress: false,
+      layout: 'inline',
+    });
+    const hiddenSideBarTabs = createTabs(tabProps, {
+      isHidden: true,
+      isProgress: false,
+      layout: 'sidebar',
+    });
 
     return (
       <div className={NAME_SPACE} data-automationid={qaHook} ref={this.rootNode}>
@@ -133,8 +145,8 @@ class XUIStepper extends Component {
             {/* Render "dummy" UI scenarios in secret to determine what layout the
 						component best conforms to the <XUIStepper /> width if no pre-defined
 						layout has been supplied. */}
-            <InlineDummyLayout hasStackedButtons={hasStackedButtons} tabs={hiddenTabs} />
-            <SideBarDummyLayout gridTemplateRows={gridTemplateRows} tabs={hiddenTabs} />
+            <InlineDummyLayout hasStackedButtons={hasStackedButtons} tabs={hiddenInlineTabs} />
+            <SideBarDummyLayout gridTemplateRows={gridTemplateRows} tabs={hiddenSideBarTabs} />
           </div>
         )}
 

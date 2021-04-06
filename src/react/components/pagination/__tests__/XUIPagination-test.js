@@ -185,7 +185,8 @@ describe('<XUIPagination/>', () => {
     expect(onPerPageCountChange).toBeCalled();
   });
 
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
+    nanoid.mockReturnValue('001').mockReturnValueOnce('002');
     wrapper = mount(<DefaultPagination />);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();

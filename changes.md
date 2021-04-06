@@ -215,8 +215,14 @@ _Note. The codemod will resolve most prop differences automatically when run._
 
 ## Other changes
 
+### Accessibility
+
 - Corrections to `role` attributes to meet WCAG 2.1 AA Standard, these changes may influence your snapshot tests
   - `XUITag`: `role=”status”` has been removed
+  - `XUISelectBox`: default `role` value has been updated to `listbox`
+  - `XUIDropdownPanel`: `role="presentation` and `role="listbox"` have been removed
+  - `XUIDropdownToggled`: default `role="presentation"` has been removed
+  - `XUIDropdown`: If children `XUIPicklist` / `XUIPickitem` components are provided, they will now have a role of `listbox` / `option`
   - `XUIPicklist`:
     - Default `role` value has been removed
     - `role` value `tree` will be applied if it has a child `XUINestedPicklistContainer`
@@ -224,10 +230,18 @@ _Note. The codemod will resolve most prop differences automatically when run._
   - `XUINestedPicklist`
     - Default `role` value has been updated to `group`
     - If a child `XUIPickitem` component is provided, this will now have a role of `treeitem`
-  - `XUIDropdown`: If children `XUIPicklist` / `XUIPickitem` components are provided, they will now have a role of `listbox` / `option`
   - `XUIStatefulPicklist`: default `role` value has been removed
-  - `XUISelectBox`: default `role` value has been updated to `listbox`
-  - `XUIAutocompleter`: `aria-expanded={false}`has been added when the dropdown is collapsed
+  - `XUINestedPicklistTrigger`: `role="button"` has been removed
+  - `XUIControlWrapperInline`: `role="presentation"` has been removed
+    - This element is a control wrapper used in multiple other XUI components. The following XUI components have been affected and your snapshot tests may need to be updated:
+      - `XUICheckbox`, `XUIRadio`, `XUIRolloverCheckbox`, `XUISwitch`, `XUIToggleOption`
+      - `XUIPickitem` - multiselect variant only (where `isMultiselect` prop has been set to `true`)
+      - `XUITable` - checkbox variant only (where `hasCheckbox` prop has been set to `true`)
+      - `XUISelectBoxOption` - multiselect variant only (where `showCheckboxes` prop has been set to `true`)
+- `XUIAutocompleter`: `aria-expanded={false}`has been added when the dropdown is collapsed, which may require your snapshot tests to be updated
+- `XUIStepper`: for variants where a `lockLayout` prop is not provided, the generated ids have been updated to prevent clashes, which may require your snapshot tests to be updated
+- `XUIFileUploader`: `errorIconAriaLabel` and `uploadingIconAriaLabel` props have been added in order to supply an `aria-label` to each of the generated `uploading` and `error` progress icons
+- `XUIPicklist`: `ariaLabel` prop has been added in order to supply an `aria-label` to the picklist. This is recommended when a picklist is being used inside a `XUIDropdown` or `XUIDropdownPanel`
 
 ### Resize observers
 

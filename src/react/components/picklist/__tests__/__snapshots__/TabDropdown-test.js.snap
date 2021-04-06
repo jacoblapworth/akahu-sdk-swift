@@ -4,7 +4,6 @@ exports[`<TabDropdown /> renders correctly 1`] = `
 <div
   className="custom-class xui-dropdown--toggledwrapper"
   data-ref="toggled-wrapper"
-  role="presentation"
 >
   <li
     aria-selected={null}

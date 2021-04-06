@@ -105,8 +105,12 @@ describe('<XUI Panel and related components/>', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIPanel>Content here</XUIPanel>);
+  it('XUIPanel, XUIPanelFooter, XUIPanelHeading and XUIPanelSection should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIPanel footer={panelFooter} heading={panelHeader}>
+        <XUIPanelSection>Section</XUIPanelSection>
+      </XUIPanel>,
+    );
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

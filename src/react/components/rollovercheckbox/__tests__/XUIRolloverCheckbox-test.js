@@ -86,8 +86,8 @@ describe('XUIRolloverCheckbox', () => {
     expect(expected).toMatchSnapshot();
   });
 
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIRolloverCheckbox onSelect={jest.fn} />);
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIRolloverCheckbox label="Rollover checkbox" onSelect={jest.fn} />);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

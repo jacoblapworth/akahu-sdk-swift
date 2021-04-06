@@ -109,8 +109,8 @@ describe('XUIToggleOption', function () {
   });
 
   // accessibility
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIToggleOption onChange={() => {}} />);
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIToggleOption onChange={() => {}}>Option</XUIToggleOption>);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

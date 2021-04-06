@@ -2,12 +2,10 @@ import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
-import { axe, toHaveNoViolations } from 'jest-axe';
 import noop from '../../helpers/noop';
 import AccordionTrigger from '../customElements/AccordionTrigger';
 
 Enzyme.configure({ adapter: new Adapter() });
-expect.extend(toHaveNoViolations);
 
 const qaHook = 'test-id';
 
@@ -101,11 +99,5 @@ describe('<XUIAccordion /> | Accordion Trigger', () => {
 
     component.find(`[data-automationid="${buttonQaHook}"]`).simulate('click');
     expect(onClick).not.toHaveBeenCalled();
-  });
-
-  it.skip('should pass accessibility testing', async () => {
-    const component = mount(renderTrigger());
-    const results = await axe(component.html());
-    expect(results).toHaveNoViolations();
   });
 });

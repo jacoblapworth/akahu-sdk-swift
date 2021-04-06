@@ -123,11 +123,13 @@ const Example = () => {
   return (
     <XUIFileUploader
       {...defaultProps}
+      errorIconAriaLabel="Error"
       label="Upload file(s)"
       fileList={fileList}
       onDelete={onDelete}
       onFilesChange={onFilesChange}
       onRetry={onRetry}
+      uploadingIconAriaLabel="Uploading"
     />
   );
 };
@@ -214,12 +216,14 @@ const Example = props => {
     <XUIFileUploader
       {...defaultProps}
       {...props}
+      errorIconAriaLabel="Error"
       label="Upload file(s)"
       hasDragAndDrop
       fileList={fileList}
       onDelete={onDelete}
       onFilesChange={onFilesChange}
       onRetry={onRetry}
+      uploadingIconAriaLabel="Uploading"
     />
   );
 };
@@ -238,8 +242,22 @@ import {
 } from './components/fileUploader/private/helpers';
 
 <div>
-  <XUIFileUploader {...defaultProps} isDisabled isFieldLayout label="Upload file(s)" />
-  <XUIFileUploader {...defaultProps} hasDragAndDrop isDisabled label="Upload file(s)" />
+  <XUIFileUploader
+    {...defaultProps}
+    errorIconAriaLabel="Error"
+    isDisabled
+    isFieldLayout
+    label="Upload file(s)"
+    uploadingIconAriaLabel="Uploading"
+  />
+  <XUIFileUploader
+    {...defaultProps}
+    errorIconAriaLabel="Error"
+    hasDragAndDrop
+    isDisabled
+    label="Upload file(s)"
+    uploadingIconAriaLabel="Uploading"
+  />
 </div>;
 ```
 
@@ -311,10 +329,12 @@ const Example = props => {
     <XUIFileUploader
       {...defaultProps}
       {...props}
+      errorIconAriaLabel="Error"
       fileList={fileList}
       onDelete={onDelete}
       onFilesChange={onFilesChange}
       onRetry={onRetry}
+      uploadingIconAriaLabel="Uploading"
     />
   );
 };
@@ -409,6 +429,7 @@ const Example = () => {
   return (
     <XUIFileUploader
       {...defaultProps}
+      errorIconAriaLabel="Error"
       label="Upload file(s)"
       fileList={fileList}
       onDelete={onDelete}
@@ -416,6 +437,7 @@ const Example = () => {
       onRetry={onRetry}
       showFilesAsMultiline={false}
       showIcon={false}
+      uploadingIconAriaLabel="Uploading"
     />
   );
 };

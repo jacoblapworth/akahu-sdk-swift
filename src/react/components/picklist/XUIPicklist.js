@@ -50,6 +50,7 @@ export default class XUIPicklist extends Component {
 
   render() {
     const {
+      ariaLabel,
       children,
       className,
       closeOnSelect,
@@ -99,6 +100,7 @@ export default class XUIPicklist extends Component {
 
     const ulProps = {
       ...secondaryProps,
+      'aria-label': ariaLabel,
       id,
       onKeyDown,
       onClick,
@@ -132,6 +134,11 @@ export default class XUIPicklist extends Component {
 }
 
 XUIPicklist.propTypes = {
+  /**
+   * Specify an ARIA label for the picklist.
+   * Recommended if the picklist is being used within a dropdown.
+   */
+  ariaLabel: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
   /**

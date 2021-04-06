@@ -173,14 +173,28 @@ describe('<XUIProgressIndicator />', () => {
   });
 
   describe('accessibility testing', () => {
-    it.skip('<XUIProgressCircular /> should pass accessibility testing', async () => {
-      const wrapper = mount(<XUIProgressCircular id="standard-circular" progress={3} total={5} />);
+    it('<XUIProgressCircular /> should pass accessibility testing', async () => {
+      const wrapper = mount(
+        <XUIProgressCircular
+          ariaLabel="Circular progress indicator"
+          id="standard-circular"
+          progress={3}
+          total={5}
+        />,
+      );
       const results = await axe(wrapper.html());
       expect(results).toHaveNoViolations();
     });
 
-    it.skip('<XUIProgressLinear /> should pass accessibility testing', async () => {
-      const wrapper = mount(<XUIProgressLinear id="segments-linear" progress={3} total={5} />);
+    it('<XUIProgressLinear /> should pass accessibility testing', async () => {
+      const wrapper = mount(
+        <XUIProgressLinear
+          ariaLabel="Linear progress indicator"
+          id="segments-linear"
+          progress={3}
+          total={5}
+        />,
+      );
       const results = await axe(wrapper.html());
       expect(results).toHaveNoViolations();
     });

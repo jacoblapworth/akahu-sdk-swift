@@ -23,7 +23,6 @@ exports[`<XUISelectBox /> should render the appropriate automation id's when a q
         className="xui-dropdown--toggledwrapper"
         data-automationid="test-selectbox---dropdowntoggled"
         data-ref="toggled-wrapper"
-        role="presentation"
       >
         <button
           aria-activedescendant={null}
@@ -88,7 +87,6 @@ exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isD
         className="xui-dropdown--toggledwrapper"
         data-automationid={null}
         data-ref="toggled-wrapper"
-        role="presentation"
       >
         <button
           aria-activedescendant={null}

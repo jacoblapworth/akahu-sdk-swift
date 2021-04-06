@@ -59,13 +59,12 @@ const XUIControlWrapperInline = ({
   wrapperIds,
 }) => (
   <div className={rootClassName}>
+    {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
     <label
       className={fieldClassName}
       data-automationid={qaHook}
       onClick={onClick}
       onKeyDown={onKeyDown}
-      // eslint-disable-next-line jsx-a11y/no-interactive-element-to-noninteractive-role
-      role="presentation"
     >
       {children}
       <LabelElement

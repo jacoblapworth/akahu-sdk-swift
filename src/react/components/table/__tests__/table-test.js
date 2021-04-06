@@ -52,15 +52,15 @@ describe('<XUITable />', () => {
       cellBodyQaHook: 'cellBodyQaHook',
     };
 
-    it('should render QA hooks on various child elements, if provided', () => {
-      const exampleTable = renderer.create(<TestScaffold {...settings} />);
-      expect(exampleTable).toMatchSnapshot();
-    });
-
-    it.skip('should pass accessibility testing', async () => {
+    it('should pass accessibility testing', async () => {
       const wrapper = mount(<TestScaffold {...settings} />);
       const results = await axe(wrapper.html());
       expect(results).toHaveNoViolations();
+    });
+
+    it('should render QA hooks on various child elements, if provided', () => {
+      const exampleTable = renderer.create(<TestScaffold {...settings} />);
+      expect(exampleTable).toMatchSnapshot();
     });
   });
 });

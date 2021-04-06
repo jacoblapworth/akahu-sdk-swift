@@ -463,9 +463,9 @@ describe('XUIAutocompleter', () => {
     });
   });
 
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     const onSearch = jest.fn();
-    const component = mount(createComponent({ onSearch }));
+    const component = mount(createComponent({ onSearch, inputLabel: 'Items' }));
     const results = await axe(component.html());
     expect(results).toHaveNoViolations();
   });

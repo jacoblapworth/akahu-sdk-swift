@@ -170,8 +170,8 @@ describe('XUIRadio', () => {
     ).toEqual('off');
   });
 
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIRadio onChange={NOOP} />);
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIRadio onChange={NOOP}>Radio</XUIRadio>);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

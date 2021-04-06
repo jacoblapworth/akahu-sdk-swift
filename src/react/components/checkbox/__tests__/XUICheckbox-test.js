@@ -206,7 +206,7 @@ describe('XUICheckbox', function () {
     ).toEqual('on');
   });
 
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

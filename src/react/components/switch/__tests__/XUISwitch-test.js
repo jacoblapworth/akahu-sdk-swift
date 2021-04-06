@@ -101,8 +101,8 @@ describe('XUISwitch', function () {
     expect(ariaLabel).toMatchSnapshot();
   });
 
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUISwitch onChange={NOOP} />);
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUISwitch onChange={NOOP}>Switch</XUISwitch>);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

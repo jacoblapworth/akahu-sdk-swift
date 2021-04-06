@@ -16,7 +16,6 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
     className="xui-dropdown--panel"
     data-automationid="dropdown-test"
     onKeyDown={[Function]}
-    role="presentation"
     style={
       Object {
         "maxHeight": undefined,
@@ -40,7 +39,6 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
         className="xui-dropdown--scrollable-container"
         data-automationid="dropdown-test--scrollable-container"
         onKeyDown={[Function]}
-        role="listbox"
         tabIndex={null}
       >
         <div
@@ -96,7 +94,6 @@ exports[`forceStatefulPicklist prop renders qaHooks on inner components when sta
     className="xui-dropdown--panel"
     data-automationid="dropdown-test"
     onKeyDown={[Function]}
-    role="presentation"
     style={
       Object {
         "maxHeight": undefined,

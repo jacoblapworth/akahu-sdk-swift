@@ -165,7 +165,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select all rows"
@@ -222,7 +221,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -266,7 +264,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -310,7 +307,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -390,7 +386,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select all rows"
@@ -447,7 +442,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -491,7 +485,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -536,7 +529,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -617,7 +609,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select all rows"
@@ -675,7 +666,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -720,7 +710,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -765,7 +754,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -1359,7 +1347,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select all rows"
@@ -1476,7 +1463,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -1549,7 +1535,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -1589,7 +1574,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -1662,7 +1646,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -1702,7 +1685,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -1775,7 +1757,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -2154,7 +2135,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select all rows"
@@ -3204,7 +3184,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -3257,7 +3236,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -3310,7 +3288,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -3391,7 +3368,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select all rows"
@@ -3504,7 +3480,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -3583,7 +3558,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -3662,7 +3636,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -3916,7 +3889,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -4004,7 +3976,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -4092,7 +4063,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -4168,7 +4138,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select all rows"
@@ -4285,7 +4254,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -4358,7 +4326,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -4398,7 +4365,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -4471,7 +4437,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -4511,7 +4476,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -4584,7 +4548,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -5681,7 +5644,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select all rows"
@@ -5742,7 +5704,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -5780,7 +5741,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -5820,7 +5780,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -5858,7 +5817,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -5898,7 +5856,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -5936,7 +5893,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -7111,7 +7067,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select all rows"
@@ -7228,7 +7183,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -7301,7 +7255,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -7341,7 +7294,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -7414,7 +7366,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -7454,7 +7405,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   >
                     <label
                       class="xui-styledcheckboxradio"
-                      role="presentation"
                     >
                       <input
                         aria-label="Select row"
@@ -7527,7 +7477,6 @@ exports[`<XUITable /> emulate stories should render scenario "Instances/XUITable
                   <div
                     class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                     data-ref="toggled-wrapper"
-                    role="presentation"
                   >
                     <button
                       aria-haspopup="listbox"
@@ -7741,7 +7690,7 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
     </div>
     <div
       className="xui-readonlytablewrapper xui-readonlytableoverflow"
-      data-rbd-droppable-context-id="39"
+      data-rbd-droppable-context-id="40"
       data-rbd-droppable-id="xui-testDropdownId"
     >
       <div
@@ -7768,7 +7717,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
                   <label
                     className="xui-styledcheckboxradio"
                     onClick={[Function]}
-                    role="presentation"
                   >
                     <input
                       aria-label="Select all rows"
@@ -7828,7 +7776,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
                   <label
                     className="xui-styledcheckboxradio"
                     onClick={[Function]}
-                    role="presentation"
                   >
                     <input
                       aria-label="Select row"
@@ -7871,7 +7818,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
                 <div
                   className="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
-                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}
@@ -7918,7 +7864,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
                   <label
                     className="xui-styledcheckboxradio"
                     onClick={[Function]}
-                    role="presentation"
                   >
                     <input
                       aria-label="Select row"
@@ -7961,7 +7906,6 @@ exports[`<XUITable /> unit tests should render QA hooks on various child element
                 <div
                   className="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
                   data-ref="toggled-wrapper"
-                  role="presentation"
                 >
                   <button
                     aria-activedescendant={null}

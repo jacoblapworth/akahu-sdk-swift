@@ -27,7 +27,7 @@ describe('<PickitemMultiselect />', () => {
     expect(truncation).toMatchSnapshot();
   });
 
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     const wrapper = mount(<PickitemMultiselect>Item</PickitemMultiselect>);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();

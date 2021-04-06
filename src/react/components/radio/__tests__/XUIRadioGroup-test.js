@@ -64,12 +64,10 @@ describe('XUIRadioGroup', function () {
     expect(hiddenLabelTest.find('[aria-label="Birds"]')).toHaveLength(1);
   });
 
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     const wrapper = mount(
       <XUIRadioGroup>
-        <XUIRadio onChange={NOOP} />
-        <XUIRadio onChange={NOOP} />
-        <XUIRadio onChange={NOOP} />
+        <XUIRadio onChange={NOOP}>Radio</XUIRadio>
       </XUIRadioGroup>,
     );
     const results = await axe(wrapper.html());

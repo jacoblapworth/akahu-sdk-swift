@@ -21,8 +21,13 @@ Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
 describe('<XUITextInput>', () => {
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUITextInput />);
+  it('XUITextInput and XUITextInputSideElement should pass accessibility testing', async () => {
+    const sideElement = (
+      <XUITextInputSideElement type="icon">
+        <XUIIcon icon={accessibility} isBoxed />
+      </XUITextInputSideElement>
+    );
+    const wrapper = mount(<XUITextInput label="Text input" leftElement={sideElement} />);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

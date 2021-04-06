@@ -66,8 +66,12 @@ describe('<XUI OverviewBlock and OverviewSection/>', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIOverviewBlock />);
+  it('XUIOverviewBlock and XUIOverviewSection should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIOverviewBlock>
+        <XUIOverviewSection />
+      </XUIOverviewBlock>,
+    );
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

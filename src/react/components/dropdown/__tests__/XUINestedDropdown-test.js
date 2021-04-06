@@ -17,12 +17,12 @@ expect.extend(toHaveNoViolations);
 const createComponent = props => (
   <XUINestedDropdown id="1" {...props}>
     <XUIDropdownPanel qaHook="nestedDropdown-panelone">
-      <XUIPicklist>
+      <XUIPicklist ariaLabel="Select first option">
         <XUIPickitem id="option1">Option 1</XUIPickitem>
       </XUIPicklist>
     </XUIDropdownPanel>
     <XUIDropdownPanel qaHook="nestedDropdown-paneltwo">
-      <XUIPicklist>
+      <XUIPicklist ariaLabel="Select second option">
         <XUIPickitem id="option2">Option 2</XUIPickitem>
       </XUIPicklist>
     </XUIDropdownPanel>
@@ -30,7 +30,7 @@ const createComponent = props => (
 );
 
 describe('<XUINestedDropdown />', () => {
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     const wrapper = mount(createComponent());
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();

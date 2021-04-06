@@ -42,6 +42,7 @@ export default class XUINestedPicklistTrigger extends PureComponent {
     );
 
     return (
+      //  eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <label
         {...secondaryProps}
         aria-label={ariaLabel}
@@ -53,8 +54,7 @@ export default class XUINestedPicklistTrigger extends PureComponent {
         onKeyDown={onClick}
         onMouseOver={onMouseOver}
         ref={this.rootNode}
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
-        role="button"
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
         tabIndex={0}
       >
         {wrappedLeft}
@@ -87,9 +87,6 @@ XUINestedPicklistTrigger.propTypes = {
 
 XUINestedPicklistTrigger.defaultProps = {
   isHighlighted: false,
-  secondaryProps: {
-    role: 'button',
-  },
   /*
 	 DO NOT REMOVE
 	 This property is needed so that the StatefulPicklist will properly recognize

@@ -14,8 +14,8 @@ jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testRangeId');
 
 describe('Range', () => {
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIRange />);
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIRange label="Range" />);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

@@ -5,6 +5,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
+import XUISelectBox from '../XUISelectBox';
 import XUISelectBoxOption from '../XUISelectBoxOption';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -201,8 +202,12 @@ describe('<XUISelectBoxOption />', () => {
     expect(ariaComp).toMatchSnapshot();
   });
 
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(createComponent());
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUISelectBox buttonContent="Santa Cruz" label="Select box">
+        {createComponent()}
+      </XUISelectBox>,
+    );
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

@@ -1,4 +1,5 @@
 import React from 'react';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
@@ -6,6 +7,7 @@ import { nanoid } from 'nanoid';
 import XUIInputGroup from '../XUIInputGroup';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testInputGroupId');
@@ -41,5 +43,10 @@ describe('<XUIInputGroup/>', () => {
     );
 
     expect(toJson(testGroup)).toMatchSnapshot();
+  });
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIInputGroup>Test</XUIInputGroup>);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

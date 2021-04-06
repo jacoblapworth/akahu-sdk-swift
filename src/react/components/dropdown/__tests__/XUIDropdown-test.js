@@ -12,7 +12,7 @@ Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
 describe('<XUIDropdown /> accessibility testing', () => {
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     const wrapper = mount(
       <XUIDropdown>
         <p>Panel Content</p>

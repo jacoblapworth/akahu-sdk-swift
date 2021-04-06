@@ -7,7 +7,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render a placeholder inside 
   <div
     className="xui-dropdown-fullwidth xui-dropdown--toggledwrapper"
     data-ref="toggled-wrapper"
-    role="presentation"
   >
     <button
       aria-activedescendant={null}
@@ -30,7 +29,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an automation id when
   <div
     className="xui-dropdown-fullwidth xui-dropdown--toggledwrapper"
     data-ref="toggled-wrapper"
-    role="presentation"
   >
     <button
       aria-activedescendant={null}
@@ -53,7 +51,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the dropdown
   <div
     className="xui-dropdown-fullwidth xui-dropdown--toggledwrapper"
     data-ref="toggled-wrapper"
-    role="presentation"
   >
     <button
       aria-activedescendant={null}
@@ -76,7 +73,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input wh
   <div
     className="xui-dropdown-fullwidth xui-dropdown--toggledwrapper"
     data-ref="toggled-wrapper"
-    role="presentation"
   >
     <button
       aria-activedescendant={null}
@@ -99,7 +95,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render as disabled when isDi
   <div
     className="xui-dropdown-fullwidth xui-dropdown--toggledwrapper"
     data-ref="toggled-wrapper"
-    role="presentation"
   >
     <button
       aria-activedescendant={null}
@@ -122,7 +117,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
   <div
     className="xui-dropdown-fullwidth xui-dropdown--toggledwrapper"
     data-ref="toggled-wrapper"
-    role="presentation"
   >
     <button
       aria-activedescendant={null}
@@ -145,7 +139,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
   <div
     className="xui-dropdown-fullwidth xui-dropdown--toggledwrapper"
     data-ref="toggled-wrapper"
-    role="presentation"
   >
     <button
       aria-activedescendant={null}
@@ -169,7 +162,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes when pa
   <div
     className="xui-dropdown-fullwidth xui-dropdown--toggledwrapper"
     data-ref="toggled-wrapper"
-    role="presentation"
   >
     <button
       aria-activedescendant={null}

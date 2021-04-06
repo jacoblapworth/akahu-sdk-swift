@@ -17,6 +17,7 @@ const FileList = ({
   cancelButtonText,
   defaultErrorMessage,
   deleteLabel,
+  errorIconAriaLabel,
   fileList,
   fileListClassName,
   fileSizeUnits,
@@ -26,6 +27,7 @@ const FileList = ({
   onRetry,
   qaHook,
   retryButtonText,
+  uploadingIconAriaLabel,
   uploadingMessage,
   showIcon,
 }) => {
@@ -70,6 +72,7 @@ const FileList = ({
                 (status === 'error' && (
                   <span className={iconClassName}>
                     <XUIProgressCircular
+                      ariaLabel={errorIconAriaLabel}
                       id={`fileuploader-icon-error-${uid}`}
                       isHardError
                       {...progressProps}
@@ -85,6 +88,7 @@ const FileList = ({
                       )}
                     >
                       <XUIProgressCircular
+                        ariaLabel={uploadingIconAriaLabel}
                         id={`fileuploader-icon-spin-${uid}`}
                         {...progressProps}
                       />
@@ -150,6 +154,7 @@ FileList.propTypes = {
   cancelButtonText: PropTypes.string.isRequired,
   defaultErrorMessage: PropTypes.string.isRequired,
   deleteLabel: PropTypes.string.isRequired,
+  errorIconAriaLabel: PropTypes.string,
   fileList: PropTypes.array.isRequired,
   fileListClassName: PropTypes.string,
   fileSizeUnits: PropTypes.array,
@@ -160,5 +165,6 @@ FileList.propTypes = {
   retryButtonText: PropTypes.string.isRequired,
   showFilesAsMultiline: PropTypes.bool,
   showIcon: PropTypes.bool,
+  uploadingIconAriaLabel: PropTypes.string,
   uploadingMessage: PropTypes.string,
 };

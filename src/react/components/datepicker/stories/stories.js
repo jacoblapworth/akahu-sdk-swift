@@ -12,11 +12,6 @@ import XUIPanel from '../../panel/XUIPanel';
 import NOOP from '../../helpers/noop';
 import { storiesWithVariationsKindName, variations, currentMonth0 } from './variations';
 
-const weekStarts = {
-  0: 'Sun (0)',
-  1: 'Mon (1)',
-};
-
 function minDate(d1, d2) {
   return d1 < d2 ? d1 : d2;
 }
@@ -63,7 +58,9 @@ class ExamplePicker extends React.Component {
   render() {
     return (
       <XUIDatePicker
+        nextButtonAriaLabel="Next month"
         onSelectDate={this.onSelectDate}
+        prevButtonAriaLabel="Previous month"
         selectedDate={this.state.selectedDate}
         selectedRange={this.state.selectedRange}
         {...this.props}
@@ -78,7 +75,7 @@ storiesWithKnobs.add('Playground', () => (
   <XUIPanel>
     <ExamplePicker
       displayedMonth={date('displayedMonth', '') ? new Date(date('displayedMonth', '')) : undefined}
-      firstDayOfWeek={number('firstDayOfWeek', weekStarts, '')}
+      firstDayOfWeek={number('firstDayOfWeek', 0)}
       locale={text('locale', 'en')}
       maxDate={date('maxDate', '') ? new Date(date('maxDate', '')) : undefined}
       minDate={date('minDate', '') ? new Date(date('minDate', '')) : undefined}
@@ -96,13 +93,18 @@ variations.forEach(variation => {
     const variationMinusStoryDetails = { ...variation };
     delete variationMinusStoryDetails.storyKind;
     delete variationMinusStoryDetails.storyTitle;
-    // Defaults for variation display;
-    variationMinusStoryDetails.onSelectDate = NOOP;
-    variationMinusStoryDetails.displayedMonth = currentMonth0;
+
+    const defaultProps = {
+      displayedMonth: currentMonth0,
+      locale: 'en',
+      nextButtonAriaLabel: 'Next month',
+      onSelectDate: NOOP,
+      prevButtonAriaLabel: 'Previous month',
+    };
 
     return (
       <XUIPanel>
-        <XUIDatePicker {...variationMinusStoryDetails} />
+        <XUIDatePicker {...defaultProps} {...variationMinusStoryDetails} />
       </XUIPanel>
     );
   });

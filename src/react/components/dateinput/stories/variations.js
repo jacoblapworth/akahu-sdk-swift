@@ -9,6 +9,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'Default',
+    inputLabel: 'Start date',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -70,6 +71,12 @@ const variations = [
     storyTitle: 'Default daterange',
     isDateRangeInput: true,
     convenienceDates: dateRangeInputConvenienceDates,
+    startDateInputConfig: {
+      inputLabel: 'First date',
+    },
+    endDateInputConfig: {
+      inputLabel: 'Second date',
+    },
   },
   {
     storyKind: storiesWithVariationsKindName,

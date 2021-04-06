@@ -53,6 +53,7 @@ const MonthSelector = ({
         buttonSizeClasses[size],
         hasFocus && `${ns}-datepicker--heading-select-has-focus`,
       )}
+      data-automationid={`${qaHook}--monthselectorlabel`}
       htmlFor={id}
     >
       {months[currentMonth]}

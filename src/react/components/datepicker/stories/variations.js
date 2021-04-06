@@ -51,13 +51,28 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Weeks Starting on Monday with Custom Labels',
+    storyTitle: 'as Weeks Starting on Monday',
     firstDayOfWeek: 1,
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Right-to-Left',
-    dir: 'rtl',
+    storyTitle: 'as Localised with Language String Only',
+    locale: 'es',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Localised with Full Locale String',
+    locale: 'fr-CA',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as First Day of Week Determined by Locale',
+    locale: 'de',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Right-to-Left Determined by Locale',
+    locale: 'ar',
   },
 ];
 

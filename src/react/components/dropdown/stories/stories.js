@@ -81,7 +81,15 @@ const footer = (
 const picklist = <XUIPicklist>{createItems(toggledItems)}</XUIPicklist>;
 
 const datePickerDate = new Date('Dec 02 2017 00:00:00 GMT+1300');
-const datepicker = <XUIDatePicker displayedMonth={datePickerDate} onSelectDate={NOOP} />;
+const datepicker = (
+  <XUIDatePicker
+    displayedMonth={datePickerDate}
+    locale="en"
+    nextButtonAriaLabel="Next month"
+    onSelectDate={NOOP}
+    prevButtonAriaLabel="Previous month"
+  />
+);
 const plaintext = <p>Some content that appears in a dropdown panel would go here.</p>;
 const nested = (
   <XUINestedDropdown currentPanelId="customDate" isHidden={false}>

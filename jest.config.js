@@ -7,7 +7,7 @@ const config = {
   roots: ['<rootDir>/src/react/components'],
   testRegex: '-test\\.((j|t)sx?)$',
   testResultsProcessor: 'jest-teamcity-reporter',
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-environment-jsdom-fifteen',
   moduleDirectories: ['node_modules'],
   collectCoverageFrom: [
     '**/src/react/components/**/*.{js,jsx,ts,tsx}',

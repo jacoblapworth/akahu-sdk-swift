@@ -40,6 +40,7 @@ class XUIDateInputWIP extends React.Component {
       onInputChange,
       onSelectDate, // Destructured so as not to spread.
       selectedDateValue, // Destructured so as not to spread.
+      selectedDateDefaultValue, // Destructured so as not to spread.
       selectDateLabel,
       triggerClassName,
       validationMessage,

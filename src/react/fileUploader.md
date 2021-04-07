@@ -61,9 +61,11 @@ const Example = () => {
   useEffect(() => {
     const incrementUpload = setInterval(() => {
       let newFileList = fileList;
-      newFileList[3].uploadProgressPercentage += 10;
-      if (newFileList[3].uploadProgressPercentage === 100) {
-        newFileList[3].uploadProgressPercentage = 0;
+      if (newFileList[3]) {
+        newFileList[3].uploadProgressPercentage += 10;
+        if (newFileList[3].uploadProgressPercentage === 100) {
+          newFileList[3].uploadProgressPercentage = 0;
+        }
       }
       setFileList([...newFileList]);
     }, 2000);

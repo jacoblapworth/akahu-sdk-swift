@@ -3,15 +3,18 @@ import PropTypes from 'prop-types';
 import 'babel-polyfill';
 
 const originalErrors = console.error;
-console.error = errormessage => {
-  // If Styleguidist is throwing the specific warning about section "name" property
-  // and includes the following string: "Warning: Failed prop type: The prop `name`",
+console.error = (...errormessage) => {
+  // React is using formatting and passing a few more arguments in console.error.
+  // e.g. console.error('Warning: Failed %s type: %s%s','prop','The prop `name` is')
+  // Joining these arguments,
+  // if Styleguidist is throwing the specific warning about section "name" property
+  // and includes the following string: "Warning: Failed %s type: %s%s,prop,The prop `name` is",
   // suppress the error and don't show it. Otherwise, fire the error as normal.
   const suppressedErrors = errormessage
-    .toString()
-    .includes('Warning: Failed prop type: The prop `name` is');
+    .join()
+    .includes('Warning: Failed %s type: %s%s,prop,The prop `name` is');
 
-  !suppressedErrors && originalErrors(errormessage);
+  !suppressedErrors && originalErrors(...errormessage);
 };
 
 export default class Wrapper extends Component {

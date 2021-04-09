@@ -2,35 +2,6 @@ const stringReplace = require('@xero/xuishift/transforms/stringReplace');
 const remove = () => () => undefined;
 
 module.exports = {
-  editabletable: [
-    {
-      name: 'XUIEditableTable',
-      props: [
-        {
-          name: 'dndInstructions',
-          valueTransform: (_, j) =>
-            j.literal(
-              'Press Space bar or Enter to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or to use your pass through key.',
-            ),
-        },
-      ],
-    },
-  ],
-  picklist: [
-    {
-      name: 'XUIPicklist',
-      props: [
-        {
-          name: 'onMouseDown',
-          newName: 'onClick',
-        },
-        {
-          name: 'defaultLayout',
-          newName: 'hasDefaultLayout',
-        },
-      ],
-    },
-  ],
   autocompleter: [
     {
       name: 'XUIAutocompleter',
@@ -45,15 +16,9 @@ module.exports = {
         },
       ],
     },
-  ],
-  'editabletablecell-autocompleter': [
     {
-      name: 'XUIEditableTableCellAutocompleter',
+      name: 'XUIAutocompleterSecondarySearch',
       props: [
-        {
-          name: 'loading',
-          newName: 'isLoading',
-        },
         {
           name: 'dropdownFixedWidth',
           newName: 'dropdownHasFixedWidth',
@@ -61,18 +26,27 @@ module.exports = {
       ],
     },
   ],
-  icon: [
+  banner: [
     {
-      name: 'XUIIcon',
+      name: 'XUIBanner',
       props: [
         {
-          name: 'desc',
-          newName: 'description',
+          name: 'defaultLayout',
+          newName: 'hasDefaultLayout',
         },
       ],
     },
   ],
-  'icon-button': [
+  button: [
+    {
+      name: 'XUIButton',
+      props: [
+        {
+          name: 'minLoaderWidth',
+          newName: 'hasMinLoaderWidth',
+        },
+      ],
+    },
     {
       name: 'XUIIconButton',
       props: [
@@ -86,8 +60,71 @@ module.exports = {
         },
       ],
     },
+    {
+      name: 'XUISecondaryButton',
+      props: [
+        {
+          name: 'minLoaderWidth',
+          newName: 'hasMinLoaderWidth',
+        },
+      ],
+    },
   ],
-  'editabletablecell-select-box': [
+  dropdown: [
+    {
+      name: 'XUIDropdown',
+      props: [
+        {
+          name: 'fixedWidth',
+          newName: 'hasFixedWidth',
+        },
+      ],
+    },
+    {
+      name: 'XUIDropdownLayout',
+      props: [
+        {
+          name: 'fixedWidth',
+          newName: 'hasFixedWidth',
+        },
+      ],
+    },
+    {
+      name: 'XUINestedDropdown',
+      props: [
+        {
+          name: 'fixedWidth',
+          newName: 'hasFixedWidth',
+        },
+      ],
+    },
+  ],
+  editabletable: [
+    {
+      name: 'XUIEditableTable',
+      props: [
+        {
+          name: 'dndInstructions',
+          valueTransform: (_, j) =>
+            j.literal(
+              'Press Space bar or Enter to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or to use your pass through key.',
+            ),
+        },
+      ],
+    },
+    {
+      name: 'XUIEditableTableCellAutocompleter',
+      props: [
+        {
+          name: 'loading',
+          newName: 'isLoading',
+        },
+        {
+          name: 'dropdownFixedWidth',
+          newName: 'dropdownHasFixedWidth',
+        },
+      ],
+    },
     {
       name: 'XUIEditableTableCellSelectBox',
       props: [
@@ -113,122 +150,23 @@ module.exports = {
         },
       ],
     },
-  ],
-  range: [
     {
-      name: 'XUIRange',
+      name: 'XUIEditableTableCellTextInput',
       props: [
         {
-          name: 'containerClasses',
-          newName: 'containerClassName',
+          name: 'focusByDefault',
+          newName: 'focusOnMount',
         },
       ],
     },
   ],
-  'select-box': [
+  icon: [
     {
-      name: 'XUISelectBox',
+      name: 'XUIIcon',
       props: [
         {
-          name: 'containerClasses',
-          newName: 'containerClassName',
-        },
-        {
-          name: 'dropDownClasses',
-          newName: 'dropdownClassName',
-        },
-        {
-          name: 'buttonClasses',
-          newName: 'buttonClassName',
-        },
-        {
-          name: 'inputGroupClasses',
-          newName: 'inputGroupClassName',
-        },
-        {
-          name: 'defaultLayout',
-          newName: 'hasDefaultLayout',
-        },
-      ],
-    },
-  ],
-  'select-box-option': [
-    {
-      name: 'XUISelectBoxOption',
-      props: [
-        {
-          name: 'optionClasses',
-          newName: 'optionClassName',
-        },
-        {
-          name: 'truncatedText',
-          newName: 'truncateText',
-        },
-      ],
-    },
-  ],
-  'autocompleter-secondary-search': [
-    {
-      name: 'XUIAutocompleterSecondarySearch',
-      props: [
-        {
-          name: 'dropdownFixedWidth',
-          newName: 'dropdownHasFixedWidth',
-        },
-      ],
-    },
-  ],
-  dropdown: [
-    {
-      name: 'XUIDropdown',
-      props: [
-        {
-          name: 'fixedWidth',
-          newName: 'hasFixedWidth',
-        },
-      ],
-    },
-  ],
-  'dropdown-layout': [
-    {
-      name: 'XUIDropdownLayout',
-      props: [
-        {
-          name: 'fixedWidth',
-          newName: 'hasFixedWidth',
-        },
-      ],
-    },
-  ],
-  'nested-dropdown': [
-    {
-      name: 'XUINestedDropdown',
-      props: [
-        {
-          name: 'fixedWidth',
-          newName: 'hasFixedWidth',
-        },
-      ],
-    },
-  ],
-  range: [
-    {
-      name: 'XUIRange',
-      props: [
-        {
-          name: 'inputClasses',
-          newName: 'inputClassName',
-        },
-      ],
-    },
-  ],
-  banner: [
-    {
-      name: 'XUIBanner',
-      props: [
-        {
-          name: 'defaultLayout',
-          newName: 'hasDefaultLayout',
+          name: 'desc',
+          newName: 'description',
         },
       ],
     },
@@ -255,57 +193,81 @@ module.exports = {
       ],
     },
   ],
-  toast: [
+  picklist: [
     {
-      name: 'XUIToast',
+      name: 'XUIPicklist',
       props: [
+        {
+          name: 'onMouseDown',
+          newName: 'onClick',
+        },
         {
           name: 'defaultLayout',
           newName: 'hasDefaultLayout',
         },
       ],
     },
-  ],
-  button: [
-    {
-      name: 'XUIButton',
-      props: [
-        {
-          name: 'minLoaderWidth',
-          newName: 'hasMinLoaderWidth',
-        },
-      ],
-    },
-  ],
-  'secondary-button': [
-    {
-      name: 'XUISecondaryButton',
-      props: [
-        {
-          name: 'minLoaderWidth',
-          newName: 'hasMinLoaderWidth',
-        },
-      ],
-    },
-  ],
-  tooltip: [
-    {
-      name: 'XUITooltip',
-      props: [
-        {
-          name: 'limitWidth',
-          newName: 'hasLimitedWidth',
-        },
-      ],
-    },
-  ],
-  'stateful-picklist': [
     {
       name: 'XUIStatefulPicklist',
       props: [
         {
           name: 'canFocus',
           newName: 'isFocusable',
+        },
+      ],
+    },
+  ],
+  range: [
+    {
+      name: 'XUIRange',
+      props: [
+        {
+          name: 'containerClasses',
+          newName: 'containerClassName',
+        },
+        {
+          name: 'inputClasses',
+          newName: 'inputClassName',
+        },
+      ],
+    },
+  ],
+  selectbox: [
+    {
+      name: 'XUISelectBox',
+      props: [
+        {
+          name: 'containerClasses',
+          newName: 'containerClassName',
+        },
+        {
+          name: 'dropDownClasses',
+          newName: 'dropdownClassName',
+        },
+        {
+          name: 'buttonClasses',
+          newName: 'buttonClassName',
+        },
+        {
+          name: 'inputGroupClasses',
+          newName: 'inputGroupClassName',
+        },
+        {
+          name: 'defaultLayout',
+          newName: 'hasDefaultLayout',
+        },
+      ],
+    },
+    {
+      name: 'XUISelectBoxOption',
+      props: [
+        {
+          name: 'optionClasses',
+          newName: 'optionClassName',
+        },
+        {
+          name: 'truncatedText',
+          newName: 'truncateText',
         },
       ],
     },
@@ -321,13 +283,24 @@ module.exports = {
       ],
     },
   ],
-  'editabletablecell-textinput': [
+  toast: [
     {
-      name: 'XUIEditableTableCellTextInput',
+      name: 'XUIToast',
       props: [
         {
-          name: 'focusByDefault',
-          newName: 'focusOnMount',
+          name: 'defaultLayout',
+          newName: 'hasDefaultLayout',
+        },
+      ],
+    },
+  ],
+  tooltip: [
+    {
+      name: 'XUITooltip',
+      props: [
+        {
+          name: 'limitWidth',
+          newName: 'hasLimitedWidth',
         },
       ],
     },

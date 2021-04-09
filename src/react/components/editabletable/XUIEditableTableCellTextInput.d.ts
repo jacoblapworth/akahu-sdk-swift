@@ -12,7 +12,6 @@ type Props = BaseProps &
   Omit<
     React.ComponentProps<typeof XUITextInput>,
     | 'fieldClassName'
-    | 'focusOnMount'
     | 'hintMessage'
     | 'isBorderlessSolid'
     | 'isBorderlessTransparent'

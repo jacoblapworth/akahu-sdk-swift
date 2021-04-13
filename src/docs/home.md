@@ -37,7 +37,7 @@
             </span>
           </span>
           <span class="ds-xuiteam" tabindex="0" aria-describedby="foundation2">
-            <img alt="" class="xui-avatar xui-avatar-xsmall xui-avatar-business" src="./kss-assets/jacob.jpeg">
+            <img alt="" class="xui-avatar xui-avatar-xsmall xui-avatar-business" src="./kss-assets/uxe-team/jacob.jpeg">
             <abbr class="xui-avatar xui-avatar-xsmall xui-avatar-color-9 xui-avatar-business xui-avatar-hidden" role="presentation"></abbr>
             <span id="foundation2" class="hover-tooltip">
               “<strong>As the XUI team</strong>, we recognize the system will not solve 100% of Xero’s challenges and we support product teams in using XUI styles and patterns to experiment in areas that XUI doesn’t yet solve for.”
@@ -67,7 +67,7 @@
             </span>
           </span>
           <span class="ds-xuiteam" tabindex="0" aria-describedby="feel2">
-            <img alt="" class="xui-avatar xui-avatar-xsmall xui-avatar-business" src="./kss-assets/finn.jpeg">
+            <img alt="" class="xui-avatar xui-avatar-xsmall xui-avatar-business" src="./kss-assets/uxe-team/finn.jpeg">
             <abbr class="xui-avatar xui-avatar-color-9 xui-avatar-business xui-avatar-hidden" role="presentation"></abbr>
             <span id="feel2" class="hover-tooltip">
               “<strong>As the XUI team</strong>, we create flexible solutions that multiple products can leverage, so that users can have familiar experiences across the product and learn how to solve a common problem once.”
@@ -97,7 +97,7 @@
             </span>
           </span>
           <span class="ds-xuiteam" tabindex="0" aria-describedby="inclusive2">
-            <img alt="" class="xui-avatar xui-avatar-xsmall xui-avatar-business" src="./kss-assets/cherise.jpeg">
+            <img alt="" class="xui-avatar xui-avatar-xsmall xui-avatar-business" src="./kss-assets/uxe-team/cherise.jpeg">
             <abbr class="xui-avatar xui-avatar-xsmall xui-avatar-color-9 xui-avatar-business xui-avatar-hidden" role="presentation"></abbr>
             <span id="inclusive2" class="hover-tooltip">
               “<strong>As the XUI team</strong>, we vigilantly adhere to best practices for design and development and pay close attention to how our industry is evolving. We actively bring this rigour into the system and make it easy for XUI users to do the right thing.”
@@ -126,7 +126,7 @@
             </span>
           </span>
           <span class="ds-xuiteam" tabindex="0" aria-describedby="evolve2">
-            <img alt="" class="xui-avatar xui-avatar-xsmall xui-avatar-business" src="./kss-assets/vicky.jpeg">
+            <img alt="" class="xui-avatar xui-avatar-xsmall xui-avatar-business" src="./kss-assets/uxe-team/vicky.jpeg">
             <abbr class="xui-avatar xui-avatar-xsmall xui-avatar-color-9 xui-avatar-business xui-avatar-hidden" role="presentation"></abbr>
             <span id="evolve2" class="hover-tooltip">
               “<strong>As the XUI team</strong>, we understand our users and involve them in our explorations and decisions. We are continuously improving how we support teams to use and evolve the system – we make it easy for them to collaborate and contribute, and we all celebrate when it happens.”

@@ -22,7 +22,14 @@ const ExampleDateInput = () => {
     setSelectedDate(newDate);
   };
 
-  return <XUIDateInputWIP onSelectDate={onSelectDate} />;
+  return (
+    <XUIDateInputWIP
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
+    />
+  );
 };
 
 <ExampleDateInput />;
@@ -75,6 +82,9 @@ const ExampleDateRangePicker = () => {
   return (
     <XUIDateRangeInputWIP
       convenienceDates={dateRangeInputConvenienceDates}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       endDateInputConfig={{ onSelectDate: onSelectStartDate }}
       startDateInputConfig={{ onSelectDate: onSelectEndDate }}
     />
@@ -149,6 +159,9 @@ const ExampleDateRangePicker = () => {
   return (
     <XUIDateRangeInputWIP
       convenienceDates={dateRangeInputConvenienceDates}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
         onSelectDate: onSelectEndDate,
         inputLabel: 'First label'
@@ -179,7 +192,15 @@ const ExampleDateInput = () => {
     setSelectedDate(newDate);
   };
 
-  return <XUIDateInputWIP onSelectDate={onSelectDate} isDisabled={true} />;
+  return (
+    <XUIDateInputWIP
+      isDisabled={true}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
+    />
+  );
 };
 
 <ExampleDateInput />;
@@ -227,6 +248,9 @@ const ExampleDateRangePicker = () => {
   return (
     <XUIDateRangeInputWIP
       convenienceDates={dateRangeInputConvenienceDates}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
         onSelectDate: onSelectEndDate,
         isDisabled: true,
@@ -259,7 +283,15 @@ const ExampleDateInput = () => {
     setSelectedDate(newDate);
   };
 
-  return <XUIDateInputWIP onSelectDate={onSelectDate} hintMessage="Helpful hint" />;
+  return (
+    <XUIDateInputWIP
+      hintMessage="Helpful hint"
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
+    />
+  );
 };
 
 <ExampleDateInput />;
@@ -307,6 +339,9 @@ const ExampleDateRangePicker = () => {
   return (
     <XUIDateRangeInputWIP
       convenienceDates={dateRangeInputConvenienceDates}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
         onSelectDate: onSelectEndDate,
         hintMessage: 'Start hint text',
@@ -341,7 +376,10 @@ const ExampleDateInput = () => {
 
   return (
     <XUIDateInputWIP
+      locale="en"
+      nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
       validationMessage="Start error explanation"
       isInvalid={true}
     />
@@ -393,6 +431,9 @@ const ExampleDateRangePicker = () => {
   return (
     <XUIDateRangeInputWIP
       convenienceDates={dateRangeInputConvenienceDates}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
         onSelectDate: onSelectEndDate,
         validationMessage: 'Start error explanation',
@@ -466,7 +507,13 @@ const ExampleDateInput = () => {
   ];
 
   return (
-    <XUIDateInputWIP onSelectDate={onSelectDate} convenienceDates={dateInputConvenienceDates} />
+    <XUIDateInputWIP
+      convenienceDates={dateInputConvenienceDates}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
+    />
   );
 };
 
@@ -515,6 +562,9 @@ const ExampleDateRangePicker = () => {
   return (
     <XUIDateRangeInputWIP
       convenienceDates={dateRangeInputConvenienceDates}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
         onSelectDate: onSelectEndDate,
         inputLabel: 'First label'
@@ -530,10 +580,13 @@ const ExampleDateRangePicker = () => {
 <ExampleDateRangePicker />;
 ```
 
+### Localisation
+
+A `locale` string is required. This can be either the language only, like `en`, or language and region, like `fr-CA`.
+
 ### QA hooks and locale
 
 Both `XUIDateInputWIP` and `XUIDateRangeInputWIP` accept a `qaHook` property to assist you with testing your implementations.
-You can set the locale by providing the `locale` prop.
 
 ### Keyboard navigation
 

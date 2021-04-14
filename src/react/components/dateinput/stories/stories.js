@@ -27,6 +27,7 @@ storiesWithKnobs.add('Playground', () => {
   let singleDateProps = {
     closeOnSelect: true,
     inputLabel: 'Single date',
+    locale: 'en',
     nextButtonAriaLabel: 'Next month',
     onSelectDate: sampleOnSelectDateFunction,
     prevButtonAriaLabel: 'Previous month',
@@ -35,6 +36,7 @@ storiesWithKnobs.add('Playground', () => {
 
   let dateRangeProps = {
     convenienceDates: dateRangeInputConvenienceDates,
+    locale: 'en',
     nextButtonAriaLabel: 'Next month',
     prevButtonAriaLabel: 'Previous month',
     startDateInputConfig: {

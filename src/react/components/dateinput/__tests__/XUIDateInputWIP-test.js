@@ -28,6 +28,10 @@ describe('XUIDateInput', () => {
       onSelectDate={() => {}}
       {...props}
       displayedMonth={new Date(Date.UTC(2020, 10))}
+      inputLabel="Date"
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       selectedDateValue={selectedDate}
     />
   );
@@ -49,7 +53,11 @@ describe('XUIDateInput', () => {
     const wrapper = mount(
       <XUIDateInputWIP
         displayedMonth={newSelectedDate}
+        inputLabel="Date"
+        locale="en"
+        nextButtonAriaLabel="Next month"
         onSelectDate={onSelectDate}
+        prevButtonAriaLabel="Previous month"
         selectedDateValue={newSelectedDate}
       />,
     );
@@ -97,7 +105,11 @@ describe('XUIDateInput', () => {
       <XUIDateInputWIP
         convenienceDates={dateInputConvenienceDates}
         displayedMonth={newSelectedDate}
+        inputLabel="Date"
+        locale="en"
+        nextButtonAriaLabel="Next month"
         onSelectDate={onSelectProp}
+        prevButtonAriaLabel="Previous month"
       />,
     );
 

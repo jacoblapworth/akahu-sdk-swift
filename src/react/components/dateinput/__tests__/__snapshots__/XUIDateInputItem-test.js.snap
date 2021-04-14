@@ -18,6 +18,12 @@ exports[`XUIDateInputItem inserts selected date value 1`] = `
       onKeyDown={[Function]}
       role="presentation"
     >
+      <label
+        className="xui-text-label xui-fieldlabel-layout"
+        htmlFor="xui-testDateinputId-control"
+      >
+        Date
+      </label>
       <div
         autoComplete="off"
         className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
@@ -82,6 +88,12 @@ exports[`XUIDateInputItem renders disabled 1`] = `
       onKeyDown={[Function]}
       role="presentation"
     >
+      <label
+        className="xui-text-label xui-fieldlabel-layout"
+        htmlFor="xui-testDateinputId-control"
+      >
+        Date
+      </label>
       <div
         autoComplete="off"
         className="xui-dateinputitem--input xui-textinput xui-textinput-medium xui-textinput-is-disabled"
@@ -147,6 +159,12 @@ exports[`XUIDateInputItem renders with a hint 1`] = `
       onKeyDown={[Function]}
       role="presentation"
     >
+      <label
+        className="xui-text-label xui-fieldlabel-layout"
+        htmlFor="xui-testDateinputId-control"
+      >
+        Date
+      </label>
       <div
         autoComplete="off"
         className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
@@ -289,6 +307,12 @@ exports[`XUIDateInputItem renders with validation message 1`] = `
       onKeyDown={[Function]}
       role="presentation"
     >
+      <label
+        className="xui-text-label xui-fieldlabel-layout"
+        htmlFor="xui-testDateinputId-control"
+      >
+        Date
+      </label>
       <div
         autoComplete="off"
         className="xui-dateinputitem--input xui-textinput xui-textinput-medium xui-textinput-is-invalid"

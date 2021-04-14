@@ -64,9 +64,11 @@ class XUIDateRangeInputWIP extends Component {
       convenienceDates,
       endDateInputConfig,
       groupConfig,
-      startDateInputConfig,
       locale,
+      nextButtonAriaLabel,
+      prevButtonAriaLabel,
       qaHook,
+      startDateInputConfig,
     } = this.props;
 
     const defaultStartDateInputConfig = {
@@ -176,8 +178,10 @@ class XUIDateRangeInputWIP extends Component {
           locale={locale}
           maxDate={startMaxDate}
           minDate={startMinDate}
+          nextButtonAriaLabel={nextButtonAriaLabel}
           onInputChange={onStartInputChange}
           onSelectDate={this.onSelectStartDate}
+          prevButtonAriaLabel={prevButtonAriaLabel}
           qaHook={qaHook && `${qaHook}-daterangeinput-firstinput`}
           selectedDate={selectedStartDate}
           triggerClassName={startTriggerClassName}
@@ -202,8 +206,10 @@ class XUIDateRangeInputWIP extends Component {
           locale={locale}
           maxDate={endMaxDate}
           minDate={endMinDate}
+          nextButtonAriaLabel={nextButtonAriaLabel}
           onInputChange={onEndInputChange}
           onSelectDate={this.onSelectEndDate}
+          prevButtonAriaLabel={prevButtonAriaLabel}
           qaHook={qaHook && `${qaHook}-daterangeinput-secondinput`}
           selectedDate={selectedEndDate}
           triggerClassName={endTriggerClassName}
@@ -263,8 +269,11 @@ XUIDateRangeInputWIP.propTypes = {
     /** Hint message to display below input */
     hintMessage: PropTypes.string,
 
-    /** Label for the second input. Recommended for accessibility purposes. */
-    inputLabel: PropTypes.string,
+    /** Label for the second input.
+     *
+     * Recommended English value: *End date*
+     */
+    inputLabel: PropTypes.string.isRequired,
 
     /** Whether the input is disabled */
     isDisabled: PropTypes.bool,
@@ -327,8 +336,22 @@ XUIDateRangeInputWIP.propTypes = {
     validationMessage: PropTypes.string,
   }),
 
-  /** The locale of the calendar. Defaults to En */
-  locale: PropTypes.string,
+  /** The locale of the calendar. */
+  locale: PropTypes.string.isRequired,
+
+  /** An accessibility label for the next month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Next month*
+   */
+  nextButtonAriaLabel: PropTypes.string.isRequired,
+
+  /** An accessibility label for the previous month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Previous month*
+   */
+  prevButtonAriaLabel: PropTypes.string.isRequired,
 
   qaHook: PropTypes.string,
 
@@ -342,8 +365,11 @@ XUIDateRangeInputWIP.propTypes = {
     /** Hint message to display below input */
     hintMessage: PropTypes.string,
 
-    /** Label for the first input. Recommended for accessibility purposes. */
-    inputLabel: PropTypes.string,
+    /** Label for the first input.
+     *
+     * Recommended English value: *Start date*
+     */
+    inputLabel: PropTypes.string.isRequired,
 
     /** Whether the input is disabled */
     isDisabled: PropTypes.bool,
@@ -392,7 +418,6 @@ XUIDateRangeInputWIP.propTypes = {
 XUIDateRangeInputWIP.defaultProps = {
   closeOnSelect: true,
   groupConfig: {},
-  locale: 'en',
 };
 
 export default XUIDateRangeInputWIP;

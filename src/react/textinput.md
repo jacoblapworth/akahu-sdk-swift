@@ -458,44 +458,40 @@ import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput
 ```jsx harmony
 import XUIIcon from '@xero/xui/react/icon';
 import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
+import XUIInputGroup from '@xero/xui/react/inputgroup';
 import facebook from '@xero/xui-icon/icons/social-facebook';
 
 <div>
-  <div className="xui-field-layout">
-    <div className="xui-textinputgroup">
-      <XUITextInput
-        fieldClassName="xui-column-4-of-12"
-        leftElement={<XUITextInputSideElement type="text">To:</XUITextInputSideElement>}
-        isFieldLayout
-        placeholder="placeholder"
-        isInvalid
-        validationMessage="invalid input"
-        label="input"
-        isLabelHidden
-      />
-      <XUITextInput
-        fieldClassName="xui-column-4-of-12"
-        leftElement={<XUITextInputSideElement type="text">From:</XUITextInputSideElement>}
-        placeholder="placeholder"
-        hintMessage="hint hint hint"
-        label="input"
-        isLabelHidden
-      />
-      <XUITextInput
-        fieldClassName="xui-column-4-of-12"
-        leftElement={
-          <XUITextInputSideElement type="icon" backgroundColor="facebook">
-            <XUIIcon isBoxed icon={facebook} />
-          </XUITextInputSideElement>
-        }
-        placeholder="placeholder"
-        label="input"
-        isLabelHidden
-      />
-    </div>
-  </div>
+  <XUIInputGroup isFieldLayout>
+    <XUITextInput
+      leftElement={<XUITextInputSideElement type="text">To:</XUITextInputSideElement>}
+      isFieldLayout
+      placeholder="placeholder"
+      isInvalid
+      validationMessage="invalid input"
+      label="input"
+      isLabelHidden
+    />
+    <XUITextInput
+      leftElement={<XUITextInputSideElement type="text">From:</XUITextInputSideElement>}
+      placeholder="placeholder"
+      hintMessage="hint hint hint"
+      label="input"
+      isLabelHidden
+    />
+    <XUITextInput
+      leftElement={
+        <XUITextInputSideElement type="icon" backgroundColor="facebook">
+          <XUIIcon isBoxed icon={facebook} />
+        </XUITextInputSideElement>
+      }
+      placeholder="placeholder"
+      label="input"
+      isLabelHidden
+    />
+  </XUIInputGroup>
 
-  <div className="xui-verticaltextinputgroup">
+  <XUIInputGroup lockVertical>
     <XUITextInput
       leftElement={<XUITextInputSideElement type="text">To:</XUITextInputSideElement>}
       placeholder="placeholder"
@@ -519,7 +515,7 @@ import facebook from '@xero/xui-icon/icons/social-facebook';
       label="input"
       isLabelHidden
     />
-  </div>
+  </XUIInputGroup>
 </div>;
 ```
 

@@ -24,6 +24,88 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
 </div>
 `;
 
+exports[`<XUITextInput> Side elements should render side elements as labels when text type and no other label provided 1`] = `
+<div>
+  <div
+    className="xui-textinputwrapper"
+  >
+    <label
+      className="xui-textinput xui-textinput-medium"
+    >
+      <div
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text"
+      >
+        First name:
+      </div>
+      <input
+        className="xui-textinput--input xui-textinput--input-medium"
+        id="xui-testGeneratedId-control"
+        onBlurCapture={[Function]}
+        onFocusCapture={[Function]}
+        style={
+          Object {
+            "maxHeight": undefined,
+          }
+        }
+      />
+    </label>
+  </div>
+  <div
+    className="xui-textinputwrapper"
+  >
+    <label
+      className="xui-textinput xui-textinput-medium"
+    >
+      <input
+        className="xui-textinput--input xui-textinput--input-medium"
+        id="xui-testGeneratedId-control"
+        onBlurCapture={[Function]}
+        onFocusCapture={[Function]}
+        style={
+          Object {
+            "maxHeight": undefined,
+          }
+        }
+      />
+      <div
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text"
+      >
+        First name:
+      </div>
+    </label>
+  </div>
+  <div
+    className="xui-textinputwrapper"
+  >
+    <label
+      className="xui-textinput xui-textinput-medium"
+    >
+      <div
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text"
+      >
+        First name:
+      </div>
+      <input
+        className="xui-textinput--input xui-textinput--input-medium"
+        id="xui-testGeneratedId-control"
+        onBlurCapture={[Function]}
+        onFocusCapture={[Function]}
+        style={
+          Object {
+            "maxHeight": undefined,
+          }
+        }
+      />
+      <div
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text"
+      >
+        First name:
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
 exports[`<XUITextInput> Side elements should render side elements correctly 1`] = `
 <div>
   <div
@@ -362,7 +444,7 @@ exports[`<XUITextInput> Text-only input sets the resize none class based on opti
 
 exports[`<XUITextInput> Validation and hints renders invalid textinputs with an error message correctly 1`] = `
 <div
-  className="xui-textinputwrapper"
+  className="xui-textinputwrapper xui-textinputwrapper-is-invalid"
 >
   <div
     className="xui-textinput xui-textinput-medium xui-textinput-is-invalid"

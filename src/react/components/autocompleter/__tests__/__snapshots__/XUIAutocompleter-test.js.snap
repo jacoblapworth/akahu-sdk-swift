@@ -2,7 +2,7 @@
 
 exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown and container 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid="baseAC--container"
   onBlur={[Function]}
   onFocus={[Function]}
@@ -61,7 +61,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
 
 exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -120,7 +120,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
 
 exports[`XUIAutocompleter renders with a hidden label 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -180,7 +180,7 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
 
 exports[`XUIAutocompleter renders with the provided label 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -246,7 +246,7 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
 
 exports[`XUIAutocompleter should not add padding classes to the input when pills prop is an empty array 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -305,7 +305,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
 
 exports[`XUIAutocompleter should render a class on the input element when passed in the inputClassName prop 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -364,7 +364,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
 
 exports[`XUIAutocompleter should render a class on the root node when passed in the className prop 1`] = `
 <div
-  className="test-class"
+  className="test-class xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -423,7 +423,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
 
 exports[`XUIAutocompleter should render a class on the trigger element when passed in the triggerClassName prop 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -483,7 +483,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
 
 exports[`XUIAutocompleter should render a placeholder inside the input when passed in 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -546,7 +546,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
 
 exports[`XUIAutocompleter should render an id on the input when a value is passed to the inputId prop 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -605,7 +605,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
 
 exports[`XUIAutocompleter should render an id on the root node when passed in the id prop 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   id="test-id"
   onBlur={[Function]}
@@ -665,7 +665,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
 
 exports[`XUIAutocompleter should render as disabled when isDisabled prop is true 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
@@ -725,7 +725,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
 
 exports[`XUIAutocompleter should respect a max length of the input value when the maxLength has a value 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}

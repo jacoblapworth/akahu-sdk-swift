@@ -25,8 +25,7 @@ import XUIIcon from '../../../icon';
 
 // Private modules
 import Form from '../helpers/form';
-import InputLabel from '../helpers/inputlabel';
-import InputGroup from '../helpers/inputgroup';
+import XUIInputGroup from '../../../components/inputgroup/XUIInputGroup';
 import LayoutSelect from './select-box';
 import PanelSection from './panel-section';
 
@@ -205,8 +204,7 @@ test.add(storyNames.formLayout, () => {
                 validationMessage="Well, it's not right is it"
               />
 
-              <InputLabel>Your name</InputLabel>
-              <InputGroup isFieldLayout>
+              <XUIInputGroup isFieldLayout label="Your name">
                 <XUITextInput
                   inputProps={{ name: inputMap.nameFirst, id: inputMap.nameFirst }}
                   isLabelHidden
@@ -222,12 +220,14 @@ test.add(storyNames.formLayout, () => {
                   isLabelHidden
                   label="Last name"
                 />
-              </InputGroup>
+              </XUIInputGroup>
 
-              <InputLabel>Choose a Food</InputLabel>
-              <div className="xui-textinputgroup xui-field-layout xui-u-flex">
+              <XUIInputGroup
+                columnWidths="max-content minmax(150px, 1fr)"
+                isFieldLayout
+                label="Choose a Food"
+              >
                 <XUIDropdownToggled
-                  className="xui-textinputwrapper"
                   dropdown={
                     <XUIDropdown onSelect={value => this.setState({ foodType: value })}>
                       <XUIPicklist>
@@ -248,7 +248,6 @@ test.add(storyNames.formLayout, () => {
                   trigger={<XUIButton hasCaret>{foodType || 'Food Type'}</XUIButton>}
                 />
                 <XUITextInput
-                  fieldClassName="xui-u-flex-1"
                   inputProps={{
                     name: inputMap.foodName,
                     id: inputMap.foodName,
@@ -256,7 +255,7 @@ test.add(storyNames.formLayout, () => {
                   isLabelHidden
                   label="Input label"
                 />
-              </div>
+              </XUIInputGroup>
 
               <XUITextInput
                 inputProps={{
@@ -275,7 +274,8 @@ test.add(storyNames.formLayout, () => {
               <LayoutSelect
                 htmlFor={inputMap.bankChoice}
                 id={inputMap.bankChoice}
-                label="Please select a bank" // Use this instead of <InputLabel /> (inconsistent)
+                isFieldLayout
+                label="Please select a bank"
                 name={inputMap.bankChoice}
                 onSelect={NOOP}
                 title="Choose a bank"
@@ -283,13 +283,11 @@ test.add(storyNames.formLayout, () => {
                 {banks}
               </LayoutSelect>
 
-              <InputLabel htmlFor={inputMap.people}>Add people</InputLabel>
               <XUIAutocompleter
                 className="xui-field-layout"
                 dropdownHasFixedWidth
                 id={inputMap.people}
-                inputLabel="input label"
-                isInputLabelHidden
+                inputLabel="Add people"
                 name={inputMap.people}
                 onClose={this.closeAutoCompleter}
                 onSearch={this.onSearchChangeHandler}
@@ -315,7 +313,7 @@ test.add(storyNames.formLayout, () => {
               formLayout
               headerContent="Radios and Checkboxes"
             >
-              <XUIRadioGroup isFieldLayout label="Choose a city">
+              <XUIRadioGroup isFieldLayout isLockedVertical label="Choose a city">
                 {['Wellington', 'Canberra', 'Washington D.C', 'Carthage'].map(label => (
                   <XUIRadio
                     id={`${inputMap.whatCity}-${label}`} // Had to add this to the component, it didn't exist before
@@ -328,7 +326,7 @@ test.add(storyNames.formLayout, () => {
                 ))}
               </XUIRadioGroup>
 
-              <XUICheckboxGroup isFieldLayout label="Favourite Birds">
+              <XUICheckboxGroup isFieldLayout isLockedVertical label="Favourite Birds">
                 {['Tūī', 'Pīwakawaka', 'Ruru', 'Moa'].map(label => (
                   <XUICheckbox
                     id={`${inputMap.whatBird}-${label}`} // Had to add this to the component, it didn't exist before

@@ -1,6 +1,13 @@
 const classMap = {
   'xui-fileuploader--fileitem--loading':
     'xui-fileuploader--fileitem--loading xui-fileuploader--fileitem--loading-indeterminate',
+  'xui-inputgroup': 'xui-inputgroup xui-inputgroup-horizontal',
+  'xui-textinputgroup': 'xui-inputgroup xui-inputgroup-horizontal',
+  'xui-verticaltextinputgroup': 'xui-inputgroup xui-inputgroup-vertical',
+  'xui-styledcheckboxradio-group':
+    'xui-styledcheckboxradio-group xui-inputgroup xui-inputgroup-vertical',
+  'xui-switch-group': 'xui-switch-group  xui-inputgroup xui-inputgroup-vertical',
+  'xui-select-layout': 'xui-select xui-select-layout',
 };
 
 const oldTableName = 'xui-table';

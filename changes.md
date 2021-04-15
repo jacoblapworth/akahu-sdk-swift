@@ -58,6 +58,27 @@ _Note: This will mean that many key functionalities that worked for IE11 users p
 - `xui-pickitem--body-has-leftelement` should be added to the pickitem body element when a left element is present (not required if using React `XUIPickitem` component)
 - `xui-pickitem--body-has-rightelement` should be added to the pickitem body element when a right element is present (not required if using React `XUIPickitem` component)
 
+### Input Groups
+
+- `xui-textinputgroup` has been removed. Instead use `xui-inputgroup` with a modifier class of `xui-inputgroup-horizontal`. This will be addressed by the codemod.
+- `xui-verticaltexinputgroup` has been removed. Instead use `xui-inputgroup` with a modifier class of `xui-inputgroup-vertical`. This will be addressed by the codemod.
+- `xui-inputgroup` must now be accompanied by a modifier class of either `xui-inputgroup-vertical` or `xui-inputgroup-horizontal`. The codemod will add `xui-inputgroup-horizontal`.
+- `xui-styledcheckboxradio-group` should appear alongside `xui-inputgroup` plus a modifier class of `xui-inputgroup-vertical`. This will be addressed by the codemod.
+- `xui-switch-group` should appear alongside `xui-inputgroup` plus a modifier class of `xui-inputgroup-vertical`. This will be addressed by the codemod.
+
+### XUIAutocompleter
+
+- The wrapping div of an autocompleter will now have a class of `xui-autocompleter` applied. This will be used for styling when it appears inside an Input Group, in an upcoming release. This will NOT be addressed by the codemod.
+
+### XUIDateInput, XUITextInput
+
+- The element with a class of `xui-textinputwrapper` will additionally have a class of `xui-textinputwrapper-is-invalid`, when invalid. This will be used for styling when the component appears inside an Input Group, in an upcoming release. This will NOT be addressed by the codemod.
+
+### XUIPagination, XUISelectBox
+
+- The wrapping div of a select box will now have a class of `xui-selectwrapper` applied. When the contained select box is invalid, this element will also get a class of `xui-selectwrapper-is-invalid`. These new classes will be used for styling when the component appears inside an Input Group, in an upcoming release. They will NOT be addressed by the codemod.
+- Addtionally, the element that often has a class of `xui-select-layout` will now also have a root class of `xui-select` applied. This will be used for styling when the component appears inside an Input Group, in an upcoming release. This will be addressed by the codemod, where possible, however `xui-select-layout` is not always present.
+
 ### XUITable
 
 - Captions are now handled by adding an `aria-label` to the table element
@@ -134,6 +155,14 @@ TypeScript types have also been made slightly more strict for instances of rootN
 ### XUIFileUploader
 
 - `FileObject` now accepts an `uploadProgressPercentage` prop for visually communicating the upload progress
+
+### XUISelectBox
+
+- qaHooks have been tidied up. Triple hyphens on sub-elements' hooks have been converted to double hyphens, and `--label--label` has been updated to `--label`.
+
+### XUITextInput
+
+- If no label is provided, but a XUITextInputSideElement is supplied with a type of "text", the rendered markup will adjust to make the side element the implied label for the input. This is an accessibility improvement.
 
 ### XUITable
 

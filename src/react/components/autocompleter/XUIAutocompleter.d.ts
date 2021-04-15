@@ -84,6 +84,12 @@ interface Props {
    */
   isDisabled?: boolean;
   /**
+   * Whether to use the field layout classes.
+   *
+   * Defaults to false. *
+   */
+  isFieldLayout?: boolean;
+  /**
    * Whether to hide the label and apply it as an ARIA label instead.
    *
    * Defaults to visible.

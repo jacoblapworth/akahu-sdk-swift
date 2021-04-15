@@ -288,7 +288,11 @@ variations.forEach(variation => {
       delete variationMinusStoryDetails.storyKind;
       delete variationMinusStoryDetails.storyTitle;
       delete variationMinusStoryDetails.customDecorator;
-      if (!variationMinusStoryDetails.label) {
+      if (
+        !variationMinusStoryDetails.label &&
+        variationMinusStoryDetails.leftElementType !== 'text' &&
+        variationMinusStoryDetails.rightElementType !== 'text'
+      ) {
         variationMinusStoryDetails.label = 'Test label';
         variationMinusStoryDetails.isLabelHidden = true;
       }

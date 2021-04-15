@@ -285,7 +285,7 @@ exports[`XUIDateInputItem renders with validation message 1`] = `
     onKeyUp={[Function]}
   >
     <div
-      className="xui-textinputwrapper"
+      className="xui-textinputwrapper xui-textinputwrapper-is-invalid"
       onKeyDown={[Function]}
       role="presentation"
     >

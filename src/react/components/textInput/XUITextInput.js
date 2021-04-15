@@ -147,7 +147,11 @@ class XUITextInput extends PureComponent {
             isValueReverseAligned && `${inputBaseClass}--input-reverse-align`,
           );
 
-          const rootClasses = cn(fieldClassName, `${inputBaseClass}wrapper`);
+          const rootClasses = cn(
+            fieldClassName,
+            `${inputBaseClass}wrapper`,
+            isInvalid && `${inputBaseClass}wrapper-is-invalid`,
+          );
 
           const baseClasses = cn(
             containerClassName,
@@ -172,6 +176,16 @@ class XUITextInput extends PureComponent {
 
           const ariaAttributes = cellAttributes || getAriaAttributes(this.wrapperIds, this.props);
 
+          let isLabelInSideEl;
+          if (
+            !label &&
+            !labelId &&
+            (leftElement?.props.type === 'text' || rightElement?.props.type === 'text')
+          ) {
+            isLabelInSideEl = true;
+          }
+          const InnerWrapEl = isLabelInSideEl ? 'label' : 'div';
+
           return (
             <SizeContext.Provider value={sizeShift(size, -1)}>
               <DisabledStateContext.Provider value={{ isDisabled }}>
@@ -191,7 +205,7 @@ class XUITextInput extends PureComponent {
                   }}
                   ref={this.rootNode}
                 >
-                  <div className={baseClasses} data-automationid={qaHook} {...otherProps}>
+                  <InnerWrapEl className={baseClasses} data-automationid={qaHook} {...otherProps}>
                     {leftElement}
                     <InputEl
                       {...inputProps}
@@ -211,7 +225,7 @@ class XUITextInput extends PureComponent {
                       rows={isMultiline ? rows || minRows : undefined}
                     />
                     {rightElement}
-                  </div>
+                  </InnerWrapEl>
                 </XUIControlWrapper>
               </DisabledStateContext.Provider>
             </SizeContext.Provider>

@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import { ns } from '../helpers/xuiClassNamespace';
-import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
-import generateIds from '../controlwrapper/helpers';
+import XUIInputGroup from '../inputgroup/XUIInputGroup';
 
 const baseClass = `${ns}-switch`;
 
@@ -32,8 +31,6 @@ const XUISwitchGroup = props => {
     validationMessage,
   } = props;
 
-  const wrapperIds = generateIds(labelId);
-
   const groupClasses = cn(
     className,
     `${baseClass}-group`,
@@ -41,14 +38,15 @@ const XUISwitchGroup = props => {
   );
 
   return (
-    <XUIControlWrapper
-      fieldClassName={fieldClassName}
-      isGroup
-      wrapperIds={wrapperIds}
+    <XUIInputGroup
+      groupClassName={groupClasses}
       {...{
+        fieldClassName,
         qaHook,
         label,
+        labelId,
         isInvalid,
+        isLockedVertical: true,
         validationMessage,
         hintMessage,
         isFieldLayout,
@@ -56,14 +54,8 @@ const XUISwitchGroup = props => {
         isLabelHidden,
       }}
     >
-      <div
-        className={groupClasses}
-        data-automationid={qaHook}
-        {...getAriaAttributes(wrapperIds, props, { isGroup: true })}
-      >
-        {children}
-      </div>
-    </XUIControlWrapper>
+      {children}
+    </XUIInputGroup>
   );
 };
 

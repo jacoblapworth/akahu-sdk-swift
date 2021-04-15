@@ -13,6 +13,8 @@ import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 import { eventKeyValues, isKeyClick } from '../helpers/reactKeyHandler';
 import { observe, unobserve } from '../helpers/resizeObserver';
 
+const baseClass = `${ns}-autocompleter`;
+
 /**
  * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and
  * right arrow keys should move cursor in the input
@@ -290,6 +292,7 @@ export default class XUIAutocompleter extends PureComponent {
       forceDesktop,
       matchTriggerWidth,
       isInvalid,
+      isFieldLayout,
       validationMessage,
       hintMessage,
       isLegacyDisplay,
@@ -340,6 +343,7 @@ export default class XUIAutocompleter extends PureComponent {
           }}
           inputRef={this.inputNode}
           isDisabled={isDisabled}
+          isFieldLayout={isFieldLayout}
           isInvalid={isInvalid}
           isLabelHidden={isInputLabelHidden}
           label={inputLabel}
@@ -381,7 +385,7 @@ export default class XUIAutocompleter extends PureComponent {
       </XUIDropdown>
     );
 
-    const classNames = cn(className, focused && `${ns}-autocompleter--trigger-focus`);
+    const classNames = cn(className, baseClass, focused && `${baseClass}--trigger-focus`);
 
     return (
       <div
@@ -475,6 +479,9 @@ XUIAutocompleter.propTypes = {
 
   /** Whether to render as disabled */
   isDisabled: PropTypes.bool,
+
+  /** Whether to use the field layout classes. Defaults to false. */
+  isFieldLayout: PropTypes.bool,
 
   /** Whether to hide the label and apply it as an ARIA label instead. */
   isInputLabelHidden: PropTypes.bool,

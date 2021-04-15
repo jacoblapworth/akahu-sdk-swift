@@ -13,13 +13,13 @@ exports[`<XUIPagination/> renders basic example 1`] = `
     >
       Items per page
       <div
-        className=""
+        className="xui-selectwrapper"
       >
         <div
           className=""
         >
           <div
-            className="xui-select-layout"
+            className="xui-select xui-select-layout"
             data-automationid={null}
           >
             <div
@@ -103,13 +103,13 @@ exports[`<XUIPagination/> renders basic example 1`] = `
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
@@ -219,13 +219,13 @@ exports[`<XUIPagination/> should only render Paging 1`] = `
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
@@ -314,13 +314,13 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
     >
       Items per page
       <div
-        className=""
+        className="xui-selectwrapper"
       >
         <div
           className=""
         >
           <div
-            className="xui-select-layout"
+            className="xui-select xui-select-layout"
             data-automationid={null}
           >
             <div
@@ -404,13 +404,13 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
@@ -501,13 +501,13 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
     >
       Items per page
       <div
-        className=""
+        className="xui-selectwrapper"
       >
         <div
           className=""
         >
           <div
-            className="xui-select-layout"
+            className="xui-select xui-select-layout"
             data-automationid={null}
           >
             <div
@@ -593,13 +593,13 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
@@ -688,13 +688,13 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
     >
       Test per page
       <div
-        className=""
+        className="xui-selectwrapper"
       >
         <div
           className=""
         >
           <div
-            className="xui-select-layout"
+            className="xui-select xui-select-layout"
             data-automationid={null}
           >
             <div
@@ -778,13 +778,13 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
@@ -873,13 +873,13 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
     >
       Items per page
       <div
-        className=""
+        className="xui-selectwrapper"
       >
         <div
           className=""
         >
           <div
-            className="xui-select-layout"
+            className="xui-select xui-select-layout"
             data-automationid={null}
           >
             <div
@@ -962,13 +962,13 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
@@ -1057,13 +1057,13 @@ exports[`<XUIPagination/> should render with customized defaultPerPageCount 1`] 
     >
       Items per page
       <div
-        className=""
+        className="xui-selectwrapper"
       >
         <div
           className=""
         >
           <div
-            className="xui-select-layout"
+            className="xui-select xui-select-layout"
             data-automationid={null}
           >
             <div
@@ -1147,13 +1147,13 @@ exports[`<XUIPagination/> should render with customized defaultPerPageCount 1`] 
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div

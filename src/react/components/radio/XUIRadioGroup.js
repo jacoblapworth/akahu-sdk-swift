@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import XUIRadio from './XUIRadio';
-import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
-import generateIds from '../controlwrapper/helpers';
+import XUIInputGroup from '../inputgroup/XUIInputGroup';
 import { baseClass } from './constants';
 
 const XUIRadioGroup = props => {
-  const wrapperIds = generateIds(props.labelId);
   const {
     children,
     className,
@@ -18,6 +16,7 @@ const XUIRadioGroup = props => {
     isInvalid,
     isLabelHidden,
     label,
+    labelId,
     labelClassName,
     qaHook,
     validationMessage,
@@ -38,14 +37,16 @@ const XUIRadioGroup = props => {
   );
 
   return (
-    <XUIControlWrapper
-      fieldClassName={fieldClassName}
-      isGroup
-      wrapperIds={wrapperIds}
+    <XUIInputGroup
+      groupClassName={groupClasses}
+      role="radiogroup"
       {...{
+        fieldClassName,
         qaHook,
         label,
+        labelId,
         isInvalid,
+        isLockedVertical: true,
         validationMessage,
         hintMessage,
         isFieldLayout,
@@ -53,15 +54,8 @@ const XUIRadioGroup = props => {
         isLabelHidden,
       }}
     >
-      <div
-        className={groupClasses}
-        data-automationid={qaHook}
-        role="radiogroup"
-        {...getAriaAttributes(wrapperIds, props, { isGroup: true })}
-      >
-        {childrenToRender}
-      </div>
-    </XUIControlWrapper>
+      {childrenToRender}
+    </XUIInputGroup>
   );
 };
 

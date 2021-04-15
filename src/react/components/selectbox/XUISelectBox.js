@@ -26,7 +26,7 @@ import EditableTableCellContext from '../../contexts/EditableTableCellContext';
  * @return {String | null}						 QA_HOOK + Suffix or null if qaHook is undefined
  */
 function setQaHook(propsQaHook, suffix) {
-  return propsQaHook ? `${propsQaHook}-${suffix}` : null;
+  return propsQaHook ? `${propsQaHook}${suffix}` : null;
 }
 
 const selectBaseClass = `${ns}-select`;
@@ -86,13 +86,16 @@ export default class XUISelectBox extends Component {
             buttonClassName,
           );
           const inputGroupClassNames = cn(
+            `${selectBaseClass}`,
             hasDefaultLayout && `${selectBaseClass}-layout`,
             inputGroupClassName,
             !useCellStyling && isInvalid && `${selectBaseClass}-is-invalid`,
           );
 
           const containerClassNames = cn(
+            `${selectBaseClass}wrapper`,
             useCellStyling && `${selectBaseClass}-cell`,
+            !useCellStyling && isInvalid && `${selectBaseClass}wrapper-is-invalid`,
             containerClassName,
           );
 
@@ -145,7 +148,7 @@ export default class XUISelectBox extends Component {
             <div className={containerClassNames} data-automationid={qaHook}>
               <XUIControlWrapper
                 isFieldLayout={isFieldLayout}
-                qaHook={setQaHook(qaHook, qaHooks.label)}
+                qaHook={setQaHook(qaHook, '')} // label suffix is handled within controlwrapper
                 wrapperIds={this.wrapperIds}
                 {...{
                   isLabelHidden,

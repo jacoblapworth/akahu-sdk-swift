@@ -9,6 +9,7 @@ import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
 import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
+import XUIInputGroup from '../../../components/inputgroup/XUIInputGroup';
 import XUIRadio, { XUIRadioGroup } from '../../../radio';
 import XUISwitch from '../../../switch';
 import XUISelectBox, { XUISelectBoxOption } from '../../../selectbox';
@@ -80,14 +81,20 @@ const testFormOnAPage = () => {
           </XUIColumn>
 
           {/* Major section */}
-          <XUIColumn gridColumns="half">
-            <InputLabel>A set of checkboxes</InputLabel>
+          <XUIInputGroup
+            fieldClassName="xui-column-6-of-12"
+            isLockedVertical
+            label="A set of checkboxes"
+          >
             <XUICheckbox isDefaultChecked={false}>Unchecked</XUICheckbox>
             <XUICheckbox isDefaultChecked>Checked</XUICheckbox>
             <XUICheckbox isIndeterminate>Indeterminate</XUICheckbox>
-          </XUIColumn>
-          <XUIColumn gridColumns="half">
-            <InputLabel>A set of radios</InputLabel>
+          </XUIInputGroup>
+          <XUIInputGroup
+            fieldClassName="xui-column-6-of-12"
+            isLockedVertical
+            label="A set of radios"
+          >
             <XUIRadio isDefaultChecked={false}>Unchecked</XUIRadio>
             <XUIRadio isDefaultChecked>Checked</XUIRadio>
             <XUIRadio isDefaultChecked={false} isDisabled>
@@ -96,11 +103,11 @@ const testFormOnAPage = () => {
             <XUIRadio isDefaultChecked isDisabled>
               Checked
             </XUIRadio>
-          </XUIColumn>
+          </XUIInputGroup>
 
           {/* Major section */}
           <XUIColumn gridColumns="half">
-            <XUICheckboxGroup label="Grouped checkboxes">
+            <XUICheckboxGroup isLockedVertical label="Grouped checkboxes">
               <XUICheckbox>Tūī</XUICheckbox>
               <XUICheckbox>Pīwakawaka</XUICheckbox>
               <XUICheckbox>Ruru</XUICheckbox>
@@ -108,7 +115,7 @@ const testFormOnAPage = () => {
             </XUICheckboxGroup>
           </XUIColumn>
           <XUIColumn gridColumns="half">
-            <XUIRadioGroup label="Grouped radios">
+            <XUIRadioGroup isLockedVertical label="Grouped radios">
               <XUIRadio name="radioGroup">Wellington</XUIRadio>
               <XUIRadio name="radioGroup">Canberra</XUIRadio>
               <XUIRadio name="radioGroup">Washington D.C</XUIRadio>
@@ -152,13 +159,7 @@ const testFormOnAPage = () => {
 
           {/* Major section */}
           <XUIColumn gridColumns="full">
-            <XUITextInput
-              isMultiline
-              label="A textarea"
-              maxRows={5}
-              minRows={2}
-              textareaId="textarea-auto-resize"
-            />
+            <XUITextInput isMultiline label="A textarea" maxRows={5} minRows={2} />
           </XUIColumn>
 
           {/* Major section */}

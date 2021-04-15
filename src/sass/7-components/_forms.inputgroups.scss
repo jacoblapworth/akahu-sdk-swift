@@ -72,8 +72,13 @@
   }
 }
 
-// These "not" selectors are for backwards compatibility with .xui-inputgroup. TODO: change to xui-inputgroup-horizontal for 18
-.#{$ns}-inputgroup:not(.#{$ns}-inputgroup-vertical) > {
+.#{$ns}-inputgroup-horizontal {
+  .#{$ns}-textinput--input {
+    width: inherit;
+  }
+}
+
+.#{$ns}-inputgroup-horizontal > {
   // This rule allows the side borders for "interior" elements to overlap.
   // Overlap is key, so the correct border takes precedence at the correct time.
   @include xui-inputgroup-containers-toplevel(':nth-child(n + 2)') {
@@ -91,7 +96,17 @@
     border-bottom-right-radius: $xui-radius;
     border-top-right-radius: $xui-radius;
   }
+
+  .#{$ns}-textinput {
+    width: auto;
+  }
 }
+
+.#{$ns}-inputgroup-vertical {
+  // Allows the columns to shrink below their content-width, if necessary.
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .#{$ns}-inputgroup-vertical > {
   // adjust top margin for items other than the first
   @include xui-inputgroup-bordered-toplevel(':nth-child(n + 2)') {

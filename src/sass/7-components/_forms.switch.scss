@@ -141,9 +141,13 @@ $xui-switch-label-padding: $xui-s-xsmall;
     padding: $xui-switch-label-padding/2; // Border padding
   }
 
-  .#{$ns}-switchwrapper:nth-last-of-type(n + 2),
-  .#{$ns}-switch:nth-last-of-type(n + 2) {
+  &.#{$ns}-inputgroup-vertical .#{$ns}-switchwrapper:nth-last-of-type(n + 2),
+  &.#{$ns}-inputgroup-vertical .#{$ns}-switch:nth-last-of-type(n + 2) {
     border-bottom: $xui-border-control;
+  }
+  &.#{$ns}-inputgroup-horizontal .#{$ns}-switchwrapper:nth-last-of-type(n + 2),
+  &.#{$ns}-inputgroup-horizontal .#{$ns}-switch:nth-last-of-type(n + 2) {
+    border-right: $xui-border-control;
   }
 
   .#{$ns}-switch:not(.#{$ns}-switch-reversed) {
@@ -165,8 +169,8 @@ $xui-switch-label-padding: $xui-s-xsmall;
   }
 }
 
-.#{$ns}-switch-group-is-invalid,
-.#{$ns}-switch-group-is-invalid .#{$ns}-switchwrapper:nth-last-of-type(n + 2),
-.#{$ns}-switch-group-is-invalid .#{$ns}-switch:nth-last-of-type(n + 2) {
+.#{$ns}-inputgroup.#{$ns}-switch-group-is-invalid,
+.#{$ns}-inputgroup.#{$ns}-switch-group-is-invalid .#{$ns}-switchwrapper:nth-last-of-type(n + 2),
+.#{$ns}-inputgroup.#{$ns}-switch-group-is-invalid .#{$ns}-switch:nth-last-of-type(n + 2) {
   border-color: $xui-validation-invalid-color;
 }

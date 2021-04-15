@@ -43,21 +43,25 @@
 </div>
 <div class="xui-field-layout">
   <label id="name-label" class="xui-text-label xui-fieldlabel-layout">Title and full name</label>
-  <div class="xui-textinputgroup">
+  <div
+    class="xui-inputgroup xui-inputgroup-horizontal"
+    style="grid-template-columns: 16% 1fr 1fr;"
+    role="group"
+  >
     <input
-      class="xui-textinput xui-textinput--input xui-column-2-of-12 xui-textinput-is-invalid"
+      class="xui-textinput xui-textinput--input xui-textinput-is-invalid"
       placeholder="Dr"
       name="title"
       aria-labelledby="name-label"
     />
     <input
-      class="xui-textinput xui-textinput--input xui-column-5-of-12 xui-textinput-is-invalid"
+      class="xui-textinput xui-textinput--input xui-textinput-is-invalid"
       placeholder="Sue"
       name="given-name"
       aria-labelledby="name-label"
     />
     <input
-      class="xui-textinput xui-textinput--input xui-column-5-of-12 xui-textinput-is-invalid"
+      class="xui-textinput xui-textinput--input xui-textinput-is-invalid"
       placeholder="Storm"
       name="surname"
       aria-labelledby="name-label"
@@ -195,7 +199,7 @@
   <div class="xui-column-4-of-12 xui-field-layout">
     <span class="xui-text-label xui-fieldlabel-layout" id="radio-group1">Fishes</span>
     <div
-      class="xui-styledcheckboxradio-group xui-styledcheckboxradio-group-is-invalid"
+      class="xui-inputgroup xui-inputgroup-vertical xui-styledcheckboxradio-group xui-styledcheckboxradio-group-is-invalid"
       role="radiogroup"
       aria-invalid="true"
       aria-labelledby="radio-group1"
@@ -276,10 +280,11 @@
   <div class="xui-column-4-of-12 xui-field-layout">
     <span class="xui-text-label xui-fieldlabel-layout" id="checkbox-group1">Birds</span>
     <div
-      class="xui-styledcheckboxradio-group xui-styledcheckboxradio-group-is-invalid"
+      class="xui-inputgroup xui-inputgroup-vertical xui-styledcheckboxradio-group xui-styledcheckboxradio-group-is-invalid"
       aria-invalid="true"
       aria-labelledby="checkbox-group1"
       aria-describedby="checkbox-group1-message"
+      role="group"
     >
       <label class="xui-styledcheckboxradio" role="presentation">
         <input
@@ -351,10 +356,11 @@
   <div class="xui-column-4-of-12 xui-field-layout">
     <span class="xui-text-label xui-fieldlabel-layout" id="switch-group1">Preferences</span>
     <div
-      class="xui-switch-group xui-switch-group-is-invalid"
+      class="xui-inputgroup xui-inputgroup-vertical xui-switch-group xui-switch-group-is-invalid"
       aria-invalid="true"
       aria-labelledby="switch-group1"
       aria-describedby="switch-group1-message"
+      role="group"
     >
       <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
         <input

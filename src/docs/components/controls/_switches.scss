@@ -55,10 +55,14 @@
 
 // Grouped switches
 //
+// flags: updated
+//
 // To increase hit areas further and create visual similarity with other form elements, consider using a switch group.
 //
 // Classes:
 // xui-switch-group: Add to wrapper
+// xui-inputgroup: Sets some styles common to groups of inputs. Add to wrapper.
+// xui-inputgroup-vertical: Sets some styles common to vertically stacked groups of inputs. Add to wrapper.
 //
 // Markup: ./examples/switch/_switch-grouped.html
 //

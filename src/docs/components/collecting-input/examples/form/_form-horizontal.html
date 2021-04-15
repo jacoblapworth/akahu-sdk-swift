@@ -1,9 +1,12 @@
 <div class="xui-field-layout">
-  <label for="horizontaldemofield1" class="xui-text-label xui-fieldlabel-layout"
-    >Total amount</label
+  <span id="horizontaldemolabel1" class="xui-text-label xui-fieldlabel-layout">Total amount</span>
+  <div
+    class="xui-inputgroup xui-inputgroup-horizontal"
+    style="grid-template-columns: 33% 1fr;"
+    aria-labelledby="horizontaldemolabel1"
+    role="group"
   >
-  <div class="xui-textinputgroup">
-    <div class="xui-select xui-column-4-of-12">
+    <div class="xui-select">
       <select class="xui-select--control" aria-label="Currency">
         <option>NZD</option>
         <option>AUD</option>
@@ -20,29 +23,30 @@
         </svg>
       </div>
     </div>
-    <div class="xui-column-8-of-12 xui-textinputwrapper">
-      <input class="xui-textinput xui-textinput--input" id="horizontaldemofield1" />
+    <div class="xui-textinputwrapper">
+      <input
+        class="xui-textinput xui-textinput--input"
+        id="horizontaldemofield1"
+        aria-label="Amount"
+      />
     </div>
   </div>
 </div>
 <div class="xui-field-layout">
-  <label for="horizontaldemofield2" class="xui-text-label xui-fieldlabel-layout">Your name</label>
-  <div class="xui-textinputgroup" id="horizontaldemofield2">
+  <span id="horizontaldemolabel2" class="xui-text-label xui-fieldlabel-layout">Your name</span>
+  <div
+    class="xui-inputgroup xui-inputgroup-horizontal"
+    aria-labelledby="horizontaldemolabel2"
+    style="grid-template-columns: repeat(3, minmax(33%, 1fr));"
+    role="group"
+  >
+    <input class="xui-textinput xui-textinput--input" placeholder="First" aria-label="First name" />
     <input
-      class="xui-column-4-of-12 xui-textinput xui-textinput--input"
-      placeholder="First"
-      aria-label="First name"
-    />
-    <input
-      class="xui-column-4-of-12 xui-textinput xui-textinput--input xui-textinput-is-invalid"
+      class="xui-textinput xui-textinput--input xui-textinput-is-invalid"
       placeholder="Middle"
       aria-label="Middle name"
     />
-    <input
-      class="xui-column-4-of-12 xui-textinput xui-textinput--input"
-      placeholder="Last"
-      aria-label="Last name"
-    />
+    <input class="xui-textinput xui-textinput--input" placeholder="Last" aria-label="Last name" />
   </div>
   <div class="xui-validation xui-validation-layout xui-validation-is-invalid">
     <svg class="xui-icon" focusable="false" height="16" viewBox="0 0 16 16" width="16">

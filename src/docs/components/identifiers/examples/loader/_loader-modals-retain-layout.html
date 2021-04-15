@@ -25,23 +25,10 @@
     <div class="xui-modal--body xui-padding-horizontal-large xui-u-hidden-content">
       <form class="xui-padding-top">
         <div class="xui-field-layout">
-          <label class="xui-text-label xui-fieldlabel-layout" id="groupLabel">Name</label>
-          <div
-            class="xui-inputgroup xui-inputgroup-horizontal"
-            style="grid-template-columns: repeat(2, 50%);"
-            role="group"
-            aria-labelledby="groupLabel"
-          >
-            <input
-              class="xui-textinput xui-textinput--input"
-              placeholder="First"
-              aria-label="First name"
-            />
-            <input
-              class="xui-textinput xui-textinput--input"
-              placeholder="Last"
-              aria-label="Last name"
-            />
+          <label class="xui-text-label xui-fieldlabel-layout" for="first-name">Name</label>
+          <div class="xui-inputgroup">
+            <input id="first-name" class="xui-input xui-column-6-of-12" placeholder="First" />
+            <input class="xui-input xui-column-6-of-12" placeholder="Last" />
           </div>
         </div>
         <div class="xui-field-layout">

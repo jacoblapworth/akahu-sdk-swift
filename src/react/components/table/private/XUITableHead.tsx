@@ -28,6 +28,7 @@ interface Props<RD extends RowData> {
   isTruncated?: boolean;
   onCheckAllToggle?: React.ChangeEventHandler<HTMLInputElement>;
   onSortChange?: (newKey: string) => void;
+  qaHook?: string;
 }
 
 class XUITableHead<RD extends RowData> extends React.PureComponent<Props<RD>> {
@@ -45,10 +46,11 @@ class XUITableHead<RD extends RowData> extends React.PureComponent<Props<RD>> {
       isTruncated,
       onCheckAllToggle,
       onSortChange,
+      qaHook,
     } = this.props;
 
     return (
-      <XUIEditableTableHead>
+      <XUIEditableTableHead qaHook={qaHook}>
         <XUIEditableTableRow>
           {hasCheckbox && (
             <XUIEditableTableHeadingCell
@@ -63,6 +65,7 @@ class XUITableHead<RD extends RowData> extends React.PureComponent<Props<RD>> {
                   isIndeterminate={isSelectAllIndeterminate}
                   isLabelHidden
                   onChange={onCheckAllToggle}
+                  qaHook={`${qaHook}-checkbox`}
                 >
                   {checkAllRowsAriaLabel}
                 </XUICheckbox>

@@ -302,6 +302,7 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
               isTruncated={isTruncated}
               onCheckAllToggle={onCheckAllToggle}
               onSortChange={onSortChange}
+              qaHook={qaHook && `${qaHook}-head`}
             />
           )}
           <XUITableBody

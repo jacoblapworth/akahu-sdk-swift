@@ -79,7 +79,7 @@ class XUITableBody<RD extends RowData = RowData> extends React.PureComponent<Pro
       : rowsData;
 
     return (
-      <XUIEditableTableBody>
+      <XUIEditableTableBody qaHook={qaHook && `${qaHook}-body`}>
         {sortedRowsData.map(rowData => {
           const rowId = rowData._id;
           return (
@@ -97,6 +97,7 @@ class XUITableBody<RD extends RowData = RowData> extends React.PureComponent<Pro
               onRowClick={event => shouldRowClick?.(rowData) && onRowClick?.(event, rowData)}
               overflowMenu={createOverflowMenu?.(rowData)}
               overflowMenuTitle={overflowMenuTitle}
+              qaHook={qaHook && `${qaHook}-body-row`}
               rowData={rowData}
               shouldRowClick={shouldRowClick?.(rowData)}
             />

@@ -34,6 +34,7 @@ interface BaseProps<RD extends RowData> {
   ) => void;
   overflowMenu?: React.ReactNode;
   overflowMenuTitle?: string;
+  qaHook?: string;
   rowData: RD;
   shouldRowClick?: boolean;
 }
@@ -57,6 +58,7 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
       onRowClick,
       overflowMenu,
       overflowMenuTitle,
+      qaHook,
       rowData,
       shouldRowClick,
     } = this.props;
@@ -88,6 +90,7 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
         onKeyDown={onKeyDown}
         onPointerOut={onPointerOut}
         onPointerOver={onPointerOver}
+        qaHook={qaHook}
         role={role}
         tabIndex={tabIndex}
       >
@@ -100,6 +103,7 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
               isGrouped
               isLabelHidden
               onChange={onCheckRow}
+              qaHook={`${qaHook}-checkbox`}
             >
               {checkOneRowAriaLabel}
             </XUICheckbox>
@@ -152,6 +156,7 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
                   <XUIIconButton
                     ariaLabel={overflowMenuTitle || ''}
                     icon={overflowIcon}
+                    qaHook={`${qaHook}-overflowmenu`}
                     title={overflowMenuTitle}
                   />
                 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import { ns } from '../helpers/xuiClassNamespace';
-import XUIInputGroup from '../inputgroup/XUIInputGroup';
+import XUIControlGroup from '../controlgroup/XUIControlGroup';
 
 const baseClass = `${ns}-switch`;
 
@@ -38,7 +38,7 @@ const XUISwitchGroup = props => {
   );
 
   return (
-    <XUIInputGroup
+    <XUIControlGroup
       groupClassName={groupClasses}
       {...{
         fieldClassName,
@@ -55,7 +55,7 @@ const XUISwitchGroup = props => {
       }}
     >
       {children}
-    </XUIInputGroup>
+    </XUIControlGroup>
   );
 };
 

@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import { baseClass } from './constants';
 import XUICheckbox from './XUICheckbox';
-import XUIInputGroup from '../inputgroup/XUIInputGroup';
+import XUIControlGroup from '../controlgroup/XUIControlGroup';
 
 /**
  * Presentational component that outputs the container necessary to implement
@@ -45,7 +45,7 @@ const XUICheckboxGroup = props => {
   );
 
   return (
-    <XUIInputGroup
+    <XUIControlGroup
       groupClassName={groupClasses}
       {...{
         fieldClassName,
@@ -62,7 +62,7 @@ const XUICheckboxGroup = props => {
       }}
     >
       {childrenToRender}
-    </XUIInputGroup>
+    </XUIControlGroup>
   );
 };
 

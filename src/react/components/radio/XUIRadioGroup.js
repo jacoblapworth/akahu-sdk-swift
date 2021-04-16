@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import XUIRadio from './XUIRadio';
-import XUIInputGroup from '../inputgroup/XUIInputGroup';
+import XUIControlGroup from '../controlgroup/XUIControlGroup';
 import { baseClass } from './constants';
 
 const XUIRadioGroup = props => {
@@ -37,7 +37,7 @@ const XUIRadioGroup = props => {
   );
 
   return (
-    <XUIInputGroup
+    <XUIControlGroup
       groupClassName={groupClasses}
       role="radiogroup"
       {...{
@@ -55,7 +55,7 @@ const XUIRadioGroup = props => {
       }}
     >
       {childrenToRender}
-    </XUIInputGroup>
+    </XUIControlGroup>
   );
 };
 

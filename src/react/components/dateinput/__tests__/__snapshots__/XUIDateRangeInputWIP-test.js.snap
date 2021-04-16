@@ -5,7 +5,7 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
   className="xui-daterangeinput"
 >
   <div
-    className="xui-inputgroup xui-inputgroup-horizontal xui-inputgroup-is-bottomaligned"
+    className="xui-controlgroup xui-controlgroup-horizontal xui-controlgroup-is-bottomaligned"
     data-automationid="test"
     role="group"
     style={
@@ -179,7 +179,7 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
   className="xui-daterangeinput"
 >
   <div
-    className="xui-inputgroup xui-inputgroup-horizontal xui-inputgroup-is-bottomaligned"
+    className="xui-controlgroup xui-controlgroup-horizontal xui-controlgroup-is-bottomaligned"
     role="group"
     style={
       Object {

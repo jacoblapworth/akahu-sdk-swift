@@ -7,7 +7,7 @@ import { XUIDropdown, XUIDropdownToggled } from '../../dropdown';
 import { XUISecondaryButton } from '../../button';
 import XUIPicklist, { XUIPickitem } from '../../picklist';
 import XUIDateInputItem from './private/XUIDateInputItem';
-import XUIInputGroup from '../inputgroup/XUIInputGroup';
+import XUIControlGroup from '../controlgroup/XUIControlGroup';
 import { logWarning } from '../helpers/developmentConsole';
 
 const baseClass = `${ns}-daterangeinput`;
@@ -141,7 +141,7 @@ class XUIDateRangeInputWIP extends Component {
     );
 
     return (
-      <XUIInputGroup
+      <XUIControlGroup
         columnWidths="1fr 1fr 40px"
         fieldClassName={cn(
           `${baseClass}`,
@@ -231,7 +231,7 @@ class XUIDateRangeInputWIP extends Component {
             triggerClickAction="none"
           />
         )}
-      </XUIInputGroup>
+      </XUIControlGroup>
     );
   }
 }

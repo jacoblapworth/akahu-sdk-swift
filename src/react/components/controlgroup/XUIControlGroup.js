@@ -9,9 +9,9 @@ import generateIds from '../controlwrapper/helpers';
 import useContainerQuery from '../helpers/useContainerQuery';
 import defaultBreakpoints from '../helpers/breakpoints';
 
-const baseClass = `${ns}-inputgroup`;
+const baseClass = `${ns}-controlgroup`;
 
-const XUIInputGroup = props => {
+const XUIControlGroup = props => {
   const { observedElementRef, isWidthAboveBreakpoint } = useContainerQuery();
   const {
     ariaRole,
@@ -83,7 +83,7 @@ const XUIInputGroup = props => {
   );
 };
 
-XUIInputGroup.propTypes = {
+XUIControlGroup.propTypes = {
   /** Role to be applied for screen readers. Defaults to "group" */
   ariaRole: PropTypes.string,
   /** Child controls that comprise the group */
@@ -100,7 +100,7 @@ XUIInputGroup.propTypes = {
   isBottomAligned: PropTypes.bool,
   /** Whether to use the field layout classes. Defaults to false. */
   isFieldLayout: PropTypes.bool,
-  /** Whether the current input group is invalid, as a whole */
+  /** Whether the current control group is invalid, as a whole */
   isInvalid: PropTypes.bool,
   /** Whether to hide the label and apply it as an ARIA label instead. Defaults to visible */
   isLabelHidden: PropTypes.bool,
@@ -123,8 +123,8 @@ XUIInputGroup.propTypes = {
   validationMessage: PropTypes.string,
 };
 
-XUIInputGroup.defaultProps = {
+XUIControlGroup.defaultProps = {
   ariaRole: 'group',
 };
 
-export { XUIInputGroup as default };
+export { XUIControlGroup as default };

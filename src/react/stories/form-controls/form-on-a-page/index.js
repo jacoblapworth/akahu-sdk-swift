@@ -9,7 +9,7 @@ import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
 import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
-import XUIInputGroup from '../../../components/inputgroup/XUIInputGroup';
+import XUIControlGroup from '../../../components/controlgroup/XUIControlGroup';
 import XUIRadio, { XUIRadioGroup } from '../../../radio';
 import XUISwitch from '../../../switch';
 import XUISelectBox, { XUISelectBoxOption } from '../../../selectbox';
@@ -81,7 +81,7 @@ const testFormOnAPage = () => {
           </XUIColumn>
 
           {/* Major section */}
-          <XUIInputGroup
+          <XUIControlGroup
             fieldClassName="xui-column-6-of-12"
             isLockedVertical
             label="A set of checkboxes"
@@ -89,8 +89,8 @@ const testFormOnAPage = () => {
             <XUICheckbox isDefaultChecked={false}>Unchecked</XUICheckbox>
             <XUICheckbox isDefaultChecked>Checked</XUICheckbox>
             <XUICheckbox isIndeterminate>Indeterminate</XUICheckbox>
-          </XUIInputGroup>
-          <XUIInputGroup
+          </XUIControlGroup>
+          <XUIControlGroup
             fieldClassName="xui-column-6-of-12"
             isLockedVertical
             label="A set of radios"
@@ -103,7 +103,7 @@ const testFormOnAPage = () => {
             <XUIRadio isDefaultChecked isDisabled>
               Checked
             </XUIRadio>
-          </XUIInputGroup>
+          </XUIControlGroup>
 
           {/* Major section */}
           <XUIColumn gridColumns="half">

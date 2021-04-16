@@ -36,7 +36,7 @@ interface Props {
    */
   isFieldLayout?: boolean;
   /**
-   * Whether the current input group is invalid, as a whole
+   * Whether the current control group is invalid, as a whole
    */
   isInvalid?: boolean;
   /**
@@ -74,5 +74,5 @@ interface Props {
   validationMessage?: React.ReactNode;
 }
 
-declare const XUIInputGroup: React.FunctionComponent<Props>;
-export default XUIInputGroup;
+declare const XUIControlGroup: React.FunctionComponent<Props>;
+export default XUIControlGroup;

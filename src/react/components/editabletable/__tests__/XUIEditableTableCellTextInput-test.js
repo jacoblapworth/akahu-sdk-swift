@@ -21,6 +21,30 @@ describe('<XUIEditableTableCellTextInput />', () => {
   });
 
   describe('focusing', () => {
+    it('selects the whole input when focused', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellTextInput defaultValue="a long input value" isMultiline />
+              <XUIEditableTableCellTextInput defaultValue="input value" />
+            </tr>
+          </tbody>
+        </table>,
+      );
+      const textareaSpy = jest.spyOn(wrapper.find('textarea').instance(), 'select');
+      const inputSpy = jest.spyOn(wrapper.find('input').instance(), 'select');
+
+      // Act
+      wrapper.find('textarea').simulate('focus');
+      wrapper.find('input').simulate('focus');
+
+      // Assert
+      expect(textareaSpy).toBeCalledTimes(1);
+      expect(inputSpy).toBeCalledTimes(1);
+    });
+
     it('lets XUIEditableTableCellControl know when the input is focused', () => {
       // Arrange
       const wrapper = mount(

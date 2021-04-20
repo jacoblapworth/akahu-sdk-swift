@@ -357,3 +357,115 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-s-xlar
     }
   }
 }
+
+.#{$ns}-verticaltextinputgroup {
+  // Only add top border radius to the first element
+  > .#{$ns}-textinput:first-of-type,
+  .#{$ns}-textinputwrapper:first-of-type > .#{$ns}-textinput {
+    border-radius: $xui-radius $xui-radius 0 0;
+
+    > .#{$ns}-textinput--sideelement:first-child {
+      border-radius: $xui-radius 0 0 0;
+    }
+
+    > .#{$ns}-textinput--sideelement:last-child {
+      border-radius: 0 $xui-radius 0 0;
+    }
+  }
+
+  // Add the margin adjustment to all elements but the first
+  .#{$ns}-textinput:nth-of-type(n + 2),
+  .#{$ns}-textinputwrapper:nth-of-type(n + 2) > .#{$ns}-textinput {
+    margin-top: -1px;
+  }
+
+  // On all elements except the first and last one, border radius 0 is required
+  .#{$ns}-textinput:nth-of-type(n + 2):nth-last-of-type(n + 2),
+  .#{$ns}-textinputwrapper:nth-of-type(n + 2):nth-last-of-type(n + 2) > .#{$ns}-textinput {
+    border-radius: 0;
+  }
+
+  // Only add bottom border radius to the last element
+  > .#{$ns}-textinput:last-of-type,
+  .#{$ns}-textinputwrapper:last-of-type .#{$ns}-textinput {
+    border-radius: 0 0 $xui-radius $xui-radius;
+
+    > .#{$ns}-textinput--sideelement:first-child {
+      border-radius: 0 0 0 $xui-radius;
+    }
+
+    > .#{$ns}-textinput--sideelement:last-child {
+      border-radius: 0 0 $xui-radius 0;
+    }
+  }
+}
+
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper > .#{$ns}-button,
+.#{$ns}-textinputgroup > .#{$ns}-textinput,
+.#{$ns}-textinputgroup > .#{$ns}-button,
+.#{$ns}-textinputgroup .#{$ns}-select--control {
+  border-radius: 0;
+
+  // All but the first child have a left border
+  // There is an exception for invalid styling further down
+  &:nth-child(n + 2) {
+    border-left: 0;
+  }
+}
+
+// This is excluded from the list above to prevent the nth-child selector kicking in unnecessarily on the wrong element
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper > .#{$ns}-textinput {
+  border-radius: 0;
+
+  .#{$ns}-textinput--sideelement {
+    border-radius: 0;
+  }
+}
+
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:nth-child(n + 2) > .#{$ns}-textinput {
+  border-left: 0;
+}
+
+.#{$ns}-textinputgroup .#{$ns}-select:nth-child(n + 2) {
+  .#{$ns}-select--control {
+    border-left: 0;
+  }
+}
+
+.#{$ns}-textinputgroup > .#{$ns}-textinput:first-child,
+.#{$ns}-textinputgroup > .#{$ns}-textinput:first-child > .#{$ns}-textinput--sideelement:first-child,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:first-child > .#{$ns}-textinput,
+.#{$ns}-textinputgroup
+  > .#{$ns}-textinputwrapper:first-child
+  .#{$ns}-textinput--sideelement:first-child,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:first-child > .#{$ns}-button,
+.#{$ns}-textinputgroup > .#{$ns}-button:first-child,
+.#{$ns}-textinputgroup > .#{$ns}-select:first-child > .#{$ns}-select--control {
+  border-bottom-left-radius: $xui-radius;
+  border-top-left-radius: $xui-radius;
+}
+
+.#{$ns}-textinputgroup > .#{$ns}-textinput:last-child,
+.#{$ns}-textinputgroup > .#{$ns}-textinput:last-child > .#{$ns}-textinput--sideelement:last-child,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-textinput,
+.#{$ns}-textinputgroup
+  > .#{$ns}-textinputwrapper:last-child
+  > .#{$ns}-textinput--sideelement:last-child,
+.#{$ns}-textinputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-button,
+.#{$ns}-textinputgroup > .#{$ns}-button:last-child,
+.#{$ns}-textinputgroup > .#{$ns}-select:last-child > .#{$ns}-select--control {
+  border-bottom-right-radius: $xui-radius;
+  border-top-right-radius: $xui-radius;
+}
+
+.#{$ns}-textinputgroup {
+  @include xui-clearfix;
+
+  .#{$ns}-textinput-is-invalid:nth-child(n + 2),
+  .#{$ns}-textinputwrapper:nth-child(n + 2) .#{$ns}-textinput-is-invalid,
+  .#{$ns}-select:nth-child(n + 2) > .#{$ns}-select--control.#{$ns}-textinput-is-invalid {
+    border-left: 1px solid $xui-textinput-invalid-border-color;
+    margin-left: -1px;
+  }
+}

@@ -7,7 +7,7 @@ import { boolean, select, text, number } from '@storybook/addon-knobs';
 import facebookPath from '@xero/xui-icon/icons/social-facebook';
 import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
 import XUIIcon from '../../../icon';
-import XUIInputGroup from '../XUIInputGroup';
+import XUIControlGroup from '../XUIControlGroup';
 import XUIButton, { XUIButtonGroup } from '../../../button';
 import defaultBreakpoints from '../../helpers/breakpoints';
 import XUIDateInputWIP from '../../../dateinput';
@@ -53,13 +53,13 @@ const storiesWithResponsiveAndKnobs = storiesOf(storiesWithVariationsKindName, m
   customCentered,
 );
 
-storiesWithResponsiveAndKnobs.add('InputGroup Playground', () => {
+storiesWithResponsiveAndKnobs.add('ControlGroup Playground', () => {
   const type = select('input type', [...Object.keys(baseElements), 'randomise'], 'randomise');
   const inputsCount = number('input count', 3);
   const showSeparateLabels = boolean('individual labels', false);
   const validity = boolean('invalid', undefined);
   return (
-    <XUIInputGroup
+    <XUIControlGroup
       columnWidths={text('grid column widths (space-separated)', '')}
       hintMessage={text('hintMessage', '')}
       isInvalid={validity}
@@ -86,7 +86,7 @@ storiesWithResponsiveAndKnobs.add('InputGroup Playground', () => {
           isInvalid: validity,
         }),
       )}
-    </XUIInputGroup>
+    </XUIControlGroup>
   );
 });
 
@@ -107,7 +107,7 @@ variations.forEach(variation => {
     } = props;
     return (
       <div style={{ madWidth: '98vw' }}>
-        <XUIInputGroup label={storyTitle} {...groupProps}>
+        <XUIControlGroup label={storyTitle} {...groupProps}>
           {baseElements[type]({
             label: 'First',
             children: 'First',
@@ -123,7 +123,7 @@ variations.forEach(variation => {
             children: 'Last',
             ...(itemProps && itemProps[2]),
           })}
-        </XUIInputGroup>
+        </XUIControlGroup>
       </div>
     );
   });

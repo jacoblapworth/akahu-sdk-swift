@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIInputGroup/> renders expected markup 1`] = `
-<XUIInputGroup
+exports[`<XUIControlGroup/> renders expected markup 1`] = `
+<XUIControlGroup
   ariaRole="group"
 >
   <ForwardRef
     isGroup={true}
     wrapperIds={
       Object {
-        "control": "xui-testInputGroupId-control",
-        "label": "xui-testInputGroupId",
-        "message": "xui-testInputGroupId-message",
+        "control": "xui-testControlGroupId-control",
+        "label": "xui-testControlGroupId",
+        "message": "xui-testControlGroupId-message",
       }
     }
   >
@@ -21,14 +21,14 @@ exports[`<XUIInputGroup/> renders expected markup 1`] = `
         isGroup={true}
         wrapperIds={
           Object {
-            "control": "xui-testInputGroupId-control",
-            "label": "xui-testInputGroupId",
-            "message": "xui-testInputGroupId-message",
+            "control": "xui-testControlGroupId-control",
+            "label": "xui-testControlGroupId",
+            "message": "xui-testControlGroupId-message",
           }
         }
       />
       <div
-        className="xui-inputgroup xui-inputgroup-horizontal"
+        className="xui-controlgroup xui-controlgroup-horizontal"
         role="group"
         style={
           Object {
@@ -41,19 +41,19 @@ exports[`<XUIInputGroup/> renders expected markup 1`] = `
       <MessageElement
         wrapperIds={
           Object {
-            "control": "xui-testInputGroupId-control",
-            "label": "xui-testInputGroupId",
-            "message": "xui-testInputGroupId-message",
+            "control": "xui-testControlGroupId-control",
+            "label": "xui-testControlGroupId",
+            "message": "xui-testControlGroupId-message",
           }
         }
       />
     </div>
   </ForwardRef>
-</XUIInputGroup>
+</XUIControlGroup>
 `;
 
-exports[`<XUIInputGroup/> renders expected markup for vertical variant with non-default props 1`] = `
-<XUIInputGroup
+exports[`<XUIControlGroup/> renders expected markup for vertical variant with non-default props 1`] = `
+<XUIControlGroup
   ariaRole="radioGroup"
   hintMessage="Group hint"
   isLabelHidden={true}
@@ -67,9 +67,9 @@ exports[`<XUIInputGroup/> renders expected markup for vertical variant with non-
     label="Group label"
     wrapperIds={
       Object {
-        "control": "xui-testInputGroupId-control",
-        "label": "xui-testInputGroupId",
-        "message": "xui-testInputGroupId-message",
+        "control": "xui-testControlGroupId-control",
+        "label": "xui-testControlGroupId",
+        "message": "xui-testControlGroupId-message",
       }
     }
   >
@@ -82,16 +82,16 @@ exports[`<XUIInputGroup/> renders expected markup for vertical variant with non-
         label="Group label"
         wrapperIds={
           Object {
-            "control": "xui-testInputGroupId-control",
-            "label": "xui-testInputGroupId",
-            "message": "xui-testInputGroupId-message",
+            "control": "xui-testControlGroupId-control",
+            "label": "xui-testControlGroupId",
+            "message": "xui-testControlGroupId-message",
           }
         }
       />
       <div
-        aria-describedby="xui-testInputGroupId-message"
+        aria-describedby="xui-testControlGroupId-message"
         aria-label="Group label"
-        className="xui-inputgroup xui-inputgroup-vertical"
+        className="xui-controlgroup xui-controlgroup-vertical"
         role="radioGroup"
         style={
           Object {
@@ -105,15 +105,15 @@ exports[`<XUIInputGroup/> renders expected markup for vertical variant with non-
         hintMessage="Group hint"
         wrapperIds={
           Object {
-            "control": "xui-testInputGroupId-control",
-            "label": "xui-testInputGroupId",
-            "message": "xui-testInputGroupId-message",
+            "control": "xui-testControlGroupId-control",
+            "label": "xui-testControlGroupId",
+            "message": "xui-testControlGroupId-message",
           }
         }
       >
         <div
           className="xui-validation xui-validation-layout"
-          id="xui-testInputGroupId-message"
+          id="xui-testControlGroupId-message"
           role="status"
         >
           Group hint
@@ -121,5 +121,5 @@ exports[`<XUIInputGroup/> renders expected markup for vertical variant with non-
       </MessageElement>
     </div>
   </ForwardRef>
-</XUIInputGroup>
+</XUIControlGroup>
 `;

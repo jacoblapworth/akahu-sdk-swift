@@ -1,6 +1,6 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/XUIInputGroup';
+const storiesWithVariationsKindName = 'Instances/XUIControlGroup';
 
 const controlTypes = ['XUITextInput', 'XUIDateInput', 'XUIButton', 'XUIButtonGroup'];
 

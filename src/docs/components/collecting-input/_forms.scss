@@ -41,8 +41,6 @@
 
 // Grouping
 //
-// flags: updated
-//
 // In a few situations multiple fields can be grouped under a single label.
 // These are likely to be where one field (probably a select) modifies another or
 // the combination of both is closely tied and a common convention.
@@ -71,9 +69,9 @@
 // xui-verticaltextinputgroup: Wrapper class to go around a set of vertically grouped inputs
 // xui-text-label: A label describing grouped controls, usually checkboxes, radios, or switches.
 // xui-switch-group: Container for multiple switch controls. Sibling of `xui-text-label` and `xui-validation`.
-// xui-switch-group-is-invalid: Apply to a switch group to set validity styles.
+// xui-switch-group-is-invalid: Apply to a switch group to set validity styles
 // xui-styledcheckboxradio-group: Container for multiple checkbox or radio controls.  Sibling of `xui-text-label` and `xui-validation`.
-// xui-styledcheckboxradio-group-is-invalid: Apply to a checkbox or radio group to set validity styles.
+// xui-styledcheckboxradio-group-is-invalid: Apply to a checkbox or radio group to set validity styles
 //
 // Styleguide: Components.CollectingInput.Forms.50
 

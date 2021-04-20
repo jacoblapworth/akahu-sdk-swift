@@ -25,7 +25,7 @@ import XUIIcon from '../../../icon';
 
 // Private modules
 import Form from '../helpers/form';
-import XUIInputGroup from '../../../components/inputgroup/XUIInputGroup';
+import XUIControlGroup from '../../../components/controlgroup/XUIControlGroup';
 import LayoutSelect from './select-box';
 import PanelSection from './panel-section';
 
@@ -204,7 +204,7 @@ test.add(storyNames.formLayout, () => {
                 validationMessage="Well, it's not right is it"
               />
 
-              <XUIInputGroup isFieldLayout label="Your name">
+              <XUIControlGroup isFieldLayout label="Your name">
                 <XUITextInput
                   inputProps={{ name: inputMap.nameFirst, id: inputMap.nameFirst }}
                   isLabelHidden
@@ -220,9 +220,9 @@ test.add(storyNames.formLayout, () => {
                   isLabelHidden
                   label="Last name"
                 />
-              </XUIInputGroup>
+              </XUIControlGroup>
 
-              <XUIInputGroup
+              <XUIControlGroup
                 columnWidths="max-content minmax(150px, 1fr)"
                 isFieldLayout
                 label="Choose a Food"
@@ -255,7 +255,7 @@ test.add(storyNames.formLayout, () => {
                   isLabelHidden
                   label="Input label"
                 />
-              </XUIInputGroup>
+              </XUIControlGroup>
 
               <XUITextInput
                 inputProps={{

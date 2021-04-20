@@ -40,20 +40,20 @@
     @include xui-margin-left(0);
   }
 
-  &.#{$ns}-inputgroup-vertical .#{$ns}-styledcheckboxradiowrapper:nth-last-of-type(n + 2),
-  &.#{$ns}-inputgroup-vertical .#{$ns}-styledcheckboxradio:nth-last-of-type(n + 2) {
+  &.#{$ns}-controlgroup-vertical .#{$ns}-styledcheckboxradiowrapper:nth-last-of-type(n + 2),
+  &.#{$ns}-controlgroup-vertical .#{$ns}-styledcheckboxradio:nth-last-of-type(n + 2) {
     border-bottom: $xui-border-control;
   }
 
-  &.#{$ns}-inputgroup-horizontal .#{$ns}-styledcheckboxradiowrapper:nth-last-of-type(n + 2),
-  &.#{$ns}-inputgroup-horizontal .#{$ns}-styledcheckboxradio:nth-last-of-type(n + 2) {
+  &.#{$ns}-controlgroup-horizontal .#{$ns}-styledcheckboxradiowrapper:nth-last-of-type(n + 2),
+  &.#{$ns}-controlgroup-horizontal .#{$ns}-styledcheckboxradio:nth-last-of-type(n + 2) {
     border-right: $xui-border-control;
   }
 
-  &.#{$ns}-inputgroup.#{$ns}-styledcheckboxradio-group-is-invalid,
-  &.#{$ns}-inputgroup.#{$ns}-styledcheckboxradio-group-is-invalid
+  &.#{$ns}-controlgroup.#{$ns}-styledcheckboxradio-group-is-invalid,
+  &.#{$ns}-controlgroup.#{$ns}-styledcheckboxradio-group-is-invalid
     .#{$ns}-styledcheckboxradiowrapper,
-  &.#{$ns}-inputgroup.#{$ns}-styledcheckboxradio-group-is-invalid .#{$ns}-styledcheckboxradio {
+  &.#{$ns}-controlgroup.#{$ns}-styledcheckboxradio-group-is-invalid .#{$ns}-styledcheckboxradio {
     border-color: $xui-validation-invalid-color;
   }
 }

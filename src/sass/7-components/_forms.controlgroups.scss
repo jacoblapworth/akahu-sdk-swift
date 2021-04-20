@@ -1,0 +1,158 @@
+@import '../vars';
+@import '../mixins';
+
+@mixin xui-controlgroup-bordered-all($ordinal: '') {
+  @include xui-controlgroup-bordered-toplevel($ordinal) {
+    @content;
+  }
+  @include xui-controlgroup-grandchild-order-matters($ordinal, $ordinal) {
+    @content;
+  }
+}
+
+// Top-level containers, only
+@mixin xui-controlgroup-containers-toplevel($ordinal: '') {
+  .#{$ns}-textinput#{$ordinal},
+  .#{$ns}-button#{$ordinal},
+  .#{$ns}-buttongroup#{$ordinal},
+  .#{$ns}-select#{$ordinal},
+  .#{$ns}-selectwrapper#{$ordinal},
+  .#{$ns}-textinputwrapper#{$ordinal},
+  .#{$ns}-autocompleter#{$ordinal},
+  .#{$ns}-dropdown--toggledwrapper#{$ordinal},
+  .#{$ns}-dateinput#{$ordinal} {
+    @content;
+  }
+}
+
+// Specific bordered elements with top-level containers
+@mixin xui-controlgroup-bordered-toplevel($ordinal: '') {
+  // Specific bordered elements with top-level containers
+  .#{$ns}-textinput#{$ordinal},
+  .#{$ns}-button#{$ordinal},
+  .#{$ns}-buttongroup#{$ordinal},
+  .#{$ns}-select#{$ordinal} .#{$ns}-select--control,
+  .#{$ns}-selectwrapper#{$ordinal} .#{$ns}-select--button {
+    @content;
+  }
+  // Top-level elements that may contain textinputs or buttons
+  .#{$ns}-textinputwrapper#{$ordinal},
+  .#{$ns}-autocompleter#{$ordinal},
+  .#{$ns}-dropdown--toggledwrapper#{$ordinal},
+  .#{$ns}-dateinput#{$ordinal} {
+    .#{$ns}-textinput,
+    .#{$ns}-button {
+      @content;
+    }
+  }
+}
+// Some nested elements (eg. buttongroup, textinput sideelements) may need different
+// treatment depending on where they appear within their parent components.
+@mixin xui-controlgroup-grandchild-order-matters($parentordinal: '', $childordinal: '') {
+  // Specific bordered elements with top-level containers
+  .#{$ns}-buttongroup#{$parentordinal} > .#{$ns}-button#{$childordinal},
+  .#{$ns}-buttongroup#{$parentordinal}
+    .#{$ns}-dropdown--toggledwrapper#{$childordinal}
+    .#{$ns}-button {
+    @content;
+  }
+  // Top-level elements that may contain sideelements
+  .#{$ns}-autocompleter#{$parentordinal},
+  .#{$ns}-textinputwrapper#{$parentordinal} {
+    .#{$ns}-textinput--sideelement#{$childordinal} {
+      @content;
+    }
+  }
+}
+
+.#{$ns}-controlgroup > {
+  // Square borders, by default
+  @include xui-controlgroup-bordered-all {
+    border-radius: 0;
+  }
+}
+
+.#{$ns}-controlgroup-horizontal {
+  .#{$ns}-textinput--input {
+    width: inherit;
+  }
+}
+
+.#{$ns}-controlgroup-horizontal > {
+  // This rule allows the side borders for "interior" elements to overlap.
+  // Overlap is key, so the correct border takes precedence at the correct time.
+  @include xui-controlgroup-containers-toplevel(':nth-child(n + 2)') {
+    margin-left: -1px;
+  }
+
+  // round left borders for the first item
+  @include xui-controlgroup-bordered-all(':first-child') {
+    border-bottom-left-radius: $xui-radius;
+    border-top-left-radius: $xui-radius;
+  }
+
+  // round right borders for the last item
+  @include xui-controlgroup-bordered-all(':last-child') {
+    border-bottom-right-radius: $xui-radius;
+    border-top-right-radius: $xui-radius;
+  }
+
+  .#{$ns}-textinput {
+    width: auto;
+  }
+}
+
+.#{$ns}-controlgroup-vertical {
+  // Allows the columns to shrink below their content-width, if necessary.
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.#{$ns}-controlgroup-vertical > {
+  // adjust top margin for items other than the first
+  @include xui-controlgroup-bordered-toplevel(':nth-child(n + 2)') {
+    margin-top: -1px;
+  }
+
+  // round top corners for the first top-level child
+  @include xui-controlgroup-bordered-all(':first-child') {
+    border-top-left-radius: $xui-radius;
+  }
+  @include xui-controlgroup-bordered-toplevel(':first-child') {
+    border-top-right-radius: $xui-radius;
+  }
+  @include xui-controlgroup-grandchild-order-matters(':first-child', ':last-child') {
+    border-top-right-radius: $xui-radius;
+  }
+
+  // round bottom corners for the last top-level child
+  @include xui-controlgroup-bordered-all(':last-child') {
+    border-bottom-right-radius: $xui-radius;
+  }
+  @include xui-controlgroup-bordered-toplevel(':last-child') {
+    border-bottom-left-radius: $xui-radius;
+  }
+  @include xui-controlgroup-grandchild-order-matters(':last-child', ':first-child') {
+    border-bottom-left-radius: $xui-radius;
+  }
+}
+
+.#{$ns}-controlgroup-vertical .#{$ns}-text-label + {
+  .#{$ns}-textinput,
+  .#{$ns}-select .#{$ns}-select--button {
+    border-radius: $xui-radius !important;
+  }
+}
+
+.#{$ns}-controlgroup {
+  display: grid;
+
+  &-is-bottomaligned {
+    align-items: end;
+  }
+
+  .#{$ns}-text-label {
+    padding-right: $xui-s-small;
+  }
+
+  @include xui-clearfix;
+}

@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-export const dateInputConvenienceDates = [
+export const dateInputSuggestedDates = [
   {
     id: 'week',
     text: 'Next week',
@@ -28,7 +28,7 @@ export const dateInputConvenienceDates = [
   },
 ];
 
-export const dateRangeInputConvenienceDates = [
+export const dateRangeInputSuggestedDates = [
   {
     id: 'monthThis',
     text: 'This month',

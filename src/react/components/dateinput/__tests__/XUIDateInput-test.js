@@ -3,28 +3,30 @@ import Enzyme, { mount } from 'enzyme';
 import { v4 as uuidv4 } from 'uuid';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import XUIDateInputWIP from '../XUIDateInputWIP';
+import { axe, toHaveNoViolations } from 'jest-axe';
+import XUIDateInput from '../XUIDateInput';
 
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testDateinputId');
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('XUIDateInput', () => {
-  const convenienceDateResult = new Date(Date.UTC(2019, 0, 10));
-  const dateInputConvenienceDates = [
+  const suggestedDateResult = new Date(Date.UTC(2019, 0, 10));
+  const dateInputSuggestedDates = [
     {
       id: 'jan2019',
       text: 'January 2019',
       getDate: () => {
-        return convenienceDateResult;
+        return suggestedDateResult;
       },
     },
   ];
 
   const selectedDate = new Date(Date.UTC(2020, 11, 15));
   const createComponent = props => (
-    <XUIDateInputWIP
+    <XUIDateInput
       onSelectDate={() => {}}
       {...props}
       displayedMonth={new Date(Date.UTC(2020, 10))}
@@ -47,7 +49,7 @@ describe('XUIDateInput', () => {
     const onSelectDate = jest.fn();
     const newSelectedDate = new Date(Date.UTC(2020, 11, 18));
     const wrapper = mount(
-      <XUIDateInputWIP
+      <XUIDateInput
         displayedMonth={newSelectedDate}
         onSelectDate={onSelectDate}
         selectedDateValue={newSelectedDate}
@@ -60,10 +62,10 @@ describe('XUIDateInput', () => {
     expect(onSelectDate).toHaveBeenCalled();
   });
 
-  it('uses convenience dates', () => {
+  it('uses suggested dates', () => {
     const wrapper = mount(
       createComponent({
-        convenienceDates: dateInputConvenienceDates,
+        suggestedDates: dateInputSuggestedDates,
       }),
     );
 
@@ -75,11 +77,11 @@ describe('XUIDateInput', () => {
     expect(wrapper.find('li#jan2019').length).toBe(1);
   });
 
-  it('selects a convenience date', async () => {
+  it('selects a suggested date', async () => {
     const onSelectProp = jest.fn();
     const wrapper = mount(
       createComponent({
-        convenienceDates: dateInputConvenienceDates,
+        suggestedDates: dateInputSuggestedDates,
         onSelectDate: onSelectProp,
       }),
     );
@@ -87,17 +89,17 @@ describe('XUIDateInput', () => {
     wrapper.find('input').simulate('click');
     wrapper.find('li#jan2019 button').simulate('click');
 
-    expect(onSelectProp).toHaveBeenCalledWith(convenienceDateResult);
+    expect(onSelectProp).toHaveBeenCalledWith(suggestedDateResult);
   });
 
-  it('selects a convenience date on an empty input', () => {
+  it('selects a suggested date on an empty input', () => {
     const newSelectedDate = new Date(Date.UTC(2020, 0, 15));
     const onSelectProp = jest.fn();
     const wrapper = mount(
-      <XUIDateInputWIP
-        convenienceDates={dateInputConvenienceDates}
+      <XUIDateInput
         displayedMonth={newSelectedDate}
         onSelectDate={onSelectProp}
+        suggestedDates={dateInputSuggestedDates}
       />,
     );
 
@@ -106,18 +108,24 @@ describe('XUIDateInput', () => {
     wrapper.find('input').simulate('click');
     wrapper.find('li#jan2019 button').simulate('click');
 
-    expect(onSelectProp).toHaveBeenCalledWith(convenienceDateResult);
+    expect(onSelectProp).toHaveBeenCalledWith(suggestedDateResult);
 
-    const year = convenienceDateResult.toLocaleString('en-GB', {
+    const year = suggestedDateResult.toLocaleString('en-GB', {
       year: 'numeric',
     });
-    const month = convenienceDateResult.toLocaleString('en-GB', {
+    const month = suggestedDateResult.toLocaleString('en-GB', {
       month: 'short',
     });
-    const day = convenienceDateResult.toLocaleString('en-GB', {
+    const day = suggestedDateResult.toLocaleString('en-GB', {
       day: 'numeric',
     });
 
     expect(wrapper.find('input').instance().value).toBe(`${day} ${month} ${year}`);
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(createComponent({ inputLabel: 'default label' }));
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

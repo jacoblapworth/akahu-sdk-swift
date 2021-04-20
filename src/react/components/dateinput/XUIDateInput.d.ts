@@ -1,18 +1,14 @@
 import * as React from 'react';
 
+import { XUIIconData } from '../icon/XUIIcon';
+import { baseSizeClasses } from '../textInput/private/constants';
+
 interface Props {
   /** CSS class(es) to go on the wrapping DOM node */
   className?: string;
 
   /** Whether or not the dropdown should automatically be hidden when the user selects something */
   closeOnSelect?: boolean;
-
-  /** Convenience dates */
-  convenienceDates?: Array<{
-    getDate: () => Date;
-    id?: string;
-    text?: string;
-  }>;
 
   /** A date which represents the year and month that the calendar will display. Could
    * be any day in the given day and month. */
@@ -41,15 +37,20 @@ interface Props {
    * date here.  Can be used with the isDateDisabled function. */
   minDate?: Date;
 
-  /** Callback for when the input changes  */
-  onInputChange?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  /** Callback for when the input changes */
+  onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 
   /** Callback for when the user selects a date */
   onSelectDate?: (day: Date) => void;
 
   qaHook?: string;
 
-  /** Label for an item opening DatePicker (with convenience date mode) */
+  /**
+   * Icon displayed next to calendar selection in suggested dates dropdown.
+   */
+  selectDateIcon?: XUIIconData;
+
+  /** Label for an item opening DatePicker (with suggested date mode) */
   selectDateLabel?: string;
 
   selectedDateDefaultValue?: Date;
@@ -57,11 +58,23 @@ interface Props {
   /** Value of the date input. Must be a Date object */
   selectedDateValue?: Date;
 
+  /**
+   * Size of the input.
+   */
+  size?: keyof typeof baseSizeClasses;
+
+  /** Suggested dates */
+  suggestedDates?: Array<{
+    getDate: () => Date;
+    id?: string;
+    text?: string;
+  }>;
+
   /** CSS class(es) to go on the trigger element which contains the input */
   triggerClassName?: string;
 
   /** Message to display below input when invalid date inputted */
-  validationMessage?: string;
+  validationMessage?: React.ReactNode;
 }
 
-export default class XUIDateInputWIP extends React.PureComponent<Props> {}
+export default class XUIDateInput extends React.PureComponent<Props> {}

@@ -3,13 +3,16 @@ import Enzyme, { mount } from 'enzyme';
 import { v4 as uuidv4 } from 'uuid';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIDateInputItem from '../private/XUIDateInputItem';
 
 const { renderIntoDocument } = require('react-dom/test-utils');
 
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testDateinputId');
+
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('XUIDateInputItem', () => {
   const selectedDate = new Date(Date.UTC(2020, 11, 15));
@@ -112,5 +115,11 @@ describe('XUIDateInputItem', () => {
     expect(calendarHeadingLabels.length).toBe(2);
     expect(calendarHeadingLabels.first().text()).toEqual('February');
     expect(calendarHeadingLabels.at(1).text()).toEqual('2020');
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(createComponent({ inputLabel: 'default label' }));
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

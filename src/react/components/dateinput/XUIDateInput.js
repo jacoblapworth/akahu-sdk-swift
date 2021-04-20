@@ -4,17 +4,12 @@ import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
 import XUIDateInputItem from './private/XUIDateInputItem';
-import { logWarning } from '../helpers/developmentConsole';
+import { baseSizeClasses } from '../textInput/private/constants';
 
-class XUIDateInputWIP extends React.Component {
+class XUIDateInput extends React.Component {
   state = {
     selectedDate: this.props.selectedDateDefaultValue,
   };
-
-  componentDidMount() {
-    /** WIP flag logging */
-    logWarning({ componentName: 'XUIDateInputWIP', flagType: 'wip' });
-  }
 
   onSelectDate = date => {
     this.setState({
@@ -28,7 +23,7 @@ class XUIDateInputWIP extends React.Component {
     const {
       className,
       closeOnSelect,
-      convenienceDates,
+      suggestedDates,
       displayedMonth,
       hintMessage,
       inputLabel,
@@ -40,7 +35,10 @@ class XUIDateInputWIP extends React.Component {
       onInputChange,
       onSelectDate, // Destructured so as not to spread.
       selectedDateValue, // Destructured so as not to spread.
+      selectedDateDefaultValue,
+      selectDateIcon,
       selectDateLabel,
+      size,
       triggerClassName,
       validationMessage,
       qaHook,
@@ -53,7 +51,6 @@ class XUIDateInputWIP extends React.Component {
       <div className={cn(`${ns}-dateinput`, className)} data-automationid={qaHook}>
         <XUIDateInputItem
           closeOnSelect={closeOnSelect}
-          convenienceDates={convenienceDates}
           displayedMonth={displayedMonth}
           hintMessage={hintMessage}
           inputLabel={inputLabel}
@@ -65,8 +62,11 @@ class XUIDateInputWIP extends React.Component {
           onInputChange={onInputChange}
           onSelectDate={this.onSelectDate}
           qaHook={qaHook && `${qaHook}-dateinput`}
+          selectDateIcon={selectDateIcon}
           selectDateLabel={selectDateLabel}
           selectedDate={selectedDate}
+          size={size}
+          suggestedDates={suggestedDates}
           triggerClassName={triggerClassName}
           validationMessage={validationMessage}
           {...spreadProps}
@@ -76,21 +76,12 @@ class XUIDateInputWIP extends React.Component {
   }
 }
 
-XUIDateInputWIP.propTypes = {
+XUIDateInput.propTypes = {
   /** CSS class(es) to go on the wrapping DOM node */
   className: PropTypes.string,
 
   /** Whether or not the dropdown should automatically be hidden when the user selects something */
   closeOnSelect: PropTypes.bool,
-
-  /** Convenience dates */
-  convenienceDates: PropTypes.arrayOf(
-    PropTypes.shape({
-      getDate: PropTypes.func,
-      id: PropTypes.string,
-      text: PropTypes.string,
-    }),
-  ),
 
   /**
    * A date which represents the year and month that the calendar will display. Could
@@ -133,7 +124,16 @@ XUIDateInputWIP.propTypes = {
 
   qaHook: PropTypes.string,
 
-  /** Label for an item opening DatePicker (with convenience date mode) */
+  /**
+   * Icon displayed next to calendar selection in suggested dates dropdown.
+   */
+  selectDateIcon: PropTypes.shape({
+    height: PropTypes.number,
+    path: PropTypes.string,
+    width: PropTypes.number,
+  }),
+
+  /** Label for an item opening DatePicker (with suggested date mode) */
   selectDateLabel: PropTypes.string,
 
   selectedDateDefaultValue: PropTypes.instanceOf(Date),
@@ -141,17 +141,29 @@ XUIDateInputWIP.propTypes = {
   /** Value of the date input. Must be a Date object */
   selectedDateValue: PropTypes.instanceOf(Date),
 
+  /** Size of the input - Can be `xsmall`, `small` or `medium` */
+  size: PropTypes.oneOf(Object.keys(baseSizeClasses)),
+
+  /** Suggested dates */
+  suggestedDates: PropTypes.arrayOf(
+    PropTypes.shape({
+      getDate: PropTypes.func.isRequired,
+      id: PropTypes.string,
+      text: PropTypes.string,
+    }),
+  ),
+
   /** CSS class(es) to go on the trigger element which contains the input */
   triggerClassName: PropTypes.string,
 
   /** Message to display below input when invalid date inputted */
-  validationMessage: PropTypes.string,
+  validationMessage: PropTypes.node,
 };
 
-XUIDateInputWIP.defaultProps = {
+XUIDateInput.defaultProps = {
   closeOnSelect: true,
   displayedMonth: new Date(),
   locale: 'en',
 };
 
-export default XUIDateInputWIP;
+export default XUIDateInput;

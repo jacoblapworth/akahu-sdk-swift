@@ -15,7 +15,7 @@ $xui-dateinput-label-vertical-offset: 25px;
 
   &--firstinput-withspace,
   &--secondinput-withspace,
-  &--convenience-withspace {
+  &--suggested-withspace {
     margin-bottom: $xui-s-2xlarge + $xui-s-2xsmall; // Overall height of validation and hint messages
   }
 
@@ -23,7 +23,7 @@ $xui-dateinput-label-vertical-offset: 25px;
     color: $xui-color-grey-3;
   }
 
-  &--convenience-disabled .#{$ns}-button {
+  &--suggested-disabled .#{$ns}-button {
     @include xui-dateinput-disabled;
 
     &:focus,
@@ -37,5 +37,11 @@ $xui-dateinput-label-vertical-offset: 25px;
   .#{$ns}-text-label,
   .#{$ns}-textinput--sideelement-icon {
     cursor: not-allowed;
+  }
+}
+
+.#{$ns}-dateinputitem-suggesteddates--footer--item {
+  .#{$ns}-pickitem--text {
+    color: $xui-color-grey-1;
   }
 }

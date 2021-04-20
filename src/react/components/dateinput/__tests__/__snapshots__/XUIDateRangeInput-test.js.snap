@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
+exports[`XUIDateRangeInput renders component with specified dates 1`] = `
 <div
   className="xui-daterangeinput"
 >
@@ -31,6 +31,12 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
           onKeyDown={[Function]}
           role="presentation"
         >
+          <label
+            className="xui-text-label xui-fieldlabel-layout"
+            htmlFor="testDateinputId-control"
+          >
+            start label
+          </label>
           <div
             autoComplete="off"
             className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
@@ -44,7 +50,7 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
                 className="xui-iconwrapper xui-iconwrapper-medium"
               >
                 <svg
-                  className="xui-icon xui-icon-color-black-faint"
+                  className="xui-icon xui-icon-color-black"
                   focusable="false"
                   height={13}
                   viewBox="0 0 12 13"
@@ -93,6 +99,12 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
           onKeyDown={[Function]}
           role="presentation"
         >
+          <label
+            className="xui-text-label xui-fieldlabel-layout"
+            htmlFor="testDateinputId-control"
+          >
+            end label
+          </label>
           <div
             autoComplete="off"
             className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
@@ -106,7 +118,7 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
                 className="xui-iconwrapper xui-iconwrapper-medium"
               >
                 <svg
-                  className="xui-icon xui-icon-color-black-faint"
+                  className="xui-icon xui-icon-color-black"
                   focusable="false"
                   height={13}
                   viewBox="0 0 12 13"
@@ -138,7 +150,7 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
       </div>
     </div>
     <div
-      className="xui-daterangeinput--convenience xui-dropdown--toggledwrapper"
+      className="xui-daterangeinput--suggested xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
       role="presentation"
     >
@@ -175,7 +187,7 @@ exports[`XUIDateRangeInputWIP renders component with specified dates 1`] = `
 </div>
 `;
 
-exports[`XUIDateRangeInputWIP renders default component 1`] = `
+exports[`XUIDateRangeInput renders default component 1`] = `
 <div
   className="xui-daterangeinput"
 >
@@ -219,7 +231,7 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
                 className="xui-iconwrapper xui-iconwrapper-medium"
               >
                 <svg
-                  className="xui-icon xui-icon-color-black-faint"
+                  className="xui-icon xui-icon-color-black"
                   focusable="false"
                   height={13}
                   viewBox="0 0 12 13"
@@ -281,7 +293,7 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
                 className="xui-iconwrapper xui-iconwrapper-medium"
               >
                 <svg
-                  className="xui-icon xui-icon-color-black-faint"
+                  className="xui-icon xui-icon-color-black"
                   focusable="false"
                   height={13}
                   viewBox="0 0 12 13"
@@ -313,7 +325,7 @@ exports[`XUIDateRangeInputWIP renders default component 1`] = `
       </div>
     </div>
     <div
-      className="xui-daterangeinput--convenience xui-dropdown--toggledwrapper"
+      className="xui-daterangeinput--suggested xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
       role="presentation"
     >

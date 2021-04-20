@@ -8,34 +8,28 @@ import { XUISecondaryButton } from '../../button';
 import XUIPicklist, { XUIPickitem } from '../../picklist';
 import XUIDateInputItem from './private/XUIDateInputItem';
 import XUIInputGroup from '../inputgroup/XUIInputGroup';
-import { logWarning } from '../helpers/developmentConsole';
+import { baseSizeClasses } from '../textInput/private/constants';
 
 const baseClass = `${ns}-daterangeinput`;
 
-class XUIDateRangeInputWIP extends Component {
+class XUIDateRangeInput extends Component {
   state = {
     selectedStartDate: this.props.startDateInputConfig?.selectedDateDefaultValue,
     selectedEndDate: this.props.endDateInputConfig?.selectedDateDefaultValue,
-    selectedConvenienceDateId: null,
+    selectedSuggestedDateId: null,
   };
 
   secondaryButtonDdtRef = createRef(null);
 
   endInputRef = createRef(null);
 
-  componentDidMount() {
-    /** WIP flag logging */
-    logWarning({ componentName: 'XUIDateRangeInputWIP', flagType: 'wip' });
-  }
-
   onSelectStartDate = date => {
     this.setState({
       selectedStartDate: date,
     });
 
-    this.endInputRef?.current.focus();
-
     this.props.startDateInputConfig?.onSelectDate?.(date);
+    this.endInputRef?.current.focus();
   };
 
   onSelectEndDate = date => {
@@ -46,13 +40,13 @@ class XUIDateRangeInputWIP extends Component {
     this.props.endDateInputConfig?.onSelectDate?.(date);
   };
 
-  onSelectConvenienceDateRange = selectedConvenienceDateId => {
-    const { convenienceDates } = this.props;
-    const convenienceDate = convenienceDates.find(cd => cd.id === selectedConvenienceDateId);
-    const selectedStartDate = convenienceDate.getStartDate();
-    const selectedEndDate = convenienceDate.getEndDate();
+  onSelectSuggestedDateRange = selectedSuggestedDateId => {
+    const { suggestedDates } = this.props;
+    const suggestedDate = suggestedDates.find(cd => cd.id === selectedSuggestedDateId);
+    const selectedStartDate = suggestedDate.getStartDate();
+    const selectedEndDate = suggestedDate.getEndDate();
 
-    this.setState({ selectedConvenienceDateId: convenienceDate.id });
+    this.setState({ selectedSuggestedDateId: suggestedDate.id });
     this.onSelectStartDate(selectedStartDate);
     this.onSelectEndDate(selectedEndDate);
   };
@@ -61,9 +55,10 @@ class XUIDateRangeInputWIP extends Component {
     const {
       className,
       closeOnSelect,
-      convenienceDates,
+      suggestedDates,
       endDateInputConfig,
       groupConfig,
+      size,
       startDateInputConfig,
       locale,
       qaHook,
@@ -87,8 +82,10 @@ class XUIDateRangeInputWIP extends Component {
       minDate: startMinDate,
       onInputChange: onStartInputChange,
       selectedDateValue: selectedStateDateValue,
+      selectedDateDefaultValue: selectedStartDateDefaultValue,
       triggerClassName: startTriggerClassName,
       validationMessage: startValidationMessage,
+      ...spreadStartProps
     } = { ...defaultStartDateInputConfig, ...startDateInputConfig };
     const {
       displayedMonth: displayedEndMonth,
@@ -101,8 +98,10 @@ class XUIDateRangeInputWIP extends Component {
       minDate: endMinDate,
       onInputChange: onEndInputChange,
       selectedDateValue: selectedEndDateValue,
+      selectedDateDefaultValue: selectedEndDateDefaultValue,
       triggerClassName: endTriggerClassName,
       validationMessage: endValidationMessage,
+      ...spreadEndProps
     } = { ...defaultEndDateInputConfig, ...endDateInputConfig };
     const {
       hintMessage: groupHintMessage,
@@ -114,7 +113,7 @@ class XUIDateRangeInputWIP extends Component {
       ...groupSpread
     } = groupConfig;
 
-    const { selectedConvenienceDateId } = this.state;
+    const { selectedSuggestedDateId } = this.state;
 
     const selectedStartDate = selectedStateDateValue || this.state.selectedStartDate;
     const selectedEndDate = selectedEndDateValue || this.state.selectedEndDate;
@@ -122,15 +121,15 @@ class XUIDateRangeInputWIP extends Component {
       startHintMessage || endHintMessage || startValidationMessage || endValidationMessage;
     const isAnyDisabled = isStartDisabled || isEndDisabled || isGroupDisabled;
 
-    const dateInputDropdown = convenienceDates && (
-      <XUIDropdown className={`${baseClass}--conveniencedatesdropdown`}>
+    const dateInputDropdown = suggestedDates && (
+      <XUIDropdown className={`${baseClass}--suggesteddatesdropdown`}>
         <XUIPicklist>
-          {convenienceDates.map(({ id, text, description }) => (
+          {suggestedDates.map(({ id, text, description }) => (
             <XUIPickitem
               id={id}
-              isSelected={selectedConvenienceDateId === id}
+              isSelected={selectedSuggestedDateId === id}
               key={id}
-              onSelect={this.onSelectConvenienceDateRange}
+              onSelect={this.onSelectSuggestedDateRange}
               value={id}
             >
               {text} {description}
@@ -146,7 +145,7 @@ class XUIDateRangeInputWIP extends Component {
         fieldClassName={cn(
           `${baseClass}`,
           className,
-          !convenienceDates && `${baseClass}--onlyinputs`,
+          !suggestedDates && `${baseClass}--onlyinputs`,
         )}
         hintMessage={groupHintMessage}
         isBottomAligned // This can be overridden via groupSpread
@@ -178,10 +177,13 @@ class XUIDateRangeInputWIP extends Component {
           minDate={startMinDate}
           onInputChange={onStartInputChange}
           onSelectDate={this.onSelectStartDate}
+          preventFocusOnSelect
           qaHook={qaHook && `${qaHook}-daterangeinput-firstinput`}
           selectedDate={selectedStartDate}
+          size={size}
           triggerClassName={startTriggerClassName}
           validationMessage={startValidationMessage}
+          {...spreadStartProps}
         />
         <XUIDateInputItem
           closeOnSelect={closeOnSelect}
@@ -206,26 +208,29 @@ class XUIDateRangeInputWIP extends Component {
           onSelectDate={this.onSelectEndDate}
           qaHook={qaHook && `${qaHook}-daterangeinput-secondinput`}
           selectedDate={selectedEndDate}
+          size={size}
           triggerClassName={endTriggerClassName}
           validationMessage={endValidationMessage}
+          {...spreadEndProps}
         />
-        {convenienceDates && (
+        {suggestedDates && (
           <XUIDropdownToggled
             className={cn(
-              `${baseClass}--convenience`,
-              needsMessageSpace && `${baseClass}--convenience-withspace`,
-              isAnyDisabled && `${baseClass}--convenience-disabled`,
+              `${baseClass}--suggested`,
+              needsMessageSpace && `${baseClass}--suggested-withspace`,
+              isAnyDisabled && `${baseClass}--suggested-disabled`,
             )}
             closeOnSelect={closeOnSelect}
             closeOnTab={false}
             dropdown={dateInputDropdown}
-            qaHook={qaHook && `${qaHook}-daterangeinput-conveniencedates`}
+            qaHook={qaHook && `${qaHook}-daterangeinput-suggesteddates`}
             ref={this.secondaryButtonDdtRef}
             restrictedToViewPort={false}
             trigger={
               <XUISecondaryButton
                 isDisabled={isAnyDisabled}
                 onClick={() => this.secondaryButtonDdtRef.current.openDropdown()}
+                size={size}
               />
             }
             triggerClickAction="none"
@@ -236,22 +241,12 @@ class XUIDateRangeInputWIP extends Component {
   }
 }
 
-XUIDateRangeInputWIP.propTypes = {
+XUIDateRangeInput.propTypes = {
   /** CSS class(es) to go on the wrapping DOM node */
   className: PropTypes.string,
 
   /** Whether or not the dropdown should automatically be hidden when the user selects something */
   closeOnSelect: PropTypes.bool,
-
-  /** Convenience dates */
-  convenienceDates: PropTypes.arrayOf(
-    PropTypes.shape({
-      getEndDate: PropTypes.func,
-      getStartDate: PropTypes.func,
-      id: PropTypes.string,
-      text: PropTypes.string,
-    }),
-  ),
 
   endDateInputConfig: PropTypes.shape({
     /**
@@ -324,13 +319,16 @@ XUIDateRangeInputWIP.propTypes = {
     isInvalid: PropTypes.bool,
 
     /** Message to display below range when invalid */
-    validationMessage: PropTypes.string,
+    validationMessage: PropTypes.node,
   }),
 
   /** The locale of the calendar. Defaults to En */
   locale: PropTypes.string,
 
   qaHook: PropTypes.string,
+
+  /** Size of the input - Can be `xsmall`, `small` or `medium` */
+  size: PropTypes.oneOf(Object.keys(baseSizeClasses)),
 
   startDateInputConfig: PropTypes.shape({
     /**
@@ -384,15 +382,25 @@ XUIDateRangeInputWIP.propTypes = {
     triggerClassName: PropTypes.string,
 
     /** Message to display below input when invalid date inputted */
-    validationMessage: PropTypes.string,
+    validationMessage: PropTypes.node,
   }),
+
+  /** Suggested dates */
+  suggestedDates: PropTypes.arrayOf(
+    PropTypes.shape({
+      getEndDate: PropTypes.func.isRequired,
+      getStartDate: PropTypes.func.isRequired,
+      id: PropTypes.string,
+      text: PropTypes.string,
+    }),
+  ),
 };
 
 // Default values for `startDateInputConfig` and `endDateInputConfig` are defined in the class above.
-XUIDateRangeInputWIP.defaultProps = {
+XUIDateRangeInput.defaultProps = {
   closeOnSelect: true,
   groupConfig: {},
   locale: 'en',
 };
 
-export default XUIDateRangeInputWIP;
+export default XUIDateRangeInput;

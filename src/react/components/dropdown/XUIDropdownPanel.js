@@ -257,6 +257,7 @@ class XUIDropdownPanel extends PureComponent {
 
   render() {
     const {
+      allowNarrowViewportAutoHeight,
       children,
       footer,
       forceStatefulPicklist,
@@ -274,9 +275,16 @@ class XUIDropdownPanel extends PureComponent {
       shouldManageInitialHighlight,
     } = this.props;
 
-    let maxHeight = style && style.maxHeight;
+    const bodyStyle = {
+      maxHeight: style?.maxHeight,
+    };
+
     if (checkIsNarrowViewport()) {
-      maxHeight = header == null ? '80vh' : '100vh';
+      bodyStyle.maxHeight = !header ? '80vh' : '100vh';
+
+      if (allowNarrowViewportAutoHeight) {
+        bodyStyle.height = 'auto';
+      }
     }
 
     const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
@@ -299,9 +307,7 @@ class XUIDropdownPanel extends PureComponent {
           data-automationid={qaHook && `${qaHook}--body`}
           onMouseUp={this.iOSHack}
           role="presentation"
-          style={{
-            maxHeight,
-          }}
+          style={bodyStyle}
         >
           {header}
           {shouldAddStatefulPicklist ? (
@@ -351,6 +357,12 @@ class XUIDropdownPanel extends PureComponent {
 }
 
 XUIDropdownPanel.propTypes = {
+  /**
+   * @ignore
+   * Internal use only. Allows options in a dropdown panel to take least amount of height needed, when viewed on a narrow screen.
+   * */
+  allowNarrowViewportAutoHeight: PropTypes.bool,
+
   /** Class name to apply to the body element */
   bodyClassName: PropTypes.string,
 

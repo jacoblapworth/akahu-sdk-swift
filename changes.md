@@ -142,6 +142,16 @@ TypeScript types have also been made slightly more strict for instances of rootN
 - All `XUIAccordion`-related `qaHook`s have been updated to use a `--` instead of a single `-`, in line with XUI naming conventions.
   - e.g. `{qaHook}-empty` has been renamed to `{qaHook}--empty`
 
+### XUIDateInputWIP
+
+- `locale`, `nextButtonAriaLabel`, and `prevButtonAriaLabel` are now required to reflect the same changes in `XUIDatePicker`.
+- Labels are now required on inputs, but not input groups.
+
+### XUIDatePicker
+
+- `XUIDatePicker` will now localise month and day names, text direction, and first day of the week automatically based on the `locale` you pass in, which is now required. Defaults for these props have been removed accordingly, and some new QA hooks have been added to assist in testing this functionality.
+- `nextButtonAriaLabel` and `prevButtonAriaLabel` are now required. This aligns with how labels are handled in other components.
+
 ### XUIEditableTable
 
 - Drag and drop can now be triggered with the `enter` key. The recommended text for XUIEditableTable's `dndInstructions` is now:

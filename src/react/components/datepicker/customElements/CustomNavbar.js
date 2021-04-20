@@ -125,7 +125,10 @@ const CustomNavbar = ({
         size={controlSize}
       />
 
-      <div className={`${baseClassName}--heading-dates`}>
+      <div
+        className={`${baseClassName}--heading-dates`}
+        data-automationid={`${qaHook}--heading-dates`}
+      >
         {dir === 'rtl' ? yearSelector : monthSelector}
         {dir === 'rtl' ? monthSelector : yearSelector}
       </div>

@@ -9,6 +9,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'Default',
+    inputLabel: 'Start date',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -67,29 +68,34 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Default daterange',
-    isDateRangeInput: true,
-    convenienceDates: dateRangeInputConvenienceDates,
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Daterange without labels',
+    storyTitle: 'Default date range',
     isDateRangeInput: true,
     convenienceDates: dateRangeInputConvenienceDates,
     startDateInputConfig: {
-      selectedDateDefaultValue: new Date(2021, 0, 1),
-      isDisabled: true,
-      inputLabel: '',
+      inputLabel: 'First date',
     },
     endDateInputConfig: {
-      selectedDateDefaultValue: new Date(2021, 1, 1),
-      isDisabled: true,
-      inputLabel: '',
+      inputLabel: 'Second date',
     },
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Disabled daterange',
+    storyTitle: 'Date range with group label',
+    isDateRangeInput: true,
+    convenienceDates: dateRangeInputConvenienceDates,
+    groupConfig: {
+      groupLabel: 'Date range',
+    },
+    startDateInputConfig: {
+      inputLabel: 'First date',
+    },
+    endDateInputConfig: {
+      inputLabel: 'Second date',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Disabled date range',
     isDateRangeInput: true,
     convenienceDates: dateRangeInputConvenienceDates,
     startDateInputConfig: {
@@ -104,22 +110,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Daterange with one missing label',
-    isDateRangeInput: true,
-    convenienceDates: dateRangeInputConvenienceDates,
-    startDateInputConfig: {
-      selectedDateDefaultValue: new Date(2021, 0, 1),
-      isDisabled: true,
-      inputLabel: 'First Date',
-    },
-    endDateInputConfig: {
-      isDisabled: true,
-      inputLabel: '',
-    },
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Daterange across two years',
+    storyTitle: 'Date range across two years',
     isDateRangeInput: true,
     convenienceDates: dateRangeInputConvenienceDates,
     startDateInputConfig: {
@@ -150,7 +141,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Daterange without convenience dates',
+    storyTitle: 'Date range without convenience dates',
     isDateRangeInput: true,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(1999, 5, 5),
@@ -163,7 +154,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Darerange with two errors',
+    storyTitle: 'Date range with two errors',
     isDateRangeInput: true,
     convenienceDates: dateRangeInputConvenienceDates,
     startDateInputConfig: {
@@ -181,7 +172,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Darerange with just one error',
+    storyTitle: 'Date range with just one error',
     isDateRangeInput: true,
     convenienceDates: dateRangeInputConvenienceDates,
     startDateInputConfig: {

@@ -14,7 +14,15 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('XUIDateInputItem', () => {
   const selectedDate = new Date(Date.UTC(2020, 11, 15));
   const createComponent = props => (
-    <XUIDateInputItem onSelectDate={() => {}} {...props} selectedDate={selectedDate} />
+    <XUIDateInputItem
+      inputLabel="Date"
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={() => {}}
+      prevButtonAriaLabel="Previous month"
+      {...props}
+      selectedDate={selectedDate}
+    />
   );
 
   it('inserts selected date value', () => {
@@ -84,7 +92,14 @@ describe('XUIDateInputItem', () => {
 
   it('should call the passed onFocus handler when focused', () => {
     const wrapper = renderIntoDocument(
-      <XUIDateInputItem onSelectDate={() => {}} selectedDate={selectedDate} />,
+      <XUIDateInputItem
+        inputLabel="Date"
+        locale="en"
+        nextButtonAriaLabel="Next month"
+        onSelectDate={() => {}}
+        prevButtonAriaLabel="Previous month"
+        selectedDate={selectedDate}
+      />,
     );
 
     wrapper.inputRef.current.focus();

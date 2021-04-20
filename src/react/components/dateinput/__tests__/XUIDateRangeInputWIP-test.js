@@ -37,11 +37,16 @@ describe('XUIDateRangeInputWIP', () => {
       convenienceDates={dateRangeInputConvenienceDates}
       endDateInputConfig={{
         displayedMonth: selectedEndDate,
+        inputLabel: 'End date',
         selectedDateDefaultValue: selectedEndDate,
       }}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       qaHook="test"
       startDateInputConfig={{
         displayedMonth: selectedStartDate,
+        inputLabel: 'Start date',
         selectedDateDefaultValue: selectedStartDate,
       }}
     />
@@ -49,7 +54,18 @@ describe('XUIDateRangeInputWIP', () => {
 
   it('renders default component', () => {
     const inputEl = renderer.create(
-      <XUIDateRangeInputWIP convenienceDates={dateRangeInputConvenienceDates} />,
+      <XUIDateRangeInputWIP
+        convenienceDates={dateRangeInputConvenienceDates}
+        endDateInputConfig={{
+          inputLabel: 'End date',
+        }}
+        locale="en"
+        nextButtonAriaLabel="Next month"
+        prevButtonAriaLabel="Previous month"
+        startDateInputConfig={{
+          inputLabel: 'Start date',
+        }}
+      />,
     );
     expect(inputEl).toMatchSnapshot();
   });
@@ -68,12 +84,17 @@ describe('XUIDateRangeInputWIP', () => {
         convenienceDates={dateRangeInputConvenienceDates}
         endDateInputConfig={{
           displayedMonth: selectedEndDate,
+          inputLabel: 'End date',
           selectedDateDefaultValue: selectedEndDate,
           onSelectDate: onSelectEndDate,
         }}
+        locale="en"
+        nextButtonAriaLabel="Next month"
+        prevButtonAriaLabel="Previous month"
         qaHook={qaHook}
         startDateInputConfig={{
           displayedMonth: selectedStartDate,
+          inputLabel: 'Start date',
           selectedDateDefaultValue: selectedStartDate,
           onSelectDate: onSelectStartDate,
         }}

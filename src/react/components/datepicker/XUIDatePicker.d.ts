@@ -3,10 +3,6 @@ import { DayModifiers } from 'react-day-picker';
 
 interface Props {
   /**
-   * Whether the language is left-to-right or right-to-left.
-   */
-  dir?: 'ltr' | 'rtl';
-  /**
    * A date which represents the year and month that the calendar will display. Could be any day in
    * the given day and month.
    */
@@ -22,7 +18,7 @@ interface Props {
   /**
    * The locale of the calendar.
    */
-  locale?: string;
+  locale: string;
   /**
    * If you want to disable every date after a given day, pass in the maximum enabled date here.
    * Can be used with the `isDateDisabled` function.
@@ -34,14 +30,12 @@ interface Props {
    */
   minDate?: Date;
   /**
-   * An array of localised month names.
+   * An accessibility label for the next month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Next month*
    */
-  months?: string[];
-  /**
-   * An accessibility label for the next month button that will be read to users with a screen
-   * reader.
-   */
-  nextButtonAriaLabel?: string;
+  nextButtonAriaLabel: string;
   /**
    * Callback for when a user switches to a different month.
    */
@@ -52,10 +46,12 @@ interface Props {
    */
   onSelectDate: (day: Date, modifiers: DayModifiers, e: React.MouseEvent<HTMLDivElement>) => void;
   /**
-   * An accessibility label for the previous month button that will be read to users with a screen
-   * reader.
+   * An accessibility label for the previous month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Previous month*
    */
-  prevButtonAriaLabel?: string;
+  prevButtonAriaLabel: string;
   qaHook?: string;
   /**
    * If you only want to display a single selected day without allowing the user to select a date
@@ -79,21 +75,7 @@ interface Props {
    * Whether or not to show six full weeks no matter how many days are in the month.
    */
   showFixedNumberOfWeeks?: boolean;
-  /**
-   * An array of localised full weekday names.
-   *
-   * e.g. `["Sunday", "Monday", ...]`
-   */
-  weekdaysLong?: WeekdaysTuple;
-  /**
-   * An array of localised short weeday names
-   *
-   * e.g. `["Su", "Mo", ...]`
-   */
-  weekdaysShort?: WeekdaysTuple;
 }
-
-type WeekdaysTuple = [string, string, string, string, string, string, string];
 
 export default class XUIDatePicker extends React.PureComponent<Props> {
   /**

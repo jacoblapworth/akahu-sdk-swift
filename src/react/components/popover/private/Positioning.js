@@ -16,6 +16,8 @@ export default class Positioning extends React.Component {
   state = {};
 
   componentDidMount() {
+    this._isMounted = true;
+
     this.updatePosition(true);
 
     if (window) {
@@ -25,7 +27,9 @@ export default class Positioning extends React.Component {
   }
 
   componentWillUnmount() {
-    window && window.removeEventListener('resize', this.updatePosition);
+    this._isMounted = false;
+
+    window?.removeEventListener('resize', this.updatePosition);
   }
 
   componentDidUpdate() {
@@ -70,57 +74,87 @@ export default class Positioning extends React.Component {
   /* eslint-enable no-param-reassign */
 
   updatePosition = async updateSynchronously => {
-    const doSync = callback => new Promise(resolve => resolve(callback()));
-    const execute = updateSynchronously ? doSync : doAsync;
+    /**
+     * This function uses mutable refs that can change at any time (e.g. if the component is
+     * unmounted the refs will be set to `null`).
+     *
+     * We also run this function intermittently (which leads to poor performance, see the comment at
+     * the end of this method for more info) and asynchronously (to help alleviate that poor
+     * performance).
+     *
+     * Fortunately we don't actually care if this function fails after the component has been
+     * unmounted so we can wrap the whole thing in a try/catch statement that swallows errors after
+     * the component has been unmounted.
+     */
+    try {
+      const doSync = callback => new Promise(resolve => resolve(callback()));
+      const execute = updateSynchronously ? doSync : doAsync;
 
-    const { pageGutter, preferredLocation, triggerGap } = this.props;
+      const { pageGutter, preferredLocation, triggerGap } = this.props;
 
-    if (this.updatePositionTimeoutId) {
-      clearTimeout(this.updatePositionTimeoutId);
-    }
+      if (this.updatePositionTimeoutId) {
+        clearTimeout(this.updatePositionTimeoutId);
+      }
 
-    if (!this.ref.current || !this.props.triggerRef.current) {
-      return;
-    }
+      if (!this.ref.current || !this.props.triggerRef.current) {
+        return;
+      }
 
-    const contentRect = await execute(
-      () => this.ref.current && this.getContentRect(this.ref.current),
-    );
-    const triggerRect = await execute(() => this.props.triggerRef.current?.getBoundingClientRect());
-
-    if (triggerRect) {
-      const positionHelper = await execute(
-        () =>
-          new PositioningHelper(
-            preferredLocation,
-            contentRect,
-            triggerRect,
-            triggerGap,
-            pageGutter,
-          ),
+      const contentRect = await execute(
+        // This function needs to be async to ensure that errors inside `this.getContextRect` get caught.
+        // https://itnext.io/error-handling-with-async-await-in-js-26c3f20bc06a
+        async () => this.getContentRect(this.ref.current),
+      );
+      const triggerRect = await execute(() =>
+        this.props.triggerRef.current?.getBoundingClientRect(),
       );
 
-      const location = await execute(() => positionHelper.getLocation());
-      const style = await execute(() => positionHelper.getPositionStyle());
-      const isFullWidth = await execute(() => positionHelper.isFullWidth());
-      // This function is called often so we only call `setState` if something has changed.
+      if (contentRect && triggerRect) {
+        const positionHelper = await execute(
+          () =>
+            new PositioningHelper(
+              preferredLocation,
+              contentRect,
+              triggerRect,
+              triggerGap,
+              pageGutter,
+            ),
+        );
 
-      if (location !== this.state.location || !shallowCompare(style, this.state.style)) {
-        this.setState({
-          isFullWidth,
-          location,
-          style,
-        });
+        const location = await execute(() => positionHelper.getLocation());
+        const style = await execute(() => positionHelper.getPositionStyle());
+        const isFullWidth = await execute(() => positionHelper.isFullWidth());
+
+        // This function is called often so we only call `setState` if something has changed.
+        if (
+          this._isMounted &&
+          (location !== this.state.location || !shallowCompare(style, this.state.style))
+        ) {
+          this.setState({
+            isFullWidth,
+            location,
+            style,
+          });
+        }
+      }
+    } catch (error) {
+      if (this._isMounted) {
+        throw error;
       }
     }
 
-    /**
-     * Running `updatePosition` regularly accommodates the following situations:
-     * - The content resizes (could be handled with a ResizeObserver)
-     * - The trigger resizes (could be handled with a ResizeObserver)
-     * - The trigger changes position (currently we have no way of observing this reliably)
-     */
-    this.updatePositionTimeoutId = setTimeout(this.updatePosition, 100);
+    if (this._isMounted) {
+      /**
+       * Running `updatePosition` regularly accommodates the following situations:
+       * - The content resizes (could be handled with a ResizeObserver)
+       * - The trigger resizes (could be handled with a ResizeObserver)
+       * - The trigger changes position (currently we have no way of observing this reliably)
+       *
+       * If a method for watching element position changes (e.g. a PositionObserver) then this
+       * `setTimeout` can be safely removed.
+       */
+      this.updatePositionTimeoutId = setTimeout(this.updatePosition, 100);
+    }
   };
 }
 

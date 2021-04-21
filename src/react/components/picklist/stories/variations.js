@@ -159,8 +159,8 @@ const variations = [
           },
           { value: 'Tim Redmond', leftElement: <XUIAvatar size="small" value="Tim Redmond" /> },
           {
-            value: 'Grzegorz Pawłowski-Chudziński',
-            leftElement: <XUIAvatar size="small" value="Grzegorz Pawłowski-Chudziński" />,
+            value: 'Grzegorz Chudziński-Pawłowski',
+            leftElement: <XUIAvatar size="small" value="Grzegorz Chudziński-Pawłowski" />,
           },
         ],
       },
@@ -203,8 +203,8 @@ const variations = [
           },
           { value: 'Tim Redmond', leftElement: <XUIAvatar size="small" value="Tim Redmond" /> },
           {
-            value: 'Grzegorz Pawłowski-Chudziński',
-            leftElement: <XUIAvatar size="small" value="Grzegorz Pawłowski-Chudziński" />,
+            value: 'Grzegorz Chudziński-Pawłowski',
+            leftElement: <XUIAvatar size="small" value="Grzegorz Chudziński-Pawłowski" />,
           },
         ],
       },
@@ -538,8 +538,8 @@ const variations = [
           { isDivider: true },
           { isHeader: true, children: 'Recent' },
           {
-            value: 'Grzegorz Pawłowski-Chudziński',
-            leftElement: <XUIAvatar size="small" value="Grzegorz Pawłowski-Chudziński" />,
+            value: 'Grzegorz Chudziński-Pawłowski',
+            leftElement: <XUIAvatar size="small" value="Grzegorz Chudziński-Pawłowski" />,
             rightElement: <XUIIcon icon={iconsList[2]} />,
             secondaryElement: 'Developer',
             pinnedElement: '42',

@@ -1,0 +1,21 @@
+/* This file provides global styles to be consumed by shell.js. */
+
+@use './1-vars/colors';
+@use './7-components/loaders';
+
+.#{$ns}-body {
+  background-color: $xui-body-bg-color;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.#{$ns}-app-root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.#{$ns}-loader-layout {
+  box-sizing: border-box;
+}

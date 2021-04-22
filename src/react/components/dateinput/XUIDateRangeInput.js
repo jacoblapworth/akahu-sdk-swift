@@ -21,6 +21,10 @@ class XUIDateRangeInput extends Component {
 
   secondaryButtonDdtRef = createRef(null);
 
+  startDateComponentRef = createRef(null);
+
+  endDateComponentRef = createRef(null);
+
   endInputRef = createRef(null);
 
   onSelectStartDate = date => {
@@ -47,7 +51,10 @@ class XUIDateRangeInput extends Component {
     const selectedEndDate = suggestedDate.getEndDate();
 
     this.setState({ selectedSuggestedDateId: suggestedDate.id });
+
+    this.startDateComponentRef?.current.onSelectDate(selectedStartDate);
     this.onSelectStartDate(selectedStartDate);
+    this.endDateComponentRef?.current.onSelectDate(selectedEndDate);
     this.onSelectEndDate(selectedEndDate);
   };
 
@@ -179,6 +186,7 @@ class XUIDateRangeInput extends Component {
           onSelectDate={this.onSelectStartDate}
           preventFocusOnSelect
           qaHook={qaHook && `${qaHook}-daterangeinput-firstinput`}
+          ref={this.startDateComponentRef}
           selectedDate={selectedStartDate}
           size={size}
           triggerClassName={startTriggerClassName}
@@ -207,6 +215,7 @@ class XUIDateRangeInput extends Component {
           onInputChange={onEndInputChange}
           onSelectDate={this.onSelectEndDate}
           qaHook={qaHook && `${qaHook}-daterangeinput-secondinput`}
+          ref={this.endDateComponentRef}
           selectedDate={selectedEndDate}
           size={size}
           triggerClassName={endTriggerClassName}

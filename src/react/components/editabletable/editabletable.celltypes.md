@@ -46,7 +46,7 @@ const data = [{ fruit: 'Orange', colour: 'Orange', price: 3.99 }];
 
 This is a basic cell that allows editing its content and behaves like an input.
 
-**Note:** Focusing a text input cell will highlight the contents by default for all supported input types. `<input type="number">` is not one of them – the methods `select` and `setSelectionRange` manipulate [properties that don’t exist on `<input type="number">`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement), so attempting to programmatically select the contents of a number input [will not work](https://confluence.teamxero.com/pages/viewpage.action?pageId=234466485) without a workaround.
+**Note:** Focusing a text input cell will highlight the contents by default.
 
 ```jsx harmony
 import {

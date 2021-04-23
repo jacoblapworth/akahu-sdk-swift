@@ -64,6 +64,7 @@ const TextInputWrapper = props => {
     maxRows,
     rows,
     size,
+    characterCounter,
   } = props;
 
   const makeSideElement = (sideElementType, sideElementAlignment) => {
@@ -169,6 +170,7 @@ const TextInputWrapper = props => {
         rows,
         size,
       }}
+      characterCounter={characterCounter}
       defaultValue={defaultValue || 'default Value'}
       isDisabled={isDisabled}
       isLabelHidden={isLabelHidden}

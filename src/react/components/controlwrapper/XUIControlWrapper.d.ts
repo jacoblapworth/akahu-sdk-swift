@@ -1,6 +1,12 @@
 import * as React from 'react';
 
+import CharacterCounterProps from '../textInput/private/CharacterCounterProps';
+
 interface Props {
+  /**
+   * Character counter props
+   */
+  characterCounter?: CharacterCounterProps;
   children?: React.ReactNode;
   /**
    * Class names to be added to the field wrapper element.

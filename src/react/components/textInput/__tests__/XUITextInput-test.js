@@ -13,6 +13,7 @@ import NOOP from '../../helpers/noop';
 import { sizeShift } from '../../helpers/sizes';
 import EditableTableCellContext from '../../../contexts/EditableTableCellContext';
 import { v4 as uuidv4 } from 'uuid';
+import { render, screen } from '@testing-library/react';
 
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testGeneratedId');
@@ -359,5 +360,55 @@ describe('<XUITextInput>', () => {
 
       expect(classList.contains('xui-textinput-cell')).toBeTruthy();
     });
+  });
+});
+
+describe('TextInput with Character counter', () => {
+  test('renders correctly when current input length is over the specified maximum length', () => {
+    const { container } = render(
+      <XUITextInput
+        onChange={NOOP}
+        value="Lorem ipsum"
+        qaHook="test-id"
+        characterCounter={{
+          maxCharCount: 10,
+          validationMessage: 'Character validation failed!',
+        }}
+      />,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('renders correctly when current input length is under the specified maximum length', () => {
+    const { container } = render(
+      <XUITextInput
+        onChange={NOOP}
+        value="Lorem ips"
+        qaHook="test-id"
+        characterCounter={{
+          maxCharCount: 10,
+          validationMessage: 'Character validation failed!',
+        }}
+      />,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('renders without character counter where under showing threshold', () => {
+    render(
+      <XUITextInput
+        onChange={NOOP}
+        value="L"
+        qaHook="test-id"
+        characterCounter={{
+          maxCharCount: 10,
+          validationMessage: 'Character validation failed!',
+        }}
+      />,
+    );
+
+    expect(screen.queryByTestId('test-id--character-counter')).toBe(null);
   });
 });

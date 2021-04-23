@@ -269,6 +269,41 @@ const inputAlignmentStories = [
   },
 ];
 
+const characterLimitStories = [
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'has a displayed character limit',
+    label: 'Label text',
+    characterCounter: {
+      maxCharCount: 100,
+    },
+    defaultValue:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean Aenean',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'has character limit and validation message displayed',
+    label: 'Label text',
+    characterCounter: {
+      maxCharCount: 100,
+      validationMessage: 'Username must be no longer than 10 characters',
+    },
+    defaultValue:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean Aenean',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'has a long label',
+    label:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet efficitur erat. Proin ut fringilla odio. Pellentesque nec aliquam dui. Mauris nec quam vitae nisl vehicula aliquam. In ultrices tortor diam, in consequat ligula facilisis vitae. Donec ac massa accumsan nulla efficitur tincidunt at ut arcu. Quisque eu arcu lorem. Donec non sem massa. Vivamus sit amet risus neque. Suspendisse dapibus velit at sodales pulvinar. Morbi tempor in ligula ut maximus. Pellentesque ac porta augue. Nullam mauris sapien, commodo non est nec, porttitor venenatis urna. Donec scelerisque lorem nibh, pretium pellentesque metus bibendum ut. Duis sed feugiat ex. Sed sagittis pharetra eros id mollis.',
+    characterCounter: {
+      maxCharCount: 100,
+    },
+    defaultValue:
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean.',
+  },
+];
+
 const variations = [
   ...styleVariantStories,
   ...labelAndValidationStories,
@@ -277,6 +312,7 @@ const variations = [
   ...multilineStories,
   ...responsiveStories,
   ...inputAlignmentStories,
+  ...characterLimitStories,
 ];
 
 export { storiesWithVariationsKindName, variations };

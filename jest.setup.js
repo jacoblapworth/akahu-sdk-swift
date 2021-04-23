@@ -1,3 +1,7 @@
+import { configure } from '@testing-library/react';
+
+configure({ testIdAttribute: 'data-automationid' });
+
 /* eslint-disable jest/no-jasmine-globals */
 /**
  * Shim needed to bin unnecessary requestAnimationFrame errors

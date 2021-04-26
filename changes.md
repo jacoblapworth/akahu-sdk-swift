@@ -115,6 +115,11 @@ XUIToggleOption now includes updated padding, horizontal and vertical, for both 
 
 All `font-size` and `line-height` variables are now using the `rem` unit to support browser-based text sizing.
 
+### Mixins updates
+
+- Inset version of `xui-shadow-border-*` mixins now show up on the right side. You need to update the mixin to the opposite direction to make sure they keep the same.
+  - e.g. `xui-shadow-border-bottom($xui-standard-border-color, true)` should be updated to `xui-shadow-border-top($xui-standard-border-color, true)`
+
 ## XUI React components
 
 ### Refs implementation made consistent across XUI

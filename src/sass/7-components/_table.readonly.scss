@@ -242,7 +242,7 @@ $xui-table-z-alert: 4;
 }
 
 .#{$ns}-readonlytablecell {
-  @include xui-shadow-border-bottom($xui-standard-border-color, true);
+  @include xui-shadow-border-top($xui-standard-border-color, true);
 
   background: inherit;
   padding: 0;

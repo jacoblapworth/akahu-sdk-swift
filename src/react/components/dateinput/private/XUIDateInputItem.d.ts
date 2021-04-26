@@ -1,15 +1,11 @@
 import * as React from 'react';
 
+import { XUIIconData } from '../../icon/XUIIcon';
+import { baseSizeClasses } from '../../textInput/private/constants';
+
 interface Props {
   /** Whether or not the dropdown should automatically be hidden when the user selects something */
   closeOnSelect?: boolean;
-
-  /** Convenience dates */
-  convenienceDates?: Array<{
-    getDate: () => Date;
-    id?: string;
-    text?: string;
-  }>;
 
   /** A date which represents the year and month that the calendar will display. Could
    * be any day in the given day and month. */
@@ -56,7 +52,7 @@ interface Props {
   nextButtonAriaLabel: string;
 
   /** Callback for when the input changes  */
-  onInputChange?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 
   /** Callback for when the user selects a date */
   onSelectDate?: (day: Date) => void;
@@ -69,19 +65,39 @@ interface Props {
    */
   prevButtonAriaLabel: string;
 
+  /** Prevents focusing input after selecting date - allows to focus the second input in date range without an infinite loop. */
+  preventFocusOnSelect?: boolean;
+
   qaHook?: string;
 
-  /** Label for an item opening DatePicker (with convenience date mode) */
+  /**
+   * Icon displayed next to calendar selection in suggested dates dropdown.
+   */
+  selectDateIcon?: XUIIconData;
+
+  /** Label for an item opening DatePicker (with suggested date mode) */
   selectDateLabel?: string;
 
   /** Value of the date input. Must be a Date object */
   selectedDate?: Date;
 
+  /**
+   * Size of the input.
+   */
+  size?: keyof typeof baseSizeClasses;
+
+  /** Suggested dates */
+  suggestedDates?: Array<{
+    getDate: () => Date;
+    id?: string;
+    text?: string;
+  }>;
+
   /** CSS class(es) to go on the trigger element which contains the input */
   triggerClassName?: string;
 
   /** Message to display below input when invalid date inputted */
-  validationMessage?: string;
+  validationMessage?: React.ReactNode;
 }
 
 export default class XUIDateInputItem extends React.PureComponent<Props> {}

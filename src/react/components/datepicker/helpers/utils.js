@@ -168,3 +168,26 @@ export const getLocalisedDateTimeData = locale => {
 
   return { months, weekdaysLong, weekdaysShort };
 };
+
+/**
+ * Check if given date is falling outside of given constraints.
+ *
+ * @param {Date} day The day to check if it meets given restrictions.
+ * @param {Date} minDate The oldest date used to limit date selection.
+ * @param {Date} maxDate The most recent date used to limit date selection.
+ * @returns {Boolean} Whether date is disabled (outside of given limit).
+ */
+export function isDayOutsideRange(day, minDate, maxDate) {
+  const minDateSet = minDate != null;
+  const maxDateSet = maxDate != null;
+  if (!minDateSet && !maxDateSet) {
+    return false;
+  }
+  if (minDateSet && maxDateSet) {
+    return DateUtils.isDayBefore(day, minDate) || DateUtils.isDayAfter(day, maxDate);
+  }
+  if (minDateSet) {
+    return DateUtils.isDayBefore(day, minDate);
+  }
+  return DateUtils.isDayAfter(day, maxDate);
+}

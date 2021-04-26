@@ -10,13 +10,13 @@ import XUIIcon from '../../../icon';
 import XUIControlGroup from '../XUIControlGroup';
 import XUIButton, { XUIButtonGroup } from '../../../button';
 import defaultBreakpoints from '../../helpers/breakpoints';
-import XUIDateInputWIP from '../../../dateinput';
+import XUIDateInput from '../../../dateinput';
 
 // Story book things
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { variations, storiesWithVariationsKindName } from './variations';
-import { dateInputConvenienceDates } from '../../dateinput/stories/helpers/convenienceDates';
+import { dateInputSuggestedDates } from '../../dateinput/stories/helpers/suggestedDates';
 
 const singleDateProps = {
   inputLabel: 'Single date Date',
@@ -25,7 +25,7 @@ const singleDateProps = {
   isFieldLayout: false,
   selectedDateValue: new Date(2019, 11, 20),
   onSelectDate: () => {},
-  convenienceDates: dateInputConvenienceDates,
+  suggestedDates: dateInputSuggestedDates,
 };
 
 const baseElements = {
@@ -46,7 +46,7 @@ const baseElements = {
       <XUIButton key="c">Action 3</XUIButton>
     </XUIButtonGroup>
   ),
-  XUIDateInput: props => <XUIDateInputWIP {...singleDateProps} {...props} />,
+  XUIDateInput: props => <XUIDateInput {...singleDateProps} {...props} />,
 };
 
 const storiesWithResponsiveAndKnobs = storiesOf(storiesWithVariationsKindName, module).addDecorator(

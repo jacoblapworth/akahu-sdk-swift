@@ -651,3 +651,88 @@ class Example extends PureComponent {
 
 <Example />;
 ```
+
+#### Character counter
+
+A character counter can be added by using the `maxCharCount` prop. This counter tracks the length of characters in the input. This feature can be used with both controlled and uncontrolled usages of Text Input.
+
+You must also add a validation message using the `characterCounterValidationMessage` prop. This validation message will show when the length of input exceeds the `maxCharCount`.
+
+**Note**: _The character counter will display when the length of `value` is 90% of `maxCharCount` - 5 characters_
+
+##### Controlled example
+
+```js
+import { Component } from 'react';
+
+import XUITextInput from '@xero/xui/react/textinput';
+import XUIIcon from '@xero/xui/react/icon';
+import { XUIIconButton } from '@xero/xui/react/button';
+
+class Example extends Component {
+  constructor(...args) {
+    super(...args);
+
+    this.onChange = this.onChange.bind(this);
+
+    this.state = {
+      value: 'This input is too long'
+    };
+  }
+
+  onChange(e) {
+    this.setState({
+      value: e.target.value
+    });
+  }
+
+  render() {
+    const { value } = this.state;
+
+    return (
+      <XUITextInput
+        onChange={this.onChange}
+        value={value}
+        label="Input with character counter"
+        characterCounter={{
+          maxCharCount: 10,
+          validationMessage: "Username can't be longer than 10 characters"
+        }}
+      />
+    );
+  }
+}
+
+<Example />;
+```
+
+##### Uncontrolled example
+
+```js
+import { Component } from 'react';
+
+import XUITextInput from '@xero/xui/react/textinput';
+import XUIIcon from '@xero/xui/react/icon';
+import { XUIIconButton } from '@xero/xui/react/button';
+
+class Example extends Component {
+  constructor(...args) {
+    super(...args);
+  }
+
+  render() {
+    return (
+      <XUITextInput
+        defaultValue="This default input is too long"
+        label="Input with character counter"
+        characterCounter={{
+          maxCharCount: 10,
+          validationMessage: "Username can't be longer than 10 characters"
+        }}
+      />
+    );
+  }
+}
+
+<Example />;
+```

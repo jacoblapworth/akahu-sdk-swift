@@ -37,7 +37,7 @@ exports[`XUIDateInputItem inserts selected date value 1`] = `
             className="xui-iconwrapper xui-iconwrapper-medium"
           >
             <svg
-              className="xui-icon xui-icon-color-black-faint"
+              className="xui-icon xui-icon-color-black"
               focusable="false"
               height={13}
               viewBox="0 0 12 13"
@@ -107,7 +107,7 @@ exports[`XUIDateInputItem renders disabled 1`] = `
             className="xui-iconwrapper xui-iconwrapper-medium"
           >
             <svg
-              className="xui-icon xui-icon-color-black-faint"
+              className="xui-icon xui-icon-color-black"
               focusable="false"
               height={13}
               viewBox="0 0 12 13"
@@ -178,7 +178,7 @@ exports[`XUIDateInputItem renders with a hint 1`] = `
             className="xui-iconwrapper xui-iconwrapper-medium"
           >
             <svg
-              className="xui-icon xui-icon-color-black-faint"
+              className="xui-icon xui-icon-color-black"
               focusable="false"
               height={13}
               viewBox="0 0 12 13"
@@ -256,7 +256,7 @@ exports[`XUIDateInputItem renders with the provided label 1`] = `
             className="xui-iconwrapper xui-iconwrapper-medium"
           >
             <svg
-              className="xui-icon xui-icon-color-black-faint"
+              className="xui-icon xui-icon-color-black"
               focusable="false"
               height={13}
               viewBox="0 0 12 13"
@@ -326,7 +326,7 @@ exports[`XUIDateInputItem renders with validation message 1`] = `
             className="xui-iconwrapper xui-iconwrapper-medium"
           >
             <svg
-              className="xui-icon xui-icon-color-black-faint"
+              className="xui-icon xui-icon-color-black"
               focusable="false"
               height={13}
               viewBox="0 0 12 13"

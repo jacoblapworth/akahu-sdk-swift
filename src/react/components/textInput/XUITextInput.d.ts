@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import CharacterCounterProps from './private/CharacterCounterProps';
 import { baseSizeClasses } from './private/constants';
 
 declare enum InputType {
@@ -21,6 +22,10 @@ type XUITextInputHTMLAttributes =
   | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 interface Props {
+  /**
+   * Character counter props
+   */
+  characterCounter?: CharacterCounterProps;
   /**
    * Class names to add to the div wrapping the input and icons.
    */

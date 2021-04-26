@@ -21,6 +21,7 @@ class XUITextInput extends PureComponent {
   rootNode = React.createRef();
 
   state = {
+    charCount: null,
     hasFocus: false,
   };
 
@@ -34,7 +35,7 @@ class XUITextInput extends PureComponent {
   }
 
   componentDidMount() {
-    const { maxRows, focusOnMount } = this.props;
+    const { maxRows, focusByDefault, characterCounter, value, defaultValue } = this.props;
 
     if (shouldAutomaticallyResize(this.props) && this.input) {
       if (maxRows != null) {
@@ -50,7 +51,7 @@ class XUITextInput extends PureComponent {
       autosize(this.input);
     }
 
-    if (focusOnMount) {
+    if (focusByDefault) {
       this.input && this.input.focus();
 
       // Only highlight the value when the type supports setSelectionRange
@@ -60,6 +61,12 @@ class XUITextInput extends PureComponent {
       ) {
         this.input.setSelectionRange(this.input.value.length, this.input.value.length);
       }
+    }
+
+    if (characterCounter?.maxCharCount) {
+      this.setState({
+        charCount: (value || defaultValue).length,
+      });
     }
   }
 
@@ -87,6 +94,14 @@ class XUITextInput extends PureComponent {
     this.setState({
       hasFocus: false,
     });
+  };
+
+  onChange = e => {
+    // Ensures the character counter displays for both controlled and uncontrolled scenarios
+    this.setState({
+      charCount: e.target.value?.length,
+    });
+    this.props.onChange && this.props.onChange(e);
   };
 
   render() {
@@ -126,17 +141,23 @@ class XUITextInput extends PureComponent {
             isLabelHidden,
             minRows,
             rows,
+            characterCounter,
             // We want to remove these from the spread props, but they're not used in the render.
             /* eslint-disable no-unused-vars */
             maxRows,
             labelId,
             onFocus,
             onBlur,
-            focusOnMount,
+            focusByDefault,
             /* eslint-enable no-unused-vars */
             ...otherProps
           } = input.props;
           const { maxHeight, hasFocus } = this.state;
+
+          const charCount = this.state.charCount >= 0 ? this.state.charCount : defaultValue?.length;
+
+          const isOverCharacterLimit =
+            characterCounter?.maxCharCount && charCount > characterCounter?.maxCharCount;
 
           const classes = cn(
             inputClassName,
@@ -157,7 +178,7 @@ class XUITextInput extends PureComponent {
             containerClassName,
             inputBaseClass,
             baseSizeClasses[size],
-            isInvalid && `${inputBaseClass}-is-invalid`,
+            (isInvalid || isOverCharacterLimit) && `${inputBaseClass}-is-invalid`,
             (isBorderlessTransparent || isBorderlessSolid) && `${inputBaseClass}-borderless`,
             isBorderlessTransparent && `${inputBaseClass}-borderless-transparent`,
             isBorderlessSolid && `${inputBaseClass}-borderless-solid`,
@@ -190,14 +211,20 @@ class XUITextInput extends PureComponent {
             <SizeContext.Provider value={sizeShift(size, -1)}>
               <DisabledStateContext.Provider value={{ isDisabled }}>
                 <XUIControlWrapper
+                  characterCounter={{
+                    currentCharCount: charCount,
+                    ...characterCounter,
+                  }}
                   fieldClassName={rootClasses}
+                  isInvalid={isOverCharacterLimit || isInvalid}
+                  validationMessage={
+                    isOverCharacterLimit ? characterCounter?.validationMessage : validationMessage
+                  }
                   wrapperIds={this.wrapperIds}
                   {...{
                     qaHook,
                     onKeyDown,
                     label,
-                    isInvalid,
-                    validationMessage,
                     hintMessage,
                     isFieldLayout,
                     labelClassName,
@@ -214,7 +241,8 @@ class XUITextInput extends PureComponent {
                       defaultValue={defaultValue}
                       disabled={isDisabled}
                       onBlurCapture={input.onBlur}
-                      onChange={onChange}
+                      // Conditional logic to ensure that the onChange function is only added to the DOM when needed
+                      onChange={(onChange || characterCounter?.maxCharCount) && input.onChange}
                       onFocusCapture={input.onFocus}
                       placeholder={placeholder}
                       ref={combineRefs(inputRef, i => (this.input = i))}
@@ -237,14 +265,26 @@ class XUITextInput extends PureComponent {
 }
 
 XUITextInput.propTypes = {
-  /** Class names to add to the div wrapping the input and icons */
-  containerClassName: PropTypes.string,
+  /** Character counter props */
+  characterCounter: PropTypes.shape({
+    /** Current character count of user input */
+    currentCharCount: PropTypes.number,
+    /** Whether to always show the character counter if `maxCharCount` is provided */
+    forceShowCharacterCounter: PropTypes.bool,
+    /** The character limit of the input value to convey to the user. This is a soft-limit. */
+    maxCharCount: PropTypes.number.isRequired,
+    /** The minimum character count when the character counter will show. Defaults to `maxCharCount * 0.9 - 5`. */
+    minCharCountToShowCounter: PropTypes.number,
+    /** Validation message to show when the user input length passes the maxCharCount.
+     * Recommended English value: "Username can't be longer than {character limit #} characters" */
+    validationMessage: PropTypes.string.isRequired,
+  }),
   /** Default value of the text input */
   defaultValue: PropTypes.string,
   /** Class names to be added to the field wrapper element */
   fieldClassName: PropTypes.string,
   /** After rendering set focus at the end of the input */
-  focusOnMount: PropTypes.bool,
+  focusByDefault: PropTypes.bool,
   /** Hint message to show under the input */
   hintMessage: PropTypes.node,
   /** Class names to add to the input element */

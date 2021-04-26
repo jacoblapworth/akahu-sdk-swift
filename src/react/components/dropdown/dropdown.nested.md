@@ -1,6 +1,4 @@
-**Note:** This component is still considered beta, and it's API may change before it is officially released.
-
-`XUINestedDropdown` is designed as a `XUIDropdown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown. A quick example would be allowing the user to choose between some convenience dates and a fixed custom date like below.
+`XUINestedDropdown` is designed as a `XUIDropdown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown. A quick example would be allowing the user to choose between some suggested dates and a fixed custom date like below.
 
 ```jsx harmony
 import 'array.prototype.find';
@@ -41,7 +39,7 @@ function getToday() {
   return today;
 }
 
-const convenienceDates = [
+const suggestedDates = [
   {
     id: 'week',
     text: 'Next Week',
@@ -67,9 +65,9 @@ class NestedExample extends Component {
     super(...args);
 
     this.state = {
-      activePanel: 'convenienceDates',
+      activePanel: 'suggestedDates',
       currentMonth: new Date(),
-      selectedConvenienceDate: null,
+      selectedSuggestedDate: null,
       selectedDate: null
     };
     this.datepicker = React.createRef();
@@ -77,11 +75,11 @@ class NestedExample extends Component {
 
     this.closeDropdown = this.closeDropdown.bind(this);
     this.focusDatePicker = this.focusDatePicker.bind(this);
-    this.showConvenienceDates = this.showConvenienceDates.bind(this);
+    this.showSuggestedDates = this.showSuggestedDates.bind(this);
     this.showMonth = this.showMonth.bind(this);
-    this.selectConvenienceDate = this.selectConvenienceDate.bind(this);
+    this.selectSuggestedDate = this.selectSuggestedDate.bind(this);
     this.selectDate = this.selectDate.bind(this);
-    this.selectCustomConvenience = this.selectCustomConvenience.bind(this);
+    this.selectCustomSuggestedDate = this.selectCustomSuggestedDate.bind(this);
   }
 
   closeDropdown() {
@@ -94,9 +92,9 @@ class NestedExample extends Component {
     }
   }
 
-  showConvenienceDates() {
+  showSuggestedDates() {
     this.setState({
-      activePanel: 'convenienceDates'
+      activePanel: 'suggestedDates'
     });
   }
 
@@ -106,15 +104,15 @@ class NestedExample extends Component {
     });
   }
 
-  selectConvenienceDate(selectedCd) {
+  selectSuggestedDate(selectedCd) {
     if (selectedCd === 'custom') {
       this.setState({
         activePanel: 'customDate'
       });
     } else {
-      const cd = convenienceDates.find(convenienceDate => convenienceDate.id === selectedCd);
+      const cd = suggestedDates.find(suggestedDate => suggestedDate.id === selectedCd);
       this.setState({
-        selectedConvenienceDate: cd.id,
+        selectedSuggestedDate: cd.id,
         selectedDate: cd.getDate()
       });
       this.closeDropdown();
@@ -123,14 +121,14 @@ class NestedExample extends Component {
 
   selectDate(date) {
     this.setState({
-      selectedConvenienceDate: 'custom',
+      selectedSuggestedDate: 'custom',
       selectedDate: date
     });
     this.closeDropdown();
   }
 
-  selectCustomConvenience() {
-    this.selectConvenienceDate('custom');
+  selectCustomSuggestedDate() {
+    this.selectSuggestedDate('custom');
   }
 
   render() {
@@ -145,7 +143,7 @@ class NestedExample extends Component {
     const dropdownFooter = (
       <XUIDropdownFooter
         pickItems={
-          <XUIPickitem id="custom" key="custom" onClick={this.selectCustomConvenience}>
+          <XUIPickitem id="custom" key="custom" onClick={this.selectCustomSuggestedDate}>
             Custom Date
           </XUIPickitem>
         }
@@ -154,15 +152,15 @@ class NestedExample extends Component {
 
     const dropdown = (
       <XUINestedDropdown currentPanelId={activePanel} onPanelChange={this.focusDatePicker}>
-        <XUIDropdownPanel panelId="convenienceDates" footer={dropdownFooter}>
+        <XUIDropdownPanel panelId="suggestedDates" footer={dropdownFooter}>
           <XUIPicklist>
-            {convenienceDates.map(cd => (
+            {suggestedDates.map(cd => (
               <XUIPickitem
                 key={cd.id}
                 id={cd.id}
                 value={cd.id}
-                isSelected={this.state.selectedConvenienceDate === cd.id}
-                onSelect={this.selectConvenienceDate}
+                isSelected={this.state.selectedSuggestedDate === cd.id}
+                onSelect={this.selectSuggestedDate}
               >
                 {cd.text}
               </XUIPickitem>
@@ -174,7 +172,7 @@ class NestedExample extends Component {
           header={
             <XUIDropdownHeader
               title="Example Title"
-              onBackButtonClick={this.showConvenienceDates}
+              onBackButtonClick={this.showSuggestedDates}
               onSecondaryButtonClick={this.closeDropdown}
               secondaryButtonContent="Cancel"
               backButtonAriaLabel="Back"
@@ -197,7 +195,7 @@ class NestedExample extends Component {
         trigger={trigger}
         dropdown={dropdown}
         closeOnSelect={false}
-        onClose={this.showConvenienceDates}
+        onClose={this.showSuggestedDates}
         closeOnTab={false}
         restrictToViewPort={isPicklist}
       />

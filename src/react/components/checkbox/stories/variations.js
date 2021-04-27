@@ -96,6 +96,14 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with an icon and a long label',
+    viewports: desktopPlus320,
+    labelText:
+      "You have no idea how choice our stuffed Tuis were aye. Every time I see those rip-off old man's beards it's like the sausage sizzle all over again aye, rack off. Anyway, James Cook is just Rhys Darby in disguise, to find the true meaning of life, one must start munting with the Edmonds Cook Book, mate.",
+    iconMain: starIcon,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with an checked icon',
     labelText: 'Icon Example',
     isDefaultChecked: true,

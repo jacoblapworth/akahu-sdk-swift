@@ -396,12 +396,11 @@ export default class XUIDropdownToggled extends PureComponent {
     */
 
     const openedDropdownsDoNotContainTarget = this.openedDropdowns.every(openedDropdown => {
-      const dropdown =
-        openedDropdown === undefined
-          ? /** Where the opened dropdown is the top level dropdown */
-            document.getElementById(this.dropdownId)
-          : /** Where the opened dropdown are the inner dropdowns */
-            openedDropdown && document.getElementById(openedDropdown.props.id);
+      const dropdown = !openedDropdown
+        ? /** Where the opened dropdown is the top level dropdown */
+          document.getElementById(this.dropdownId)
+        : /** Where the opened dropdown are the inner dropdowns */
+          openedDropdown && document.getElementById(openedDropdown.props.id);
 
       return dropdown == null || !dropdown.contains(event.target);
     });
@@ -622,7 +621,7 @@ export default class XUIDropdownToggled extends PureComponent {
                 /**
                  * `currentOpenedDropdowns` is an array which contains all opened Dropdowns
                  * For child dropdown, it's an array contains it's parent Dropdown (contextOpenDropdowns)
-                 * For parent dropdown, it's `undefined` and will get an empty array assigned (this.openedDropdowns)
+                 * For parent dropdown, it's `null` and will get an empty array assigned (this.openedDropdowns)
                  */
                 const currentOpenedDropdowns = contextOpenDropdowns || this.openedDropdowns;
                 if (currentOpenedDropdowns.indexOf(this.dropdown.current) === -1) {

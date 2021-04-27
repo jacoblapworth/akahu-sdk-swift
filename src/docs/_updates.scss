@@ -12,11 +12,11 @@
 
 // 18.0.0 Release update (May 2021)
 //
-// XUI 18.0.0 includes a number of enhancements such as an assortment of renaming and adjustments to component props,
+// XUI 18.0.0 includes a number of enhancements such as improvements to props,
 // an API-agnostic migration of `XUITable` to utilise our more modern `XUIEditableTable` under the hood,
-// and acessibility updates to meet WCAG 2.1 AA standards
+// and accessibility updates to meet WCAG 2.1 AA standards.
 //
-// Remove existing workarounds that were previously utilised to support IE11.
+// We have also removed existing workarounds that were previously utilised to support IE11.
 //
 // <a href="https://github.dev.xero.com/UXE/xui/releases/tag/18.0.0">Full release notes on Github</a>
 //
@@ -39,6 +39,7 @@
 // * Add upload progress to file uploader
 // * Make root node ref consistent
 // * Unify our resize observer APIs
+// * Automate datepicker localisation
 //
 // Styleguide: Updates.92.1
 
@@ -53,6 +54,7 @@
 // * The paddings of pickitem with side element in horizontal picklists have been updated from 20px to 12px
 // * `xui-button--caret` and `xui-iconwrapper` are no longer used together
 // * `XUIToggleOption` now includes updated padding, horizontal and vertical, for both medium and small variants
+// * Inset version of `xui-shadow-border-*` mixins now show up on the right side
 //
 // Styleguide: Updates.92.3
 

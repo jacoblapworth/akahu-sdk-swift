@@ -130,7 +130,7 @@
 
 // Visibility of character counters
 //
-// Character limits don't always have to be visible. The use of a character counter should be minimised because unnecessary use of them can make visual noise and distract users.
+// Character limits don't always have to be visible. The use of a character counter should be minimised because unnecessary use of them can distract users with visual noise.
 //
 // The problem with hard-limits (e.g. HTML ‘maxlength’ attribute) is users can’t enter any characters that exceed the limit, so it’s not possible to validate and alert users of an input error. We don’t recommend using them.
 //

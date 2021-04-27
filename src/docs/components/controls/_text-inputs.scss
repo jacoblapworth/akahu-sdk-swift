@@ -124,7 +124,7 @@
 //
 // Use a soft-limit for text inputs. It allows users to go beyond the character limit, but informs them through the character counter and a validation message. This prevents user errors, such as incomplete copy-pasting or exceeding the limit during typing without looking at the screen.
 //
-// The problem with hard-limits (e.g. HTML ‘maxlength’ attribute) is users can’t enter any characters that exceed the limit, so it’s not possible to validate and alert users of an input error. We don’t recommend using them.
+// The problem with hard-limits (e.g. HTML input attribute: `maxlength`) is users can’t enter any characters that exceed the limit, so it’s not possible to validate and alert users of an input error. We don’t recommend using them.
 //
 // Styleguide: Components.Controls.TextInput.7.1
 

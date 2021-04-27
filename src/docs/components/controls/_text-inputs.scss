@@ -114,9 +114,9 @@
 //
 // Tips:
 // Do: Use a clear validation message to reiterate the maximum character limit when it’s exceeded
+// Do: Only make the character counter visible when the user approaches the limit, reducing the complexity
 // Warning: If unsure of the space needed, choose the highest number of characters for the limit
 // Dont: Don’t set a character limit without clear and valid reasons (e.g. preventing excessive input of characters)
-// Dont: Don’t make the character counter visible unless it’s necessary to inform the user about the limit
 //
 // Styleguide: Components.Controls.TextInput.7
 

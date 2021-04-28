@@ -54,3 +54,28 @@ $xui-invalid-icon-size: 18px; // Override default icon view-box to remove unwant
     }
   }
 }
+
+.#{$ns}-charactercounter {
+  @include xui-text-xsmall;
+  color: $xui-text-muted-color;
+
+  .#{$ns}-charactercounter-alert {
+    color: $xui-text-negative-color;
+  }
+}
+
+.#{$ns}-charactercounter-layout {
+  align-self: flex-end;
+  display: flex;
+  gap: 1px;
+  padding-bottom: $xui-s-2xsmall;
+  text-align: right;
+}
+
+.#{$ns}-controlwrapper-header-row {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: space-between;
+  width: 100%;
+}

@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { baseSizeClasses } from '../textInput/private/constants';
+
 interface DateInputConfig {
   /** A date which represents the year and month that the calendar will display. Could
    * be any day in the given day and month. */
@@ -29,7 +31,7 @@ interface DateInputConfig {
   minDate?: Date;
 
   /** Callback for when the input changes  */
-  onInputChange?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 
   /** Callback for when the user selects a date */
   onSelectDate?: (day: Date) => void;
@@ -43,7 +45,7 @@ interface DateInputConfig {
   triggerClassName?: string;
 
   /** Message to display below input when invalid date inputted */
-  validationMessage?: string;
+  validationMessage?: React.ReactNode;
 }
 
 interface GroupConfig {
@@ -73,14 +75,6 @@ interface Props {
   /** Whether or not the dropdown should automatically be hidden when the user selects something */
   closeOnSelect?: boolean;
 
-  /** Convenience dates */
-  convenienceDates?: Array<{
-    getEndDate: () => Date;
-    getStartDate: () => Date;
-    id?: string;
-    text?: string;
-  }>;
-
   endDateInputConfig: DateInputConfig;
 
   groupConfig: GroupConfig;
@@ -106,7 +100,20 @@ interface Props {
 
   qaHook?: string;
 
+  /**
+   * Size of the input.
+   */
+  size?: keyof typeof baseSizeClasses;
+
   startDateInputConfig: DateInputConfig;
+
+  /** Suggested dates */
+  suggestedDates?: Array<{
+    getEndDate: () => Date;
+    getStartDate: () => Date;
+    id?: string;
+    text?: string;
+  }>;
 }
 
-export default class XUIDateRangeInputWIP extends React.PureComponent<Props> {}
+export default class XUIDateRangeInput extends React.PureComponent<Props> {}

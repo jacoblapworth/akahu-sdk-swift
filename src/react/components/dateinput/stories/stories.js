@@ -6,13 +6,10 @@ import { storiesOf } from '@storybook/react';
 import { boolean, text, select } from '@storybook/addon-knobs';
 
 // Components we need to test with
-import XUIDateInputWIP from '../XUIDateInputWIP';
-import XUIDateRangeInputWIP from '../XUIDateRangeInputWIP';
+import XUIDateInput from '../XUIDateInput';
+import XUIDateRangeInput from '../XUIDateRangeInput';
 
-import {
-  dateInputConvenienceDates,
-  dateRangeInputConvenienceDates,
-} from './helpers/convenienceDates';
+import { dateInputSuggestedDates, dateRangeInputSuggestedDates } from './helpers/suggestedDates';
 
 import { variations, storiesWithVariationsKindName } from './variations';
 
@@ -35,7 +32,6 @@ storiesWithKnobs.add('Playground', () => {
   };
 
   let dateRangeProps = {
-    convenienceDates: dateRangeInputConvenienceDates,
     locale: 'en',
     nextButtonAriaLabel: 'Next month',
     prevButtonAriaLabel: 'Previous month',
@@ -45,6 +41,7 @@ storiesWithKnobs.add('Playground', () => {
     endDateInputConfig: {
       onInputChange: sampleOnSelectDateFunction,
     },
+    suggestedDates: dateRangeInputSuggestedDates,
   };
 
   // Now add conditional knobs.
@@ -52,9 +49,7 @@ storiesWithKnobs.add('Playground', () => {
     singleDateProps = {
       ...singleDateProps,
       selectedDateValue: boolean('Empty default date?', true) ? null : new Date(2019, 11, 20),
-      convenienceDates: boolean('Date input convenience dates', false)
-        ? dateInputConvenienceDates
-        : null,
+      suggestedDates: boolean('Date input suggested dates', false) ? dateInputSuggestedDates : null,
       hintMessage: text('Hint Message', ''),
       isDisabled: boolean('isDisabled', false),
       isInvalid: boolean('isInvalid', false),
@@ -103,9 +98,9 @@ storiesWithKnobs.add('Playground', () => {
   }
 
   return isDateRangeDemo ? (
-    <XUIDateRangeInputWIP {...dateRangeProps} />
+    <XUIDateRangeInput {...dateRangeProps} />
   ) : (
-    <XUIDateInputWIP {...singleDateProps} />
+    <XUIDateInput {...singleDateProps} />
   );
 });
 
@@ -120,14 +115,14 @@ variations.forEach(variation => {
     delete variationMinusStoryDetails.storyTitle;
 
     const component = isDateRangeInput ? (
-      <XUIDateRangeInputWIP
+      <XUIDateRangeInput
         locale="en"
         nextButtonAriaLabel="Next month"
         prevButtonAriaLabel="Previous month"
         {...variationMinusStoryDetails}
       />
     ) : (
-      <XUIDateInputWIP
+      <XUIDateInput
         locale="en"
         nextButtonAriaLabel="Next month"
         prevButtonAriaLabel="Previous month"

@@ -3,17 +3,17 @@
 	<a href="../section-components-collectinginput-datepicker.html" isDocLink>Dateinput in the XUI Documentation</a>
 </div>
 
-`XUIDateInputWIP` and `XUIDateRangeInputWIP` are an experimental components for selecting dates. They combine `XUITextInput` for keyboard interaction and `XUIDatePicker` for selecting dates from a calendar.
+`XUIDateInput` and `XUIDateRangeInput` are an experimental components for selecting dates. They combine `XUITextInput` for keyboard interaction and `XUIDatePicker` for selecting dates from a calendar.
 
 ## Examples
 
 ### Standard
 
-Similar to `XUIDatePicker`, in order to use the standard `XUIDateInputWIP` or `XUIDateRangeInputWIP` component, you should use the `onSelectDate` callback to update state in your application. This callback will receive the new selected date as a parameter.
+Similar to `XUIDatePicker`, in order to use the standard `XUIDateInput` or `XUIDateRangeInput` component, you should use the `onSelectDate` callback to update state in your application. This callback will receive the new selected date as a parameter.
 
 ```jsx harmony
 import { useState } from 'react';
-import XUIDateInputWIP from '@xero/xui/react/dateinput';
+import XUIDateInput from '@xero/xui/react/dateinput';
 
 const ExampleDateInput = () => {
   const [selectedDate, setSelectedDate] = useState();
@@ -23,7 +23,7 @@ const ExampleDateInput = () => {
   };
 
   return (
-    <XUIDateInputWIP
+    <XUIDateInput
       locale="en"
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
@@ -37,12 +37,12 @@ const ExampleDateInput = () => {
 
 ### Date Ranges
 
-Each of the two dates in `XUIDateRangeInputWIP` are configured in its own prop `startDateInputConfig` and `endDateInputConfig` to handle the first and the second DateInput respectively.
-Date range selection also takes advantage of the convenience dates array that allows users to select from predefined shortcut dates.
+Each of the two dates in `XUIDateRangeInput` are configured in its own prop `startDateInputConfig` and `endDateInputConfig` to handle the first and the second DateInput respectively.
+Date range selection also takes advantage of the suggested dates array that allows users to select from predefined shortcut dates.
 
 ```jsx harmony
 import { useState } from 'react';
-import { XUIDateRangeInputWIP } from '@xero/xui/react/dateinput';
+import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
 
 const ExampleDateRangePicker = () => {
   const [startDate, setStartDate] = useState();
@@ -56,7 +56,7 @@ const ExampleDateRangePicker = () => {
   };
 
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
-  const dateRangeInputConvenienceDates = [
+  const dateRangeInputSuggestedDates = [
     {
       id: 'monthThis',
       text: 'This Month',
@@ -80,8 +80,8 @@ const ExampleDateRangePicker = () => {
   ];
 
   return (
-    <XUIDateRangeInputWIP
-      convenienceDates={dateRangeInputConvenienceDates}
+    <XUIDateRangeInput
+      suggestedDates={dateRangeInputSuggestedDates}
       locale="en"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
@@ -96,12 +96,12 @@ const ExampleDateRangePicker = () => {
 
 ### Setting the default selected date
 
-When setting initial date input values use `selectedDateDefaultValue`. Pass the same property in `startDateInputConfig` and `endDateInputConfig` props for `XUIDateRangeInputWIP`.
+When setting initial date input values use `selectedDateDefaultValue`. Pass the same property in `startDateInputConfig` and `endDateInputConfig` props for `XUIDateRangeInput`.
 When controlling changes in input values in your store, pass it as `selectedDateValue` prop. These properties all accept `Date` value type.
 
 ```jsx harmony
 import { useState } from 'react';
-import XUIDateInputWIP from '@xero/xui/react/dateinput';
+import XUIDateInput from '@xero/xui/react/dateinput';
 
 const ExampleDateInput = () => {
   const [selectedDate, setSelectedDate] = useState();
@@ -111,7 +111,7 @@ const ExampleDateInput = () => {
     setSelectedDate(newDate);
   };
 
-  return <XUIDateInputWIP onSelectDate={onSelectDate} selectedDateDefaultValue={defaultValue} />;
+  return <XUIDateInput onSelectDate={onSelectDate} selectedDateDefaultValue={defaultValue} />;
 };
 
 <ExampleDateInput />;
@@ -119,7 +119,7 @@ const ExampleDateInput = () => {
 
 ```jsx harmony
 import { useState } from 'react';
-import { XUIDateRangeInputWIP } from '@xero/xui/react/dateinput';
+import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
 
 const ExampleDateRangePicker = () => {
   const [startDate, setStartDate] = useState();
@@ -133,7 +133,7 @@ const ExampleDateRangePicker = () => {
   };
 
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
-  const dateRangeInputConvenienceDates = [
+  const dateRangeInputSuggestedDates = [
     {
       id: 'monthThis',
       text: 'This Month',
@@ -157,8 +157,8 @@ const ExampleDateRangePicker = () => {
   ];
 
   return (
-    <XUIDateRangeInputWIP
-      convenienceDates={dateRangeInputConvenienceDates}
+    <XUIDateRangeInput
+      suggestedDates={dateRangeInputSuggestedDates}
       locale="en"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
@@ -179,11 +179,11 @@ const ExampleDateRangePicker = () => {
 
 ### Disabled input
 
-Pass the `isDisabled` property to disable the date input (use `startDateInputConfig` and `endDateInputConfig` props for `XUIDateRangeInputWIP`).
+Pass the `isDisabled` property to disable the date input (use `startDateInputConfig` and `endDateInputConfig` props for `XUIDateRangeInput`).
 
 ```jsx harmony
 import { useState } from 'react';
-import XUIDateInputWIP from '@xero/xui/react/dateinput';
+import XUIDateInput from '@xero/xui/react/dateinput';
 
 const ExampleDateInput = () => {
   const [selectedDate, setSelectedDate] = useState();
@@ -193,7 +193,7 @@ const ExampleDateInput = () => {
   };
 
   return (
-    <XUIDateInputWIP
+    <XUIDateInput
       isDisabled={true}
       locale="en"
       nextButtonAriaLabel="Next month"
@@ -208,7 +208,7 @@ const ExampleDateInput = () => {
 
 ```jsx harmony
 import { useState } from 'react';
-import { XUIDateRangeInputWIP } from '@xero/xui/react/dateinput';
+import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
 
 const ExampleDateRangePicker = () => {
   const [startDate, setStartDate] = useState();
@@ -222,7 +222,7 @@ const ExampleDateRangePicker = () => {
   };
 
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
-  const dateRangeInputConvenienceDates = [
+  const dateRangeInputSuggestedDates = [
     {
       id: 'monthThis',
       text: 'This Month',
@@ -246,8 +246,8 @@ const ExampleDateRangePicker = () => {
   ];
 
   return (
-    <XUIDateRangeInputWIP
-      convenienceDates={dateRangeInputConvenienceDates}
+    <XUIDateRangeInput
+      suggestedDates={dateRangeInputSuggestedDates}
       locale="en"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
@@ -270,11 +270,11 @@ const ExampleDateRangePicker = () => {
 
 ### Hints
 
-For `XUIDateInputWIP`, hints can be provided using the `hintMessage` prop. For `XUIDateRangeInputWIP` hints can be provided by providing `hintMessage` properties to the `startDateInputConfig` and/or `endDateInputConfig` object props.
+For `XUIDateInput`, hints can be provided using the `hintMessage` prop. For `XUIDateRangeInput` hints can be provided by providing `hintMessage` properties to the `startDateInputConfig` and/or `endDateInputConfig` object props.
 
 ```jsx harmony
 import { useState } from 'react';
-import XUIDateInputWIP from '@xero/xui/react/dateinput';
+import XUIDateInput from '@xero/xui/react/dateinput';
 
 const ExampleDateInput = () => {
   const [selectedDate, setSelectedDate] = useState();
@@ -284,7 +284,7 @@ const ExampleDateInput = () => {
   };
 
   return (
-    <XUIDateInputWIP
+    <XUIDateInput
       hintMessage="Helpful hint"
       locale="en"
       nextButtonAriaLabel="Next month"
@@ -299,7 +299,7 @@ const ExampleDateInput = () => {
 
 ```jsx harmony
 import { useState } from 'react';
-import { XUIDateRangeInputWIP } from '@xero/xui/react/dateinput';
+import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
 
 const ExampleDateRangePicker = () => {
   const [startDate, setStartDate] = useState();
@@ -313,7 +313,7 @@ const ExampleDateRangePicker = () => {
   };
 
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
-  const dateRangeInputConvenienceDates = [
+  const dateRangeInputSuggestedDates = [
     {
       id: 'monthThis',
       text: 'This Month',
@@ -337,8 +337,8 @@ const ExampleDateRangePicker = () => {
   ];
 
   return (
-    <XUIDateRangeInputWIP
-      convenienceDates={dateRangeInputConvenienceDates}
+    <XUIDateRangeInput
+      suggestedDates={dateRangeInputSuggestedDates}
       locale="en"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
@@ -361,11 +361,11 @@ const ExampleDateRangePicker = () => {
 
 ### Validation
 
-To control validation use the `validationMessage` and `isInvalid` props for `XUIDateInputWIP`. For `XUIDateRangeInputWIP` use the same names but as an object property passed in `startDateInputConfig` and `endDateInputConfig` props.
+To control validation use the `validationMessage` and `isInvalid` props for `XUIDateInput`. For `XUIDateRangeInput` use the same names but as an object property passed in `startDateInputConfig` and `endDateInputConfig` props.
 
 ```jsx harmony
 import { useState } from 'react';
-import XUIDateInputWIP from '@xero/xui/react/dateinput';
+import XUIDateInput from '@xero/xui/react/dateinput';
 
 const ExampleDateInput = () => {
   const [selectedDate, setSelectedDate] = useState();
@@ -375,7 +375,7 @@ const ExampleDateInput = () => {
   };
 
   return (
-    <XUIDateInputWIP
+    <XUIDateInput
       locale="en"
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
@@ -391,7 +391,7 @@ const ExampleDateInput = () => {
 
 ```jsx harmony
 import { useState } from 'react';
-import { XUIDateRangeInputWIP } from '@xero/xui/react/dateinput';
+import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
 
 const ExampleDateRangePicker = () => {
   const [startDate, setStartDate] = useState();
@@ -405,7 +405,7 @@ const ExampleDateRangePicker = () => {
   };
 
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
-  const dateRangeInputConvenienceDates = [
+  const dateRangeInputSuggestedDates = [
     {
       id: 'monthThis',
       text: 'This Month',
@@ -429,8 +429,8 @@ const ExampleDateRangePicker = () => {
   ];
 
   return (
-    <XUIDateRangeInputWIP
-      convenienceDates={dateRangeInputConvenienceDates}
+    <XUIDateRangeInput
+      suggestedDates={dateRangeInputSuggestedDates}
       locale="en"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
@@ -453,10 +453,10 @@ const ExampleDateRangePicker = () => {
 <ExampleDateRangePicker />;
 ```
 
-### Convenience dates
+### Suggested dates
 
-Convenience dates are quick selection options for users, and they are passed using `convenienceDates` prop. It is optional for `XUIDateInputWIP` but required for `XUIDateRangeInputWIP`.
-The `convenienceDates` property is an array of objects with the following structure.
+Suggested dates are quick selection options for users, and they are passed using `suggestedDates` prop. It is optional for `XUIDateInput` but required for `XUIDateRangeInput`.
+The `suggestedDates` property is an array of objects with the following structure.
 
 ```markup
 // Object structure for DateInput.
@@ -479,7 +479,7 @@ The `convenienceDates` property is an array of objects with the following struct
 
 ```jsx harmony
 import { useState } from 'react';
-import XUIDateInputWIP from '@xero/xui/react/dateinput';
+import XUIDateInput from '@xero/xui/react/dateinput';
 
 const ExampleDateInput = () => {
   const [selectedDate, setSelectedDate] = useState();
@@ -489,7 +489,7 @@ const ExampleDateInput = () => {
   };
 
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
-  const dateInputConvenienceDates = [
+  const dateInputSuggestedDates = [
     {
       id: 'monthThis',
       text: 'This Month',
@@ -507,8 +507,8 @@ const ExampleDateInput = () => {
   ];
 
   return (
-    <XUIDateInputWIP
-      convenienceDates={dateInputConvenienceDates}
+    <XUIDateInput
+      suggestedDates={dateRangeInputSuggestedDates}
       locale="en"
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
@@ -520,9 +520,11 @@ const ExampleDateInput = () => {
 <ExampleDateInput />;
 ```
 
+`XUIDateInput` with suggested dates allows to control the icon displayed next to the item used to select the calendar. It is achieved by passing icon properties to `selectDateIcon`.
+
 ```jsx harmony
 import { useState } from 'react';
-import { XUIDateRangeInputWIP } from '@xero/xui/react/dateinput';
+import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
 
 const ExampleDateRangePicker = () => {
   const [startDate, setStartDate] = useState();
@@ -536,7 +538,7 @@ const ExampleDateRangePicker = () => {
   };
 
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
-  const dateRangeInputConvenienceDates = [
+  const dateRangeInputSuggestedDates = [
     {
       id: 'monthThis',
       text: 'This Month',
@@ -560,8 +562,8 @@ const ExampleDateRangePicker = () => {
   ];
 
   return (
-    <XUIDateRangeInputWIP
-      convenienceDates={dateRangeInputConvenienceDates}
+    <XUIDateRangeInput
+      suggestedDates={dateRangeInputSuggestedDates}
       locale="en"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
@@ -586,8 +588,59 @@ A `locale` string is required. This can be either the language only, like `en`, 
 
 ### QA hooks and locale
 
-Both `XUIDateInputWIP` and `XUIDateRangeInputWIP` accept a `qaHook` property to assist you with testing your implementations.
+Both `XUIDateInput` and `XUIDateRangeInput` accept a `qaHook` property to assist you with testing your implementations.
+You can set the locale by providing the `locale` prop.
 
 ### Keyboard navigation
 
-When a date picker is opened by interacting with date input components, it can be closed using the `escape` key. When date input components are focused but a date picker is not open, it can be opened by pressing the `down` arrow key. Further keyboard support is under investigation.
+When a date picker is opened by interacting with date input components, it can be closed using the `escape` key. When date input components are focused but a date picker is not open, it can be opened by pressing the `down` arrow key. After focusing the date picker or suggested dates dropdown the corresponding `XUIDatePicker` or `XUIPicklist` keyboard navigation can be used.
+
+### Size variants
+
+Date input is available in three sizes: `medium`, `small` and `xsmall`. Similar to `XUITextInput`, the size can be adjusted with the `size` property.
+
+```jsx harmony
+import { useState } from 'react';
+import XUIDateInput from '@xero/xui/react/dateinput';
+
+const ExampleDateInput = () => {
+  const [selectedDate, setSelectedDate] = useState();
+
+  const onSelectDate = newDate => {
+    setSelectedDate(newDate);
+  };
+
+  return <XUIDateInput inputLabel="Small date input" onSelectDate={onSelectDate} size="small" />;
+};
+
+<ExampleDateInput />;
+```
+
+### Calendar selection range
+
+You can limit the range of selectable dates using the `minDate` and `maxDate` props.
+
+```jsx harmony
+import { useState } from 'react';
+import XUIDateInput from '@xero/xui/react/dateinput';
+
+const ExampleDateInput = () => {
+  const [selectedDate, setSelectedDate] = useState();
+
+  const onSelectDate = newDate => {
+    setSelectedDate(newDate);
+  };
+
+  return (
+    <XUIDateInput
+      inputLabel="Start date"
+      onSelectDate={onSelectDate}
+      minDate={new Date(1999, 0, 1)}
+      maxDate={new Date(2000, 0, 1)}
+      displayedMonth={new Date(1999, 0)}
+    />
+  );
+};
+
+<ExampleDateInput />;
+```

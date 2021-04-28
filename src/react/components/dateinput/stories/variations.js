@@ -1,7 +1,5 @@
-import {
-  dateInputConvenienceDates,
-  dateRangeInputConvenienceDates,
-} from './helpers/convenienceDates';
+import clockIcon from '@xero/xui-icon/icons/clock';
+import { dateInputSuggestedDates, dateRangeInputSuggestedDates } from './helpers/suggestedDates';
 
 const storiesWithVariationsKindName = 'Instances/XUIDateInput';
 
@@ -18,24 +16,36 @@ const variations = [
     qaHook: 'qatest',
     inputLabel: 'Start date',
   },
-  // {
-  //   storyKind: storiesWithVariationsKindName,
-  //   storyTitle: 'With min and max range',
-  // },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'With convenience dates',
+    storyTitle: 'With suggested dates',
     selectedDateDefaultValue: new Date(2021, 0, 1),
-    convenienceDates: dateInputConvenienceDates,
+    suggestedDates: dateInputSuggestedDates,
     inputLabel: 'Start date',
     selectDateLabel: 'Select date',
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Empty with convenience dates',
-    convenienceDates: dateInputConvenienceDates,
+    storyTitle: 'Empty with suggested dates',
+    suggestedDates: dateInputSuggestedDates,
     inputLabel: 'Start date',
     selectDateLabel: 'Select date',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Suggested dates with custom icon',
+    suggestedDates: dateInputSuggestedDates,
+    inputLabel: 'Start date',
+    selectDateLabel: 'Select date',
+    selectDateIcon: clockIcon,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'With min and max range',
+    minDate: new Date(2010, 0, 10),
+    maxDate: new Date(2010, 5, 15),
+    displayedMonth: new Date(2010, 5),
+    validationMessage: 'Please correct your input',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -68,9 +78,23 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'small',
+    selectedDateDefaultValue: new Date(2020, 1, 20),
+    size: 'small',
+    inputLabel: 'Start date',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'xsmall',
+    selectedDateDefaultValue: new Date(2020, 1, 20),
+    size: 'xsmall',
+    inputLabel: 'Start date',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Default date range',
     isDateRangeInput: true,
-    convenienceDates: dateRangeInputConvenienceDates,
+    suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
       inputLabel: 'First date',
     },
@@ -80,9 +104,25 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Date range without labels',
+    isDateRangeInput: true,
+    suggestedDates: dateRangeInputSuggestedDates,
+    startDateInputConfig: {
+      selectedDateDefaultValue: new Date(2021, 0, 1),
+      isDisabled: true,
+      inputLabel: '',
+    },
+    endDateInputConfig: {
+      selectedDateDefaultValue: new Date(2021, 1, 1),
+      isDisabled: true,
+      inputLabel: '',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Date range with group label',
     isDateRangeInput: true,
-    convenienceDates: dateRangeInputConvenienceDates,
+    suggestedDates: dateRangeInputSuggestedDates,
     groupConfig: {
       groupLabel: 'Date range',
     },
@@ -97,7 +137,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'Disabled date range',
     isDateRangeInput: true,
-    convenienceDates: dateRangeInputConvenienceDates,
+    suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(2021, 0, 1),
       isDisabled: true,
@@ -112,7 +152,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'Date range across two years',
     isDateRangeInput: true,
-    convenienceDates: dateRangeInputConvenienceDates,
+    suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(1999, 5, 5),
       inputLabel: 'First Date',
@@ -128,7 +168,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'In fixed width container',
     isDateRangeInput: true,
-    convenienceDates: dateRangeInputConvenienceDates,
+    suggestedDates: dateRangeInputSuggestedDates,
     fixedContainer: true,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(1999, 5, 5),
@@ -141,7 +181,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Date range without convenience dates',
+    storyTitle: 'Date range with no suggested dates',
     isDateRangeInput: true,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(1999, 5, 5),
@@ -156,7 +196,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'Date range with two errors',
     isDateRangeInput: true,
-    convenienceDates: dateRangeInputConvenienceDates,
+    suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(1999, 5, 5),
       inputLabel: 'First Date',
@@ -174,7 +214,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'Date range with just one error',
     isDateRangeInput: true,
-    convenienceDates: dateRangeInputConvenienceDates,
+    suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(1999, 5, 5),
       inputLabel: 'First Date',
@@ -184,6 +224,36 @@ const variations = [
       inputLabel: 'Second Date',
       isInvalid: true,
       validationMessage: 'Please correct your input',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Date range small',
+    isDateRangeInput: true,
+    suggestedDates: dateRangeInputSuggestedDates,
+    size: 'small',
+    startDateInputConfig: {
+      selectedDateDefaultValue: new Date(2021, 0, 1),
+      inputLabel: 'First Date',
+    },
+    endDateInputConfig: {
+      selectedDateDefaultValue: new Date(2021, 0, 2),
+      inputLabel: 'Second Date',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Date range xsmall',
+    isDateRangeInput: true,
+    suggestedDates: dateRangeInputSuggestedDates,
+    size: 'xsmall',
+    startDateInputConfig: {
+      selectedDateDefaultValue: new Date(2021, 0, 1),
+      inputLabel: 'First Date',
+    },
+    endDateInputConfig: {
+      selectedDateDefaultValue: new Date(2021, 0, 2),
+      inputLabel: 'Second Date',
     },
   },
 ];

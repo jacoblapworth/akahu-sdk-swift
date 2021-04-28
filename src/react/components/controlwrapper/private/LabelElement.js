@@ -4,10 +4,12 @@ import cn from 'classnames';
 
 import { ns } from '../../helpers/xuiClassNamespace';
 import shouldRender from '../../helpers/shouldRender';
+import CharacterCounterElement from './CharacterCounterElement';
 
 export default class LabelElement extends PureComponent {
   render() {
     const {
+      characterCounter,
       labelClassName,
       label,
       isLabelHidden,
@@ -35,11 +37,28 @@ export default class LabelElement extends PureComponent {
         {label}
       </TagType>
     );
-    return labelElement || null;
+
+    const wrapperWithCharacterCounter = characterCounter?.maxCharCount ? (
+      <div className={`${ns}-controlwrapper-header-row`}>
+        {labelElement}
+        <CharacterCounterElement
+          {...{
+            characterCounter,
+            qaHook,
+          }}
+        />
+      </div>
+    ) : (
+      labelElement
+    );
+
+    return wrapperWithCharacterCounter || null;
   }
 }
 
 LabelElement.propTypes = {
+  /** Character counter props */
+  characterCounter: PropTypes.object,
   /** Whether this will be used to wrap multple controls with their own labels */
   isGroup: PropTypes.bool,
   /** Whether this label will be used inline with the control, or outside of it */

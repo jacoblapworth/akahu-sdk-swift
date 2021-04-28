@@ -508,7 +508,7 @@ const ExampleDateInput = () => {
 
   return (
     <XUIDateInput
-      suggestedDates={dateRangeInputSuggestedDates}
+      suggestedDates={dateInputSuggestedDates}
       locale="en"
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}

@@ -116,7 +116,6 @@
   user-select: none;
 
   .#{$ns}-iconwrapper {
-    align-self: center;
     flex-shrink: 0; // Prevent SVG from shrinking when label text is long
     height: $xui-s-xlarge;
     position: relative;

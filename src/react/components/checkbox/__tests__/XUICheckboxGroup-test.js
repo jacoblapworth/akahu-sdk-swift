@@ -1,10 +1,12 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUICheckbox from '../XUICheckbox';
 import XUICheckboxGroup from '../XUICheckboxGroup';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const NOOP = () => {}; // No operation function
 
@@ -61,5 +63,16 @@ describe('XUICheckboxGroup', function () {
     const testLabel = 'Birds';
     const hiddenLabelTest = mount(<XUICheckboxGroup label={testLabel} isLabelHidden />);
     expect(hiddenLabelTest.find('[aria-label="Birds"]')).toHaveLength(1);
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUICheckboxGroup>
+        <div className="dogs">dogs</div>
+        <div className="cats">cats</div>
+      </XUICheckboxGroup>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

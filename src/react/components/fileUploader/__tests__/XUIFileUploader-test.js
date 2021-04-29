@@ -2,10 +2,12 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIFileUploader from '../XUIFileUploader';
 import { defaultFileList, defaultProps } from '../private/helpers';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const testFileList = defaultFileList.map((file, index) => ({ ...file, uid: index }));
 const FileUploaderWrapper = props => (
@@ -82,6 +84,12 @@ describe('<XUIFileUploader/>', () => {
     expect(onFilesChange).toHaveBeenCalledTimes(1);
   });
 
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<FileUploaderWrapper />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
+  });
+
   describe('<FileList/>', () => {
     it('should render basic example', () => {
       const component = renderer.create(<WithFileListWrapper />);
@@ -137,6 +145,12 @@ describe('<XUIFileUploader/>', () => {
       wrapper.find('XUIButton[children="Retry"]').at(0).simulate('click');
       expect(onRetry).toHaveBeenCalledTimes(1);
     });
+
+    it.skip('should pass accessibility testing', async () => {
+      const wrapper = mount(<WithFileListWrapper />);
+      const results = await axe(wrapper.html());
+      expect(results).toHaveNoViolations();
+    });
   });
 
   describe('as drag', () => {
@@ -159,6 +173,12 @@ describe('<XUIFileUploader/>', () => {
         .at(0)
         .simulate('drop', { dataTransfer: { files: testFileList } });
       expect(onFilesChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('should pass accessibility testing', async () => {
+      const wrapper = mount(<DragWrapper />);
+      const results = await axe(wrapper.html());
+      expect(results).toHaveNoViolations();
     });
   });
 });

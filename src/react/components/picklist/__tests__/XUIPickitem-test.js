@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIPickitem from '../XUIPickitem';
 import XUIAvatar from '../../avatar/XUIAvatar';
@@ -9,6 +10,7 @@ import arrow from '@xero/xui-icon/icons/arrow';
 import { v4 as uuidv4 } from 'uuid';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testPickitemCheckboxId');
@@ -17,6 +19,12 @@ describe('<XUIPickitem />', () => {
   it('renders a basic example with no options', () => {
     const basic = renderer.create(<XUIPickitem id="item1">Item 1</XUIPickitem>);
     expect(basic).toMatchSnapshot();
+  });
+
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIPickitem id="item1">Item 1</XUIPickitem>);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   it('renders a pickitem with most compatible options', () => {
@@ -144,6 +152,7 @@ describe('<XUIPickitem />', () => {
     const onBlurMock = jest.fn();
     const onFocusMock = jest.fn();
     const onMouseOverMock = jest.fn();
+    const onMouseUpMock = jest.fn();
     const onKeyDownMock = jest.fn();
     const wrapper = mount(
       <XUIPickitem
@@ -152,6 +161,7 @@ describe('<XUIPickitem />', () => {
         onBlur={onBlurMock}
         onKeyDown={onKeyDownMock}
         onMouseOver={onMouseOverMock}
+        onMouseUp={onMouseUpMock}
         id="item1"
       >
         Item 1
@@ -169,6 +179,8 @@ describe('<XUIPickitem />', () => {
     expect(onKeyDownMock).toHaveBeenCalledTimes(1);
     button.simulate('mouseover');
     expect(onMouseOverMock).toHaveBeenCalledTimes(1);
+    button.simulate('mouseup');
+    expect(onMouseUpMock).toHaveBeenCalledTimes(1);
   });
 
   it('passes event handlers to the PickitemBody (anchor)', () => {
@@ -176,6 +188,7 @@ describe('<XUIPickitem />', () => {
     const onBlurMock = jest.fn();
     const onFocusMock = jest.fn();
     const onMouseOverMock = jest.fn();
+    const onMouseUpMock = jest.fn();
     const onKeyDownMock = jest.fn();
     const wrapper = mount(
       <XUIPickitem
@@ -185,6 +198,7 @@ describe('<XUIPickitem />', () => {
         onBlur={onBlurMock}
         onKeyDown={onKeyDownMock}
         onMouseOver={onMouseOverMock}
+        onMouseUp={onMouseUpMock}
         id="item1"
       >
         Item 1
@@ -202,6 +216,8 @@ describe('<XUIPickitem />', () => {
     expect(onKeyDownMock).toHaveBeenCalledTimes(1);
     anchor.simulate('mouseover');
     expect(onMouseOverMock).toHaveBeenCalledTimes(1);
+    anchor.simulate('mouseup');
+    expect(onMouseUpMock).toHaveBeenCalledTimes(1);
   });
 
   it('passes event handlers to the PickitemMultiselect', () => {
@@ -209,6 +225,7 @@ describe('<XUIPickitem />', () => {
     const onBlurMock = jest.fn();
     const onFocusMock = jest.fn();
     const onMouseOverMock = jest.fn();
+    const onMouseUpMock = jest.fn();
     const onKeyDownMock = jest.fn();
     const wrapper = mount(
       <XUIPickitem
@@ -218,6 +235,7 @@ describe('<XUIPickitem />', () => {
         onBlur={onBlurMock}
         onKeyDown={onKeyDownMock}
         onMouseOver={onMouseOverMock}
+        onMouseUp={onMouseUpMock}
         id="item1"
       >
         Item 1
@@ -235,6 +253,8 @@ describe('<XUIPickitem />', () => {
     expect(onKeyDownMock).toHaveBeenCalledTimes(1);
     label.first().simulate('mouseover');
     expect(onMouseOverMock).toHaveBeenCalledTimes(1);
+    label.first().simulate('mouseup');
+    expect(onMouseUpMock).toHaveBeenCalledTimes(1);
   });
 
   describe('Horizontal Pickitem', () => {

@@ -1,14 +1,9 @@
-import { desktopPlus320 } from '../helpers/viewports';
-
 const compositionKind = 'Components in Components';
 
 const storyNames = {
   dateDDInModal: 'Datepicker dropdown in a modal',
   dropDownInModal: 'Dropdown in a modal',
   multiDropdowns: 'Multiple dropdowns in a modal',
-  formOnAPage: 'Form on a page',
-  formLayout: 'Form layout',
-  touchTargets: 'Invisible touch targets',
 };
 
 const nonBackstopStoryNames = {
@@ -25,7 +20,7 @@ Object.keys(storyNames).forEach(name => {
   variations.push({
     storyKind: compositionKind,
     storyTitle: storyNames[name],
-    viewports: name === 'formOnAPage' || name === 'formLayout' ? desktopPlus320 : undefined,
+    viewports: undefined,
   });
 });
 

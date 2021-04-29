@@ -353,6 +353,11 @@
             "components": "../src/react/components/datepicker/XUIDatePicker.js"
           },
           {
+            "name": "Dateinput",
+            "content": "../src/react/dateinput.md",
+            "components": "../src/react/components/dateinput/*(XUIDateInput|XUIDateRangeInput).js"
+          },
+          {
             "name": "Dropdown",
             "components": "../src/react/components/dropdown/XUIDropdown.js",
             "content": "../src/react/dropdown.md",

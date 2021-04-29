@@ -4,7 +4,7 @@ import React from 'react';
 // Components we need to test with
 import overflow from '@xero/xui-icon/icons/overflow';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 import XUIFixedFooterWIP from '../XUIFixedFooterWIP';
 import XUIActions from '../../../actions';
 import XUIButton, { XUIIconButton } from '../../../button';
@@ -72,7 +72,6 @@ const sampleContentBlock = (
 );
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <>
     {sampleLongContentPanel}
@@ -102,6 +101,8 @@ class ScrollToBottomWrapper extends React.PureComponent {
     setTimeout(() => {
       const { rootNode } = this;
       const scrollable = rootNode.parentElement.parentElement;
+      scrollable.style.position = '';
+
       scrollable.scrollTop = rootNode.clientHeight;
       logReadyState('xui-fixedfooter-ready-event');
     }, 100);

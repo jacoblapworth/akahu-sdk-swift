@@ -1,5 +1,6 @@
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import toJson from 'enzyme-to-json';
 import React from 'react';
 
@@ -8,6 +9,7 @@ import XUIPopoverFooter from '../XUIPopoverFooter';
 import XUIActions from '../../../actions';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUIPopoverFooter />', () => {
   it('renders without crashing', () => {
@@ -44,5 +46,16 @@ describe('<XUIPopoverFooter />', () => {
 
     // Assert
     expect(wrapper.find(XUIActions).prop('isLinear')).toBe(false);
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIPopoverFooter
+        primaryAction={<XUIButton variant="primary">Primary action</XUIButton>}
+        secondaryAction={<XUIButton>Secondary action</XUIButton>}
+      />,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

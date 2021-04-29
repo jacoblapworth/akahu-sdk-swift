@@ -33,8 +33,8 @@ const fullPageSettings = {
  * 	testsPrefix: 'XUI Pill',
  *	variationsPath: `${variationsPath}/pill/stories/variations.js`,
  *	variationsProp: 'myVariationsPropName', (defaults to 'variations')
- *	selectors: 'alternate > .selectors' (defaults to '#root > div > div')
- *	misMatchThreshold: 5 (percentage variance to allow. defaults to .6 or .4 for full-page capture)
+ *	selectors: 'alternate > .selectors' (defaults to '.xui-default-decorator')
+ *	misMatchThreshold: 5 (percentage variance to allow, defaults to 0)
  *	delay: adds a delay between onReady and capture
  * }
  */
@@ -79,11 +79,15 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/checkbox/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI ContentBlock',
+    testsPrefix: 'XUI Content Block',
     variationsPath: `${variationsPath}/contentblock/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI DatePicker',
+    testsPrefix: 'XUI Date Input',
+    variationsPath: `${variationsPath}/dateinput/stories/variations.js`,
+  },
+  {
+    testsPrefix: 'XUI Date Picker',
     variationsPath: `${variationsPath}/datepicker/stories/variations.js`,
   },
   {
@@ -92,12 +96,18 @@ const componentsToTest = [
     ...fullPageSettings,
   },
   {
-    testsPrefix: 'XUI Editable table',
+    testsPrefix: 'XUI Editable Table',
     variationsPath: `${variationsPath}/editabletable/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI FileUploader',
+    testsPrefix: 'XUI File Uploader',
     variationsPath: `${variationsPath}/fileUploader/stories/variations.js`,
+  },
+  {
+    testsPrefix: 'XUI Fixed Footer WIP',
+    variationsPath: `${variationsPath}/fixedfooter/stories/variations.js`,
+    readyEvent: 'xui-fixedfooter-ready-event',
+    ...fullPageSettings,
   },
   {
     testsPrefix: 'XUI Icon',
@@ -109,6 +119,14 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/illustration/stories/variations.js`,
   },
   {
+    testsPrefix: 'XUI Input Group',
+    variationsPath: `${variationsPath}/inputgroup/stories/variations.js`,
+  },
+  {
+    testsPrefix: 'XUI Isolation Header',
+    variationsPath: `${variationsPath}/isolationheader/stories/variations.js`,
+  },
+  {
     testsPrefix: 'XUI Loader',
     variationsPath: `${variationsPath}/loader/stories/variations.js`,
   },
@@ -118,11 +136,11 @@ const componentsToTest = [
     ...fullPageSettings,
   },
   {
-    testsPrefix: 'XUI OverviewBlock',
+    testsPrefix: 'XUI Overview Block',
     variationsPath: `${variationsPath}/overviewblock/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI PageHeader',
+    testsPrefix: 'XUI Page Header',
     variationsPath: `${variationsPath}/pageheader/stories/variations.js`,
   },
   {
@@ -142,10 +160,6 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/pill/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI Isolation Header',
-    variationsPath: `${variationsPath}/isolationheader/stories/variations.js`,
-  },
-  {
     testsPrefix: 'XUI Popover',
     variationsPath: `${variationsPath}/popover/stories/variations.js`,
   },
@@ -163,7 +177,7 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/range/stories/variations.js`,
   },
   {
-    testsPrefix: 'Rollover Checkbox',
+    testsPrefix: 'XUI Rollover Checkbox',
     variationsPath: `${variationsPath}/rollovercheckbox/stories/variations.js`,
   },
   {
@@ -180,12 +194,6 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/stepper/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI Fixed Footer WIP',
-    variationsPath: `${variationsPath}/fixedfooter/stories/variations.js`,
-    readyEvent: 'xui-fixedfooter-ready-event',
-    ...fullPageSettings,
-  },
-  {
     testsPrefix: 'XUI Table',
     variationsPath: `${variationsPath}/table/stories/variations.js`,
     readyEvent: 'xui-table-ready-event',
@@ -195,7 +203,7 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/tag/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI TextInput',
+    testsPrefix: 'XUI Text Input',
     variationsPath: `${variationsPath}/textInput/stories/variations.js`,
   },
   {
@@ -209,7 +217,7 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Tooltip',
     variationsPath: `${variationsPath}/tooltip/stories/variations.js`,
-    selectors: '#root > div > div > div',
+    selectors: '.xui-tooltip-test',
   },
   {
     testsPrefix: 'Structural',
@@ -220,7 +228,14 @@ const componentsToTest = [
     variationsPath: relativeToProjectDirectory(
       '.tmp/react-visualregression/stories/components-in-components/tests.js',
     ),
-    ...fullPageSettings,
+    selectors: '.xui-container',
+  },
+  {
+    testsPrefix: 'Form controls',
+    variationsPath: relativeToProjectDirectory(
+      '.tmp/react-visualregression/stories/form-controls/tests.js',
+    ),
+    selectors: '.capture',
   },
   /* Run `npm run test:visual Compositions` if you are working on Compositions.
    * There are 408 visual regression tests for Compositions. Compositions are
@@ -230,7 +245,7 @@ const componentsToTest = [
   {
     testsPrefix: 'Compositions',
     variationsPath: `${variationsPath}/compositions/stories/variations.js`,
-    selectors: '#root',
+    selectors: '.xui-composition',
   },
 ];
 
@@ -269,7 +284,7 @@ function buildScenarios() {
           const scenarioProp = {
             label: `${component.testsPrefix} ${story.storyTitle}`,
             url: buildUrl(story.storyKind, story.storyTitle),
-            selectors: [story.selectors || component.selectors || '#root > div > div'],
+            selectors: [story.selectors || component.selectors || '.xui-default-decorator'],
             misMatchThreshold: story.misMatchThreshold || component.misMatchThreshold || 0,
             selectorExpansion: component.captureAllSelectors,
             delay,
@@ -317,6 +332,7 @@ backstop('test', {
       ignoreHTTPSErrors: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     },
+    fileNameTemplate: '{configId}_{scenarioLabel}_{viewportLabel}',
     id: 'backstop_default',
     paths: {
       bitmaps_reference: './.visual-testing/reference',

@@ -1,10 +1,12 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIBannerActions from '../XUIBannerActions';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUIBannerAction />', () => {
   it('should render and includes no automation id by default', () => {
@@ -47,5 +49,16 @@ describe('<XUIBannerAction />', () => {
 
     const jestDom = shallow(test);
     expect(jestDom.props().className).toContain(className);
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIBannerActions>
+        <li>Action 1</li>
+        <li>Action 2</li>
+      </XUIBannerActions>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

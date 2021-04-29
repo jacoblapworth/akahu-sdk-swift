@@ -1,11 +1,13 @@
 import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIIcon from '../XUIIcon';
 import accessibility from '@xero/xui-icon/icons/accessibility';
 import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('XUIIcon', () => {
   it('Should render with any additional classes provided through the className prop', function () {
@@ -118,5 +120,11 @@ describe('XUIIcon', () => {
   it('Should render with the given role applied to the path element', function () {
     const wrapper = mount(<XUIIcon icon={accessibility} role="img" />);
     expect(wrapper.find('path').prop('role')).toEqual('img');
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIIcon icon={accessibility} />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

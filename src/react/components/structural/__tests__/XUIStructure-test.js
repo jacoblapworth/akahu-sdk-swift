@@ -1,4 +1,5 @@
 import React from 'react';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIRow from '../XUIRow';
 import XUIColumn from '../XUIColumn';
 import { rowVariants, columnShortNames } from '../private/constants';
@@ -7,6 +8,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUI Row and Column/>', () => {
   const qaHook = 'qaHook';
@@ -57,5 +59,19 @@ describe('<XUI Row and Column/>', () => {
   it('renders row with automation id when qaHook prop is passed in', () => {
     const wrapper = renderer.create(<XUIRow qaHook={qaHook} />);
     expect(wrapper).toMatchSnapshot();
+  });
+
+  describe('<XUI Row and Column/> accessibility tests', () => {
+    it('<XUIRow/> should pass accessibility testing', async () => {
+      const wrapper = mount(<XUIRow>Testing</XUIRow>);
+      const results = await axe(wrapper.html());
+      expect(results).toHaveNoViolations();
+    });
+
+    it('<XUIColumn/> should pass accessibility testing', async () => {
+      const wrapper = mount(<XUIColumn>Testing</XUIColumn>);
+      const results = await axe(wrapper.html());
+      expect(results).toHaveNoViolations();
+    });
   });
 });

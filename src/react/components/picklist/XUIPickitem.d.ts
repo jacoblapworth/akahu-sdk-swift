@@ -97,6 +97,10 @@ interface Props {
    */
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
   /**
+   * Callback on mouseup of the pickitem.
+   */
+  onMouseUp?: React.KeyboardEventHandler<HTMLElement>;
+  /**
    * Callback when this item is selected by a parent component.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

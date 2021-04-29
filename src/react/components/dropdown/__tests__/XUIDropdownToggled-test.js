@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import { v4 as uuidv4 } from 'uuid';
 import XUIDropdown from '../XUIDropdown';
@@ -15,6 +16,7 @@ jest.mock('uuid');
 uuidv4.mockImplementation(() => testId);
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 let openCalled = false;
 let closeCalled = false;
@@ -113,6 +115,29 @@ describe('<XUIDropdownToggled />', () => {
 
       expect(wrapper.state('isHidden')).toBeFalsy();
     });
+
+    it('should pass accessibility testing', async () => {
+      const results = await axe(wrapper.html());
+      expect(results).toHaveNoViolations();
+    });
+  });
+
+  describe('closeOnSelect', function () {
+    it('closes the dropdown when the user selects something by default', function () {
+      const wrapper = mount(testDropdown({ isHidden: false }));
+
+      document.querySelector('.xui-portal .xui-pickitem--body').click();
+
+      expect(wrapper.instance().isDropdownOpen()).toBeFalsy();
+    });
+
+    it('does not close the dropdown on select if closeOnSelect is set to false', function () {
+      const wrapper = mount(testDropdown({ isHidden: false, closeOnSelect: false }));
+
+      document.querySelector('.xui-portal .xui-pickitem--body').click();
+
+      expect(wrapper.instance().isDropdownOpen()).toBeTruthy();
+    });
   });
 
   describe('dropdown rendered open', () => {
@@ -145,14 +170,25 @@ describe('<XUIDropdownToggled />', () => {
         wrapper.find('button').first().html().includes(`aria-controls="${testId}"`),
       ).toBeTruthy();
     });
+
+    it.skip('should pass accessibility testing', async () => {
+      const results = await axe(wrapper.html());
+      expect(results).toHaveNoViolations();
+    });
   });
 
   describe('dropdown in dropdown', () => {
-    it('parent dropdown will not close when select the pickitem of child dropdown', async () => {
-      const wrapper = mount(
-        testDropdown({ isHidden: false, dropdown: <XUIDropdown>{testDropdown()}</XUIDropdown> }),
+    let wrapper;
+    beforeEach(() => {
+      wrapper = mount(
+        testDropdown({
+          isHidden: false,
+          dropdown: <XUIDropdown>{testDropdown()}</XUIDropdown>,
+        }),
       );
+    });
 
+    it('parent dropdown will not close when select the pickitem of child dropdown', async () => {
       // Find the trigger of the child dropdown
       document.querySelector('.xui-portal .xui-button').click();
       // And then select a pickitem of child dropdown
@@ -161,6 +197,11 @@ describe('<XUIDropdownToggled />', () => {
       expect(wrapper.instance().isDropdownOpen()).toBeTruthy();
 
       wrapper.unmount();
+    });
+
+    it.skip('should pass accessibility testing', async () => {
+      const results = await axe(wrapper.html());
+      expect(results).toHaveNoViolations();
     });
   });
 
@@ -174,24 +215,6 @@ describe('<XUIDropdownToggled />', () => {
     );
 
     expect(automationId).toMatchSnapshot();
-  });
-
-  describe('closeOnSelect', function () {
-    it('closes the dropdown when the user selects something by default', function () {
-      const wrapper = mount(testDropdown({ isHidden: false }));
-
-      document.querySelector('.xui-portal .xui-pickitem--body').click();
-
-      expect(wrapper.instance().isDropdownOpen()).toBeFalsy();
-    });
-
-    it('does not close the dropdown on select if closeOnSelect is set to false', function () {
-      const wrapper = mount(testDropdown({ isHidden: false, closeOnSelect: false }));
-
-      document.querySelector('.xui-portal .xui-pickitem--body').click();
-
-      expect(wrapper.instance().isDropdownOpen()).toBeTruthy();
-    });
   });
 
   it('should not unlock the scroll when inside a modal', () => {

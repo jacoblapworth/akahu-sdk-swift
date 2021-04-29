@@ -4,17 +4,16 @@ import React from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, number, text, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 import iconPath from '@xero/xui-icon/icons/suggestion';
 
 // Components we need to test with
 import XUIProgressLinear from '../XUIProgressLinear';
 import XUIProgressCircular from '../XUIProgressCircular';
+import XUIIcon from '../../icon/XUIIcon';
 
 import { COLORS } from '../helpers/constants';
 import { variations, storiesWithVariationsKindName } from './variations';
-import XUIIcon from '../../icon/XUIIcon';
 
 import ToolTipComparison from './components/ToolTipComparison';
 import ColorComparison from './components/ColorComparison';
@@ -62,7 +61,6 @@ const tinyWidthStyle = {
 };
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground | Circular', () => {
   const totalColor =
     select('totalColor', colorOptions, defaultColor) === defaultColor
@@ -130,7 +128,6 @@ storiesWithKnobs.add('Playground | Linear', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 const createStandardComparison = (styles, Component, props, componentChildren, children) => (
   <StandardComparison

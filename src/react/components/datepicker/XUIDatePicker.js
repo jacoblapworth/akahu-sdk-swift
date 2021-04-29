@@ -13,6 +13,7 @@ import {
   isPartialRange,
   isStartOfPartialRange,
   normalizeDisplayedMonth,
+  isDayOutsideRange,
 } from './helpers/utils';
 import { ns } from '../helpers/xuiClassNamespace';
 
@@ -175,18 +176,8 @@ export default class XUIDatePicker extends PureComponent {
     if (typeof isDateDisabled === 'function' && isDateDisabled(day)) {
       return true;
     }
-    const minDateSet = minDate != null;
-    const maxDateSet = maxDate != null;
-    if (!minDateSet && !maxDateSet) {
-      return false;
-    }
-    if (minDateSet && maxDateSet) {
-      return DateUtils.isDayBefore(day, minDate) || DateUtils.isDayAfter(day, maxDate);
-    }
-    if (minDateSet) {
-      return DateUtils.isDayBefore(day, minDate);
-    }
-    return DateUtils.isDayAfter(day, maxDate);
+
+    return isDayOutsideRange(day, minDate, maxDate);
   };
 
   onDayFocus = (date, modifiers) => {

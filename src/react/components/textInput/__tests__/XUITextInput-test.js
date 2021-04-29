@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUITextInput from '../XUITextInput';
 import XUITextInputSideElement from '../XUITextInputSideElement';
@@ -12,13 +13,21 @@ import NOOP from '../../helpers/noop';
 import { sizeShift } from '../../helpers/sizes';
 import EditableTableCellContext from '../../../contexts/EditableTableCellContext';
 import { v4 as uuidv4 } from 'uuid';
+import { render, screen } from '@testing-library/react';
 
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUITextInput>', () => {
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUITextInput />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
+  });
+
   describe('General Functionality', () => {
     let wrapper;
     const className = 'containerClassName';
@@ -351,5 +360,55 @@ describe('<XUITextInput>', () => {
 
       expect(classList.contains('xui-textinput-cell')).toBeTruthy();
     });
+  });
+});
+
+describe('TextInput with Character counter', () => {
+  test('renders correctly when current input length is over the specified maximum length', () => {
+    const { container } = render(
+      <XUITextInput
+        onChange={NOOP}
+        value="Lorem ipsum"
+        qaHook="test-id"
+        characterCounter={{
+          maxCharCount: 10,
+          validationMessage: 'Character validation failed!',
+        }}
+      />,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('renders correctly when current input length is under the specified maximum length', () => {
+    const { container } = render(
+      <XUITextInput
+        onChange={NOOP}
+        value="Lorem ips"
+        qaHook="test-id"
+        characterCounter={{
+          maxCharCount: 10,
+          validationMessage: 'Character validation failed!',
+        }}
+      />,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('renders without character counter where under showing threshold', () => {
+    render(
+      <XUITextInput
+        onChange={NOOP}
+        value="L"
+        qaHook="test-id"
+        characterCounter={{
+          maxCharCount: 10,
+          validationMessage: 'Character validation failed!',
+        }}
+      />,
+    );
+
+    expect(screen.queryByTestId('test-id--character-counter')).toBe(null);
   });
 });

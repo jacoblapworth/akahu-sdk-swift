@@ -20,6 +20,10 @@ export default class Positioning extends React.Component {
 
     this.updatePosition(true);
 
+    if (document.readyState !== 'complete') {
+      document.addEventListener('DOMContentLoaded', this.updatePosition);
+    }
+
     if (window) {
       window.addEventListener('resize', this.updatePosition);
       this.windowHasResizeListener = true;

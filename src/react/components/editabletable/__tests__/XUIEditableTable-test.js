@@ -2,12 +2,14 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import { v4 as uuidv4 } from 'uuid';
 
 import XUIEditableTable from '../XUIEditableTable';
 import { tableName } from '../private/constants';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 jest.mock('uuid');
 const mockedUuid = 'testGeneratedId';
@@ -46,6 +48,12 @@ describe('<XUIEditableTable />', () => {
     expect(wrapper.text()).toContain(
       `#${tableName}-${mockedUuid} .xui-editabletablerow > *:nth-child(3) { display: none; }`,
     );
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIEditableTable />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   describe('validation message', () => {

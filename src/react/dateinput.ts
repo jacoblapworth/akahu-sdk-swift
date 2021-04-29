@@ -1,4 +1,4 @@
-import XUIDateInputItem from './components/dateinput/private/XUIDateInputItem';
-import XUIDateInputWIP from './components/dateinput/XUIDateInputWIP';
+import XUIDateInput from './components/dateinput/XUIDateInput';
+import XUIDateRangeInput from './components/dateinput/XUIDateRangeInput';
 
-export { XUIDateInputWIP as default, XUIDateInputWIP, XUIDateInputItem };
+export { XUIDateInput as default, XUIDateInput, XUIDateRangeInput };

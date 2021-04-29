@@ -1,12 +1,14 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import PortalFocus from '../private/PortalFocus';
 import { tableName } from '../private/constants';
 import NOOP from '../../helpers/noop';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const mockRect = (x, y, width, height) => ({
   x,
@@ -102,5 +104,20 @@ describe('Portal focus', () => {
     );
 
     expect(wrapper.find(baseName).length).toBe(0);
+  });
+
+  it('should pass accessibility testing', async () => {
+    const scrollContainerRef = mockRef(10, 10, 200, 100);
+    const focusedCellRef = mockRef(20, 20, 20, 5);
+
+    const wrapper = mount(
+      <PortalFocus
+        focusedCellRef={focusedCellRef}
+        isFocused
+        scrollContainerRef={scrollContainerRef}
+      />,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

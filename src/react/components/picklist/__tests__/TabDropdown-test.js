@@ -1,11 +1,13 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIPickitem from '../XUIPickitem';
 import TabDropdown from '../private/TabDropdown';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 // clientWidth in jsdom is 0, so the dropdown will apply mobile styles
 // but the animation of dropdown opening/closing doesn't work well in jsdom
@@ -50,5 +52,13 @@ describe('<TabDropdown />', () => {
     document.querySelector('.xui-portal .xui-pickitem--body').click();
 
     expect(document.querySelector('.xui-portal .xui-container')).toBeTruthy();
+  });
+
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <TabDropdown dropdownList={[<XUIPickitem id="pi1" isSelected primaryElement="Item 1" />]} />,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

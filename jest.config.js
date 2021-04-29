@@ -24,6 +24,7 @@ const config = {
     '^.+\\.(j|t)sx?$': 'babel-jest',
   },
   transformIgnorePatterns: ['/node_modules/(?!(@xero))'],
+  setupFiles: ['<rootDir>/src/react/helpers/axeHelper.ts'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 };
 module.exports = config;

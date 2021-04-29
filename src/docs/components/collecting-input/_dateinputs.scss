@@ -1,0 +1,195 @@
+// Date input
+//
+// Components: Dateinput
+//
+// flags: new
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.o1sikeyqx2qq
+//
+// Teaser: An input for typing and selecting dates.
+//
+// Introduction: Date inputs let users type in and select a date or date range. Where applicable, suggested dates can be provided to speed up the user's workflow.
+//
+// Note:
+// Some of the functionality described in the content below is reliant on the React implementation of the component. The examples displayed may also be missing some functionality due to them being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#dateinput">React documentation</a>.
+//
+// Markup: ./examples/dateinput/_date-input-anatomy.html
+//
+// ExampleClass: ds-example-transparent ds-example-flush ds-example-nomarkuplink
+//
+// Styleguide: Components.CollectingInput.DateInput
+
+// Best practice
+//
+// Tips:
+// Do: Use a date input to provide an easy way for users to type in and select dates. Alternatively, use a button to trigger a [datepicker](./section-components-collectinginput-datepicker.html) in a [dropdown](./section-components-collectinginput-dropdowns.html) for when users don’t need to type.
+// Do: Use succinct labels that clearly indicate the type of date (eg. "Issue date" or "Due date").
+// Do: Ensure date formatting matches the user’s locale (see [time and date formatting guidelines](//xui.xero.com/product-language-guide/components/our-language-style/index.html#time-and-date)).
+// Do: <span>Use locale specific shortcuts from the [Xero date-shortcuts library](//github.dev.xero.com/XeroJS/date-shortcuts) to enable appropriate shortcuts in different regions.</span>
+// Warning: Only pre-fill date input values when you’re confident it will speed up the user’s workflow.
+//
+// Styleguide: Components.CollectingInput.DateInput.1
+
+// Suggested dates
+//
+// To provide quick selection options, suggested dates can be added. Suggested dates are displayed in a [picklist](./section-components-displayingdata-picklist.html) within a dropdown when the date input is focused.
+//
+// Tips:
+// Do: Offer suggested dates that speed up the user's workflow and are based on data, such as frequency of use
+// Do: Label suggested dates with titles users understand within the context of your workflow (eg. "Tomorrow" or "This financial year")
+// Do: Label suggested dates groups with a [picklist header](./section-components-displayingdata-picklisthtml#components-displayingdata-picklist-6) to ensure users understand the purpose of the options
+// Do: Always provide a manual “Select date” option at the bottom of the picklist to access the datepicker
+//
+// exampleclass: ds-example-narrow
+//
+// Markup: ./examples/dateinput/_suggested-dates-dropdown.html
+//
+// Styleguide: Components.CollectingInput.DateInput.2
+
+// Single date input
+//
+// Use a single date input when users need to select an isolated date (eg. “Date spent” or “Due date”). A single date input will display a datepicker within a dropdown when focussed, or suggested date options if they are supplied. When a date is selected, focus returns to the input.
+//
+// Tips:
+// Do: Use a single date input to allow for 1 date selection
+// Do: Use separate single date inputs alongside each other for when users need to select multiple, unrelated dates
+// Don't: Don’t use a single date input for selecting date ranges
+//
+// exampleClass: ds-example-narrow
+//
+// Markup: ./examples/dateinput/_single-date-input.html
+//
+// Styleguide: Components.CollectingInput.DateInput.3
+
+// Date range input
+//
+// Use a date range input when users need to select 2 dates that are connected. For example, start and end dates. The date range input has 2 inputs that can be typed into and both trigger a separate [dropdown](./section-components-collectinginput-dropdowns.html) displaying a [datepicker](./section-components-collectinginput-datepicker.html). After selecting the first date in the date range input, focus will shift to the second input.
+//
+// A component variant is available to display suggested date ranges via a dropdown button, connected on the right of the inputs.
+//
+// Tips:
+// Do: Use a date range input to allow for the selection of 2 linked dates
+// Do: Only offer suggested date ranges that speed up the user's workflow and are based on data, such as frequency of use
+//
+// Markup: ./examples/dateinput/_date-range-input.html
+//
+// Styleguide: Components.CollectingInput.DateInput.4
+
+// Size variants
+//
+// Date inputs offer a range of size variants to enable greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2). Because the date input component is built using [text input](./section-components-controls-textinput.html) as a base, the size is determined by existing text input classes.
+//
+// Tips:
+// Do: Use the `medium` size variant by default
+// Do: Use the same font size for input labels and hint messages with all date input size variants
+// Warning: Use `small` and `xsmall` variants cautiously, as they’re harder to read and touch
+// Don't: Don’t use different size variants within a single form
+// Don't: Don't stack `small` or `xsmall` variants on top of each other, to avoid overlapping touch targets
+// Info: [Interface density guidelines](./section-fundamentals-spacing.html#fundamentals-spacing-2)
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// medium: 40px: `xui-textinput-medium`
+// small: 32px: `xui-textinput-small`
+// xsmall: 24px: `xui-textinput-xsmall`
+//
+// Markup: ./examples/dateinput/_date-input-size-variants.html
+//
+// Styleguide: Components.CollectingInput.DateInput.5
+
+// Disabling
+//
+// Used to indicate a disabled state and stop users from interacting with the date input.
+//
+// Tips:
+// Do: Ensure it is clear to the user why a date input is disabled
+// Warning: Avoid disabling 1 control within a date range input without disabling the others as the inputs are linked
+//
+// Classes:
+// xui-dateinputitem-is-disabled: Disables label interaction
+// xui-textinput-is-disabled: Disables date input field interaction
+// xui-daterangeinput--suggested-disabled: Applies disabled styles to dropdown button
+// xui-button-is-disabled: Disables dropdown button interaction
+//
+// exampleClass: ds-example-transparent
+//
+// Markup: ./examples/dateinput/_date-input-disabled.html
+//
+// Styleguide: Components.CollectingInput.DateInput.6
+
+// Validation and hint messages
+//
+// Validation or hint messages can be added to both single and date range inputs. In a date range input, messages can span across 1 or both inputs, depending on the content of the message.
+//
+// Tips:
+// Do: Ensure error message clearly explains what went wrong and what can be done to fix it
+// Do: Ensure error and hint messages are concise
+// Do: Use a passive voice in error messages so users don’t feel like they’re being blamed
+// Do: Use hint messages to guide users to successfully complete their task
+// Do: Span a message across both date range inputs when content is relevant to both fields
+// Info: [Form validation guidelines](./section-components-collectinginput-forms.html#components-collectinginput-forms-7)
+//
+// exampleClass: ds-example-transparent
+//
+// Markup: ./examples/dateinput/_date-input-validation.html
+//
+// Styleguide: Components.CollectingInput.DateInput.7
+
+// Responsive
+//
+// In viewports narrower than `$xui-breakpoint-small` (600px),  the date input component caters to a more touch-driven experience so the ability to type into the input is removed. Once the date input is focused, the dropdown will immediately display a datepicker or suggested dates, if applicable.
+//
+// exampleClass: ds-example-narrow
+//
+// Markup: ./examples/dateinput/_date-input-responsive-dropdown.html
+//
+// Styleguide: Components.CollectingInput.DateInput.8
+
+// Accessibility
+//
+// All inputs should be given a label to describe the expected content, but not all labels need to be visible in the browser. The date range input should display either the group-level label or both individual input labels.
+//
+// Tips:
+// Do: Provide clear labels to all input fields
+// Do: Provide an additional group-level label to date range inputs
+// Do: Display individual labels or a group-level label to date range input groups
+// Warning: Use caution when only displaying a group-level label as individual labels are clearer and more explicit
+// Info: [Datepicker accessibility guidelines](./section-components-collectinginput-datepicker.html#components-collectinginput-datepicker-8)
+//
+// Markup: ./examples/dateinput/_date-input-accessibility.html
+//
+// Styleguide: Components.CollectingInput.DateInput.9
+
+// Content guidelines
+//
+// Tips:
+// Do: Use sentence case for date input labels, values, hint and validation messages (capitalise the first word in a sentence in addition to proper nouns)
+// Do: Follow [time and date formatting guidelines](//xui.xero.com/product-language-guide/components/our-language-style/index.html#time-and-date) to format dates correctly
+//
+// Styleguide: Components.CollectingInput.DateInput.10
+
+// Using HTML and CSS only
+//
+// For building a component without React, following these HTML classes will provide the appropriate styling. However, there is some functionality reliant on javascript that will not be available through this method of building.
+//
+// Classes:
+// xui-dateinput: Date input container
+// xui-daterangeinput: Date range input container
+// xui-dateinputitem: Date input item container
+// xui-daterangeinput--firstinput: First date range input item container
+// xui-daterangeinput--secondinput: Second date range input item container
+// xui-daterangeinput--suggested: Suggested date range input dropdown button container
+// xui-dateinputitem--input: Text input container
+//
+// Styleguide: Components.CollectingInput.DateInput.11
+
+// Related links
+//
+// Related:
+// * [Datepicker](./section-components-collectinginput-datepicker.html)
+// * [Dropdown](./section-components-collectinginput-dropdowns.html)
+// * [Text input](./section-components-controls-textinput.html)
+// * [Time and date formatting](https://xui.xero.com/product-language-guide/components/our-language-style/index.html#time-and-date")
+// * [Xero date-shortcuts library](https://github.dev.xero.com/XeroJS/date-shortcuts)
+//
+// Styleguide: Components.CollectingInput.DateInput.99

@@ -13,20 +13,20 @@
 // Best practice
 //
 // Tips:
-// Do: Use banners when inline validation is not possible
-// Do: Use banners at the top of page content
-// Do: Actions that relate to the task at hand may be included
-// Dont: Don't use banners for client-side validation
-// Warning: Avoid banners for non-blocking actions – use a toast instead
+// Do: Use a banner when inline validation is not possible
+// Do: Display banner above the main content
+// Do: A banner should contain content relevant to a single theme or message
+// Warning: Avoid using more than one banner per page. There’s evidence that people often miss banners, and overuse can make this problem worse
+// Warning: Avoid using banners to confirm user actions – use a toast instead
 // Warning: Avoid hiding banners automatically – use a toast instead
-// Warning: Avoid more than two actions, excluding the close button
+// Warning: Avoid displaying more than two actions within a banner, excluding the close button
+// Don't: Don't use banners for client-side validation
 //
 // Styleguide: Components.Alerts.Banner.1
 
 // Anatomy
 //
-// To create a banner, use the following classes.
-// Note that close buttons must come first in the DOM order to provide the correct conditional formatting.
+// To create a banner, use the following classes. Note that close buttons must come first in the DOM order to provide the correct conditional formatting.
 //
 // Classes:
 // xui-banner: Base class
@@ -43,21 +43,54 @@
 
 // Sentiment
 //
+// Positive, negative and neutral sentiment can be applied to banners by adding the following modifiers to `xui-banner`.
+//
 // Tips:
+// Do: Use descriptive text alongside colour sentiment to convey information so it’s meaningful to people who can’t discern colour
 // Do: When using sentiment, use descriptive text like "We are unable to load your data due to a problem with your internet connection"
-// Dont: When using sentiment, avoid vague text like "Internet connection"
+// Warning: When using sentiment, avoid vague text like "Internet connection"
 //
-// Positive and negative sentiment can be applied to banners by adding the following modifiers to `xui-banner`.
+// Styleguide: Components.Alerts.Banner.3
+
+// Positive Sentiment
 //
-// Use descriptive text alongside colour sentiment to convey information so it’s still meaningful to people who can’t discern colour.
+// Tips:
+// Do: Use a banner with a positive sentiment if feedback is delayed, persistent or has a relevant action
+// Warning: Avoid using banners for success messages - use a toast instead
 //
 // Definitions:
 // Positive: Adds green border: `-positive`
+//
+// Markup: ./examples/banner/_banner-sentiment-positive.html
+//
+// Styleguide: Components.Alerts.Banner.3.1
+
+// Negative Sentiment
+//
+// Tips:
+// Do: Use the negative sentiment to inform users of information that requires immediate attention
+// Don't: Don’t make negative banners dismissable if they contain critical information or actions
+//
+// Definitions:
 // Negative: Adds red border: `-negative`
 //
-// Markup: ./examples/banner/_banner-sentiment.html
+// Markup: ./examples/banner/_banner-sentiment-negative.html
 //
-// Styleguide: Components.Alerts.Banner.3
+// Styleguide: Components.Alerts.Banner.3.2
+
+// Neutral Sentiment
+//
+// Tips:
+// Do: Use when the message is neutral in tone, but needs more hierarchy than the standard banner
+// Warning: If the message contains non critical, low priority information, use the standard banner
+// Warning: While displaying multiple banners on a single page should be avoided, if it must happen consider using a mixture of standard and sentiment to achieve the desired visual hierarchy between them
+//
+// Definitions:
+// Neutral: Adds grey border: `-neutral`
+//
+// Markup: ./examples/banner/_banner-sentiment-neutral.html
+//
+// Styleguide: Components.Alerts.Banner.3.3
 
 // Animation
 //

@@ -2,12 +2,13 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
 import React from 'react';
-
+import { axe, toHaveNoViolations } from 'jest-axe';
 import Positioning from '../private/Positioning';
 import XUIPopover from '../XUIPopover';
 import XUIPopoverHeader from '../XUIPopoverHeader';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUIPopover />', () => {
   it('renders without crashing', () => {
@@ -85,6 +86,13 @@ describe('<XUIPopover />', () => {
 
     // Assert
     expect(triggerFocusMock).not.toHaveBeenCalled();
+  });
+
+  it.skip('should pass accessibility testing', async () => {
+    const triggerRef = React.createRef();
+    const wrapper = mount(<XUIPopover id="test-popover" triggerRef={triggerRef} />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 
   describe('triggerRef', () => {

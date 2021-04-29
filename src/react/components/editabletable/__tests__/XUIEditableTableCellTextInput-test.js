@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import { v4 as uuidv4 } from 'uuid';
 
 import XUITextInput from '../../textInput/XUITextInput';
@@ -13,6 +14,7 @@ jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUIEditableTableCellTextInput />', () => {
   it('renders correctly', () => {
@@ -20,7 +22,45 @@ describe('<XUIEditableTableCellTextInput />', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
+  it.skip('should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <table>
+        <tbody>
+          <tr>
+            <XUIEditableTableCellTextInput />
+          </tr>
+        </tbody>
+      </table>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
+  });
+
   describe('focusing', () => {
+    it('selects the whole input when focused', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellTextInput defaultValue="a long input value" isMultiline />
+              <XUIEditableTableCellTextInput defaultValue="input value" />
+            </tr>
+          </tbody>
+        </table>,
+      );
+      const textareaSpy = jest.spyOn(wrapper.find('textarea').instance(), 'select');
+      const inputSpy = jest.spyOn(wrapper.find('input').instance(), 'select');
+
+      // Act
+      wrapper.find('textarea').simulate('focus');
+      wrapper.find('input').simulate('focus');
+
+      // Assert
+      expect(textareaSpy).toBeCalledTimes(1);
+      expect(inputSpy).toBeCalledTimes(1);
+    });
+
     it('lets XUIEditableTableCellControl know when the input is focused', () => {
       // Arrange
       const wrapper = mount(

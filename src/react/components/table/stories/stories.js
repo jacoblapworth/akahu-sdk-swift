@@ -5,17 +5,16 @@ import PropTypes from 'prop-types';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import Table from '../XUITable';
 import Column from '../XUITableColumn';
 import Cell from '../XUITableCell';
+import XUIPickitem from '../../picklist/XUIPickitem';
+import XUITag from '../../tag/XUITag';
 
 import logReadyState from '../../../stories/helpers/log-ready-state';
 import { variations, storiesWithVariationsKindName } from './variations';
-import XUIPickitem from '../../picklist/XUIPickitem';
-import XUITag from '../../tag/XUITag';
 import noop from '../../helpers/noop';
 
 const tableStyles = {
@@ -86,7 +85,6 @@ const createTags = total =>
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 
-storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const data = {
     0: {},
@@ -288,7 +286,6 @@ const TestScaffold = (
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 
-storiesWithVariations.addDecorator(centered);
 createCustomStyles();
 variations.forEach(variation => {
   const { storyTitle, examples } = variation;

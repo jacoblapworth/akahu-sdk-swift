@@ -2,8 +2,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, number, boolean, text, select } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 
 import {
   variations,
@@ -157,8 +156,6 @@ class EditableTablePlayground extends React.Component {
 }
 
 const storiesWithKnobs = storiesOf(variationStoryKindName, module);
-storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.addDecorator(withKnobs);
 storiesWithKnobs.add('Playground', () => (
   <EditableTablePlayground
     ariaLabel={text('Aria label', '')}
@@ -204,7 +201,6 @@ storiesWithKnobs.add('Playground', () => (
 ));
 
 const storiesWithVariations = storiesOf(variationStoryKindName, module);
-storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
@@ -341,7 +337,6 @@ class EditableTableStoryWrapper extends React.Component {
 }
 
 const regressionStoriesWithVariations = storiesOf(regressionVariationStoryKindName, module);
-regressionStoriesWithVariations.addDecorator(centered);
 
 regressionVariations.forEach(variation => {
   regressionStoriesWithVariations.add(variation.storyTitle, () => {

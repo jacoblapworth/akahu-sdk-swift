@@ -1,58 +1,143 @@
 @import '../vars';
 @import '../mixins';
 
-.#{$ns}-inputgroup > .#{$ns}-textinput,
-.#{$ns}-inputgroup > .#{$ns}-button,
-.#{$ns}-inputgroup .#{$ns}-select--control {
-  border-radius: 0;
-
-  // All but the first child have a left border
-  // There is an exception for invalid styling further down
-  &:nth-child(n + 2) {
-    border-left: 0;
+@mixin xui-inputgroup-bordered-all($ordinal: '') {
+  @include xui-inputgroup-bordered-toplevel($ordinal) {
+    @content;
+  }
+  @include xui-inputgroup-grandchild-order-matters($ordinal, $ordinal) {
+    @content;
   }
 }
 
-// This is excluded from the list above to prevent the nth-child selector kicking in unnecessarily on the wrong element
-.#{$ns}-inputgroup > .#{$ns}-textinputwrapper > .#{$ns}-textinput,
-.#{$ns}-inputgroup > .#{$ns}-textinputwrapper .#{$ns}-button {
-  border-radius: 0;
-}
-
-.#{$ns}-inputgroup > .#{$ns}-textinputwrapper:nth-child(n + 2) > .#{$ns}-textinput {
-  border-left: 0;
-}
-
-.#{$ns}-inputgroup > .#{$ns}-select:nth-child(n + 2) {
-  .#{$ns}-select--control {
-    border-left: 0;
+// Top-level containers, only
+@mixin xui-inputgroup-containers-toplevel($ordinal: '') {
+  .#{$ns}-textinput#{$ordinal},
+  .#{$ns}-button#{$ordinal},
+  .#{$ns}-buttongroup#{$ordinal},
+  .#{$ns}-select#{$ordinal},
+  .#{$ns}-selectwrapper#{$ordinal},
+  .#{$ns}-textinputwrapper#{$ordinal},
+  .#{$ns}-autocompleter#{$ordinal},
+  .#{$ns}-dropdown--toggledwrapper#{$ordinal},
+  .#{$ns}-dateinput#{$ordinal} {
+    @content;
   }
 }
 
-.#{$ns}-inputgroup > .#{$ns}-textinput:first-child,
-.#{$ns}-inputgroup > .#{$ns}-textinputwrapper:first-child > .#{$ns}-textinput,
-.#{$ns}-inputgroup > .#{$ns}-textinputwrapper:first-child .#{$ns}-button,
-.#{$ns}-inputgroup > .#{$ns}-button:first-child,
-.#{$ns}-inputgroup > .#{$ns}-select:first-child > .#{$ns}-select--control {
-  border-bottom-left-radius: $xui-radius;
-  border-top-left-radius: $xui-radius;
+// Specific bordered elements with top-level containers
+@mixin xui-inputgroup-bordered-toplevel($ordinal: '') {
+  // Specific bordered elements with top-level containers
+  .#{$ns}-textinput#{$ordinal},
+  .#{$ns}-button#{$ordinal},
+  .#{$ns}-buttongroup#{$ordinal},
+  .#{$ns}-select#{$ordinal} .#{$ns}-select--control,
+  .#{$ns}-selectwrapper#{$ordinal} .#{$ns}-select--button {
+    @content;
+  }
+  // Top-level elements that may contain textinputs or buttons
+  .#{$ns}-textinputwrapper#{$ordinal},
+  .#{$ns}-autocompleter#{$ordinal},
+  .#{$ns}-dropdown--toggledwrapper#{$ordinal},
+  .#{$ns}-dateinput#{$ordinal} {
+    .#{$ns}-textinput,
+    .#{$ns}-button {
+      @content;
+    }
+  }
+}
+// Some nested elements (eg. buttongroup, textinput sideelements) may need different
+// treatment depending on where they appear within their parent components.
+@mixin xui-inputgroup-grandchild-order-matters($parentordinal: '', $childordinal: '') {
+  // Specific bordered elements with top-level containers
+  .#{$ns}-buttongroup#{$parentordinal} > .#{$ns}-button#{$childordinal},
+  .#{$ns}-buttongroup#{$parentordinal}
+    .#{$ns}-dropdown--toggledwrapper#{$childordinal}
+    .#{$ns}-button {
+    @content;
+  }
+  // Top-level elements that may contain sideelements
+  .#{$ns}-autocompleter#{$parentordinal},
+  .#{$ns}-textinputwrapper#{$parentordinal} {
+    .#{$ns}-textinput--sideelement#{$childordinal} {
+      @content;
+    }
+  }
 }
 
-.#{$ns}-inputgroup > .#{$ns}-textinput:last-child,
-.#{$ns}-inputgroup > .#{$ns}-textinputwrapper:last-child > .#{$ns}-textinput,
-.#{$ns}-inputgroup > .#{$ns}-button:last-child,
-.#{$ns}-inputgroup > .#{$ns}-select:last-child > .#{$ns}-select--control {
-  border-bottom-right-radius: $xui-radius;
-  border-top-right-radius: $xui-radius;
+.#{$ns}-inputgroup > {
+  // Square borders, by default
+  @include xui-inputgroup-bordered-all {
+    border-radius: 0;
+  }
+}
+
+// These "not" selectors are for backwards compatibility with .xui-inputgroup. TODO: change to xui-inputgroup-horizontal for 18
+.#{$ns}-inputgroup:not(.#{$ns}-inputgroup-vertical) > {
+  // This rule allows the side borders for "interior" elements to overlap.
+  // Overlap is key, so the correct border takes precedence at the correct time.
+  @include xui-inputgroup-containers-toplevel(':nth-child(n + 2)') {
+    margin-left: -1px;
+  }
+
+  // round left borders for the first item
+  @include xui-inputgroup-bordered-all(':first-child') {
+    border-bottom-left-radius: $xui-radius;
+    border-top-left-radius: $xui-radius;
+  }
+
+  // round right borders for the last item
+  @include xui-inputgroup-bordered-all(':last-child') {
+    border-bottom-right-radius: $xui-radius;
+    border-top-right-radius: $xui-radius;
+  }
+}
+.#{$ns}-inputgroup-vertical > {
+  // adjust top margin for items other than the first
+  @include xui-inputgroup-bordered-toplevel(':nth-child(n + 2)') {
+    margin-top: -1px;
+  }
+
+  // round top corners for the first top-level child
+  @include xui-inputgroup-bordered-all(':first-child') {
+    border-top-left-radius: $xui-radius;
+  }
+  @include xui-inputgroup-bordered-toplevel(':first-child') {
+    border-top-right-radius: $xui-radius;
+  }
+  @include xui-inputgroup-grandchild-order-matters(':first-child', ':last-child') {
+    border-top-right-radius: $xui-radius;
+  }
+
+  // round bottom corners for the last top-level child
+  @include xui-inputgroup-bordered-all(':last-child') {
+    border-bottom-right-radius: $xui-radius;
+  }
+  @include xui-inputgroup-bordered-toplevel(':last-child') {
+    border-bottom-left-radius: $xui-radius;
+  }
+  @include xui-inputgroup-grandchild-order-matters(':last-child', ':first-child') {
+    border-bottom-left-radius: $xui-radius;
+  }
+}
+
+.#{$ns}-inputgroup-vertical .#{$ns}-text-label + {
+  .#{$ns}-textinput,
+  .#{$ns}-select .#{$ns}-select--button {
+    border-radius: $xui-radius !important;
+  }
 }
 
 .#{$ns}-inputgroup {
-  @include xui-clearfix;
+  display: grid;
 
-  .#{$ns}-textinput-is-invalid:nth-child(n + 2),
-  .#{$ns}-textinputwrapper:nth-child(n + 2) .#{$ns}-textinput-is-invalid,
-  .#{$ns}-select:nth-child(n + 2) > .#{$ns}-select--control.#{$ns}-textinput-is-invalid {
-    border-left: 1px solid $xui-color-red;
-    margin-left: -1px;
+  &-is-bottomaligned {
+    align-items: end;
   }
+
+  .#{$ns}-text-label {
+    padding-right: $xui-s-small;
+  }
+
+  @include xui-clearfix;
 }

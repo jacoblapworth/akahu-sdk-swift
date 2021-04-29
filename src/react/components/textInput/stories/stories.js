@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, object, text, select, number } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 
 // Components we need to test with
 import clearPath from '@xero/xui-icon/icons/clear';
@@ -65,6 +64,7 @@ const TextInputWrapper = props => {
     maxRows,
     rows,
     size,
+    characterCounter,
   } = props;
 
   const makeSideElement = (sideElementType, sideElementAlignment) => {
@@ -170,6 +170,7 @@ const TextInputWrapper = props => {
         rows,
         size,
       }}
+      characterCounter={characterCounter}
       defaultValue={defaultValue || 'default Value'}
       isDisabled={isDisabled}
       isLabelHidden={isLabelHidden}
@@ -242,7 +243,7 @@ const elementTypeOptions = [null, 'icon', 'iconWithBackground', 'button', 'text'
 const elementAlignmentOptions = ['top', 'center', 'bottom'];
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
-storiesWithKnobs.addDecorator(centered);
+
 storiesWithKnobs.add('Playground', () => (
   <TextInputWrapper
     hintMessage={text('hint message', '')}
@@ -277,33 +278,29 @@ storiesWithKnobs.add('Playground', () => (
   />
 ));
 
-const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module).addDecorator(
-  centered,
-);
-const storiesWithResponsiveVariations = storiesOf(
-  storiesWithVariationsKindName,
-  module,
-).addDecorator(customCentered);
+const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 
 variations.forEach(variation => {
-  const targetStories = variation.customDecorator
-    ? storiesWithResponsiveVariations
-    : storiesWithVariations;
+  const decorator = variation.customDecorator ? { decorators: [customCentered] } : {};
 
-  targetStories.add(variation.storyTitle, () => {
-    const variationMinusStoryDetails = { ...variation };
-    delete variationMinusStoryDetails.storyKind;
-    delete variationMinusStoryDetails.storyTitle;
-    delete variationMinusStoryDetails.customDecorator;
-    if (!variationMinusStoryDetails.label) {
-      variationMinusStoryDetails.label = 'Test label';
-      variationMinusStoryDetails.isLabelHidden = true;
-    }
-    if (variationMinusStoryDetails.noDefault) {
-      delete variationMinusStoryDetails.noDefault;
-      return <XUITextInput {...variationMinusStoryDetails} type="text" />;
-    }
+  storiesWithVariations.add(
+    variation.storyTitle,
+    () => {
+      const variationMinusStoryDetails = { ...variation };
+      delete variationMinusStoryDetails.storyKind;
+      delete variationMinusStoryDetails.storyTitle;
+      delete variationMinusStoryDetails.customDecorator;
+      if (!variationMinusStoryDetails.label) {
+        variationMinusStoryDetails.label = 'Test label';
+        variationMinusStoryDetails.isLabelHidden = true;
+      }
+      if (variationMinusStoryDetails.noDefault) {
+        delete variationMinusStoryDetails.noDefault;
+        return <XUITextInput {...variationMinusStoryDetails} type="text" />;
+      }
 
-    return <TextInputWrapper {...variationMinusStoryDetails} />;
-  });
+      return <TextInputWrapper {...variationMinusStoryDetails} />;
+    },
+    decorator,
+  );
 });

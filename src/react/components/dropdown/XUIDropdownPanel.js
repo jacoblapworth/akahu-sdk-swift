@@ -1,6 +1,8 @@
 import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+
+import compose from '../helpers/compose';
 // eslint-disable-next-line import/no-cycle
 import XUIPicklist from '../picklist/XUIPicklist';
 import XUIStatefulPicklist from '../picklist/XUIStatefulPicklist';
@@ -255,6 +257,7 @@ class XUIDropdownPanel extends PureComponent {
 
   render() {
     const {
+      allowNarrowViewportAutoHeight,
       children,
       footer,
       forceStatefulPicklist,
@@ -265,15 +268,23 @@ class XUIDropdownPanel extends PureComponent {
       onScroll,
       onSelect,
       panelId,
+      panelRef,
       qaHook,
       style,
       bodyClassName,
       shouldManageInitialHighlight,
     } = this.props;
 
-    let maxHeight = style && style.maxHeight;
+    const bodyStyle = {
+      maxHeight: style?.maxHeight,
+    };
+
     if (checkIsNarrowViewport()) {
-      maxHeight = header == null ? '80vh' : '100vh';
+      bodyStyle.maxHeight = !header ? '80vh' : '100vh';
+
+      if (allowNarrowViewportAutoHeight) {
+        bodyStyle.height = 'auto';
+      }
     }
 
     const shouldAddStatefulPicklist = forceStatefulPicklist || this.containsPicklist();
@@ -286,7 +297,7 @@ class XUIDropdownPanel extends PureComponent {
         data-automationid={qaHook}
         id={panelId}
         onKeyDown={this.keyDownHandler}
-        ref={this.rootNode}
+        ref={compose(panelRef, i => (this.rootNode.current = i))}
         role="presentation"
         style={style}
         tabIndex={-1}
@@ -296,9 +307,7 @@ class XUIDropdownPanel extends PureComponent {
           data-automationid={qaHook && `${qaHook}--body`}
           onMouseUp={this.iOSHack}
           role="presentation"
-          style={{
-            maxHeight,
-          }}
+          style={bodyStyle}
         >
           {header}
           {shouldAddStatefulPicklist ? (
@@ -348,6 +357,12 @@ class XUIDropdownPanel extends PureComponent {
 }
 
 XUIDropdownPanel.propTypes = {
+  /**
+   * @ignore
+   * Internal use only. Allows options in a dropdown panel to take least amount of height needed, when viewed on a narrow screen.
+   * */
+  allowNarrowViewportAutoHeight: PropTypes.bool,
+
   /** Class name to apply to the body element */
   bodyClassName: PropTypes.string,
 
@@ -382,6 +397,9 @@ XUIDropdownPanel.propTypes = {
 
   /** Used by `XUINestedDropdown` to identify each panel. */
   panelId: PropTypes.string,
+
+  /** Sets a ref for the input element */
+  panelRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 
   qaHook: PropTypes.string,
 

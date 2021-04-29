@@ -5,6 +5,8 @@
 //
 // Components: Text-Input
 //
+// flags: updatesComing
+//
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.pcgu22htm7cm
 //
 // Styleguide: Components.Controls.TextInput
@@ -102,6 +104,53 @@
 //
 // Styleguide: Components.Controls.TextInput.6
 
+// Character limit
+//
+// You can limit the maximum characters allowed on text inputs using the character counter.
+//
+// The counter can be:
+// * initially hidden if it’s unlikely a user will exceed the character limit
+// * visible to show a user the character limit before they start typing (e.g. notes section)
+//
+// Tips:
+// Do: Use a clear validation message to reiterate the maximum character limit when it’s exceeded
+// Do: Only make the character counter visible when the user approaches the limit, reducing the complexity
+// Warning: If unsure of the space needed, choose the highest number of characters for the limit
+// Dont: Don’t set a character limit without clear and valid reasons (e.g. preventing excessive input of characters)
+//
+// Styleguide: Components.Controls.TextInput.7
+
+// Soft-limit vs hard-limit
+//
+// Use a soft-limit for text inputs. It allows users to go beyond the character limit, but informs them through the character counter and a validation message. This prevents user errors, such as incomplete copy-pasting or exceeding the limit during typing without looking at the screen.
+//
+// The problem with hard-limits (e.g. HTML input attribute: `maxlength`) is users can’t enter any characters that exceed the limit, so it’s not possible to validate and alert users of an input error. We don’t recommend using them.
+//
+// Styleguide: Components.Controls.TextInput.7.1
+
+// Visibility of character counters
+//
+// Character limits don't always have to be visible. The use of a character counter should be minimised because unnecessary use of them can distract users with visual noise.
+//
+//
+// Styleguide: Components.Controls.TextInput.7.2
+
+// Visible when invalid
+//
+// If a maximum character limit is used to prevent excessive input of characters, and the user is unlikely to exceed the limit, display the character count only when the limit is exceeded or close to being exceeded.
+//
+// Markup: ./examples/text-input/_text-input-character-limit-on-invalid.html
+//
+// Styleguide: Components.Controls.TextInput.7.2.1
+
+// Always visible
+//
+// If the number of characters entered by a user is likely to exceed the character limit, always show the character counter so they know the character limit in advance.
+//
+// Markup: ./examples/text-input/_text-input-character-limit-always.html
+//
+// Styleguide: Components.Controls.TextInput.7.2.2
+
 // Borderless text inputs
 //
 // Add `xui-input-borderless` to remove border from input and `xui-textinput-borderless-solid` to add grey tint.
@@ -115,7 +164,7 @@
 //
 // Markup: ./examples/text-input/_text-input-borderless.html
 //
-// Styleguide: Components.Controls.TextInput.7
+// Styleguide: Components.Controls.TextInput.8
 
 // Transparent text inputs
 //
@@ -131,7 +180,7 @@
 //
 // Markup: ./examples/text-input/_text-input-transparent.html
 //
-// Styleguide: Components.Controls.TextInput.8
+// Styleguide: Components.Controls.TextInput.9
 
 // Inverted inputs
 //
@@ -141,12 +190,12 @@
 //
 // Markup: ./examples/text-input/_text-input-inverted.html
 //
-// Styleguide: Components.Controls.TextInput.9
+// Styleguide: Components.Controls.TextInput.10
 
 // Adding icons
 //
 //
-// Styleguide: Components.Controls.TextInput.10
+// Styleguide: Components.Controls.TextInput.11
 
 // Content prompts
 //
@@ -160,7 +209,7 @@
 //
 // Markup: ./examples/text-input/_text-input-content-prompts.html
 //
-// Styleguide: Components.Controls.TextInput.10.1
+// Styleguide: Components.Controls.TextInput.11.1
 
 // Indicating actions
 //
@@ -170,7 +219,7 @@
 //
 // Markup: ./examples/text-input/_text-input-actions.html
 //
-// Styleguide: Components.Controls.TextInput.10.2
+// Styleguide: Components.Controls.TextInput.11.2
 
 // Class list
 //
@@ -199,7 +248,7 @@
 // xui-textinput--input-small: Sets textinput size to small
 // xui-textinput--input-xsmall: Sets textinput size to xsmall
 //
-// Styleguide: Components.Controls.TextInput.10.8
+// Styleguide: Components.Controls.TextInput.11.8
 
 // Related links
 //

@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { Portal } from 'react-portal';
 import { tableName } from './constants';
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
+import usePrevious from '../../helpers/usePrevious';
 
 const baseName = `${tableName}--portalfocus`;
 
@@ -11,6 +12,11 @@ const PortalFocus = ({ focusedCellRef, isFocused, scrollContainerRef }) => {
   const [showPortal, setShowPortal] = useState(undefined);
   const [portalStyle, setPortalStyle] = useState({});
   const [focusedCellCovered, setFocusedCellCovered] = useState(undefined);
+
+  // We do put focusedCellRef in the dependencies of useLayoutEffect to make sure the update,
+  // but it seems doesn't work in some edge cases (ref XUI-1823) - should be related to React caching strategy.
+  // This is used to force an update of useLayoutEffect to make sure the portal is up to date.
+  const preFocusedCellRefCurrent = usePrevious(focusedCellRef?.current);
 
   const { hasPinnedFirstColumn, hasPinnedLastColumn } = React.useContext(XUIEditableTableContext);
 
@@ -91,6 +97,7 @@ const PortalFocus = ({ focusedCellRef, isFocused, scrollContainerRef }) => {
     isFocused,
     scrollContainerRef,
     focusedCellRef.current?.clientHeight,
+    preFocusedCellRefCurrent,
   ]);
 
   return showPortal ? (

@@ -1,11 +1,13 @@
 import React from 'react';
-import Enzyme from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 
 import XUICompositionMasterDetail from '../XUICompositionMasterDetail';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 describe('<XUICompositionMasterDetail>', () => {
   it('renders basic example', () => {
@@ -43,5 +45,11 @@ describe('<XUICompositionMasterDetail>', () => {
       <XUICompositionMasterDetail master={<div />} detail={<div />} retainWidth="small" />,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUICompositionMasterDetail detail={<div />} master={<div />} />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

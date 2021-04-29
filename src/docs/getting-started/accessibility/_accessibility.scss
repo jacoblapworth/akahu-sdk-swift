@@ -33,7 +33,7 @@
 
 // What does success look like?
 //
-// - The international standard for accessibility is [WCAG 2.1](w3.org/TR/WCAG21/), and our goal is to meet the AA level. It includes many recommendations for making a web app accessible to people with a wide range of impairments.
+// - The international standard for accessibility is <a href="//w3.org/TR/WCAG21/" target="_blank">WCAG 2.1</a>, and our goal is to meet the AA level. It includes many recommendations for making a web app accessible to people with a wide range of impairments.
 // - Performance of a web app is part of making it accessible to users with varying devices and internet speeds. Access may sometimes be a very literal concept.
 // - Responsive is mostly related to devices, but also refers to different working modes preferred, or at times, required, by users. Someone working on-the-go may wish to access advanced web app features from a small mobile device with a touch interface, while a power user at their desk may wish to display as much data as possible on a very large monitor and navigate quickly using only their keyboard. Support for lower resolution displays also plays a part in this.
 // - Localisation is also a closely related concept, especially as we expand into new markets. In order for something to be accessible, people to be able to successfully perceive it, and understand it. To do this, we need to simultaneously consider concerns like culturally-specific color associations, multi-language support, and even details like making sure we're optimising for variable line-lengths.

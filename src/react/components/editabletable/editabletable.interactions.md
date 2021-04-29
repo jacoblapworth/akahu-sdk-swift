@@ -64,7 +64,7 @@ const data = [
   { fruit: 'Banana', colour: 'Yellow', price: 2.99, uid: uuidv4() },
   { fruit: 'Orange', colour: 'Orange', price: 3.99, uid: uuidv4() }
 ];
-const blankItem = { fruit: undefined, colour: undefined, price: undefined, isDisabled: true };
+const blankItem = { fruit: '', colour: '', price: '', isDisabled: true };
 const Example = () => {
   const [tableData, setTableData] = useState(data);
   const addNewRow = () => {
@@ -127,6 +127,7 @@ const data = [
   { id: uuidv4(), fruit: 'Banana', color: 'Yellow', price: 2.99 },
   { id: uuidv4(), fruit: 'Orange', color: 'Orange', price: 3.99 }
 ];
+const blankItem = { fruit: '', color: '', price: '' };
 
 const EditableNewRowOnKeyDownDemo = () => {
   const [demoData, setDemoData] = useState(data);
@@ -158,14 +159,13 @@ const EditableNewRowOnKeyDownDemo = () => {
   const newRowHandler = (event, source) => {
     if (!isKeyFunctional(event) && !isKeyArrow(event)) {
       const id = uuidv4();
+      const blankItemData = {
+        id,
+        ...blankItem,
+        [source]: event.target.value
+      };
 
-      setDemoData([
-        ...demoData,
-        {
-          id,
-          [source]: event.target.value
-        }
-      ]);
+      setDemoData([...demoData, blankItemData]);
 
       setFocusId(id);
       setFocusCell(source);

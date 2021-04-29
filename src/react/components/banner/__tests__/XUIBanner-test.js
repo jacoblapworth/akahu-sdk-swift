@@ -1,9 +1,11 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIBanner from '../XUIBanner';
 
 Enzyme.configure({ adapter: new Adapter() });
+expect.extend(toHaveNoViolations);
 
 const NOOP = () => {};
 
@@ -12,20 +14,31 @@ describe('XUIBanner', () => {
     const banner = shallow(<XUIBanner />);
     expect(banner.hasClass('xui-banner-negative')).toBeFalsy();
     expect(banner.hasClass('xui-banner-positive')).toBeFalsy();
+    expect(banner.hasClass('xui-banner-neutral')).toBeFalsy();
   });
 
-  it('should render with the negative sentiment modifier (and without positive modifier) when sentiment is set to negative', () => {
+  it('should render with the negative sentiment modifier (and without positive or neutral modifier) when sentiment is set to negative', () => {
     const banner = shallow(<XUIBanner sentiment="negative" />);
 
     expect(banner.hasClass('xui-banner-negative')).toBeTruthy();
     expect(banner.hasClass('xui-banner-positive')).toBeFalsy();
+    expect(banner.hasClass('xui-banner-neutral')).toBeFalsy();
   });
 
-  it('should render with the positive sentiment modifier (and without negative modifier) when sentiment is set to positive', () => {
+  it('should render with the neutral sentiment modifier (and without positive or negative modifier) when sentiment is set to neutral', () => {
+    const banner = shallow(<XUIBanner sentiment="neutral" />);
+
+    expect(banner.hasClass('xui-banner-neutral')).toBeTruthy();
+    expect(banner.hasClass('xui-banner-negative')).toBeFalsy();
+    expect(banner.hasClass('xui-banner-positive')).toBeFalsy();
+  });
+
+  it('should render with the positive sentiment modifier (and without negative or neutral modifier) when sentiment is set to positive', () => {
     const banner = shallow(<XUIBanner sentiment="positive" />);
 
-    expect(banner.hasClass('xui-banner-negative')).toBeFalsy();
     expect(banner.hasClass('xui-banner-positive')).toBeTruthy();
+    expect(banner.hasClass('xui-banner-negative')).toBeFalsy();
+    expect(banner.hasClass('xui-banner-neutral')).toBeFalsy();
   });
 
   it('should render without a close button if no close click function is provided', () => {
@@ -39,12 +52,20 @@ describe('XUIBanner', () => {
   });
 
   it('should add the appropriate `role` attribute depending on the sentiment (`alert` for negative; else `status`)', () => {
-    const status = shallow(<XUIBanner sentiment="positive" />);
-    const alert = shallow(<XUIBanner sentiment="negative" />);
-    const statusNeutral = shallow(<XUIBanner />);
+    const positive = shallow(<XUIBanner sentiment="positive" />);
+    const negative = shallow(<XUIBanner sentiment="negative" />);
+    const neutral = shallow(<XUIBanner sentiment="neutral" />);
+    const noSentiment = shallow(<XUIBanner />);
 
-    expect(status.props().role).toEqual('status');
-    expect(alert.props().role).toEqual('alert');
-    expect(statusNeutral.props().role).toEqual('status');
+    expect(negative.props().role).toEqual('alert');
+    expect(positive.props().role).toEqual('status');
+    expect(neutral.props().role).toEqual('status');
+    expect(noSentiment.props().role).toEqual('status');
+  });
+
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIBanner />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
   });
 });

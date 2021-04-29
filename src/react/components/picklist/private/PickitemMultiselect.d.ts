@@ -13,6 +13,7 @@ export interface Props {
   onFocus?: React.MouseEventHandler<HTMLElement>;
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
   onMouseOver?: React.MouseEventHandler<HTMLElement>;
+  onMouseUp?: React.MouseEventHandler<HTMLElement>;
   /**
    * Less important text to appear pinned at the right
    */

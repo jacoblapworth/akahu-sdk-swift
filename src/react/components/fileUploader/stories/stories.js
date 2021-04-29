@@ -107,7 +107,6 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(customCentered);
 
 variations.forEach(variations => {
   const { storyTitle, storyKind, ...variationMinusStoryDetails } = variations;

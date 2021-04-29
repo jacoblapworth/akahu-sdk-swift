@@ -9,4 +9,8 @@ export default {
     class: `${ns}-banner-negative`,
     role: 'alert',
   },
+  neutral: {
+    class: `${ns}-banner-neutral`,
+    role: 'status',
+  },
 };

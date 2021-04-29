@@ -54,6 +54,7 @@ export const getAriaAttributes = (ids, props, groupedSetting = {}) => {
 const XUIControlWrapper = React.forwardRef(
   (
     {
+      characterCounter,
       children,
       fieldClassName,
       hintMessage,
@@ -84,6 +85,7 @@ const XUIControlWrapper = React.forwardRef(
       >
         <LabelElement
           {...{
+            characterCounter,
             label,
             labelClassName,
             isLabelHidden,
@@ -111,6 +113,9 @@ const XUIControlWrapper = React.forwardRef(
 export default XUIControlWrapper;
 
 XUIControlWrapper.propTypes = {
+  /** Character counter props */
+  characterCounter: PropTypes.object,
+
   children: PropTypes.node,
 
   /** Class names to be added to the field wrapper element */

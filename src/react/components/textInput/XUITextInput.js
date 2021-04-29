@@ -35,7 +35,7 @@ class XUITextInput extends PureComponent {
   }
 
   componentDidMount() {
-    const { maxRows, focusByDefault, characterCounter, value, defaultValue } = this.props;
+    const { maxRows, focusOnMount, characterCounter, value, defaultValue } = this.props;
 
     if (shouldAutomaticallyResize(this.props) && this.input) {
       if (maxRows != null) {
@@ -51,7 +51,7 @@ class XUITextInput extends PureComponent {
       autosize(this.input);
     }
 
-    if (focusByDefault) {
+    if (focusOnMount) {
       this.input && this.input.focus();
 
       // Only highlight the value when the type supports setSelectionRange
@@ -148,7 +148,7 @@ class XUITextInput extends PureComponent {
             labelId,
             onFocus,
             onBlur,
-            focusByDefault,
+            focusOnMount,
             /* eslint-enable no-unused-vars */
             ...otherProps
           } = input.props;
@@ -284,7 +284,7 @@ XUITextInput.propTypes = {
   /** Class names to be added to the field wrapper element */
   fieldClassName: PropTypes.string,
   /** After rendering set focus at the end of the input */
-  focusByDefault: PropTypes.bool,
+  focusOnMount: PropTypes.bool,
   /** Hint message to show under the input */
   hintMessage: PropTypes.node,
   /** Class names to add to the input element */

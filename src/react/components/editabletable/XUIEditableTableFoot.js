@@ -6,13 +6,11 @@ import { tableVariantClassNames } from './private/constants';
 
 const baseName = `${tableVariantClassNames.editable}foot`;
 
-const XUIEditableTableFoot = ({ children, className, qaHook, ...spreadProps }) => {
-  return (
-    <tfoot className={cn(baseName, className)} data-automationid={qaHook} {...spreadProps}>
-      {children}
-    </tfoot>
-  );
-};
+const XUIEditableTableFoot = ({ children, className, qaHook, ...spreadProps }) => (
+  <tfoot className={cn(baseName, className)} data-automationid={qaHook} {...spreadProps}>
+    {children}
+  </tfoot>
+);
 
 XUIEditableTableFoot.propTypes = {
   children: PropTypes.node,

@@ -50,12 +50,14 @@ function logToError(...rest) {
   }
 }
 
+// eslint-disable-next-line no-undef
 jasmine.getEnv().beforeEach(() => {
   // make calls to console.warn and console.error throw an error
   console.warn = logToError;
   console.error = logToError;
 });
 
+// eslint-disable-next-line no-undef
 jasmine.getEnv().afterEach(() => {
   // return console.warn and console.error to default behaviour
   console.warn = consoleWarn;

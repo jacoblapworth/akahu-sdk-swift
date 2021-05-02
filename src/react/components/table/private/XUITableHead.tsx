@@ -9,7 +9,6 @@ import {
   XUIEditableTableRow,
 } from '../../../editabletable';
 import { XUITableCell, XUITableColumn } from '../../../table';
-import { ns } from '../../helpers/xuiClassNamespace';
 import { tableName } from '../helpers/constants';
 import generateCellProps from '../helpers/generateCellProps';
 import { RowData } from '../XUITable';

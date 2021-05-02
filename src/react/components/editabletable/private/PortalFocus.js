@@ -88,7 +88,8 @@ const PortalFocus = ({ focusedCellRef, isFocused, scrollContainerRef }) => {
       getPortalPosition();
       scrollContainerRef?.current?.addEventListener('scroll', getPortalPosition);
     }
-    return () => scrollContainerRef?.current?.removeEventListener('scroll', getPortalPosition);
+    const currentScrollContainerRef = scrollContainerRef?.current;
+    return () => currentScrollContainerRef?.removeEventListener('scroll', getPortalPosition);
   }, [
     focusedCellRef,
     hasPinnedFirstColumn,

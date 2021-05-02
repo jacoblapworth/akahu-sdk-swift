@@ -81,20 +81,18 @@ storiesWithKnobs.add('Playground', () => (
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 const fixedStories = storiesOf(storiesWithVariationsKindName, module);
-fixedStories.add('Simple HTML fixed footer (BYO padding)', () => {
-  return (
-    <>
-      <div
-        className="xui-panel xui-margin-horizontal-auto xui-margin-bottom-5xlarge xui-padding xui-margin-top"
-        style={{ width: '200px' }}
-      >
-        {sampleText}
-        {sampleText}
-      </div>
-      <div className="xui-fixedfooter">Bottom fixed content</div>
-    </>
-  );
-});
+fixedStories.add('Simple HTML fixed footer (BYO padding)', () => (
+  <>
+    <div
+      className="xui-panel xui-margin-horizontal-auto xui-margin-bottom-5xlarge xui-padding xui-margin-top"
+      style={{ width: '200px' }}
+    >
+      {sampleText}
+      {sampleText}
+    </div>
+    <div className="xui-fixedfooter">Bottom fixed content</div>
+  </>
+));
 
 class ScrollToBottomWrapper extends React.PureComponent {
   rootNode = React.createRef();

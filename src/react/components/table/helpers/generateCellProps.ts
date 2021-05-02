@@ -5,10 +5,12 @@ import { RowData } from '../XUITable';
 import { tableName } from './constants';
 import queryIsValidInteraction from './isQueryValidInteraction';
 
+type OnCellClick<RD extends RowData> = (rowData: RD) => void;
+
 function handleCellInteraction<RD extends RowData>(
   event: React.MouseEvent | React.KeyboardEvent,
   rowData: RD,
-  onCellClick?: (rowData: RD) => void,
+  onCellClick?: OnCellClick<RD>,
 ) {
   const isValidInteraction = queryIsValidInteraction(event);
 

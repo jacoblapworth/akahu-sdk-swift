@@ -1,4 +1,5 @@
 import React from 'react';
+import { render } from '@testing-library/react';
 import Enzyme, { mount } from 'enzyme';
 import { nanoid } from 'nanoid';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
@@ -94,19 +95,21 @@ describe('XUIDateInputItem', () => {
   });
 
   it('should call the passed onFocus handler when focused', () => {
-    const wrapper = renderIntoDocument(
+    const dateInputRef = React.createRef();
+    render(
       <XUIDateInputItem
         inputLabel="Date"
         locale="en"
         nextButtonAriaLabel="Next month"
         onSelectDate={() => {}}
         prevButtonAriaLabel="Previous month"
+        ref={dateInputRef}
         selectedDate={selectedDate}
       />,
     );
 
-    wrapper.inputRef.current.focus();
-    expect(wrapper.inputRef.current).toEqual(document.activeElement);
+    dateInputRef.current.inputRef.current.focus();
+    expect(dateInputRef.current.inputRef.current).toEqual(document.activeElement);
   });
 
   it('Dropdown opening triggers input focus', () => {

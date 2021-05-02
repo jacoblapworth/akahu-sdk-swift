@@ -147,6 +147,7 @@ export default function useKeyboardSensor(api: SensorAPI) {
           return;
         }
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const draggableId: DraggableId | undefined = api.findClosestDraggableId(event as any);
 
         if (!draggableId) {
@@ -156,8 +157,8 @@ export default function useKeyboardSensor(api: SensorAPI) {
         const preDrag: PreDragActions | undefined = api.tryGetLock(
           draggableId,
           // abort function not defined yet
-          // eslint-disable-next-line no-use-before-define
           stop,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           { sourceEvent: event as any },
         );
 
@@ -185,7 +186,6 @@ export default function useKeyboardSensor(api: SensorAPI) {
           // unbind dragging bindings
           unbindEventsRef.current();
           // start listening for capture again
-          // eslint-disable-next-line no-use-before-define
           listenForCapture();
         }
 
@@ -201,27 +201,21 @@ export default function useKeyboardSensor(api: SensorAPI) {
     [api],
   );
 
-  const listenForCapture = React.useCallback(
-    function tryStartCapture() {
-      const options = {
-        passive: false,
-        capture: true,
-      };
+  const listenForCapture = React.useCallback(() => {
+    const options = {
+      passive: false,
+      capture: true,
+    };
 
-      unbindEventsRef.current = bindEvents(window, [startCaptureBinding], options);
-    },
-    [startCaptureBinding],
-  );
+    unbindEventsRef.current = bindEvents(window, [startCaptureBinding], options);
+  }, [startCaptureBinding]);
 
-  React.useLayoutEffect(
-    function mount() {
-      listenForCapture();
+  React.useLayoutEffect(() => {
+    listenForCapture();
 
-      // kill any pending window events when unmounting
-      return function unmount() {
-        unbindEventsRef.current();
-      };
-    },
-    [listenForCapture],
-  );
+    // kill any pending window events when unmounting
+    return function unmount() {
+      unbindEventsRef.current();
+    };
+  }, [listenForCapture]);
 }

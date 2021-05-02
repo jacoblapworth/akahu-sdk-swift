@@ -43,19 +43,17 @@ const SBCell = props => {
       {...spreadProps}
     >
       {options &&
-        options.map((opt, idx) => {
-          return (
-            <XUISelectBoxOption
-              id={opt}
-              isSelected={selectedItems.indexOf(opt) >= 0}
-              key={idx + opt + rowIndex}
-              showCheckboxes={isMultiSelect}
-              value={opt}
-            >
-              {opt}
-            </XUISelectBoxOption>
-          );
-        })}
+        options.map((opt, idx) => (
+          <XUISelectBoxOption
+            id={opt}
+            isSelected={selectedItems.indexOf(opt) >= 0}
+            key={idx + opt + rowIndex}
+            showCheckboxes={isMultiSelect}
+            value={opt}
+          >
+            {opt}
+          </XUISelectBoxOption>
+        ))}
     </XUIEditableTableCellSelectBox>
   );
 };

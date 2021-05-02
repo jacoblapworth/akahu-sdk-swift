@@ -39,6 +39,7 @@ exports[`XUITable XUITableHead sorting by columns snapshot 1`] = `
       class="xui-readonlytablewrapper xui-readonlytableoverflow"
       data-rbd-droppable-context-id="12"
       data-rbd-droppable-id="xui-nanoid"
+      style="--xui-editableoverflow--scrollbar-height: 0px;"
     >
       <div
         class="xui-readonlytablewrapper--scrollcontainer"
@@ -209,6 +210,7 @@ exports[`XUITable snapshot 1`] = `
       class="xui-readonlytablewrapper xui-readonlytableoverflow"
       data-rbd-droppable-context-id="0"
       data-rbd-droppable-id="xui-nanoid"
+      style="--xui-editableoverflow--scrollbar-height: 0px;"
     >
       <div
         class="xui-readonlytablewrapper--scrollcontainer"

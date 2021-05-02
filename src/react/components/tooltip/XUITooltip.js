@@ -185,9 +185,8 @@ export default class XUITooltip extends PureComponent {
     listenerTarget?.removeEventListener('keydown', this._keyDownHandler);
   };
 
-  shouldUpdateListeners = (props, otherProps) => {
-    return props.keyListenerTarget !== otherProps.keyListenerTarget;
-  };
+  shouldUpdateListeners = (props, otherProps) =>
+    props.keyListenerTarget !== otherProps.keyListenerTarget;
 
   render() {
     const {

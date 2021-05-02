@@ -115,9 +115,9 @@ const Draggable: React.FunctionComponent<Props> = ({
          *
          * Wrap the draggable in a `table` element that keeps track of column widths.
          */
-        const columns = Array.from(tableRef?.current?.querySelector('tr')?.children || []) as Array<
-          HTMLElement
-        >;
+        const columns = Array.from(
+          tableRef?.current?.querySelector('tr')?.children || [],
+        ) as Array<HTMLElement>;
         const calculatedColumnWidths = columns
           .filter(
             (_, columnIndex) =>

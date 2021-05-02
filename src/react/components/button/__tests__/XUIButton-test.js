@@ -1,4 +1,5 @@
 import React from 'react';
+import * as testingLibrary from '@testing-library/react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
@@ -133,16 +134,26 @@ describe('<XUIButton/>', () => {
   });
 
   it('focus() should focus the DOM node', async () => {
-    const button = renderIntoDocument(<XUIButton onClick={noop}>test</XUIButton>);
-    button.focus();
-    expect(button.rootNode.current).toEqual(document.activeElement);
+    const buttonRef = React.createRef();
+    testingLibrary.render(
+      <XUIButton onClick={noop} ref={buttonRef}>
+        test
+      </XUIButton>,
+    );
+    buttonRef.current.focus();
+    expect(buttonRef.current.rootNode.current).toEqual(document.activeElement);
   });
 
   it('hasFocus() should accurately reflect whether or not the main button DOM node has focus', () => {
-    const button = renderIntoDocument(<XUIButton onClick={noop}>test</XUIButton>);
-    expect(button.hasFocus()).toBe(false);
-    button.focus();
-    expect(button.hasFocus()).toBe(true);
+    const buttonRef = React.createRef();
+    testingLibrary.render(
+      <XUIButton onClick={noop} ref={buttonRef}>
+        test
+      </XUIButton>,
+    );
+    expect(buttonRef.current.hasFocus()).toBe(false);
+    buttonRef.current.focus();
+    expect(buttonRef.current.hasFocus()).toBe(true);
   });
 
   it('does retain layout checks with a myriad of combinations', () => {

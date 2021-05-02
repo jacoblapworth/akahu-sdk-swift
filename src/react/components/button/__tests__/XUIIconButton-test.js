@@ -1,4 +1,5 @@
 import React from 'react';
+import * as testingLibrary from '@testing-library/react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
@@ -28,9 +29,10 @@ describe('<XUIIconButton/>', () => {
   });
 
   it('focus() should focus the DOM node', () => {
-    const button = mount(<XUIIconButton {...requiredProps} />);
-    button.instance().rootNode.current.focus();
-    expect(button.instance().rootNode.current).toEqual(document.activeElement);
+    const buttonRef = React.createRef();
+    testingLibrary.render(<XUIIconButton {...requiredProps} ref={buttonRef} />);
+    buttonRef.current.rootNode.current.focus();
+    expect(buttonRef.current.rootNode.current).toEqual(document.activeElement);
   });
 
   it('renders iconButtons with the correct icon size classes', () => {

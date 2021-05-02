@@ -15,19 +15,17 @@ const XUIEditableTableCellIconButton = ({
   onClick,
   qaHook,
   ...spreadProps
-}) => {
-  return (
-    <XUIEditableTableCell {...cellProps} className={cn(baseName, cellProps.className)}>
-      <XUIIconButton
-        {...spreadProps}
-        ariaLabel={ariaLabel}
-        icon={iconReference}
-        onClick={onClick}
-        qaHook={qaHook}
-      />
-    </XUIEditableTableCell>
-  );
-};
+}) => (
+  <XUIEditableTableCell {...cellProps} className={cn(baseName, cellProps.className)}>
+    <XUIIconButton
+      {...spreadProps}
+      ariaLabel={ariaLabel}
+      icon={iconReference}
+      onClick={onClick}
+      qaHook={qaHook}
+    />
+  </XUIEditableTableCell>
+);
 
 XUIEditableTableCellIconButton.propTypes = {
   ariaLabel: PropTypes.string,

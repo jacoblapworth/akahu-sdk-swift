@@ -424,9 +424,9 @@ describe('XUITable', () => {
         );
 
         // Assert
-        const checkboxes = screen.queryAllByTestId('testId-body-row-checkbox--input') as Array<
-          HTMLInputElement
-        >;
+        const checkboxes = screen.queryAllByTestId(
+          'testId-body-row-checkbox--input',
+        ) as Array<HTMLInputElement>;
 
         expect(checkboxes[0].checked).toBeFalsy();
         expect(checkboxes[1].checked).toBeTruthy();
@@ -636,6 +636,9 @@ describe('XUITable', () => {
 
   test('should pass accessibility testing', async () => {
     const wrapper = render(
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore – This component isn't TS and TS is overly aggressive with its inferred type
+      // definitions
       <TestScaffold
         cellBodyQaHook="cellBodyQaHook"
         cellHeadQaHook="cellHeadQaHook"

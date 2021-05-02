@@ -99,43 +99,39 @@ const PopoverWithTrigger = ({
   );
 };
 
-const Playground = props => {
-  return (
-    <div
-      style={{
-        alignItems: 'center',
-        justifyItems: 'center',
-        display: 'grid',
-        gridTemplateColumns: 'auto 1fr auto',
-        gridTemplateRows: 'auto 1fr auto',
-        height: '100%',
-        left: 0,
-        padding: '20px',
-        position: 'absolute',
-        top: 0,
-        width: '100%',
-      }}
-    >
-      {Array.from(Array(9).keys()).map(i => (
-        <PopoverWithTrigger id={i.toString()} key={`trigger-with-popover${i}`} {...props} />
-      ))}
-    </div>
-  );
-};
+const Playground = props => (
+  <div
+    style={{
+      alignItems: 'center',
+      justifyItems: 'center',
+      display: 'grid',
+      gridTemplateColumns: 'auto 1fr auto',
+      gridTemplateRows: 'auto 1fr auto',
+      height: '100%',
+      left: 0,
+      padding: '20px',
+      position: 'absolute',
+      top: 0,
+      width: '100%',
+    }}
+  >
+    {Array.from(Array(9).keys()).map(i => (
+      <PopoverWithTrigger id={i.toString()} key={`trigger-with-popover${i}`} {...props} />
+    ))}
+  </div>
+);
 
 const storiesWithKnobs = storiesOf(storyKind, module);
 storiesWithKnobs.addParameters({ layout: 'centered' });
-storiesWithKnobs.add('Playground', () => {
-  return (
-    <Playground
-      closeOnClickOutside={boolean('Close on click outside', false)}
-      preferredPosition={select('Popover position', ['bottom', 'left', 'right', 'top'], 'bottom')}
-      triggerText={text('Trigger text', 'Trigger')}
-      triggerType={select('Trigger type', ['button', 'icon-button', 'input', 'text'], 'button')}
-      width={select('Popover width', ['small', 'medium', 'large'], 'medium')}
-    />
-  );
-});
+storiesWithKnobs.add('Playground', () => (
+  <Playground
+    closeOnClickOutside={boolean('Close on click outside', false)}
+    preferredPosition={select('Popover position', ['bottom', 'left', 'right', 'top'], 'bottom')}
+    triggerText={text('Trigger text', 'Trigger')}
+    triggerType={select('Trigger type', ['button', 'icon-button', 'input', 'text'], 'button')}
+    width={select('Popover width', ['small', 'medium', 'large'], 'medium')}
+  />
+));
 
 const storiesWithVariations = storiesOf(variationStoryKind, module);
 storiesWithVariations.addParameters({ layout: 'centered' });

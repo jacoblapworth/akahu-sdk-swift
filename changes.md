@@ -67,11 +67,11 @@ _Note: This will mean that many key functionalities that worked for IE11 users p
 
 - The wrapping div of an autocompleter will now have a class of `xui-autocompleter` applied. This will be used for styling when it appears inside a control group, in an upcoming release. This will NOT be addressed by the codemod.
 
-### XUIDateInput, XUITextInput
+### XUITextInput and all consuming components
 
 - The element with a class of `xui-textinputwrapper` will additionally have a class of `xui-textinputwrapper-is-invalid`, when invalid. This will be used for styling when the component appears inside a control group, in an upcoming release. This will NOT be addressed by the codemod.
 
-### XUIPagination, XUISelectBox
+### XUISelectBox and all consuming components
 
 - The wrapping div of a select box will now have a class of `xui-selectwrapper` applied. When the contained select box is invalid, this element will also get a class of `xui-selectwrapper-is-invalid`. These new classes will be used for styling when the component appears inside a control group, in an upcoming release. They will NOT be addressed by the codemod.
 - Addtionally, the element that often has a class of `xui-select-layout` will now also have a root class of `xui-select` applied. This will be used for styling when the component appears inside a control group, in an upcoming release. This will be addressed by the codemod, where possible, however `xui-select-layout` is not always present.
@@ -147,7 +147,7 @@ TypeScript types have also been made slightly more strict for instances of rootN
 - All `XUIAccordion`-related `qaHook`s have been updated to use a `--` instead of a single `-`, in line with XUI naming conventions.
   - e.g. `{qaHook}-empty` has been renamed to `{qaHook}--empty`
 
-### XUIDateInputWIP
+### XUIDateInput
 
 - `locale`, `nextButtonAriaLabel`, and `prevButtonAriaLabel` are now required to reflect the same changes in `XUIDatePicker`.
 - Labels are now required on inputs, but not input groups.
@@ -180,6 +180,7 @@ TypeScript types have also been made slightly more strict for instances of rootN
 
 - Captions are now handled by adding an `ariaLabel` to the table element
 - XUITable's cell contents will now vertically align to the top of the cell instead of the middle
+- XUITable now supports server side rendering
 
 ### Component props
 

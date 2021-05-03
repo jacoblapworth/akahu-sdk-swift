@@ -97,6 +97,7 @@ const config = {
           styleguidePath,
           'components/ReactComponentRenderer',
         ),
+        'rsg-components/Section/Section': path.resolve(styleguidePath, 'components/Section'),
         'rsg-components/StyleGuide/StyleGuideRenderer': path.resolve(
           styleguidePath,
           'components/StyleGuide',
@@ -137,7 +138,7 @@ const config = {
   ignore: ['**/Positioning.js', '**/Constants.js', '**/TextHelpers.js', '**/__tests__/**'],
   sections: componentSections,
   getComponentPathLine(componentPath) {
-    let name = path.basename(componentPath, '.js');
+    let name = path.basename(componentPath).replace(/\.(j|t)sx?/g, '');
     const dir = path.dirname(componentPath).split('/').pop();
 
     // TODO: Normalise casing strategy between files and component directory names. Currently mismatched.

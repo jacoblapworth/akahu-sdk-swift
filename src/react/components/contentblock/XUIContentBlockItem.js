@@ -82,20 +82,25 @@ const XUIContentBlockItem = ({
 
   const tagPositionRight = tagPosition === 'right';
 
+  const handleLinkInteraction = event => {
+    href &&
+      // If the event target is in portal, it should not be prevented
+      // e.g. pickitem with href in dropdown which is put in overflow (XUI-1705)
+      !document.querySelector(`.${ns}-dropdown--panel`)?.contains(event.target) &&
+      event.preventDefault();
+    event.stopPropagation();
+  };
+
   const builtRightContent = (builtPinnedValue ||
     action ||
     overflow ||
     (tags && tagPositionRight)) && (
     <div
       className={`${baseClass}--rightcontent`}
-      onClick={event => {
-        href && event.preventDefault();
-        event.stopPropagation();
-      }}
+      onClick={handleLinkInteraction}
       onKeyDown={event => {
         if (isKeyClick(event)) {
-          href && event.preventDefault();
-          event.stopPropagation();
+          handleLinkInteraction(event);
         }
       }}
       role="presentation"

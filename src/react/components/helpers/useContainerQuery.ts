@@ -1,8 +1,8 @@
 import { Breakpoints, getWidthClassesFromWidth, handleBreakpoint } from './breakpoints';
 import useResizeObserver from './useResizeObserver';
 
-export default function useContainerQuery(customBreakpoints?: Breakpoints) {
-  const { observedElementRef, contentRect } = useResizeObserver();
+export default function useContainerQuery<T extends HTMLElement>(customBreakpoints?: Breakpoints) {
+  const { observedElementRef, contentRect } = useResizeObserver<T>();
 
   const { width } = contentRect;
 

@@ -1,10 +1,17 @@
 import { Breakpoints, getWidthClassesFromWidth, handleBreakpoint } from './breakpoints';
 import useResizeObserver from './useResizeObserver';
 
-export default function useContainerQuery<T extends HTMLElement>(customBreakpoints?: Breakpoints) {
+export default function useContainerQuery<T extends HTMLElement>(
+  customBreakpoints?: Breakpoints,
+  useBorderBox?: boolean,
+) {
   const { observedElementRef, contentRect } = useResizeObserver<T>();
 
-  const { width } = contentRect;
+  // `contentRect.width` uses the content box which excludes padding and borders.
+  // `getBoundingClientRect().width` uses the border box which includes padding and borders.
+  const width = useBorderBox
+    ? observedElementRef.current?.getBoundingClientRect().width
+    : contentRect.width;
 
   const isWidthAboveBreakpoint = breakpoint => {
     if (typeof width !== 'number') {

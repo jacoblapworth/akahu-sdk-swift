@@ -34,6 +34,7 @@ class XUIDateRangeInput extends Component {
 
     this.props.startDateInputConfig?.onSelectDate?.(date);
     this.endInputRef?.current.focus();
+    this.endInputRef?.current.select();
   };
 
   onSelectEndDate = date => {
@@ -150,7 +151,7 @@ class XUIDateRangeInput extends Component {
 
     return (
       <XUIControlGroup
-        columnWidths="1fr 1fr 40px"
+        columnWidths={`1fr 1fr ${!suggestedDates ? '' : '40px'}`}
         fieldClassName={cn(
           `${baseClass}`,
           className,

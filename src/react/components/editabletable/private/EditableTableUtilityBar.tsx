@@ -2,7 +2,6 @@ import cn from 'classnames';
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
-import combineRefs from '../../helpers/combineRefs';
 import useResizeObserver from '../../helpers/useResizeObserver';
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
 import { tableVariantClassNames } from './constants';
@@ -31,9 +30,7 @@ const EditableTableUtilityBar: React.FunctionComponent<Props> = ({
   const {
     contentRect: { width },
     observedElementRef,
-  } = useResizeObserver();
-
-  const combinedRef = combineRefs(observedElementRef);
+  } = useResizeObserver<HTMLTableDataCellElement>();
 
   React.useLayoutEffect(() => {
     const wrapperNode = scrollContainerRef?.current;
@@ -49,11 +46,7 @@ const EditableTableUtilityBar: React.FunctionComponent<Props> = ({
 
   return (
     <tr className={cn(baseName, className)} data-automationid={qaHook} {...spreadProps}>
-      <td
-        className={`${baseName}--cell`}
-        colSpan={colSpan}
-        ref={element => combinedRef(element as HTMLElement)}
-      >
+      <td className={`${baseName}--cell`} colSpan={colSpan} ref={observedElementRef}>
         <div className={`${baseName}--cell--wrapper`} style={{ width: wrapperWidth }}>
           {children}
         </div>

@@ -22,6 +22,7 @@ import { decorateSubStr, boldMatch } from '../../../components/autocompleter/hel
 import XUIPill from '../../../pill';
 import XUITag from '../../../tag';
 import XUIIcon from '../../../icon';
+import FullPageStoryWrapper from '../../helpers/FullPageStoryWrapper';
 
 // Private modules
 import Form from '../helpers/form';
@@ -166,236 +167,242 @@ test.add(storyNames.formLayout, () => {
       const { banks } = this.props;
 
       return (
-        <div className="capture xui-panel xui-page-width-standard xui-margin-vertical-xlarge">
-          <Form noLayout ref={this._form}>
-            <header className="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-align-center">
-              <div className="xui-panel--heading xui-margin-left-small">
-                All major inputs in various formats
-              </div>
-            </header>
+        <FullPageStoryWrapper>
+          <div className="capture xui-panel xui-page-width-standard xui-margin-vertical-xlarge">
+            <Form noLayout ref={this._form}>
+              <header className="xui-panel--header xui-padding-horizontal-small xui-u-flex xui-u-flex-align-center">
+                <div className="xui-panel--heading xui-margin-left-small">
+                  All major inputs in various formats
+                </div>
+              </header>
 
-            <PanelSection className="xui-padding-vertical" formLayout headerContent="Inputs">
-              <XUITextInput
-                id={inputMap.ah}
-                isFieldLayout
-                label="Account Holder"
-                name={inputMap.ah}
-              />
-
-              <XUITextInput
-                hintMessage="Found on the top of your IR3 statement"
-                inputProps={{
-                  name: inputMap.ird,
-                  id: inputMap.ird,
-                }}
-                isFieldLayout
-                label="IRD Number"
-              />
-
-              <XUITextInput
-                defaultValue="A very invalid message"
-                inputProps={{
-                  name: inputMap.bank,
-                  id: inputMap.bank,
-                }}
-                isFieldLayout
-                isInvalid
-                label="Bank account number"
-                validationMessage="Well, it's not right is it"
-              />
-
-              <XUIControlGroup isFieldLayout label="Your name">
+              <PanelSection className="xui-padding-vertical" formLayout headerContent="Inputs">
                 <XUITextInput
-                  inputProps={{ name: inputMap.nameFirst, id: inputMap.nameFirst }}
-                  isLabelHidden
-                  label="First name"
+                  id={inputMap.ah}
+                  isFieldLayout
+                  label="Account Holder"
+                  name={inputMap.ah}
                 />
-                <XUITextInput
-                  inputProps={{ name: inputMap.nameMiddle, id: inputMap.nameMiddle }}
-                  isLabelHidden
-                  label="Middle name"
-                />
-                <XUITextInput
-                  inputProps={{ name: inputMap.nameLast, id: inputMap.nameLast }}
-                  isLabelHidden
-                  label="Last name"
-                />
-              </XUIControlGroup>
 
-              <XUIControlGroup
-                columnWidths="max-content minmax(150px, 1fr)"
-                isFieldLayout
-                label="Choose a Food"
-              >
-                <XUIDropdownToggled
-                  dropdown={
-                    <XUIDropdown onSelect={value => this.setState({ foodType: value })}>
-                      <XUIPicklist>
-                        {['Vegetable', 'Fruit', 'Meat'].map((title, key) => (
-                          <XUIPickitem
-                            id={`${inputMap.foodType}-${title}`}
-                            isSelected={title === foodType}
-                            key={key}
-                            value={title}
-                          >
-                            {title}
-                          </XUIPickitem>
-                        ))}
-                      </XUIPicklist>
-                    </XUIDropdown>
-                  }
-                  onOpen={() => {}}
-                  trigger={<XUIButton hasCaret>{foodType || 'Food Type'}</XUIButton>}
+                <XUITextInput
+                  hintMessage="Found on the top of your IR3 statement"
+                  inputProps={{
+                    name: inputMap.ird,
+                    id: inputMap.ird,
+                  }}
+                  isFieldLayout
+                  label="IRD Number"
                 />
+
+                <XUITextInput
+                  defaultValue="A very invalid message"
+                  inputProps={{
+                    name: inputMap.bank,
+                    id: inputMap.bank,
+                  }}
+                  isFieldLayout
+                  isInvalid
+                  label="Bank account number"
+                  validationMessage="Well, it's not right is it"
+                />
+
+                <XUIControlGroup isFieldLayout label="Your name">
+                  <XUITextInput
+                    inputProps={{ name: inputMap.nameFirst, id: inputMap.nameFirst }}
+                    isLabelHidden
+                    label="First name"
+                  />
+                  <XUITextInput
+                    inputProps={{ name: inputMap.nameMiddle, id: inputMap.nameMiddle }}
+                    isLabelHidden
+                    label="Middle name"
+                  />
+                  <XUITextInput
+                    inputProps={{ name: inputMap.nameLast, id: inputMap.nameLast }}
+                    isLabelHidden
+                    label="Last name"
+                  />
+                </XUIControlGroup>
+
+                <XUIControlGroup
+                  columnWidths="max-content minmax(150px, 1fr)"
+                  isFieldLayout
+                  label="Choose a Food"
+                >
+                  <XUIDropdownToggled
+                    dropdown={
+                      <XUIDropdown onSelect={value => this.setState({ foodType: value })}>
+                        <XUIPicklist>
+                          {['Vegetable', 'Fruit', 'Meat'].map((title, key) => (
+                            <XUIPickitem
+                              id={`${inputMap.foodType}-${title}`}
+                              isSelected={title === foodType}
+                              key={key}
+                              value={title}
+                            >
+                              {title}
+                            </XUIPickitem>
+                          ))}
+                        </XUIPicklist>
+                      </XUIDropdown>
+                    }
+                    onOpen={() => {}}
+                    trigger={<XUIButton hasCaret>{foodType || 'Food Type'}</XUIButton>}
+                  />
+                  <XUITextInput
+                    inputProps={{
+                      name: inputMap.foodName,
+                      id: inputMap.foodName,
+                    }}
+                    isLabelHidden
+                    label="Input label"
+                  />
+                </XUIControlGroup>
+
                 <XUITextInput
                   inputProps={{
-                    name: inputMap.foodName,
-                    id: inputMap.foodName,
+                    name: inputMap.autoResize,
+                    id: inputMap.autoResize,
                   }}
-                  isLabelHidden
-                  label="Input label"
+                  isFieldLayout
+                  isMultiline
+                  label="This textarea auto-resizes"
+                  maxRows={5}
+                  minRows={2}
                 />
-              </XUIControlGroup>
+              </PanelSection>
 
-              <XUITextInput
-                inputProps={{
-                  name: inputMap.autoResize,
-                  id: inputMap.autoResize,
-                }}
-                isFieldLayout
-                isMultiline
-                label="This textarea auto-resizes"
-                maxRows={5}
-                minRows={2}
-              />
-            </PanelSection>
+              <PanelSection className="xui-padding-vertical" formLayout headerContent="Selects">
+                <LayoutSelect
+                  htmlFor={inputMap.bankChoice}
+                  id={inputMap.bankChoice}
+                  isFieldLayout
+                  label="Please select a bank"
+                  name={inputMap.bankChoice}
+                  onSelect={NOOP}
+                  title="Choose a bank"
+                >
+                  {banks}
+                </LayoutSelect>
 
-            <PanelSection className="xui-padding-vertical" formLayout headerContent="Selects">
-              <LayoutSelect
-                htmlFor={inputMap.bankChoice}
-                id={inputMap.bankChoice}
-                isFieldLayout
-                label="Please select a bank"
-                name={inputMap.bankChoice}
-                onSelect={NOOP}
-                title="Choose a bank"
+                <XUIAutocompleter
+                  className="xui-field-layout"
+                  dropdownHasFixedWidth
+                  id={inputMap.people}
+                  inputLabel="Add people"
+                  name={inputMap.people}
+                  onClose={this.closeAutoCompleter}
+                  onSearch={this.onSearchChangeHandler}
+                  pills={selectedPeople.map(person => (
+                    <XUIPill
+                      className="xui-autocompleter--pill"
+                      deleteButtonLabel="Delete"
+                      key={person.id}
+                      onDeleteClick={() => this.deletePerson(person.id)}
+                      value={person.name}
+                    />
+                  ))}
+                  placeholder="Search"
+                  ref={this._autocompleter}
+                  searchValue={value}
+                >
+                  {this.getItems()}
+                </XUIAutocompleter>
+              </PanelSection>
+
+              <PanelSection
+                className="xui-padding-vertical"
+                formLayout
+                headerContent="Radios and Checkboxes"
               >
-                {banks}
-              </LayoutSelect>
+                <XUIRadioGroup isFieldLayout isLockedVertical label="Choose a city">
+                  {['Wellington', 'Canberra', 'Washington D.C', 'Carthage'].map(label => (
+                    <XUIRadio
+                      id={`${inputMap.whatCity}-${label}`} // Had to add this to the component, it didn't exist before
+                      key={label}
+                      name={inputMap.whatCity}
+                      value={label}
+                    >
+                      {label}
+                    </XUIRadio>
+                  ))}
+                </XUIRadioGroup>
 
-              <XUIAutocompleter
-                className="xui-field-layout"
-                dropdownHasFixedWidth
-                id={inputMap.people}
-                inputLabel="Add people"
-                name={inputMap.people}
-                onClose={this.closeAutoCompleter}
-                onSearch={this.onSearchChangeHandler}
-                pills={selectedPeople.map(person => (
-                  <XUIPill
-                    className="xui-autocompleter--pill"
-                    deleteButtonLabel="Delete"
-                    key={person.id}
-                    onDeleteClick={() => this.deletePerson(person.id)}
-                    value={person.name}
-                  />
-                ))}
-                placeholder="Search"
-                ref={this._autocompleter}
-                searchValue={value}
-              >
-                {this.getItems()}
-              </XUIAutocompleter>
-            </PanelSection>
+                <XUICheckboxGroup isFieldLayout isLockedVertical label="Favourite Birds">
+                  {['Tūī', 'Pīwakawaka', 'Ruru', 'Moa'].map(label => (
+                    <XUICheckbox
+                      id={`${inputMap.whatBird}-${label}`} // Had to add this to the component, it didn't exist before
+                      key={label}
+                      name={`${inputMap.whatBird}-${label}`}
+                      value={label}
+                    >
+                      {label}
+                    </XUICheckbox>
+                  ))}
+                </XUICheckboxGroup>
 
-            <PanelSection
-              className="xui-padding-vertical"
-              formLayout
-              headerContent="Radios and Checkboxes"
-            >
-              <XUIRadioGroup isFieldLayout isLockedVertical label="Choose a city">
-                {['Wellington', 'Canberra', 'Washington D.C', 'Carthage'].map(label => (
-                  <XUIRadio
-                    id={`${inputMap.whatCity}-${label}`} // Had to add this to the component, it didn't exist before
-                    key={label}
-                    name={inputMap.whatCity}
-                    value={label}
-                  >
-                    {label}
-                  </XUIRadio>
-                ))}
-              </XUIRadioGroup>
+                <XUIToggle
+                  className="xui-field-layout"
+                  label="Choose one colour"
+                  layout="fullwidth"
+                >
+                  {['Red', 'Blue', 'Green', 'Yellow'].map(label => (
+                    <XUIToggleOption
+                      id={`${inputMap.whatColour}-${label}`} // Had to add this to the component, it didn't exist before
+                      key={label}
+                      name={inputMap.whatColour}
+                      onChange={NOOP}
+                      type="radio"
+                      value={label}
+                    >
+                      {label}
+                    </XUIToggleOption>
+                  ))}
+                </XUIToggle>
 
-              <XUICheckboxGroup isFieldLayout isLockedVertical label="Favourite Birds">
-                {['Tūī', 'Pīwakawaka', 'Ruru', 'Moa'].map(label => (
-                  <XUICheckbox
-                    id={`${inputMap.whatBird}-${label}`} // Had to add this to the component, it didn't exist before
-                    key={label}
-                    name={`${inputMap.whatBird}-${label}`}
-                    value={label}
-                  >
-                    {label}
-                  </XUICheckbox>
-                ))}
-              </XUICheckboxGroup>
+                <XUIToggle
+                  className="xui-field-layout"
+                  label="Choose many colours"
+                  layout="fullwidth"
+                >
+                  {['Red', 'Blue', 'Green', 'Yellow'].map(label => (
+                    <XUIToggleOption
+                      id={`${inputMap.whatColour2}-${label}`} // Had to add this to the component, it didn't exist before
+                      key={label}
+                      name={`${inputMap.whatColour2}-${label}`}
+                      onChange={() => {}}
+                      type="checkbox"
+                      value={label}
+                    >
+                      {label}
+                    </XUIToggleOption>
+                  ))}
+                </XUIToggle>
+              </PanelSection>
 
-              <XUIToggle className="xui-field-layout" label="Choose one colour" layout="fullwidth">
-                {['Red', 'Blue', 'Green', 'Yellow'].map(label => (
-                  <XUIToggleOption
-                    id={`${inputMap.whatColour}-${label}`} // Had to add this to the component, it didn't exist before
-                    key={label}
-                    name={inputMap.whatColour}
-                    onChange={NOOP}
-                    type="radio"
-                    value={label}
-                  >
-                    {label}
-                  </XUIToggleOption>
-                ))}
-              </XUIToggle>
+              <PanelSection className="xui-padding-vertical" formLayout headerContent="Switches">
+                <XUISwitch
+                  isReversed
+                  labelId={inputMap.thingOn}
+                  name={inputMap.thingOn}
+                  onChange={NOOP}
+                >
+                  Is the thing on
+                </XUISwitch>
+              </PanelSection>
 
-              <XUIToggle
-                className="xui-field-layout"
-                label="Choose many colours"
-                layout="fullwidth"
-              >
-                {['Red', 'Blue', 'Green', 'Yellow'].map(label => (
-                  <XUIToggleOption
-                    id={`${inputMap.whatColour2}-${label}`} // Had to add this to the component, it didn't exist before
-                    key={label}
-                    name={`${inputMap.whatColour2}-${label}`}
-                    onChange={() => {}}
-                    type="checkbox"
-                    value={label}
-                  >
-                    {label}
-                  </XUIToggleOption>
-                ))}
-              </XUIToggle>
-            </PanelSection>
-
-            <PanelSection className="xui-padding-vertical" formLayout headerContent="Switches">
-              <XUISwitch
-                isReversed
-                labelId={inputMap.thingOn}
-                name={inputMap.thingOn}
-                onChange={NOOP}
-              >
-                Is the thing on
-              </XUISwitch>
-            </PanelSection>
-
-            <footer className="xui-panel--footer xui-actions xui-actions-layout xui-padding-large xui-u-flex-align-center">
-              <p className="xui-margin-right xui-margin-vertical-none">
-                The results of the form are published as an object to the <XUITag>console</XUITag>{' '}
-                when you click this button <XUIIcon icon={arrow} rotation="270" />
-              </p>
-              <XUIButton onClick={this.logForm} variant="primary">
-                Submit
-              </XUIButton>
-            </footer>
-          </Form>
-        </div>
+              <footer className="xui-panel--footer xui-actions xui-actions-layout xui-padding-large xui-u-flex-align-center">
+                <p className="xui-margin-right xui-margin-vertical-none">
+                  The results of the form are published as an object to the <XUITag>console</XUITag>{' '}
+                  when you click this button <XUIIcon icon={arrow} rotation="270" />
+                </p>
+                <XUIButton onClick={this.logForm} variant="primary">
+                  Submit
+                </XUIButton>
+              </footer>
+            </Form>
+          </div>
+        </FullPageStoryWrapper>
       );
     }
   }

@@ -293,6 +293,7 @@ variations.forEach(variation => {
       if (
         !variationMinusStoryDetails.label &&
         variationMinusStoryDetails.leftElementType !== 'text' &&
+        variationMinusStoryDetails.leftElementType !== 'longText' &&
         variationMinusStoryDetails.rightElementType !== 'text'
       ) {
         variationMinusStoryDetails.label = 'Test label';

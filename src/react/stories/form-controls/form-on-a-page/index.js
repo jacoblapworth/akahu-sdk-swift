@@ -14,6 +14,7 @@ import XUIRadio, { XUIRadioGroup } from '../../../radio';
 import XUISwitch from '../../../switch';
 import XUISelectBox, { XUISelectBoxOption } from '../../../selectbox';
 import { XUIRow, XUIColumn } from '../../../structural';
+import FullPageStoryWrapper from '../../helpers/FullPageStoryWrapper';
 
 // Private modules
 import Form from '../helpers/form';
@@ -69,126 +70,128 @@ const testFormOnAPage = () => {
   );
 
   return (
-    <div className="capture xui-panel xui-page-width-standard xui-margin-vertical-xlarge xui-padding-horizontal">
-      <Form className="xui-padding-vertical" stacked>
-        <XUIRow variant="grid">
-          {/* Major section */}
-          <XUIColumn gridColumns="half">
-            <XUITextInput label="An input" />
-          </XUIColumn>
-          <XUIColumn gridColumns="half">
-            <XUITextInput hintMessage="I'm second" isFieldLayout label="Another input" />
-          </XUIColumn>
+    <FullPageStoryWrapper>
+      <div className="capture xui-panel xui-page-width-standard xui-margin-vertical-xlarge xui-padding-horizontal">
+        <Form className="xui-padding-vertical" stacked>
+          <XUIRow variant="grid">
+            {/* Major section */}
+            <XUIColumn gridColumns="half">
+              <XUITextInput label="An input" />
+            </XUIColumn>
+            <XUIColumn gridColumns="half">
+              <XUITextInput hintMessage="I'm second" isFieldLayout label="Another input" />
+            </XUIColumn>
 
-          {/* Major section */}
-          <XUIControlGroup
-            fieldClassName="xui-column-6-of-12"
-            isLockedVertical
-            label="A set of checkboxes"
-          >
-            <XUICheckbox isDefaultChecked={false}>Unchecked</XUICheckbox>
-            <XUICheckbox isDefaultChecked>Checked</XUICheckbox>
-            <XUICheckbox isIndeterminate>Indeterminate</XUICheckbox>
-          </XUIControlGroup>
-          <XUIControlGroup
-            fieldClassName="xui-column-6-of-12"
-            isLockedVertical
-            label="A set of radios"
-          >
-            <XUIRadio isDefaultChecked={false}>Unchecked</XUIRadio>
-            <XUIRadio isDefaultChecked>Checked</XUIRadio>
-            <XUIRadio isDefaultChecked={false} isDisabled>
-              Unchecked
-            </XUIRadio>
-            <XUIRadio isDefaultChecked isDisabled>
-              Checked
-            </XUIRadio>
-          </XUIControlGroup>
-
-          {/* Major section */}
-          <XUIColumn gridColumns="half">
-            <XUICheckboxGroup isLockedVertical label="Grouped checkboxes">
-              <XUICheckbox>Tūī</XUICheckbox>
-              <XUICheckbox>Pīwakawaka</XUICheckbox>
-              <XUICheckbox>Ruru</XUICheckbox>
-              <XUICheckbox isDisabled>Moa</XUICheckbox>
-            </XUICheckboxGroup>
-          </XUIColumn>
-          <XUIColumn gridColumns="half">
-            <XUIRadioGroup isLockedVertical label="Grouped radios">
-              <XUIRadio name="radioGroup">Wellington</XUIRadio>
-              <XUIRadio name="radioGroup">Canberra</XUIRadio>
-              <XUIRadio name="radioGroup">Washington D.C</XUIRadio>
-              <XUIRadio isDisabled name="radioGroup">
-                Carthage
+            {/* Major section */}
+            <XUIControlGroup
+              fieldClassName="xui-column-6-of-12"
+              isLockedVertical
+              label="A set of checkboxes"
+            >
+              <XUICheckbox isDefaultChecked={false}>Unchecked</XUICheckbox>
+              <XUICheckbox isDefaultChecked>Checked</XUICheckbox>
+              <XUICheckbox isIndeterminate>Indeterminate</XUICheckbox>
+            </XUIControlGroup>
+            <XUIControlGroup
+              fieldClassName="xui-column-6-of-12"
+              isLockedVertical
+              label="A set of radios"
+            >
+              <XUIRadio isDefaultChecked={false}>Unchecked</XUIRadio>
+              <XUIRadio isDefaultChecked>Checked</XUIRadio>
+              <XUIRadio isDefaultChecked={false} isDisabled>
+                Unchecked
               </XUIRadio>
-            </XUIRadioGroup>
-          </XUIColumn>
+              <XUIRadio isDefaultChecked isDisabled>
+                Checked
+              </XUIRadio>
+            </XUIControlGroup>
 
-          {/* Major section */}
-          <XUIColumn className="xui-padding-vertical" gridColumns="full">
-            <div>
-              <InputLabel>A set of checkboxes</InputLabel>
-            </div>
-            <XUICheckbox isDefaultChecked={false}>Unchecked</XUICheckbox>
-            <XUICheckbox isDefaultChecked>Checked</XUICheckbox>
-            <XUICheckbox isIndeterminate>Indeterminate</XUICheckbox>
-          </XUIColumn>
-
-          {/* Major section */}
-          <XUIColumn className="xui-padding-vertical" gridColumns="full">
-            <div>
-              <InputLabel>A set of radios</InputLabel>
-            </div>
-            <XUIRadio isDefaultChecked={false}>Unchecked</XUIRadio>
-            <XUIRadio isDefaultChecked>Checked</XUIRadio>
-            <XUIRadio isDefaultChecked={false} isDisabled>
-              Unchecked
-            </XUIRadio>
-            <XUIRadio isDefaultChecked isDisabled>
-              Checked
-            </XUIRadio>
-          </XUIColumn>
-
-          {/* Major section */}
-          <XUIColumn className="xui-padding-vertical" gridColumns="full">
-            <XUISwitch isReversed onChange={NOOP}>
-              A switch
-            </XUISwitch>
-          </XUIColumn>
-
-          {/* Major section */}
-          <XUIColumn gridColumns="full">
-            <XUITextInput isMultiline label="A textarea" maxRows={5} minRows={2} />
-          </XUIColumn>
-
-          {/* Major section */}
-          <XUIColumn className="xui-padding-vertical" gridColumns="full">
+            {/* Major section */}
             <XUIColumn gridColumns="half">
-              <InputLabel>A dropdown button</InputLabel>
-              <XUIDropdownToggled dropdown={dropdown} trigger={trigger} />
+              <XUICheckboxGroup isLockedVertical label="Grouped checkboxes">
+                <XUICheckbox>Tūī</XUICheckbox>
+                <XUICheckbox>Pīwakawaka</XUICheckbox>
+                <XUICheckbox>Ruru</XUICheckbox>
+                <XUICheckbox isDisabled>Moa</XUICheckbox>
+              </XUICheckboxGroup>
             </XUIColumn>
             <XUIColumn gridColumns="half">
-              <XUISelectBox
-                buttonContent="Hello world"
-                caretTitle="Toggle list"
-                isFieldLayout
-                isTextTruncated={false}
-                label="A simple select box"
-                name="selectOne"
-              >
-                <XUISelectBoxOption id="1" key={1} value="1">
-                  It&apos;s a wonderful day
-                </XUISelectBoxOption>
-                <XUISelectBoxOption id="2" key={2} value="2">
-                  Today Yo!
-                </XUISelectBoxOption>
-              </XUISelectBox>
+              <XUIRadioGroup isLockedVertical label="Grouped radios">
+                <XUIRadio name="radioGroup">Wellington</XUIRadio>
+                <XUIRadio name="radioGroup">Canberra</XUIRadio>
+                <XUIRadio name="radioGroup">Washington D.C</XUIRadio>
+                <XUIRadio isDisabled name="radioGroup">
+                  Carthage
+                </XUIRadio>
+              </XUIRadioGroup>
             </XUIColumn>
-          </XUIColumn>
-        </XUIRow>
-      </Form>
-    </div>
+
+            {/* Major section */}
+            <XUIColumn className="xui-padding-vertical" gridColumns="full">
+              <div>
+                <InputLabel>A set of checkboxes</InputLabel>
+              </div>
+              <XUICheckbox isDefaultChecked={false}>Unchecked</XUICheckbox>
+              <XUICheckbox isDefaultChecked>Checked</XUICheckbox>
+              <XUICheckbox isIndeterminate>Indeterminate</XUICheckbox>
+            </XUIColumn>
+
+            {/* Major section */}
+            <XUIColumn className="xui-padding-vertical" gridColumns="full">
+              <div>
+                <InputLabel>A set of radios</InputLabel>
+              </div>
+              <XUIRadio isDefaultChecked={false}>Unchecked</XUIRadio>
+              <XUIRadio isDefaultChecked>Checked</XUIRadio>
+              <XUIRadio isDefaultChecked={false} isDisabled>
+                Unchecked
+              </XUIRadio>
+              <XUIRadio isDefaultChecked isDisabled>
+                Checked
+              </XUIRadio>
+            </XUIColumn>
+
+            {/* Major section */}
+            <XUIColumn className="xui-padding-vertical" gridColumns="full">
+              <XUISwitch isReversed onChange={NOOP}>
+                A switch
+              </XUISwitch>
+            </XUIColumn>
+
+            {/* Major section */}
+            <XUIColumn gridColumns="full">
+              <XUITextInput isMultiline label="A textarea" maxRows={5} minRows={2} />
+            </XUIColumn>
+
+            {/* Major section */}
+            <XUIColumn className="xui-padding-vertical" gridColumns="full">
+              <XUIColumn gridColumns="half">
+                <InputLabel>A dropdown button</InputLabel>
+                <XUIDropdownToggled dropdown={dropdown} trigger={trigger} />
+              </XUIColumn>
+              <XUIColumn gridColumns="half">
+                <XUISelectBox
+                  buttonContent="Hello world"
+                  caretTitle="Toggle list"
+                  isFieldLayout
+                  isTextTruncated={false}
+                  label="A simple select box"
+                  name="selectOne"
+                >
+                  <XUISelectBoxOption id="1" key={1} value="1">
+                    It&apos;s a wonderful day
+                  </XUISelectBoxOption>
+                  <XUISelectBoxOption id="2" key={2} value="2">
+                    Today Yo!
+                  </XUISelectBoxOption>
+                </XUISelectBox>
+              </XUIColumn>
+            </XUIColumn>
+          </XUIRow>
+        </Form>
+      </div>
+    </FullPageStoryWrapper>
   );
 };
 

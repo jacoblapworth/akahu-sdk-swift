@@ -17,6 +17,10 @@ Object.keys(storyNames).forEach(name => {
     storyTitle: storyNames[name],
     useCustomFontSize: name === 'formOnAPageUseCustomFontSize',
     viewports: name === 'formOnAPage' || name === 'formLayout' ? desktopPlus320 : undefined,
+    selector:
+      name === 'formOnAPage' || name === 'formOnAPageUseCustomFontSize'
+        ? '.xui-row-grid'
+        : undefined,
   });
 });
 

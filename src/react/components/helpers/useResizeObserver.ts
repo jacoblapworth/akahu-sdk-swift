@@ -10,8 +10,8 @@ import ResizeObserver from 'resize-observer-polyfill';
  * To re-render a component on resize you can use the properties of the provided `contentRect` as
  * the dependencies of a `React.useLayoutEffect`.
  */
-export default function useResizeObserver() {
-  const observedElementRef = React.useRef<HTMLElement>(null);
+export default function useResizeObserver<T extends HTMLElement = HTMLElement>() {
+  const observedElementRef = React.useRef<T>(null);
   const [resizeObserverEntry, setResizeObserverEntry] = React.useState<ResizeObserverEntry>();
   const [resizeObserver] = React.useState(
     new ResizeObserver(entries => {

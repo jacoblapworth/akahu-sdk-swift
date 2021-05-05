@@ -136,6 +136,7 @@ class XUIDateInputItem extends Component {
         // after opening DD panel, DatePicker has to be focused instead of DateInput like in this case.
         setTimeout(() => {
           this.inputRef?.current.focus();
+          this.inputRef?.current.select();
         }, 100);
       });
     }

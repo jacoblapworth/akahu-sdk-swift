@@ -15,6 +15,8 @@ Once set up, there are two ways to use the container query.
 1. Set the calculated width classes on the observed element using `getWidthClasses`. These classes do not have any styles associated with them, allowing you to set custom styles for each class.
 2. To determine whether the element width is greater than or equal to a specified breakpoint, you can use the `isWidthAboveBreakpoint` function, which will return a boolean value. You can either provide a custom set of breakpoints (provided as a parameter to the `useContainerQuery` function), otherwise this will use the XUI defaults. Custom breakpoints should have string property names and numeric values, and be provided as an object of type `{ [key: string]: number }`. See the second example below for how this works in more detail.
 
+By default, the observed element's width is calculated based on the content box, which excludes padding and borders. If you'd like to use the border box (which includes padding and borders) for width calculations, set `useBorderBox` to `true`. See the [MDN documentation on box sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing) for more details.
+
 #### Apply predefined classes at standard sizes
 
 ```jsx harmony

@@ -530,3 +530,75 @@ exports[`TextInput with Character counter renders correctly when current input l
   </div>
 </div>
 `;
+
+exports[`TextInput with Character counter renders with character counter where defaultValue is an empty string and is within the showing threshold 1`] = `
+<div
+  class="xui-textinputwrapper"
+>
+  <div
+    class="xui-controlwrapper-header-row"
+  >
+    <div
+      class="xui-charactercounter xui-charactercounter-layout"
+      data-automationid="test-id--character-counter"
+    >
+      <div>
+        0
+      </div>
+      <div>
+        /
+      </div>
+      <div>
+        1
+      </div>
+    </div>
+  </div>
+  <div
+    class="xui-textinput xui-textinput-medium"
+    data-automationid="test-id"
+  >
+    <input
+      class="xui-textinput--input xui-textinput--input-medium"
+      data-automationid="test-id--input"
+      id="testGeneratedId-control"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`TextInput with Character counter renders with character counter where value is an empty string and is within the showing threshold 1`] = `
+<div
+  class="xui-textinputwrapper"
+>
+  <div
+    class="xui-controlwrapper-header-row"
+  >
+    <div
+      class="xui-charactercounter xui-charactercounter-layout"
+      data-automationid="test-id--character-counter"
+    >
+      <div>
+        0
+      </div>
+      <div>
+        /
+      </div>
+      <div>
+        1
+      </div>
+    </div>
+  </div>
+  <div
+    class="xui-textinput xui-textinput-medium"
+    data-automationid="test-id"
+  >
+    <input
+      class="xui-textinput--input xui-textinput--input-medium"
+      data-automationid="test-id--input"
+      id="testGeneratedId-control"
+      value=""
+    />
+  </div>
+</div>
+`;

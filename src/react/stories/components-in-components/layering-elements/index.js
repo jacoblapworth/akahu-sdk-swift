@@ -19,6 +19,7 @@ import ExampleToast from './components/ExampleToast';
 import Example from './components/Example';
 import XUIActions from '../../../actions';
 import XUIFixedFooterWIP from '../../../fixedfooter';
+import FullPageStoryWrapper from '../../helpers/FullPageStoryWrapper';
 
 import * as lists from '../../../components/helpers/list';
 import { nonBackstopStoryNames, compositionKind } from '../tests';
@@ -71,7 +72,7 @@ test.add(nonBackstopStoryNames.layeringElements, () => {
   }
   const isUsingPortal = boolean('isUsingPortal', true);
   return (
-    <>
+    <FullPageStoryWrapper>
       <XUIPageHeader contentClassName="xui-page-width-large" title="Something" />
       <XUICompositionDetail
         detail={
@@ -132,6 +133,6 @@ test.add(nonBackstopStoryNames.layeringElements, () => {
           }
         />
       </XUIFixedFooterWIP>
-    </>
+    </FullPageStoryWrapper>
   );
 });

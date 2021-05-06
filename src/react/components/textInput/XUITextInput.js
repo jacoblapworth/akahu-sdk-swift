@@ -201,7 +201,7 @@ class XUITextInput extends PureComponent {
           if (
             !label &&
             !labelId &&
-            (leftElement?.props.type === 'text' || rightElement?.props.type === 'text')
+            (leftElement?.props?.type === 'text' || rightElement?.props?.type === 'text')
           ) {
             isLabelInSideEl = true;
           }

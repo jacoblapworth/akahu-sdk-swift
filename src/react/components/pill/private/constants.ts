@@ -12,4 +12,6 @@ export const childSizeClassMap = {
   medium: 'small',
 };
 
-export const childSizes = Object.keys(childSizeClassMap).map(size => childSizeClassMap[size]);
+export const childSizes = (Object.keys(childSizeClassMap) as Array<
+  keyof typeof childSizeClassMap
+>).map(size => childSizeClassMap[size]);

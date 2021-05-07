@@ -10,7 +10,7 @@ const preventedKeys = {
   [eventKeyValues.tab]: true,
 };
 
-export default event => {
+export default (event: React.KeyboardEvent) => {
   if (preventedKeys[event.key]) {
     event.preventDefault();
   }

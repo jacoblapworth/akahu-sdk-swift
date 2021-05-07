@@ -1,14 +1,18 @@
 // This file is a non-Flow version of
 // https://github.com/atlassian/react-beautiful-dnd/blob/v13.1.0/src/view/event-bindings/bind-events.js
 
-function getOptions(shared, fromBinding) {
+function getOptions(shared: any, fromBinding: any) {
   return {
     ...shared,
     ...fromBinding,
   };
 }
 
-export default function bindEvents(el, bindings, sharedOptions) {
+export default function bindEvents(
+  el: HTMLElement | Window,
+  bindings: Array<any>,
+  sharedOptions: any,
+) {
   const unbindings = bindings.map(binding => {
     const options = getOptions(sharedOptions, binding.options);
 

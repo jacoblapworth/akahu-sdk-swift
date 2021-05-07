@@ -84,7 +84,7 @@ const EditableTableOverflow: React.FunctionComponent<Props> = React.forwardRef<H
           hasFirstPinOverflow && `${baseName}-pinoverflowleft`,
           hasLastPinOverflow && `${baseName}-pinoverflowright`,
         )}
-        ref={element => combinedRef(element as HTMLElement)}
+        ref={combinedRef}
         {...spreadProps}
       >
         {children}

@@ -74,9 +74,8 @@ class XUITableBody<RD extends RowData = RowData> extends React.PureComponent<Pro
     const rowsData = Object.entries(rows).map(
       ([rowId, rowData]) => ({ ...rowData, _id: rowId } as RD & { _id: string }),
     );
-    const sortedRowsData = activeSortKey
-      ? sortRows(rowsData, Boolean(isSortAsc), activeSortKey)
-      : rowsData;
+    const sortedRowsData =
+      activeSortKey && sortRows ? sortRows(rowsData, Boolean(isSortAsc), activeSortKey) : rowsData;
 
     return (
       <XUIEditableTableBody qaHook={qaHook && `${qaHook}-body`}>

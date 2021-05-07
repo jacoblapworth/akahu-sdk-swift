@@ -12,7 +12,7 @@ const supportedEventName = (() => {
   // See https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
   const candidates = [base, `ms${base}`, `webkit${base}`, `moz${base}`, `o${base}`];
 
-  const supported: string = candidates.find(
+  const supported: string | undefined = candidates.find(
     (eventName: string): boolean => `on${eventName}` in document,
   );
 

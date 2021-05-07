@@ -16,7 +16,7 @@ import preventStandardKeyEvents from './react-beautiful-dnd/prevent-standard-key
 import supportedEventname from './react-beautiful-dnd/supported-page-visibility-event-name';
 
 type KeyMap = {
-  [key: number]: boolean;
+  [key: string]: boolean;
 };
 
 const scrollJumpKeys: KeyMap = {
@@ -148,13 +148,13 @@ export default function useKeyboardSensor(api: SensorAPI) {
         }
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const draggableId: DraggableId | undefined = api.findClosestDraggableId(event as any);
+        const draggableId: DraggableId | null = api.findClosestDraggableId(event as any);
 
         if (!draggableId) {
           return;
         }
 
-        const preDrag: PreDragActions | undefined = api.tryGetLock(
+        const preDrag: PreDragActions | null = api.tryGetLock(
           draggableId,
           // abort function not defined yet
           stop,

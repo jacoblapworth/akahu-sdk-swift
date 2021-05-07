@@ -42,7 +42,7 @@ const handleEntries = (entries: ResizeObserverEntry[]) => {
 // container elements. The instance is created with a callback,
 // which is invoked as soon as an element is observed as well
 // as any time that element's size changes.
-const ro = new ResizeObserver(handleEntries);
+const ro: ResizeObserver = new ResizeObserver(handleEntries);
 
 export const observe = (component: Component, setBreakpoints?: SetBreakpoints) => {
   const element = component?._area?.current;

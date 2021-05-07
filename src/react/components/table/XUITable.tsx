@@ -65,8 +65,8 @@ interface BaseProps<RD extends RowData> {
    */
   customSort?: <Items extends Array<RD>>(
     items: Items,
-    isAscending?: boolean,
-    activeSortKey?: string,
+    isAscending: boolean | undefined,
+    activeSortKey: string,
   ) => Items;
   /**
    * The row data for the table body. Each row is differentiated by a unique object key. Pass the

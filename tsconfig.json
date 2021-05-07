@@ -5,7 +5,7 @@
     "jsx": "preserve",
     "moduleResolution": "node",
     "outDir": "./dist/react",
-    "strict": false
+    "strict": true
   },
   "include": ["./src/react/**/*"],
   "exclude": ["**/__tests__", "**/stories", "**/docs"]

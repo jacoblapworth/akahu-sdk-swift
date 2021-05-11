@@ -459,6 +459,9 @@
                 "content": "../src/react/components/editabletable/editabletable.pinnedcolumns.md"
               },
               {
+                "content": "../src/react/components/editabletable/editabletable.pagination.md"
+              },
+              {
                 "components": [
                   "../src/react/components/editabletable/XUIEditableTableCellReadOnly.js",
                   "../src/react/components/editabletable/XUIEditableTableCellTextInput.js",

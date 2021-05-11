@@ -971,6 +971,10 @@ $kss-color-padding: #eeebff;
   background: white;
 }
 
+.ds-example .#{$ns}-introbanner .#{$ns}-illustration {
+  background: transparent;
+}
+
 // -----------------------------------------------------------------------------
 // Breadcrumb
 // -----------------------------------------------------------------------------

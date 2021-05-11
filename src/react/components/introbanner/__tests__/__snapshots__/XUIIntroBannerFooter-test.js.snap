@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUIIntroBannerFooter renders a passed qaHook as an automationId 1`] = `
+<DocumentFragment>
+  <footer
+    class="xui-introbanner--footer"
+    data-automationid="introbanner-footer"
+  >
+    <button
+      class="xui-button xui-button-standard xui-button-small xui-button-fullwidth-layout"
+      tabindex="0"
+      type="button"
+    >
+      Read guide
+    </button>
+  </footer>
+</DocumentFragment>
+`;
+
+exports[`XUIIntroBannerFooter renders basic example correctly 1`] = `
+<DocumentFragment>
+  <footer
+    class="xui-introbanner--footer"
+  >
+    <button
+      class="xui-button xui-button-standard xui-button-small xui-button-fullwidth-layout"
+      tabindex="0"
+      type="button"
+    >
+      Read guide
+    </button>
+  </footer>
+</DocumentFragment>
+`;
+
+exports[`XUIIntroBannerFooter renders extra classes when passed to the className prop 1`] = `
+<DocumentFragment>
+  <footer
+    class="xui-introbanner--footer introbanner-footer-class"
+  >
+    <button
+      class="xui-button xui-button-standard xui-button-small xui-button-fullwidth-layout"
+      tabindex="0"
+      type="button"
+    >
+      Read guide
+    </button>
+  </footer>
+</DocumentFragment>
+`;

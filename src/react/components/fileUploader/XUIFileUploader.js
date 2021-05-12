@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { nanoid } from 'nanoid';
@@ -11,6 +11,7 @@ import FileList from './private/FileList';
 import { ns } from '../helpers/xuiClassNamespace';
 import { baseClass } from './private/helpers';
 import checkRequiredProps from '../../helpers/checkRequiredProps';
+import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 const XUIFileUploader = ({
   acceptedFileExtensions,
@@ -111,6 +112,14 @@ const XUIFileUploader = ({
     type: 'file',
     ...getAriaAttributes(wrapperIds, wrapperProps),
   };
+
+  useEffect(() => {
+    labelRequiredWarning(
+      XUIFileUploader.name,
+      ['includes a label with text', 'labelId provided'],
+      [label?.innerText && !isLabelHidden, typeof label?.[0] === 'string', labelId],
+    );
+  }, [isLabelHidden, label, labelId]);
 
   return (
     <div

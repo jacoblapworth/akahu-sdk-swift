@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import invalid from '@xero/xui-icon/icons/invalid';
@@ -12,6 +12,7 @@ import XUIIcon from '../icon/XUIIcon';
 import { generateIdsFromControlId } from '../controlwrapper/helpers';
 import combineRefs from '../helpers/combineRefs';
 import Element from '../helpers/polyfills/Element';
+import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 const XUIEditableTable = React.forwardRef(
   (
@@ -54,6 +55,11 @@ const XUIEditableTable = React.forwardRef(
     const [calculatedId, setId] = useState(id || `${tableVariantClassName}-${nanoid(10)}`);
 
     const wrapperIds = generateIdsFromControlId(calculatedId);
+
+    useEffect(() => {
+      // XUIEditableTable.name is undefined as this is a forwardRef component
+      labelRequiredWarning('XUIEditableTable', ['contains an ariaLabel'], [ariaLabel]);
+    }, [ariaLabel]);
 
     return (
       <>

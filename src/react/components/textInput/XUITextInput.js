@@ -12,6 +12,7 @@ import { sizeShift } from '../helpers/sizes';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import SizeContext from '../../contexts/SizeContext';
 import DisabledStateContext from '../../contexts/DisabledStateContext';
+import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
@@ -35,7 +36,15 @@ class XUITextInput extends PureComponent {
   }
 
   componentDidMount() {
-    const { maxRows, focusOnMount, characterCounter, value, defaultValue } = this.props;
+    const {
+      maxRows,
+      focusOnMount,
+      characterCounter,
+      value,
+      defaultValue,
+      leftElement,
+      rightElement,
+    } = this.props;
 
     if (shouldAutomaticallyResize(this.props) && this.input) {
       if (maxRows != null) {
@@ -68,6 +77,24 @@ class XUITextInput extends PureComponent {
         charCount: (value || defaultValue).length,
       });
     }
+    const { placeholder, label, labelId, isLabelHidden } = this.props;
+    labelRequiredWarning(
+      XUITextInput.name,
+      [
+        'includes a label with text',
+        'placeholder provided',
+        'labelId provided',
+        "includes a sideElement of type='text'",
+      ],
+      [
+        label?.innerText && !isLabelHidden,
+        typeof label?.[0] === 'string',
+        placeholder,
+        labelId,
+        leftElement?.props?.type === 'text',
+        rightElement?.props?.type === 'text',
+      ],
+    );
   }
 
   componentWillUnmount() {

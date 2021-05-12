@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -8,6 +8,7 @@ import useContainerQuery from '../helpers/useContainerQuery';
 
 import { baseClass, defaultPerPageCountOptions } from './private/helpers';
 import checkRequiredProps from '../../helpers/checkRequiredProps';
+import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 const XUIPagination = ({
   ariaLabel,
@@ -71,6 +72,10 @@ const XUIPagination = ({
   const perPageCountNum = perPageCount || currentPerPageCount;
   const pageCount = Math.ceil(count / perPageCountNum);
   const currentPageNum = page || (currentPage > pageCount ? pageCount : currentPage);
+
+  useEffect(() => {
+    labelRequiredWarning(XUIPagination.name, ['`ariaLabel` provided'], [ariaLabel]);
+  }, [ariaLabel]);
 
   return (
     <nav

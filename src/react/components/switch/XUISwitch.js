@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -9,6 +9,7 @@ import XUIControlWrapperInline, {
 } from '../controlwrapper/XUIControlWrapperInline';
 import generateIds from '../controlwrapper/helpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
+import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 const baseClass = `${ns}-switch`;
 
@@ -107,6 +108,14 @@ const XUISwitch = props => {
     onChange: onChangeCalculated,
     ...getAriaAttributes(wrapperIds, props),
   };
+
+  useEffect(() => {
+    labelRequiredWarning(
+      XUISwitch.name,
+      ['includes a child with text', 'labelId provided'],
+      [children?.innerText && !isLabelHidden, typeof children?.[0] === 'string', labelId],
+    );
+  }, [children, isLabelHidden, labelId]);
 
   return (
     <XUIControlWrapperInline

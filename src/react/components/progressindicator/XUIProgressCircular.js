@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import '../helpers/xuiGlobalChecks';
 import { enrichCircularProps } from './helpers/enrichprops';
@@ -6,49 +6,56 @@ import { NAME_SPACE } from './helpers/constants';
 import CircularTrack from './customElements/CircularTrack';
 import CircularIcon from './customElements/CircularIcon';
 import ProgressWrapper from './customElements/ProgressWrapper';
+import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
-const XUIProgressCircular = props => (
-  <ProgressWrapper {...enrichCircularProps(props)}>
-    {({
-      id,
-      qaHook,
-      isSegmented,
-      total,
-      progress,
-      isGrow,
-      thickness,
-      isComplete,
-      isHardError,
-      hardErrorAlert,
-      customContent,
-    }) => (
-      <div className={`${NAME_SPACE}--fragment`}>
-        <CircularTrack
-          {...{
-            id,
-            qaHook,
-            isSegmented,
-            total,
-            progress,
-            isGrow,
-            thickness,
-            customContent,
-          }}
-        />
+const XUIProgressCircular = props => {
+  useEffect(() => {
+    labelRequiredWarning(XUIProgressCircular.name, ['`ariaLabel` provided'], [props.ariaLabel]);
+  }, [props.ariaLabel]);
 
-        {(isComplete || isHardError) && (
-          <CircularIcon
+  return (
+    <ProgressWrapper {...enrichCircularProps(props)}>
+      {({
+        id,
+        qaHook,
+        isSegmented,
+        total,
+        progress,
+        isGrow,
+        thickness,
+        isComplete,
+        isHardError,
+        hardErrorAlert,
+        customContent,
+      }) => (
+        <div className={`${NAME_SPACE}--fragment`}>
+          <CircularTrack
             {...{
-              isComplete,
-              isHardError,
-              hardErrorAlert,
+              id,
+              qaHook,
+              isSegmented,
+              total,
+              progress,
+              isGrow,
+              thickness,
+              customContent,
             }}
           />
-        )}
-      </div>
-    )}
-  </ProgressWrapper>
-);
+
+          {(isComplete || isHardError) && (
+            <CircularIcon
+              {...{
+                isComplete,
+                isHardError,
+                hardErrorAlert,
+              }}
+            />
+          )}
+        </div>
+      )}
+    </ProgressWrapper>
+  );
+};
 
 export default XUIProgressCircular;
 

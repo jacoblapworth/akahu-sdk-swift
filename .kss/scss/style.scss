@@ -127,13 +127,7 @@ $ds-section-space: calc(6rem + 2vh);
 .ds-description h3 {
   padding-top: calc(4rem + 2vh);
   margin-top: 0;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: $xui-letter-spacing-loose;
-}
-
-[id*='fundamentals-variables-mixins'] .ds-title--level-3 {
-  text-transform: none;
+  font-size: 17px;
 }
 
 // use 4th level blocks as callouts
@@ -969,6 +963,10 @@ $kss-color-padding: #eeebff;
 // Illustrations
 .ds-example .#{$ns}-illustration {
   background: white;
+}
+
+.ds-example .#{$ns}-introbanner .#{$ns}-illustration {
+  background: transparent;
 }
 
 // -----------------------------------------------------------------------------

@@ -49,16 +49,16 @@ exports[`EditableTableWrapper renders correctly 1`] = `
             }
             store={
               Object {
+                "@@observable": [Function],
                 "dispatch": [Function],
                 "getState": [Function],
                 "replaceReducer": [Function],
                 "subscribe": [Function],
-                Symbol(observable): [Function],
               }
             }
           >
             <Droppable>
-              <ConnectFunction
+              <Connect(Droppable)
                 direction="vertical"
                 droppableId="123"
                 getContainerForClone={[Function]}
@@ -116,7 +116,7 @@ exports[`EditableTableWrapper renders correctly 1`] = `
                     </div>
                   </ForwardRef>
                 </Droppable>
-              </ConnectFunction>
+              </Connect(Droppable)>
             </Droppable>
           </Provider>
         </App>

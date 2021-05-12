@@ -65,7 +65,7 @@ class XUITextInput extends PureComponent {
 
     if (characterCounter?.maxCharCount) {
       this.setState({
-        charCount: (value || defaultValue).length,
+        charCount: value?.length || defaultValue?.length || 0,
       });
     }
   }

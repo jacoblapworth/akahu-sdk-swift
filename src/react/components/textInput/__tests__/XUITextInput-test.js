@@ -364,16 +364,19 @@ describe('<XUITextInput>', () => {
 });
 
 describe('TextInput with Character counter', () => {
+
+  const characterCounterConfig = {
+    maxCharCount: 10,
+    validationMessage: 'Character validation failed!',
+  };
+
   test('renders correctly when current input length is over the specified maximum length', () => {
     const { container } = render(
       <XUITextInput
         onChange={NOOP}
         value="Lorem ipsum"
         qaHook="test-id"
-        characterCounter={{
-          maxCharCount: 10,
-          validationMessage: 'Character validation failed!',
-        }}
+        characterCounter={characterCounterConfig}
       />,
     );
 
@@ -386,10 +389,7 @@ describe('TextInput with Character counter', () => {
         onChange={NOOP}
         value="Lorem ips"
         qaHook="test-id"
-        characterCounter={{
-          maxCharCount: 10,
-          validationMessage: 'Character validation failed!',
-        }}
+        characterCounter={characterCounterConfig}
       />,
     );
 
@@ -402,13 +402,36 @@ describe('TextInput with Character counter', () => {
         onChange={NOOP}
         value="L"
         qaHook="test-id"
-        characterCounter={{
-          maxCharCount: 10,
-          validationMessage: 'Character validation failed!',
-        }}
+        characterCounter={characterCounterConfig}
       />,
     );
 
     expect(screen.queryByTestId('test-id--character-counter')).toBe(null);
+  });
+
+  test('renders with character counter where value is an empty string and is within the showing threshold', () => {
+    const { container } = render(
+      <XUITextInput
+        onChange={NOOP}
+        value=""
+        qaHook="test-id"
+        characterCounter={{...characterCounterConfig, maxCharCount: 1}}
+      />,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  test('renders with character counter where defaultValue is an empty string and is within the showing threshold', () => {
+    const { container } = render(
+      <XUITextInput
+        onChange={NOOP}
+        defaultValue=""
+        qaHook="test-id"
+        characterCounter={{...characterCounterConfig, maxCharCount: 1}}
+      />,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

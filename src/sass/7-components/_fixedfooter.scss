@@ -7,7 +7,7 @@
 .#{$ns}-fixedfooter--wrapper {
   // These are required to ensure the fixed footer sits behind modals, toasts, etc.
   position: relative;
-  z-index: $xui-z-index-html;
+  z-index: $xui-z-index-contextualtop;
 }
 
 .#{$ns}-fixedfooter {
@@ -16,7 +16,6 @@
   left: 0;
   min-height: $xui-navigation-height;
   right: 0;
-  z-index: $xui-z-index-header;
   &:not(.#{$ns}-fixedfooter-clone) {
     background-color: $xui-panel-bg-color;
     box-shadow: $xui-shadow-depth-overlap-bottom;

@@ -1,0 +1,132 @@
+// Intro banner
+//
+// Components: intro-banner
+//
+// flags: new
+//
+// Teaser: An intro banner for onboarding information.
+//
+// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.mtlq4y3yfzg5
+//
+// Introduction: An intro banner provides onboarding information about a product that’s being used for the first time. It provides a space to teach users about what a product does and how they can use the features available.
+//
+// Markup: ./examples/introbanner/_intro-banner-anatomy.html
+//
+// ExampleClass: ds-example-wide ds-example-flush ds-example-nomarkuplink
+//
+// Styleguide: Components.Alerts.IntroBanner
+
+// Best practice
+//
+// Tips:
+// Do: Focus content on introducing a product and providing access to more information about it
+// Do: Always place beneath the [page header](./section-components-navigation-page-header.html) or [isolation header](./section-components-navigation-isolation-header.html)
+// Do: Only display 1 intro banner per page
+// Do: Always include a heading, body content, and a dismiss button
+// Do: Only provide an illustration to support the content, not to add decoration
+// Don't: Don’t use to introduce new features or validate user actions; instead use a [banner](./section-components-alerts-banner.html)
+// Don't: Don’t use to market or upsell a product or features
+//
+// Styleguide: Components.Alerts.IntroBanner.1
+
+// Illustrations
+//
+// An illustration is used to complement or enhance the body content inside the intro banner. If an introduction video displays inside the product, a play button should be displayed on top of the illustration, in addition to a call to action button below the body content.
+//
+// Tips:
+// Do: Always position illustrations on the left-hand side of the component
+// Do: Provide a ‘Watch video’ button in addition to the illustration play button for videos that play inside the product
+// Don't: Don’t display an illustration play button if the video opens in an external page, such as Xero TV
+// Don't: Don’t use illustrations to provide decoration that doesn’t support the body content
+//
+// exampleclass: ds-example-wide
+//
+// Markup: ./examples/introbanner/_intro-banner-illustration.html
+//
+// Styleguide: Components.Alerts.IntroBanner.2
+
+// Dismiss button
+//
+// The dismiss button in the top right of the component can be connected to the ‘Getting started’ switch under the ‘Help’ menu in the [global navigation](./section-components-navigation-global-navigation.html). This connection allows the intro banner to be hidden and revealed as needed by users.
+//
+// Tips:
+// Do: Always include a dismiss button
+// Do: Label button as ‘Hide’ if it’s connected to the ‘Getting started’ switch, to convey that the intro banner can be revealed later
+// Do: Label button as ‘Close’ if it’s not connected to the ‘Getting started’ switch
+//
+// Styleguide: Components.Alerts.IntroBanner.3
+
+// Call to action buttons
+//
+// Intro banner call to action buttons are used to help guide a customer through using a product for the first time. They should provide a clear action to watch an introduction video, either within the product, or as an external link. Xero Central articles should be linked inline within the last sentence of the body content – keep this to a maximum of 2 links.
+//
+// Tips:
+// Do: Always left-align buttons
+// Do: Use a button to action or link to an introduction video
+// Do: Provide a `social-youtube` icon and a time duration within the button label for videos that play within the product
+// Do: Provide a clear label and an `external` icon inside buttons that link to videos outside of the product (for example, Xero TV)
+// Don't: Avoid using buttons for product set-up actions; instead use alternative onboarding methods, such as [popovers](./section-components-alerts-popover.html#components-alerts-popover-5)
+// Don't: Don’t use buttons for linking off to Xero Central articles; instead use inline links
+// Info: [Page-level actions](./section-patterns-page-level-actions.html)
+// Info: [Button content guidelines](//docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.n0x4g065o3eg)
+//
+// Styleguide: Components.Alerts.IntroBanner.4
+
+// Responsive
+//
+// The intro banner is fully responsive and adjusts to fit the viewport width. Internal elements, such as illustrations and actions, shift to optimise the available space and the content wraps so it can be easily read.
+//
+// Tips:
+// Warning: Consider the length of body content on smaller viewports – 1 to 2 sentences is ideal
+// Don't: Don’t remove illustrations from smaller devices if used on desktop
+//
+// exampleclass: ds-example-narrow
+//
+// Markup: ./examples/introbanner/_intro-banner-responsive.html
+//
+// Styleguide: Components.Alerts.IntroBanner.5
+
+// Content guidelines
+//
+// The intro banner is one of the first things a user may read when they start using a new product. Use the intro banner to provide onboarding information that helps them understand what a product does and how they can use it.
+//
+// Tips:
+// Do: Always stick to a single theme or message
+// Do: Be concise and scannable – users should quickly understand what they need to know and do
+// Do: Body content should be 1 to 2 sentences long
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Do: For single sentences, don’t use a full stop
+// Don't: Avoid including critical information as users can dismiss the banner
+// Don't: Avoid repeating the heading text inside the body content
+// Don't: Avoid marketing or upselling the product – use the [relevant tone](//xui.xero.com/product-language-guide/components/tone/) for product content
+//
+// Styleguide: Components.Alerts.IntroBanner.6
+
+// Using HTML and CSS only
+//
+// For building a component without React, following these HTML classes will provide the appropriate styling. However, there is some functionality reliant on javascript that will not be available through this method of building.
+//
+// Classes:
+// xui-introbanner: Base class
+// xui-introbanner-small-up: Applies layout for the wide screen variant
+// xui-introbanner-has-illustration: Applies layout for the illustration variant
+// xui-introbanner--illustration: Container for the illustration content
+// xui-introbanner--illustration-has-video: Applies video illustration styling
+// xui-introbanner--videoicon: Video illustration play icon
+// xui-introbanner--main: Container for the main (non-illustration) content
+// xui-introbanner--dismissbutton: Dismiss button
+// xui-introbanner--header: Container for header content
+// xui-introbanner--body: Container for body content
+// xui-introbanner--footer: Container for footer content
+//
+// Styleguide: Components.Alerts.IntroBanner.7
+
+// Related links
+//
+// Related:
+// * [Global navigation](./section-components-navigation-global-navigation.html)
+// * [Page header](./section-components-navigation-page-header.html)
+// * [Banners](./section-components-alerts-banner.html)
+// * [Buttons](./section-components-controls-button.html)
+//
+// Styleguide: Components.Alerts.IntroBanner.99

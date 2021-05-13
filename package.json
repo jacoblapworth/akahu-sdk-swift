@@ -1,6 +1,6 @@
 {
   "name": "@xero/xui",
-  "version": "17.3.0",
+  "version": "17.4.0",
   "description": "Shared styles for Xero applications",
   "private": true,
   "repository": {
@@ -88,7 +88,7 @@
     "@types/enzyme-to-json": "1.5.4",
     "@types/jest": "26.0.0",
     "@types/prop-types": "15.7.3",
-    "@types/react": "16.9.38",
+    "@types/react": "17.0.5",
     "@types/react-beautiful-dnd": "13.0.0",
     "@types/react-portal": "4.0.2",
     "@types/uuid": "8.0.0",

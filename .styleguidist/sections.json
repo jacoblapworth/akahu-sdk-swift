@@ -235,6 +235,25 @@
             ]
           },
           {
+            "name": "Intro Banner",
+            "content": "../src/react/introbanner.md",
+            "sections": [
+              {
+                "components": "../src/react/components/introbanner/XUIIntroBanner.tsx"
+              },
+              {
+                "name": "Intro Banner Body",
+                "components": "../src/react/components/introbanner/XUIIntroBannerBody.tsx",
+                "content": "../src/react/introbanner.body.md"
+              },
+              {
+                "name": "Intro Banner Footer",
+                "components": "../src/react/components/introbanner/XUIIntroBannerFooter.tsx",
+                "content": "../src/react/introbanner.footer.md"
+              }
+            ]
+          },
+          {
             "name": "Popover",
             "content": "../src/react/popover.md",
             "sections": [

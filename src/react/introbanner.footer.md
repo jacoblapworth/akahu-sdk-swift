@@ -1,0 +1,1 @@
+`XUIIntroBannerFooter` is an optional component that can be used to display actions for an intro banner. This provides default responsive behaviour, with any provided `XUIButton` components becoming full-width buttons at mobile breakpoints. Add this component via the `footer` prop in `XUIIntroBanner`.

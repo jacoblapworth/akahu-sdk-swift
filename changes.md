@@ -76,6 +76,10 @@ _Note: This will mean that many key functionalities that worked for IE11 users p
 - The wrapping div of a select box will now have a class of `xui-selectwrapper` applied. When the contained select box is invalid, this element will also get a class of `xui-selectwrapper-is-invalid`. These new classes will be used for styling when the component appears inside a control group, in an upcoming release. They will NOT be addressed by the codemod.
 - Addtionally, the element that often has a class of `xui-select-layout` will now also have a root class of `xui-select` applied. This will be used for styling when the component appears inside a control group, in an upcoming release. This will be addressed by the codemod, where possible, however `xui-select-layout` is not always present.
 
+### XUIEditableTable
+
+- Default colour and font weight have been removed from `XUIEditableTableFoot`
+
 ### XUITable
 
 - Captions are now handled by adding an `aria-label` to the table element

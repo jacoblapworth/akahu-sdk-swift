@@ -136,15 +136,18 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
   }
 }
 
-.#{$ns}-editabletablehead,
-.#{$ns}-editabletablefoot {
+.#{$ns}-editabletablehead {
   @include xui-heading-small;
-  background-color: $xui-editabletable-bg-color;
   color: $xui-text-muted-color;
 
   .#{$ns}-editabletablerow {
     background-color: $xui-editabletablehead-bg-color;
   }
+}
+
+.#{$ns}-editabletablehead,
+.#{$ns}-editabletablefoot {
+  background-color: $xui-editabletable-bg-color;
 
   .#{$ns}-editabletablecell:not(:last-child),
   .#{$ns}-editabletableheadingcell:not(:last-child) {
@@ -158,6 +161,7 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
  * Without this there will be a missing border between the head and the body when the first row is
  * dragged, and the foot and the body when the last row is dragged.
  */
+/* stylelint-disable-next-line no-duplicate-selectors */
 .#{$ns}-editabletablehead .#{$ns}-editabletablerow {
   box-shadow: 0 1px 0 0 $xui-standard-shadow-color, 0 1px 0 0 $xui-editabletable-bg-color;
 }

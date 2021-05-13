@@ -14,7 +14,6 @@ import logReadyState from '../../../stories/helpers/log-ready-state';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 
-storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   const chartWidth = number('Chart width', 500);
   const chartHeight = number('Chart height', 400);

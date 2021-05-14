@@ -9,7 +9,8 @@
   flex-wrap: nowrap;
   min-height: $xui-navigation-height;
   overflow: hidden;
-  z-index: $xui-z-index-header;
+  position: relative;
+  z-index: $xui-z-index-contextualtop;
   &--content {
     align-items: stretch;
     display: flex;
@@ -161,7 +162,7 @@ $isolationheader-text-spacing: ($xui-navigation-height - $xui-s-xlarge) / 2;
     position: fixed;
     right: 0;
     top: 0;
-    z-index: $xui-z-index-header;
+    z-index: $xui-z-index-contextualtop;
   }
   &--content-layout {
     @include xui-breakpoint-small-up {

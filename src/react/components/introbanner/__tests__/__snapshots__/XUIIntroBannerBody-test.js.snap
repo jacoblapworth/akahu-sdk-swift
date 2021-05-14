@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUIIntroBannerBody renders a passed qaHook as an automationId 1`] = `
+<DocumentFragment>
+  <div
+    class="xui-introbanner--body"
+    data-automationid="introbanner-body"
+  >
+    <p>
+      Intro Banner Body Text
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`XUIIntroBannerBody renders basic example correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="xui-introbanner--body"
+  >
+    <p>
+      Intro Banner Body Text
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`XUIIntroBannerBody renders extra classes when passed to the className prop 1`] = `
+<DocumentFragment>
+  <div
+    class="xui-introbanner--body introbanner-body-class"
+  >
+    <p>
+      Intro Banner Body Text
+    </p>
+  </div>
+</DocumentFragment>
+`;

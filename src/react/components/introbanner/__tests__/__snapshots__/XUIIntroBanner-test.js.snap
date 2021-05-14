@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUIIntroBanner renders a passed qaHook as an automationId 1`] = `
+<DocumentFragment>
+  <div
+    class="xui-introbanner xui-introbanner-small-up"
+    data-automationid="introbanner"
+  >
+    <button
+      class="xui-button xui-introbanner--dismissbutton xui-button-borderless-main xui-button-small"
+      tabindex="0"
+      type="button"
+    >
+      Hide
+    </button>
+    <header
+      class="xui-introbanner--header"
+    >
+      Intro header
+    </header>
+    <div />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`XUIIntroBanner renders any additional classes provided through the className and headerClassName props 1`] = `
+<DocumentFragment>
+  <div
+    class="xui-introbanner xui-introbanner-small-up introbanner-class"
+  >
+    <button
+      class="xui-button xui-introbanner--dismissbutton xui-button-borderless-main xui-button-small"
+      tabindex="0"
+      type="button"
+    >
+      Hide
+    </button>
+    <header
+      class="xui-introbanner--header introbanner-header-class"
+    >
+      Intro header
+    </header>
+    <div />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`XUIIntroBanner renders basic example correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="xui-introbanner xui-introbanner-small-up"
+  >
+    <button
+      class="xui-button xui-introbanner--dismissbutton xui-button-borderless-main xui-button-small"
+      tabindex="0"
+      type="button"
+    >
+      Hide
+    </button>
+    <header
+      class="xui-introbanner--header"
+    >
+      Intro header
+    </header>
+    <div />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`XUIIntroBanner renders illustration variant correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="xui-introbanner xui-introbanner-has-illustration xui-introbanner-small-up"
+    data-automationid="introbanner"
+  >
+    <button
+      class="xui-button xui-introbanner--dismissbutton xui-button-borderless-main xui-button-small"
+      tabindex="0"
+      type="button"
+    >
+      Hide
+    </button>
+    <div
+      class="xui-introbanner--illustration"
+    >
+      <img
+        alt="Image description goes here"
+        class="xui-illustration"
+        data-automationid="introbanner--illustration"
+        src="https://edge.xero.com/illustration/job-maker-01/job-maker-01.svg"
+      />
+    </div>
+    <div
+      class="xui-introbanner--main"
+    >
+      <header
+        class="xui-introbanner--header"
+      >
+        Intro header
+      </header>
+      <div />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`XUIIntroBanner renders video illustration variant correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="xui-introbanner xui-introbanner-has-illustration xui-introbanner-small-up"
+    data-automationid="introbanner"
+  >
+    <button
+      class="xui-button xui-introbanner--dismissbutton xui-button-borderless-main xui-button-small"
+      tabindex="0"
+      type="button"
+    >
+      Hide
+    </button>
+    <button
+      aria-label="Watch video"
+      class="xui-introbanner--illustration xui-introbanner--illustration-has-video"
+      type="button"
+    >
+      <img
+        alt="Image description goes here"
+        class="xui-illustration"
+        data-automationid="introbanner--illustration"
+        src="https://edge.xero.com/illustration/job-maker-01/job-maker-01.svg"
+      />
+      <div
+        class="xui-introbanner--videoicon"
+      />
+    </button>
+    <div
+      class="xui-introbanner--main"
+    >
+      <header
+        class="xui-introbanner--header"
+      >
+        Intro header
+      </header>
+      <div />
+      <div />
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,138 @@
+@import '../vars';
+@import '../mixins';
+
+$xui-introbanner-illustration-height: 220px;
+$xui-introbanner-illustration-s-to-m-height: 190px;
+$xui-introbanner-illustration-width: 400px;
+
+.#{$ns}-introbanner {
+  @include xui-padding-vertical($xui-s-2xlarge);
+  @include xui-padding-horizontal($xui-s-large);
+  background-color: $xui-panel-bg-color;
+  box-shadow: $xui-shadow-depth-overlap-top;
+  margin: auto;
+  max-width: $xui-page-width-large;
+  position: relative;
+
+  &.#{$ns}-introbanner-has-illustration.#{$ns}-introbanner-small-up {
+    display: flex;
+  }
+}
+
+// INTRO BANNER WITH ILLUSTRATION
+// -----------------------------------------------------------------------------
+
+.#{$ns}-introbanner--main {
+  flex: 0 1 60%;
+}
+
+.#{$ns}-introbanner--illustration {
+  flex: 0 0.7 40%;
+  margin: 0 auto;
+  max-height: $xui-introbanner-illustration-height;
+  max-width: $xui-introbanner-illustration-width;
+  position: relative;
+  width: 100%;
+
+  .#{$ns}-introbanner-small-up.#{$ns}-introbanner-medium-down & {
+    height: $xui-introbanner-illustration-s-to-m-height;
+  }
+}
+
+.#{$ns}-introbanner--illustration .#{$ns}-illustration {
+  height: $xui-introbanner-illustration-height;
+  padding: $xui-s-xlarge;
+
+  .#{$ns}-introbanner-small-up.#{$ns}-introbanner-medium-down & {
+    height: $xui-introbanner-illustration-s-to-m-height;
+  }
+}
+
+// INTRO BANNER WITH VIDEO ILLUSTRATION
+// -----------------------------------------------------------------------------
+.#{$ns}-introbanner--illustration-has-video {
+  background: transparent;
+  border: 0;
+  border-radius: $xui-radius;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 0;
+  &:focus {
+    box-shadow: $xui-shadow-focus-inset;
+  }
+}
+
+.#{$ns}-introbanner--videoicon {
+  background-color: $xui-color-grey-1;
+  border-radius: $xui-radius-circle;
+  box-shadow: 0 0 0 2px $xui-color-white-alpha-4;
+  height: $xui-s-4xlarge;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: $xui-s-4xlarge;
+}
+
+.#{$ns}-introbanner--videoicon::before {
+  border-color: transparent transparent transparent $xui-color-white;
+  border-style: solid;
+  border-width: 11px 0 11px 18px;
+  bottom: 50%;
+  content: '';
+  left: 50%;
+  position: absolute;
+  transform: translate(-7px, 50%);
+}
+
+// INTRO BANNER HEADER
+// -----------------------------------------------------------------------------
+
+.#{$ns}-introbanner--header {
+  @include xui-heading-xlarge;
+  margin: 0;
+
+  .#{$ns}-introbanner-small-up & {
+    margin-right: 50px;
+  }
+}
+
+.#{$ns}-introbanner--dismissbutton {
+  display: block;
+  margin-left: auto;
+  position: static;
+  right: $xui-s-large;
+
+  .#{$ns}-introbanner-small-up & {
+    position: absolute;
+  }
+}
+
+// INTRO BANNER BODY
+// -----------------------------------------------------------------------------
+
+.#{$ns}-introbanner--body {
+  @include xui-text-large;
+  @include xui-margin-vertical($xui-s-large);
+}
+
+// INTRO BANNER FOOTER
+// -----------------------------------------------------------------------------
+
+.#{$ns}-introbanner--footer .#{$ns}-button {
+  width: 100%;
+
+  &:not(:nth-child(n + 2)) {
+    @include xui-margin-right($xui-s-xsmall);
+    margin-bottom: $xui-s-xsmall;
+  }
+
+  .#{$ns}-introbanner-small-up & {
+    width: auto;
+
+    &:not(:nth-child(n + 2)) {
+      margin-bottom: 0;
+    }
+  }
+}

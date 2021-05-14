@@ -90,7 +90,7 @@
     "@types/jest": "26.0.23",
     "@types/jest-axe": "3.5.1",
     "@types/prop-types": "15.7.3",
-    "@types/react": "^17.0.4",
+    "@types/react": "17.0.5",
     "@types/react-beautiful-dnd": "13.0.0",
     "@types/react-portal": "4.0.2",
     "@typescript-eslint/eslint-plugin": "4.22.0",

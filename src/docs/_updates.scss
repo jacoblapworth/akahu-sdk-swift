@@ -10,6 +10,47 @@
 //
 // Styleguide: Updates.1
 
+// XUI release information
+//
+// We announce releases as they happen via Slack on [#xui-development](https://xero.slack.com/archives/C565NP1A5).
+//
+// You can also talk to us on our respective Slack channels [#xui-development](https://xero.slack.com/archives/C565NP1A5) and [#xui-design](https://xero.slack.com/archives/C56RA62Q5).
+//
+// Styleguide: Updates.2
+
+// Release schedule
+//
+// In order to provide predictability to teams, we’ve made the the following commitments to the XUI release schedule. You can read more about XUI’s customer commitments in [Confluence](https://confluence.teamxero.com/pages/viewpage.action?spaceKey=FED&title=XUI#XUI-SoftwareLovabilityObjectivess).
+//
+// Definitions:
+// Version:	<strong>Release content</strong>:													<strong>Release cadence</strong>
+// Patch:		Bugs, other low-risk changes:															As needed – 2 weeks*
+// Minor:		New features/components that are backwards-compatible:		30 – 60 days*
+// Major:		Updates that will cause regressions to older versions**:	3 – 6 months*
+//
+// Note:
+// *Longest times depend on relevant changes having been merged to the working branch. If there are no changes awaiting release, the time between releases could be longer. <a href="https://confluence.teamxero.com/display/PLAT/2019/11/28/The+evolution+of+release+strategy+for+XUI">Read more on this release strategy.</a><br />**<a href="https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md#breaking-changes">More about breaking changes</a>
+//
+// Styleguide: Updates.2.1
+
+// GitHub releases
+//
+// [Our GitHub repository](https://github.dev.xero.com/UXE/xui/releases) also holds the most detailed information on exactly what has been released and when.
+//
+// Styleguide: Updates.2.2
+
+// Design assets
+//
+// XUI design assets live in the [Design Systems project in Figma](https://www.figma.com/files/713083859032680705/project/2713010/XUI-Libraries). Updates to a XUI Library will be announced within any Figma file referencing one, or by the XUI team in the [#xui-design](https://xero.slack.com/archives/C56RA62Q5) Slack channel. New files will be announced in Slack.
+//
+// Styleguide: Updates.2.3
+
+// Flags
+//
+// You may find sections of the documentation that are marked with flags to highlight recent or upcoming changes, or other pertinent info. See the [full list of definitions](./section-getting-started.html#getting-started-5) for common flags.
+//
+// Styleguide: Updates.2.4
+
 // 18.0.0 Release update (May 2021)
 //
 // XUI 18.0.0 includes a number of enhancements such as improvements to props,
@@ -120,7 +161,7 @@
 //
 // Styleguide: Updates.93.4
 
-// 16.0.0 Release update (December 2019)
+// 16.0.0 release update (December 2019)
 //
 // XUI 16.0.0 includes a number of enhancements to better support responsive interaction and display, including more flexible page header content reflow, navigational tabs and breadcrumb trails that can change UI based on their container widths, and increasing the touch targets of small interactive elements to meet minimum standards.
 //
@@ -211,7 +252,7 @@
 //
 // Styleguide: Updates.94.6
 
-// 15.0.0 Release update (March 2019)
+// 15.0.0 release update (March 2019)
 //
 // XUI 15.0.0 is themed around enabling and supporting responsive Xero applications. Responsive, much like accessibility, is a fundamental priority of building a progressive web application.
 //
@@ -301,7 +342,7 @@
 //
 // Styleguide: Updates.95.5
 
-// 14.0.0 Release update (August 2018)
+// 14.0.0 release update (August 2018)
 //
 // XUI 14.0.0 is themed around building and maintaining accessible products. Accessibility is an important aspect of modern web experiences, and we have dedicated this release to the enhancement of our components, documentation and tooling to enable our consumers to build products that are inclusive.
 //
@@ -377,7 +418,7 @@
 //
 // Styleguide: Updates.96.5
 
-// 13.4.0 Release update (July 2018)
+// 13.4.0 release update (July 2018)
 //
 // XUI 13.4.0 adds enhancements, bug fixes and two robust React components for our consumers. Data visualisation can now be further celebrated by utilising the brand new [XUIBarChart](./react/#bar-chart) component. In addition, [Accordion](./react/#accordion) has been given a new breath of life with an improved visual style, responsive support and fully componentised flexibility.
 //
@@ -419,7 +460,7 @@
 //
 // Styleguide: Updates.97.4
 
-// 13.3.0 Release update (June 2018)
+// 13.3.0 release update (June 2018)
 //
 // XUI 13.3.0 adds new ContentBlock and ContentBlockItem components, customisation options for Progress Indicator, new icon API and a service worker for offline caching of docs.
 //
@@ -447,7 +488,7 @@
 //
 // Styleguide: Updates.98
 
-// 13.2.0 Release update (April 2018)
+// 13.2.0 release update (April 2018)
 //
 // XUI 13.2.0 wraps up elements that provide a little bit of goodness for a range of our customers.
 //
@@ -500,46 +541,3 @@
 // Updated:	Table: 						[Compounds > Displaying data > Table](./section-components-displayingdata-table.html)
 //
 // Styleguide: Updates.99.4
-
-// XUI Release information
-//
-// We announce releases as they happen via Slack on [#xui-development](https://xero.slack.com/messages/C565NP1A5)
-//
-// You can also talk to us on our respective slack channels #xui-development & #xui-design
-//
-// Styleguide: Updates.100
-
-// Release schedule
-//
-// In order to provide predictability to teams, we’ve made the the following commitments to the XUI release schedule. You can read more about XUI's customer commitments in [Confluence](https://confluence.teamxero.com/pages/viewpage.action?spaceKey=FED&title=XUI#XUI-SoftwareLovabilityObjectivess).
-//
-// Definitions:
-// Version:	<strong>Release content</strong>:													<strong>Release cadence</strong>
-// Patch:		Bugs, other low-risk changes:															As needed - 2 wks*
-// Minor:		New features/components that are backwards-compatible:		30 - 60 days*
-// Major:		Updates that will cause regressions to older versions**:	3 - 6 months*
-//
-// Note:
-// *Longest times depend on relevant changes having been merged to the working branch. If there are no changes awaiting release, the time between releases could be longer. <a href="https://confluence.teamxero.com/display/PLAT/2019/11/28/The+evolution+of+release+strategy+for+XUI">Read more on this release strategy.</a><br />**<a href="https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md#breaking-changes">More about breaking changes</a>
-//
-// Styleguide: Updates.100.1
-
-// Github releases
-//
-// Our Github repository also holds the most detailed information on exactly what has been released and when.
-//
-// [uxe/xui/releases](https://github.dev.xero.com/UXE/xui/releases)
-//
-// Styleguide: Updates.100.2
-
-// Design assets
-//
-// XUI design assets live in the [Design Systems project in Figma](https://www.figma.com/files/713083859032680705/project/2713010/XUI-Libraries). Updates to a XUI Library will be announced within any Figma file referencing one, or by the XUI team in the #xui-design Slack channel. New files will be announced in Slack.
-//
-// Styleguide: Updates.100.3
-
-// Flags
-//
-// You may find sections of the documentation that are marked with flags to highlight recent or upcoming changes, or other pertinent info. See the [full list of definitions](./section-getting-started.html#getting-started-5) for common flags.
-//
-// Styleguide: Updates.100.4

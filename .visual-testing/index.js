@@ -127,6 +127,10 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/controlgroup/stories/variations.js`,
   },
   {
+    testsPrefix: 'XUI Intro Banner',
+    variationsPath: `${variationsPath}/introbanner/stories/variations.js`,
+  },
+  {
     testsPrefix: 'XUI Isolation Header',
     variationsPath: `${variationsPath}/isolationheader/stories/variations.js`,
   },

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // This file is a non-Flow version of
 // https://github.com/atlassian/react-beautiful-dnd/blob/v13.1.0/src/view/event-bindings/bind-events.js
 

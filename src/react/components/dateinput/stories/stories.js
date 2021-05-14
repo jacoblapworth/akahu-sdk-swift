@@ -116,13 +116,20 @@ variations.forEach(variation => {
 
     const component = isDateRangeInput ? (
       <XUIDateRangeInput
+        endDateInputConfig={{
+          inputLabel: 'End date',
+        }}
         locale="en"
         nextButtonAriaLabel="Next month"
         prevButtonAriaLabel="Previous month"
+        startDateInputConfig={{
+          inputLabel: 'Start date',
+        }}
         {...variationMinusStoryDetails}
       />
     ) : (
       <XUIDateInput
+        inputLabel="Start date"
         locale="en"
         nextButtonAriaLabel="Next month"
         prevButtonAriaLabel="Previous month"

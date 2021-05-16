@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // This file is a TS version of
 // https://github.com/atlassian/react-beautiful-dnd/blob/v13.1.0/src/invariant.js
 

@@ -6,6 +6,7 @@ Ref: https://jira.teamxero.com/browse/XUI-
 
 - [ ] 🔀 The title of this PR is prefixed with the branch it is being merged into
 - [ ] ❤️ [Accessibility requirements](https://xui.xero.com/breaking-changes/section-getting-started-accessibility-development.html) met
+- [ ] 🌏 [Internationalisation requirements](https://confluence.teamxero.com/pages/viewpage.action?pageId=243505530) met
 - [ ] 🏷️ TypeScript definition added or modified (if applicable)
 - [ ] ✅ Unit tests added or modified to test my code (if applicable)
 - [ ] 📷 Visual regression tests added to test my code (if applicable)

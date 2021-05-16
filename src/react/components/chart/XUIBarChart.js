@@ -147,6 +147,13 @@ XUIBarChart.propTypes = {
   onBarClick: PropTypes.func,
 
   /**
+   * Accessibility aria-label for pagination component.
+   * <br />
+   * Recommended English value: *Pagination*
+   */
+  paginationLabel: PropTypes.string,
+
+  /**
    * Accessibility title for pagination button.
    * This is required if `hasPagination` is true.
    * <br />

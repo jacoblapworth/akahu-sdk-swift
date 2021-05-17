@@ -92,23 +92,25 @@ const onPerPageCountChange = perPageCount => {
     ))}
   </XUIEditableTableBody>
   <XUIEditableTableFoot>
-    <XUIEditableTableCell colspan="3">
-      <XUIPagination
-        ariaLabel="Pagination"
-        count={data.length}
-        createCountContent={defaultCreateCountContent}
-        createPagingContent={defaultCreatePagingContent}
-        nextPageLabel="Next Page"
-        onPageChange={onPageChange}
-        onPerPageCountChange={onPerPageCountChange}
-        page={page}
-        pageSelectLabel="Select a page"
-        perPageContent="Items per page"
-        perPageCount={perPageCount}
-        perPageCountSelectLabel="Select a per page count"
-        previousPageLabel="Previous Page"
-      />
-    </XUIEditableTableCell>
+    <XUIEditableTableRow>
+      <XUIEditableTableCell colSpan="3">
+        <XUIPagination
+          ariaLabel="Pagination"
+          count={data.length}
+          createCountContent={defaultCreateCountContent}
+          createPagingContent={defaultCreatePagingContent}
+          nextPageLabel="Next Page"
+          onPageChange={onPageChange}
+          onPerPageCountChange={onPerPageCountChange}
+          page={page}
+          pageSelectLabel="Select a page"
+          perPageContent="Items per page"
+          perPageCount={perPageCount}
+          perPageCountSelectLabel="Select a per page count"
+          previousPageLabel="Previous Page"
+        />
+      </XUIEditableTableCell>
+    </XUIEditableTableRow>
   </XUIEditableTableFoot>
 </XUIEditableTable>;
 ```

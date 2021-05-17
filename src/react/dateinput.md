@@ -118,7 +118,16 @@ const ExampleDateInput = () => {
     setSelectedDate(newDate);
   };
 
-  return <XUIDateInput onSelectDate={onSelectDate} selectedDateDefaultValue={defaultValue} />;
+  return (
+    <XUIDateInput
+      inputLabel="Start date"
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
+      selectedDateDefaultValue={defaultValue}
+    />
+  );
 };
 
 <ExampleDateInput />;
@@ -518,12 +527,12 @@ const ExampleDateInput = () => {
 
   return (
     <XUIDateInput
-      suggestedDates={dateInputSuggestedDates}
-      locale="en"
       inputLabel="Start date"
+      locale="en"
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
       prevButtonAriaLabel="Previous month"
+      suggestedDates={dateInputSuggestedDates}
     />
   );
 };
@@ -621,7 +630,16 @@ const ExampleDateInput = () => {
     setSelectedDate(newDate);
   };
 
-  return <XUIDateInput inputLabel="Small date input" onSelectDate={onSelectDate} size="small" />;
+  return (
+    <XUIDateInput
+      inputLabel="Small date input"
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
+      size="small"
+    />
+  );
 };
 
 <ExampleDateInput />;
@@ -644,11 +662,14 @@ const ExampleDateInput = () => {
 
   return (
     <XUIDateInput
-      inputLabel="Start date"
-      onSelectDate={onSelectDate}
-      minDate={new Date(1999, 0, 1)}
-      maxDate={new Date(2000, 0, 1)}
       displayedMonth={new Date(1999, 0)}
+      inputLabel="Start date"
+      locale="en"
+      maxDate={new Date(2000, 0, 1)}
+      minDate={new Date(1999, 0, 1)}
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
     />
   );
 };

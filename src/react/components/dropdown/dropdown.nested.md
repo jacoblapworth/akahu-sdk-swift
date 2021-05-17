@@ -180,10 +180,13 @@ class NestedExample extends Component {
           }
         >
           <XUIDatePicker
-            ref={this.datepicker}
             displayedMonth={this.state.currentMonth}
-            selectedDate={this.state.selectedDate}
+            locale="en"
+            nextButtonAriaLabel="Next month"
             onSelectDate={this.selectDate}
+            prevButtonAriaLabel="Previous month"
+            ref={this.datepicker}
+            selectedDate={this.state.selectedDate}
           />
         </XUIDropdownPanel>
       </XUINestedDropdown>

@@ -77,6 +77,7 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Checkbox',
     variationsPath: `${variationsPath}/checkbox/stories/variations.js`,
+    delay: 5000,
   },
   {
     testsPrefix: 'XUI Content Block',
@@ -192,6 +193,7 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Switch',
     variationsPath: `${variationsPath}/switch/stories/variations.js`,
+    delay: 5000,
   },
   {
     testsPrefix: 'XUI Stepper',

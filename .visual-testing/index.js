@@ -210,7 +210,7 @@ const componentsToTest = [
   },
   {
     testsPrefix: 'XUI Text Input',
-    variationsPath: `${variationsPath}/textInput/stories/variations.js`,
+    variationsPath: `${variationsPath}/textinput/stories/variations.js`,
   },
   {
     testsPrefix: 'XUI Toast',

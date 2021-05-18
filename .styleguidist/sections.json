@@ -142,10 +142,10 @@
           {
             "name": "Text Input",
             "content": "../src/react/textinput.md",
-            "components": "../src/react/components/textInput/XUITextInput.js",
+            "components": "../src/react/components/textinput/XUITextInput.js",
             "sections": [
               {
-                "components": "../src/react/components/textInput/XUITextInputSideElement.js"
+                "components": "../src/react/components/textinput/XUITextInputSideElement.js"
               }
             ]
           },

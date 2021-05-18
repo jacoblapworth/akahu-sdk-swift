@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { v4 as uuidv4 } from 'uuid';
 
-import XUITextInput from '../../textInput/XUITextInput';
+import XUITextInput from '../../textinput/XUITextInput';
 import XUIEditableTableCell from '../XUIEditableTableCell';
 import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellTextInput from '../XUIEditableTableCellTextInput';

@@ -102,7 +102,7 @@ const componentsToTest = [
   },
   {
     testsPrefix: 'XUI File Uploader',
-    variationsPath: `${variationsPath}/fileUploader/stories/variations.js`,
+    variationsPath: `${variationsPath}/fileuploader/stories/variations.js`,
   },
   {
     testsPrefix: 'XUI Fixed Footer WIP',

@@ -89,8 +89,8 @@
           },
           {
             "name": "File Uploader",
-            "content": "../src/react/fileUploader.md",
-            "components": "../src/react/components/fileUploader/XUIFileUploader.js"
+            "content": "../src/react/fileuploader.md",
+            "components": "../src/react/components/fileuploader/XUIFileUploader.js"
           },
           {
             "name": "Radio",

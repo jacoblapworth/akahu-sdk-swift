@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import XUIEditableTableCellControl from './XUIEditableTableCellControl';
-import XUITextInput from '../textInput/XUITextInput';
+import XUITextInput from '../textinput/XUITextInput';
 import { tableName } from './private/constants';
 
 const baseName = `${tableName}celltextinput`;

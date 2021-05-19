@@ -102,7 +102,7 @@ const componentsToTest = [
   },
   {
     testsPrefix: 'XUI File Uploader',
-    variationsPath: `${variationsPath}/fileUploader/stories/variations.js`,
+    variationsPath: `${variationsPath}/fileuploader/stories/variations.js`,
   },
   {
     testsPrefix: 'XUI Fixed Footer WIP',
@@ -210,7 +210,7 @@ const componentsToTest = [
   },
   {
     testsPrefix: 'XUI Text Input',
-    variationsPath: `${variationsPath}/textInput/stories/variations.js`,
+    variationsPath: `${variationsPath}/textinput/stories/variations.js`,
   },
   {
     testsPrefix: 'XUI Toast',

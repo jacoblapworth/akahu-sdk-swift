@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import CharacterCounterProps from '../textInput/private/CharacterCounterProps';
+import CharacterCounterProps from '../textinput/private/CharacterCounterProps';
 
 interface Props {
   /**

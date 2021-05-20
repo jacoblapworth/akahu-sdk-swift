@@ -8,8 +8,7 @@ import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import DragDropDraggingContext from './private/DragAndDrop/contexts/DragDropDraggingContext';
 import XUIEditableTableCell from './XUIEditableTableCell';
-import { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
-import generateIds, { generateIdsFromControlId } from '../controlwrapper/helpers';
+import generateIds, { generateIdsFromControlId, getAriaAttributes } from '../helpers/ariaHelpers';
 import useResizeObserver from '../helpers/useResizeObserver';
 
 const baseName = `${tableName}cell`;

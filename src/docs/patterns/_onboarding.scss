@@ -1,0 +1,154 @@
+// Onboarding
+//
+// flags: new
+//
+// Teaser: Onboarding introduces users to new experiences and aims to set them up for success.
+//
+// Introduction: Onboarding introduces users to new experiences and aims to set them up for success. Use this pattern guidance to make decisions as you design product onboarding experiences.
+//
+// Styleguide: Patterns.Onboarding
+
+// Best practice
+//
+// Onboarding is focused on the user and what they want to achieve at any given point in time - it’s not limited to first-time users. Successful onboarding is an integrated experience that is almost indistinguishable from the product itself - it is about delivering timely, relevant guidance within the interface.
+//
+// The most effective way to onboard users is to understand where they are within their workflow, what capabilities they have, and what they are trying to achieve, and then use a combination of proven techniques to ensure they’re never stuck on the path to achieving their goals.
+//
+// **5 principles for effective onboarding**
+// 1. Provide a clear path to success
+// 2. Show benefits early and often
+// 3. Create an integrated experience
+// 4. Minimise friction and expose complexity over time
+// 5. Never stop onboarding
+//
+// Styleguide: Patterns.Onboarding.1
+
+// 1. Provide a clear path to success
+//
+// Onboarding is all about getting users to make progress. Providing clear tasks will enable users to onboard successfully and for tasks that are particularly important or complex, it can be helpful to demonstrate how far users have to go in completing them.
+//
+// Tips:
+// Do: Use an [onboarding popover](./section-components-alerts-popover.html#components-alerts-popover-5) or task list to step users through activities that help them accomplish their goals
+// Do: Utilise [progress indicators](./section-components-identifiers-progressindicator.html) to help users know how close they are to completing a task or help a series of tasks seem less arduous
+// Do: Display the amount of time a task may take to complete, to allow users to plan and set time aside to complete them
+// Do: Ensure completion of tasks can be continued at a later time if necessary
+// Don't: Don’t use multiple onboarding methods to guide users through the same tasks
+// Don't: Don’t assume all users will want to complete tasks in the same order
+//
+// Styleguide: Patterns.Onboarding.2
+
+// 2. Show benefits early and often
+//
+// Onboarding should be a set of small achievable engagements within the larger product. Break onboarding into small, achievable engagements, especially at the beginning of a user’s journey within a product.
+//
+// Styleguide: Patterns.Onboarding.3
+
+// Help users feel successful early
+//
+// Tips:
+// Do: Make sure users feel successful from the moment they experience a product for the first time, no matter how small the success.
+// Do: Provide early onboarding tasks users will be prepared to do in the moment, and can complete in one sitting. Sometimes this means starting with a task that isn’t directly related, but gives users a taste for success.
+// Don't: Don’t ask users to do a task that requires prior steps to be completed or permissions they don’t have.
+//
+// Styleguide: Patterns.Onboarding.3.1
+
+// Create rewarding moments
+//
+// Understanding who your users are, what they are trying to achieve, and where they are in the current workflow will help you create ‘rewarding moments’. Acknowledging key moments helps engage and delight users.
+//
+// Tips:
+// Do: Congratulate users when they successfully complete a task requiring a heavy investment of time, to provide a sense of accomplishment
+// Do: Utilise [illustrations](./section-fundamentals-illustrations.html) to add character and delight to messages within the interface
+// Dont: Avoid forcing users to complete tasks that don’t add value to their experience
+//
+// Styleguide: Patterns.Onboarding.3.2
+
+// 3. Create an integrated experience
+//
+// An integrated onboarding experience delivers timely, relevant guidance within the product. It should show meaningful information in context of the user’s workflow, rather than presenting an interface on top of an interface.
+//
+// Tips:
+// Do: Provide product introduction information in an [intro banner](./section-components-alerts-introbanner.html) to teach users how to get the most out of the available features
+// Do: Use an [onboarding popover](./section-components-alerts-popover.html#components-alerts-popover-5) to provide stepped tutorials/tours, introducing individual features or customising the user’s experience that follows
+// Warning: Keep introductions and UI tours lean and use with caution as they can disrupt a user’s momentum
+// Dont: Don’t rely on introductions to explain how your interface works; An interface should be as self-evident as possible, so that it needs very little introduction
+//
+// Styleguide: Patterns.Onboarding.4
+
+// Empty states
+//
+// Empty states are the places in the experience where a user doesn’t have content yet. A successful empty state turns a moment of nothing into something – an opportunity to guide, educate, and prompt, as well as setting expectations for what’ll happen, providing an obvious next step.
+//
+// Tips:
+// Do: Provide useful information inside of empty states, rather than just illustrative content
+// Do: Direct users to interact with persistent call-to-action buttons outside of the empty state
+// Warning: Use caution when adding call-to-action buttons inside empty states as it confuses future interactions
+// Don't: Don’t fill empty states with sample content – it can be confused for real content
+// Info: [Page-level-actions guidance](./section-patterns-page-level-actions.html)
+//
+// Styleguide: Patterns.Onboarding.4.1
+
+// 4. Minimise friction and expose complexity over time
+//
+// Not all customers need to use every feature in a product, and seeing a mass of features when starting off can be overwhelming. Good onboarding comes in phases – save introducing additional features or complexity until new users are firmly on their feet.
+//
+// Styleguide: Patterns.Onboarding.5
+
+// Don't overload new users
+//
+// Frontloading users with information and directions will prevent them from getting past the first few hurdles. New users only need to be shown necessary parts of the product and progressively exposed to more complex pieces as they progress. This allows users to gradually and naturally understand what’s going on around them.
+//
+// Tips:
+// Do: Initially teach a small subset of features that a user will be spending the majority of their time on
+// Do: Gradually introduce new features as a user becomes more familiar with the product
+// Do: Introduce new parts of a workflow once the user has completed a related task
+// Don't: Don’t take users through overwhelming product tours of features and instructions
+//
+// Styleguide: Patterns.Onboarding.5.1
+
+// Minimise friction by reducing complexity
+//
+// Friction occurs whenever a user’s workflow is interrupted, usually by confusion or tediousness. The most common culprit is long and arduous forms. Friction can be minimised by reducing complexity in the user experience, focussing tasks on what is most important at any particular time.
+//
+// Tips:
+// Do: Only ask for the most important and necessary information during signup and setup processes
+// Do: Prepopulate data if possible, always letting the user know where that information has come from
+// Do: Offer ways for users to add more complex information without adding friction to the onboarding flow (for example: with progressive disclosure)
+// Warning: Consider if gathering information outweighs the risk of users dropping out of the workflow
+//
+// Styleguide: Patterns.Onboarding.5.2
+
+// Add personalisation over time
+//
+// Not all personal information is necessary when setting up. Additionally, users don’t always feel comfortable providing sensitive information until they’ve built trust in the product, by knowing how it works.
+//
+// Tips:
+// Do: Progressively build up personal information throughout the workflow and only ask for it when it is required
+// Do: Ask for more sensitive information later in an onboarding process, to ensure users have built trust in how the product works
+//
+// Styleguide: Patterns.Onboarding.5.3
+
+// 5. Never stop onboarding
+//
+// Initial onboarding supports new users until they’re engaged, confident, and established. However, effective onboarding continues when established users try features later in their journey, or even if they have come back to a product after a long period of time. A user needs regular nurturing after they’re established to encourage retention, and advocacy of the product.
+//
+// Good onboarding practices retain users over time by continually showing them how to get the most out of the product. If established users lose sight of the value a product offers them, the door is left open for competitors to persuade them that their product is more valuable.
+//
+// Tips:
+// Do: Gradually introduce new features as a user becomes more familiar with the product
+// Do: Keep onboarding relevant by introducing new parts of a workflow once a user has completed a related task
+// Do: Consider every new feature as an opportunity to further onboard users, adding value to their experience
+// Do: Use a [banner](./section-components-alerts-banner.html) at the top of the page to notify users of changed or deprecated features in the product, and how this affects their workflow
+// Do: Guide a user to try out new features as they are released, rather than just notifying them
+//
+// Styleguide: Patterns.Onboarding.6
+
+// Related links
+//
+// Related:
+// * [Popover](./section-components-alerts-popover.html)
+// * [Banner](./section-components-alerts-banner.html)
+// * [Modal](./section-components-collectinginput-modals.html)
+// * [Progress indicator](./section-components-identifiers-progressindicator.html)
+//
+// Styleguide: Patterns.Onboarding.99

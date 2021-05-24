@@ -17,6 +17,6 @@ const onToastClose = () => {
 
 <div>
   <XUIToast message="System Message" />
-  <XUIToast onCloseClick={onToastClose} message="Standard" />
+  <XUIToast closeButtonLabel="Close" message="Standard" onCloseClick={onToastClose} />
 </div>;
 ```

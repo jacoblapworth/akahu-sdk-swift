@@ -47,7 +47,7 @@ describe('XUIBanner', () => {
   });
 
   it('should render with a close button if close click function is provided', () => {
-    const banner = shallow(<XUIBanner onCloseClick={NOOP} />);
+    const banner = shallow(<XUIBanner closeButtonLabel="Close" onCloseClick={NOOP} />);
     expect(banner.childAt(0).hasClass('xui-banner--close')).toBeTruthy();
   });
 

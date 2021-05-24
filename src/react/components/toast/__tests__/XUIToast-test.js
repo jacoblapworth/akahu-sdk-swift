@@ -49,7 +49,7 @@ describe('XUIToast', () => {
   });
 
   it('should render with a close button if close click function is provided', function () {
-    const wrapper = mount(<XUIToast onCloseClick={function () {}} />);
+    const wrapper = mount(<XUIToast closeButtonLabel="Close" onCloseClick={function () {}} />);
 
     expect(wrapper.html().includes('xui-toast--close')).toBeTruthy();
   });

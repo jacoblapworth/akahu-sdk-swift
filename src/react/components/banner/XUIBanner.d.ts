@@ -6,6 +6,13 @@ interface Props {
   children?: React.ReactNode;
   className?: string;
   /**
+   * Title and accessibility label to be applied to the banner close "X" button.
+   * This is required if an `onCloseClick` callback prop is provided.
+   *
+   * Recommended English value: *Close*
+   */
+  closeButtonLabel?: string;
+  /**
    * Defines whether the default layout class should be supplied.
    */
   hasDefaultLayout?: boolean;

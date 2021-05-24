@@ -151,6 +151,11 @@ TypeScript types have also been made slightly more strict for instances of rootN
 - All `XUIAccordion`-related `qaHook`s have been updated to use a `--` instead of a single `-`, in line with XUI naming conventions.
   - e.g. `{qaHook}-empty` has been renamed to `{qaHook}--empty`
 
+### XUIBanner
+
+- Removed hard-coded English-language string for the close button label. This must now be provided by the implementer in order to enable a better localised experience.
+- A new `closeButtonLabel` prop has been added, which is required when an `onCloseClick` prop has been provided. This prop will provide the `title` and `aria-label` for the close button. Recommended English value is "Close".
+
 ### XUIDateInput
 
 - `locale`, `nextButtonAriaLabel`, and `prevButtonAriaLabel` are now required to reflect the same changes in `XUIDatePicker`.
@@ -185,6 +190,11 @@ TypeScript types have also been made slightly more strict for instances of rootN
 - Captions are now handled by adding an `ariaLabel` to the table element
 - XUITable's cell contents will now vertically align to the top of the cell instead of the middle
 - XUITable now supports server side rendering
+
+### XUIToast
+
+- Removed hard-coded English-language string for the close button label. This must now be provided by the implementer in order to enable a better localised experience.
+- A new `closeButtonLabel` prop has been added, which is required when an `onCloseClick` prop has been provided. This prop will provide the `title` and `aria-label` for the close button. Recommended English value is "Close".
 
 ### Component props
 

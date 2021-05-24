@@ -7,6 +7,7 @@ import { sentimentMap, baseClass } from './private/constants';
 import XUIToastActions from './XUIToastActions';
 import XUIToastMessage from './XUIToastMessage';
 import shouldRender from '../helpers/shouldRender';
+import checkRequiredProps from '../../helpers/checkRequiredProps';
 
 const sentiments = Object.keys(sentimentMap);
 
@@ -14,6 +15,7 @@ const XUIToast = ({
   actions,
   children,
   className,
+  closeButtonLabel,
   hasDefaultLayout,
   isHidden,
   message,
@@ -52,12 +54,12 @@ const XUIToast = ({
 
   const close = onCloseClick ? (
     <XUIIconButton
-      ariaLabel="Close"
+      ariaLabel={closeButtonLabel}
       className={`${baseClass}--close`}
       icon={cross}
       onClick={onCloseClick}
       qaHook={buttonQAHook}
-      title="Close"
+      title={closeButtonLabel}
     />
   ) : null;
 
@@ -90,6 +92,15 @@ XUIToast.propTypes = {
   children: PropTypes.node,
   /** Adds optional class to wrapping component */
   className: PropTypes.string,
+  /**
+   * Title and accessibility label to be applied to the toast close "X" button.
+   * This is required if an `onCloseClick` callback prop is provided.
+   * <br />
+   * Recommended English value: *Close*
+   */
+  closeButtonLabel(...parameters) {
+    return checkRequiredProps('onCloseClick', PropTypes.string.isRequired, ...parameters);
+  },
   /** Applies default layout class to the component */
   hasDefaultLayout: PropTypes.bool,
   /** Hides the component when set to true */

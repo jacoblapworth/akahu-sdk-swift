@@ -81,6 +81,7 @@ storiesWithKnobs.add('Playground', () => {
         },
       ])}
       className={text('className', '')}
+      closeButtonLabel="Close"
       hasDefaultLayout={boolean('hasDefaultLayout', true)}
       messageText={text('message', 'Message text')}
       onBlur={NOOP}
@@ -105,6 +106,7 @@ variations.forEach(variation => {
 
     return (
       <DetailedToast
+        closeButtonLabel="Close"
         onBlur={NOOP}
         onCloseClick={NOOP}
         onFocus={NOOP}

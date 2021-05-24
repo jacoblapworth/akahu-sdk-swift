@@ -146,7 +146,7 @@ describe('<XUIPagination/>', () => {
     expect(wrapper.find('.xui-pagination--paging .xui-select--content').at(0).text()).toContain(
       'Page 1',
     );
-    expect(wrapper.find('.xui-pagination--items--count').at(0).text()).toContain('1-10');
+    expect(wrapper.find('.xui-pagination--items--count').at(0).text()).toContain('1–10');
   });
 
   it('should handle perPageCount select properly', () => {
@@ -160,7 +160,7 @@ describe('<XUIPagination/>', () => {
     expect(
       wrapper.find('.xui-pagination--items--select .xui-select--content').at(0).text(),
     ).toContain('10');
-    expect(wrapper.find('.xui-pagination--items--count').at(0).text()).toContain('1-10');
+    expect(wrapper.find('.xui-pagination--items--count').at(0).text()).toContain('1–10');
   });
 
   it('should call onPageChange when page is selected', () => {

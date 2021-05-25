@@ -1,23 +1,26 @@
-// Labels, placeholders, and notes
+// Elements within a form
 //
 // Teaser: Help users know what they need to do
 //
-// Introduction:
-// The words used with form elements can make or break an interface. Labels are almost always needed
-// and need writing well - get some [tips in the Language Guide](/product-language-guide/components/examples/#form-labels).
+// Styleguide: Components.CollectingInput.Forms.4
+
+// Headings
 //
-// Styleguide: Components.CollectingInput.Forms.6
+// Form headings should follow the guidance for [headings](./section-components-navigation-page-header.html)
+//
+// Styleguide: Components.CollectingInput.Forms.4.1
 
 // Labels
+//
+// A label is a short description of the field, but doesn’t provide instructions or offer hint messages.
 //
 // The default position for labels is above a field, left-aligned. They can be added either as siblings to, or wrapping around, their matching input.
 //
 // Tips:
-// Do: Apply classes to the label element itself if it’s sibling of the input
+// Do: Apply classes to the label element if it’s a sibling of the input
 // Do: Apply classes to a nested span if the label wraps the input
-// Do: Add a label above the input if space is available
-// Warning: Only consider adding a label within the input if space above is not available
-// Dont: Don't use a symbol to indicate fields as required without explaining what it means
+// Do: Make sure an ARIA label is always available for screen readers
+// Warning: Only consider adding a label within the input if space above isn’t available
 //
 // Markup: ./examples/form/_form-labels.html
 //
@@ -25,54 +28,104 @@
 // xui-text-label: Adds text styling only
 // xui-fieldlabel-layout: Adds correct spacing
 //
-// Styleguide: Components.CollectingInput.Forms.6.1
+// Styleguide: Components.CollectingInput.Forms.4.2
 
 // Hiding labels
 //
-// It’s ok to hide labels visually in some circumstances.
+// Avoid hiding labels wherever possible. However, in some circumstances it’s OK to visually hide labels (for example: using a text input for search).
 //
 // Tips:
-// Do: Make sure an aria label is still available for screen-readers
-// Do: Isolated, commonly understood interactions
-// Do: Repeat-use fields which have clear context
-// Do: Include an icon and placeholder
-// Warning: Ensure accessibility is maintained with hidden or aria-labels
+// Warning: Only use for isolated, commonly-understood interactions
+// Warning: Only use for repeat-use fields which have clear context
+// Warning: Always include an icon and placeholder
+// Warning: When using text inputs with hidden labels, the placeholder content should reflect what would usually be in a label
+// Warning: Make sure accessibility is maintained with `aria-labels`
 //
-// Styleguide: Components.CollectingInput.Forms.6.1.1
+// Styleguide: Components.CollectingInput.Forms.4.3
 
-// Label language
+// Label content
 //
 // Tips:
-// Do: Be short and succinct
-// Do: Be consistent across all of Xero
-// Warning: Avoid repeating the task of the form in each label
+// Do: Be short and succinct (1–3 words)
+// Do: Write in sentence case (capitalise first word and proper nouns)
+// Do: Write as statements rather than questions or instructions
+// Do: Place above or beside the form field
 //
-// Get more good [tips in the Language Guide](/product-language-guide/components/examples/#form-labels).
+// Styleguide: Components.CollectingInput.Forms.4.4
+
+// Examples of label content
 //
-// Styleguide: Components.CollectingInput.Forms.6.1.2
+// |<svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-green" role="presentation" viewbox="0 0 12 12"><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z"></path></svg>&nbsp;Do| <svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-red" role="presentation" viewbox="0 0 12 12"><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"></path></svg>&nbsp;Don't|
+// |:---|:---|
+// IR number| My IR number is
+// Email address| What’s your email address?
+// Bank account number| Enter bank account number
+//
+// Styleguide: Components.CollectingInput.Forms.4.5
 
 // Placeholders
 //
+// Placeholders help the user know what to enter when the formatting is important. They disappear when the user enters something into the field, so shouldn’t contain critical information.
+//
 // Tips:
-// Do: Use to provide formatting hints
-// Warning: If it feels like it’s needed for clarity, try improving the label first
-// Dont: Avoid using for the sake of it
+// Do: Use to provide an example of formatting
+// Warning: If it feels like it’s needed for clarity, try improving the label or hint message first
+// Dont: Don’t use for the sake of it – wherever possible, leave fields empty
 // Dont: Don’t repeat the label
 //
 // Markup: ./examples/form/_form-labels-placeholders.html
 //
-// Styleguide: Components.CollectingInput.Forms.6.2
+// Styleguide: Components.CollectingInput.Forms.4.6
 
-// Notes and errors
-//
-// Notes and [validation](./section-components-collectinginput-forms.html#components-collectinginput-forms-7) messages are added under fields in a `xui-validation-layout` wrapper.
-// This has negative margin so only affects the form layout if it breaks to multiple lines -
-// avoiding layout thrashing if messages appear when fields are focused or blurred.
+// Placeholder content
 //
 // Tips:
-// Do: Show on focus - especially if there is a few in one interface
-// Do: Provide advice on how to correctly format input if it has been filled incorrectly
+// Do: Display placeholder within the form field
+// Do: Use only for supplementary, non-critical information that gives an example of formatting
+// Do: Write as example of format instead of instructions
+// Warning: Dropdown or select components are exceptions – don’t leave the fields blank. Choose a logical default option or use **Select + {field label}**
+//
+// Styleguide: Components.CollectingInput.Forms.4.7
+
+// Examples of placeholder content
+//
+// |<svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-green" role="presentation" viewbox="0 0 12 12"><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z"></path></svg>&nbsp;Do| <svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-red" role="presentation" viewbox="0 0 12 12"><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"></path></svg>&nbsp;Don't|
+// |:---|:---|
+// 0&#58;00| E.g 3.5 hours
+// 0.00| Enter invoice amount
+//
+// Styleguide: Components.CollectingInput.Forms.4.8
+
+// Hint messages
+//
+// Hint messages provide extra guidance or instruction to users filling out a field. They can also clarify how the information will be used.
+//
+// Hint messages (and validation messages) are added under fields in a `xui-validation-layout` wrapper. This has a negative margin so when messages appear on focus or blur, the layout doesn’t change. The form layout is only affected if the validation expands over multiple lines.
+//
+// Tips:
+// Do: Show persistently
+// Warning: Hint messages aren’t always needed – there should be a strong reason to include one
+// Warning: Don’t rely on hint messages – they’re replaced with validation messages when there’s an error
 //
 // Markup: ./examples/form/_form-labels-notes-and-errors.html
 //
-// Styleguide: Components.CollectingInput.Forms.6.3
+// Styleguide: Components.CollectingInput.Forms.4.9
+
+// Hint message content
+//
+// Tips:
+// Do: Be concise and provide just enough information to help users complete the field or answer common questions
+// Do: Display under a field
+//
+// Styleguide: Components.CollectingInput.Forms.4.10
+
+// Examples of hint message content
+//
+// |<svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-green" role="presentation" viewbox="0 0 12 12"><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z"></path></svg>&nbsp;Do| <svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-red" role="presentation" viewbox="0 0 12 12"><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"></path></svg>&nbsp;Don't|
+// |:---|:---|
+// Found on the top of your IR3 form| Your IRD number is your unique tax number from the Inland Revenue Department. It can be found on the top of your IR3 form.
+//
+// Note:
+// Note&#58; For other messaging options, see the guidance on <a href="./section-components-alerts-tooltip.html">tooltips</a> or <a href="./section-components-alerts-popover.html">popovers</a>
+//
+// Styleguide: Components.CollectingInput.Forms.4.11

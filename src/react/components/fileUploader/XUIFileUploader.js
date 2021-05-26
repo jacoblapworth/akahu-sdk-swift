@@ -120,6 +120,20 @@ const XUIFileUploader = ({
       [label?.innerText && !isLabelHidden, typeof label?.[0] === 'string', labelId],
     );
   }, [isLabelHidden, label, labelId]);
+  useEffect(() => {
+    labelRequiredWarning(
+      XUIFileUploader.name,
+      ['`uploadingIconAriaLabel` provided'],
+      [uploadingIconAriaLabel],
+    );
+  }, [uploadingIconAriaLabel]);
+  useEffect(() => {
+    labelRequiredWarning(
+      XUIFileUploader.name,
+      ['`errorIconAriaLabel` provided'],
+      [errorIconAriaLabel],
+    );
+  }, [errorIconAriaLabel]);
 
   return (
     <div

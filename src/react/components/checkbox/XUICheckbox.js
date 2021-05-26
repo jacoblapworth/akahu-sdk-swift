@@ -10,7 +10,7 @@ import XUIControlWrapperInline, {
 } from '../controlwrapper/XUIControlWrapperInline';
 import generateIds from '../controlwrapper/helpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
-import labelRequiredWarning from '../helpers/labelRequiredWarning';
+import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
 
 /**
  * @function setIndeterminate - Set the indeterminate DOM property of the given checkbox instance
@@ -120,11 +120,11 @@ export default class XUICheckbox extends PureComponent {
 
     const { children, labelId, isLabelHidden } = this.props;
 
-    labelRequiredWarning(
-      XUICheckbox.name,
-      ['includes a child with text', 'labelId provided'],
-      [children?.innerText && !isLabelHidden, typeof children?.[0] === 'string', labelId],
-    );
+    labelRequiredWarning(XUICheckbox.name, textChildOrLabelId, [
+      children?.innerText && !isLabelHidden,
+      typeof children?.[0] === 'string',
+      labelId,
+    ]);
   }
 
   componentDidUpdate() {

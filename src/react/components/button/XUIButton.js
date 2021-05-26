@@ -14,6 +14,7 @@ import {
 import { ns } from '../helpers/xuiClassNamespace';
 import noop from '../helpers/noop';
 import SizeContext from '../../contexts/SizeContext';
+import labelRequiredWarning, { loadingAriaLabelOnly } from '../helpers/labelRequiredWarning';
 
 /**
  * Returns true if the button is a borderless variant
@@ -56,6 +57,14 @@ const defaultSize = 'medium';
 
 export default class XUIButton extends React.PureComponent {
   rootNode = React.createRef();
+
+  componentDidUpdate(prevProps) {
+    if (!prevProps.isLoading && this.props.isLoading) {
+      labelRequiredWarning(XUIButton.name, loadingAriaLabelOnly, [
+        this.props.isLoading && this.props.loadingAriaLabel,
+      ]);
+    }
+  }
 
   /**
    * Focus the button.

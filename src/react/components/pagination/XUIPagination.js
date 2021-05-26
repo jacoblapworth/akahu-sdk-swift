@@ -8,7 +8,7 @@ import useContainerQuery from '../helpers/useContainerQuery';
 
 import { baseClass, defaultPerPageCountOptions } from './private/helpers';
 import checkRequiredProps from '../../helpers/checkRequiredProps';
-import labelRequiredWarning from '../helpers/labelRequiredWarning';
+import labelRequiredWarning, { ariaLabelOnly } from '../helpers/labelRequiredWarning';
 
 const XUIPagination = ({
   ariaLabel,
@@ -74,7 +74,7 @@ const XUIPagination = ({
   const currentPageNum = page || (currentPage > pageCount ? pageCount : currentPage);
 
   useEffect(() => {
-    labelRequiredWarning(XUIPagination.name, ['`ariaLabel` provided'], [ariaLabel]);
+    labelRequiredWarning(XUIPagination.name, ariaLabelOnly, [ariaLabel]);
   }, [ariaLabel]);
 
   return (

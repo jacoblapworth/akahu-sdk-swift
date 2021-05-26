@@ -22,4 +22,9 @@ const labelRequiredWarning = (
   });
 };
 
-export default labelRequiredWarning;
+// Messages to consistently communicate how to fulfill common sets of criteria.
+const textChildOrLabelId = ['includes a child with text', 'labelId provided']; // For inline controls: Checkbox, Radio, Switch
+const ariaLabelOnly = ['`ariaLabel` provided']; // Various controls where only an ARIA label is required
+const loadingAriaLabelOnly = ['loadingAriaLabel when isLoading'];
+
+export { ariaLabelOnly, labelRequiredWarning as default, loadingAriaLabelOnly, textChildOrLabelId };

@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { CHART_HEIGHT, BAR_ACTIVE_COLOR } from './helpers/constants';
 import ChartScaffold from './customElements/ChartScaffold';
 import ChartLoader from './customElements/ChartLoader';
 import ChartEmpty from './customElements/ChartEmpty';
+import labelRequiredWarning, { loadingAriaLabelOnly } from '../helpers/labelRequiredWarning';
 
 const XUIBarChart = props => {
   const { barsData, isLoading } = props;
   const isEmpty = !barsData.length;
 
+  useEffect(() => {
+    labelRequiredWarning(XUIBarChart.name, loadingAriaLabelOnly, [
+      isLoading && props.loadingAriaLabel,
+    ]);
+  }, [isLoading, props.loadingAriaLabel]);
   switch (true) {
     case isLoading:
       return <ChartLoader {...props} />;

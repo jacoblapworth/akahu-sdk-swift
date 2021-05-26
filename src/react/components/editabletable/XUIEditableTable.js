@@ -12,7 +12,7 @@ import XUIIcon from '../icon/XUIIcon';
 import { generateIdsFromControlId } from '../controlwrapper/helpers';
 import combineRefs from '../helpers/combineRefs';
 import Element from '../helpers/polyfills/Element';
-import labelRequiredWarning from '../helpers/labelRequiredWarning';
+import labelRequiredWarning, { ariaLabelOnly } from '../helpers/labelRequiredWarning';
 
 const XUIEditableTable = React.forwardRef(
   (
@@ -58,7 +58,7 @@ const XUIEditableTable = React.forwardRef(
 
     useEffect(() => {
       // XUIEditableTable.name is undefined as this is a forwardRef component
-      labelRequiredWarning('XUIEditableTable', ['contains an ariaLabel'], [ariaLabel]);
+      labelRequiredWarning('XUIEditableTable', ariaLabelOnly, [ariaLabel]);
     }, [ariaLabel]);
 
     return (

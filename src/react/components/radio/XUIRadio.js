@@ -10,7 +10,7 @@ import XUIControlWrapperInline, {
 } from '../controlwrapper/XUIControlWrapperInline';
 import generateIds from '../controlwrapper/helpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
-import labelRequiredWarning from '../helpers/labelRequiredWarning';
+import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
 
 /**
  * @function handleLabelClick - Prevent 2 click events bubbling. Since our input is
@@ -157,11 +157,11 @@ const XUIRadio = props => {
   };
 
   useEffect(() => {
-    labelRequiredWarning(
-      XUIRadio.name,
-      ['includes a child with text', 'labelId provided'],
-      [children?.innerText && !isLabelHidden, typeof children?.[0] === 'string', props.labelId],
-    );
+    labelRequiredWarning(XUIRadio.name, textChildOrLabelId, [
+      children?.innerText && !isLabelHidden,
+      typeof children?.[0] === 'string',
+      props.labelId,
+    ]);
   }, [children, isLabelHidden, props.labelId]);
 
   if (typeof isChecked !== 'boolean') {

@@ -12,6 +12,7 @@ import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 import { eventKeyValues, isKeyClick } from '../helpers/reactKeyHandler';
 import { observe, unobserve } from '../helpers/resizeObserver';
+import labelRequiredWarning, { loadingAriaLabelOnly } from '../helpers/labelRequiredWarning';
 
 const baseClass = `${ns}-autocompleter`;
 
@@ -55,7 +56,14 @@ export default class XUIAutocompleter extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { pills, disableWrapPills, searchDebounceTimeout, searchValue, placeholder } = this.props;
+    const {
+      pills,
+      disableWrapPills,
+      searchDebounceTimeout,
+      searchValue,
+      placeholder,
+      isLoading,
+    } = this.props;
 
     if (prevProps.searchDebounceTimeout !== searchDebounceTimeout) {
       this.bindOnChange(searchDebounceTimeout);
@@ -82,6 +90,12 @@ export default class XUIAutocompleter extends PureComponent {
 
     if (React.Children.count(pills) < React.Children.count(prevProps.pills)) {
       this.ddt.current.repositionDropdown();
+    }
+
+    if (!prevProps.isLoading && isLoading) {
+      labelRequiredWarning(XUIAutocompleter.name, loadingAriaLabelOnly, [
+        isLoading && this.props.loadingAriaLabel,
+      ]);
     }
   }
 

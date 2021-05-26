@@ -40,7 +40,9 @@ const XUIEditableTableCellTextInput = ({
   const composedOnFocus = event => {
     setIsFocused(true);
 
-    event.target.select();
+    const { target } = event;
+    // Timeout must be used to avoid a synchronisation issue with Safari
+    window.setTimeout(() => target.select(), 0);
 
     onFocus && onFocus(event);
   };

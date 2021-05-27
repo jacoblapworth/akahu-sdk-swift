@@ -12,7 +12,6 @@ import XUIEditableTableCellTextInput from '../XUIEditableTableCellTextInput';
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testGeneratedId');
-jest.useFakeTimers();
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
@@ -38,6 +37,9 @@ describe('<XUIEditableTableCellTextInput />', () => {
   });
 
   describe('focusing', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
     it('selects the whole input when focused', () => {
       // Arrange
       const wrapper = mount(

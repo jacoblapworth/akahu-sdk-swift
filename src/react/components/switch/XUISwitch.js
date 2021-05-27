@@ -4,10 +4,8 @@ import cn from 'classnames';
 
 import '../helpers/xuiGlobalChecks';
 import { ns } from '../helpers/xuiClassNamespace';
-import XUIControlWrapperInline, {
-  getAriaAttributes,
-} from '../controlwrapper/XUIControlWrapperInline';
-import generateIds from '../controlwrapper/helpers';
+import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
+import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
 import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
 
@@ -106,7 +104,7 @@ const XUISwitch = props => {
     name,
     value,
     onChange: onChangeCalculated,
-    ...getAriaAttributes(wrapperIds, props),
+    ...getAriaAttributesInline(wrapperIds, props),
   };
 
   useEffect(() => {

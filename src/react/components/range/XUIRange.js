@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
+import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
 import { ns } from '../helpers/xuiClassNamespace';
-import generateIds from '../controlwrapper/helpers';
+import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 const baseClass = `${ns}-rangeslider`;

@@ -6,8 +6,8 @@ import searchPath from '@xero/xui-icon/icons/search';
 
 import XUIDropdown from '../dropdown/XUIDropdown';
 import XUIDropdownToggled from '../dropdown/XUIDropdownToggled';
-import XUITextInput from '../textInput/XUITextInput';
-import XUITextInputSideElement from '../textInput/XUITextInputSideElement';
+import XUITextInput from '../textinput/XUITextInput';
+import XUITextInputSideElement from '../textinput/XUITextInputSideElement';
 import XUIIcon from '../icon/XUIIcon';
 
 import compose from '../helpers/compose';

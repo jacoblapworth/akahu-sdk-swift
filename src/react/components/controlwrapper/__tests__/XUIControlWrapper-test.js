@@ -4,8 +4,11 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 
-import XUIControlWrapper, { getAriaAttributes } from '../XUIControlWrapper';
-import generateIds, { generateIdsFromControlId } from '../helpers';
+import XUIControlWrapper from '../XUIControlWrapper';
+import generateIds, {
+  generateIdsFromControlId,
+  getAriaAttributes,
+} from '../../helpers/ariaHelpers';
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testGeneratedId');

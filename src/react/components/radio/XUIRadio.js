@@ -5,10 +5,8 @@ import cn from 'classnames';
 import '../helpers/xuiGlobalChecks';
 import { baseClass } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
-import XUIControlWrapperInline, {
-  getAriaAttributes,
-} from '../controlwrapper/XUIControlWrapperInline';
-import generateIds from '../controlwrapper/helpers';
+import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
+import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
 import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
 
@@ -149,7 +147,7 @@ const XUIRadio = props => {
     onChange,
     value,
     id,
-    ...getAriaAttributes(wrapperIds, props),
+    ...getAriaAttributesInline(wrapperIds, props),
   };
   const svgSettings = {
     svgClassName,

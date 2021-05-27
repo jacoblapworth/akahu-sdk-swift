@@ -197,7 +197,7 @@ const Example = () => (
     count={100}
     createCountContent={(from, to, count) => ({
       simple: `Total contacts: ${numberFormat(count)}`,
-      enhanced: `Showing contacts ${numberFormat(from)}-${numberFormat(to)} of ${numberFormat(
+      enhanced: `Showing contacts ${numberFormat(from)}–${numberFormat(to)} of ${numberFormat(
         count
       )}`
     })}

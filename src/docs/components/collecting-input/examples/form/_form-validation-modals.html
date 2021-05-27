@@ -1,7 +1,7 @@
 <div class="xui-mask xui-mask-is-active" aria-hidden="false">
   <section class="xui-modal xui-modal-layout" tabindex="0" role="dialog">
     <header class="xui-modal--header">
-      <div class="xui-modal--heading">Almost there, we just need a contact</div>
+      <div class="xui-modal--heading">Enter a contact</div>
       <button
         title="Close"
         class="xui-modal--close xui-button xui-button-icon xui-button-icon-small"
@@ -16,12 +16,8 @@
     </header>
     <div class="xui-modal--body">
       <div class="xui-textinputwrapper">
-        <input
-          type="text"
-          class="xui-textinput xui-textinput--input"
-          placeholder="Contact name"
-          aria-label="Contact name"
-        />
+        <label class="xui-text-label xui-fieldlabel-layout" for="modal-name">Contact name</label>
+        <input id="modal-name" type="text" class="xui-textinput xui-textinput--input" />
       </div>
     </div>
     <footer class="xui-modal--footer xui-actions xui-actions-layout">
@@ -30,7 +26,7 @@
         tabindex="0"
         type="button"
       >
-        Send
+        Save
       </button>
       <button
         class="xui-button xui-actions--secondary xui-button-medium xui-button-standard"

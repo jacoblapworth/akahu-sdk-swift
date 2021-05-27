@@ -5,10 +5,8 @@ import cn from 'classnames';
 import '../helpers/xuiGlobalChecks';
 import { baseClass } from './constants';
 import { ns } from '../helpers/xuiClassNamespace';
-import XUIControlWrapperInline, {
-  getAriaAttributes,
-} from '../controlwrapper/XUIControlWrapperInline';
-import generateIds from '../controlwrapper/helpers';
+import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
+import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
 import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
 
@@ -190,7 +188,7 @@ export default class XUICheckbox extends PureComponent {
       name,
       onChange,
       value,
-      ...getAriaAttributes(this.wrapperIds, this.props),
+      ...getAriaAttributesInline(this.wrapperIds, this.props),
     };
     const svgSettings = {
       svgClassName,

@@ -4,8 +4,8 @@ import cn from 'classnames';
 
 import { ns } from '../helpers/xuiClassNamespace';
 
-import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
-import generateIds from '../controlwrapper/helpers';
+import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
+import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 import useContainerQuery from '../helpers/useContainerQuery';
 import defaultBreakpoints from '../helpers/breakpoints';
 

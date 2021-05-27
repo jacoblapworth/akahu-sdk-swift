@@ -9,7 +9,7 @@ export const defaultPerPageContent = 'Items per page';
 export const numberFormat = number => new Intl.NumberFormat().format(number);
 
 export const defaultCreateCountContent = (from, to, count) => ({
-  enhanced: `Showing items ${numberFormat(from)}-${numberFormat(to)} of ${numberFormat(count)}`, // $xui-breakpoint-medium-up
+  enhanced: `Showing items ${numberFormat(from)}–${numberFormat(to)} of ${numberFormat(count)}`, // $xui-breakpoint-medium-up
   simple: `Total items: ${numberFormat(count)}`, // $xui-breakpoint-medium-down
 });
 

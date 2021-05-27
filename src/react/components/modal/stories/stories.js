@@ -10,7 +10,7 @@ import XUIModal from '../XUIModal';
 import XUIModalBody from '../XUIModalBody';
 import XUIModalFooter from '../XUIModalFooter';
 import XUIModalHeader from '../XUIModalHeader';
-import XUITextInput from '../../textInput/XUITextInput';
+import XUITextInput from '../../textinput/XUITextInput';
 import XUIButton from '../../button/XUIButton';
 import { modalSizes } from '../constants';
 

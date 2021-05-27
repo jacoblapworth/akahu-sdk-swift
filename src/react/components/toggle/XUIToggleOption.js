@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { baseClass, typeMap } from './private/constants';
-import XUIControlWrapperInline, {
-  getAriaAttributes,
-} from '../controlwrapper/XUIControlWrapperInline';
-import generateIds from '../controlwrapper/helpers';
+import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
+import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 
 const XUIToggleOption = props => {
   const wrapperIds = generateIds(props.id);
@@ -46,7 +44,7 @@ const XUIToggleOption = props => {
         required={isRequired}
         type={typeMap[type]}
         value={value}
-        {...getAriaAttributes(wrapperIds, props)}
+        {...getAriaAttributesInline(wrapperIds, props)}
       />
     </XUIControlWrapperInline>
   );

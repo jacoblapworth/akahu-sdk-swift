@@ -141,6 +141,12 @@ interface BaseProps {
    */
   onBarClick?: (event: InteractionEvent, item: InteractionParams) => void;
   /**
+   * Accessibility aria-label for pagination component.
+   *
+   * Recommended English value: *Pagination*
+   */
+  paginationLabel?: string;
+  /**
    * Accessibility title for pagination button. This is required if `hasPagination` is `true`.
    *
    * Recommended English value: *Next page*

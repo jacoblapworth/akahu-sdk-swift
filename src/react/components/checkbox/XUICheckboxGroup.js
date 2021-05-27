@@ -4,8 +4,8 @@ import cn from 'classnames';
 
 import { baseClass } from './constants';
 import XUICheckbox from './XUICheckbox';
-import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
-import generateIds from '../controlwrapper/helpers';
+import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
+import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 
 /**
  * Presentational component that outputs the container necessary to implement

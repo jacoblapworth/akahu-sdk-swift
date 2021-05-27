@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { XUIIconData } from '../icon/XUIIcon';
-import { baseSizeClasses } from '../textInput/private/constants';
+import { baseSizeClasses } from '../textinput/private/constants';
 
 interface Props {
   /** CSS class(es) to go on the wrapping DOM node */

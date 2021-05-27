@@ -89,8 +89,8 @@
           },
           {
             "name": "File Uploader",
-            "content": "../src/react/fileUploader.md",
-            "components": "../src/react/components/fileUploader/XUIFileUploader.js"
+            "content": "../src/react/fileuploader.md",
+            "components": "../src/react/components/fileuploader/XUIFileUploader.js"
           },
           {
             "name": "Radio",
@@ -142,10 +142,10 @@
           {
             "name": "Text Input",
             "content": "../src/react/textinput.md",
-            "components": "../src/react/components/textInput/XUITextInput.js",
+            "components": "../src/react/components/textinput/XUITextInput.js",
             "sections": [
               {
-                "components": "../src/react/components/textInput/XUITextInputSideElement.js"
+                "components": "../src/react/components/textinput/XUITextInputSideElement.js"
               }
             ]
           },

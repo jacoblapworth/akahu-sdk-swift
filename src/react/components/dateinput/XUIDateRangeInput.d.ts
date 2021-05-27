@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { baseSizeClasses } from '../textInput/private/constants';
+import { baseSizeClasses } from '../textinput/private/constants';
 
 interface DateInputConfig {
   /** A date which represents the year and month that the calendar will display. Could

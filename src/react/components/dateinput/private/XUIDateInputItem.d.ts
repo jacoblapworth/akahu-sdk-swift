@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { XUIIconData } from '../../icon/XUIIcon';
-import { baseSizeClasses } from '../../textInput/private/constants';
+import { baseSizeClasses } from '../../textinput/private/constants';
 
 interface Props {
   /** Whether or not the dropdown should automatically be hidden when the user selects something */

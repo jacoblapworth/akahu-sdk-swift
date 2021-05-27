@@ -4,8 +4,11 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 import { v4 as uuidv4 } from 'uuid';
 
-import XUIControlWrapper, { getAriaAttributes } from '../XUIControlWrapper';
-import generateIds, { generateIdsFromControlId } from '../helpers';
+import XUIControlWrapper from '../XUIControlWrapper';
+import generateIds, {
+  generateIdsFromControlId,
+  getAriaAttributes,
+} from '../../helpers/ariaHelpers';
 
 jest.mock('uuid');
 uuidv4.mockImplementation(() => 'testGeneratedId');

@@ -77,6 +77,7 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Checkbox',
     variationsPath: `${variationsPath}/checkbox/stories/variations.js`,
+    delay: 5000,
   },
   {
     testsPrefix: 'XUI Content Block',
@@ -101,7 +102,7 @@ const componentsToTest = [
   },
   {
     testsPrefix: 'XUI File Uploader',
-    variationsPath: `${variationsPath}/fileUploader/stories/variations.js`,
+    variationsPath: `${variationsPath}/fileuploader/stories/variations.js`,
   },
   {
     testsPrefix: 'XUI Fixed Footer WIP',
@@ -192,6 +193,7 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Switch',
     variationsPath: `${variationsPath}/switch/stories/variations.js`,
+    delay: 5000,
   },
   {
     testsPrefix: 'XUI Stepper',
@@ -208,7 +210,7 @@ const componentsToTest = [
   },
   {
     testsPrefix: 'XUI Text Input',
-    variationsPath: `${variationsPath}/textInput/stories/variations.js`,
+    variationsPath: `${variationsPath}/textinput/stories/variations.js`,
   },
   {
     testsPrefix: 'XUI Toast',

@@ -1,4 +1,4 @@
-import XUITextInput from './components/textInput/XUITextInput';
-import XUITextInputSideElement from './components/textInput/XUITextInputSideElement';
+import XUITextInput from './components/textinput/XUITextInput';
+import XUITextInputSideElement from './components/textinput/XUITextInputSideElement';
 
 export { XUITextInput as default, XUITextInput, XUITextInputSideElement };

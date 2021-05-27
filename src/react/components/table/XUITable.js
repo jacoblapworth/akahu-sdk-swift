@@ -308,7 +308,7 @@ XUITable.propTypes = {
   checkOneRowAriaLabel: PropTypes.node,
 
   /** The Column component(s) that will appear in the table layout. */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 
   /** Attached to the outer most element of the table layout. */
   className: PropTypes.string,

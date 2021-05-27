@@ -8,7 +8,7 @@ import { boolean, select, number } from '@storybook/addon-knobs';
 // Components we need to test with
 import info from '@xero/xui-icon/icons/info';
 import XUITooltip from '../XUITooltip';
-import XUITextInput from '../../textInput/XUITextInput';
+import XUITextInput from '../../textinput/XUITextInput';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 

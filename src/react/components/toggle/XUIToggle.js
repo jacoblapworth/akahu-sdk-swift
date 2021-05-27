@@ -4,8 +4,8 @@ import cn from 'classnames';
 
 import { colorMap, layoutMap, sizeMap, baseClass } from './private/constants';
 import '../helpers/xuiGlobalChecks';
-import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
-import generateIds from '../controlwrapper/helpers';
+import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
+import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 
 const XUIToggle = props => {
   const wrapperIds = generateIds(props.labelId);

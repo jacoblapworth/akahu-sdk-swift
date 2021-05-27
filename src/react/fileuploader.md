@@ -22,8 +22,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import XUIButton from '@xero/xui/react/button';
-import XUIFileUploader from '@xero/xui/react/fileUploader';
-import { defaultProps, fakeUpload } from './components/fileUploader/private/helpers';
+import XUIFileUploader from '@xero/xui/react/fileuploader';
+import { defaultProps, fakeUpload } from './components/fileuploader/private/helpers';
 
 const defaultFileList = [
   {
@@ -119,8 +119,8 @@ Set `hasDragAndDrop` to true to support dragging files to upload, and use `dropZ
 
 ```jsx harmony
 import { useState } from 'react';
-import XUIFileUploader from '@xero/xui/react/fileUploader';
-import { defaultProps, fakeUpload } from './components/fileUploader/private/helpers';
+import XUIFileUploader from '@xero/xui/react/fileuploader';
+import { defaultProps, fakeUpload } from './components/fileuploader/private/helpers';
 
 const Example = props => {
   const [fileList, setFileList] = useState(props.fileList || defaultProps.fileList);
@@ -193,12 +193,12 @@ const Example = props => {
 
 ```jsx harmony
 import { useState } from 'react';
-import XUIFileUploader from '@xero/xui/react/fileUploader';
+import XUIFileUploader from '@xero/xui/react/fileuploader';
 import {
   defaultFileList,
   defaultProps,
   fakeUpload
-} from './components/fileUploader/private/helpers';
+} from './components/fileuploader/private/helpers';
 
 <div>
   <XUIFileUploader {...defaultProps} isDisabled isFieldLayout label="Upload file(s)" />
@@ -212,12 +212,12 @@ Validation messages and styling should be added to XUIFileUploader using the `va
 
 ```jsx harmony
 import { useState } from 'react';
-import XUIFileUploader from '@xero/xui/react/fileUploader';
+import XUIFileUploader from '@xero/xui/react/fileuploader';
 import {
   defaultFileList,
   defaultProps,
   fakeUpload
-} from './components/fileUploader/private/helpers';
+} from './components/fileuploader/private/helpers';
 
 const Example = props => {
   const [fileList, setFileList] = useState(props.fileList || defaultProps.fileList);
@@ -297,8 +297,8 @@ Prop `showFilesAsMultiline` and `showIcon` are used to change the style of fileL
 ```jsx harmony
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
-import XUIFileUploader from '@xero/xui/react/fileUploader';
-import { defaultProps, fakeUpload } from './components/fileUploader/private/helpers';
+import XUIFileUploader from '@xero/xui/react/fileuploader';
+import { defaultProps, fakeUpload } from './components/fileuploader/private/helpers';
 
 const defaultFileList = [
   {

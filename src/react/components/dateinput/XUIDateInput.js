@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 
 import XUIDateInputItem from './private/XUIDateInputItem';
-import { baseSizeClasses } from '../textInput/private/constants';
+import { baseSizeClasses } from '../textinput/private/constants';
 
 class XUIDateInput extends React.Component {
   state = {

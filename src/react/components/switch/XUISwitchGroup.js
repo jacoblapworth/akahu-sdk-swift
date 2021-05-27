@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import { ns } from '../helpers/xuiClassNamespace';
-import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
-import generateIds from '../controlwrapper/helpers';
+import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
+import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 
 const baseClass = `${ns}-switch`;
 

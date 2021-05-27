@@ -19,7 +19,7 @@ import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIPickitem from '../../picklist/XUIPickitem';
 import XUIDatePicker from '../../datepicker/XUIDatePicker';
 import XUIIcon from '../../icon/XUIIcon';
-import XUITextInput from '../../textInput/XUITextInput';
+import XUITextInput from '../../textinput/XUITextInput';
 import XUIPanel from '../../panel/XUIPanel';
 import { XUIButton, XUISplitButtonGroup, XUISecondaryButton } from '../../../button';
 import { XUIRow, XUIColumn } from '../../../structural';

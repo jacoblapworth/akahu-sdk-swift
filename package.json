@@ -1,6 +1,6 @@
 {
   "name": "@xero/xui",
-  "version": "17.4.0",
+  "version": "17.4.1",
   "description": "Shared styles for Xero applications",
   "private": true,
   "repository": {
@@ -40,7 +40,7 @@
     "release": "node scripts/release"
   },
   "dependencies": {
-    "@xero/blind-date": "2.3.2",
+    "@xero/blind-date": "2.3.3",
     "@xero/xui-icon": "^6.7.0",
     "autosize": "4.0.2",
     "babel-runtime": "^6.26.0",
@@ -88,7 +88,7 @@
     "@types/enzyme-to-json": "1.5.4",
     "@types/jest": "26.0.0",
     "@types/prop-types": "15.7.3",
-    "@types/react": "17.0.5",
+    "@types/react": "^17.0.8",
     "@types/react-beautiful-dnd": "13.0.0",
     "@types/react-portal": "4.0.2",
     "@types/uuid": "8.0.0",

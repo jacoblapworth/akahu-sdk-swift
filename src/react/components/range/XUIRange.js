@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
+import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
 import { ns } from '../helpers/xuiClassNamespace';
-import generateIds from '../controlwrapper/helpers';
+import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 
 const baseClass = `${ns}-rangeslider`;
 

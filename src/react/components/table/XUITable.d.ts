@@ -13,7 +13,7 @@ interface BaseProps {
   /**
    * The Column component(s) that will appear in the table layout.
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**
    * Attached to the outer most element of the table layout.
    */

@@ -5,6 +5,7 @@ import cn from 'classnames';
 import XUIEditableTableCellControl from './XUIEditableTableCellControl';
 import XUITextInput from '../textinput/XUITextInput';
 import { tableName } from './private/constants';
+import combineRefs from '../helpers/combineRefs';
 
 const baseName = `${tableName}celltextinput`;
 
@@ -17,9 +18,10 @@ const XUIEditableTableCellTextInput = ({
   isInvalid,
   validationMessage,
   inputProps,
+  inputRef,
   ...spreadProps
 }) => {
-  const inputRef = React.useRef();
+  const innerRef = React.useRef();
   const [isFocused, setIsFocused] = React.useState();
 
   /**
@@ -52,11 +54,7 @@ const XUIEditableTableCellTextInput = ({
    * Focus the input inside the cell.
    */
   const focusInput = () => {
-    getSelection().toString().length === 0 &&
-      inputRef.current &&
-      inputRef.current.input &&
-      inputRef.current.input.focus &&
-      inputRef.current.input.focus();
+    getSelection().toString().length === 0 && innerRef?.current?.input?.focus?.();
   };
 
   return (
@@ -82,7 +80,7 @@ const XUIEditableTableCellTextInput = ({
         isLabelHidden
         onBlur={composedOnBlur}
         onFocus={composedOnFocus}
-        ref={inputRef}
+        ref={combineRefs(innerRef, inputRef)}
       />
     </XUIEditableTableCellControl>
   );
@@ -102,7 +100,7 @@ XUIEditableTableCellTextInput.propTypes = {
   /** Props to be spread onto the input element itself */
   inputProps: PropTypes.object,
   /** Sets a ref for the input element */
-  inputRef: PropTypes.func,
+  inputRef: PropTypes.object,
   /** Whether the input is disabled */
   isDisabled: PropTypes.bool,
   /** Whether the current input value is invalid */

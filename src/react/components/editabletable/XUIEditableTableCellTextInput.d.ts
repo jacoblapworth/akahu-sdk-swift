@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { XUIEditableTableCellControl } from '../../editabletable';
-import XUITextInput from '../textInput/XUITextInput';
+import XUITextInput from '../textinput/XUITextInput';
 
 interface BaseProps {
   cellProps?: React.ComponentProps<typeof XUIEditableTableCellControl>;

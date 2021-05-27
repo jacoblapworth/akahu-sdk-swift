@@ -72,7 +72,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
     <div
       className="xui-pagination--items--count"
     >
-      Showing items 1-10 of 97
+      Showing items 1–10 of 97
     </div>
   </div>
   <div
@@ -376,7 +376,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
     <div
       className="xui-pagination--items--count"
     >
-      Showing items 1-10 of 97
+      Showing items 1–10 of 97
     </div>
   </div>
   <div
@@ -566,7 +566,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
       className="xui-pagination--items--count"
       data-automationid="pagination-test-count"
     >
-      Showing items 1-10 of 97
+      Showing items 1–10 of 97
     </div>
   </div>
   <div
@@ -941,7 +941,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
     <div
       className="xui-pagination--items--count"
     >
-      Showing items 41-50 of 97
+      Showing items 41–50 of 97
     </div>
   </div>
   <div
@@ -1127,7 +1127,7 @@ exports[`<XUIPagination/> should render with customized defaultPerPageCount 1`] 
     <div
       className="xui-pagination--items--count"
     >
-      Showing items 1-25 of 97
+      Showing items 1–25 of 97
     </div>
   </div>
   <div

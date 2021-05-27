@@ -9,7 +9,7 @@ import EditableTableColGroup from './private/EditableTableColGroup';
 import EditableTableWrapper from './private/EditableTableWrapper';
 import conditionallyRequiredValidator from '../helpers/conditionallyRequiredValidator';
 import XUIIcon from '../icon/XUIIcon';
-import { generateIdsFromControlId } from '../controlwrapper/helpers';
+import { generateIdsFromControlId } from '../helpers/ariaHelpers';
 
 const XUIEditableTable = ({
   ariaLabel,

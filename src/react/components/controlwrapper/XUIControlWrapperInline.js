@@ -4,44 +4,6 @@ import PropTypes from 'prop-types';
 import LabelElement from './private/LabelElement';
 import MessageElement from './private/MessageElement';
 
-/**
- * @public
- * Get the collection of aria attributes to be applied to the control.
- * Independent of the component, for timing purposes.
- * @param {Object} ids - generated ids from ./helpers, including label and message ids
- * @param {Object} props - props of the parent control component
- * @returns {{aria-invalid: boolean, aria-label: string, aria-labelledby: string, aria-describedby: string}}
- */
-export const getAriaAttributes = (ids, props) => {
-  const {
-    children, // This refers to children of the parent control component. Often plain text.
-    isLabelHidden,
-    validationMessage,
-    hintMessage,
-    labelId,
-    isInvalid,
-  } = props;
-
-  // Create a "labelledby" attribute if there is child content, or if the user has provided an id.
-  const ariaLabelledBy =
-    (children != null && !isLabelHidden && ids.label) || (!children && labelId) || undefined;
-
-  // Add hidden label if specified by the user, and provided content is a string.
-  const ariaLabel =
-    (children && isLabelHidden && typeof children[0] === 'string' && children) || undefined;
-
-  // Create a "describedby" attribute if there is a hint or validation message to display.
-  const ariaDescribedBy =
-    ((hintMessage || (validationMessage && isInvalid)) && ids.message) || undefined;
-
-  return {
-    'aria-invalid': isInvalid,
-    'aria-label': ariaLabel,
-    'aria-labelledby': ariaLabelledBy,
-    'aria-describedby': ariaDescribedBy,
-  };
-};
-
 const XUIControlWrapperInline = ({
   children, // This refers to children of XUIControlWrapperInline. Usually the <input>
   fieldClassName,

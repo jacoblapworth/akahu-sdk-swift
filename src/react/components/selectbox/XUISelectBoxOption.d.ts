@@ -53,7 +53,7 @@ interface Props {
   /**
    * Additional classes to be applied to the  option insides.
    */
-  optionClasses?: string;
+  optionClassName?: string;
   /**
    * The automation-id to add to the item.
    */
@@ -63,9 +63,9 @@ interface Props {
    */
   showCheckboxes?: boolean;
   /**
-   * Restrict `XUISelectBoxOption` children which are strings to one line.
+   * Truncate `XUISelectBoxOption` children which are strings to one line.
    */
-  truncatedText?: boolean;
+  truncateText?: boolean;
   /**
    * The value associated with this option.
    */

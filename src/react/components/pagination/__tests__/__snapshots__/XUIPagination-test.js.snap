@@ -13,20 +13,19 @@ exports[`<XUIPagination/> renders basic example 1`] = `
     >
       Items per page
       <div
-        className=""
+        className="xui-selectwrapper"
       >
         <div
           className=""
         >
           <div
-            className="xui-select-layout"
+            className="xui-select xui-select-layout"
             data-automationid={null}
           >
             <div
               className="xui-dropdown--toggledwrapper"
               data-automationid={null}
               data-ref="toggled-wrapper"
-              role="presentation"
             >
               <button
                 aria-activedescendant={null}
@@ -35,7 +34,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
                 className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
                 data-automationid={null}
                 disabled={false}
-                id="testPaginationId-control"
+                id="xui-testPaginationId-control"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onKeyUp={[Function]}
@@ -48,7 +47,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
                   10
                 </span>
                 <div
-                  className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                  className="xui-button--caret xui-select--caret"
                 >
                   <svg
                     className="xui-icon"
@@ -104,20 +103,19 @@ exports[`<XUIPagination/> renders basic example 1`] = `
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
             className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
-            role="presentation"
           >
             <button
               aria-activedescendant={null}
@@ -126,7 +124,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
-              id="testPaginationId-control"
+              id="xui-testPaginationId-control"
               onClick={[Function]}
               onKeyDown={[Function]}
               onKeyUp={[Function]}
@@ -139,7 +137,7 @@ exports[`<XUIPagination/> renders basic example 1`] = `
                 Page 1 of 10
               </span>
               <div
-                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret"
               >
                 <svg
                   className="xui-icon"
@@ -221,20 +219,19 @@ exports[`<XUIPagination/> should only render Paging 1`] = `
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
             className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
-            role="presentation"
           >
             <button
               aria-activedescendant={null}
@@ -243,7 +240,7 @@ exports[`<XUIPagination/> should only render Paging 1`] = `
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
-              id="testPaginationId-control"
+              id="xui-testPaginationId-control"
               onClick={[Function]}
               onKeyDown={[Function]}
               onKeyUp={[Function]}
@@ -256,7 +253,7 @@ exports[`<XUIPagination/> should only render Paging 1`] = `
                 Page 1 of 10
               </span>
               <div
-                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret"
               >
                 <svg
                   className="xui-icon"
@@ -317,20 +314,19 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
     >
       Items per page
       <div
-        className=""
+        className="xui-selectwrapper"
       >
         <div
           className=""
         >
           <div
-            className="xui-select-layout"
+            className="xui-select xui-select-layout"
             data-automationid={null}
           >
             <div
               className="xui-dropdown--toggledwrapper"
               data-automationid={null}
               data-ref="toggled-wrapper"
-              role="presentation"
             >
               <button
                 aria-activedescendant={null}
@@ -339,7 +335,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
                 className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
                 data-automationid={null}
                 disabled={false}
-                id="testPaginationId-control"
+                id="xui-testPaginationId-control"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onKeyUp={[Function]}
@@ -352,7 +348,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
                   10
                 </span>
                 <div
-                  className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                  className="xui-button--caret xui-select--caret"
                 >
                   <svg
                     className="xui-icon"
@@ -408,20 +404,19 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
             className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
-            role="presentation"
           >
             <button
               aria-activedescendant={null}
@@ -430,7 +425,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
-              id="testPaginationId-control"
+              id="xui-testPaginationId-control"
               onClick={[Function]}
               onKeyDown={[Function]}
               onKeyUp={[Function]}
@@ -443,7 +438,7 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
                 Page 1 of 10
               </span>
               <div
-                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret"
               >
                 <svg
                   className="xui-icon"
@@ -506,20 +501,19 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
     >
       Items per page
       <div
-        className=""
+        className="xui-selectwrapper"
       >
         <div
           className=""
         >
           <div
-            className="xui-select-layout"
+            className="xui-select xui-select-layout"
             data-automationid={null}
           >
             <div
               className="xui-dropdown--toggledwrapper"
               data-automationid={null}
               data-ref="toggled-wrapper"
-              role="presentation"
             >
               <button
                 aria-activedescendant={null}
@@ -528,7 +522,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
                 className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
                 data-automationid={null}
                 disabled={false}
-                id="testPaginationId-control"
+                id="xui-testPaginationId-control"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onKeyUp={[Function]}
@@ -541,7 +535,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
                   10
                 </span>
                 <div
-                  className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                  className="xui-button--caret xui-select--caret"
                 >
                   <svg
                     className="xui-icon"
@@ -599,20 +593,19 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
             className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
-            role="presentation"
           >
             <button
               aria-activedescendant={null}
@@ -621,7 +614,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
-              id="testPaginationId-control"
+              id="xui-testPaginationId-control"
               onClick={[Function]}
               onKeyDown={[Function]}
               onKeyUp={[Function]}
@@ -634,7 +627,7 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
                 Page 1 of 10
               </span>
               <div
-                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret"
               >
                 <svg
                   className="xui-icon"
@@ -695,20 +688,19 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
     >
       Test per page
       <div
-        className=""
+        className="xui-selectwrapper"
       >
         <div
           className=""
         >
           <div
-            className="xui-select-layout"
+            className="xui-select xui-select-layout"
             data-automationid={null}
           >
             <div
               className="xui-dropdown--toggledwrapper"
               data-automationid={null}
               data-ref="toggled-wrapper"
-              role="presentation"
             >
               <button
                 aria-activedescendant={null}
@@ -717,7 +709,7 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
                 className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
                 data-automationid={null}
                 disabled={false}
-                id="testPaginationId-control"
+                id="xui-testPaginationId-control"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onKeyUp={[Function]}
@@ -730,7 +722,7 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
                   10
                 </span>
                 <div
-                  className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                  className="xui-button--caret xui-select--caret"
                 >
                   <svg
                     className="xui-icon"
@@ -786,20 +778,19 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
             className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
-            role="presentation"
           >
             <button
               aria-activedescendant={null}
@@ -808,7 +799,7 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
-              id="testPaginationId-control"
+              id="xui-testPaginationId-control"
               onClick={[Function]}
               onKeyDown={[Function]}
               onKeyUp={[Function]}
@@ -821,7 +812,7 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
                 Paging 1 test 10 enhanced
               </span>
               <div
-                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret"
               >
                 <svg
                   className="xui-icon"
@@ -882,20 +873,19 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
     >
       Items per page
       <div
-        className=""
+        className="xui-selectwrapper"
       >
         <div
           className=""
         >
           <div
-            className="xui-select-layout"
+            className="xui-select xui-select-layout"
             data-automationid={null}
           >
             <div
               className="xui-dropdown--toggledwrapper"
               data-automationid={null}
               data-ref="toggled-wrapper"
-              role="presentation"
             >
               <button
                 aria-activedescendant={null}
@@ -904,7 +894,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
                 className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
                 data-automationid={null}
                 disabled={false}
-                id="testPaginationId-control"
+                id="xui-testPaginationId-control"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onKeyUp={[Function]}
@@ -917,7 +907,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
                   10
                 </span>
                 <div
-                  className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                  className="xui-button--caret xui-select--caret"
                 >
                   <svg
                     className="xui-icon"
@@ -972,20 +962,19 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
             className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
-            role="presentation"
           >
             <button
               aria-activedescendant={null}
@@ -994,7 +983,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
-              id="testPaginationId-control"
+              id="xui-testPaginationId-control"
               onClick={[Function]}
               onKeyDown={[Function]}
               onKeyUp={[Function]}
@@ -1007,7 +996,7 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
                 Page 5 of 10
               </span>
               <div
-                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret"
               >
                 <svg
                   className="xui-icon"
@@ -1068,20 +1057,19 @@ exports[`<XUIPagination/> should render with customized defaultPerPageCount 1`] 
     >
       Items per page
       <div
-        className=""
+        className="xui-selectwrapper"
       >
         <div
           className=""
         >
           <div
-            className="xui-select-layout"
+            className="xui-select xui-select-layout"
             data-automationid={null}
           >
             <div
               className="xui-dropdown--toggledwrapper"
               data-automationid={null}
               data-ref="toggled-wrapper"
-              role="presentation"
             >
               <button
                 aria-activedescendant={null}
@@ -1090,7 +1078,7 @@ exports[`<XUIPagination/> should render with customized defaultPerPageCount 1`] 
                 className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
                 data-automationid={null}
                 disabled={false}
-                id="testPaginationId-control"
+                id="xui-testPaginationId-control"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onKeyUp={[Function]}
@@ -1103,7 +1091,7 @@ exports[`<XUIPagination/> should render with customized defaultPerPageCount 1`] 
                   25
                 </span>
                 <div
-                  className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                  className="xui-button--caret xui-select--caret"
                 >
                   <svg
                     className="xui-icon"
@@ -1159,20 +1147,19 @@ exports[`<XUIPagination/> should render with customized defaultPerPageCount 1`] 
       />
     </button>
     <div
-      className=""
+      className="xui-selectwrapper"
     >
       <div
         className=""
       >
         <div
-          className="xui-select-layout"
+          className="xui-select xui-select-layout"
           data-automationid={null}
         >
           <div
             className="xui-dropdown--toggledwrapper"
             data-automationid={null}
             data-ref="toggled-wrapper"
-            role="presentation"
           >
             <button
               aria-activedescendant={null}
@@ -1181,7 +1168,7 @@ exports[`<XUIPagination/> should render with customized defaultPerPageCount 1`] 
               className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
               data-automationid={null}
               disabled={false}
-              id="testPaginationId-control"
+              id="xui-testPaginationId-control"
               onClick={[Function]}
               onKeyDown={[Function]}
               onKeyUp={[Function]}
@@ -1194,7 +1181,7 @@ exports[`<XUIPagination/> should render with customized defaultPerPageCount 1`] 
                 Page 1 of 4
               </span>
               <div
-                className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-small"
+                className="xui-button--caret xui-select--caret"
               >
                 <svg
                   className="xui-icon"

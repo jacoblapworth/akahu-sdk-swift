@@ -12,7 +12,7 @@ interface BaseProps {
   /**
    * Description of the icon to be read by screen readers.
    */
-  desc?: string;
+  description?: string;
   /**
    * Required prop, an object describing the path, width and height.
    */
@@ -43,7 +43,7 @@ type DerivedProps = Omit<
   | 'isGrouped'
   | 'isLoading'
   | 'loadingLabel'
-  | 'minLoaderWidth'
+  | 'hasMinLoaderWidth'
   | 'retainLayout'
   | 'variant'
 >;
@@ -53,5 +53,5 @@ export default class XUIIconButton extends React.PureComponent<Props> {
   /**
    * Root node to enable users to access as a ref.
    */
-  rootNode: HTMLElement | null;
+  rootNode?: React.RefObject<HTMLElement>;
 }

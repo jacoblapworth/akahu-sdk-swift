@@ -11,6 +11,8 @@ export default class XUIRolloverCheckbox extends PureComponent {
     isMouseOver: false,
   };
 
+  _checkbox = React.createRef();
+
   /**
    * @public
    *
@@ -63,7 +65,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
    * Method to allow for programmatic triggering of the click event on the checkbox
    */
   triggerCheckboxClick = () => {
-    this._checkbox._input.current.click();
+    this._checkbox.current?._input.current.click();
   };
 
   /**
@@ -127,7 +129,7 @@ export default class XUIRolloverCheckbox extends PureComponent {
             labelId={ariaLabelledBy}
             onChange={this.onSelect}
             qaHook={qaHook && `${qaHook}--checkbox`}
-            ref={c => (this._checkbox = c)}
+            ref={this._checkbox}
             size={checkboxSize}
             tabIndex={0}
           >

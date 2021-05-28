@@ -1,5 +1,7 @@
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
 import React from 'react';
 import { axe, toHaveNoViolations } from 'jest-axe';
@@ -56,18 +58,24 @@ describe('<XUIPopover />', () => {
     // Arrange
     const triggerFocusMock = jest.fn();
     const closeButtonRef = React.createRef();
-    const trigger = document.createElement('button');
-    const triggerRef = { current: trigger };
-    triggerRef.current.addEventListener('focus', triggerFocusMock);
-    const wrapper = mount(
-      <XUIPopover id="test-popover" triggerRef={triggerRef}>
-        <button ref={closeButtonRef} type="button" />
-      </XUIPopover>,
+    const triggerRef = React.createRef();
+    const { rerender } = render(
+      <>
+        <button ref={triggerRef} type="button" />
+        <XUIPopover id="test-popover" triggerRef={triggerRef}>
+          <button ref={closeButtonRef} type="button" />
+        </XUIPopover>
+      </>,
     );
+    triggerRef.current.addEventListener('focus', triggerFocusMock);
 
     // Act
-    closeButtonRef.current.focus();
-    wrapper.instance().componentWillUnmount();
+    userEvent.click(closeButtonRef.current);
+    rerender(
+      <>
+        <button ref={triggerRef} type="button" />
+      </>,
+    );
 
     // Assert
     expect(triggerFocusMock).toHaveBeenCalled();

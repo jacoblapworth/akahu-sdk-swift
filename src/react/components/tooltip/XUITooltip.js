@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import compose from '../helpers/compose';
 import { eventKeyValues } from '../helpers/reactKeyHandler';
@@ -19,7 +19,7 @@ export default class XUITooltip extends PureComponent {
     hasBeenDismissed: false,
   };
 
-  tooltipId = this.props.id || uuidv4();
+  tooltipId = this.props.id || `xui-${nanoid(10)}`;
 
   /**
    * Show the tooltip.
@@ -185,9 +185,8 @@ export default class XUITooltip extends PureComponent {
     listenerTarget?.removeEventListener('keydown', this._keyDownHandler);
   };
 
-  shouldUpdateListeners = (props, otherProps) => {
-    return props.keyListenerTarget !== otherProps.keyListenerTarget;
-  };
+  shouldUpdateListeners = (props, otherProps) =>
+    props.keyListenerTarget !== otherProps.keyListenerTarget;
 
   render() {
     const {
@@ -202,7 +201,7 @@ export default class XUITooltip extends PureComponent {
       triggerOnClick,
       isBlock,
       useInlineFlex,
-      limitWidth,
+      hasLimitedWidth,
     } = this.props;
     const { isHidden, isAnimating } = this.state;
     const ignoreFocus = !this.state.isFocused || !triggerOnFocus;
@@ -217,7 +216,7 @@ export default class XUITooltip extends PureComponent {
       isAnimating && `${baseClass}-tipanimating`,
       isBlock && `${baseClass}-is-block`,
       useInlineFlex && `${baseClass}-inline-flex`,
-      limitWidth && `${baseClass}-limitwidth`,
+      hasLimitedWidth && `${baseClass}-limitwidth`,
     );
 
     const tipClasses = cn(
@@ -286,6 +285,11 @@ XUITooltip.propTypes = {
   /** Delay in ms for closing the tooltip. Defaults to 100 */
   closeDelay: PropTypes.number,
 
+  /**
+   * Limit width of tooltip's trigger to 100%.
+   */
+  hasLimitedWidth: PropTypes.bool,
+
   /** DOM ID of the tooltip */
   id: PropTypes.string,
 
@@ -303,11 +307,6 @@ XUITooltip.propTypes = {
 
   /** The target that should listen to key presses. Defaults to the window. */
   keyListenerTarget: PropTypes.object,
-
-  /**
-   * Limit width of tooltip's trigger to 100%.
-   */
-  limitWidth: PropTypes.bool,
 
   /** Setting a number here will force the maximum height of the tooltip to be the
    * number provided (in pixels). */

@@ -3,9 +3,7 @@ import * as React from 'react';
 
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
 import XUIEditableTableHeadingCell from '../XUIEditableTableHeadingCell';
-import { tableName, xuiControlSizeStandard } from './constants';
-
-export const baseName = `${tableName}row`;
+import { xuiControlSizeStandard } from './constants';
 
 interface BaseProps {
   qaHook?: string;
@@ -32,7 +30,7 @@ const EditableTableHeadRow: React.FunctionComponent<Props> = ({
 };
 
 EditableTableHeadRow.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+  children: PropTypes.node,
   qaHook: PropTypes.string,
 };
 

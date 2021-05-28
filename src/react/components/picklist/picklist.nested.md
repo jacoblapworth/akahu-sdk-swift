@@ -44,7 +44,7 @@ class StatefulMultiselectPicklist extends React.Component {
     const smp = this;
 
     return (
-      <XUIStatefulPicklist onSelect={this.onOptionSelect} canFocus>
+      <XUIStatefulPicklist onSelect={this.onOptionSelect} isFocusable>
         <XUIPicklist>
           <XUINestedPicklistContainer id="nested">
             <XUINestedPicklistTrigger
@@ -55,16 +55,16 @@ class StatefulMultiselectPicklist extends React.Component {
               Nested List
             </XUINestedPicklistTrigger>
             <XUINestedPicklist>
-              <XUIPickitem ariaRole="treeitem" id="a" isSelected={smp.state.selectedItems.a}>
+              <XUIPickitem id="a" isSelected={smp.state.selectedItems.a}>
                 A
               </XUIPickitem>
-              <XUIPickitem ariaRole="treeitem" id="b" isSelected={smp.state.selectedItems.b}>
+              <XUIPickitem id="b" isSelected={smp.state.selectedItems.b}>
                 B
               </XUIPickitem>
-              <XUIPickitem ariaRole="treeitem" id="c" isSelected={smp.state.selectedItems.c}>
+              <XUIPickitem id="c" isSelected={smp.state.selectedItems.c}>
                 C
               </XUIPickitem>
-              <XUIPickitem ariaRole="treeitem" id="d" isSelected={smp.state.selectedItems.d}>
+              <XUIPickitem id="d" isSelected={smp.state.selectedItems.d}>
                 D
               </XUIPickitem>
             </XUINestedPicklist>
@@ -79,16 +79,16 @@ class StatefulMultiselectPicklist extends React.Component {
             </XUIPickitem>
             <XUINestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedSplit" />
             <XUINestedPicklist>
-              <XUIPickitem ariaRole="treeitem" id="aa" isSelected={smp.state.selectedItems.aa}>
+              <XUIPickitem id="aa" isSelected={smp.state.selectedItems.aa}>
                 aa
               </XUIPickitem>
-              <XUIPickitem ariaRole="treeitem" id="bb" isSelected={smp.state.selectedItems.bb}>
+              <XUIPickitem id="bb" isSelected={smp.state.selectedItems.bb}>
                 bb
               </XUIPickitem>
-              <XUIPickitem ariaRole="treeitem" id="cc" isSelected={smp.state.selectedItems.cc}>
+              <XUIPickitem id="cc" isSelected={smp.state.selectedItems.cc}>
                 cc
               </XUIPickitem>
-              <XUIPickitem ariaRole="treeitem" id="dd" isSelected={smp.state.selectedItems.dd}>
+              <XUIPickitem id="dd" isSelected={smp.state.selectedItems.dd}>
                 dd
               </XUIPickitem>
             </XUINestedPicklist>
@@ -153,7 +153,7 @@ class StatefulMultiselectPicklist extends React.Component {
         <XUIButton onClick={() => this.setState({ picklistOpen: !this.state.picklistOpen })}>
           Toggle picklist
         </XUIButton>
-        <XUIStatefulPicklist onSelect={this.onOptionSelect} canFocus>
+        <XUIStatefulPicklist onSelect={this.onOptionSelect} isFocusable>
           <XUIPicklist>
             <XUINestedPicklistContainer
               id="nested2"
@@ -169,16 +169,16 @@ class StatefulMultiselectPicklist extends React.Component {
                 Nested List
               </XUINestedPicklistTrigger>
               <XUINestedPicklist>
-                <XUIPickitem ariaRole="treeitem" id="a" isSelected={smp.state.selectedItems.a}>
+                <XUIPickitem id="a" isSelected={smp.state.selectedItems.a}>
                   A
                 </XUIPickitem>
-                <XUIPickitem ariaRole="treeitem" id="b" isSelected={smp.state.selectedItems.b}>
+                <XUIPickitem id="b" isSelected={smp.state.selectedItems.b}>
                   B
                 </XUIPickitem>
-                <XUIPickitem ariaRole="treeitem" id="c" isSelected={smp.state.selectedItems.c}>
+                <XUIPickitem id="c" isSelected={smp.state.selectedItems.c}>
                   C
                 </XUIPickitem>
-                <XUIPickitem ariaRole="treeitem" id="d" isSelected={smp.state.selectedItems.d}>
+                <XUIPickitem id="d" isSelected={smp.state.selectedItems.d}>
                   D
                 </XUIPickitem>
               </XUINestedPicklist>

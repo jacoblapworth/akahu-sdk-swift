@@ -10,7 +10,7 @@
 
 .ds-body {
   background: $ds-body-bg-color;
-  font-size: 15px;
+  font-size: $xui-font-size-medium;
   min-height: 100vh;
   position: relative;
   @include xui-breakpoint-medium-up {
@@ -127,7 +127,7 @@ $ds-section-space: calc(6rem + 2vh);
 .ds-description h3 {
   padding-top: calc(4rem + 2vh);
   margin-top: 0;
-  font-size: 17px;
+  font-size: $xui-font-size-large;
 }
 
 // use 4th level blocks as callouts
@@ -160,7 +160,7 @@ $ds-section-space: calc(6rem + 2vh);
   height: 20px;
   text-align: left;
   margin-left: -20px;
-  font-size: 13px;
+  font-size: $xui-font-size-small;
   transform: translateY(-20%);
 }
 
@@ -203,7 +203,7 @@ $ds-section-space: calc(6rem + 2vh);
   height: 20px;
   text-align: left;
   margin-left: -20px;
-  font-size: 13px;
+  font-size: $xui-font-size-small;
   transform: translateY(-20%);
 }
 
@@ -221,7 +221,7 @@ code {
 
 .ds-intro {
   color: $ds-text-secondary-color;
-  font-size: 19px;
+  font-size: prem(19px);
   line-height: 1.5;
 }
 
@@ -236,7 +236,7 @@ code {
     width: 100%;
   }
 
-  td:not(.xui-table--cell) {
+  td:not(.xui-readonlytablecell) {
     border: $xui-border-standard;
     padding: $xui-s-2xsmall $xui-s-xsmall;
   }
@@ -605,7 +605,7 @@ $kss-color-padding: #eeebff;
   align-items: stretch;
   border-bottom: 1px solid $ds-nav-border-color;
   display: flex;
-  font-size: 13px; // RESETTING DOCS 15px so line height for spacing works.
+  font-size: $xui-font-size-small; // RESETTING DOCS 15px so line height for spacing works.
   position: relative;
   vertical-align: middle;
   &:hover .ds-nav--item--icon:after {
@@ -691,7 +691,7 @@ $kss-color-padding: #eeebff;
 .ds-nav--group-header {
   color: $ds-text-secondary-color;
   display: inline-block;
-  font-size: 11px;
+  font-size: $xui-font-size-xsmall;
   padding-left: $xui-s-large;
   padding-right: $xui-s-large;
   width: 100%;
@@ -846,12 +846,12 @@ $kss-color-padding: #eeebff;
     text-transform: uppercase;
   }
   code {
-    font-size: 11px;
+    font-size: $xui-font-size-xsmall;
   }
 }
 
 .ds-border-variable {
-  font-size: 13px;
+  font-size: $xui-font-size-small;
   position: relative;
 }
 
@@ -1070,7 +1070,7 @@ $kss-color-padding: #eeebff;
 
 .ds-steps-interactive .ds-step-is-complete .ds-step--body {
   padding: 5px 10px;
-  font-size: 13px;
+  font-size: $xui-font-size-small;
   color: $ds-text-secondary-color;
   &:hover {
     color: $ds-text-primary-color;

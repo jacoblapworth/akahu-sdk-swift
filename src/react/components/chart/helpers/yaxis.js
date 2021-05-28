@@ -12,9 +12,7 @@ export const createYAxisLabelFormatThunk = ({ yAxisMaxValue }) => {
   const decimalLength = decimalRaw ? decimalRaw.length : 0;
 
   return rawLabel => {
-    // TODO: Refactor to use the `**` operator when our babel tools support it or when IE11 is dropped
-    // eslint-disable-next-line no-restricted-properties
-    const factor = Math.pow(10, decimalLength + 1);
+    const factor = 10 ** (decimalLength + 1);
 
     return Math.round(rawLabel * factor) / factor;
   };

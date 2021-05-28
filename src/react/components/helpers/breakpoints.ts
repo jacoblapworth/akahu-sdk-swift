@@ -45,12 +45,16 @@ export const getWidthClassesFromState = (stateObj: { [key: string]: boolean }) =
   return Object.keys(widthClasses).map(width => stateObj[width] && widthClasses[width]);
 };
 
-export const getWidthClassesFromWidth = (width: number) => {
+export const getWidthClassesFromWidth = (width?: number) => {
   if (!width) return [];
 
-  const widthStateObj = Object.keys(breakpoints).reduce((accumulator, breakpoint) => {
-    return { ...accumulator, [breakpoint]: handleBreakpoint(width, breakpoint) };
-  }, {});
+  const widthStateObj = Object.keys(breakpoints).reduce(
+    (accumulator, breakpoint) => ({
+      ...accumulator,
+      [breakpoint]: handleBreakpoint(width, breakpoint),
+    }),
+    {},
+  );
 
   return getWidthClassesFromState(widthStateObj);
 };

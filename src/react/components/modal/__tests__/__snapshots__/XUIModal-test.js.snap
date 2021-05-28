@@ -10,7 +10,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
   role="presentation"
 >
   <section
-    aria-labelledby="generatedHeaderId"
+    aria-labelledby="xui-generatedHeaderId"
     className="xui-modal xui-modal-width-medium xui-modal-layout"
     data-automationid="xui-modal"
     onKeyDown={[Function]}
@@ -20,7 +20,7 @@ exports[`XUIModal Should be possible to do snapshot testing on the modal 1`] = `
   >
     <header
       className="xui-modal--header xui-modal--heading"
-      id="generatedHeaderId"
+      id="xui-generatedHeaderId"
     >
       Test header
       <button

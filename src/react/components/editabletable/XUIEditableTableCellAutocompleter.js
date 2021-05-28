@@ -4,10 +4,10 @@ import cn from 'classnames';
 
 import XUIEditableTableCellControl from './XUIEditableTableCellControl';
 import XUIAutocompleter from '../autocompleter/XUIAutocompleter';
-import { tableName } from './private/constants';
+import { tableVariantClassNames } from './private/constants';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 
-const baseName = `${tableName}cellautocompleter`;
+const baseName = `${tableVariantClassNames.editable}cellautocompleter`;
 
 class XUIEditableTableCellAutocompleter extends Component {
   completerRef = React.createRef();
@@ -127,7 +127,7 @@ XUIEditableTableCellAutocompleter.propTypes = {
 
   /** If a size is set, this will force the dropdown to that size instead of setting it as a
    * max width. */
-  dropdownFixedWidth: PropTypes.bool,
+  dropdownHasFixedWidth: PropTypes.bool,
 
   /** ID to be added to the dropdown element of the completer */
   dropdownId: PropTypes.string,
@@ -169,18 +169,18 @@ XUIEditableTableCellAutocompleter.propTypes = {
   /** Whether the current input value is invalid */
   isInvalid: PropTypes.bool,
 
+  /** When set to true a loader will be displayed instead of the picklist items.
+   * State for this should be managed externally and it's defaulted to false.
+   */
+  isLoading: PropTypes.bool,
+
   /** Left element to render within the `XUITextInput` component. Should not be used together with
    * the `pills` prop */
   leftElement: PropTypes.node,
 
-  /** When set to true a loader will be displayed instead of the picklist items.
-   * State for this should be managed externally and it's defaulted to false.
-   */
-  loading: PropTypes.bool,
-
   /**
    * Accessibility label for the `<XUILoader>`. This is required if the
-   * `loading` prop is set to `true`.
+   * `isLoading` prop is set to `true`.
    * <br />
    * Recommended English value: *Loading*
    */

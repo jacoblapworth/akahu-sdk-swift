@@ -64,13 +64,11 @@ const heading = (
   </XUIPanelHeading>
 );
 const footer = <XUIPanelFooter className="xui-padding-small">{buildActions()}</XUIPanelFooter>;
-const section = settings => {
-  return (
-    <XUIPanelSection {...settings}>
-      <p className="xui-padding-large">Some important text might go here.</p>
-    </XUIPanelSection>
-  );
-};
+const section = settings => (
+  <XUIPanelSection {...settings}>
+    <p className="xui-padding-large">Some important text might go here.</p>
+  </XUIPanelSection>
+);
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 storiesWithKnobs.add('Playground', () => {

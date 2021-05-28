@@ -11,7 +11,7 @@ const XUILoader = props => {
     baseClass,
     sizeClassNames[props.size],
     props.className,
-    props.defaultLayout && !props.retainLayout && `${baseClass}-layout`,
+    props.hasDefaultLayout && !props.retainLayout && `${baseClass}-layout`,
     props.isInverted && `${baseClass}-inverted`,
     props.retainLayout && `${baseClass}-retain-layout`,
   );
@@ -40,20 +40,20 @@ XUILoader.propTypes = {
   /** Add additional classes to the loader wrapping div */
   className: PropTypes.string,
   /** Defaults to `true`. Sets the default layout class on the loader wrapping div */
-  defaultLayout: PropTypes.bool,
+  hasDefaultLayout: PropTypes.bool,
   /** Sets the loader to the inverted colour scheme */
   isInverted: PropTypes.bool,
   /** Adds data-automationid attribute with qaHook contents to the loader wrapping div */
   qaHook: PropTypes.string,
   /** Adds the retain layout class, used in combination with buttons. Applying this prop
-   * will cause `defaultLayout` prop to be ignored. */
+   * will cause `hasDefaultLayout` prop to be ignored. */
   retainLayout: PropTypes.bool,
   /** Sets the size of the loader to be, medium (default), small, or xsmall */
   size: PropTypes.oneOf(Object.keys(sizeClassNames)),
 };
 
 XUILoader.defaultProps = {
-  defaultLayout: true,
+  hasDefaultLayout: true,
   size: 'medium',
 };
 

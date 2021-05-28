@@ -28,6 +28,8 @@ const EditableTableColGroup: React.FunctionComponent<Props> = ({ columnWidths })
 };
 
 EditableTableColGroup.propTypes = {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   columnWidths: PropTypes.arrayOf(PropTypes.string),
 };
 

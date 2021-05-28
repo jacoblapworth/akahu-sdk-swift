@@ -478,6 +478,9 @@
                 "content": "../src/react/components/editabletable/editabletable.pinnedcolumns.md"
               },
               {
+                "content": "../src/react/components/editabletable/editabletable.pagination.md"
+              },
+              {
                 "components": [
                   "../src/react/components/editabletable/XUIEditableTableCellReadOnly.js",
                   "../src/react/components/editabletable/XUIEditableTableCellTextInput.js",
@@ -534,13 +537,13 @@
             "content": "../src/react/table.md",
             "sections": [
               {
-                "components": "../src/react/components/table/XUITable.js"
+                "components": "../src/react/components/table/XUITable.tsx"
               },
               {
-                "components": "../src/react/components/table/XUITableColumn.js"
+                "components": "../src/react/components/table/XUITableColumn.ts"
               },
               {
-                "components": "../src/react/components/table/XUITableCell.js"
+                "components": "../src/react/components/table/XUITableCell.ts"
               }
             ]
           }

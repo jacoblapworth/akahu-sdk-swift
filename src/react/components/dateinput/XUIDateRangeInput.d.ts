@@ -10,8 +10,8 @@ interface DateInputConfig {
   /** Hint message to display below input */
   hintMessage?: string;
 
-  /** Label for an input. Recommended for accessibility purposes. */
-  inputLabel?: string;
+  /** Label for an input. */
+  inputLabel: string;
 
   /** Whether the input is disabled */
   isDisabled?: boolean;
@@ -79,8 +79,24 @@ interface Props {
 
   groupConfig: GroupConfig;
 
-  /** The locale of the calendar. Defaults to En */
-  locale?: string;
+  /** The locale of the calendar. */
+  locale: string;
+
+  /**
+   * An accessibility label for the next month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Next month*
+   */
+  nextButtonAriaLabel: string;
+
+  /**
+   * An accessibility label for the previous month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Previous month*
+   */
+  prevButtonAriaLabel: string;
 
   qaHook?: string;
 

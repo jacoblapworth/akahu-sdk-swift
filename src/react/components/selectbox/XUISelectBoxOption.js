@@ -7,13 +7,13 @@ export default class XUISelectBoxOption extends PureComponent {
   render() {
     const {
       children,
-      truncatedText,
+      truncateText,
       onClick,
       onSelect,
       id,
       showCheckboxes,
       value,
-      optionClasses,
+      optionClassName,
       isDisabled,
       isSelected,
       isHighlighted,
@@ -26,7 +26,7 @@ export default class XUISelectBoxOption extends PureComponent {
       qaHook,
     } = this.props;
     const isText = typeof children[0] === 'string';
-    const shouldTruncateChildren = isText && truncatedText;
+    const shouldTruncateChildren = isText && truncateText;
     const contents = shouldTruncateChildren ? (
       <span className={`${ns}-select--option-truncated`}>{children}</span>
     ) : (
@@ -50,7 +50,7 @@ export default class XUISelectBoxOption extends PureComponent {
           onMouseOver,
           qaHook,
         }}
-        className={optionClasses}
+        className={optionClassName}
         isMultiselect={showCheckboxes}
       >
         {contents}
@@ -98,7 +98,7 @@ XUISelectBoxOption.propTypes = {
   onSelect: PropTypes.func,
 
   /** Additional classes to be applied to the  option insides */
-  optionClasses: PropTypes.string,
+  optionClassName: PropTypes.string,
 
   /** The automation-id to add to the item */
   qaHook: PropTypes.string,
@@ -106,8 +106,8 @@ XUISelectBoxOption.propTypes = {
   /** Do the dropdown options show checkboxes */
   showCheckboxes: PropTypes.bool,
 
-  /** Restrict `XUISelectBoxOption` children which are strings to one line */
-  truncatedText: PropTypes.bool,
+  /** Truncate `XUISelectBoxOption` children which are strings to one line */
+  truncateText: PropTypes.bool,
 
   /** The value associated with this option */
   value: PropTypes.any.isRequired,
@@ -119,7 +119,7 @@ XUISelectBoxOption.defaultProps = {
   isHighlighted: false,
   isSelected: false,
   showCheckboxes: false,
-  truncatedText: false,
+  truncateText: false,
   /*
 	 DO NOT REMOVE
 	 This property is needed so that the stateful picklist will properly recognize this

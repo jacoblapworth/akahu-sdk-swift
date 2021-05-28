@@ -27,7 +27,14 @@
 //
 // ExampleClass: ds-example-markuponly
 //
-// Markup: ./examples/panel/_panel-framing.html
+// Markup:
+// @import '@xero/xui/sass/vars';
+// @import '@xero/xui/sass/mixins';
+// .example-container {
+//   background-color: $xui-color-white;
+//   border-radius: $xui-radius;
+//   box-shadow: $xui-shadow-border-all;
+// }
 //
 // Styleguide: Components.DisplayingData.Panel.2
 

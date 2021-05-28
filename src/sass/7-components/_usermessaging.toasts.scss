@@ -23,17 +23,6 @@ $toast-max-width: 400px;
   }
 }
 
-// Fix for problem with IE11 not understanding that containers don't need a set width
-// To be able to correctly calculate the following (calc(100% - 45px));
-// This sets the width to be a hard width and the calculations all work again
-// With the side-effect of forcing the toasts to all be 400px in size.
-@media all and (-ms-high-contrast: none) {
-  *::-ms-backdrop,
-  .#{$ns}-toast {
-    width: $toast-max-width;
-  }
-}
-
 .#{$ns}-toast-positive {
   @include xui-highlight-left($xui-banner-positive-bg-color, $xui-radius);
 }

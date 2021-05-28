@@ -18,7 +18,7 @@ const XUIDropdownLayout = ({
   onCloseAnimationEnd,
   children,
   className,
-  fixedWidth = false,
+  hasFixedWidth = false,
   forceDesktop = false,
   id,
   isHidden = false,
@@ -44,7 +44,7 @@ const XUIDropdownLayout = ({
     }
   };
 
-  const dropdownSizes = fixedWidth ? fixedWidthDropdownSizes : maxWidthDropdownSizes;
+  const dropdownSizes = hasFixedWidth ? fixedWidthDropdownSizes : maxWidthDropdownSizes;
   const sizeClass = size ? dropdownSizes[size] : null;
   const classNames = cn(
     `${baseClass}-layout`,
@@ -86,12 +86,12 @@ XUIDropdownLayout.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
 
-  /** Whether the fixed width class variant should be used for the size prop.
-   * Does nothing without the size prop. */
-  fixedWidth: PropTypes.bool,
-
   /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
   forceDesktop: PropTypes.bool,
+
+  /** Whether the fixed width class variant should be used for the size prop.  Does nothing if
+   * no size prop is provided. */
+  hasFixedWidth: PropTypes.bool,
 
   id: PropTypes.string,
 

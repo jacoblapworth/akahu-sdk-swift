@@ -7,6 +7,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'Default',
+    inputLabel: 'Start date',
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -91,13 +92,19 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Default daterange',
+    storyTitle: 'Default date range',
     isDateRangeInput: true,
     suggestedDates: dateRangeInputSuggestedDates,
+    startDateInputConfig: {
+      inputLabel: 'First date',
+    },
+    endDateInputConfig: {
+      inputLabel: 'Second date',
+    },
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Daterange without labels',
+    storyTitle: 'Date range without labels',
     isDateRangeInput: true,
     suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
@@ -113,7 +120,22 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Disabled daterange',
+    storyTitle: 'Date range with group label',
+    isDateRangeInput: true,
+    suggestedDates: dateRangeInputSuggestedDates,
+    groupConfig: {
+      groupLabel: 'Date range',
+    },
+    startDateInputConfig: {
+      inputLabel: 'First date',
+    },
+    endDateInputConfig: {
+      inputLabel: 'Second date',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Disabled date range',
     isDateRangeInput: true,
     suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
@@ -128,22 +150,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Daterange with one missing label',
-    isDateRangeInput: true,
-    suggestedDates: dateRangeInputSuggestedDates,
-    startDateInputConfig: {
-      selectedDateDefaultValue: new Date(2021, 0, 1),
-      isDisabled: true,
-      inputLabel: 'First Date',
-    },
-    endDateInputConfig: {
-      isDisabled: true,
-      inputLabel: '',
-    },
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Daterange across two years',
+    storyTitle: 'Date range across two years',
     isDateRangeInput: true,
     suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
@@ -174,7 +181,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Daterange without suggested dates',
+    storyTitle: 'Date range with no suggested dates',
     isDateRangeInput: true,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(1999, 5, 5),
@@ -187,30 +194,14 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Darerange with two errors',
-    isDateRangeInput: true,
-    suggestedDates: dateRangeInputSuggestedDates,
-    startDateInputConfig: {
-      selectedDateDefaultValue: new Date(1999, 5, 5),
-      inputLabel: 'First Date',
-      isInvalid: true,
-      validationMessage: 'Please correct your input',
-    },
-    endDateInputConfig: {
-      selectedDateDefaultValue: new Date(2000, 11, 15),
-      inputLabel: 'Second Date',
-      isInvalid: true,
-      validationMessage: 'Please correct your input',
-    },
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Darerange with just one error',
+    storyTitle: 'Date range with two errors',
     isDateRangeInput: true,
     suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(1999, 5, 5),
       inputLabel: 'First Date',
+      isInvalid: true,
+      validationMessage: 'Please correct your input',
     },
     endDateInputConfig: {
       selectedDateDefaultValue: new Date(2000, 11, 15),
@@ -221,7 +212,23 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Daterange small',
+    storyTitle: 'Date range with just one error',
+    isDateRangeInput: true,
+    suggestedDates: dateRangeInputSuggestedDates,
+    startDateInputConfig: {
+      selectedDateDefaultValue: new Date(1999, 5, 5),
+      inputLabel: 'First Date',
+    },
+    endDateInputConfig: {
+      selectedDateDefaultValue: new Date(2000, 11, 15),
+      inputLabel: 'Second Date',
+      isInvalid: true,
+      validationMessage: 'Please correct your input',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Date range small',
     isDateRangeInput: true,
     suggestedDates: dateRangeInputSuggestedDates,
     size: 'small',
@@ -236,7 +243,7 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Daterange xsmall',
+    storyTitle: 'Date range xsmall',
     isDateRangeInput: true,
     suggestedDates: dateRangeInputSuggestedDates,
     size: 'xsmall',

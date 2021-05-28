@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
 import { ns } from '../helpers/xuiClassNamespace';
 import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
+import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 const baseClass = `${ns}-rangeslider`;
 
 const XUIRange = props => {
   const wrapperIds = generateIds();
   const {
-    containerClasses,
+    containerClassName,
     defaultValue,
     hintMessage,
     id,
-    inputClasses,
+    inputClassName,
     isDisabled,
     isInvalid,
     isLabelHidden,
@@ -32,6 +33,14 @@ const XUIRange = props => {
     validationMessage,
   } = props;
 
+  useEffect(() => {
+    labelRequiredWarning(
+      XUIRange.name,
+      ['includes a label with text'],
+      [label?.innerText && !isLabelHidden, typeof label?.[0] === 'string'],
+    );
+  }, [isLabelHidden, label]);
+
   return (
     <XUIControlWrapper
       hintMessage={hintMessage}
@@ -42,14 +51,14 @@ const XUIRange = props => {
       validationMessage={validationMessage}
       wrapperIds={wrapperIds}
     >
-      <div className={cn(`${baseClass}-container`, containerClasses)}>
+      <div className={cn(`${baseClass}-container`, containerClassName)}>
         {leftElement}
         <input
           className={cn(
             `${baseClass}`,
             size && `${baseClass}-thumb-${size}`,
             isInvalid && `${baseClass}-is-invalid`,
-            inputClasses,
+            inputClassName,
           )}
           defaultValue={defaultValue}
           disabled={isDisabled}
@@ -73,7 +82,7 @@ export default XUIRange;
 
 XUIRange.propTypes = {
   /** Additional classes to be applied to the container */
-  containerClasses: PropTypes.string,
+  containerClassName: PropTypes.string,
   /** Default value of the XUIRange component */
   defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** Hint message to be passed into the XUIControlWrapper */
@@ -81,7 +90,7 @@ XUIRange.propTypes = {
   /** Id of Range Component */
   id: PropTypes.string,
   /** Additional classes to be applied to the input */
-  inputClasses: PropTypes.string,
+  inputClassName: PropTypes.string,
   /** Disables the XUIRange component */
   isDisabled: PropTypes.bool,
   /** Displays that the XUIRange component is invalid */

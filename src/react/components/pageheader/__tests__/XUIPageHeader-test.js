@@ -8,7 +8,7 @@ import XUIButton from '../../button/XUIButton';
 import XUIActions from '../../actions/XUIActions';
 import WidthContext from '../../../contexts/WidthContext';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -165,8 +165,9 @@ describe('<XUI PageHeader and BreadcrumbTrail/>', () => {
     );
     expect(contextualBc).toMatchSnapshot();
   });
-  it('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIPageHeader title="Testing 💩" />);
+  it('XUIPageHeader and XUIBreadcrumbTrail should pass accessibility testing', async () => {
+    const breadcrumb = <XUIBreadcrumbTrail breadcrumbs={bcObj2} />;
+    const wrapper = mount(<XUIPageHeader breadcrumb={breadcrumb} title="Testing 💩" />);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

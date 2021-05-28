@@ -203,7 +203,7 @@ test.add(storyNames.touchTargets, () => {
               </XUIPanelSection>
               <XUIPanelSection className="xui-padding-xlarge">
                 <div className="xui-panel xui-dropdown-medium">
-                  <XUIDatePicker displayedMonth={displayMonth} onSelectDate={NOOP} />
+                  <XUIDatePicker displayedMonth={displayMonth} locale="en" onSelectDate={NOOP} />
                 </div>
               </XUIPanelSection>
               <XUIPanelSection className="xui-padding-xlarge">

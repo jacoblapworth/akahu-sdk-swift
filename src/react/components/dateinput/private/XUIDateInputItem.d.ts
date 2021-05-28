@@ -24,7 +24,7 @@ interface Props {
   inputFieldClassName?: string;
 
   /** Input label */
-  inputLabel?: string;
+  inputLabel: string;
 
   /** Whether the input is disabled */
   isDisabled?: boolean;
@@ -32,8 +32,8 @@ interface Props {
   /** Whether the current input value is invalid */
   isInvalid?: boolean;
 
-  /** The locale of the calendar. Defaults to En */
-  locale?: string;
+  /** The locale of the calendar. */
+  locale: string;
 
   /** If you want to disable every date after a given day, pass in the maximum enabled
    * date here.  Can be used with the isDateDisabled function. */
@@ -43,11 +43,27 @@ interface Props {
    * date here.  Can be used with the isDateDisabled function. */
   minDate?: Date;
 
+  /**
+   * An accessibility label for the previous month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Previous month*
+   */
+  nextButtonAriaLabel: string;
+
   /** Callback for when the input changes  */
   onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 
   /** Callback for when the user selects a date */
   onSelectDate?: (day: Date) => void;
+
+  /**
+   * An accessibility label for the previous month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Previous month*
+   */
+  prevButtonAriaLabel: string;
 
   /** Prevents focusing input after selecting date - allows to focus the second input in date range without an infinite loop. */
   preventFocusOnSelect?: boolean;

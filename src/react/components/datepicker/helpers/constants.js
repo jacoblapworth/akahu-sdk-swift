@@ -2,21 +2,6 @@ import { ns } from '../../helpers/xuiClassNamespace';
 
 export const baseClassName = `${ns}-datepicker`;
 
-export const englishMonths = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
-
 export const customClassNames = {
   container: `${baseClassName}`,
   interactionDisabled: `${ns}-is-disabled`,

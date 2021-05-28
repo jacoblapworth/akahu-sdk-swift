@@ -32,7 +32,13 @@ class ExamplePicker extends React.Component {
 
   render() {
     return (
-      <XUIDatePicker onSelectDate={this.onSelectDate} selectedDate={this.state.selectedDate} />
+      <XUIDatePicker
+        locale="en"
+        nextButtonAriaLabel="Next month"
+        onSelectDate={this.onSelectDate}
+        prevButtonAriaLabel="Previous month"
+        selectedDate={this.state.selectedDate}
+      />
     );
   }
 }
@@ -90,7 +96,13 @@ class RangePicker extends React.Component {
 
   render() {
     return (
-      <XUIDatePicker onSelectDate={this.onSelectDate} selectedRange={this.state.selectedRange} />
+      <XUIDatePicker
+        locale="en"
+        nextButtonAriaLabel="Next month"
+        onSelectDate={this.onSelectDate}
+        prevButtonAriaLabel="Previous month"
+        selectedRange={this.state.selectedRange}
+      />
     );
   }
 }
@@ -136,9 +148,12 @@ class DisabledDatePicker extends React.Component {
   render() {
     return (
       <XUIDatePicker
-        onSelectDate={this.onSelectDate}
-        selectedDate={this.state.selectedDate}
         isDateDisabled={this.isDateDisabled}
+        locale="en"
+        nextButtonAriaLabel="Next month"
+        onSelectDate={this.onSelectDate}
+        prevButtonAriaLabel="Previous month"
+        selectedDate={this.state.selectedDate}
       />
     );
   }
@@ -174,7 +189,10 @@ class CompactPicker extends React.Component {
   render() {
     return (
       <XUIDatePicker
+        locale="en"
+        nextButtonAriaLabel="Next month"
         onSelectDate={this.onSelectDate}
+        prevButtonAriaLabel="Previous month"
         selectedDate={this.state.selectedDate}
         showFixedNumberOfWeeks
       />
@@ -184,6 +202,31 @@ class CompactPicker extends React.Component {
 
 <div className="xui-panel xui-dropdown-medium">
   <CompactPicker />
+</div>;
+```
+
+### Localisation
+
+A `locale` string is required. This can be either the language only, like `en`, or language and region, like `fr-CA`. `XUIDatePicker` will automatically set the text direction and first day of the week based on the provided locale.
+
+```jsx harmony
+import XUIDatePicker from '@xero/xui/react/datepicker';
+
+class ExamplePicker extends React.Component {
+  render() {
+    return (
+      <XUIDatePicker
+        locale="ar"
+        nextButtonAriaLabel="Next month"
+        onSelectDate={() => {}}
+        prevButtonAriaLabel="Previous month"
+      />
+    );
+  }
+}
+
+<div className="xui-panel xui-dropdown-medium">
+  <ExamplePicker />
 </div>;
 ```
 
@@ -210,7 +253,12 @@ class DatepickerDropdown extends React.Component {
 
     const dropdown = (
       <XUIDropdown>
-        <XUIDatePicker onSelectDate={() => {}} />
+        <XUIDatePicker
+          locale="en"
+          nextButtonAriaLabel="Next month"
+          onSelectDate={() => {}}
+          prevButtonAriaLabel="Previous month"
+        />
       </XUIDropdown>
     );
 

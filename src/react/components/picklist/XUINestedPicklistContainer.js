@@ -143,9 +143,6 @@ XUINestedPicklistContainer.propTypes = {
 };
 
 XUINestedPicklistContainer.defaultProps = {
-  secondaryProps: {
-    role: 'treeitem',
-  },
   /*
 	 DO NOT REMOVE
 	 This property is needed so that the StatefulPicklist will properly recognize this as the

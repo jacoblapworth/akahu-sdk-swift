@@ -17,7 +17,6 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -41,8 +40,6 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -50,8 +47,9 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
+              aria-label="Select first option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -88,7 +86,6 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -112,8 +109,6 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -121,8 +116,9 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
+              aria-label="Select second option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -171,7 +167,6 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -195,8 +190,6 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -204,8 +197,9 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
+              aria-label="Select first option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -242,7 +236,6 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -266,8 +259,6 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -275,8 +266,9 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
+              aria-label="Select second option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -325,7 +317,6 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -349,8 +340,6 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -358,8 +347,9 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
+              aria-label="Select first option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -396,7 +386,6 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -420,8 +409,6 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -429,8 +416,9 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
+              aria-label="Select second option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -479,7 +467,6 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -503,8 +490,6 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -512,8 +497,9 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
+              aria-label="Select first option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -550,7 +536,6 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -574,8 +559,6 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -583,8 +566,9 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
+              aria-label="Select second option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -633,7 +617,6 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -657,8 +640,6 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -666,8 +647,9 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
+              aria-label="Select first option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -704,7 +686,6 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -728,8 +709,6 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -737,8 +716,9 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
+              aria-label="Select second option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -787,7 +767,6 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -811,8 +790,6 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -820,8 +797,9 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
+              aria-label="Select first option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -858,7 +836,6 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -882,8 +859,6 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -891,8 +866,9 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
+              aria-label="Select second option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -941,7 +917,6 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -965,8 +940,6 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -974,8 +947,9 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
+              aria-label="Select first option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -1012,7 +986,6 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -1036,8 +1009,6 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1045,8 +1016,9 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
+              aria-label="Select second option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -1097,7 +1069,6 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -1121,8 +1092,6 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1130,8 +1099,9 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
+              aria-label="Select first option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -1168,7 +1138,6 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -1192,8 +1161,6 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1201,8 +1168,9 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
+              aria-label="Select second option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -1251,7 +1219,6 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -1275,8 +1242,6 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1284,8 +1249,9 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
+              aria-label="Select first option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -1322,7 +1288,6 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -1346,8 +1311,6 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1355,8 +1318,9 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
+              aria-label="Select second option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -1405,7 +1369,6 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -1429,8 +1392,6 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1438,8 +1399,9 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
+              aria-label="Select first option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -1476,7 +1438,6 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -1500,8 +1461,6 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1509,8 +1468,9 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
+              aria-label="Select second option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -1559,7 +1519,6 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -1583,8 +1542,6 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1592,8 +1549,9 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
+              aria-label="Select first option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -1630,7 +1588,6 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -1654,8 +1611,6 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1663,8 +1618,9 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
+              aria-label="Select second option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -1713,7 +1669,6 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -1737,8 +1692,6 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1746,8 +1699,9 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
             data-automationid="nestedDropdown-panelone--scrollable-content"
           >
             <ul
+              aria-label="Select first option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}
@@ -1784,7 +1738,6 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
-      role="presentation"
       style={
         Object {
           "maxHeight": undefined,
@@ -1808,8 +1761,6 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="listbox"
           tabIndex={null}
         >
           <div
@@ -1817,8 +1768,9 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
             data-automationid="nestedDropdown-paneltwo--scrollable-content"
           >
             <ul
+              aria-label="Select second option"
               className="xui-picklist xui-picklist-layout xui-picklist-medium"
-              role="group"
+              role="listbox"
             >
               <li
                 aria-selected={null}

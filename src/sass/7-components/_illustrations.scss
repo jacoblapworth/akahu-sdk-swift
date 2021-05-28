@@ -8,7 +8,6 @@
    * SVGs will scale properly if they have a `viewbox` attribute.
    * Using `object-fit` is technically redundant, but it provides a safety net
    * just in case an illustration does not have the `viewbox` attribute.
-   * Note that this fallback will not work with IE 11.
    */
   object-fit: contain;
   width: 100%;

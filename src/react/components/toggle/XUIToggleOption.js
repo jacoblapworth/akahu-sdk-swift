@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { baseClass, typeMap } from './private/constants';
 import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
+import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 const XUIToggleOption = props => {
   const wrapperIds = generateIds(props.id);
@@ -22,6 +23,14 @@ const XUIToggleOption = props => {
     id,
   } = props;
   const classes = cn(className, `${baseClass}--option`, isDisabled && `${baseClass}-is-disabled`);
+
+  useEffect(() => {
+    labelRequiredWarning(
+      XUIToggleOption.name,
+      ['includes a child with text'],
+      [children?.innerText],
+    );
+  }, [children]);
 
   return (
     <XUIControlWrapperInline

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import dateIcon from '@xero/xui-icon/icons/date-end';
 import dateStartIcon from '@xero/xui-icon/icons/date-start';
 import { parseDate, DateFormat } from '@xero/blind-date';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import cn from 'classnames';
 import { ns } from '../../helpers/xuiClassNamespace';
 
@@ -50,11 +50,11 @@ class XUIDateInputItem extends Component {
   triggerRef = createRef(null);
 
   /** Generate id's for panels */
-  customDatesId = uuidv4();
+  customDatesId = `xui-${nanoid(10)}`;
 
-  suggestedDatesId = uuidv4();
+  suggestedDatesId = nanoid();
 
-  suggestedDatesFooterId = uuidv4();
+  suggestedDatesFooterId = nanoid();
 
   componentDidMount() {
     this.setState({
@@ -109,7 +109,7 @@ class XUIDateInputItem extends Component {
   // };
 
   closeDropdown = () => {
-    this.ddtRef?.current.closeDropdown();
+    this.ddtRef.current?.closeDropdown();
     this.setState({ pickitemInitialHighlight: true });
   };
 
@@ -256,12 +256,14 @@ class XUIDateInputItem extends Component {
       locale,
       maxDate,
       minDate,
+      nextButtonAriaLabel,
       onInputChange, // Destructured so as not to spread.
       onSelectDate, // Destructured so as not to spread.
+      prevButtonAriaLabel,
       preventFocusOnSelect,
-      selectDateIcon,
-      selectDateLabel,
       selectedDate,
+      selectDateLabel,
+      selectDateIcon,
       size,
       triggerClassName,
       validationMessage,
@@ -350,7 +352,9 @@ class XUIDateInputItem extends Component {
             locale={locale}
             maxDate={maxDate}
             minDate={minDate}
+            nextButtonAriaLabel={nextButtonAriaLabel}
             onSelectDate={this.onSelectDate}
+            prevButtonAriaLabel={prevButtonAriaLabel}
             ref={this.datepickerRef}
             selectedDate={selectedDate}
           />
@@ -418,7 +422,7 @@ XUIDateInputItem.propTypes = {
   inputFieldClassName: PropTypes.string,
 
   /** Input label */
-  inputLabel: PropTypes.string,
+  inputLabel: PropTypes.string.isRequired,
 
   /** Whether the input is disabled */
   isDisabled: PropTypes.bool,
@@ -426,8 +430,8 @@ XUIDateInputItem.propTypes = {
   /** Whether the current input value is invalid */
   isInvalid: PropTypes.bool,
 
-  /** The locale of the calendar. Defaults to En */
-  locale: PropTypes.string,
+  /** The locale of the calendar. */
+  locale: PropTypes.string.isRequired,
 
   /**
    * If you want to disable every date after a given day, pass in the maximum enabled
@@ -441,6 +445,13 @@ XUIDateInputItem.propTypes = {
    */
   minDate: PropTypes.instanceOf(Date),
 
+  /** An accessibility label for the next month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Next month*
+   */
+  nextButtonAriaLabel: PropTypes.string.isRequired,
+
   /** Callback for when the input changes  */
   onInputChange: PropTypes.func,
 
@@ -449,6 +460,13 @@ XUIDateInputItem.propTypes = {
    * already been selected.
    */
   onSelectDate: PropTypes.func,
+
+  /** An accessibility label for the previous month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Previous month*
+   */
+  prevButtonAriaLabel: PropTypes.string.isRequired,
 
   /** Prevents focusing input after selecting date - allows to focus the second input in date range without an infinite loop. */
   preventFocusOnSelect: PropTypes.bool,
@@ -495,7 +513,6 @@ XUIDateInputItem.propTypes = {
 XUIDateInputItem.defaultProps = {
   closeOnSelect: true,
   displayedMonth: new Date(),
-  locale: 'en',
 };
 
 export default XUIDateInputItem;

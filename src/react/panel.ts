@@ -3,4 +3,4 @@ import XUIPanelFooter from './components/panel/XUIPanelFooter';
 import XUIPanelHeading from './components/panel/XUIPanelHeading';
 import XUIPanelSection from './components/panel/XUIPanelSection';
 
-export { XUIPanel as default, XUIPanel, XUIPanelHeading, XUIPanelFooter, XUIPanelSection };
+export { XUIPanel as default, XUIPanel, XUIPanelFooter, XUIPanelHeading, XUIPanelSection };

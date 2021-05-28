@@ -50,6 +50,7 @@ const YearSelector = ({
         buttonSizeClasses[size],
         hasFocus && `${ns}-datepicker--heading-select-has-focus`,
       )}
+      data-automationid={`${qaHook}--yearselectorlabel`}
       htmlFor={id}
     >
       {currentYear}

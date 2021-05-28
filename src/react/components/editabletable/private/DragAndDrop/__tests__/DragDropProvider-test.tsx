@@ -1,8 +1,11 @@
+import { fireEvent, render, screen } from '@testing-library/react';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
 import {
   DragDropContext as RBDDragDropContext,
+  Draggable,
+  Droppable,
   DropResult,
   ResponderProvided,
 } from 'react-beautiful-dnd';
@@ -383,4 +386,69 @@ describe('DragDropProvider', () => {
       expect(announce).toBeCalledWith(expectedDragCancelledMessage);
     });
   });
+});
+
+/** Begin switch to @testing-library/react */
+test('pressing space initiates dragging', () => {
+  // Arrange
+  render(
+    <DragDropProvider onDragEnd={NOOP}>
+      <Droppable droppableId="test-droppable">
+        {droppableProvided => (
+          <div data-automationid="test-droppable" ref={droppableProvided.innerRef}>
+            <Draggable draggableId="test-draggable" index={0}>
+              {(provided, snapshot) => (
+                <div
+                  {...provided.draggableProps}
+                  {...provided.dragHandleProps}
+                  data-automationid="test-draggable"
+                  data-isdragging={snapshot.isDragging ? true : null}
+                  ref={provided.innerRef}
+                />
+              )}
+            </Draggable>
+            {droppableProvided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </DragDropProvider>,
+  );
+
+  // Act
+  fireEvent.keyDown(screen.getByTestId('test-draggable'), { bubbles: true, keyCode: 32, key: ' ' });
+
+  // Assert
+  expect(screen.getByTestId('test-draggable').getAttribute('data-isdragging')).toBeTruthy();
+});
+
+test('pressing enter initiates dragging', () => {
+  // Arrange
+  render(
+    <DragDropProvider onDragEnd={NOOP}>
+      <Droppable droppableId="test-droppable">
+        {droppableProvided => (
+          <div data-automationid="test-droppable" ref={droppableProvided.innerRef}>
+            <Draggable draggableId="test-draggable" index={0}>
+              {(provided, snapshot) => (
+                <div
+                  {...provided.draggableProps}
+                  {...provided.dragHandleProps}
+                  data-automationid="test-draggable"
+                  data-isdragging={snapshot.isDragging ? true : null}
+                  ref={provided.innerRef}
+                />
+              )}
+            </Draggable>
+            {droppableProvided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </DragDropProvider>,
+  );
+
+  // Act
+  fireEvent.keyDown(screen.getByTestId('test-draggable'), { bubbles: true, key: 'Enter' });
+
+  // Assert
+  expect(screen.getByTestId('test-draggable').getAttribute('data-isdragging')).toBeTruthy();
 });

@@ -30,7 +30,7 @@ export const classNames = {
  * @public
  * Map of color classes
  */
-export const colorClassNames = [];
+export const colorClassNames: string[] = [];
 for (let i = 1; i <= 10; i += 1) {
   colorClassNames.push(`${avatarBaseClass}-color-${i}`);
 }

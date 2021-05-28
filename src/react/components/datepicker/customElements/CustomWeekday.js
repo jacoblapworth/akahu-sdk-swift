@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DayPicker from 'react-day-picker';
 import { baseClassName, customClassNames } from '../helpers/constants';
 
 const CustomWeekday = ({ locale, localeUtils, weekday, weekdaysLong, weekdaysShort }) => {
@@ -30,7 +29,12 @@ export default CustomWeekday;
 
 CustomWeekday.propTypes = {
   locale: PropTypes.string,
-  localeUtils: DayPicker.propTypes.localeUtils,
+  localeUtils: PropTypes.shape({
+    formatMonthTitle: PropTypes.func,
+    formatWeekdayLong: PropTypes.func,
+    formatWeekdayShort: PropTypes.func,
+    getFirstDayOfWeek: PropTypes.func,
+  }),
   weekday: PropTypes.number,
   weekdaysLong: PropTypes.arrayOf(PropTypes.string),
   weekdaysShort: PropTypes.arrayOf(PropTypes.string),

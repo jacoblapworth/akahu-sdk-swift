@@ -111,7 +111,5 @@ const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 variations.forEach(variations => {
   const { storyTitle, storyKind, ...variationMinusStoryDetails } = variations;
 
-  storiesWithVariations.add(storyTitle, () => {
-    return <Example {...variationMinusStoryDetails} />;
-  });
+  storiesWithVariations.add(storyTitle, () => <Example {...variationMinusStoryDetails} />);
 });

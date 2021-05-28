@@ -4,7 +4,7 @@ interface Props {
   /**
    * Additional classes to be applied to the container.
    */
-  containerClasses?: string;
+  containerClassName?: string;
   /**
    * Default value of the `XUIRange` component.
    */
@@ -20,7 +20,7 @@ interface Props {
   /**
    * Additional classes to be applied to the input.
    */
-  inputClasses?: string;
+  inputClassName?: string;
   /**
    * Disables the `XUIRange` component.
    */

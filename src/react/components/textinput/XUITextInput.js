@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import autosize from 'autosize';
 
-import compose from '../helpers/compose';
+import combineRefs from '../helpers/combineRefs';
 import { inputBaseClass, inputSizeClasses, baseSizeClasses } from './private/constants';
 import { calculateMaxHeight } from './private/helpers';
 import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
@@ -12,6 +12,7 @@ import { sizeShift } from '../helpers/sizes';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import SizeContext from '../../contexts/SizeContext';
 import DisabledStateContext from '../../contexts/DisabledStateContext';
+import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
@@ -35,7 +36,15 @@ class XUITextInput extends PureComponent {
   }
 
   componentDidMount() {
-    const { maxRows, focusByDefault, characterCounter, value, defaultValue } = this.props;
+    const {
+      maxRows,
+      focusOnMount,
+      characterCounter,
+      value,
+      defaultValue,
+      leftElement,
+      rightElement,
+    } = this.props;
 
     if (shouldAutomaticallyResize(this.props) && this.input) {
       if (maxRows != null) {
@@ -51,7 +60,7 @@ class XUITextInput extends PureComponent {
       autosize(this.input);
     }
 
-    if (focusByDefault) {
+    if (focusOnMount) {
       this.input && this.input.focus();
 
       // Only highlight the value when the type supports setSelectionRange
@@ -68,6 +77,24 @@ class XUITextInput extends PureComponent {
         charCount: value?.length || defaultValue?.length || 0,
       });
     }
+    const { placeholder, label, labelId, isLabelHidden } = this.props;
+    labelRequiredWarning(
+      XUITextInput.name,
+      [
+        'includes a label with text',
+        'placeholder provided',
+        'labelId provided',
+        "includes a sideElement of type='text'",
+      ],
+      [
+        label?.innerText && !isLabelHidden,
+        typeof label?.[0] === 'string',
+        placeholder,
+        labelId,
+        leftElement?.props?.type === 'text',
+        rightElement?.props?.type === 'text',
+      ],
+    );
   }
 
   componentWillUnmount() {
@@ -148,7 +175,7 @@ class XUITextInput extends PureComponent {
             labelId,
             onFocus,
             onBlur,
-            focusByDefault,
+            focusOnMount,
             /* eslint-enable no-unused-vars */
             ...otherProps
           } = input.props;
@@ -168,7 +195,11 @@ class XUITextInput extends PureComponent {
             isValueReverseAligned && `${inputBaseClass}--input-reverse-align`,
           );
 
-          const rootClasses = cn(fieldClassName, `${inputBaseClass}wrapper`);
+          const rootClasses = cn(
+            fieldClassName,
+            `${inputBaseClass}wrapper`,
+            isInvalid && `${inputBaseClass}wrapper-is-invalid`,
+          );
 
           const baseClasses = cn(
             containerClassName,
@@ -192,6 +223,16 @@ class XUITextInput extends PureComponent {
           };
 
           const ariaAttributes = cellAttributes || getAriaAttributes(this.wrapperIds, this.props);
+
+          let isLabelInSideEl;
+          if (
+            !label &&
+            !labelId &&
+            (leftElement?.props?.type === 'text' || rightElement?.props?.type === 'text')
+          ) {
+            isLabelInSideEl = true;
+          }
+          const InnerWrapEl = isLabelInSideEl ? 'label' : 'div';
 
           return (
             <SizeContext.Provider value={sizeShift(size, -1)}>
@@ -218,7 +259,7 @@ class XUITextInput extends PureComponent {
                   }}
                   ref={this.rootNode}
                 >
-                  <div className={baseClasses} data-automationid={qaHook} {...otherProps}>
+                  <InnerWrapEl className={baseClasses} data-automationid={qaHook} {...otherProps}>
                     {leftElement}
                     <InputEl
                       {...inputProps}
@@ -231,7 +272,7 @@ class XUITextInput extends PureComponent {
                       onChange={(onChange || characterCounter?.maxCharCount) && input.onChange}
                       onFocusCapture={input.onFocus}
                       placeholder={placeholder}
-                      ref={compose(inputRef, i => (this.input = i))}
+                      ref={combineRefs(inputRef, i => (this.input = i))}
                       type={type}
                       value={value}
                       {...ariaAttributes}
@@ -239,7 +280,7 @@ class XUITextInput extends PureComponent {
                       rows={isMultiline ? rows || minRows : undefined}
                     />
                     {rightElement}
-                  </div>
+                  </InnerWrapEl>
                 </XUIControlWrapper>
               </DisabledStateContext.Provider>
             </SizeContext.Provider>
@@ -270,7 +311,7 @@ XUITextInput.propTypes = {
   /** Class names to be added to the field wrapper element */
   fieldClassName: PropTypes.string,
   /** After rendering set focus at the end of the input */
-  focusByDefault: PropTypes.bool,
+  focusOnMount: PropTypes.bool,
   /** Hint message to show under the input */
   hintMessage: PropTypes.node,
   /** Class names to add to the input element */

@@ -126,13 +126,11 @@ const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 variations.forEach(variation => {
   const { storyTitle, storyKind, items, ...variationMinusStoryDetails } = variation;
 
-  storiesWithVariations.add(storyTitle, () => {
-    return (
-      <XUIPanel>
-        <XUIContentBlock {...variationMinusStoryDetails}>
-          {buildExampleContentblockItem(items)}
-        </XUIContentBlock>
-      </XUIPanel>
-    );
-  });
+  storiesWithVariations.add(storyTitle, () => (
+    <XUIPanel>
+      <XUIContentBlock {...variationMinusStoryDetails}>
+        {buildExampleContentblockItem(items)}
+      </XUIContentBlock>
+    </XUIPanel>
+  ));
 });

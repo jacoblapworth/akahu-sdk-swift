@@ -14,29 +14,30 @@ import XUIIcon from '../../icon/XUIIcon';
  * @param {Object} props
  */
 const PickitemBody = ({
+  children,
+  className,
+  headingElement,
+  href,
+  leftElement,
+  onBlur,
   onClick,
+  onFocus,
   onKeyDown,
-  shouldTruncate,
   onMouseOver,
   onMouseUp,
-  onBlur,
-  onFocus,
-  href,
-  children,
-  target,
-  qaHook,
-  tabIndex,
-  primaryElement,
-  secondaryElement,
   pinnedElement,
-  leftElement,
+  primaryElement,
+  qaHook,
   rightElement,
-  headingElement,
+  secondaryElement,
+  shouldTruncate,
   showButtonCaret,
+  tabIndex,
+  target,
 }) => {
   const rel = target ? 'noopener noreferrer' : null;
   const childProps = {
-    className: cn(itemBodyClassName, showButtonCaret && `${itemBodyClassName}-has-icon`),
+    className: cn(itemBodyClassName, className, showButtonCaret && `${itemBodyClassName}-has-icon`),
     onClick,
     onKeyDown,
     onMouseUp,
@@ -78,9 +79,7 @@ const PickitemBody = ({
       </span>
       {pinnedElement}
       {rightElement}
-      {showButtonCaret && (
-        <XUIIcon className={`${pickitemClassName}--caret`} icon={caret} isBoxed />
-      )}
+      {showButtonCaret && <XUIIcon className={`${pickitemClassName}--caret`} icon={caret} />}
     </Tag>
   );
 };
@@ -88,6 +87,7 @@ const PickitemBody = ({
 PickitemBody.propTypes = {
   checkboxClassName: PropTypes.string,
   children: PropTypes.node,
+  className: PropTypes.string,
   headingElement: PropTypes.node,
   href: PropTypes.string,
   /** Content to be added to the left of the pickitem. */

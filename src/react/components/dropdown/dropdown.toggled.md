@@ -248,9 +248,12 @@ class SimpleDropdownDatePicker extends Component {
     const dropdown = (
       <XUIDropdown>
         <XUIDatePicker
-          ref={this.datepicker}
           displayedMonth={currentMonth}
+          locale="en"
+          nextButtonAriaLabel="Next month"
           onSelectDate={this.onSelectDate}
+          prevButtonAriaLabel="Previous month"
+          ref={this.datepicker}
           selectedDate={selectedDate}
         />
       </XUIDropdown>

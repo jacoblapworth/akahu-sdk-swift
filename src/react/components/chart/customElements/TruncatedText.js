@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 const createTotalCharacterReducer = maxWidth => ({ totalWidth = 20, totalChars = 0 }, node) => {
@@ -11,7 +11,7 @@ const createTotalCharacterReducer = maxWidth => ({ totalWidth = 20, totalChars =
 };
 
 class TruncatedText extends PureComponent {
-  rootNode;
+  rootNode = React.createRef();
 
   state = {
     // maxWidth,
@@ -41,7 +41,7 @@ class TruncatedText extends PureComponent {
 
   render = () => {
     const { rootNode } = this;
-    const charNodes = rootNode ? rootNode.querySelectorAll('tspan') : [];
+    const charNodes = rootNode.current?.querySelectorAll('tspan') || [];
     const { style, maxWidth, children: text, ...textProps } = this.props;
     const createTextSpan = (character, key) => (
       <tspan key={key} style={style}>
@@ -65,7 +65,7 @@ class TruncatedText extends PureComponent {
           // NOTE: No "measuring" className hooks are supplied to this hidden text
           // block (so it has no influence over visual layout).
         }
-        <text ref={node => (this.rootNode = node)} y="9999999">
+        <text ref={this.rootNode} y="9999999">
           {text.split('').map(createTextSpan)}
         </text>
         {

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import debounce from 'lodash.debounce';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import XUIPicklist from '../picklist/XUIPicklist';
 import XUILoader from '../loader/XUILoader';
 import XUIDropdown from '../dropdown/XUIDropdown';
@@ -12,6 +12,9 @@ import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 import { eventKeyValues, isKeyClick } from '../helpers/reactKeyHandler';
 import { observe, unobserve } from '../helpers/resizeObserver';
+import labelRequiredWarning, { loadingAriaLabelOnly } from '../helpers/labelRequiredWarning';
+
+const baseClass = `${ns}-autocompleter`;
 
 /**
  * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and
@@ -36,9 +39,11 @@ export default class XUIAutocompleter extends PureComponent {
     this.ddt = React.createRef();
     this.rootNode = React.createRef();
     this.noWrapPillContainer = React.createRef();
+    this.dropdown = React.createRef();
+    this.inputNode = React.createRef();
   }
 
-  _onResize(width) {
+  _onResize({ width }) {
     this.setState({ placeholderWidth: width });
 
     this.scrollPillContainer();
@@ -51,7 +56,14 @@ export default class XUIAutocompleter extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { pills, disableWrapPills, searchDebounceTimeout, searchValue, placeholder } = this.props;
+    const {
+      pills,
+      disableWrapPills,
+      searchDebounceTimeout,
+      searchValue,
+      placeholder,
+      isLoading,
+    } = this.props;
 
     if (prevProps.searchDebounceTimeout !== searchDebounceTimeout) {
       this.bindOnChange(searchDebounceTimeout);
@@ -78,6 +90,12 @@ export default class XUIAutocompleter extends PureComponent {
 
     if (React.Children.count(pills) < React.Children.count(prevProps.pills)) {
       this.ddt.current.repositionDropdown();
+    }
+
+    if (!prevProps.isLoading && isLoading) {
+      labelRequiredWarning(XUIAutocompleter.name, loadingAriaLabelOnly, [
+        isLoading && this.props.loadingAriaLabel,
+      ]);
     }
   }
 
@@ -111,7 +129,7 @@ export default class XUIAutocompleter extends PureComponent {
   calculatePlaceholderWidth = () => {
     if (this._area.current != null) {
       const { placeholderWidth } = this.state;
-      const inputStyle = getComputedStyle(this.inputNode);
+      const inputStyle = getComputedStyle(this.inputNode.current);
       const inputWidth = `${
         parseFloat(inputStyle.paddingLeft) +
         parseFloat(inputStyle.paddingRight) +
@@ -131,7 +149,7 @@ export default class XUIAutocompleter extends PureComponent {
    * Set the state as not hidden in order to toggle the list open.
    */
   openDropdown = () => {
-    this.ddt.current.openDropdown();
+    this.ddt.current?.openDropdown();
   };
 
   /**
@@ -139,7 +157,7 @@ export default class XUIAutocompleter extends PureComponent {
    * Set the state as hidden in order to toggle the list closed.
    */
   closeDropdown = () => {
-    this.ddt.current.closeDropdown();
+    this.ddt.current?.closeDropdown();
   };
 
   /**
@@ -147,7 +165,7 @@ export default class XUIAutocompleter extends PureComponent {
    * Manually highlight an item in the list for selection.
    */
   highlightItem = item => {
-    this.dropdown.highlightItem(item);
+    this.dropdown.current?.highlightItem(item);
   };
 
   /**
@@ -155,7 +173,7 @@ export default class XUIAutocompleter extends PureComponent {
    * Focuses the text input
    */
   focusInput = () => {
-    this.inputNode && this.inputNode.focus();
+    this.inputNode.current?.focus();
   };
 
   /**
@@ -183,19 +201,18 @@ export default class XUIAutocompleter extends PureComponent {
        * This will ensure that dropdown onKeyDown event occurs after the re-rendering of the picklist selection is complete.
        * This implementation has been chosen as it allows us to ensure the correct behaviour without invasive changes to Autocompletion/dropdown/statefulPicklist components.
        */
-      setTimeout(() => this.dropdown && this.dropdown.onKeyDown && this.dropdown.onKeyDown(event));
+      setTimeout(() => this.dropdown.current?.onKeyDown?.(event));
     }
 
     if (
       event.key === eventKeyValues.backspace &&
-      this.inputNode.value === '' &&
+      this.inputNode.current.value === '' &&
       onBackspacePill &&
       pills &&
       (pills.length > 0 || React.isValidElement(pills))
     ) {
       onBackspacePill();
     }
-
     if (this.props.onKeyDown) {
       this.props.onKeyDown(event);
     }
@@ -250,10 +267,11 @@ export default class XUIAutocompleter extends PureComponent {
   // We explicitly need to tie the label to the input element in HTML for autocompleter,
   // so we'll ensure there is an ID with which to do so.
   generatedInputId =
-    this.props.inputId || (this.props.inputProps && this.props.inputProps.id) || uuidv4();
+    this.props.inputId ||
+    (this.props.inputProps && this.props.inputProps.id) ||
+    `xui-${nanoid(10)}`;
 
   render() {
-    const completer = this;
     const {
       qaHook,
       pills,
@@ -274,9 +292,9 @@ export default class XUIAutocompleter extends PureComponent {
       onOptionSelect,
       dropdownClassName,
       dropdownSize,
-      dropdownFixedWidth,
+      dropdownHasFixedWidth,
       footer,
-      loading,
+      isLoading,
       loadingAriaLabel,
       children,
       className,
@@ -288,9 +306,9 @@ export default class XUIAutocompleter extends PureComponent {
       forceDesktop,
       matchTriggerWidth,
       isInvalid,
+      isFieldLayout,
       validationMessage,
       hintMessage,
-      onKeyDown,
       isLegacyDisplay,
     } = this.props;
     const { value, focused, inputWidth } = this.state;
@@ -337,8 +355,9 @@ export default class XUIAutocompleter extends PureComponent {
               flexBasis: inputWidth,
             },
           }}
-          inputRef={i => (this.inputNode = i)}
+          inputRef={this.inputNode}
           isDisabled={isDisabled}
+          isFieldLayout={isFieldLayout}
           isInvalid={isInvalid}
           isLabelHidden={isInputLabelHidden}
           label={inputLabel}
@@ -358,19 +377,19 @@ export default class XUIAutocompleter extends PureComponent {
     const dropdown = (
       <XUIDropdown
         className={dropdownClassName}
-        fixedWidth={dropdownFixedWidth}
         footer={footer}
+        hasFixedWidth={dropdownHasFixedWidth}
         hasKeyboardEvents={false}
         id={dropdownId}
         ignoreKeyboardEvents={ignoreKeyboardEvents}
-        onHighlightChange={completer.onHighlightChange}
+        onHighlightChange={this.onHighlightChange}
         onSelect={onOptionSelect}
         qaHook={listQaHook}
-        ref={c => (completer.dropdown = c)}
+        ref={this.dropdown}
         restrictFocus={false}
         size={dropdownSize}
       >
-        {loading ? (
+        {isLoading ? (
           <XUIPicklist>
             <XUILoader ariaLabel={loadingAriaLabel} />
           </XUIPicklist>
@@ -380,7 +399,7 @@ export default class XUIAutocompleter extends PureComponent {
       </XUIDropdown>
     );
 
-    const classNames = cn(className, focused && `${ns}-autocompleter--trigger-focus`);
+    const classNames = cn(className, baseClass, focused && `${baseClass}--trigger-focus`);
 
     return (
       <div
@@ -433,7 +452,7 @@ XUIAutocompleter.propTypes = {
 
   /** If a size is set, this will force the dropdown to that size instead of setting it as a
    * max width. */
-  dropdownFixedWidth: PropTypes.bool,
+  dropdownHasFixedWidth: PropTypes.bool,
 
   /** ID to be added to the dropdown element of the completer */
   dropdownId: PropTypes.string,
@@ -475,6 +494,9 @@ XUIAutocompleter.propTypes = {
   /** Whether to render as disabled */
   isDisabled: PropTypes.bool,
 
+  /** Whether to use the field layout classes. Defaults to false. */
+  isFieldLayout: PropTypes.bool,
+
   /** Whether to hide the label and apply it as an ARIA label instead. */
   isInputLabelHidden: PropTypes.bool,
 
@@ -487,18 +509,18 @@ XUIAutocompleter.propTypes = {
    */
   isLegacyDisplay: PropTypes.bool,
 
+  /** When set to true a loader will be displayed instead of the picklist items.
+   * State for this should be managed externally and it's defaulted to false.
+   */
+  isLoading: PropTypes.bool,
+
   /** Left element to render within the `XUITextInput` component. Should not be used together with
    * the `pills` prop */
   leftElement: PropTypes.node,
 
-  /** When set to true a loader will be displayed instead of the picklist items.
-   * State for this should be managed externally and it's defaulted to false.
-   */
-  loading: PropTypes.bool,
-
   /**
    * Accessibility label for the `<XUILoader>`. This is required if the
-   * `loading` prop is set to `true`.
+   * `isLoading` prop is set to `true`.
    * <br />
    * Recommended English value: *Loading*
    */
@@ -568,10 +590,10 @@ XUIAutocompleter.propTypes = {
 XUIAutocompleter.defaultProps = {
   closeOnTab: true,
   disableWrapPills: false,
-  dropdownFixedWidth: false,
+  dropdownHasFixedWidth: false,
   forceDesktop: true,
   isLegacyDisplay: true,
-  loading: false,
+  isLoading: false,
   matchTriggerWidth: true,
   openOnFocus: false,
   searchDebounceTimeout: 200,

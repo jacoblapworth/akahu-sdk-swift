@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import {
   XUIEditableTable,
   XUIEditableTableHead,
@@ -43,19 +43,17 @@ const SBCell = props => {
       {...spreadProps}
     >
       {options &&
-        options.map((opt, idx) => {
-          return (
-            <XUISelectBoxOption
-              id={opt}
-              isSelected={selectedItems.indexOf(opt) >= 0}
-              key={idx + opt + rowIndex}
-              showCheckboxes={isMultiSelect}
-              value={opt}
-            >
-              {opt}
-            </XUISelectBoxOption>
-          );
-        })}
+        options.map((opt, idx) => (
+          <XUISelectBoxOption
+            id={opt}
+            isSelected={selectedItems.indexOf(opt) >= 0}
+            key={idx + opt + rowIndex}
+            showCheckboxes={isMultiSelect}
+            value={opt}
+          >
+            {opt}
+          </XUISelectBoxOption>
+        ))}
     </XUIEditableTableCellSelectBox>
   );
 };
@@ -68,7 +66,7 @@ class EditableTableUserTest extends React.Component {
     'Salad filling(s)': undefined,
     Sauce: undefined,
     'Order note': undefined,
-    uid: uuidv4(),
+    uid: nanoid(10),
   };
 
   state = {
@@ -90,7 +88,7 @@ class EditableTableUserTest extends React.Component {
   };
 
   addNewItem = () => {
-    this.blankItem.uid = uuidv4();
+    this.blankItem.uid = nanoid(10);
     this.setState(prevState => ({
       items: [...prevState.items, { ...this.blankItem }],
     }));
@@ -231,7 +229,7 @@ const sandwichData = [
     'Salad filling(s)': ['Lettuce', 'Onion', 'Mushroom', 'Pickles'],
     Sauce: 'Thousand Island',
     'Order note': 'Please add cheese',
-    uid: uuidv4(),
+    uid: nanoid(10),
   },
   {
     Name: 'Zac',
@@ -240,7 +238,7 @@ const sandwichData = [
     'Salad filling(s)': ['Lettuce', 'Onion', 'Pickles'],
     Sauce: 'Mayonnaise',
     'Order note': 'Can you please add extra sauce? Cheers',
-    uid: uuidv4(),
+    uid: nanoid(10),
   },
   {
     Name: 'Elise',
@@ -249,7 +247,7 @@ const sandwichData = [
     'Salad filling(s)': ['Lettuce', 'Mushroom', 'Pickles'],
     Sauce: 'Aioli',
     'Order note': undefined,
-    uid: uuidv4(),
+    uid: nanoid(10),
   },
   {
     Name: 'Sam',
@@ -258,7 +256,7 @@ const sandwichData = [
     'Salad filling(s)': ['Onion', 'Mushroom'],
     Sauce: 'Tomato',
     'Order note': undefined,
-    uid: uuidv4(),
+    uid: nanoid(10),
   },
   {
     Name: 'Taylor',
@@ -267,7 +265,7 @@ const sandwichData = [
     'Salad filling(s)': ['Lettuce'],
     Sauce: 'Mayonnaise',
     'Order note': 'Peanut allergy',
-    uid: uuidv4(),
+    uid: nanoid(10),
   },
 ];
 

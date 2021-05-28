@@ -4,6 +4,7 @@ import React, { Fragment, useEffect } from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
+import FullPageStoryWrapper from '../../../stories/helpers/FullPageStoryWrapper';
 
 // Components we need to test with
 import XUICompositionSplitHeader from '../XUICompositionSplitHeader';
@@ -160,12 +161,16 @@ storiesWithKnobs.add('Master detail summary', () => {
   if (settings.isReal) {
     areas.detail = realDetail(true, navigation);
     return (
-      <>
+      <FullPageStoryWrapper>
         <Tag {...settings} {...areas} />
-      </>
+      </FullPageStoryWrapper>
     );
   }
-  return <Tag {...settings} {...areas} />;
+  return (
+    <FullPageStoryWrapper>
+      <Tag {...settings} {...areas} />
+    </FullPageStoryWrapper>
+  );
 });
 
 storiesWithKnobs.add('Master detail', () => {
@@ -238,12 +243,16 @@ storiesWithKnobs.add('Master detail', () => {
   if (settings.isReal) {
     areas.detail = realDetail(true, navigation);
     return (
-      <>
+      <FullPageStoryWrapper>
         <Tag {...settings} {...areas} />
-      </>
+      </FullPageStoryWrapper>
     );
   }
-  return <Tag {...settings} {...areas} />;
+  return (
+    <FullPageStoryWrapper>
+      <Tag {...settings} {...areas} />
+    </FullPageStoryWrapper>
+  );
 });
 
 storiesWithKnobs.add('Detail summary', () => {
@@ -294,7 +303,11 @@ storiesWithKnobs.add('Detail summary', () => {
     ? realSummary({ minWidth: widthRightColumn, width: '100%' })
     : blockAreas.summary({ minWidth: widthRightColumn, width: '100%' });
 
-  return <Tag {...settings} {...areas} />;
+  return (
+    <FullPageStoryWrapper>
+      <Tag {...settings} {...areas} />
+    </FullPageStoryWrapper>
+  );
 });
 
 storiesWithKnobs.add('Detail', () => {
@@ -313,7 +326,11 @@ storiesWithKnobs.add('Detail', () => {
   };
   const areas = settings.isReal ? realAreas : blockAreas;
 
-  return <Tag {...settings} {...areas} />;
+  return (
+    <FullPageStoryWrapper>
+      <Tag {...settings} {...areas} />
+    </FullPageStoryWrapper>
+  );
 });
 
 storiesWithKnobs.add('Split', () => {
@@ -347,21 +364,12 @@ storiesWithKnobs.add('Split', () => {
       }
     : blockAreas;
 
-  return <Tag {...settings} {...areas} />;
+  return (
+    <FullPageStoryWrapper>
+      <Tag {...settings} {...areas} />
+    </FullPageStoryWrapper>
+  );
 });
-
-// `display: flex` on the default decorator shrinks our compositions into invisibility
-const FixedDecorator = ({ children }) => {
-  const node = React.useRef();
-
-  useEffect(() => {
-    const wrapper = node?.current?.parentElement?.parentElement;
-
-    wrapper.style.display = 'unset';
-  });
-
-  return <div ref={node}>{children}</div>;
-};
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 
@@ -391,8 +399,8 @@ variations.forEach(variation => {
   }
 
   storiesWithVariations.add(variation.storyTitle, () => (
-    <FixedDecorator>
+    <FullPageStoryWrapper>
       <Tag {...compositionProps} {...areasInstance} />
-    </FixedDecorator>
+    </FullPageStoryWrapper>
   ));
 });

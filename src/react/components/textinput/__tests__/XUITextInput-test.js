@@ -1,29 +1,40 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
+import accessibility from '@xero/xui-icon/icons/accessibility';
 import XUITextInput from '../XUITextInput';
 import XUITextInputSideElement from '../XUITextInputSideElement';
 import XUIIcon from '../../icon/XUIIcon';
 import XUIPill from '../../pill/XUIPill';
 import XUIInnerPill from '../../pill/XUIInnerPill';
-import accessibility from '@xero/xui-icon/icons/accessibility';
 import NOOP from '../../helpers/noop';
 import { sizeShift } from '../../helpers/sizes';
 import EditableTableCellContext from '../../../contexts/EditableTableCellContext';
-import { v4 as uuidv4 } from 'uuid';
 import { render, screen } from '@testing-library/react';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testGeneratedId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
 describe('<XUITextInput>', () => {
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUITextInput />);
+  it('XUITextInput and XUITextInputSideElement should pass accessibility testing', async () => {
+    const sideElement = (
+      <XUITextInputSideElement type="icon">
+        <XUIIcon icon={accessibility} isBoxed />
+      </XUITextInputSideElement>
+    );
+    const wrapper = mount(<XUITextInput label="Text input" leftElement={sideElement} />);
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
+  });
+  it('SideElement label should pass accessibility testing', async () => {
+    const sideElement = <XUITextInputSideElement type="text">Test:</XUITextInputSideElement>;
+    const wrapper = mount(<XUITextInput leftElement={sideElement} />);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });
@@ -54,18 +65,18 @@ describe('<XUITextInput>', () => {
   describe('Text-only input', () => {
     let wrapper;
     let input;
-    let className = 'someClassName';
-    let qaHook = 'givenQAHook';
+    const className = 'someClassName';
+    const qaHook = 'givenQAHook';
 
     beforeEach(() => {
       wrapper = mount(
         <XUITextInput
+          aria-haspopup
           className={className}
-          qaHook={qaHook}
           onChange={NOOP}
-          style={{ backgroundColor: 'darkred' }}
-          aria-haspopup={true}
           placeholder="This is an input"
+          qaHook={qaHook}
+          style={{ backgroundColor: 'darkred' }}
         />,
       );
 
@@ -117,29 +128,29 @@ describe('<XUITextInput>', () => {
     });
 
     it('renders the field layout class when isFieldLayout is true', () => {
-      const wrapper = mount(<XUITextInput isFieldLayout={true} />);
+      wrapper = mount(<XUITextInput isFieldLayout />);
 
       expect(wrapper.find('.xui-field-layout')).toHaveLength(1);
     });
 
     it('renders with a label when one is provided', () => {
-      const wrapper = renderer.create(<XUITextInput label="test" labelId="testLabel" />);
+      wrapper = renderer.create(<XUITextInput label="test" labelId="testLabel" />);
       expect(wrapper).toMatchSnapshot();
     });
 
     it('renders with a hidden label when one is provided', () => {
-      const wrapper = renderer.create(<XUITextInput label="test" isLabelHidden />);
+      wrapper = renderer.create(<XUITextInput isLabelHidden label="test" />);
       expect(wrapper).toMatchSnapshot();
     });
 
     it('includes custom classes on the correct nodes', () => {
-      const wrapper = renderer.create(
+      wrapper = renderer.create(
         <XUITextInput
-          fieldClassName="custom-field-class"
           containerClassName="custom-container-class"
+          fieldClassName="custom-field-class"
           inputClassName="custom-input-class"
-          labelClassName="custom-label-class"
           label="test"
+          labelClassName="custom-label-class"
           labelId="testLabel"
         />,
       );
@@ -148,25 +159,25 @@ describe('<XUITextInput>', () => {
     });
 
     it('maps the type prop to the input element', () => {
-      const wrapper = mount(<XUITextInput type="number" />);
+      wrapper = mount(<XUITextInput type="number" />);
 
       expect(wrapper.find('input[type="number"]')).toHaveLength(1);
     });
 
     it('maps the defaultValue prop to the input element', () => {
-      const wrapper = mount(<XUITextInput defaultValue="hello" />);
+      wrapper = mount(<XUITextInput defaultValue="hello" />);
 
       expect(wrapper.find('input[defaultValue="hello"]')).toHaveLength(1);
     });
 
     it('sets the resize none class based on options passed in', () => {
-      const wrapper = renderer.create(<XUITextInput isMultiline />);
+      wrapper = renderer.create(<XUITextInput isMultiline />);
 
       expect(wrapper).toMatchSnapshot();
     });
 
     it('forces resize visible class based on options passed in', () => {
-      const wrapper = renderer.create(<XUITextInput isMultiline isManuallyResizable />);
+      wrapper = renderer.create(<XUITextInput isManuallyResizable isMultiline />);
 
       expect(wrapper).toMatchSnapshot();
     });
@@ -174,7 +185,7 @@ describe('<XUITextInput>', () => {
 
   describe('Validation and hints', () => {
     it('renders with the correct class on the input if isInvalid=true', () => {
-      const wrapper = mount(<XUITextInput onChange={NOOP} isInvalid={true} />);
+      const wrapper = mount(<XUITextInput isInvalid onChange={NOOP} />);
 
       expect(wrapper.find('.xui-textinput-is-invalid').length).toBe(1);
     });
@@ -182,10 +193,10 @@ describe('<XUITextInput>', () => {
     it('renders with a hint message if one is provided and the input is valid', () => {
       const wrapper = renderer.create(
         <XUITextInput
-          onChange={NOOP}
           hintMessage="Boo"
-          validationMessage="Wut?"
           labelId="newTest"
+          onChange={NOOP}
+          validationMessage="Wut?"
         />,
       );
 
@@ -194,7 +205,7 @@ describe('<XUITextInput>', () => {
 
     it('renders invalid textinputs with an error message correctly', () => {
       const wrapper = renderer.create(
-        <XUITextInput onChange={NOOP} isInvalid={true} validationMessage="Boo" labelId="newTest" />,
+        <XUITextInput isInvalid labelId="newTest" onChange={NOOP} validationMessage="Boo" />,
       );
 
       expect(wrapper).toMatchSnapshot();
@@ -203,7 +214,7 @@ describe('<XUITextInput>', () => {
     it('renders with the validation message if isInvalid=true and both a hint message and a validation message are present', () => {
       const msg = 'Boo';
       const wrapper = mount(
-        <XUITextInput onChange={NOOP} isInvalid={true} validationMessage={msg} hintMessage="Hai" />,
+        <XUITextInput hintMessage="Hai" isInvalid onChange={NOOP} validationMessage={msg} />,
       );
 
       const validationEl = wrapper.find('.xui-validation');
@@ -212,14 +223,14 @@ describe('<XUITextInput>', () => {
 
     it('renders with the hint message if isInvalid=true and only a hint message is present', () => {
       const msg = 'Hai';
-      const wrapper = mount(<XUITextInput onChange={NOOP} isInvalid={true} hintMessage={msg} />);
+      const wrapper = mount(<XUITextInput hintMessage={msg} isInvalid onChange={NOOP} />);
 
       const validationEl = wrapper.find('.xui-validation');
       expect(validationEl.text()).toEqual(msg);
     });
 
     it('renders with the correct class on the validation element if isInvalid=true and no validation message is present', () => {
-      const wrapper = mount(<XUITextInput onChange={NOOP} isInvalid={true} hintMessage="Hai" />);
+      const wrapper = mount(<XUITextInput hintMessage="Hai" isInvalid onChange={NOOP} />);
 
       expect(wrapper.find('.xui-textinput-is-invalid')).toHaveLength(1);
 
@@ -244,12 +255,26 @@ describe('<XUITextInput>', () => {
       );
       expect(wrapper).toMatchSnapshot();
     });
+
+    it('should render side elements as labels when text type and no other label provided', () => {
+      const sideElement = (
+        <XUITextInputSideElement type="text">First name:</XUITextInputSideElement>
+      );
+      const wrapper = renderer.create(
+        <div>
+          <XUITextInput leftElement={sideElement} />
+          <XUITextInput rightElement={sideElement} />
+          <XUITextInput leftElement={sideElement} rightElement={sideElement} />
+        </div>,
+      );
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   describe('Borderless variants', () => {
     it('should render with transparent borderless classes when isBorderlessTransparent is set to true', () => {
       const wrapper = mount(
-        <XUITextInput onChange={NOOP} isBorderlessTransparent={true} hintMessage="Hai" />,
+        <XUITextInput hintMessage="Hai" isBorderlessTransparent onChange={NOOP} />,
       );
 
       expect(wrapper.find('.xui-textinput-borderless-transparent')).toHaveLength(1);
@@ -257,12 +282,7 @@ describe('<XUITextInput>', () => {
 
     it('should render with transparent borderless classes when isBorderlessTransparent and inInverted are set to true', () => {
       const wrapper = mount(
-        <XUITextInput
-          onChange={NOOP}
-          isBorderlessTransparent={true}
-          isInverted={true}
-          hintMessage="Hai"
-        />,
+        <XUITextInput hintMessage="Hai" isBorderlessTransparent isInverted onChange={NOOP} />,
       );
 
       expect(wrapper.find('.xui-textinput-borderless-transparent')).toHaveLength(1);
@@ -270,21 +290,14 @@ describe('<XUITextInput>', () => {
     });
 
     it('should render with solid borderless classes when isBorderlessSolid is set to true', () => {
-      const wrapper = mount(
-        <XUITextInput onChange={NOOP} isBorderlessSolid={true} hintMessage="Hai" />,
-      );
+      const wrapper = mount(<XUITextInput hintMessage="Hai" isBorderlessSolid onChange={NOOP} />);
 
       expect(wrapper.find('.xui-textinput-borderless-solid')).toHaveLength(1);
     });
 
     it('should render with solid borderless classes when isBorderlessSolid and inInverted are set to true', () => {
       const wrapper = mount(
-        <XUITextInput
-          onChange={NOOP}
-          isBorderlessSolid={true}
-          isInverted={true}
-          hintMessage="Hai"
-        />,
+        <XUITextInput hintMessage="Hai" isBorderlessSolid isInverted onChange={NOOP} />,
       );
 
       expect(wrapper.find('.xui-textinput-borderless-solid')).toHaveLength(1);
@@ -355,8 +368,7 @@ describe('<XUITextInput>', () => {
         </EditableTableCellContext.Provider>,
       );
 
-      const classList = wrapper.find(`[data-automationid="${automationId}"]`).getDOMNode()
-        .classList;
+      const { classList } = wrapper.find(`[data-automationid="${automationId}"]`).getDOMNode();
 
       expect(classList.contains('xui-textinput-cell')).toBeTruthy();
     });
@@ -364,7 +376,6 @@ describe('<XUITextInput>', () => {
 });
 
 describe('TextInput with Character counter', () => {
-
   const characterCounterConfig = {
     maxCharCount: 10,
     validationMessage: 'Character validation failed!',
@@ -415,7 +426,7 @@ describe('TextInput with Character counter', () => {
         onChange={NOOP}
         value=""
         qaHook="test-id"
-        characterCounter={{...characterCounterConfig, maxCharCount: 1}}
+        characterCounter={{ ...characterCounterConfig, maxCharCount: 1 }}
       />,
     );
 
@@ -428,7 +439,7 @@ describe('TextInput with Character counter', () => {
         onChange={NOOP}
         defaultValue=""
         qaHook="test-id"
-        characterCounter={{...characterCounterConfig, maxCharCount: 1}}
+        characterCounter={{ ...characterCounterConfig, maxCharCount: 1 }}
       />,
     );
 

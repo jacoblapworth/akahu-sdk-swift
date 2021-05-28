@@ -44,7 +44,7 @@ exports[`<XUIFileUploader/> <FileList/> should render a custom filelist class 1`
       className="xui-fileuploader--fileitem"
     >
       <span
-        className="xui-fileuploader--fileitem--loading"
+        className="xui-fileuploader--fileitem--loading xui-fileuploader--fileitem--loading-indeterminate"
       >
         <div
           aria-valuemax={4}
@@ -325,6 +325,101 @@ exports[`<XUIFileUploader/> <FileList/> should render a custom filelist class 1`
           <div
             className="xui-touchtarget"
           />
+        </button>
+      </div>
+    </li>
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <span
+        className="xui-fileuploader--fileitem--loading"
+      >
+        <div
+          aria-valuemax={100}
+          aria-valuemin={0}
+          aria-valuenow={50}
+          aria-valuetext="50 of 100"
+          className="xui-progress xui-progress-circular"
+          role="progressbar"
+        >
+          <div
+            className="xui-progress--fragment"
+          >
+            <div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="fileuploader-icon-spin-3-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-spin-3-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={26.703537555513243}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test4.zip
+        <span
+          className="xui-fileuploader--fileitem--description"
+        >
+          Uploading...
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          className="xui-button xui-button-borderless-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Cancel
         </button>
       </div>
     </li>
@@ -376,7 +471,7 @@ exports[`<XUIFileUploader/> <FileList/> should render basic example 1`] = `
       className="xui-fileuploader--fileitem"
     >
       <span
-        className="xui-fileuploader--fileitem--loading"
+        className="xui-fileuploader--fileitem--loading xui-fileuploader--fileitem--loading-indeterminate"
       >
         <div
           aria-valuemax={4}
@@ -657,6 +752,101 @@ exports[`<XUIFileUploader/> <FileList/> should render basic example 1`] = `
           <div
             className="xui-touchtarget"
           />
+        </button>
+      </div>
+    </li>
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <span
+        className="xui-fileuploader--fileitem--loading"
+      >
+        <div
+          aria-valuemax={100}
+          aria-valuemin={0}
+          aria-valuenow={50}
+          aria-valuetext="50 of 100"
+          className="xui-progress xui-progress-circular"
+          role="progressbar"
+        >
+          <div
+            className="xui-progress--fragment"
+          >
+            <div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="fileuploader-icon-spin-3-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-spin-3-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={26.703537555513243}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test4.zip
+        <span
+          className="xui-fileuploader--fileitem--description"
+        >
+          Uploading...
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          className="xui-button xui-button-borderless-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Cancel
         </button>
       </div>
     </li>
@@ -813,7 +1003,7 @@ exports[`<XUIFileUploader/> <FileList/> should render with single line 1`] = `
       className="xui-fileuploader--fileitem"
     >
       <span
-        className="xui-fileuploader--fileitem--loading"
+        className="xui-fileuploader--fileitem--loading xui-fileuploader--fileitem--loading-indeterminate"
       >
         <div
           aria-valuemax={4}
@@ -1087,6 +1277,96 @@ exports[`<XUIFileUploader/> <FileList/> should render with single line 1`] = `
         </button>
       </div>
     </li>
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <span
+        className="xui-fileuploader--fileitem--loading"
+      >
+        <div
+          aria-valuemax={100}
+          aria-valuemin={0}
+          aria-valuenow={50}
+          aria-valuetext="50 of 100"
+          className="xui-progress xui-progress-circular"
+          role="progressbar"
+        >
+          <div
+            className="xui-progress--fragment"
+          >
+            <div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="fileuploader-icon-spin-3-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-spin-3-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={26.703537555513243}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test4.zip
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          className="xui-button xui-button-borderless-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </li>
   </ul>
 </div>
 `;
@@ -1135,7 +1415,7 @@ exports[`<XUIFileUploader/> <FileList/> should render without icons 1`] = `
       className="xui-fileuploader--fileitem"
     >
       <span
-        className="xui-fileuploader--fileitem--loading"
+        className="xui-fileuploader--fileitem--loading xui-fileuploader--fileitem--loading-indeterminate"
       >
         <div
           aria-valuemax={4}
@@ -1400,6 +1680,101 @@ exports[`<XUIFileUploader/> <FileList/> should render without icons 1`] = `
           <div
             className="xui-touchtarget"
           />
+        </button>
+      </div>
+    </li>
+    <li
+      className="xui-fileuploader--fileitem"
+    >
+      <span
+        className="xui-fileuploader--fileitem--loading"
+      >
+        <div
+          aria-valuemax={100}
+          aria-valuemin={0}
+          aria-valuenow={50}
+          aria-valuetext="50 of 100"
+          className="xui-progress xui-progress-circular"
+          role="progressbar"
+        >
+          <div
+            className="xui-progress--fragment"
+          >
+            <div>
+              <svg
+                className="xui-progress-circular-wrapper"
+                height={20}
+                viewBox="0 0 20 20"
+                width={20}
+              >
+                <defs>
+                  <mask
+                    height={20}
+                    id="fileuploader-icon-spin-3-progress-mask"
+                    maskUnits="userSpaceOnUse"
+                    width={20}
+                    x="0"
+                    y="0"
+                  >
+                    <circle
+                      className="
+							xui-progress-circular-mask
+							xui-progress-roundcap
+						"
+                      cx={10}
+                      cy={10}
+                      r={8.5}
+                      strokeDasharray="initial"
+                      strokeWidth={3}
+                    />
+                  </mask>
+                </defs>
+                <g
+                  mask="url(#fileuploader-icon-spin-3-progress-mask)"
+                >
+                  <circle
+                    className="xui-progress-circular-track"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeWidth={3}
+                  />
+                  <circle
+                    className="xui-progress-circular-current xui-progress-roundcap"
+                    cx={10}
+                    cy={10}
+                    r={8.5}
+                    strokeDasharray={53.40707511102649}
+                    strokeDashoffset={26.703537555513243}
+                    strokeWidth={3}
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </span>
+      <div
+        className="xui-fileuploader--fileitem--maincontent"
+      >
+        test4.zip
+        <span
+          className="xui-fileuploader--fileitem--description"
+        >
+          Uploading...
+        </span>
+      </div>
+      <div
+        className="xui-fileuploader--fileitem--rightcontent"
+      >
+        <button
+          className="xui-button xui-button-borderless-main xui-button-small"
+          disabled={false}
+          onClick={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          Cancel
         </button>
       </div>
     </li>

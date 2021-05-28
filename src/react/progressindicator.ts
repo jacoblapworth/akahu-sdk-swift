@@ -7,4 +7,4 @@ const progressTypes: {
   XUIProgressLinear: typeof XUIProgressLinear;
 } = { XUIProgressLinear, XUIProgressCircular };
 
-export { progressTypes as default, progressTypes, XUIProgressLinear, XUIProgressCircular };
+export { progressTypes as default, progressTypes, XUIProgressCircular, XUIProgressLinear };

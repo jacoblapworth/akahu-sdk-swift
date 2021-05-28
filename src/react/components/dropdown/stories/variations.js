@@ -144,7 +144,7 @@ Object.keys(privateConsts.fixedWidthDropdownSizes).forEach(size => {
     storyKind: storiesWithVariationsKindName,
     storyTitle: `as Fixed-Width ${size}`,
     ddSettings: {
-      fixedWidth: true,
+      hasFixedWidth: true,
       size,
     },
   });

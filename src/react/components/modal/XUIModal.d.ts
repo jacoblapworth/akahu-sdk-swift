@@ -26,7 +26,7 @@ interface Props {
   /**
    * If the modal will use the default XUI style layout.
    */
-  defaultLayout?: boolean;
+  hasDefaultLayout?: boolean;
   /**
    * If the modal will be hidden when the user presses the Esc key.
    */

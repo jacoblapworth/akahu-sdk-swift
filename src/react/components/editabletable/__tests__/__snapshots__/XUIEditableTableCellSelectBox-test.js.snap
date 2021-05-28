@@ -14,10 +14,10 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
   <XUISelectBox
     buttonContent="EditableTable select box"
     closeAfterSelection={true}
-    containerClasses="xui-editabletablecellselectbox--control"
-    defaultLayout={false}
+    containerClassName="xui-editabletablecellselectbox--control"
     forceDesktop={false}
     fullWidth="always"
+    hasDefaultLayout={false}
     isLabelHidden={true}
     isOpen={false}
     isTextTruncated={false}
@@ -36,7 +36,7 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
       isSelected={false}
       key="a"
       showCheckboxes={false}
-      truncatedText={false}
+      truncateText={false}
       value="Apple"
     >
       Apple
@@ -50,7 +50,7 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
       isSelected={false}
       key="b"
       showCheckboxes={false}
-      truncatedText={false}
+      truncateText={false}
       value="Banana"
     >
       Banana
@@ -64,7 +64,7 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
       isSelected={false}
       key="c"
       showCheckboxes={false}
-      truncatedText={false}
+      truncateText={false}
       value="Cucumber"
     >
       Cucumber

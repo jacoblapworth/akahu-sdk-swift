@@ -50,14 +50,15 @@ export default class XUIPicklist extends Component {
 
   render() {
     const {
+      ariaLabel,
       children,
       className,
       closeOnSelect,
       id,
       onKeyDown,
-      onMouseDown,
-      secondaryProps,
-      defaultLayout,
+      onClick,
+      secondaryProps = {},
+      hasDefaultLayout,
       isHorizontal,
       qaHook,
       shouldTruncate,
@@ -65,35 +66,44 @@ export default class XUIPicklist extends Component {
     } = this.props;
 
     const listLevelProps = getPropsFromFirstChildOrList(children, this.props);
-    const newChildren = React.Children.map(children, child =>
-      child &&
-      (child.type === XUIPickitem ||
-        child.type === XUISelectBoxOption ||
-        child.type === XUINestedPicklistContainer)
-        ? React.cloneElement(child, {
-            size: listLevelProps.listSize,
-            isMultiselect: listLevelProps.listMultiselect,
-            _isHorizontal: isHorizontal,
-            // This is ok to be set at either the item level or the list level.
-            shouldTruncate:
-              child.props.shouldTruncate === undefined
-                ? shouldTruncate
-                : child.props.shouldTruncate,
-          })
-        : child,
-    );
+    const newChildren = React.Children.map(children, child => {
+      if (
+        child &&
+        (child.type === XUIPickitem ||
+          child.type === XUISelectBoxOption ||
+          child.type === XUINestedPicklistContainer)
+      ) {
+        // Nested picklists are an implementation of a tree control.
+        if (child.type === XUINestedPicklistContainer && !secondaryProps?.role) {
+          secondaryProps.role = 'tree';
+        }
+        return React.cloneElement(child, {
+          // Set the `option` role for pickitem when picklist has a `listbox` role
+          ariaRole:
+            child.type === XUIPickitem && secondaryProps?.role === 'listbox' ? 'option' : undefined,
+          size: listLevelProps.listSize,
+          isMultiselect: listLevelProps.listMultiselect,
+          _isHorizontal: isHorizontal,
+          // This is ok to be set at either the item level or the list level.
+          shouldTruncate:
+            child.props.shouldTruncate === undefined ? shouldTruncate : child.props.shouldTruncate,
+        });
+      }
+      return child;
+    });
 
     const listClasses = cn(
       `${picklistClassName}`,
-      defaultLayout && !isHorizontal && `${picklistClassName}-layout`,
+      hasDefaultLayout && !isHorizontal && `${picklistClassName}-layout`,
       `${picklistClassName}-${listLevelProps.listSize}`,
     );
 
     const ulProps = {
       ...secondaryProps,
+      'aria-label': ariaLabel,
       id,
       onKeyDown,
-      onMouseDown,
+      onClick,
       'data-automationid': qaHook,
     };
 
@@ -124,6 +134,11 @@ export default class XUIPicklist extends Component {
 }
 
 XUIPicklist.propTypes = {
+  /**
+   * Specify an ARIA label for the picklist.
+   * Recommended if the picklist is being used within a dropdown.
+   */
+  ariaLabel: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
   /**
@@ -133,7 +148,7 @@ XUIPicklist.propTypes = {
    */
   closeOnSelect: PropTypes.bool,
   /** Whether to add the default layout class */
-  defaultLayout: PropTypes.bool,
+  hasDefaultLayout: PropTypes.bool,
   /** Id to be applied to the root HTML element */
   id: PropTypes.string,
   /** Whether to render as horizontal pickitems */
@@ -143,10 +158,10 @@ XUIPicklist.propTypes = {
    * ⚠️ *Vertical picklists only*
    */
   isMultiselect: PropTypes.bool,
+  /** onClick handler function added to the root HTML element */
+  onClick: PropTypes.func,
   /** Keydown handler function added to the root HTML element */
   onKeyDown: PropTypes.func,
-  /** Mousedown handler function added to the root HTML element */
-  onMouseDown: PropTypes.func,
   qaHook: PropTypes.string,
   /** Additional props to pass to the root HTML element */
   secondaryProps: PropTypes.object,
@@ -164,8 +179,5 @@ XUIPicklist.propTypes = {
 };
 
 XUIPicklist.defaultProps = {
-  defaultLayout: true,
-  secondaryProps: {
-    role: 'group',
-  },
+  hasDefaultLayout: true,
 };

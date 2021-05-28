@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIControlGroup/> renders expected markup 1`] = `
+<XUIControlGroup
+  ariaRole="group"
+>
+  <ForwardRef
+    isGroup={true}
+    wrapperIds={
+      Object {
+        "control": "xui-testControlGroupId-control",
+        "label": "xui-testControlGroupId",
+        "message": "xui-testControlGroupId-message",
+      }
+    }
+  >
+    <div
+      className=""
+    >
+      <LabelElement
+        isGroup={true}
+        wrapperIds={
+          Object {
+            "control": "xui-testControlGroupId-control",
+            "label": "xui-testControlGroupId",
+            "message": "xui-testControlGroupId-message",
+          }
+        }
+      />
+      <div
+        className="xui-controlgroup xui-controlgroup-horizontal"
+        role="group"
+        style={
+          Object {
+            "gridTemplateColumns": "repeat(4, minmax(25%, 1fr))",
+          }
+        }
+      >
+        Test
+      </div>
+      <MessageElement
+        wrapperIds={
+          Object {
+            "control": "xui-testControlGroupId-control",
+            "label": "xui-testControlGroupId",
+            "message": "xui-testControlGroupId-message",
+          }
+        }
+      />
+    </div>
+  </ForwardRef>
+</XUIControlGroup>
+`;
+
+exports[`<XUIControlGroup/> renders expected markup for vertical variant with non-default props 1`] = `
+<XUIControlGroup
+  ariaRole="radioGroup"
+  hintMessage="Group hint"
+  isLabelHidden={true}
+  isLockedVertical={true}
+  label="Group label"
+>
+  <ForwardRef
+    hintMessage="Group hint"
+    isGroup={true}
+    isLabelHidden={true}
+    label="Group label"
+    wrapperIds={
+      Object {
+        "control": "xui-testControlGroupId-control",
+        "label": "xui-testControlGroupId",
+        "message": "xui-testControlGroupId-message",
+      }
+    }
+  >
+    <div
+      className=""
+    >
+      <LabelElement
+        isGroup={true}
+        isLabelHidden={true}
+        label="Group label"
+        wrapperIds={
+          Object {
+            "control": "xui-testControlGroupId-control",
+            "label": "xui-testControlGroupId",
+            "message": "xui-testControlGroupId-message",
+          }
+        }
+      />
+      <div
+        aria-describedby="xui-testControlGroupId-message"
+        aria-label="Group label"
+        className="xui-controlgroup xui-controlgroup-vertical"
+        role="radioGroup"
+        style={
+          Object {
+            "gridTemplateColumns": false,
+          }
+        }
+      >
+        Test
+      </div>
+      <MessageElement
+        hintMessage="Group hint"
+        wrapperIds={
+          Object {
+            "control": "xui-testControlGroupId-control",
+            "label": "xui-testControlGroupId",
+            "message": "xui-testControlGroupId-message",
+          }
+        }
+      >
+        <div
+          className="xui-validation xui-validation-layout"
+          id="xui-testControlGroupId-message"
+          role="status"
+        >
+          Group hint
+        </div>
+      </MessageElement>
+    </div>
+  </ForwardRef>
+</XUIControlGroup>
+`;

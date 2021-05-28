@@ -55,8 +55,6 @@ export const enrichStepperProps = (props, { layout }) => {
   // all of the tabs in the left and the content in the right hand column. Because
   // the amount of tabs is variable we need to build the grid template rows dynamically
   // by giving each tab an `auto` value and the column `1fr`.
-  // NOTE: We also test that the Array.fill method exists for browsers like IE11
-  // (which does not support CSS grid anyway).
   const gridTemplateRows =
     Boolean([].fill) && `${new Array(tabs.length).fill('auto').join(' ')} 1fr`;
 

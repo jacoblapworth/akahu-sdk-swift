@@ -14,7 +14,6 @@ import logReadyState from '../../../stories/helpers/log-ready-state';
 
 const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
 
-storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   const chartWidth = number('Chart width', 500);
   const chartHeight = number('Chart height', 400);
@@ -150,16 +149,16 @@ class EventReadyWrapper extends PureComponent {
   constructor() {
     super();
     this.node = null;
+    this.rootNode = React.createRef();
   }
 
   componentDidMount() {
     setTimeout(() => {
       const { rootNode } = this;
 
-      rootNode &&
-        rootNode
-          .querySelectorAll('.xui-chart--content')
-          .forEach(contentNode => (contentNode.scrollLeft = 0));
+      rootNode.current
+        ?.querySelectorAll('.xui-chart--content')
+        .forEach(contentNode => (contentNode.scrollLeft = 0));
       logReadyState('xui-bar-chart-ready-event');
     }, 100);
   }
@@ -167,7 +166,7 @@ class EventReadyWrapper extends PureComponent {
   render() {
     return (
       <div
-        ref={node => (this.rootNode = node)}
+        ref={this.rootNode}
         style={{
           display: 'flex',
           flexWrap: 'wrap',

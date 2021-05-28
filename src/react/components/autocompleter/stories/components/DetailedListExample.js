@@ -18,7 +18,6 @@ const filterPeople = (data, value, peopleToExclude) =>
   data.filter(node => {
     const val = (value && value.toLowerCase()) || '';
 
-    // You could use String.includes here, however you would need to add the polyfill for IE11 support.
     return (
       !peopleToExclude.find(person => person.id === node.id) &&
       (node.name.toLowerCase().indexOf(val) > -1 ||
@@ -202,14 +201,14 @@ class DetailedListExample extends Component {
       />
     );
 
-    const dropdownFixedWidth = dropdownSize == null;
+    const dropdownHasFixedWidth = dropdownSize == null;
 
     return (
       <XUIAutocompleter
         closeOnTab={noDrawerFooter}
         disableWrapPills={disableWrapPills}
         dropdownClassName="xui-loader-static"
-        dropdownFixedWidth={dropdownFixedWidth}
+        dropdownHasFixedWidth={dropdownHasFixedWidth}
         dropdownSize={dropdownSize}
         footer={noDrawerFooter ? null : footer}
         hintMessage={hintMessage}
@@ -219,8 +218,8 @@ class DetailedListExample extends Component {
         isDisabled={isDisabled}
         isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}
         isInvalid={isInvalid}
-        loading={isLoading}
-        loadingLabel="Loading"
+        isLoading={isLoading}
+        loadingAriaLabel="Loading"
         onBackspacePill={this.deleteLastPerson}
         onClose={() => this.onClose()}
         onSearch={example.onSearchChangeHandler}

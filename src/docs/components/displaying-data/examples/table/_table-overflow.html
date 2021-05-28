@@ -1,169 +1,139 @@
-<div class="xui-table xui-panel xui-table-hasheader xui-table-responsive xui-margin-bottom">
-  <div class="xui-table-wrapper">
-    <table class="xui-table-element">
-      <thead class="xui-table--head">
-        <tr class="xui-table--row xui-text-align-left">
+<div class="xui-readonlytable-hasborder xui-margin-bottom">
+  <div class="xui-readonlytablewrapper--scrollcontainer">
+    <table class="xui-readonlytable">
+      <thead class="xui-readonlytablehead">
+        <tr class="xui-readonlytablerow">
           <th
-            class="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
+            class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-action"
+            scope="col"
           >
-            &nbsp;
-            <label class="xui-table--checkbox-head xui-styledcheckboxradio" role="presentation">
-              <input
-                type="checkbox"
-                aria-label="Select all rows"
-                class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                value=""
-              />
+            <div
+              class="xui-readonlytable--checkbox-head xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+            >
+              <label class="xui-styledcheckboxradio">
+                <input
+                  type="checkbox"
+                  aria-label="Select all rows"
+                  class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                  value=""
+                />
+                <div
+                  class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                >
+                  <div class="xui-touchtarget"></div>
+                </div>
+              </label>
+            </div>
+          </th>
+          <th
+            class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell"
+          >
+            <div class="xui-readonlytable--sortbutton" role="button" tabindex="0">
               <div
-                class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                class="xui-readonlytable--sortbuttoncontent xui-readonlytable--sortbuttoncontent-active"
               >
-                <div class="xui-touchtarget"></div>
+                Country
+                <div class="xui-readonlytable--sorticonwrapper">
+                  <svg
+                    class="xui-icon xui-icon-rotate-180 xui-readonlytable--sorticon"
+                    focusable="false"
+                    height="11"
+                    viewBox="0 0 8 11"
+                    width="8"
+                  >
+                    <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path>
+                  </svg>
+                </div>
               </div>
-            </label>
-          </th>
-          <th
-            class="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--sortbutton"
-            role="button"
-            tabindex="0"
-            scope="col"
-          >
-            <div>
-              <span>Country</span
-              ><svg
-                focusable="false"
-                class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
-                width="8"
-                height="11"
-                viewBox="0 0 8 11"
-                role="presentation"
-              >
-                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"></path>
-              </svg>
             </div>
           </th>
           <th
-            class="xui-table--cell xui-heading-separator xui-table--sortbutton"
-            role="button"
-            tabindex="0"
-            scope="col"
+            class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell"
           >
-            <div>
-              <span>Capital City</span
-              ><svg
-                focusable="false"
-                class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
-                width="8"
-                height="11"
-                viewBox="0 0 8 11"
-                role="presentation"
-              >
-                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"></path>
-              </svg>
+            <div class="xui-readonlytable--sortbutton" role="button" tabindex="0">
+              <div class="xui-readonlytable--sortbuttoncontent">Capital city</div>
             </div>
           </th>
           <th
-            class="xui-table--cell xui-heading-separator xui-table--sortbutton"
-            role="button"
-            tabindex="0"
-            scope="col"
+            class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell"
           >
-            <div>
-              <span>Language</span
-              ><svg
-                focusable="false"
-                class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
-                width="8"
-                height="11"
-                viewBox="0 0 8 11"
-                role="presentation"
-              >
-                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"></path>
-              </svg>
+            <div class="xui-readonlytable--sortbutton" role="button" tabindex="0">
+              <div class="xui-readonlytable--sortbuttoncontent">Language</div>
             </div>
           </th>
           <th
-            class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast xui-table--sortbutton"
-            role="button"
-            tabindex="0"
-            scope="col"
+            class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell-rightaligned xui-readonlytablecell"
           >
-            <div>
-              <span>Population</span
-              ><svg
-                focusable="false"
-                class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
-                width="8"
-                height="11"
-                viewBox="0 0 8 11"
-                role="presentation"
-              >
-                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"></path>
-              </svg>
+            <div class="xui-readonlytable--sortbutton" role="button" tabindex="0">
+              <div class="xui-readonlytable--sortbuttoncontent">Population</div>
             </div>
           </th>
           <th
-            class="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-last"
-          >
-            &nbsp;
-          </th>
+            class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytableheadingcell--placeholder"
+            scope="col"
+          ></th>
         </tr>
       </thead>
-      <tbody class="xui-table--body">
-        <tr class="xui-table--row">
+      <tbody class="xui-readonlytablebody">
+        <tr class="xui-readonlytablerow">
           <td
-            class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-action"
           >
-            &nbsp;
-            <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
-              <input
-                type="checkbox"
-                aria-label="Select row"
-                class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                value=""
-              />
-              <div
-                class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-              >
-                <div class="xui-touchtarget"></div>
-              </div>
-            </label>
+            <div
+              class="xui-readonlytable--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+            >
+              <label class="xui-styledcheckboxradio">
+                <input
+                  type="checkbox"
+                  aria-label="Select row"
+                  class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                  value=""
+                />
+                <div
+                  class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                >
+                  <div class="xui-touchtarget"></div>
+                </div>
+              </label>
+            </div>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            <span class="xui-text-emphasis">China</span>
+            <span>China</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            Beijing
+            <span>Beijing</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            Mandarin
+            <span>Mandarin</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-rightaligned"
           >
-            1.35 billion
+            <span>1.35 billion</span>
           </td>
           <td
-            class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-action"
           >
-            &nbsp;
             <div
               role="presentation"
-              class="xui-table--overflowmenu-body"
+              class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
               data-ref="toggled-wrapper"
             >
               <button
+                title="More row options"
                 aria-haspopup="listbox"
-                class="xui-button xui-button-icon xui-button-icon-medium"
+                aria-label="More row options"
+                class="xui-button xui-button-icon-medium xui-button-icon"
+                tabindex="0"
                 type="button"
               >
-                <svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13">
-                  <title>More row options</title>
+                <svg class="xui-icon" focusable="false" height="13" viewBox="0 0 3 13" width="3">
                   <path
                     d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                     role="presentation"
@@ -174,61 +144,65 @@
             </div>
           </td>
         </tr>
-        <tr class="xui-table--row">
+        <tr class="xui-readonlytablerow">
           <td
-            class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-action"
           >
-            &nbsp;
-            <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
-              <input
-                type="checkbox"
-                aria-label="Select row"
-                class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                value=""
-              />
-              <div
-                class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-              >
-                <div class="xui-touchtarget"></div>
-              </div>
-            </label>
+            <div
+              class="xui-readonlytable--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+            >
+              <label class="xui-styledcheckboxradio">
+                <input
+                  type="checkbox"
+                  aria-label="Select row"
+                  class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                  value=""
+                />
+                <div
+                  class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                >
+                  <div class="xui-touchtarget"></div>
+                </div>
+              </label>
+            </div>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            <span class="xui-text-emphasis">United States</span>
+            <span>United States</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            Washington, D.C.
+            <span>Washington, D.C.</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            English
+            <span>English</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-rightaligned"
           >
-            316.67 million
+            <span>316.67 million</span>
           </td>
           <td
-            class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-action"
           >
-            &nbsp;
             <div
               role="presentation"
-              class="xui-table--overflowmenu-body"
+              class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
               data-ref="toggled-wrapper"
             >
               <button
+                title="More row options"
                 aria-haspopup="listbox"
-                class="xui-button xui-button-icon xui-button-icon-medium"
+                aria-label="More row options"
+                class="xui-button xui-button-icon-medium xui-button-icon"
+                tabindex="0"
                 type="button"
               >
-                <svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13">
-                  <title>More row options</title>
+                <svg class="xui-icon" focusable="false" height="13" viewBox="0 0 3 13" width="3">
                   <path
                     d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                     role="presentation"
@@ -239,61 +213,65 @@
             </div>
           </td>
         </tr>
-        <tr class="xui-table--row">
+        <tr class="xui-readonlytablerow">
           <td
-            class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-action"
           >
-            &nbsp;
-            <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
-              <input
-                type="checkbox"
-                aria-label="Select row"
-                class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                value=""
-              />
-              <div
-                class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-              >
-                <div class="xui-touchtarget"></div>
-              </div>
-            </label>
+            <div
+              class="xui-readonlytable--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+            >
+              <label class="xui-styledcheckboxradio">
+                <input
+                  type="checkbox"
+                  aria-label="Select row"
+                  class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                  value=""
+                />
+                <div
+                  class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                >
+                  <div class="xui-touchtarget"></div>
+                </div>
+              </label>
+            </div>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            <span class="xui-text-emphasis">Russia</span>
+            <span>Russia</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            Moscow
+            <span>Moscow</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            Russian
+            <span>Russian</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-rightaligned"
           >
-            142.5 million
+            <span>142.5 million</span>
           </td>
           <td
-            class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-action"
           >
-            &nbsp;
             <div
               role="presentation"
-              class="xui-table--overflowmenu-body"
+              class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
               data-ref="toggled-wrapper"
             >
               <button
+                title="More row options"
                 aria-haspopup="listbox"
-                class="xui-button xui-button-icon xui-button-icon-medium"
+                aria-label="More row options"
+                class="xui-button xui-button-icon-medium xui-button-icon"
+                tabindex="0"
                 type="button"
               >
-                <svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13">
-                  <title>More row options</title>
+                <svg class="xui-icon" focusable="false" height="13" viewBox="0 0 3 13" width="3">
                   <path
                     d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                     role="presentation"
@@ -308,174 +286,144 @@
     </table>
   </div>
 </div>
-<div
-  class="xui-table xui-panel xui-table-hasheader xui-table-responsive xui-table-pinleft xui-table-pinright xui-table-overflowleft xui-table-overflowright"
->
-  <div class="xui-table-wrapper">
-    <table class="xui-table-element">
-      <thead class="xui-table--head">
-        <tr class="xui-table--row xui-text-align-left">
+<div class="xui-readonlytable-hasborder">
+  <div
+    class="xui-readonlytablewrapper--scrollcontainer xui-readonlytableoverflow-pinoverflowleft xui-readonlytableoverflow-pinoverflowright"
+  >
+    <table class="xui-readonlytable xui-readonlytable-pinfirst xui-readonlytable-pinlast">
+      <thead class="xui-readonlytablehead">
+        <tr class="xui-readonlytablerow">
           <th
-            class="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-first"
+            class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-action"
+            scope="col"
           >
-            &nbsp;
-            <label class="xui-table--checkbox-head xui-styledcheckboxradio" role="presentation">
-              <input
-                type="checkbox"
-                aria-label="Select all rows"
-                class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                value=""
-              />
+            <div
+              class="xui-readonlytable--checkbox-head xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+            >
+              <label class="xui-styledcheckboxradio">
+                <input
+                  type="checkbox"
+                  aria-label="Select all rows"
+                  class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                  value=""
+                />
+                <div
+                  class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                >
+                  <div class="xui-touchtarget"></div>
+                </div>
+              </label>
+            </div>
+          </th>
+          <th
+            class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell"
+          >
+            <div class="xui-readonlytable--sortbutton" role="button" tabindex="0">
               <div
-                class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                class="xui-readonlytable--sortbuttoncontent xui-readonlytable--sortbuttoncontent-active"
               >
-                <div class="xui-touchtarget"></div>
+                Country
+                <div class="xui-readonlytable--sorticonwrapper">
+                  <svg
+                    class="xui-icon xui-icon-rotate-180 xui-readonlytable--sorticon"
+                    focusable="false"
+                    height="11"
+                    viewBox="0 0 8 11"
+                    width="8"
+                  >
+                    <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z" role="presentation"></path>
+                  </svg>
+                </div>
               </div>
-            </label>
-          </th>
-          <th
-            class="xui-table--cell xui-heading-separator xui-table--cell-second xui-table--sortbutton"
-            role="button"
-            tabindex="0"
-            scope="col"
-          >
-            <div>
-              <span>Country</span
-              ><svg
-                focusable="false"
-                class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
-                width="8"
-                height="11"
-                viewBox="0 0 8 11"
-                role="presentation"
-              >
-                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"></path>
-              </svg>
             </div>
           </th>
           <th
-            class="xui-table--cell xui-heading-separator xui-table--sortbutton"
-            role="button"
-            tabindex="0"
-            scope="col"
+            class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell"
           >
-            <div>
-              <span>Capital City</span
-              ><svg
-                focusable="false"
-                class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
-                width="8"
-                height="11"
-                viewBox="0 0 8 11"
-                role="presentation"
-              >
-                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"></path>
-              </svg>
+            <div class="xui-readonlytable--sortbutton" role="button" tabindex="0">
+              <div class="xui-readonlytable--sortbuttoncontent">Capital city</div>
             </div>
           </th>
           <th
-            class="xui-table--cell xui-heading-separator xui-table--sortbutton"
-            role="button"
-            tabindex="0"
-            scope="col"
+            class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell"
           >
-            <div>
-              <span>Language</span
-              ><svg
-                focusable="false"
-                class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
-                width="8"
-                height="11"
-                viewBox="0 0 8 11"
-                role="presentation"
-              >
-                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"></path>
-              </svg>
+            <div class="xui-readonlytable--sortbutton" role="button" tabindex="0">
+              <div class="xui-readonlytable--sortbuttoncontent">Language</div>
             </div>
           </th>
           <th
-            class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast xui-table--sortbutton"
-            role="button"
-            tabindex="0"
-            scope="col"
+            class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell-rightaligned xui-readonlytablecell"
           >
-            <div>
-              <span>Population</span
-              ><svg
-                focusable="false"
-                class="xui-icon xui-icon-rotate-180 xui-table--sortbutton-icon"
-                width="8"
-                height="11"
-                viewBox="0 0 8 11"
-                role="presentation"
-              >
-                <path d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"></path>
-              </svg>
+            <div class="xui-readonlytable--sortbutton" role="button" tabindex="0">
+              <div class="xui-readonlytable--sortbuttoncontent">Population</div>
             </div>
           </th>
           <th
-            class="xui-table--cell-action xui-table--cell xui-heading-separator xui-table--cell-last"
-          >
-            &nbsp;
-          </th>
+            class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytableheadingcell--placeholder"
+            scope="col"
+          ></th>
         </tr>
       </thead>
-      <tbody class="xui-table--body">
-        <tr class="xui-table--row">
+      <tbody class="xui-readonlytablebody">
+        <tr class="xui-readonlytablerow">
           <td
-            class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-action"
           >
-            &nbsp;
-            <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
-              <input
-                type="checkbox"
-                aria-label="Select row"
-                class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                value=""
-              />
-              <div
-                class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-              >
-                <div class="xui-touchtarget"></div>
-              </div>
-            </label>
+            <div
+              class="xui-readonlytable--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+            >
+              <label class="xui-styledcheckboxradio">
+                <input
+                  type="checkbox"
+                  aria-label="Select row"
+                  class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                  value=""
+                />
+                <div
+                  class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                >
+                  <div class="xui-touchtarget"></div>
+                </div>
+              </label>
+            </div>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            <span class="xui-text-emphasis">China</span>
+            <span>China</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            Beijing
+            <span>Beijing</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            Mandarin
+            <span>Mandarin</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-rightaligned"
           >
-            1.35 billion
+            <span>1.35 billion</span>
           </td>
           <td
-            class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-action"
           >
-            &nbsp;
             <div
               role="presentation"
-              class="xui-table--overflowmenu-body"
+              class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
               data-ref="toggled-wrapper"
             >
               <button
+                title="More row options"
                 aria-haspopup="listbox"
-                class="xui-button xui-button-icon xui-button-icon-medium"
+                aria-label="More row options"
+                class="xui-button xui-button-icon-medium xui-button-icon"
+                tabindex="0"
                 type="button"
               >
-                <svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13">
-                  <title>More row options</title>
+                <svg class="xui-icon" focusable="false" height="13" viewBox="0 0 3 13" width="3">
                   <path
                     d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                     role="presentation"
@@ -486,61 +434,65 @@
             </div>
           </td>
         </tr>
-        <tr class="xui-table--row">
+        <tr class="xui-readonlytablerow">
           <td
-            class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-action"
           >
-            &nbsp;
-            <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
-              <input
-                type="checkbox"
-                aria-label="Select row"
-                class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                value=""
-              />
-              <div
-                class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-              >
-                <div class="xui-touchtarget"></div>
-              </div>
-            </label>
+            <div
+              class="xui-readonlytable--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+            >
+              <label class="xui-styledcheckboxradio">
+                <input
+                  type="checkbox"
+                  aria-label="Select row"
+                  class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                  value=""
+                />
+                <div
+                  class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                >
+                  <div class="xui-touchtarget"></div>
+                </div>
+              </label>
+            </div>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            <span class="xui-text-emphasis">United States</span>
+            <span>United States</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            Washington, D.C.
+            <span>Washington, D.C.</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            English
+            <span>English</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-rightaligned"
           >
-            316.67 million
+            <span>316.67 million</span>
           </td>
           <td
-            class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-action"
           >
-            &nbsp;
             <div
               role="presentation"
-              class="xui-table--overflowmenu-body"
+              class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
               data-ref="toggled-wrapper"
             >
               <button
+                title="More row options"
                 aria-haspopup="listbox"
-                class="xui-button xui-button-icon xui-button-icon-medium"
+                aria-label="More row options"
+                class="xui-button xui-button-icon-medium xui-button-icon"
+                tabindex="0"
                 type="button"
               >
-                <svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13">
-                  <title>More row options</title>
+                <svg class="xui-icon" focusable="false" height="13" viewBox="0 0 3 13" width="3">
                   <path
                     d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                     role="presentation"
@@ -551,61 +503,65 @@
             </div>
           </td>
         </tr>
-        <tr class="xui-table--row">
+        <tr class="xui-readonlytablerow">
           <td
-            class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-first xui-table--cell-divider"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-action"
           >
-            &nbsp;
-            <label class="xui-table--checkbox-body xui-styledcheckboxradio" role="presentation">
-              <input
-                type="checkbox"
-                aria-label="Select row"
-                class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
-                value=""
-              />
-              <div
-                class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
-              >
-                <div class="xui-touchtarget"></div>
-              </div>
-            </label>
+            <div
+              class="xui-readonlytable--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+            >
+              <label class="xui-styledcheckboxradio">
+                <input
+                  type="checkbox"
+                  aria-label="Select row"
+                  class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                  value=""
+                />
+                <div
+                  class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                >
+                  <div class="xui-touchtarget"></div>
+                </div>
+              </label>
+            </div>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            <span class="xui-text-emphasis">Russia</span>
+            <span>Russia</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            Moscow
+            <span>Moscow</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline"
           >
-            Russian
+            <span>Russian</span>
           </td>
           <td
-            class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-rightaligned"
           >
-            142.5 million
+            <span>142.5 million</span>
           </td>
           <td
-            class="xui-table--cell-action xui-table--cell xui-table--cell-layout xui-table--cell-last xui-table--cell-divider"
+            class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline xui-readonlytablecell-action"
           >
-            &nbsp;
             <div
               role="presentation"
-              class="xui-table--overflowmenu-body"
+              class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
               data-ref="toggled-wrapper"
             >
               <button
+                title="More row options"
                 aria-haspopup="listbox"
-                class="xui-button xui-button-icon xui-button-icon-medium"
+                aria-label="More row options"
+                class="xui-button xui-button-icon-medium xui-button-icon"
+                tabindex="0"
                 type="button"
               >
-                <svg focusable="false" class="xui-icon" width="3" height="13" viewBox="0 0 3 13">
-                  <title>More row options</title>
+                <svg class="xui-icon" focusable="false" height="13" viewBox="0 0 3 13" width="3">
                   <path
                     d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
                     role="presentation"

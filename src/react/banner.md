@@ -19,7 +19,7 @@ const onBannerClose = () => {
   <XUIBanner>
     <XUIBannerMessage qaHook="banner-example--message">System Message</XUIBannerMessage>
   </XUIBanner>
-  <XUIBanner sentiment="negative" onCloseClick={onBannerClose}>
+  <XUIBanner closeButtonLabel="Close" sentiment="negative" onCloseClick={onBannerClose}>
     <XUIBannerMessage>Negative sentiment with close button</XUIBannerMessage>
   </XUIBanner>
 </div>;

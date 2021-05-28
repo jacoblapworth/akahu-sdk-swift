@@ -230,7 +230,7 @@ export default class XUIDropdown extends PureComponent {
       ignoreKeyboardEvents,
       style,
       header,
-      fixedWidth,
+      hasFixedWidth,
       onCloseAnimationEnd,
       onOpenAnimationEnd,
       onScroll,
@@ -251,9 +251,9 @@ export default class XUIDropdown extends PureComponent {
         animateOpen={animateOpen}
         ariaRole={ariaRole}
         className={dropdownClasses}
-        fixedWidth={fixedWidth}
         forceDesktop={forceDesktop}
-        id={this.props.id} // This will be generated, if necessary, at a higher level
+        hasFixedWidth={hasFixedWidth} // This will be generated, if necessary, at a higher level
+        id={this.props.id}
         isHidden={isHidden}
         onCloseAnimationEnd={onCloseAnimationEnd}
         onOpenAnimationEnd={onOpenAnimationEnd}
@@ -303,9 +303,6 @@ XUIDropdown.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 
-  /** Whether the fixed width class variant should be used for the size prop */
-  fixedWidth: PropTypes.bool,
-
   /** Items to be added to the menu's footer. */
   footer: PropTypes.element,
 
@@ -314,6 +311,9 @@ XUIDropdown.propTypes = {
 
   /** Force wrapping `XUIDropdownPanel` children in a `XUIStatefulPicklist` */
   forceStatefulPicklist: PropTypes.bool,
+
+  /** Whether the fixed width class variant should be used for the size prop */
+  hasFixedWidth: PropTypes.bool,
 
   /** Whether or not the dropdown should take focus and handle keyboard events automatically */
   hasKeyboardEvents: PropTypes.bool,
@@ -365,9 +365,9 @@ XUIDropdown.propTypes = {
 };
 
 XUIDropdown.defaultProps = {
-  fixedWidth: false,
   forceDesktop: false,
   forceStatefulPicklist: false,
+  hasFixedWidth: false,
   hasKeyboardEvents: true,
   ignoreKeyboardEvents: [],
   isHidden: false,

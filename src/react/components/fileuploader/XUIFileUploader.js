@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import XUIButton from '../button/XUIButton';
 import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
@@ -11,6 +11,7 @@ import FileList from './private/FileList';
 import { ns } from '../helpers/xuiClassNamespace';
 import { baseClass } from './private/helpers';
 import checkRequiredProps from '../../helpers/checkRequiredProps';
+import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 const XUIFileUploader = ({
   acceptedFileExtensions,
@@ -21,6 +22,7 @@ const XUIFileUploader = ({
   defaultErrorMessage,
   deleteLabel,
   dropZoneMessage,
+  errorIconAriaLabel,
   fieldClassName,
   fileList,
   fileListClassName,
@@ -42,6 +44,7 @@ const XUIFileUploader = ({
   retryButtonText,
   showFilesAsMultiline = true,
   showIcon = true,
+  uploadingIconAriaLabel,
   uploadingMessage,
   validationMessage,
 }) => {
@@ -55,7 +58,7 @@ const XUIFileUploader = ({
 
   const handleOnChange = (files, event) => {
     const enhancedFileList = [...files].map(file => ({
-      uid: uuidv4(), // A unique identifier used as the key of file items
+      uid: nanoid(10), // A unique identifier used as the key of file items
       status: '', // user could change it to: uploading / error / done
       originalFile: file, // original File object
     }));
@@ -110,6 +113,28 @@ const XUIFileUploader = ({
     ...getAriaAttributes(wrapperIds, wrapperProps),
   };
 
+  useEffect(() => {
+    labelRequiredWarning(
+      XUIFileUploader.name,
+      ['includes a label with text', 'labelId provided'],
+      [label?.innerText && !isLabelHidden, typeof label?.[0] === 'string', labelId],
+    );
+  }, [isLabelHidden, label, labelId]);
+  useEffect(() => {
+    labelRequiredWarning(
+      XUIFileUploader.name,
+      ['`uploadingIconAriaLabel` provided'],
+      [uploadingIconAriaLabel],
+    );
+  }, [uploadingIconAriaLabel]);
+  useEffect(() => {
+    labelRequiredWarning(
+      XUIFileUploader.name,
+      ['`errorIconAriaLabel` provided'],
+      [errorIconAriaLabel],
+    );
+  }, [errorIconAriaLabel]);
+
   return (
     <div
       className={cn(className, baseClass, isFieldLayout && `${ns}-field-layout`)}
@@ -133,6 +158,7 @@ const XUIFileUploader = ({
         cancelButtonText={cancelButtonText}
         defaultErrorMessage={defaultErrorMessage}
         deleteLabel={deleteLabel}
+        errorIconAriaLabel={errorIconAriaLabel}
         fileList={fileList}
         fileListClassName={fileListClassName}
         fileSizeUnits={fileSizeUnits}
@@ -143,6 +169,7 @@ const XUIFileUploader = ({
         retryButtonText={retryButtonText}
         showFilesAsMultiline={showFilesAsMultiline}
         showIcon={showIcon}
+        uploadingIconAriaLabel={uploadingIconAriaLabel}
         uploadingMessage={uploadingMessage}
       />
     </div>
@@ -195,6 +222,10 @@ XUIFileUploader.propTypes = {
    */
   dropZoneMessage: PropTypes.string.isRequired,
   /**
+   * Aria label for the error progress icon
+   */
+  errorIconAriaLabel: PropTypes.string,
+  /**
    * Class names to be added to the div wrapping the select button/drop zone
    */
   fieldClassName: PropTypes.string,
@@ -207,6 +238,7 @@ XUIFileUploader.propTypes = {
    *   originalFile: File, // Original File object
    *   errorMessage: String, // Optional, custom error message, will overwrite prop `defaultErrorMessage`
    *   rightContent: ReactNode, // Optional, custom rightContent for files with `done` status, shows in the left of delete icon
+   *   uploadProgressPercentage: Number, // Optional, percentage of upload completed. When present, the progress icon will illustrate completion amount. Must be an integer between 0 and 100 inclusive.
    * }
    */
   fileList: PropTypes.array.isRequired,
@@ -297,6 +329,10 @@ XUIFileUploader.propTypes = {
    * Show icon in the file list item
    */
   showIcon: PropTypes.bool,
+  /**
+   * Aria label for the uploading progress icon
+   */
+  uploadingIconAriaLabel: PropTypes.string,
   /**
    * Message to display while the file is uploading. Required if the `showFilesAsMultiline` prop is set to `true`
    * <br />

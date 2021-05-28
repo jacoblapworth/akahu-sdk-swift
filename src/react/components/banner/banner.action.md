@@ -22,7 +22,7 @@ const onBannerClose = () => {
       </XUIBannerAction>
     </XUIBannerActions>
   </XUIBanner>
-  <XUIBanner onCloseClick={onBannerClose}>
+  <XUIBanner closeButtonLabel="Close" onCloseClick={onBannerClose}>
     <XUIBannerMessage>Closable</XUIBannerMessage>
     <XUIBannerActions>
       <XUIBannerAction href="#">Action</XUIBannerAction>
@@ -54,7 +54,7 @@ const onBannerClose = () => {
       <XUIBannerAction href="#">Action Two</XUIBannerAction>
     </XUIBannerActions>
   </XUIBanner>
-  <XUIBanner onCloseClick={onBannerClose}>
+  <XUIBanner closeButtonLabel="Close" onCloseClick={onBannerClose}>
     <XUIBannerMessage>
       Avoid long descriptions. However, it's helpful to know that text does wrap by default.
     </XUIBannerMessage>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIStatefulPicklist, { findNextItem, findPreviousItem } from '../XUIStatefulPicklist';
 import XUIPickitem from '../XUIPickitem';
@@ -13,7 +13,7 @@ expect.extend(toHaveNoViolations);
 let wrapper;
 
 describe('<XUIStatefulPicklist /> Accessibility Testing', () => {
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     wrapper = mount(
       <XUIStatefulPicklist>
         <XUIPicklist>

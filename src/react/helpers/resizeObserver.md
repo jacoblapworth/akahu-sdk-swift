@@ -85,7 +85,7 @@ const ComponentSwapper = () => {
 1. Import or require `observe` and `unobserve` from `resizeObserver.ts` in XUI.
 2. Create a `ref` to the DOM node you wish to track, using React's `createRef` method. This should be stored in a component-level property named `_area`.
 3. In `componentDidMount`, `observe` the component, after ensuring the node ref is present. Likewise, in `componentWillUnmount`, `unobserve` it.
-4. Provide an `_onResize` method to your component, which upon resize will receive the `width` of the element, in pixels. We highly recommend debouncing or throttling this function.
+4. Provide an `_onResize` method to your component, which upon resize will receive the `contentRect` of the element. We highly recommend debouncing or throttling this function.
 
 #### Component swapping on resize
 
@@ -140,11 +140,11 @@ class ComponentSwapper extends Component {
     this._area.current && unobserve(this);
   }
 
-  _onResize(width) {
+  _onResize(contentRect) {
     let content;
-    if (width < 600) {
+    if (contentRect.width < 600) {
       content = overflowButton;
-    } else if (width < 800) {
+    } else if (contentRect.width < 800) {
       content = splitButton;
     } else {
       content = buttonGroup;

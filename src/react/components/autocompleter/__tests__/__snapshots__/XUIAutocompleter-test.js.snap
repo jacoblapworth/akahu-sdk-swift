@@ -2,12 +2,13 @@
 
 exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown and container 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid="baseAC--container"
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid="baseAC--dropdown"
     data-ref="toggled-wrapper"
@@ -39,7 +40,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
             aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid="baseAC--input"
-            id="testAutocompleterId"
+            id="xui-testAutocompleterId"
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -60,12 +61,13 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
 
 exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -97,7 +99,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
             aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            id="testAutocompleterId"
+            id="xui-testAutocompleterId"
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -118,12 +120,13 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
 
 exports[`XUIAutocompleter renders with a hidden label 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -156,7 +159,7 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
             aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            id="testAutocompleterId"
+            id="xui-testAutocompleterId"
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -177,12 +180,13 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
 
 exports[`XUIAutocompleter renders with the provided label 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -208,7 +212,7 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
         <label
           className="xui-text-label xui-fieldlabel-layout"
           data-automationid={null}
-          htmlFor="testAutocompleterId"
+          htmlFor="xui-testAutocompleterId"
         >
           Im a little label
         </label>
@@ -221,7 +225,7 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
             aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            id="testAutocompleterId"
+            id="xui-testAutocompleterId"
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -242,12 +246,13 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
 
 exports[`XUIAutocompleter should not add padding classes to the input when pills prop is an empty array 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -279,7 +284,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
             aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            id="testAutocompleterId"
+            id="xui-testAutocompleterId"
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -300,12 +305,13 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
 
 exports[`XUIAutocompleter should render a class on the input element when passed in the inputClassName prop 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -337,7 +343,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
             aria-multiline={false}
             className="test-class xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            id="testAutocompleterId"
+            id="xui-testAutocompleterId"
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -358,12 +364,13 @@ exports[`XUIAutocompleter should render a class on the input element when passed
 
 exports[`XUIAutocompleter should render a class on the root node when passed in the className prop 1`] = `
 <div
-  className="test-class"
+  className="test-class xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -395,7 +402,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
             aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            id="testAutocompleterId"
+            id="xui-testAutocompleterId"
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -416,12 +423,13 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
 
 exports[`XUIAutocompleter should render a class on the trigger element when passed in the triggerClassName prop 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -454,7 +462,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
             aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            id="testAutocompleterId"
+            id="xui-testAutocompleterId"
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -475,12 +483,13 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
 
 exports[`XUIAutocompleter should render a placeholder inside the input when passed in 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -515,7 +524,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
             aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            id="testAutocompleterId"
+            id="xui-testAutocompleterId"
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             placeholder="Search"
@@ -537,12 +546,13 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
 
 exports[`XUIAutocompleter should render an id on the input when a value is passed to the inputId prop 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -595,13 +605,14 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
 
 exports[`XUIAutocompleter should render an id on the root node when passed in the id prop 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   id="test-id"
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -633,7 +644,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
             aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            id="testAutocompleterId"
+            id="xui-testAutocompleterId"
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -654,12 +665,13 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
 
 exports[`XUIAutocompleter should render as disabled when isDisabled prop is true 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -692,7 +704,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             disabled={true}
-            id="testAutocompleterId"
+            id="xui-testAutocompleterId"
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -713,12 +725,13 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
 
 exports[`XUIAutocompleter should respect a max length of the input value when the maxLength has a value 1`] = `
 <div
-  className=""
+  className="xui-autocompleter"
   data-automationid={null}
   onBlur={[Function]}
   onFocus={[Function]}
 >
   <div
+    aria-expanded={false}
     className="xui-dropdown--toggledwrapper"
     data-automationid={null}
     data-ref="toggled-wrapper"
@@ -750,7 +763,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
             aria-multiline={false}
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
-            id="testAutocompleterId"
+            id="xui-testAutocompleterId"
             maxLength={5}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}

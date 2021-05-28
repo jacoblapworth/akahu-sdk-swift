@@ -1,17 +1,17 @@
 import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
+import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import { v4 as uuidv4 } from 'uuid';
 
 import XUIAutocompleter from '../../autocompleter/XUIAutocompleter';
 import XUIEditableTableCell from '../XUIEditableTableCell';
 import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellAutocompleter from '../XUIEditableTableCellAutocompleter';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testGeneratedId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
@@ -23,11 +23,11 @@ describe('<XUIEditableTableCellAutocompleter />', () => {
   });
 
   // prettier-ignore
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     const wrapper = mount(
       <table>
         <tbody>
-          <tr><XUIEditableTableCellAutocompleter onSearch={() => {}} /></tr>
+          <tr><XUIEditableTableCellAutocompleter inputLabel="Autocompleter cell" onSearch={() => {}} /></tr>
         </tbody>
       </table>,
     );

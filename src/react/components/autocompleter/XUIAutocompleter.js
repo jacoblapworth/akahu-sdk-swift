@@ -7,7 +7,7 @@ import XUIPicklist from '../picklist/XUIPicklist';
 import XUILoader from '../loader/XUILoader';
 import XUIDropdown from '../dropdown/XUIDropdown';
 import XUIDropdownToggled from '../dropdown/XUIDropdownToggled';
-import XUITextInput from '../textInput/XUITextInput';
+import XUITextInput from '../textinput/XUITextInput';
 import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 import { eventKeyValues, isKeyClick } from '../helpers/reactKeyHandler';

@@ -10,8 +10,8 @@ import { sizes, widths } from './private/constants';
 import XUIPicklist from '../picklist/XUIPicklist';
 import qaHooks from './qaHooks';
 import { ns } from '../helpers/xuiClassNamespace';
-import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
-import generateIds from '../controlwrapper/helpers';
+import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
+import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 

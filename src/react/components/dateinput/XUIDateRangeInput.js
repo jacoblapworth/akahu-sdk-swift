@@ -8,7 +8,7 @@ import { XUISecondaryButton } from '../../button';
 import XUIPicklist, { XUIPickitem } from '../../picklist';
 import XUIDateInputItem from './private/XUIDateInputItem';
 import XUIControlGroup from '../controlgroup/XUIControlGroup';
-import { baseSizeClasses } from '../textInput/private/constants';
+import { baseSizeClasses } from '../textinput/private/constants';
 
 const baseClass = `${ns}-daterangeinput`;
 

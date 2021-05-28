@@ -1,67 +1,103 @@
-// Validation
+// Validation messages
 //
-// Introduction:
-// Dealing with errors can be one of the worst experiences using software. It’s super important we handle the situation well.
-// Do everything in your power to avoid required fields, be flexible about input requirements, and be clear about what users need to do.
+// Validation messages let users know how to format information if a field has been filled out incorrectly.
 //
-// Teaser: Prevent and deal with errors
+// Errors are very frustrating for a user, so when a validation message is needed, make sure it clearly suggests the user’s next step.
 //
-// Styleguide: Components.CollectingInput.Forms.7
+// flags: updated
+//
+// Styleguide: Components.CollectingInput.Forms.4.12
 
-// Feedback on fields
+// Validation messages for fields
 //
-// Add `xui-textinput-is-invalid`, or similar `-is-invalid` classname to controls to display their error state. For text input groups, if the problem is with a group, as a whole, add the class to all nested inputs. For Switches, adding `xui-switch-group-is-invalid` to the group wrapper will set the validity state for all children and messages. For Checkboxes and Radios, adding `xui-styledcheckboxradio-group-is-invalid` serves the same purpose.
+// Add `xui-textinput-is-invalid`, or similar `-is-invalid` classname to controls to display their error state.
+// * For text input groups, if the problem is with a group, as a whole, add the class to all nested inputs
+// * For switches, adding `xui-switch-group-is-invalid` to the group wrapper will set the validity state for all children and messages
+// * For checkboxes and radios, adding `xui-styledcheckboxradio-group-is-invalid` serves the same purpose
 //
-// Always include a colour change, descriptive message, and an icon on the problematic input, so it’s still meaningful to people who can’t discern colour.
-// * Position error text underneath the input
-// * If there is no space below the input as it is in a group, position it at the bottom of the group in text form
-// * If there is no space below the input, position it at the top of the input in a banner
-// * If there is no space below the input, include an icon that can inherit focus that displays a tooltip with the full error message
+// Always include a colour change, descriptive message, and an icon to show where the error is. This way it’s still meaningful to people who can’t recognise colour.
+//
+// **Position**
+// * Position inline validation messages underneath the input
+// * If there’s no space below the input because it’s in a group, place it at the bottom of the group
+// * If there’s no space below the input, place it at the top of the input in a banner
+//
 //
 // Tips:
+// Do: Show on blur
 // Do: Include the name of the field in the message
-// Do: Add an explanation or example of correct input formats if something invalid is entered
-// Do: Add the "status" aria role to inline validation messages
-// Warning: Attempt to be flexible with the formats accepted rather than giving unnecessary errors
-// Dont: Don't mark fields as invalid without an accompanying message
-// Dont: Don't use vague error messages that don't suggest how to fix the problem
+// Do: Add an explanation or example of what should be entered when formatting requirements aren't met
+// Do: Add the ‘status’ ARIA role to inline validation messages
+// Warning: Try to be flexible with the accepted formats rather than giving unnecessary errors
+// Dont: Don't mark fields as invalid without a validation error message
+// Dont: Don't use vague messages that don't suggest a next step
 //
 // exampleClass: ds-example-transparent ds-example-flush
 //
 // Markup: ./examples/form/_form-validation.html
 //
-// Styleguide: Components.CollectingInput.Forms.7.1
+// Styleguide: Components.CollectingInput.Forms.4.13
 
-// When to validate
+// Validation messages for modals
 //
-// Tips:
-// Do: Validate when the user's focus leaves a field in an invalid state
-// Do: Validate whether required fields are completed on submit
-// Warning: Carefully consider whether it's helpful to warn the user that a field is required before submitting (they may decide to complete harder fields later)
-// Dont: Don't validate fields on key press
-//
-// Styleguide: Components.CollectingInput.Forms.7.4
-
-// Feedback in modals
-//
-// Identifying errors on submission of complex, non-linear documents can sometimes be tricky. Use a small modal dialog to provide feedback _and_ capture the information.
+// Identifying errors when complex, non-linear documents are submitted can sometimes be tricky. Use a small modal dialog to provide feedback and allow users to enter the information.
 //
 // exampleClass: ds-example-flush ds-example-transparent
 //
 // Markup: ./examples/form/_form-validation-modals.html
 //
-// Styleguide: Components.CollectingInput.Forms.7.2
+// Styleguide: Components.CollectingInput.Forms.4.14
 
-// Other feedback options
+// Other validation options
 //
 // Tips:
-// Do: Add an error message or banner at the top of a form with an "alert" aria role if a user submits a form with validation errors
-// Dont: Avoid using banners with lists of errors that users must then hunt down
-// Warning: Only prevent submission if fields are few and requirements very clear
+// Do: Add an alert ARIA role if a user submits a form with validation error messages
+// Warning: Avoid listing out multiple errors in a banner that users must then search for
+// Warning: Only disable the submission button if there are a small number of fields and it’s clear to users what’s required of them
 //
-// Styleguide: Components.CollectingInput.Forms.7.3
+// Styleguide: Components.CollectingInput.Forms.4.15
 
-// Classes:
-// xui-validation: Used to style text below inputs (to clarify format or provide supporting info)
-// xui-validation-layout: Recommended layout for text below inputs
-// xui-validation-is-invalid: Modifier for text below inputs that are in an error state
+// When to validate
+//
+// Tips:
+// Do: Validate when the user's focus leaves a field in an invalid state (for example&#58; `onblur`)
+// Do: Validate whether required fields are completed on submission
+// Dont: Don't validate fields on key press
+//
+// Styleguide: Components.CollectingInput.Forms.4.16
+
+// Validation content
+//
+// Tips:
+// Do: Explain the action the user needs to take to resolve the issue
+// Do: Be specific – general errors are not helpful
+// Do: Be short and concise – no more than 1 sentence
+// Do: Use passive voice so users don’t feel like they’re being blamed for the error
+// Warning: Avoid technical jargon
+// Warning: Avoid saying 'sorry' or 'please', unless the problem is serious or very frustrating
+//
+// Styleguide: Components.CollectingInput.Forms.4.17
+
+// Examples of validation content
+//
+// |<svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-green" role="presentation" viewbox="0 0 12 12"><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z"></path></svg>&nbsp;Do| <svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-red" role="presentation" viewbox="0 0 12 12"><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"></path></svg>&nbsp;Don't|
+// |:---|:---|
+// Enter your account name| You didn’t enter an account name
+// Enter a valid email address| Email address is invalid
+// Enter a 10-digit password| Password is invalid
+//
+// Styleguide: Components.CollectingInput.Forms.4.18
+
+// Optional/required fields
+//
+// Visual indicators for optional and required fields are currently being explored. In the meantime, remember to:
+// * Only ask for information that’s required or relevant to improving the user’s experience
+// * Always consider why you’re requesting certain information from the user and how you will use it
+//
+// Styleguide: Components.CollectingInput.Forms.4.19
+
+// Buttons
+//
+// See guidance for writing [buttons](https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#heading=h.a6gnp1g9ondn)
+//
+// Styleguide: Components.CollectingInput.Forms.4.20

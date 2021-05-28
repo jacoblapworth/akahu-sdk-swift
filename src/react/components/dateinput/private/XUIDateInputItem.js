@@ -16,7 +16,7 @@ import {
 import XUIDatePicker from '../../../datepicker';
 import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUITextInput, { XUITextInputSideElement } from '../../../textinput';
-import { baseSizeClasses } from '../../textInput/private/constants';
+import { baseSizeClasses } from '../../textinput/private/constants';
 import XUIIcon from '../../icon/XUIIcon';
 import formatSelectedDateToString from './helpers/formatSelectedDateToString';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';

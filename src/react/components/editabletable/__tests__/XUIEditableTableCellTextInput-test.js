@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json';
 import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import XUITextInput from '../../textInput/XUITextInput';
+import XUITextInput from '../../textinput/XUITextInput';
 import XUIEditableTableCell from '../XUIEditableTableCell';
 import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellTextInput from '../XUIEditableTableCellTextInput';
@@ -37,6 +37,9 @@ describe('<XUIEditableTableCellTextInput />', () => {
   });
 
   describe('focusing', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
     it('selects the whole input when focused', () => {
       // Arrange
       const wrapper = mount(
@@ -55,7 +58,7 @@ describe('<XUIEditableTableCellTextInput />', () => {
       // Act
       wrapper.find('textarea').simulate('focus');
       wrapper.find('input').simulate('focus');
-
+      jest.runAllTimers();
       // Assert
       expect(textareaSpy).toBeCalledTimes(1);
       expect(inputSpy).toBeCalledTimes(1);
@@ -171,6 +174,7 @@ describe('<XUIEditableTableCellTextInput />', () => {
 
       // Act
       wrapper.find('input').simulate('focus');
+      jest.runAllTimers();
       const onFocusArguments = onFocusMock.mock.calls[0];
       const focusTarget = onFocusArguments[0].target;
       const selectedText = focusTarget.value.substring(

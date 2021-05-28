@@ -4,8 +4,8 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 
-import XUIControlWrapperInline, { getAriaAttributes } from '../XUIControlWrapperInline';
-import generateIds from '../helpers';
+import XUIControlWrapperInline from '../XUIControlWrapperInline';
+import generateIds, { getAriaAttributesInline } from '../../helpers/ariaHelpers';
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testGeneratedId');
@@ -15,7 +15,7 @@ Enzyme.configure({ adapter: new Adapter() });
 const setup = (props = {}, fn = renderer.create) => {
   const expected = fn(
     <XUIControlWrapperInline {...props}>
-      <input type="checkbox" {...getAriaAttributes(props.wrapperIds, props)} />
+      <input type="checkbox" {...getAriaAttributesInline(props.wrapperIds, props)} />
     </XUIControlWrapperInline>,
   );
 

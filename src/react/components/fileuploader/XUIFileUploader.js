@@ -4,8 +4,8 @@ import cn from 'classnames';
 import { nanoid } from 'nanoid';
 
 import XUIButton from '../button/XUIButton';
-import XUIControlWrapper, { getAriaAttributes } from '../controlwrapper/XUIControlWrapper';
-import generateIds from '../controlwrapper/helpers';
+import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
+import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 
 import FileList from './private/FileList';
 import { ns } from '../helpers/xuiClassNamespace';

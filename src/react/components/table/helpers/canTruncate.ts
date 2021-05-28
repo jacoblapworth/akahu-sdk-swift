@@ -19,7 +19,7 @@ const createTruncationArea = (
 
 const canTruncate = (
   { rootWidth }: { rootWidth?: number },
-  props: { children: React.ReactNode; hasCheckbox?: boolean; hasOverflowMenu?: boolean },
+  props: { children?: React.ReactNode; hasCheckbox?: boolean; hasOverflowMenu?: boolean },
 ) => {
   if (typeof rootWidth !== 'number') {
     return false;

@@ -51,7 +51,7 @@ interface BaseProps<RD extends RowData> {
   /**
    * The Column component(s) that will appear in the table layout.
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**
    * Attached to the outer most element of the table layout.
    */
@@ -249,9 +249,9 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
     const columns = React.Children.toArray(children) as Array<XUITableColumn<RD>>;
     const disabledRowIds = Object.keys(disabledIds).filter(key => disabledIds[key]);
 
-    const everyColumnHasHeader = columns.every(
-      element => React.isValidElement(element) && element.props.head,
-    );
+    const everyColumnHasHeader =
+      Boolean(columns.length) &&
+      columns.every(element => React.isValidElement(element) && element.props.head);
 
     const isTruncated = canTruncate(this.state, this.props) && shouldTruncate;
 
@@ -360,7 +360,7 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
     checkAllRowsAriaLabel: PropTypes.node,
     checkedIds: PropTypes.object,
     checkOneRowAriaLabel: PropTypes.node,
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     className: PropTypes.string,
     createOverflowMenu: PropTypes.func,
     customSort: PropTypes.func,

@@ -15,6 +15,14 @@ const XUIBarChart = props => {
       isLoading && props.loadingAriaLabel,
     ]);
   }, [isLoading, props.loadingAriaLabel]);
+  useEffect(() => {
+    labelRequiredWarning(
+      XUIBarChart.name,
+      ['paginationLabel when hasPagination'],
+      [!props.hasPagination || props.paginationLabel],
+    );
+  }, [props.hasPagination, props.paginationLabel]);
+
   switch (true) {
     case isLoading:
       return <ChartLoader {...props} />;

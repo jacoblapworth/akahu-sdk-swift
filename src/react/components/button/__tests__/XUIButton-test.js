@@ -1,12 +1,13 @@
 import React from 'react';
+import * as testingLibrary from '@testing-library/react';
 import Enzyme, { mount, render } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 
-import XUIButton from '../XUIButton';
 import external from '@xero/xui-icon/icons/external';
 import settings from '@xero/xui-icon/icons/settings';
+import XUIButton from '../XUIButton';
 
 const { renderIntoDocument } = require('react-dom/test-utils');
 
@@ -25,7 +26,7 @@ describe('<XUIButton/>', () => {
 
   it('should render as a link element when isLink flag is set', () => {
     const button = render(
-      <XUIButton href="https://google.com" isLink={true}>
+      <XUIButton href="https://google.com" isLink>
         foo
       </XUIButton>,
     );
@@ -36,7 +37,7 @@ describe('<XUIButton/>', () => {
 
   it('should set the `target` prop as the `target` attribute if rendering a link', () => {
     const button = render(
-      <XUIButton isLink={true} href="https://google.com" target="_blank" isExternalLink={true}>
+      <XUIButton href="https://google.com" isExternalLink isLink target="_blank">
         foo
       </XUIButton>,
     );
@@ -46,7 +47,7 @@ describe('<XUIButton/>', () => {
 
   it('should render as a link element with `rel="external noopener noreferrer"` if the `isExternalLink` prop is true', () => {
     const button = render(
-      <XUIButton isLink={true} href="https://google.com" isExternalLink={true}>
+      <XUIButton href="https://google.com" isExternalLink isLink>
         foo
       </XUIButton>,
     );
@@ -56,13 +57,7 @@ describe('<XUIButton/>', () => {
 
   it('should render as a link element with existing `rel` value intact when `isExternalLink` prop is true', () => {
     const button = render(
-      <XUIButton
-        isLink={true}
-        href="https://google.com"
-        target="_blank"
-        rel="help"
-        isExternalLink={true}
-      >
+      <XUIButton href="https://google.com" isExternalLink isLink rel="help" target="_blank">
         Help
       </XUIButton>,
     );
@@ -82,7 +77,7 @@ describe('<XUIButton/>', () => {
 
   it('should render a loader and in a disabled style if the `isLoading` prop is true', () => {
     const button = render(
-      <XUIButton onClick={noop} isLoading={true} loadingAriaLabel="Loading">
+      <XUIButton isLoading loadingAriaLabel="Loading" onClick={noop}>
         Hai
       </XUIButton>,
     );
@@ -95,7 +90,7 @@ describe('<XUIButton/>', () => {
   it('should not allow clicks if the `isLoading` prop is true', () => {
     const onClick = jest.fn();
     const button = mount(
-      <XUIButton isLoading={true} loadingAriaLabel="Loading" onClick={onClick}>
+      <XUIButton isLoading loadingAriaLabel="Loading" onClick={onClick}>
         test
       </XUIButton>,
     );
@@ -106,7 +101,7 @@ describe('<XUIButton/>', () => {
 
   it('should work even if the button is a link and no click handler has been defined', () => {
     const button = mount(
-      <XUIButton href="https://google.com" isLink={true}>
+      <XUIButton href="https://google.com" isLink>
         Action
       </XUIButton>,
     );
@@ -117,7 +112,7 @@ describe('<XUIButton/>', () => {
   it('links with an onclick handler should be able to handle click events with the handler', () => {
     const onClick = jest.fn();
     const button = mount(
-      <XUIButton isLink={true} onClick={onClick}>
+      <XUIButton isLink onClick={onClick}>
         test
       </XUIButton>,
     );
@@ -127,28 +122,38 @@ describe('<XUIButton/>', () => {
   });
 
   it('has a role attribute for links which function like buttons', () => {
-    const button = render(<XUIButton isLink href="https://www.xero.com/" onClick={() => {}} />);
+    const button = render(<XUIButton href="https://www.xero.com/" isLink onClick={() => {}} />);
 
     expect(button.prop('role')).toEqual('button');
   });
 
   it('does not have a role attribute for links which are just styled like buttons', () => {
-    const button = render(<XUIButton isLink href="https://www.xero.com/" />);
+    const button = render(<XUIButton href="https://www.xero.com/" isLink />);
 
     expect(button.prop('role')).toBe(undefined);
   });
 
   it('focus() should focus the DOM node', async () => {
-    const button = renderIntoDocument(<XUIButton onClick={noop}>test</XUIButton>);
-    button.focus();
-    expect(button.rootNode).toEqual(document.activeElement);
+    const buttonRef = React.createRef();
+    testingLibrary.render(
+      <XUIButton onClick={noop} ref={buttonRef}>
+        test
+      </XUIButton>,
+    );
+    buttonRef.current.focus();
+    expect(buttonRef.current.rootNode.current).toEqual(document.activeElement);
   });
 
   it('hasFocus() should accurately reflect whether or not the main button DOM node has focus', () => {
-    const button = renderIntoDocument(<XUIButton onClick={noop}>test</XUIButton>);
-    expect(button.hasFocus()).toBe(false);
-    button.focus();
-    expect(button.hasFocus()).toBe(true);
+    const buttonRef = React.createRef();
+    testingLibrary.render(
+      <XUIButton onClick={noop} ref={buttonRef}>
+        test
+      </XUIButton>,
+    );
+    expect(buttonRef.current.hasFocus()).toBe(false);
+    buttonRef.current.focus();
+    expect(buttonRef.current.hasFocus()).toBe(true);
   });
 
   it('does retain layout checks with a myriad of combinations', () => {
@@ -159,7 +164,7 @@ describe('<XUIButton/>', () => {
     expect(defaultRetainLayout).toMatchSnapshot();
 
     const defaultRetainLayoutWhileLoading = renderer.create(
-      <XUIButton variant="primary" isLoading loadingAriaLabel="Loading">
+      <XUIButton isLoading loadingAriaLabel="Loading" variant="primary">
         Hello, I am a long bit of text
       </XUIButton>,
     );
@@ -167,7 +172,7 @@ describe('<XUIButton/>', () => {
     expect(defaultRetainLayoutWhileLoading).toMatchSnapshot();
 
     const loadingButtonNoRetain = renderer.create(
-      <XUIButton variant="primary" isLoading loadingAriaLabel="Loading" retainLayout={false}>
+      <XUIButton isLoading loadingAriaLabel="Loading" retainLayout={false} variant="primary">
         Hello, I am a long bit of text
       </XUIButton>,
     );
@@ -177,7 +182,7 @@ describe('<XUIButton/>', () => {
 
   it('adds minwidth when we need it to, for short buttons', () => {
     const shortButton = renderer.create(
-      <XUIButton variant="primary" minLoaderWidth>
+      <XUIButton hasMinLoaderWidth variant="primary">
         75px
       </XUIButton>,
     );

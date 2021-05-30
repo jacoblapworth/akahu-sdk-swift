@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -8,6 +8,7 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
+import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
 
 /**
  * @function handleLabelClick - Prevent 2 click events bubbling. Since our input is
@@ -152,6 +153,14 @@ const XUIRadio = props => {
     svgClassName,
     iconMain,
   };
+
+  useEffect(() => {
+    labelRequiredWarning(XUIRadio.name, textChildOrLabelId, [
+      children?.innerText && !isLabelHidden,
+      typeof children?.[0] === 'string',
+      props.labelId,
+    ]);
+  }, [children, isLabelHidden, props.labelId]);
 
   if (typeof isChecked !== 'boolean') {
     inputProps.defaultChecked = !!isDefaultChecked;

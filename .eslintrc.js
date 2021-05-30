@@ -70,15 +70,19 @@ module.exports = {
     'import/extensions': 'off', // 113 instances
     'jest/no-export': 'off', // 1 instance
     'jest/no-test-callback': 'off', // 1 instance
+    'jest/valid-title': 'off',
     'jsx-a11y/label-has-associated-control': 'off', // 1 instance - rule may be too simple for implementation in XUIControlWrapperInline
+    'no-use-before-define': 'off',
     'react/jsx-one-expression-per-line': 'off', // 42 instances - conflicts with prettier too much (and does weird things for inline variables in divs)
     'react/jsx-props-no-spreading': 'off', // 245 instances - this will be a ton of work, and may cause problems depending on what consumer props need to be passed through
     'react/jsx-wrap-multilines': 'off', // 38 instances - conflicts with prettier, minimal benefit for the inconvenience
     'react/state-in-constructor': 'off', // 29 instances - an older pattern, no real benefits
+    'react/static-property-placement': 'off',
     'react/destructuring-assignment': 'off', // 188 instances - forces destructuring when accessing a single prop/state variable
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'simple-import-sort/sort': 'error',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
     'typescript-sort-keys/interface': 2,
     'typescript-sort-keys/string-enum': 2,
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -123,7 +127,6 @@ module.exports = {
         'no-script-url': 'off',
         'no-shadow': 'off',
         'no-unused-vars': 'off',
-        'no-use-before-define': 'off',
         'prefer-destructuring': 'off',
         'react/jsx-no-bind': 'off',
         'react/no-array-index-key': 'off',
@@ -161,7 +164,8 @@ module.exports = {
         '@typescript-eslint/type-annotation-spacing': 'off',
         'import/named': 'off',
         // TODO: Decide whether or not we want to turn any of the below options on. They came in during an ESLint update so I turned them all off for now. Each of these could still be turned off for special use-cases if needed.
-        'simple-import-sort/sort': 'off',
+        'simple-import-sort/imports': 'off',
+        'simple-import-sort/exports': 'off',
       },
     },
   ],

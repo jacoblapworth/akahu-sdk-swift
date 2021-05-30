@@ -81,7 +81,15 @@ const footer = (
 const picklist = <XUIPicklist>{createItems(toggledItems)}</XUIPicklist>;
 
 const datePickerDate = new Date('Dec 02 2017 00:00:00 GMT+1300');
-const datepicker = <XUIDatePicker displayedMonth={datePickerDate} onSelectDate={NOOP} />;
+const datepicker = (
+  <XUIDatePicker
+    displayedMonth={datePickerDate}
+    locale="en"
+    nextButtonAriaLabel="Next month"
+    onSelectDate={NOOP}
+    prevButtonAriaLabel="Previous month"
+  />
+);
 const plaintext = <p>Some content that appears in a dropdown panel would go here.</p>;
 const nested = (
   <XUINestedDropdown currentPanelId="customDate" isHidden={false}>
@@ -127,7 +135,7 @@ const sideBySide = (
     <XUIDropdownToggled
       className="xui-margin-right-large"
       dropdown={
-        <XUIDropdown fixedWidth restrictFocus={false} size="medium">
+        <XUIDropdown hasFixedWidth restrictFocus={false} size="medium">
           <XUIPicklist>{createItems(toggledItems, 'one')}</XUIPicklist>
         </XUIDropdown>
       }
@@ -154,7 +162,7 @@ const DropdownInDropdown = () => {
     <XUIDropdownToggled
       closeOnTab={false}
       dropdown={
-        <XUIDropdown fixedWidth size="large">
+        <XUIDropdown hasFixedWidth size="large">
           <XUIPanel className="xui-padding">
             <XUITextInput fieldClassName="xui-column-6-of-12" />
             <XUIDropdownToggled
@@ -193,9 +201,9 @@ storiesWithKnobs.add('Playground', () => {
         <XUIDropdown
           animateClosed={boolean('animateClosed', false)}
           animateOpen={boolean('animateOpen', false)}
-          fixedWidth={boolean('fixedWidth', false)}
           footer={showFooter ? footer : undefined}
           forceDesktop={forceDesktop}
+          hasFixedWidth={boolean('hasFixedWidth', false)}
           header={showHeader ? header : undefined}
           restrictFocus={boolean('restrictFocus', false)}
           size={select('dropdown size', Object.keys(maxWidthDropdownSizes), 'large')}
@@ -356,7 +364,7 @@ const hintLabel = props => (
     trigger={createTriggerInput(props.triggerSettings)}
     {...props}
     dropdown={
-      <XUIDropdown fixedWidth restrictFocus={false} size="medium">
+      <XUIDropdown hasFixedWidth restrictFocus={false} size="medium">
         <XUIPicklist>{createItems(toggledItems, 'seven')}</XUIPicklist>
       </XUIDropdown>
     }
@@ -412,7 +420,7 @@ const splitButtonInline = () => (
     <XUIButton>Split action</XUIButton>
     <XUIDropdownToggled
       dropdown={
-        <XUIDropdown fixedWidth size="small">
+        <XUIDropdown hasFixedWidth size="small">
           <XUIPicklist>{createItems(toggledShort, 'split')}</XUIPicklist>
         </XUIDropdown>
       }

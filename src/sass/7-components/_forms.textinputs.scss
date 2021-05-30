@@ -5,10 +5,9 @@
 @import '../vars';
 @import '../mixins';
 
-$input-text-vertical-padding-xsmall: ($xui-control-size-xsmall - $xui-line-height-xsmall) / 2 - 1px;
-$input-text-vertical-padding-small: ($xui-control-size-small - $xui-line-height-small) / 2 - 1px;
-$input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-height-standard) / 2 -
-  1px;
+$input-text-vertical-padding-xsmall: ($xui-control-size-xsmall - $xui-s-standard) / 2 - 1px;
+$input-text-vertical-padding-small: ($xui-control-size-small - $xui-s-large) / 2 - 1px;
+$input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-s-xlarge) / 2 - 1px;
 
 .#{$ns}-textinputwrapper {
   display: block;
@@ -39,8 +38,6 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-line-h
   // Some weird race condition breaks inheritance in Storybook, so declaring it explicitly here
   box-sizing: border-box;
   flex: 1 1 auto;
-  // Fix the following problem in IE 11:
-  // If min-width set in xui-textinput takes effect, the value (when over 40px) will overflow the input.
   min-width: $xui-minimum-touch-target;
   overflow: hidden;
 

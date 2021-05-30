@@ -89,7 +89,7 @@ class EditableTablePlayground extends React.Component {
           dndDropMessage={(startPosition, endPosition) =>
             `You have dropped the item. It has moved from position ${startPosition} to ${endPosition}.`
           }
-          dndInstructions="Press space bar to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or forms mode."
+          dndInstructions="Press Space bar or Enter to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or to use your pass through key."
           hasPinnedFirstColumn={hasPinnedFirstColumn}
           hasPinnedLastColumn={hasPinnedLastColumn}
           hiddenColumns={this.state.hiddenColumns}
@@ -205,15 +205,15 @@ const storiesWithVariations = storiesOf(variationStoryKindName, module);
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
     const {
-      columnCount,
-      hasHeader,
-      rows,
-      renderSmallerWrapper,
-      showAddRowButton,
       cellType,
       clickSelector,
+      columnCount,
+      hasHeader,
       randomiseContent,
+      renderSmallerWrapper,
+      rows,
       scrollLeft,
+      showAddRowButton,
       storyKind,
       storyTitle,
       withDisabled,

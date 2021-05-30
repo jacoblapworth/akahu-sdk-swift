@@ -4,8 +4,7 @@ import cn from 'classnames';
 
 import { baseClass } from './constants';
 import XUICheckbox from './XUICheckbox';
-import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
-import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
+import XUIControlGroup from '../controlgroup/XUIControlGroup';
 
 /**
  * Presentational component that outputs the container necessary to implement
@@ -31,8 +30,6 @@ const XUICheckboxGroup = props => {
     validationMessage,
   } = props;
 
-  const wrapperIds = generateIds(labelId);
-
   const groupClasses = cn(
     className,
     `${baseClass}-group`,
@@ -48,14 +45,15 @@ const XUICheckboxGroup = props => {
   );
 
   return (
-    <XUIControlWrapper
-      fieldClassName={fieldClassName}
-      isGroup
-      wrapperIds={wrapperIds}
+    <XUIControlGroup
+      groupClassName={groupClasses}
       {...{
+        fieldClassName,
         qaHook,
         label,
+        labelId,
         isInvalid,
+        isLockedVertical: true,
         validationMessage,
         hintMessage,
         isFieldLayout,
@@ -63,14 +61,8 @@ const XUICheckboxGroup = props => {
         isLabelHidden,
       }}
     >
-      <div
-        className={groupClasses}
-        data-automationid={qaHook}
-        {...getAriaAttributes(wrapperIds, props, { isGroup: true })}
-      >
-        {childrenToRender}
-      </div>
-    </XUIControlWrapper>
+      {childrenToRender}
+    </XUIControlGroup>
   );
 };
 
@@ -96,6 +88,7 @@ XUICheckboxGroup.propTypes = {
   labelClassName: PropTypes.string,
   /** Provide a specific label ID which will be used as the "labelleby" aria property */
   labelId: PropTypes.string,
+  /** String to be used as a data-automationid on the group and (with suffixes) on related elements */
   qaHook: PropTypes.string,
   /** Validation message to show under the input if `isInvalid` is true */
   validationMessage: PropTypes.node,

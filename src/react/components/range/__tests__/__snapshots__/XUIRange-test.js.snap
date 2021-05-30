@@ -7,12 +7,12 @@ exports[`Range All options selected 1`] = `
   <label
     className="xui-text-label xui-fieldlabel-layout"
     data-automationid="qaHook--label"
-    htmlFor="testRangeId-control"
+    htmlFor="xui-testRangeId-control"
   >
     All options selected
   </label>
   <div
-    className="xui-rangeslider-container containerClasses"
+    className="xui-rangeslider-container containerClassName"
   >
     <svg
       className="xui-icon"
@@ -27,12 +27,12 @@ exports[`Range All options selected 1`] = `
       />
     </svg>
     <input
-      aria-describedby="testRangeId-message"
+      aria-describedby="xui-testRangeId-message"
       aria-invalid={true}
-      className="xui-rangeslider xui-rangeslider-thumb-xsmall xui-rangeslider-is-invalid inputClasses"
+      className="xui-rangeslider xui-rangeslider-thumb-xsmall xui-rangeslider-is-invalid inputClassName"
       defaultValue="20"
       disabled={true}
-      id="testRangeId-control"
+      id="xui-testRangeId-control"
       max="80"
       min="16"
       step="4"
@@ -54,7 +54,7 @@ exports[`Range All options selected 1`] = `
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid"
     data-automationid="qaHook--message"
-    id="testRangeId-message"
+    id="xui-testRangeId-message"
     role="status"
   >
     <svg
@@ -80,7 +80,7 @@ exports[`Range LeftElement and RightElement work 1`] = `
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
-    htmlFor="testRangeId-control"
+    htmlFor="xui-testRangeId-control"
   >
     svgs work
   </label>
@@ -100,9 +100,9 @@ exports[`Range LeftElement and RightElement work 1`] = `
       />
     </svg>
     <input
-      aria-describedby="testRangeId-message"
+      aria-describedby="xui-testRangeId-message"
       className="xui-rangeslider xui-rangeslider-thumb-medium"
-      id="testRangeId-control"
+      id="xui-testRangeId-control"
       type="range"
     />
     <svg
@@ -120,7 +120,7 @@ exports[`Range LeftElement and RightElement work 1`] = `
   </div>
   <div
     className="xui-validation xui-validation-layout"
-    id="testRangeId-message"
+    id="xui-testRangeId-message"
     role="status"
   >
     hintMessage
@@ -137,7 +137,7 @@ exports[`Range Simple case 1`] = `
   >
     <input
       className="xui-rangeslider xui-rangeslider-thumb-medium"
-      id="testRangeId-control"
+      id="xui-testRangeId-control"
       type="range"
     />
   </div>
@@ -150,7 +150,7 @@ exports[`Range invalid 1`] = `
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
-    htmlFor="testRangeId-control"
+    htmlFor="xui-testRangeId-control"
   >
     invalid
   </label>
@@ -158,10 +158,10 @@ exports[`Range invalid 1`] = `
     className="xui-rangeslider-container"
   >
     <input
-      aria-describedby="testRangeId-message"
+      aria-describedby="xui-testRangeId-message"
       aria-invalid={true}
       className="xui-rangeslider xui-rangeslider-thumb-medium xui-rangeslider-is-invalid"
-      id="testRangeId-control"
+      id="xui-testRangeId-control"
       max={80}
       min={16}
       type="range"
@@ -169,7 +169,7 @@ exports[`Range invalid 1`] = `
   </div>
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid"
-    id="testRangeId-message"
+    id="xui-testRangeId-message"
     role="status"
   >
     <svg
@@ -195,7 +195,7 @@ exports[`Range should be disabled 1`] = `
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
-    htmlFor="testRangeId-control"
+    htmlFor="xui-testRangeId-control"
   >
     disabled
   </label>
@@ -205,7 +205,7 @@ exports[`Range should be disabled 1`] = `
     <input
       className="xui-rangeslider xui-rangeslider-thumb-medium"
       disabled={true}
-      id="testRangeId-control"
+      id="xui-testRangeId-control"
       max={80}
       min={16}
       type="range"
@@ -213,7 +213,7 @@ exports[`Range should be disabled 1`] = `
   </div>
   <div
     className="xui-validation xui-validation-layout"
-    id="testRangeId-message"
+    id="xui-testRangeId-message"
     role="status"
   />
 </div>

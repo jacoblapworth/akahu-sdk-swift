@@ -68,17 +68,14 @@ function getTriggerAlignmentStyles({
       ? '0px'
       : `${Math.round(popupLeftPos + scrollLeftAmount())}px`;
 
-  const translateYAmount = placeBelow ? `${triggerRect.height}px` : '-100%';
+  const translateYAmount = placeBelow
+    ? `${triggerRect.height + triggerDropdownGap}px`
+    : `calc(-100% - ${triggerDropdownGap}px)`;
   const transform = `translateY(${translateYAmount})`;
-  // Initially the gap offset here was done through css calc properties in the translate function.
-  // Unfortunately this caused issues, as calc is invalid as a parameter of translate within IE11
-  const topValue = placeBelow
-    ? triggerRect.top + scrollTopAmount() + triggerDropdownGap
-    : triggerRect.top + scrollTopAmount() - triggerDropdownGap;
 
   return {
     marginLeft,
-    top: topValue,
+    top: triggerRect.top + scrollTopAmount(),
     transform,
     bottom: null,
   };
@@ -111,6 +108,8 @@ const stylesForBottomLeftPositioning = {
 
 class Positioning extends PureComponent {
   state = { ...defaultState };
+
+  positionEl = React.createRef();
 
   ticking = false;
 
@@ -182,7 +181,7 @@ class Positioning extends PureComponent {
    */
   positionOnShow = () => {
     // Safety check due to slim chance of unmount during setTimeout duration
-    if (this.positionEl && document.body.contains(this.positionEl)) {
+    if (this.positionEl.current && document.body.contains(this.positionEl.current)) {
       this.positionComponent();
       if (this.props.shouldRestrictMaxHeight) {
         this.calculateMaxHeight();
@@ -219,9 +218,8 @@ class Positioning extends PureComponent {
     if (parentRef) {
       const triggerDOM = getTriggerNodeFromParentRef(parentRef, leaveRoomForValidationMessage);
       const popupRect =
-        this.positionEl &&
-        this.positionEl.firstChild &&
-        getAbsoluteBoundingClientRect(this.positionEl.firstChild);
+        this.positionEl.current?.firstChild &&
+        getAbsoluteBoundingClientRect(this.positionEl.current.firstChild);
 
       if (isBaseRendered(popupRect)) {
         const styles =
@@ -336,7 +334,7 @@ class Positioning extends PureComponent {
         <div
           className={`${ns}-container`}
           data-automationid={qaHook}
-          ref={portal => (this.positionEl = portal)}
+          ref={this.positionEl}
           style={isVisible && !positioned ? stylesForCalculation : null}
         >
           {clonedChildren}

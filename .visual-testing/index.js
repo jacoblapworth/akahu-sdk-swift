@@ -3,6 +3,10 @@ const { EventEmitter } = require('events');
 const path = require('path');
 const { argv } = require('yargs');
 
+const NOOP = () => {};
+// Polyfill `Element` for Node JS
+global.Element = typeof Element === 'undefined' ? NOOP : Element;
+
 const projectDirectory = argv.docker ? '../' : './';
 function relativeToProjectDirectory(path) {
   return `${projectDirectory}${path}`;
@@ -120,8 +124,8 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/illustration/stories/variations.js`,
   },
   {
-    testsPrefix: 'XUI Input Group',
-    variationsPath: `${variationsPath}/inputgroup/stories/variations.js`,
+    testsPrefix: 'XUI Control Group',
+    variationsPath: `${variationsPath}/controlgroup/stories/variations.js`,
   },
   {
     testsPrefix: 'XUI Intro Banner',
@@ -167,6 +171,7 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Popover',
     variationsPath: `${variationsPath}/popover/stories/variations.js`,
+    readyEvent: 'xui-popover-ready-event',
   },
   {
     testsPrefix: 'XUI Progress Indicator',
@@ -300,7 +305,7 @@ function buildScenarios() {
 
           scenarioProp.onBeforeScript = 'onBefore.js';
 
-          const { clickSelector, hoverSelector } = story;
+          const { clickSelector, hoverSelector, useCustomFontSize } = story;
           // Ship with an onReady script that enables the click/hover selector
           if (clickSelector || hoverSelector) {
             if (clickSelector) {
@@ -309,6 +314,7 @@ function buildScenarios() {
               scenarioProp.hoverSelector = hoverSelector;
             }
           }
+          scenarioProp.useCustomFontSize = useCustomFontSize;
           scenarioProp.onReadyScript = 'onReady.js';
 
           return scenarioProp;

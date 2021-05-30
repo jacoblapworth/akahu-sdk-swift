@@ -8,9 +8,9 @@ import XUINestedDropdown from './components/dropdown/XUINestedDropdown';
 export {
   XUIDropdown as default,
   XUIDropdown,
-  XUIDropdownToggled,
-  XUIDropdownHeader,
   XUIDropdownFooter,
+  XUIDropdownHeader,
   XUIDropdownPanel,
+  XUIDropdownToggled,
   XUINestedDropdown,
 };

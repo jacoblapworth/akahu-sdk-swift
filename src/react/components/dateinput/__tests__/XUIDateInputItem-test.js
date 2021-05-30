@@ -1,15 +1,16 @@
 import React from 'react';
+import { render } from '@testing-library/react';
 import Enzyme, { mount } from 'enzyme';
-import { v4 as uuidv4 } from 'uuid';
-import Adapter from 'enzyme-adapter-react-16';
+import { nanoid } from 'nanoid';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIDateInputItem from '../private/XUIDateInputItem';
 
 const { renderIntoDocument } = require('react-dom/test-utils');
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testDateinputId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testDateinputId');
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
@@ -17,7 +18,15 @@ expect.extend(toHaveNoViolations);
 describe('XUIDateInputItem', () => {
   const selectedDate = new Date(Date.UTC(2020, 11, 15));
   const createComponent = props => (
-    <XUIDateInputItem onSelectDate={() => {}} {...props} selectedDate={selectedDate} />
+    <XUIDateInputItem
+      inputLabel="Date"
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={() => {}}
+      prevButtonAriaLabel="Previous month"
+      {...props}
+      selectedDate={selectedDate}
+    />
   );
 
   it('inserts selected date value', () => {
@@ -86,12 +95,21 @@ describe('XUIDateInputItem', () => {
   });
 
   it('should call the passed onFocus handler when focused', () => {
-    const wrapper = renderIntoDocument(
-      <XUIDateInputItem onSelectDate={() => {}} selectedDate={selectedDate} />,
+    const dateInputRef = React.createRef();
+    render(
+      <XUIDateInputItem
+        inputLabel="Date"
+        locale="en"
+        nextButtonAriaLabel="Next month"
+        onSelectDate={() => {}}
+        prevButtonAriaLabel="Previous month"
+        ref={dateInputRef}
+        selectedDate={selectedDate}
+      />,
     );
 
-    wrapper.inputRef.current.focus();
-    expect(wrapper.inputRef.current).toEqual(document.activeElement);
+    dateInputRef.current.inputRef.current.focus();
+    expect(dateInputRef.current.inputRef.current).toEqual(document.activeElement);
   });
 
   it('Dropdown opening triggers input focus', () => {

@@ -5,15 +5,15 @@ exports[`<XUIControlWrapper> renders a hidden label, invalid, and an error messa
   className="xui-field-layout"
 >
   <input
-    aria-describedby="testGeneratedId-message"
+    aria-describedby="xui-testGeneratedId-message"
     aria-invalid={true}
     aria-label="Impressive input label"
-    id="testGeneratedId-control"
+    id="xui-testGeneratedId-control"
     type="text"
   />
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid"
-    id="testGeneratedId-message"
+    id="xui-testGeneratedId-message"
     role="status"
   >
     <svg
@@ -57,7 +57,7 @@ exports[`<XUIControlWrapper> renders basic example 1`] = `
 >
   <input
     aria-invalid={false}
-    id="testGeneratedId-control"
+    id="xui-testGeneratedId-control"
     type="text"
   />
 </div>

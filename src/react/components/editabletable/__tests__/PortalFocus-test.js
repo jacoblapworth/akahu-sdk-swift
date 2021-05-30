@@ -1,10 +1,10 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import PortalFocus from '../private/PortalFocus';
-import { tableName } from '../private/constants';
+import { tableVariantClassNames } from '../private/constants';
 import NOOP from '../../helpers/noop';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -28,7 +28,7 @@ const mockRef = (x, y, width, height) => {
   return refObject;
 };
 
-const baseName = `.${tableName}--portalfocus`;
+const baseName = `.${tableVariantClassNames.editable}--portalfocus`;
 
 describe('Portal focus', () => {
   it('renders with the entire focus ring', () => {

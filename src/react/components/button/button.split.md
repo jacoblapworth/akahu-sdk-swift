@@ -15,7 +15,7 @@ import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
   <XUIDropdownToggled
     trigger={<XUISecondaryButton variant="primary" key="split" aria-label="Other actions" />}
     dropdown={
-      <XUIDropdown fixedWidth size="small">
+      <XUIDropdown hasFixedWidth size="small">
         <XUIPicklist>
           <XUIPickitem id="aa" value="aa" key="aa">
             Option 1
@@ -42,7 +42,7 @@ import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
   <XUIDropdownToggled
     trigger={<XUISecondaryButton variant="standard" key="split" aria-label="Other actions" />}
     dropdown={
-      <XUIDropdown fixedWidth size="small">
+      <XUIDropdown hasFixedWidth size="small">
         <XUIPicklist>
           <XUIPickitem id="aa" value="aa" key="aa">
             Option 1

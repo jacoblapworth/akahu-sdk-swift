@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import XUIRolloverCheckbox from '../XUIRolloverCheckbox';
@@ -86,8 +86,8 @@ describe('XUIRolloverCheckbox', () => {
     expect(expected).toMatchSnapshot();
   });
 
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIRolloverCheckbox onSelect={jest.fn} />);
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIRolloverCheckbox label="Rollover checkbox" onSelect={jest.fn} />);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });
@@ -172,8 +172,8 @@ describe('XUIRolloverCheckbox', () => {
 
     expected.instance().triggerCheckboxClick();
 
-    //Using a ref check here as the snapshot doesn't represent a checked state of the input.
-    expect(expected.instance()._checkbox._input.current.checked).toBeTruthy();
+    // Using a ref check here as the snapshot doesn't represent a checked state of the input.
+    expect(expected.instance()._checkbox.current?._input.current.checked).toBeTruthy();
   });
 
   it('should render the disabled classes and a disabled checkbox when isDisabled prop is true', () => {

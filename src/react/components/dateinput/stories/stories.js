@@ -23,11 +23,18 @@ storiesWithKnobs.add('Playground', () => {
 
   let singleDateProps = {
     closeOnSelect: true,
+    inputLabel: 'Single date',
+    locale: 'en',
+    nextButtonAriaLabel: 'Next month',
     onSelectDate: sampleOnSelectDateFunction,
+    prevButtonAriaLabel: 'Previous month',
     validationMessage: text('validationMessage', ''),
   };
 
   let dateRangeProps = {
+    locale: 'en',
+    nextButtonAriaLabel: 'Next month',
+    prevButtonAriaLabel: 'Previous month',
     startDateInputConfig: {
       onInputChange: sampleOnSelectDateFunction,
     },
@@ -46,6 +53,7 @@ storiesWithKnobs.add('Playground', () => {
       hintMessage: text('Hint Message', ''),
       isDisabled: boolean('isDisabled', false),
       isInvalid: boolean('isInvalid', false),
+      locale: text('Locale', 'en'),
     };
   } else {
     const showLabels = select(
@@ -61,6 +69,7 @@ storiesWithKnobs.add('Playground', () => {
         isGroupLabelHidden: showLabels === 'individual',
         isDisabled: boolean('Group disabled?', false),
         isInvalid: boolean('Group invalid?', false),
+        locale: text('Locale', 'en'),
         validationMessage: text('Validation message for group', ''),
       },
       startDateInputConfig: {
@@ -106,9 +115,26 @@ variations.forEach(variation => {
     delete variationMinusStoryDetails.storyTitle;
 
     const component = isDateRangeInput ? (
-      <XUIDateRangeInput {...variationMinusStoryDetails} />
+      <XUIDateRangeInput
+        endDateInputConfig={{
+          inputLabel: 'End date',
+        }}
+        locale="en"
+        nextButtonAriaLabel="Next month"
+        prevButtonAriaLabel="Previous month"
+        startDateInputConfig={{
+          inputLabel: 'Start date',
+        }}
+        {...variationMinusStoryDetails}
+      />
     ) : (
-      <XUIDateInput {...variationMinusStoryDetails} />
+      <XUIDateInput
+        inputLabel="Start date"
+        locale="en"
+        nextButtonAriaLabel="Next month"
+        prevButtonAriaLabel="Previous month"
+        {...variationMinusStoryDetails}
+      />
     );
 
     return isInFixedContainer ? (

@@ -7,10 +7,6 @@ type XUIStatefulPicklistWrapperProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 interface Props {
-  /**
-   * Whether or not the user should be allowed to tab to this component.
-   */
-  canFocus?: boolean;
   children?: React.ReactNode;
   className?: string;
   /**
@@ -21,6 +17,10 @@ interface Props {
    * An array of keydown keycodes to be ignored from dropdown behaviour.
    */
   ignoreKeyboardEvents?: number[];
+  /**
+   * Whether or not the user should be allowed to tab to this component.
+   */
+  isFocusable?: boolean;
   /**
    * Whether to use left/right arrow keys to move between pickitems as opposed to up/down.
    */

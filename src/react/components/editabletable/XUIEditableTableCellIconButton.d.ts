@@ -14,7 +14,7 @@ interface BaseProps {
 type Props = BaseProps &
   Omit<
     React.ComponentProps<typeof XUIIconButton>,
-    'desc' | 'icon' | 'iconColor' | 'iconSize' | 'role' | 'rotation'
+    'description' | 'icon' | 'iconColor' | 'iconSize' | 'role' | 'rotation'
   >;
 
 declare const XUIEditableTableCellIconButton: React.FunctionComponent<Props>;

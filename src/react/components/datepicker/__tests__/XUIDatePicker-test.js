@@ -1,95 +1,154 @@
 import React from 'react';
-import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import XUIDatePicker from '../XUIDatePicker';
-import { DateUtils } from 'react-day-picker';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-Enzyme.configure({ adapter: new Adapter() });
+import XUIDatePicker from '../XUIDatePicker';
+
 expect.extend(toHaveNoViolations);
 
-const MockXUIDatePicker = props => <XUIDatePicker onSelectDate={() => {}} {...props} />;
-const setup = (props = {}) => {
-  return mount(MockXUIDatePicker(props));
-};
+const MockXUIDatePicker = props => (
+  <XUIDatePicker
+    locale="en"
+    nextButtonAriaLabel="Next month"
+    onSelectDate={() => {}}
+    prevButtonAriaLabel="Previous month"
+    qaHook="datepicker"
+    {...props}
+  />
+);
+
 describe('<XUIDatePicker />', () => {
-  it('displays calendar with currentMonth state to displayedMonth prop value', () => {
+  test('initialises month and year selectors to correct values', () => {
     // Arrange
-    const wrapper = setup({ displayedMonth: new Date(2018, 10) });
-
-    // Act
-    const currentMonth = wrapper.state().currentMonth;
-    const result = DateUtils.isSameMonth(currentMonth, new Date(2018, 10));
+    render(MockXUIDatePicker({ displayedMonth: new Date(2018, 10) }));
 
     // Assert
-    expect(result).toBe(true);
+    expect(screen.getByTestId('datepicker--monthselectorlabel')).toHaveTextContent('November');
+    expect(screen.getByTestId('datepicker--yearselectorlabel')).toHaveTextContent('2018');
   });
 
-  it('calls onMonthChange method when month is changed', () => {
+  test('calls onMonthChange method with the correct value when month is changed', () => {
     // Arrange
     const onMonthChangeMock = jest.fn();
 
-    const wrapper = setup({
-      displayedMonth: new Date(2017, 10),
-      onMonthChange: onMonthChangeMock,
-    });
+    render(
+      MockXUIDatePicker({
+        displayedMonth: new Date(2018, 10),
+        onMonthChange: onMonthChangeMock,
+      }),
+    );
 
     // Act
-    wrapper.instance().onMonthChange(new Date(2020, 11));
+    userEvent.selectOptions(screen.getByTestId('datepicker--monthselector'), '11');
 
     // Assert
-    expect(onMonthChangeMock).toBeCalled();
+    expect(onMonthChangeMock).toHaveBeenCalledWith(new Date(2018, 11));
   });
 
-  it('does not call onMonthChange method when month is changed to same month', () => {
+  test('does not call onMonthChange method when month is changed to same month', () => {
     // Arrange
     const onMonthChangeMock = jest.fn();
-    const wrapper = setup({
-      displayedMonth: new Date(2018, 10),
-      onMonthChange: onMonthChangeMock,
-    });
+
+    render(
+      MockXUIDatePicker({
+        displayedMonth: new Date(2018, 10),
+        onMonthChange: onMonthChangeMock,
+      }),
+    );
 
     // Act
-    wrapper.instance().onMonthChange(new Date(2018, 10));
+    userEvent.selectOptions(screen.getByTestId('datepicker--monthselector'), '10');
 
     // Assert
     expect(onMonthChangeMock).not.toBeCalled();
   });
 
-  it('updates currentMonth state when displayedMonth prop changed', () => {
+  test('calls onMonthChange method with the correct value when year is changed', () => {
     // Arrange
-    const wrapper = setup({
-      displayedMonth: new Date(2018, 10),
-    });
+    const onMonthChangeMock = jest.fn();
+
+    render(
+      MockXUIDatePicker({
+        displayedMonth: new Date(2018, 10),
+        onMonthChange: onMonthChangeMock,
+      }),
+    );
 
     // Act
-    wrapper.setProps({ displayedMonth: new Date(2010, 2) });
-
-    // wrapper.instance().onMonthChange(new Date(2010, 2));
-    const monthState = wrapper.state().currentMonth;
+    userEvent.selectOptions(screen.getByTestId('datepicker--yearselector'), '2019');
 
     // Assert
-    expect(monthState.getFullYear()).toBe(2010);
-    expect(monthState.getMonth()).toBe(2);
+    expect(onMonthChangeMock).toHaveBeenCalledWith(new Date(2019, 10));
   });
 
-  it('updates currentMonth state when user programmatically changes month', () => {
+  test('does not call onMonthChange method when year is changed to same year', () => {
     // Arrange
-    const wrapper = setup({
-      displayedMonth: new Date(2018, 10),
-    });
+    const onMonthChangeMock = jest.fn();
+
+    render(
+      MockXUIDatePicker({
+        displayedMonth: new Date(2018, 10),
+        onMonthChange: onMonthChangeMock,
+      }),
+    );
 
     // Act
-    wrapper.instance().onMonthChange(new Date(2010, 2));
-    const monthState = wrapper.state().currentMonth;
+    userEvent.selectOptions(screen.getByTestId('datepicker--yearselector'), '2018');
 
     // Assert
-    expect(monthState.getFullYear()).toBe(2010);
-    expect(monthState.getMonth()).toBe(2);
+    expect(onMonthChangeMock).not.toBeCalled();
   });
 
-  it('should pass accessibility testing', async () => {
-    const results = await axe(setup().html());
+  test('localises month name correctly given a locale', () => {
+    // Arrange
+    render(MockXUIDatePicker({ displayedMonth: new Date(2018, 0), locale: 'de' }));
+
+    // Assert
+    expect(screen.getByTestId('datepicker--monthselectorlabel')).toHaveTextContent('Januar');
+  });
+
+  test('localises day names correctly given a locale', () => {
+    // Arrange
+    render(MockXUIDatePicker({ displayedMonth: new Date(2018, 0), locale: 'de' }));
+
+    // Assert
+    expect(screen.getByTitle('Montag')).toHaveClass('xui-datepicker--weekday');
+  });
+
+  test('uses first day of week based on locale', () => {
+    // Arrange
+    render(MockXUIDatePicker({ displayedMonth: new Date(2018, 0), locale: 'de' }));
+
+    // Assert
+    expect(screen.queryAllByRole('columnheader')[0]).toHaveTextContent('M');
+  });
+
+  test('uses first day of week from props if one is passed in', () => {
+    // Arrange
+    render(MockXUIDatePicker({ displayedMonth: new Date(2018, 0), firstDayOfWeek: 1 }));
+
+    // Assert
+    expect(screen.queryAllByRole('columnheader')[0]).toHaveTextContent('M');
+  });
+
+  test('uses direction based on locale', () => {
+    // Arrange
+    render(MockXUIDatePicker({ displayedMonth: new Date(2018, 0), locale: 'ar' }));
+
+    // Assert
+    expect(screen.getByTestId('datepicker--heading-dates').childNodes[0]).toHaveClass(
+      'xui-datepicker--heading-year',
+    );
+  });
+
+  test('should pass accessibility testing', async () => {
+    // Arrange
+    render(MockXUIDatePicker());
+
+    const results = await axe(screen.getByTestId('datepicker'));
+
+    // Assert
     expect(results).toHaveNoViolations();
   });
 });

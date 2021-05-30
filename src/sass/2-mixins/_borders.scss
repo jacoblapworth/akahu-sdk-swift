@@ -17,7 +17,8 @@ $border-color - The colour of the border
 */
 @mixin xui-shadow-border-top($border-color: $xui-standard-shadow-color, $is-inset: false) {
   $inset: if($is-inset, inset, null);
-  box-shadow: 0 -1px 0 0 $border-color $inset;
+  $border: if($is-inset, 1px, -1px);
+  box-shadow: 0 $border 0 0 $border-color $inset;
 }
 
 /*
@@ -27,7 +28,8 @@ $border-color - The colour of the border
 */
 @mixin xui-shadow-border-right($border-color: $xui-standard-shadow-color, $is-inset: false) {
   $inset: if($is-inset, inset, null);
-  box-shadow: 1px 0 0 0 $border-color $inset;
+  $border: if($is-inset, -1px, 1px);
+  box-shadow: $border 0 0 0 $border-color $inset;
 }
 
 /*
@@ -37,7 +39,8 @@ $border-color - The colour of the border
 */
 @mixin xui-shadow-border-bottom($border-color: $xui-standard-shadow-color, $is-inset: false) {
   $inset: if($is-inset, inset, null);
-  box-shadow: 0 1px 0 0 $border-color $inset;
+  $border: if($is-inset, -1px, 1px);
+  box-shadow: 0 $border 0 0 $border-color $inset;
 }
 
 /*
@@ -47,5 +50,6 @@ $border-color - The colour of the border
 */
 @mixin xui-shadow-border-left($border-color: $xui-standard-shadow-color, $is-inset: false) {
   $inset: if($is-inset, inset, null);
-  box-shadow: -1px 0 0 0 $border-color $inset;
+  $border: if($is-inset, 1px, -1px);
+  box-shadow: $border 0 0 0 $border-color $inset;
 }

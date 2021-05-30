@@ -6,7 +6,7 @@ import XUIContentBlock from '../XUIContentBlock';
 import XUIContentBlockItem from '../XUIContentBlockItem';
 import overflow from '@xero/xui-icon/icons/overflow';
 import Enzyme, { mount, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
 import { axe, toHaveNoViolations } from 'jest-axe';
 

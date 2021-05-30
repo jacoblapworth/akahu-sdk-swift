@@ -2,13 +2,26 @@ const stringReplace = require('@xero/xuishift/transforms/stringReplace');
 const remove = () => () => undefined;
 
 module.exports = {
-  accordion: [
+  autocompleter: [
     {
-      name: 'XUIAccordionItem',
+      name: 'XUIAutocompleter',
       props: [
         {
-          name: 'triggerStateIcon',
-          valueTransform: remove(),
+          name: 'loading',
+          newName: 'isLoading',
+        },
+        {
+          name: 'dropdownFixedWidth',
+          newName: 'dropdownHasFixedWidth',
+        },
+      ],
+    },
+    {
+      name: 'XUIAutocompleterSecondarySearch',
+      props: [
+        {
+          name: 'dropdownFixedWidth',
+          newName: 'dropdownHasFixedWidth',
         },
       ],
     },
@@ -18,8 +31,8 @@ module.exports = {
       name: 'XUIBanner',
       props: [
         {
-          name: 'closeIcon',
-          valueTransform: remove(),
+          name: 'defaultLayout',
+          newName: 'hasDefaultLayout',
         },
       ],
     },
@@ -29,245 +42,305 @@ module.exports = {
       name: 'XUIButton',
       props: [
         {
-          name: 'variant',
-          valueTransform: stringReplace({
-            // prettier-ignore
-            'link': 'borderless-primary'
-          }),
-        },
-        {
-          name: 'loadingLabel',
-          newName: 'loadingAriaLabel',
+          name: 'minLoaderWidth',
+          newName: 'hasMinLoaderWidth',
         },
       ],
     },
     {
-      name: 'XUIButtonCaret',
-      newName: 'ButtonCaret_MOVE_TO_PROP_ON_BUTTON',
+      name: 'XUIIconButton',
+      props: [
+        {
+          name: 'desc',
+          newName: 'description',
+        },
+        {
+          name: 'minLoaderWidth',
+          newName: 'hasMinLoaderWidth',
+        },
+      ],
     },
     {
       name: 'XUISecondaryButton',
       props: [
         {
-          name: 'variant',
-          valueTransform: stringReplace({
-            'borderless-create': 'create',
-            'borderless-inverted': 'primary',
-            'borderless-muted': 'standard',
-            'borderless-negative': 'negative',
-            'borderless-primary': 'primary',
-            'borderless-standard': 'standard',
-            // prettier-ignore
-            'link': 'standard'
-          }),
-        },
-        {
-          name: 'loadingLabel',
-          newName: 'loadingAriaLabel',
-        },
-      ],
-    },
-    {
-      name: 'XUISplitButtonGroup',
-      props: [
-        {
-          name: 'variant',
-          valueTransform: stringReplace({
-            'borderless-create': 'create',
-            'borderless-inverted': 'primary',
-            'borderless-muted': 'standard',
-            'borderless-negative': 'negative',
-            'borderless-primary': 'primary',
-            'borderless-standard': 'standard',
-            // prettier-ignore
-            'link': 'standard'
-          }),
+          name: 'minLoaderWidth',
+          newName: 'hasMinLoaderWidth',
         },
       ],
     },
   ],
   dropdown: [
     {
-      name: 'DropDown',
-      newName: 'XUIDropdown',
-    },
-    {
-      name: 'DropDownHeader',
-      newName: 'XUIDropdownHeader',
+      name: 'XUIDropdown',
       props: [
         {
-          name: 'backButtonLabel',
-          newName: 'backButtonAriaLabel',
+          name: 'fixedWidth',
+          newName: 'hasFixedWidth',
         },
       ],
     },
     {
-      name: 'DropDownFooter',
-      newName: 'XUIDropdownFooter',
-    },
-    {
-      name: 'DropDownPanel',
-      newName: 'XUIDropdownPanel',
-    },
-    {
-      name: 'DropDownToggled',
-      newName: 'XUIDropdownToggled',
-    },
-    {
-      name: 'NestedDropDown',
-      newName: 'XUINestedDropdown',
+      name: 'XUIDropdownLayout',
       props: [
         {
-          name: 'currentPanel',
-          newName: 'currentPanelId',
+          name: 'fixedWidth',
+          newName: 'hasFixedWidth',
+        },
+      ],
+    },
+    {
+      name: 'XUINestedDropdown',
+      props: [
+        {
+          name: 'fixedWidth',
+          newName: 'hasFixedWidth',
         },
       ],
     },
   ],
-  autocompleter: [
+  editabletable: [
     {
-      name: 'XUIAutocompleter',
+      name: 'XUIEditableTable',
       props: [
         {
-          name: 'loadingLabel',
-          newName: 'loadingAriaLabel',
+          name: 'dndInstructions',
+          valueTransform: (_, j) =>
+            j.literal(
+              'Press Space bar or Enter to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Ensure your screen reader is in focus mode or to use your pass through key.',
+            ),
+        },
+      ],
+    },
+    {
+      name: 'XUIEditableTableCellAutocompleter',
+      props: [
+        {
+          name: 'loading',
+          newName: 'isLoading',
+        },
+        {
+          name: 'dropdownFixedWidth',
+          newName: 'dropdownHasFixedWidth',
+        },
+      ],
+    },
+    {
+      name: 'XUIEditableTableCellSelectBox',
+      props: [
+        {
+          name: 'desc',
+          newName: 'description',
+        },
+        {
+          name: 'dropDownClasses',
+          newName: 'dropdownClassName',
+        },
+        {
+          name: 'buttonClasses',
+          newName: 'buttonClassName',
+        },
+        {
+          name: 'inputGroupClasses',
+          newName: 'inputGroupClassName',
+        },
+        {
+          name: 'defaultLayout',
+          newName: 'hasDefaultLayout',
+        },
+      ],
+    },
+    {
+      name: 'XUIEditableTableCellTextInput',
+      props: [
+        {
+          name: 'focusByDefault',
+          newName: 'focusOnMount',
         },
       ],
     },
   ],
-  barchart: [
+  icon: [
     {
-      name: 'XUIBarChart',
+      name: 'XUIIcon',
       props: [
         {
-          name: 'loadingLabel',
-          newName: 'loadingAriaLabel',
-        },
-        {
-          name: 'keyIcon',
-          valueTransform: remove(),
-        },
-        {
-          name: 'paginationIcon',
-          valueTransform: remove(),
+          name: 'desc',
+          newName: 'description',
         },
       ],
     },
   ],
-  datepicker: [
+  loader: [
     {
-      name: 'XUIDatePicker',
+      name: 'XUILoader',
       props: [
         {
-          name: 'nextButtonLabel',
-          newName: 'nextButtonAriaLabel',
+          name: 'defaultLayout',
+          newName: 'hasDefaultLayout',
         },
+      ],
+    },
+  ],
+  modal: [
+    {
+      name: 'XUIModal',
+      props: [
         {
-          name: 'prevButtonLabel',
-          newName: 'prevButtonAriaLabel',
+          name: 'defaultLayout',
+          newName: 'hasDefaultLayout',
         },
       ],
     },
   ],
   picklist: [
     {
-      name: 'NestedPicklist',
-      newName: 'XUINestedPicklist',
-    },
-    {
-      name: 'NestedPicklistContainer',
-      newName: 'XUINestedPicklistContainer',
-    },
-    {
-      name: 'NestedPicklistTrigger',
-      newName: 'XUINestedPicklistTrigger',
+      name: 'XUIPicklist',
       props: [
         {
-          name: 'icon',
-          valueTransform: remove(),
+          name: 'onMouseDown',
+          newName: 'onClick',
+        },
+        {
+          name: 'defaultLayout',
+          newName: 'hasDefaultLayout',
         },
       ],
     },
     {
-      name: 'Pickitem',
-      newName: 'XUIPickitem',
-    },
-    {
-      name: 'Picklist',
-      newName: 'XUIPicklist',
-    },
-    {
-      name: 'PicklistDivider',
-      newName: 'XUIPicklistDivider',
-    },
-    {
-      name: 'PicklistHeader',
-      newName: 'XUIPicklistHeader',
-    },
-    {
-      name: 'StatefulPicklist',
-      newName: 'XUIStatefulPicklist',
-    },
-  ],
-  progressindicator: [
-    {
-      name: 'XUIProgressCircular',
+      name: 'XUIStatefulPicklist',
       props: [
         {
-          name: 'completedIcon',
-          valueTransform: remove(),
-        },
-        {
-          name: 'errorIcon',
-          valueTransform: remove(),
+          name: 'canFocus',
+          newName: 'isFocusable',
         },
       ],
     },
   ],
-  'select-box': [
+  range: [
     {
-      name: 'SelectBox',
-      newName: 'XUISelectBox',
-      newImportPath: 'selectbox',
-    },
-    {
-      name: 'SelectBoxOption',
-      newName: 'XUISelectBoxOption',
-      newImportPath: 'selectbox',
-    },
-  ],
-  table: [
-    {
-      name: 'XUITable',
+      name: 'XUIRange',
       props: [
         {
-          name: 'loaderLabel',
-          newName: 'loaderAriaLabel',
+          name: 'containerClasses',
+          newName: 'containerClassName',
         },
         {
-          name: 'checkOneRowLabel',
-          newName: 'checkOneRowAriaLabel',
-        },
-        {
-          name: 'checkAllRowsLabel',
-          newName: 'checkAllRowsAriaLabel',
-        },
-        {
-          name: 'headerSortbuttonIcon',
-          valueTransform: remove(),
+          name: 'inputClasses',
+          newName: 'inputClassName',
         },
       ],
     },
   ],
-  panelsection: [
+  selectbox: [
     {
-      name: 'XUIPanelSection',
+      name: 'XUISelectBox',
       props: [
         {
-          name: 'headerText',
-          newName: 'heading',
+          name: 'containerClasses',
+          newName: 'containerClassName',
+        },
+        {
+          name: 'dropDownClasses',
+          newName: 'dropdownClassName',
+        },
+        {
+          name: 'buttonClasses',
+          newName: 'buttonClassName',
+        },
+        {
+          name: 'inputGroupClasses',
+          newName: 'inputGroupClassName',
+        },
+        {
+          name: 'defaultLayout',
+          newName: 'hasDefaultLayout',
+        },
+      ],
+    },
+    {
+      name: 'XUISelectBoxOption',
+      props: [
+        {
+          name: 'optionClasses',
+          newName: 'optionClassName',
+        },
+        {
+          name: 'truncatedText',
+          newName: 'truncateText',
         },
       ],
     },
   ],
+  textinput: [
+    {
+      name: 'XUITextInput',
+      props: [
+        {
+          name: 'focusByDefault',
+          newName: 'focusOnMount',
+        },
+      ],
+    },
+  ],
+  toast: [
+    {
+      name: 'XUIToast',
+      props: [
+        {
+          name: 'defaultLayout',
+          newName: 'hasDefaultLayout',
+        },
+      ],
+    },
+  ],
+  tooltip: [
+    {
+      name: 'XUITooltip',
+      props: [
+        {
+          name: 'limitWidth',
+          newName: 'hasLimitedWidth',
+        },
+      ],
+    },
+  ],
+
+  // Example usage to copy
+  // button: [
+  //   {
+  //     name: 'XUIButton',
+  //     props: [
+  //       {
+  //         name: 'variant',
+  //         valueTransform: stringReplace({
+  //           // prettier-ignore
+  //           'link': 'borderless-primary'
+  //         }),
+  //       },
+  //       {
+  //         name: 'loadingLabel',
+  //         newName: 'loadingAriaLabel',
+  //       },
+  //     ],
+  //   },
+  // ],
+  // progressindicator: [
+  //   {
+  //     name: 'XUIProgressCircular',
+  //     props: [
+  //       {
+  //         name: 'completedIcon',
+  //         valueTransform: remove(),
+  //       },
+  //     ],
+  //   },
+  // ],
+  // 'select-box': [
+  //   {
+  //     name: 'SelectBox',
+  //     newName: 'XUISelectBox',
+  //     newImportPath: 'selectbox',
+  //   },
+  // ],
 };

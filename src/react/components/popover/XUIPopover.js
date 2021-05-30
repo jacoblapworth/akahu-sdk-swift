@@ -1,7 +1,6 @@
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { v4 as uuid } from 'uuid';
 
 import IdContext from './contexts/IdContext';
 import { baseClassName, sizeClassNames } from './private/constants';
@@ -143,33 +142,31 @@ export default class XUIPopover extends React.Component {
     return titleId;
   };
 
-  getTriggerRef = () => {
-    return {
-      _triggerRef: this.props.triggerRef,
-      get current() {
-        if (!this._triggerRef.current) {
-          return null;
-        }
-
-        if (this._triggerRef.current instanceof HTMLElement) {
-          return this._triggerRef.current;
-        }
-        if (!this._triggerRef.current.rootNode) {
-          return null;
-        }
-
-        if (this._triggerRef.current.rootNode instanceof HTMLElement) {
-          return this._triggerRef.current.rootNode;
-        }
-
-        if (this._triggerRef.current.rootNode.current instanceof HTMLElement) {
-          return this._triggerRef.current.rootNode.current;
-        }
-
+  getTriggerRef = () => ({
+    _triggerRef: this.props.triggerRef,
+    get current() {
+      if (!this._triggerRef.current) {
         return null;
-      },
-    };
-  };
+      }
+
+      if (this._triggerRef.current instanceof HTMLElement) {
+        return this._triggerRef.current;
+      }
+      if (!this._triggerRef.current.rootNode) {
+        return null;
+      }
+
+      if (this._triggerRef.current.rootNode instanceof HTMLElement) {
+        return this._triggerRef.current.rootNode;
+      }
+
+      if (this._triggerRef.current.rootNode.current instanceof HTMLElement) {
+        return this._triggerRef.current.rootNode.current;
+      }
+
+      return null;
+    },
+  });
 }
 
 XUIPopover.propTypes = {

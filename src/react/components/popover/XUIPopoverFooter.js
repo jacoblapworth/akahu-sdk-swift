@@ -6,19 +6,17 @@ import XUIActions from '../../actions';
 import SizeContext from '../../contexts/SizeContext';
 import { baseClassName } from './private/constants';
 
-const XUIPopoverFooter = ({ className, primaryAction, qaHook, secondaryAction }) => {
-  return (
-    <div className={cn(`${baseClassName}--footer`, className)} data-automationid={qaHook}>
-      <SizeContext.Provider value="small">
-        <XUIActions
-          isLinear={Boolean(primaryAction && secondaryAction)}
-          primaryAction={primaryAction}
-          secondaryAction={secondaryAction}
-        />
-      </SizeContext.Provider>
-    </div>
-  );
-};
+const XUIPopoverFooter = ({ className, primaryAction, qaHook, secondaryAction }) => (
+  <div className={cn(`${baseClassName}--footer`, className)} data-automationid={qaHook}>
+    <SizeContext.Provider value="small">
+      <XUIActions
+        isLinear={Boolean(primaryAction && secondaryAction)}
+        primaryAction={primaryAction}
+        secondaryAction={secondaryAction}
+      />
+    </SizeContext.Provider>
+  </div>
+);
 
 XUIPopoverFooter.propTypes = {
   className: PropTypes.string,

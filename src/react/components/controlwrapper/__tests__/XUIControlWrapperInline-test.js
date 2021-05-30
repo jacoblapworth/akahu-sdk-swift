@@ -1,14 +1,14 @@
 import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import XUIControlWrapperInline from '../XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../../helpers/ariaHelpers';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testGeneratedId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testGeneratedId');
 
 Enzyme.configure({ adapter: new Adapter() });
 

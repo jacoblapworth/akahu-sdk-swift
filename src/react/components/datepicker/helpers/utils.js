@@ -137,6 +137,39 @@ export function normalizeDisplayedMonth(displayedMonth, minDate, maxDate) {
 }
 
 /**
+ * Get localised calendar data to send to react-day-picker. 2017 was chosen purposefully
+ * for the date calculations, as it started on a Sunday.
+ *
+ * Inspired by https://www.abeautifulsite.net/posts/getting-localized-month-and-day-names-in-the-browser/
+ *
+ * @export
+ * @param {String} [locale]
+ * @returns {Object}
+ */
+export const getLocalisedDateTimeData = locale => {
+  const formatter = options => new Intl.DateTimeFormat(locale, { ...options, timeZone: 'UTC' });
+
+  const monthsDates = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(month => {
+    const mm = month < 10 ? `0${month}` : month;
+
+    return new Date(`2017-${mm}-01T00:00:00+00:00`);
+  });
+
+  const months = monthsDates.map(date => formatter({ month: 'long' }).format(date));
+
+  const weekdaysDates = [1, 2, 3, 4, 5, 6, 7].map(day => {
+    const dd = day < 10 ? `0${day}` : day;
+
+    return new Date(`2017-01-${dd}T00:00:00+00:00`);
+  });
+
+  const weekdaysLong = weekdaysDates.map(date => formatter({ weekday: 'long' }).format(date));
+  const weekdaysShort = weekdaysDates.map(date => formatter({ weekday: 'narrow' }).format(date));
+
+  return { months, weekdaysLong, weekdaysShort };
+};
+
+/**
  * Check if given date is falling outside of given constraints.
  *
  * @param {Date} day The day to check if it meets given restrictions.

@@ -28,7 +28,6 @@ const XUITag = ({ children, className, debugShowToolTip, id, qaHook, size, varia
       className={cn(`${baseClass}content`, tooltipIsAttached && `${baseClass}-is-block`)}
       data-automationid={qaHook}
       ref={_tag}
-      role="status"
     >
       {children}
     </span>
@@ -38,7 +37,13 @@ const XUITag = ({ children, className, debugShowToolTip, id, qaHook, size, varia
 
   if (tooltipIsAttached || debugShowToolTip) {
     componentNode = (
-      <XUITooltip id={id} isHidden={!debugShowToolTip} limitWidth ref={_tooltip} trigger={tagNode}>
+      <XUITooltip
+        hasLimitedWidth
+        id={id}
+        isHidden={!debugShowToolTip}
+        ref={_tooltip}
+        trigger={tagNode}
+      >
         {children}
       </XUITooltip>
     );

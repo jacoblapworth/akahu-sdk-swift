@@ -1,18 +1,18 @@
 import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
 import XUISwitch from '../XUISwitch';
-import { v4 as uuidv4 } from 'uuid';
 
 const NOOP = () => {};
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testSwitchId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testSwitchId');
 
 describe('XUISwitch', function () {
   it('should render not checked and not disabled', function () {
@@ -101,8 +101,8 @@ describe('XUISwitch', function () {
     expect(ariaLabel).toMatchSnapshot();
   });
 
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUISwitch onChange={NOOP} />);
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUISwitch onChange={NOOP}>Switch</XUISwitch>);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

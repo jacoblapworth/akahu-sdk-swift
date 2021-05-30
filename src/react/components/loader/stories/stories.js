@@ -23,14 +23,14 @@ storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   const size = select('size', sizes, sizes[0]);
 
-  const defaultLayout = boolean('default layout', true);
+  const hasDefaultLayout = boolean('default layout', true);
   const retainLayout = boolean('retain layout', true);
   const isStatic = boolean('static animations', false) ? 'xui-loader-static' : null;
 
   const attrs = {
     className: 'xui-background-white',
     isInverted: boolean('is inverted', false),
-    style: getContainerStyle(!defaultLayout),
+    style: getContainerStyle(!hasDefaultLayout),
   };
 
   return (
@@ -38,7 +38,7 @@ storiesWithKnobs.add('Playground', () => {
       <XUILoader
         ariaLabel="Loading"
         className={isStatic}
-        defaultLayout={defaultLayout}
+        hasDefaultLayout={hasDefaultLayout}
         isInverted={attrs.isInverted}
         retainLayout={retainLayout}
         size={size}
@@ -56,7 +56,8 @@ variations.forEach(variation => {
     delete variationMinusStoryDetails.storyTitle;
 
     const hasContainerStyle =
-      variationMinusStoryDetails.retainLayout || variationMinusStoryDetails.defaultLayout === false;
+      variationMinusStoryDetails.retainLayout ||
+      variationMinusStoryDetails.hasDefaultLayout === false;
 
     const attrs = {
       isInverted: variationMinusStoryDetails.isInverted,

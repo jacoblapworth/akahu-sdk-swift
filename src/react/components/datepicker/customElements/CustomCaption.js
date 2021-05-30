@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import DayPicker from 'react-day-picker';
 
 const CustomCaption = () => null;
 
@@ -11,7 +10,12 @@ CustomCaption.propTypes = {
   }),
   date: PropTypes.instanceOf(Date),
   locale: PropTypes.string,
-  localeUtils: DayPicker.propTypes.localeUtils,
+  localeUtils: PropTypes.shape({
+    formatMonthTitle: PropTypes.func,
+    formatWeekdayLong: PropTypes.func,
+    formatWeekdayShort: PropTypes.func,
+    getFirstDayOfWeek: PropTypes.func,
+  }),
   months: PropTypes.arrayOf(PropTypes.string),
   onClick: PropTypes.func,
 };

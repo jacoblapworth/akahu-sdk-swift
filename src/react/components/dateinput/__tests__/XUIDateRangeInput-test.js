@@ -1,13 +1,13 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import { v4 as uuidv4 } from 'uuid';
-import Adapter from 'enzyme-adapter-react-16';
+import { nanoid } from 'nanoid';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIDateRangeInput from '../XUIDateRangeInput';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testDateinputId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testDateinputId');
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
@@ -38,12 +38,16 @@ describe('XUIDateRangeInput', () => {
       {...props}
       endDateInputConfig={{
         displayedMonth: selectedEndDate,
-        inputLabel: 'end label',
+        inputLabel: 'End date',
         selectedDateDefaultValue: selectedEndDate,
       }}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
+      qaHook="test"
       startDateInputConfig={{
         displayedMonth: selectedStartDate,
-        inputLabel: 'start label',
+        inputLabel: 'Start date',
         selectedDateDefaultValue: selectedStartDate,
       }}
     />
@@ -51,7 +55,18 @@ describe('XUIDateRangeInput', () => {
 
   it('renders default component', () => {
     const inputEl = renderer.create(
-      <XUIDateRangeInput suggestedDates={dateRangeInputSuggestedDates} />,
+      <XUIDateRangeInput
+        suggestedDates={dateRangeInputSuggestedDates}
+        endDateInputConfig={{
+          inputLabel: 'End date',
+        }}
+        locale="en"
+        nextButtonAriaLabel="Next month"
+        prevButtonAriaLabel="Previous month"
+        startDateInputConfig={{
+          inputLabel: 'Start date',
+        }}
+      />,
     );
     expect(inputEl).toMatchSnapshot();
   });
@@ -71,12 +86,17 @@ describe('XUIDateRangeInput', () => {
       <XUIDateRangeInput
         endDateInputConfig={{
           displayedMonth: selectedEndDate,
+          inputLabel: 'End date',
           selectedDateDefaultValue: selectedEndDate,
           onSelectDate: onSelectEndDate,
         }}
+        locale="en"
+        nextButtonAriaLabel="Next month"
+        prevButtonAriaLabel="Previous month"
         qaHook={qaHook}
         startDateInputConfig={{
           displayedMonth: selectedStartDate,
+          inputLabel: 'Start date',
           selectedDateDefaultValue: selectedStartDate,
           onSelectDate: onSelectStartDate,
         }}
@@ -109,13 +129,15 @@ describe('XUIDateRangeInput', () => {
   it('opens suggested date dropdown', () => {
     const wrapper = mount(createComponent({ suggestedDates: dateRangeInputSuggestedDates }));
 
-    wrapper.find('.xui-button--caret .xui-iconwrapper').simulate('click');
+    wrapper
+      .find('[data-automationid="test-daterangeinput-suggesteddates"] button')
+      .simulate('click');
     expect(wrapper.find('.xui-dropdown-is-open').length).toEqual(1);
   });
 
   it('should pass accessibility testing', async () => {
     // axe complains about repeated id but this only happens because we mock it - below code makes sure first 5 ids are 'unique'
-    uuidv4
+    nanoid
       .mockImplementationOnce(() => 'testDateinputId1')
       .mockImplementationOnce(() => 'testDateinputId2')
       .mockImplementationOnce(() => 'testDateinputId3')

@@ -19,30 +19,35 @@
  * See: http://www.w3.org/Style/Examples/007/units.en.html
  */
 
+// Function for converting pixel to rem.
+@function prem($pixel) {
+  @return $pixel / 16px * 1rem;
+}
+
 // @section Core Font Sizes
 // @type font-size
 //
-$xui-font-size-base: 16px;
+$xui-font-size-base: prem(16px);
 
-$xui-font-size-4xlarge: 72px;
-$xui-font-size-3xlarge: 48px;
-$xui-font-size-2xlarge: 30px;
-$xui-font-size-xlarge: 21px;
-$xui-font-size-large: 17px;
-$xui-font-size-medium: 15px;
-$xui-font-size-small: 13px;
-$xui-font-size-xsmall: 11px;
-$xui-font-size-2xsmall: 9px;
+$xui-font-size-4xlarge: prem(72px);
+$xui-font-size-3xlarge: prem(48px);
+$xui-font-size-2xlarge: prem(30px);
+$xui-font-size-xlarge: prem(21px);
+$xui-font-size-large: prem(17px);
+$xui-font-size-medium: prem(15px);
+$xui-font-size-small: prem(13px);
+$xui-font-size-xsmall: prem(11px);
+$xui-font-size-2xsmall: prem(9px);
 
-$xui-line-height-4xlarge: 96px;
-$xui-line-height-3xlarge: 72px;
-$xui-line-height-2xlarge: 44px;
-$xui-line-height-xlarge: 32px;
-$xui-line-height-large: 28px;
-$xui-line-height-standard: 24px;
-$xui-line-height-small: 20px;
-$xui-line-height-xsmall: 16px;
-$xui-line-height-2xsmall: 12px;
+$xui-line-height-4xlarge: prem(96px);
+$xui-line-height-3xlarge: prem(72px);
+$xui-line-height-2xlarge: prem(44px);
+$xui-line-height-xlarge: prem(32px);
+$xui-line-height-large: prem(28px);
+$xui-line-height-standard: prem(24px);
+$xui-line-height-small: prem(20px);
+$xui-line-height-xsmall: prem(16px);
+$xui-line-height-2xsmall: prem(12px);
 
 // @section Weights
 // @type font-weight
@@ -63,13 +68,13 @@ $xui-line-height-reset: 1;
 $xui-line-height-tight: 1.15;
 $xui-line-height-compact: 1.3077;
 $xui-line-height: 1.5;
-$xui-line-height-button: 1rem;
+$xui-line-height-button: prem(16px);
 
 // @section Sizing for icon text within xui
 // @type font-size
 //
-$xui-font-size-icon-large: 1.125rem; // 18/16
-$xui-font-size-icon-xlarge: 2rem; // 32/16
+$xui-font-size-icon-large: prem(18px);
+$xui-font-size-icon-xlarge: prem(32px);
 
 // @tokenparserstartignore
 $xui-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

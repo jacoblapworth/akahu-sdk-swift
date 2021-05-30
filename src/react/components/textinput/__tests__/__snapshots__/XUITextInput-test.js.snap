@@ -11,7 +11,7 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
     <input
       className="xui-textinput--input xui-textinput--input-medium"
       data-automationid="input-test--input"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       style={
@@ -20,6 +20,88 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
         }
       }
     />
+  </div>
+</div>
+`;
+
+exports[`<XUITextInput> Side elements should render side elements as labels when text type and no other label provided 1`] = `
+<div>
+  <div
+    className="xui-textinputwrapper"
+  >
+    <label
+      className="xui-textinput xui-textinput-medium"
+    >
+      <div
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text"
+      >
+        First name:
+      </div>
+      <input
+        className="xui-textinput--input xui-textinput--input-medium"
+        id="xui-testGeneratedId-control"
+        onBlurCapture={[Function]}
+        onFocusCapture={[Function]}
+        style={
+          Object {
+            "maxHeight": undefined,
+          }
+        }
+      />
+    </label>
+  </div>
+  <div
+    className="xui-textinputwrapper"
+  >
+    <label
+      className="xui-textinput xui-textinput-medium"
+    >
+      <input
+        className="xui-textinput--input xui-textinput--input-medium"
+        id="xui-testGeneratedId-control"
+        onBlurCapture={[Function]}
+        onFocusCapture={[Function]}
+        style={
+          Object {
+            "maxHeight": undefined,
+          }
+        }
+      />
+      <div
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text"
+      >
+        First name:
+      </div>
+    </label>
+  </div>
+  <div
+    className="xui-textinputwrapper"
+  >
+    <label
+      className="xui-textinput xui-textinput-medium"
+    >
+      <div
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text"
+      >
+        First name:
+      </div>
+      <input
+        className="xui-textinput--input xui-textinput--input-medium"
+        id="xui-testGeneratedId-control"
+        onBlurCapture={[Function]}
+        onFocusCapture={[Function]}
+        style={
+          Object {
+            "maxHeight": undefined,
+          }
+        }
+      />
+      <div
+        className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text"
+      >
+        First name:
+      </div>
+    </label>
   </div>
 </div>
 `;
@@ -54,7 +136,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       </div>
       <input
         className="xui-textinput--input xui-textinput--input-medium"
-        id="testGeneratedId-control"
+        id="xui-testGeneratedId-control"
         onBlurCapture={[Function]}
         onFocusCapture={[Function]}
         style={
@@ -73,7 +155,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
     >
       <input
         className="xui-textinput--input xui-textinput--input-medium"
-        id="testGeneratedId-control"
+        id="xui-testGeneratedId-control"
         onBlurCapture={[Function]}
         onFocusCapture={[Function]}
         style={
@@ -132,7 +214,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
       </div>
       <input
         className="xui-textinput--input xui-textinput--input-medium"
-        id="testGeneratedId-control"
+        id="xui-testGeneratedId-control"
         onBlurCapture={[Function]}
         onFocusCapture={[Function]}
         style={
@@ -175,7 +257,7 @@ exports[`<XUITextInput> Text-only input forces resize visible class based on opt
   >
     <textarea
       className="xui-textinput--input xui-textinput--input-medium xui-textinput--input-resize-vertical"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       rows={3}
@@ -200,7 +282,7 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
     <input
       className="xui-textinput--input xui-textinput--input-medium"
       data-automationid="givenQAHook--input"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       style={
@@ -223,7 +305,7 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
     <input
       className="xui-textinput--input xui-textinput--input-medium"
       disabled={true}
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       style={
@@ -273,7 +355,7 @@ exports[`<XUITextInput> Text-only input is input value reverse-aligned 1`] = `
   >
     <input
       className="xui-textinput--input xui-textinput--input-medium xui-textinput--input-reverse-align"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       style={
@@ -296,7 +378,7 @@ exports[`<XUITextInput> Text-only input renders with a hidden label when one is 
     <input
       aria-label="test"
       className="xui-textinput--input xui-textinput--input-medium"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       style={
@@ -346,7 +428,7 @@ exports[`<XUITextInput> Text-only input sets the resize none class based on opti
   >
     <textarea
       className="xui-textinput--input xui-textinput--input-medium xui-textinput--input-resize-none"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       onBlurCapture={[Function]}
       onFocusCapture={[Function]}
       rows={3}
@@ -362,7 +444,7 @@ exports[`<XUITextInput> Text-only input sets the resize none class based on opti
 
 exports[`<XUITextInput> Validation and hints renders invalid textinputs with an error message correctly 1`] = `
 <div
-  className="xui-textinputwrapper"
+  className="xui-textinputwrapper xui-textinputwrapper-is-invalid"
 >
   <div
     className="xui-textinput xui-textinput-medium xui-textinput-is-invalid"
@@ -468,14 +550,14 @@ exports[`TextInput with Character counter renders correctly when current input l
     <input
       class="xui-textinput--input xui-textinput--input-medium"
       data-automationid="test-id--input"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       value="Lorem ipsum"
     />
   </div>
   <div
     class="xui-validation xui-validation-layout xui-validation-is-invalid"
     data-automationid="test-id--message"
-    id="testGeneratedId-message"
+    id="xui-testGeneratedId-message"
     role="status"
   >
     <svg
@@ -524,7 +606,7 @@ exports[`TextInput with Character counter renders correctly when current input l
     <input
       class="xui-textinput--input xui-textinput--input-medium"
       data-automationid="test-id--input"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       value="Lorem ips"
     />
   </div>
@@ -560,7 +642,7 @@ exports[`TextInput with Character counter renders with character counter where d
     <input
       class="xui-textinput--input xui-textinput--input-medium"
       data-automationid="test-id--input"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       value=""
     />
   </div>
@@ -596,7 +678,7 @@ exports[`TextInput with Character counter renders with character counter where v
     <input
       class="xui-textinput--input xui-textinput--input-medium"
       data-automationid="test-id--input"
-      id="testGeneratedId-control"
+      id="xui-testGeneratedId-control"
       value=""
     />
   </div>

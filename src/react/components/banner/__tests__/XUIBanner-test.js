@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIBanner from '../XUIBanner';
 
@@ -47,7 +47,7 @@ describe('XUIBanner', () => {
   });
 
   it('should render with a close button if close click function is provided', () => {
-    const banner = shallow(<XUIBanner onCloseClick={NOOP} />);
+    const banner = shallow(<XUIBanner closeButtonLabel="Close" onCloseClick={NOOP} />);
     expect(banner.childAt(0).hasClass('xui-banner--close')).toBeTruthy();
   });
 

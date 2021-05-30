@@ -35,6 +35,7 @@ interface Props {
    * Primary heading content.
    */
   primaryHeading?: React.ReactNode;
+  qaHook?: string;
   /**
    * Secondary heading content.
    */

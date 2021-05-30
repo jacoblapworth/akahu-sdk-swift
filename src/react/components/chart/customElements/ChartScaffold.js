@@ -27,11 +27,9 @@ class ChartScaffold extends PureComponent {
     this.updateChartWidth = this.updateChartWidth.bind(this);
     this.updateToolTip = this.updateToolTip.bind(this);
     this.updatePanel = this.updatePanel.bind(this);
+    this.rootNode = React.createRef();
+    this.contentNode = React.createRef();
   }
-
-  rootNode;
-
-  contentNode;
 
   throttledAction;
 
@@ -112,7 +110,7 @@ class ChartScaffold extends PureComponent {
 
   updateChartWidth = () => {
     const { rootNode, state } = this;
-    const chartWidth = rootNode && rootNode.offsetWidth;
+    const chartWidth = rootNode.current?.offsetWidth;
     const shouldUpdate = !testIsCloseEnough(chartWidth || CHART_WIDTH, state.chartWidth);
 
     if (shouldUpdate) {
@@ -123,7 +121,7 @@ class ChartScaffold extends PureComponent {
   updateXAxisHeight = () =>
     pause(this.testIsChartMounted, this.props.barsData, () => {
       const { rootNode, state } = this;
-      const xAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--xaxis`);
+      const xAxisNode = rootNode.current?.querySelector(`.${NAME_SPACE}-chart--xaxis`);
       const xAxisHeight = xAxisNode && getGroupPosition(xAxisNode).height;
       const shouldUpdate = !testIsCloseEnough(xAxisHeight || X_AXIS_HEIGHT, state.xAxisHeight);
 
@@ -137,7 +135,7 @@ class ChartScaffold extends PureComponent {
   updateYAxisWidth = () =>
     pause(this.testIsChartMounted, this.props.barsData, () => {
       const { rootNode, state } = this;
-      const yAxisNode = rootNode && rootNode.querySelector(`.${NAME_SPACE}-chart--yaxis`);
+      const yAxisNode = rootNode.current?.querySelector(`.${NAME_SPACE}-chart--yaxis`);
       const yAxisWidth = yAxisNode && getGroupPosition(yAxisNode).width;
       const shouldUpdate = !testIsCloseEnough(yAxisWidth || Y_AXIS_WIDTH, state.yAxisWidth);
 
@@ -154,12 +152,12 @@ class ChartScaffold extends PureComponent {
       contentNode,
       props: { hasPagination },
     } = this;
-    const victoryNode = contentNode && contentNode.querySelector('.VictoryContainer');
-    const shouldUpdate = !hasPagination && rootNode && contentNode && victoryNode;
+    const victoryNode = contentNode.current?.querySelector('.VictoryContainer');
+    const shouldUpdate = !hasPagination && rootNode.current?.contentNode?.current && victoryNode;
 
     if (shouldUpdate) {
-      const { scrollLeft } = contentNode;
-      const panelWidth = contentNode.clientWidth;
+      const { scrollLeft } = contentNode.current;
+      const panelWidth = contentNode.current?.clientWidth;
       const victoryWidth = victoryNode.clientWidth;
       const hasLeftShadow = scrollLeft > 0;
       const hasRightShadow = scrollLeft + panelWidth < victoryWidth;
@@ -167,15 +165,15 @@ class ChartScaffold extends PureComponent {
       const rightClassName = `${NAME_SPACE}-chart-has-right-shadow`;
 
       if (hasLeftShadow) {
-        rootNode.classList.add(leftClassName);
+        rootNode.current?.classList.add(leftClassName);
       } else {
-        rootNode.classList.remove(leftClassName);
+        rootNode.current?.classList.remove(leftClassName);
       }
 
       if (hasRightShadow) {
-        rootNode.classList.add(rightClassName);
+        rootNode.current?.classList.add(rightClassName);
       } else {
-        rootNode.classList.remove(rightClassName);
+        rootNode.current?.classList.remove(rightClassName);
       }
     }
   };
@@ -193,9 +191,7 @@ class ChartScaffold extends PureComponent {
   };
 
   findScrollOffset = ({ hasPagination, panelWidth, panelCurrent }) =>
-    hasPagination
-      ? (panelCurrent - 1) * panelWidth
-      : (this.contentNode && this.contentNode.scrollLeft) || 0;
+    hasPagination ? (panelCurrent - 1) * panelWidth : this.contentNode.current?.scrollLeft || 0;
 
   render() {
     const { props, state } = this;
@@ -310,7 +306,7 @@ class ChartScaffold extends PureComponent {
         >
           <div
             className={`${NAME_SPACE}-chart--base`}
-            ref={node => (this.rootNode = node)}
+            ref={this.rootNode}
             style={{
               // These two styles are required for IE 11 where the SVG will not fill
               // its parent container correctly unless the height is explicitly
@@ -425,7 +421,7 @@ class ChartScaffold extends PureComponent {
             <div
               className={`${NAME_SPACE}-chart--content`}
               onScroll={this.throttledContentScroll}
-              ref={node => (this.contentNode = node)}
+              ref={this.contentNode}
               style={{
                 left: `${chartLeft}px`,
                 width: `${panelWidth}px`,

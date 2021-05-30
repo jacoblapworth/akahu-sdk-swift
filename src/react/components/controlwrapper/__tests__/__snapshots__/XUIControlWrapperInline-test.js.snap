@@ -2,18 +2,16 @@
 
 exports[`<XUIControlWrapperInline> renders a hidden label, invalid, and an error message 1`] = `
 <div>
-  <label
-    role="presentation"
-  >
+  <label>
     <input
-      aria-describedby="testGeneratedId-message"
+      aria-describedby="xui-testGeneratedId-message"
       aria-invalid={true}
       type="checkbox"
     />
   </label>
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid"
-    id="testGeneratedId-message"
+    id="xui-testGeneratedId-message"
     role="status"
   >
     <svg
@@ -35,15 +33,13 @@ exports[`<XUIControlWrapperInline> renders a hidden label, invalid, and an error
 
 exports[`<XUIControlWrapperInline> renders a simple HTML label, when provided 1`] = `
 <div>
-  <label
-    role="presentation"
-  >
+  <label>
     <input
       aria-invalid={false}
       type="checkbox"
     />
     <span
-      id="testGeneratedId"
+      id="xui-testGeneratedId"
     >
       <span>
         Impressive input label
@@ -55,9 +51,7 @@ exports[`<XUIControlWrapperInline> renders a simple HTML label, when provided 1`
 
 exports[`<XUIControlWrapperInline> renders basic example 1`] = `
 <div>
-  <label
-    role="presentation"
-  >
+  <label>
     <input
       aria-invalid={false}
       type="checkbox"
@@ -71,7 +65,6 @@ exports[`<XUIControlWrapperInline> renders classes and qaHook on all elements 1`
   <label
     className="test-field-class"
     data-automationid="ctrl-wrapper"
-    role="presentation"
   >
     <input
       aria-describedby="testSpecificLabel-message"

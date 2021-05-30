@@ -32,8 +32,10 @@ class XUIDateInput extends React.Component {
       locale,
       maxDate,
       minDate,
+      nextButtonAriaLabel,
       onInputChange,
       onSelectDate, // Destructured so as not to spread.
+      prevButtonAriaLabel,
       selectedDateValue, // Destructured so as not to spread.
       selectedDateDefaultValue,
       selectDateIcon,
@@ -59,8 +61,10 @@ class XUIDateInput extends React.Component {
           locale={locale}
           maxDate={maxDate}
           minDate={minDate}
+          nextButtonAriaLabel={nextButtonAriaLabel}
           onInputChange={onInputChange}
           onSelectDate={this.onSelectDate}
+          prevButtonAriaLabel={prevButtonAriaLabel}
           qaHook={qaHook && `${qaHook}-dateinput`}
           selectDateIcon={selectDateIcon}
           selectDateLabel={selectDateLabel}
@@ -93,7 +97,7 @@ XUIDateInput.propTypes = {
   hintMessage: PropTypes.string,
 
   /** Input label */
-  inputLabel: PropTypes.string,
+  inputLabel: PropTypes.string.isRequired,
 
   /** Whether the input is disabled */
   isDisabled: PropTypes.bool,
@@ -101,8 +105,8 @@ XUIDateInput.propTypes = {
   /** Whether the current input value is invalid */
   isInvalid: PropTypes.bool,
 
-  /** The locale of the calendar. Defaults to En */
-  locale: PropTypes.string,
+  /** The locale of the calendar. */
+  locale: PropTypes.string.isRequired,
 
   /**
    * If you want to disable every date after a given day, pass in the maximum enabled
@@ -116,11 +120,25 @@ XUIDateInput.propTypes = {
    */
   minDate: PropTypes.instanceOf(Date),
 
+  /** An accessibility label for the next month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Next month*
+   */
+  nextButtonAriaLabel: PropTypes.string.isRequired,
+
   /** Callback for when the input changes  */
   onInputChange: PropTypes.func,
 
   /** Callback for when the user selects a date */
   onSelectDate: PropTypes.func,
+
+  /** An accessibility label for the previous month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Previous month*
+   */
+  prevButtonAriaLabel: PropTypes.string.isRequired,
 
   qaHook: PropTypes.string,
 
@@ -163,7 +181,6 @@ XUIDateInput.propTypes = {
 XUIDateInput.defaultProps = {
   closeOnSelect: true,
   displayedMonth: new Date(),
-  locale: 'en',
 };
 
 export default XUIDateInput;

@@ -11,14 +11,15 @@ const onToastClose = () => {
 
 <div>
   <XUIToast
+    closeButtonLabel="Close"
     message="Option 1"
-    qaHook="toast-example"
     onCloseClick={onToastClose}
     primaryAction={
       <XUIToastAction href="#" qaHook="toast-example--action">
         Action 1
       </XUIToastAction>
     }
+    qaHook="toast-example"
     secondaryAction={
       <XUIToastAction href="#" qaHook="toast-example--action-2">
         Action 2

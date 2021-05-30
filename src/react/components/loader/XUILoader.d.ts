@@ -18,7 +18,7 @@ interface Props {
    *
    * Defaults to `true`.
    */
-  defaultLayout?: boolean;
+  hasDefaultLayout?: boolean;
   /**
    * Sets the loader to the inverted colour scheme.
    */
@@ -29,7 +29,7 @@ interface Props {
   qaHook?: string;
   /**
    * Adds the retain layout class, used in combination with buttons. Applying this prop will cause
-   * `defaultLayout` prop to be ignored.
+   * `hasDefaultLayout` prop to be ignored.
    */
   retainLayout?: boolean;
   /**

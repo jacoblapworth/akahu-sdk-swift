@@ -1,12 +1,5 @@
 const browsers = require('@xero/browserslist-autoprefixer');
 
-const classPropertiesPlugin = [
-  '@babel/plugin-proposal-class-properties',
-  {
-    loose: true,
-  },
-];
-
 const productionConfig = {
   presets: [
     [
@@ -31,7 +24,6 @@ const productionConfig = {
     '@babel/preset-react',
     '@babel/preset-typescript',
   ],
-  plugins: [classPropertiesPlugin],
 };
 
 const babelConfig = {
@@ -39,7 +31,6 @@ const babelConfig = {
   env: {
     development: {
       presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-      plugins: [classPropertiesPlugin],
     },
     production: productionConfig,
     test: {
@@ -64,7 +55,6 @@ const babelConfig = {
             extensions: ['.scss'],
           },
         ],
-        classPropertiesPlugin,
         [
           '@babel/plugin-transform-runtime',
           {

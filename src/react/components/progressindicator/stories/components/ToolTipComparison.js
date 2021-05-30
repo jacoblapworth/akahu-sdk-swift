@@ -4,13 +4,14 @@ import logReadyState from '../../../../stories/helpers/log-ready-state';
 const readyEvent = 'xui-progress-ready-event';
 
 class ToolTipComparison extends PureComponent {
-  node = null;
+  node = React.createRef();
 
   componentDidMount() {
     setTimeout(() => {
       const { node } = this;
-      const wrapper =
-        node && node.querySelector('.xui-progress [aria-describedby$="progress--tooltip"]');
+      const wrapper = node.current?.querySelector(
+        '.xui-progress [aria-describedby$="progress--tooltip"]',
+      );
       if (wrapper) {
         wrapper.click();
         logReadyState(readyEvent);
@@ -27,7 +28,7 @@ class ToolTipComparison extends PureComponent {
       // visual regression captures. This extra padding at the top of the component
       // ensures that the entire "active" Tool Tip gets captured.
       <div style={{ background: 'white', paddingTop: '80px' }}>
-        <div ref={node => (this.node = node)} style={style}>
+        <div ref={this.node} style={style}>
           {component}
         </div>
       </div>

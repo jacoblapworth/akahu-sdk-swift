@@ -1,8 +1,10 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIDropdownPanel from '../XUIDropdownPanel';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIPickitem from '../../picklist/XUIPickitem';
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
@@ -25,10 +27,22 @@ describe('<XUIDropdownPanel /> onScroll method', () => {
     expect(onScroll).toBeCalled();
   });
 
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
     const wrapper = mount(
       <XUIDropdownPanel>
         <h1>Meow</h1>
+      </XUIDropdownPanel>,
+    );
+    const results = await axe(wrapper.html());
+    expect(results).toHaveNoViolations();
+  });
+
+  it('should pass accessibility testing when rendering a picklist inside the panel', async () => {
+    const wrapper = mount(
+      <XUIDropdownPanel>
+        <XUIPicklist ariaLabel="Select option">
+          <XUIPickitem id="option1">Option 1</XUIPickitem>
+        </XUIPicklist>
       </XUIDropdownPanel>,
     );
     const results = await axe(wrapper.html());

@@ -5,9 +5,8 @@ import * as React from 'react';
 import combineRefs from '../../helpers/combineRefs';
 import useResizeObserver from '../../helpers/useResizeObserver';
 import { ns } from '../../helpers/xuiClassNamespace';
+import XUIEditableTableClassContext from '../contexts/XUIEditableTableClassContext';
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
-
-const baseName = `${ns}-editabletableoverflow`;
 
 interface BaseProps {
   children?: React.ReactNode;
@@ -22,11 +21,14 @@ const EditableTableOverflow: React.FunctionComponent<Props> = React.forwardRef<H
   ({ children, className, hasPinnedFirstColumn, hasPinnedLastColumn, ...spreadProps }, ref) => {
     const editableTableOverflowRef = React.useRef<HTMLElement>(null);
     const { scrollContainerRef, tableRef } = React.useContext(XUIEditableTableContext);
+    const tableClassName = React.useContext(XUIEditableTableClassContext);
     const [hasLeftOverflow, setLeftOverflow] = React.useState<boolean>();
     const [hasRightOverflow, setRightOverflow] = React.useState<boolean>();
     const [hasFirstPinOverflow, setFirstPinOverflow] = React.useState<boolean>();
     const [hasLastPinOverflow, setLastPinOverflow] = React.useState<boolean>();
     const { observedElementRef } = useResizeObserver();
+
+    const baseName = `${tableClassName}overflow`;
 
     const combinedRef = combineRefs(ref, editableTableOverflowRef, observedElementRef);
 
@@ -60,7 +62,8 @@ const EditableTableOverflow: React.FunctionComponent<Props> = React.forwardRef<H
         // The CSS variable is used to calculate the overflow shadow height
         const scrollbarHeight =
           scrollContainerElement.offsetHeight - scrollContainerElement.clientHeight;
-        editableTableOverflowRef?.current?.style.setProperty(
+
+        editableTableOverflowRef.current?.style.setProperty(
           '--xui-editableoverflow--scrollbar-height',
           `${scrollbarHeight}px`,
         );
@@ -81,7 +84,7 @@ const EditableTableOverflow: React.FunctionComponent<Props> = React.forwardRef<H
           hasFirstPinOverflow && `${baseName}-pinoverflowleft`,
           hasLastPinOverflow && `${baseName}-pinoverflowright`,
         )}
-        ref={element => combinedRef(element as HTMLElement)}
+        ref={combinedRef}
         {...spreadProps}
       >
         {children}

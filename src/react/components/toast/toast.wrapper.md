@@ -80,10 +80,11 @@ class Example extends PureComponent {
         <XUIToastWrapper>
           {this.state.toasts.map((toast, idx) => (
             <XUIToast
-              onCloseClick={() => this.removeToast(toast)}
+              closeButtonLabel="Close"
               key={idx}
-              onMouseOver={() => this.stopToastTimeout(toast)}
+              onCloseClick={() => this.removeToast(toast)}
               onMouseLeave={() => this.addToastTimeout(toast)}
+              onMouseOver={() => this.stopToastTimeout(toast)}
             >
               <XUIToastMessage>{toast}</XUIToastMessage>
             </XUIToast>

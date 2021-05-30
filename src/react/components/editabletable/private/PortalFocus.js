@@ -2,10 +2,11 @@ import React, { useState, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { Portal } from 'react-portal';
-import { tableName } from './constants';
+import { tableVariantClassNames } from './constants';
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
 import usePrevious from '../../helpers/usePrevious';
 
+const tableName = tableVariantClassNames.editable;
 const baseName = `${tableName}--portalfocus`;
 
 const PortalFocus = ({ focusedCellRef, isFocused, scrollContainerRef }) => {
@@ -87,7 +88,8 @@ const PortalFocus = ({ focusedCellRef, isFocused, scrollContainerRef }) => {
       getPortalPosition();
       scrollContainerRef?.current?.addEventListener('scroll', getPortalPosition);
     }
-    return () => scrollContainerRef?.current?.removeEventListener('scroll', getPortalPosition);
+    const currentScrollContainerRef = scrollContainerRef?.current;
+    return () => currentScrollContainerRef?.removeEventListener('scroll', getPortalPosition);
   }, [
     focusedCellRef,
     hasPinnedFirstColumn,

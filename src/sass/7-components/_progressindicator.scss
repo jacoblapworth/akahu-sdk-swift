@@ -67,12 +67,6 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
   width: 100%;
 }
 
-.#{$ns}-progress-circular-wrapper-ie11 {
-  left: 0;
-  position: absolute;
-  top: 0;
-}
-
 .#{$ns}-progress-circular-track,
 .#{$ns}-progress-circular-current {
   fill: none;

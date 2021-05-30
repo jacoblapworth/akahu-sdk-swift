@@ -4,6 +4,8 @@ import { DragDropContext as RBDDragDropContext } from 'react-beautiful-dnd';
 
 import { borderSpacing } from '../constants';
 import DragDropDraggingContext from './contexts/DragDropDraggingContext';
+import { useMouseSensor, useTouchSensor } from './helpers/react-beautiful-dnd/usePointerSensors';
+import useKeyboardSensor from './helpers/use-keyboard-sensor';
 
 interface BaseProps {
   dragCancelledMessage?: (startPosition: number) => string;
@@ -43,6 +45,7 @@ const DragDropProvider: React.FunctionComponent<Props> = ({
 
   return (
     <RBDDragDropContext
+      enableDefaultSensors={false}
       onDragEnd={(result, provided) => {
         onDragEnd(result, provided);
 
@@ -100,6 +103,7 @@ const DragDropProvider: React.FunctionComponent<Props> = ({
           provided.announce(dragUpdateMessage(startPosition, endPosition));
         }
       }}
+      sensors={[useMouseSensor, useTouchSensor, useKeyboardSensor]}
       {...spreadProps}
     >
       <DragDropDraggingContext.Provider value={{ draggedRowHeight, draggedRowIndex }}>

@@ -290,7 +290,7 @@ How to run the codemod:
 1. Install jscodeshift
 
 ```bash
-npm i -g jscodeshift@~0.10.0
+npm i -g jscodeshift@~0.12.0
 ```
 
 2. Run the codemod

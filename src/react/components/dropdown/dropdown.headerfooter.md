@@ -193,7 +193,7 @@ class XDD extends Component {
         footer={dropdownFooter}
         size="large"
         hasKeyboardEvents={false}
-        fixedWidth
+        hasFixedWidth
       >
         <XUIPicklist>
           {items.map(item => (

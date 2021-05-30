@@ -23,13 +23,15 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
 
   class BasicStatefulPicklist extends React.Component {
     state = {
-      loading: false,
+      isLoading: false,
       value: '',
     };
 
+    _rootNode = React.createRef();
+
     onSearch = value => {
       this.setState(() => ({
-        loading: true,
+        isLoading: true,
         value,
       }));
     };
@@ -50,13 +52,13 @@ test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
 
     render() {
       return (
-        <div id="spl-wrapper" ref={comp => (this._rootNode = comp)} style={{ width: '300px' }}>
+        <div id="spl-wrapper" ref={this._rootNode} style={{ width: '300px' }}>
           <XUIAutoCompleter
             className="xui-u-fullwidth"
             footer={this.renderFooter(false)}
             inputLabel="label here"
             isInputLabelHidden
-            loading={this.state.loading}
+            isLoading={this.state.isLoading}
             loadingAriaLabel="Loading"
             onSearch={this.onSearch}
             openOnFocus

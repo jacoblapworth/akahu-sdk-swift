@@ -67,13 +67,11 @@ const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 variations.forEach(variation => {
   const { storyTitle, storyKind, sections, ...variationMinusStoryDetails } = variation;
 
-  storiesWithVariations.add(storyTitle, () => {
-    return (
-      <div style={variationMinusStoryDetails.style || { minWidth: '500px' }}>
-        <XUIOverviewBlock {...variationMinusStoryDetails}>
-          {buildExampleSections(sections)}
-        </XUIOverviewBlock>
-      </div>
-    );
-  });
+  storiesWithVariations.add(storyTitle, () => (
+    <div style={variationMinusStoryDetails.style || { minWidth: '500px' }}>
+      <XUIOverviewBlock {...variationMinusStoryDetails}>
+        {buildExampleSections(sections)}
+      </XUIOverviewBlock>
+    </div>
+  ));
 });

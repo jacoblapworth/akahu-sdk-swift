@@ -8,20 +8,7 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
-
-// TODO: If there is further need to conform to specific browser scenarios then
-// we will need to replace this snippet with something more robust and granular,
-// or an NPM library (one that is not too heavy). Currently this is the only case
-// in XUI where we are browser sniffing.
-const isIeOrEdge =
-  typeof window !== 'undefined' &&
-  (() => {
-    const { document, navigator } = window;
-    const isIe = document.documentMode;
-    const isEdge = /Edge/.test(navigator.userAgent);
-
-    return isIe || isEdge;
-  })();
+import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
 
 /**
  * @function setIndeterminate - Set the indeterminate DOM property of the given checkbox instance
@@ -128,32 +115,19 @@ export default class XUICheckbox extends PureComponent {
 
   componentDidMount() {
     setIndeterminate(this);
+
+    const { children, labelId, isLabelHidden } = this.props;
+
+    labelRequiredWarning(XUICheckbox.name, textChildOrLabelId, [
+      children?.innerText && !isLabelHidden,
+      typeof children?.[0] === 'string',
+      labelId,
+    ]);
   }
 
   componentDidUpdate() {
     setIndeterminate(this);
   }
-
-  onClick = event => {
-    const {
-      _input: {
-        current: { indeterminate },
-      },
-      props: { onChange, isIndeterminate },
-    } = this;
-
-    setIndeterminate(this);
-
-    // Both IE11 and Edge do not register an "onChange" event when the checkbox
-    // is in an "Indeterminate" state. In that regard the checkbox becomes non
-    // responsive and cannot rebound back to a "checked" or "unchecked" state.
-    // Here we check if the checkbox's "Indeterminate" state is attempting to
-    // change and if so we give it a helping hand by manually triggering the
-    // "onChange" hook..
-    if (onChange && isIeOrEdge && indeterminate !== isIndeterminate) {
-      onChange(event);
-    }
-  };
 
   render() {
     const {
@@ -210,7 +184,6 @@ export default class XUICheckbox extends PureComponent {
       type: 'checkbox',
       disabled: isDisabled,
       required: isRequired,
-      onClick: this.onClick,
       tabIndex,
       name,
       onChange,

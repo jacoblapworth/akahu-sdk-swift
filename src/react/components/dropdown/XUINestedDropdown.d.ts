@@ -19,11 +19,6 @@ interface Props {
    */
   currentPanelId?: string;
   /**
-   * Whether the fixed width class variant should be used for the `size` prop. Does nothing if no
-   * size is provided.
-   */
-  fixedWidth?: boolean;
-  /**
    * Items to be added to the menu's footer.
    */
   footer?: React.ReactElement;
@@ -31,6 +26,11 @@ interface Props {
    * Force the desktop UI, even if the viewport is narrow enough for mobile.
    */
   forceDesktop?: boolean;
+  /**
+   * Whether the fixed width class variant should be used for the `size` prop. Does nothing if no
+   * size is provided.
+   */
+  hasFixedWidth?: boolean;
   /**
    * Whether or not the dropdown should take focus and handle keyboard events automatically.
    */

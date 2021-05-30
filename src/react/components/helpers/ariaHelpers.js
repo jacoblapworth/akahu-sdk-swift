@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 /**
  * @public
@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
  * @returns {{label: string, message: string, control: string}}
  */
 export default function generateIds(labelId) {
-  const label = labelId || uuidv4();
+  const label = labelId || `xui-${nanoid(10)}`;
   return {
     label,
     control: `${label}-control`,
@@ -26,7 +26,7 @@ export default function generateIds(labelId) {
  * @returns {{label: string, message: string, control: string}}
  */
 export function generateIdsFromControlId(controlId) {
-  const control = controlId || uuidv4();
+  const control = controlId || `xui-${nanoid(10)}`;
   return {
     control,
     label: `${control}-label`,

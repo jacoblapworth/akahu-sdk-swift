@@ -47,7 +47,7 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with no default layout',
-    defaultLayout: false,
+    hasDefaultLayout: false,
     isOpen: false,
     selectors: '#root > div > div',
   },
@@ -98,7 +98,7 @@ const variations = [
     storyTitle: 'with truncation and no icon',
     buttonContent: 'Choose a classic book',
     isTextTruncated: true,
-    containerClasses: 'xui-dropdown-small xui-dropdown-force-desktop',
+    containerClassName: 'xui-dropdown-small xui-dropdown-force-desktop',
     fullWidth: 'never',
   },
   {

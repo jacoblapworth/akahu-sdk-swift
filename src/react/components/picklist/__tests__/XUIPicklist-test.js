@@ -1,22 +1,22 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIPicklist from '../XUIPicklist';
 import XUIPickitem from '../XUIPickitem';
-import { v4 as uuidv4 } from 'uuid';
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testPickitemCheckboxId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testPickitemCheckboxId');
 
 const setup = (props = {}, itemProps = {}) => {
   const expected = renderer.create(
     <XUIPicklist {...props}>
-      <XUIPickitem primaryElement="Item content" id="pi1" {...itemProps} />
+      <XUIPickitem id="pi1" primaryElement="Item content" {...itemProps} />
     </XUIPicklist>,
   );
 
@@ -32,7 +32,7 @@ describe('< Picklist />', () => {
   it('should pass accessibility testing', async () => {
     const wrapper = mount(
       <XUIPicklist>
-        <div>Pickitem</div>
+        <li>Pickitem</li>
       </XUIPicklist>,
     );
     const results = await axe(wrapper.html());
@@ -44,7 +44,7 @@ describe('< Picklist />', () => {
       className: 'custom-picklist-class',
       id: 'picklistId',
       isHorizontal: true,
-      defaultLayout: false,
+      hasDefaultLayout: false,
       shouldTruncate: true,
       secondaryProps: { role: 'presentation' },
       qaHook: 'picklist-example',
@@ -68,8 +68,8 @@ describe('< Picklist />', () => {
   it('example taking settings from first child and giving to all', () => {
     const fromItems = renderer.create(
       <XUIPicklist>
-        <XUIPickitem primaryElement="Item content" id="pi1" isMultiselect={true} />
-        <XUIPickitem primaryElement="Item two" id="pi2" />
+        <XUIPickitem id="pi1" isMultiselect primaryElement="Item content" />
+        <XUIPickitem id="pi2" primaryElement="Item two" />
       </XUIPicklist>,
     );
     expect(fromItems).toMatchSnapshot();

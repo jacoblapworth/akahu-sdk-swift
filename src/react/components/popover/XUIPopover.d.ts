@@ -29,7 +29,7 @@ interface Props {
   triggerRef: React.RefObject<
     | HTMLElement
     | {
-        rootNode: HTMLElement | React.RefObject<HTMLElement> | null;
+        rootNode: React.RefObject<HTMLElement>;
       }
   >;
   /**

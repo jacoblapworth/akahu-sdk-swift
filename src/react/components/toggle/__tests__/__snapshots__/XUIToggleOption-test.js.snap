@@ -7,7 +7,6 @@ exports[`XUIToggleOption should have a qaHook on the root node if provided 1`] =
   <label
     className="xui-toggle--option"
     data-automationid="cheese-and-crackers"
-    role="presentation"
   >
     <input
       className="xui-toggle--input"
@@ -25,17 +24,16 @@ exports[`XUIToggleOption should have label text if provided 1`] = `
 >
   <label
     className="xui-toggle--option"
-    role="presentation"
   >
     <input
-      aria-labelledby="testToggleId"
+      aria-labelledby="xui-testToggleId"
       className="xui-toggle--input"
       onChange={[Function]}
       type="radio"
     />
     <span
       className="xui-toggle--label"
-      id="testToggleId"
+      id="xui-testToggleId"
     >
       Howdy, folks!
     </span>

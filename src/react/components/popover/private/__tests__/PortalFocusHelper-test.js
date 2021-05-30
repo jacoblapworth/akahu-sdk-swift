@@ -1,5 +1,7 @@
+import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Enzyme, { mount, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
 import React from 'react';
 
@@ -107,22 +109,26 @@ describe('<PortalFocusHelper />', () => {
         eventListeners[event] = cb;
       });
       const expectedAutomationId = 'expected-element';
-      const focusPortal = document.createElement('button');
-      const focusPortalRef = { current: focusPortal };
+      const focusPortalRef = React.createRef();
       const onReturnFocus = jest.fn();
-      const wrapper = mount(
-        <PortalFocusHelper focusPortalRef={focusPortalRef} onReturnFocus={onReturnFocus}>
-          <input data-automationid={expectedAutomationId} />
-        </PortalFocusHelper>,
+      render(
+        <>
+          <button ref={focusPortalRef} type="button" />
+          <PortalFocusHelper focusPortalRef={focusPortalRef} onReturnFocus={onReturnFocus}>
+            <input data-automationid={expectedAutomationId} />
+          </PortalFocusHelper>
+        </>,
       );
 
       // Act
-      eventListeners.keydown({ key: 'Tab', preventDefault: () => {}, target: focusPortal });
+      eventListeners.keydown({
+        key: 'Tab',
+        preventDefault: () => {},
+        target: focusPortalRef.current,
+      });
 
       // Assert
-      expect(document.activeElement).toBe(
-        wrapper.find(`[data-automationid="${expectedAutomationId}"]`).getDOMNode(),
-      );
+      expect(document.activeElement).toBe(screen.getByTestId(expectedAutomationId));
     });
 
     it('pressing tab calls onReturnFocus() if there is nothing in the portal that is focusable', () => {
@@ -173,17 +179,19 @@ describe('<PortalFocusHelper />', () => {
       document.addEventListener = jest.fn((event, cb) => {
         eventListeners[event] = cb;
       });
+
       const expectedAutomationId = 'expected-element';
-      const focusPortal = document.createElement('button');
-      const focusPortalRef = { current: focusPortal };
+      const focusPortalRef = React.createRef();
       const onReturnFocus = jest.fn();
       const nextElementAutomationId = 'next-focusable-element';
-      const wrapper = mount(
+
+      render(
         <>
+          <button ref={focusPortalRef} type="button" />
+          <button data-automationid={nextElementAutomationId} type="button" />
           <PortalFocusHelper focusPortalRef={focusPortalRef} onReturnFocus={onReturnFocus}>
             <input data-automationid={expectedAutomationId} />
           </PortalFocusHelper>
-          <button data-automationid={nextElementAutomationId} type="button" />
         </>,
       );
 
@@ -192,13 +200,11 @@ describe('<PortalFocusHelper />', () => {
         key: 'Tab',
         preventDefault: () => {},
         shiftKey: true,
-        target: wrapper.find(`[data-automationid="${nextElementAutomationId}"]`),
+        target: screen.getByTestId(nextElementAutomationId),
       });
 
       // Assert
-      expect(document.activeElement).toEqual(
-        wrapper.find(`[data-automationid="${expectedAutomationId}"]`).getDOMNode(),
-      );
+      expect(document.activeElement).toEqual(screen.getByTestId(expectedAutomationId));
     });
   });
 });

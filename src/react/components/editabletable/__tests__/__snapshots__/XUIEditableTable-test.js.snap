@@ -6,6 +6,7 @@ exports[`<XUIEditableTable /> composes the className and passed an id correctly 
     className="test-classname"
     columnWidths={Array []}
     dndInstructions=""
+    tableClassName="xui-editabletable"
     tableRef={
       Object {
         "current": undefined,
@@ -29,6 +30,7 @@ exports[`<XUIEditableTable /> renders correctly 1`] = `
   <EditableTableWrapper
     columnWidths={Array []}
     dndInstructions=""
+    tableClassName="xui-editabletable"
     tableRef={
       Object {
         "current": undefined,
@@ -55,6 +57,7 @@ exports[`<XUIEditableTable /> renders the ariaLabel correctly 1`] = `
   <EditableTableWrapper
     columnWidths={Array []}
     dndInstructions=""
+    tableClassName="xui-editabletable"
     tableRef={
       Object {
         "current": undefined,
@@ -80,6 +83,7 @@ exports[`<XUIEditableTable /> validation message renders correctly when the tabl
     columnWidths={Array []}
     dndInstructions=""
     isInvalid={true}
+    tableClassName="xui-editabletable"
     tableRef={
       Object {
         "current": undefined,

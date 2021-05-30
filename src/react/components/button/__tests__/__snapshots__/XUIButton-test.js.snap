@@ -149,7 +149,7 @@ exports[`<XUIButton/> renders an icon or caret when the appropriate prop is rece
 >
   I’m a dropdown trigger
   <div
-    className="xui-button--caret xui-iconwrapper xui-iconwrapper-medium"
+    className="xui-button--caret"
   >
     <svg
       className="xui-icon"

@@ -3,8 +3,8 @@ import React from 'react';
 
 import XUIAutocompleterEmptyState from '../../XUIAutocompleterEmptyState';
 
-const EmptyStateExample = ({ iconComponent, iconProps }) => {
-  return iconComponent ? (
+const EmptyStateExample = ({ iconComponent, iconProps }) =>
+  iconComponent ? (
     <XUIAutocompleterEmptyState iconComponent={iconComponent}>
       No content found
     </XUIAutocompleterEmptyState>
@@ -13,6 +13,5 @@ const EmptyStateExample = ({ iconComponent, iconProps }) => {
       No people found
     </XUIAutocompleterEmptyState>
   );
-};
 
 export default EmptyStateExample;

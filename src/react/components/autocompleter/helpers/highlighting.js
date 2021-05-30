@@ -1,5 +1,5 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 /**
  * Find all case-insensitive matches of a sub-string in a string and replace them with the
@@ -18,7 +18,7 @@ export const decorateSubStr = (str, searchStr, decorateFn) => {
   // If the search string is the same as the result, return a decorated full match
   if (str === searchStr) {
     // v1() creates a unique time based key
-    return decorateFn(str, uuidv4());
+    return decorateFn(str, nanoid(10));
   }
 
   // If there's no search string or its greater than a match there's no need to
@@ -44,7 +44,7 @@ export const decorateSubStr = (str, searchStr, decorateFn) => {
       resultIdx += 1;
     }
     if (matches[i]) {
-      result[resultIdx] = decorateFn(matches[i], uuidv4());
+      result[resultIdx] = decorateFn(matches[i], nanoid(10));
       resultIdx += 1;
     }
   }

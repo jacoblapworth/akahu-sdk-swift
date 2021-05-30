@@ -8,19 +8,16 @@ import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 import { XUIProgressCircular } from '../../../progressindicator';
 
-import { baseClass, formatBytes, getFileTypeIcon } from './helpers';
+import { baseClass, formatBytes, getFileTypeIcon, parseUploadProgressPercentage } from './helpers';
 
 const fileItemBaseClass = `${baseClass}--fileitem`;
 const iconClassName = `${fileItemBaseClass}--icon`;
-const progressProps = {
-  progress: 1,
-  total: 4,
-};
 
 const FileList = ({
   cancelButtonText,
   defaultErrorMessage,
   deleteLabel,
+  errorIconAriaLabel,
   fileList,
   fileListClassName,
   fileSizeUnits,
@@ -30,6 +27,7 @@ const FileList = ({
   onRetry,
   qaHook,
   retryButtonText,
+  uploadingIconAriaLabel,
   uploadingMessage,
   showIcon,
 }) => {
@@ -47,7 +45,23 @@ const FileList = ({
         data-automationid={qaHook && `${qaHook}-filelist`}
       >
         {fileList.map(file => {
-          const { uid, status, originalFile = {}, errorMessage, rightContent } = file;
+          const {
+            uid,
+            status,
+            originalFile = {},
+            errorMessage,
+            rightContent,
+            uploadProgressPercentage,
+          } = file;
+          const roundedUploadProgressPercentage = parseUploadProgressPercentage(
+            uploadProgressPercentage,
+          );
+          const hasUploadProgressPercentage = roundedUploadProgressPercentage !== undefined;
+
+          const progressProps = {
+            progress: hasUploadProgressPercentage ? roundedUploadProgressPercentage : 1,
+            total: hasUploadProgressPercentage ? 100 : 4,
+          };
 
           const { name, size, type } = originalFile;
           return (
@@ -58,6 +72,7 @@ const FileList = ({
                 (status === 'error' && (
                   <span className={iconClassName}>
                     <XUIProgressCircular
+                      ariaLabel={errorIconAriaLabel}
                       id={`fileuploader-icon-error-${uid}`}
                       isHardError
                       {...progressProps}
@@ -65,8 +80,15 @@ const FileList = ({
                   </span>
                 )) ||
                   (status === 'uploading' && (
-                    <span className={`${fileItemBaseClass}--loading`}>
+                    <span
+                      className={cn(
+                        `${fileItemBaseClass}--loading`,
+                        !hasUploadProgressPercentage &&
+                          `${fileItemBaseClass}--loading-indeterminate`,
+                      )}
+                    >
                       <XUIProgressCircular
+                        ariaLabel={uploadingIconAriaLabel}
                         id={`fileuploader-icon-spin-${uid}`}
                         {...progressProps}
                       />
@@ -132,6 +154,7 @@ FileList.propTypes = {
   cancelButtonText: PropTypes.string.isRequired,
   defaultErrorMessage: PropTypes.string.isRequired,
   deleteLabel: PropTypes.string.isRequired,
+  errorIconAriaLabel: PropTypes.string,
   fileList: PropTypes.array.isRequired,
   fileListClassName: PropTypes.string,
   fileSizeUnits: PropTypes.array,
@@ -142,5 +165,6 @@ FileList.propTypes = {
   retryButtonText: PropTypes.string.isRequired,
   showFilesAsMultiline: PropTypes.bool,
   showIcon: PropTypes.bool,
+  uploadingIconAriaLabel: PropTypes.string,
   uploadingMessage: PropTypes.string,
 };

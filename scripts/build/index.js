@@ -17,8 +17,8 @@ async function build() {
     }),
     buildStorybook(),
     buildTokens(),
-    buildUmd(),
   ]);
+  await buildUmd();
   await buildServiceWorker();
 
   process.exit();

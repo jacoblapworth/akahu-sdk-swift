@@ -53,8 +53,9 @@ storiesWithKnobs.add('Playground', () => (
       },
     ])}
     className={text('className', '')}
-    defaultLayout={boolean('hasLayout', true)}
+    closeButtonLabel="Close"
     detailItems={array('detailItems', [])}
+    hasDefaultLayout={boolean('hasLayout', true)}
     messageText={text('messageText', "A Banner's Message")}
     onCloseClick={NOOP}
     qaHook={text('qaHook', '')}
@@ -69,6 +70,6 @@ variations.forEach(variation => {
     variationMinusStoryDetails.storyKind = undefined;
     variationMinusStoryDetails.storyTitle = undefined;
 
-    return <DetailedBanner {...variationMinusStoryDetails} />;
+    return <DetailedBanner closeButtonLabel="Close" {...variationMinusStoryDetails} />;
   });
 });

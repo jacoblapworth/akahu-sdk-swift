@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 
 import XUIEditableTableCell from './XUIEditableTableCell';
-import { tableName } from './private/constants';
-
-const baseName = `${tableName}cellreadonly`;
+import XUIEditableTableClassContext from './contexts/XUIEditableTableClassContext';
 
 const XUIEditableTableCellReadOnly = ({ cellProps = {}, children, ...spreadProps }) => {
+  const tableClassName = React.useContext(XUIEditableTableClassContext);
+  const baseName = `${tableClassName}cellreadonly`;
+
   return (
     <XUIEditableTableCell
       {...cellProps}

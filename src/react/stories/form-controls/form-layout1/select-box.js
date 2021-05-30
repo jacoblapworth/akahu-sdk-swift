@@ -17,6 +17,8 @@ export default class LayoutSelect extends React.Component {
     };
 
     this.onSelect = this.onSelect.bind(this);
+
+    this.selectOne = React.createRef();
   }
 
   onSelect(value) {
@@ -27,48 +29,55 @@ export default class LayoutSelect extends React.Component {
 
   render() {
     const { selectedItem } = this.state;
-    const { label, children, title, name, className, htmlFor } = this.props;
+    const {
+      label,
+      children,
+      title,
+      name,
+      htmlFor,
+      isLabelHidden,
+      isFieldLayout,
+      isInvalid,
+      isDisabled,
+      validationMessage,
+    } = this.props;
 
     const displayText = selectedItem != null && selectedItem !== '' ? selectedItem : title;
 
     return (
-      <div className={className}>
-        <XUISelectBox
-          buttonContent={
-            <span className="xui-u-flex">
-              <XUIIcon className="xui-margin-right-xsmall" icon={bank} />
-              {displayText}
-            </span>
-          }
-          caretTitle="Toggle list"
-          htmlFor={htmlFor}
-          isFieldLayout
-          isTextTruncated={false}
-          label={label}
-          name={name}
-          ref={c => (this.selectOne = c)}
-        >
-          {children &&
-            children.map((opt, idx) => (
-              <XUISelectBoxOption
-                id={opt}
-                isSelected={opt === selectedItem && selectedItem !== ''}
-                // eslint-disable-next-line prefer-template
-                key={idx + opt + 'userDefined key'}
-                onSelect={this.onSelect}
-                value={opt}
-              >
-                {opt}
-              </XUISelectBoxOption>
-            ))}
-        </XUISelectBox>
-        <input
-          hidden
-          id={selectedItem}
-          name={name}
-          value={selectedItem != null ? selectedItem : ''}
-        />
-      </div>
+      <XUISelectBox
+        buttonContent={
+          <span className="xui-u-flex">
+            <XUIIcon className="xui-margin-right-xsmall" icon={bank} />
+            {displayText}
+          </span>
+        }
+        caretTitle="Toggle list"
+        htmlFor={htmlFor}
+        isDisabled={isDisabled}
+        isFieldLayout={isFieldLayout}
+        isInvalid={isInvalid}
+        isLabelHidden={isLabelHidden}
+        isTextTruncated={false}
+        label={label}
+        name={name}
+        ref={c => (this.selectOne = c)}
+        validationMessage={validationMessage}
+      >
+        {children &&
+          children.map((opt, idx) => (
+            <XUISelectBoxOption
+              id={opt}
+              isSelected={opt === selectedItem && selectedItem !== ''}
+              // eslint-disable-next-line prefer-template
+              key={idx + opt + 'userDefined key'}
+              onSelect={this.onSelect}
+              value={opt}
+            >
+              {opt}
+            </XUISelectBoxOption>
+          ))}
+      </XUISelectBox>
     );
   }
 }
@@ -77,6 +86,7 @@ LayoutSelect.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
   htmlFor: PropTypes.string,
+  isFieldLayout: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string,
   onSelect: PropTypes.func,

@@ -5,13 +5,15 @@ import crossIcon from '@xero/xui-icon/icons/cross';
 import XUIIconButton from '../button/XUIIconButton';
 import sentimentMap from './private/sentiments';
 import { ns } from '../helpers/xuiClassNamespace';
+import checkRequiredProps from '../../helpers/checkRequiredProps';
 
 const sentiments = Object.keys(sentimentMap);
 
 const XUIBanner = ({
   children,
   className,
-  defaultLayout,
+  closeButtonLabel,
+  hasDefaultLayout,
   onCloseClick,
   qaHook,
   role,
@@ -19,13 +21,13 @@ const XUIBanner = ({
 }) => {
   const closeButton = onCloseClick && (
     <XUIIconButton
-      ariaLabel="Close"
+      ariaLabel={closeButtonLabel}
       className={`${ns}-banner--close`}
       icon={crossIcon}
       onClick={onCloseClick}
       qaHook={qaHook && `${qaHook}-close--button`}
       size="small"
-      title="Close"
+      title={closeButtonLabel}
     />
   );
 
@@ -37,7 +39,7 @@ const XUIBanner = ({
     className,
     `${ns}-banner`,
     {
-      [`${ns}-banner-layout`]: defaultLayout,
+      [`${ns}-banner-layout`]: hasDefaultLayout,
     },
     sentimentClass,
   );
@@ -55,8 +57,17 @@ export default XUIBanner;
 XUIBanner.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  /**
+   * Title and accessibility label to be applied to the banner close "X" button.
+   * This is required if an `onCloseClick` callback prop is provided.
+   * <br />
+   * Recommended English value: *Close*
+   */
+  closeButtonLabel(...parameters) {
+    return checkRequiredProps('onCloseClick', PropTypes.string.isRequired, ...parameters);
+  },
   /** Defines whether the default layout class should be supplied */
-  defaultLayout: PropTypes.bool,
+  hasDefaultLayout: PropTypes.bool,
   /** Handles the click event for the action */
   onCloseClick: PropTypes.func,
   qaHook: PropTypes.string,
@@ -68,5 +79,5 @@ XUIBanner.propTypes = {
 };
 
 XUIBanner.defaultProps = {
-  defaultLayout: true,
+  hasDefaultLayout: true,
 };

@@ -15,7 +15,7 @@ export interface Props {
   /**
    * Description to be read by screen readers.
    */
-  desc?: string;
+  description?: string;
   /**
    * An object describing the path, width and height.
    */

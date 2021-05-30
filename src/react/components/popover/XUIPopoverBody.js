@@ -5,21 +5,19 @@ import React from 'react';
 import IdContext from './contexts/IdContext';
 import { baseClassName } from './private/constants';
 
-const XUIPopoverBody = ({ className, children, qaHook }) => {
-  return (
-    <IdContext.Consumer>
-      {({ bodyId }) => (
-        <div
-          className={cn(`${baseClassName}--body`, className)}
-          data-automationid={qaHook}
-          id={bodyId}
-        >
-          {children}
-        </div>
-      )}
-    </IdContext.Consumer>
-  );
-};
+const XUIPopoverBody = ({ className, children, qaHook }) => (
+  <IdContext.Consumer>
+    {({ bodyId }) => (
+      <div
+        className={cn(`${baseClassName}--body`, className)}
+        data-automationid={qaHook}
+        id={bodyId}
+      >
+        {children}
+      </div>
+    )}
+  </IdContext.Consumer>
+);
 
 XUIPopoverBody.propTypes = {
   children: PropTypes.node,

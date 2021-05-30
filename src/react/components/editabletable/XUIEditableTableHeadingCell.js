@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import { tableName } from './private/constants';
-
-const baseName = `${tableName}headingcell`;
+import XUIEditableTableClassContext from './contexts/XUIEditableTableClassContext';
 
 const XUIEditableTableHeadingCell = ({ children, className, qaHook, scope, ...spreadProps }) => {
+  const tableClassName = React.useContext(XUIEditableTableClassContext);
+  const baseName = `${tableClassName}headingcell`;
+
   // TODO: sort out how we’re going to handle text alignment and add some logic here
   const cellClassName = cn(baseName, className, `${baseName}-leftaligned`);
 

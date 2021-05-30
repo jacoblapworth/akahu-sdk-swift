@@ -4,7 +4,7 @@ import XUIOverviewBlock from '../XUIOverviewBlock';
 import XUIOverviewSection from '../XUIOverviewSection';
 import { overviewSentiments } from '../private/constants';
 import Enzyme, { mount, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -66,8 +66,12 @@ describe('<XUI OverviewBlock and OverviewSection/>', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIOverviewBlock />);
+  it('XUIOverviewBlock and XUIOverviewSection should pass accessibility testing', async () => {
+    const wrapper = mount(
+      <XUIOverviewBlock>
+        <XUIOverviewSection />
+      </XUIOverviewBlock>,
+    );
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import verge from 'verge';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import cn from 'classnames';
 import PositioningInline from '../positioning/PositioningInline';
 import Positioning from '../positioning/Positioning';
@@ -13,6 +13,7 @@ import {
   throttleToFrame,
 } from './private/helpers';
 import compose from '../helpers/compose';
+import combineRefs from '../helpers/combineRefs';
 import { isKeySpacebar, eventKeyValues } from '../helpers/reactKeyHandler';
 import { baseClass, dropdownPositionOptions } from './private/constants';
 import DropdownContext from './contexts/DropdownContext';
@@ -101,9 +102,11 @@ export default class XUIDropdownToggled extends PureComponent {
 
     this.wrapper = React.createRef();
     this.positioning = React.createRef();
+    this.trigger = React.createRef();
+    this.dropdown = React.createRef();
   }
 
-  dropdownId = (this.props.dropdown && this.props.dropdown.props.id) || uuidv4();
+  dropdownId = this.props.dropdown?.props.id || `xui-${nanoid(10)}`;
 
   /**
    * `openedDropdowns` is used to keep track of nested dropdowns that have been opened.
@@ -114,7 +117,7 @@ export default class XUIDropdownToggled extends PureComponent {
 
   /**
    * Attaches the event listeners based on state.
-   * Listeners attached on keydown and mousedown to control the open/close keyboard
+   * Listeners attached on keydown and click to control the open/close keyboard
    * shortcuts of the list.
    */
   componentDidMount() {
@@ -194,7 +197,7 @@ export default class XUIDropdownToggled extends PureComponent {
       // Just closed
       if (isHidden) {
         const { firstChild: trigger } = this.wrapper.current;
-        focusTrigger(this.trigger, trigger);
+        focusTrigger(this.trigger.current, trigger);
 
         // Remove window event listeners for performance gains.
         removeEventListeners(this);
@@ -376,11 +379,11 @@ export default class XUIDropdownToggled extends PureComponent {
   };
 
   /**
-   * Fires when the window triggers a mouse down event
+   * Fires when the window triggers an onClick event
    *
    * @param {MouseEvent} event
    */
-  onMouseDown = event => {
+  onClick = event => {
     const { isHidden } = this.state;
     const { firstChild: trigger } = this.wrapper.current;
 
@@ -393,12 +396,11 @@ export default class XUIDropdownToggled extends PureComponent {
     */
 
     const openedDropdownsDoNotContainTarget = this.openedDropdowns.every(openedDropdown => {
-      const dropdown =
-        openedDropdown === undefined
-          ? /** Where the opened dropdown is the top level dropdown */
-            document.getElementById(this.dropdownId)
-          : /** Where the opened dropdown are the inner dropdowns */
-            openedDropdown && document.getElementById(openedDropdown.props.id);
+      const dropdown = !openedDropdown
+        ? /** Where the opened dropdown is the top level dropdown */
+          document.getElementById(this.dropdownId)
+        : /** Where the opened dropdown are the inner dropdowns */
+          openedDropdown && document.getElementById(openedDropdown.props.id);
 
       return dropdown == null || !dropdown.contains(event.target);
     });
@@ -465,7 +467,7 @@ export default class XUIDropdownToggled extends PureComponent {
     }));
 
     // Tell the dropdown to ensure that an element is highlighted, if appropriate
-    this.dropdown.highlightInitial();
+    this.dropdown.current.highlightInitial();
     if (this.props.onOpenAnimationEnd != null) {
       this.props.onOpenAnimationEnd();
     }
@@ -552,7 +554,7 @@ export default class XUIDropdownToggled extends PureComponent {
           const { isOpening, isClosing, isHidden, activeDescendant } = this.state;
 
           const clonedTrigger = React.cloneElement(trigger, {
-            ref: compose(trigger.ref, c => (this.trigger = c)),
+            ref: combineRefs(trigger.ref, this.trigger),
             onClick: this.handleOnClick,
             onKeyDown: this.handleOnKeyDown,
             onKeyUp: this.handleOnKeyUp,
@@ -567,8 +569,8 @@ export default class XUIDropdownToggled extends PureComponent {
             forceDesktop,
             animateOpen: isOpening,
             animateClosed: isClosing,
+            ref: combineRefs(dropdown.ref, this.dropdown),
             // TODO: Memoize these props to avoid recreating functions
-            ref: compose(dropdown.ref, c => (this.dropdown = c)),
             onSelect: compose(dropdown.props.onSelect, this.onSelect),
             onHighlightChange: compose(dropdown.props.onHighlightChange, this.onHighlightChange),
             onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, this.onCloseAnimationEnd),
@@ -608,8 +610,8 @@ export default class XUIDropdownToggled extends PureComponent {
             );
 
           const wrapperAria = {
-            role: ariaRole || 'presentation',
-            'aria-expanded': (ariaRole && !isHidden) || undefined,
+            role: ariaRole || undefined,
+            'aria-expanded': ariaRole ? !isHidden : undefined,
             'aria-owns': (!isHidden && this.dropdownId) || undefined,
           };
 
@@ -619,15 +621,15 @@ export default class XUIDropdownToggled extends PureComponent {
                 /**
                  * `currentOpenedDropdowns` is an array which contains all opened Dropdowns
                  * For child dropdown, it's an array contains it's parent Dropdown (contextOpenDropdowns)
-                 * For parent dropdown, it's `undefined` and will get an empty array assigned (this.openedDropdowns)
+                 * For parent dropdown, it's `null` and will get an empty array assigned (this.openedDropdowns)
                  */
                 const currentOpenedDropdowns = contextOpenDropdowns || this.openedDropdowns;
-                if (currentOpenedDropdowns.indexOf(this.dropdown) === -1) {
-                  currentOpenedDropdowns.push(this.dropdown);
+                if (currentOpenedDropdowns.indexOf(this.dropdown.current) === -1) {
+                  currentOpenedDropdowns.push(this.dropdown.current);
                 }
                 // For child dropdown, this.openedDropdowns will only contain itself
                 this.openedDropdowns = contextOpenDropdowns
-                  ? [this.dropdown]
+                  ? [this.dropdown.current]
                   : currentOpenedDropdowns;
 
                 return (

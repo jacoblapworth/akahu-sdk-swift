@@ -11,7 +11,7 @@ type Props = BaseProps &
   Omit<
     React.ComponentProps<typeof XUISelectBox>,
     | 'buttonVariant'
-    | 'defaultLayout'
+    | 'hasDefaultLayout'
     | 'fullWidth'
     | 'isFieldLayout'
     | 'isLabelHidden'

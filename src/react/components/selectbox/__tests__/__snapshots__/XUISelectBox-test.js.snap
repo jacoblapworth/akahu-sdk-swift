@@ -2,7 +2,7 @@
 
 exports[`<XUISelectBox /> should render the appropriate automation id's when a qaHook is provided 1`] = `
 <div
-  className=""
+  className="xui-selectwrapper"
   data-automationid="test-selectbox"
 >
   <div
@@ -10,26 +10,25 @@ exports[`<XUISelectBox /> should render the appropriate automation id's when a q
   >
     <label
       className="xui-text-label xui-fieldlabel-layout"
-      data-automationid="test-selectbox---label--label"
+      data-automationid="test-selectbox--label"
       htmlFor="testThisSelect-control"
     >
       test
     </label>
     <div
-      className="xui-select-layout"
-      data-automationid="test-selectbox---inputgroup"
+      className="xui-select xui-select-layout"
+      data-automationid="test-selectbox--inputgroup"
     >
       <div
         className="xui-dropdown--toggledwrapper"
-        data-automationid="test-selectbox---dropdowntoggled"
+        data-automationid="test-selectbox--dropdowntoggled"
         data-ref="toggled-wrapper"
-        role="presentation"
       >
         <button
           aria-activedescendant={null}
           aria-haspopup="listbox"
           className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon"
-          data-automationid="test-selectbox---button"
+          data-automationid="test-selectbox--button"
           disabled={false}
           id="testThisSelect-control"
           onClick={[Function]}
@@ -44,7 +43,7 @@ exports[`<XUISelectBox /> should render the appropriate automation id's when a q
             test
           </span>
           <div
-            className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-medium"
+            className="xui-button--caret xui-select--caret"
           >
             <svg
               className="xui-icon"
@@ -68,7 +67,7 @@ exports[`<XUISelectBox /> should render the appropriate automation id's when a q
 
 exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isDisabled\` is set 1`] = `
 <div
-  className=""
+  className="xui-selectwrapper"
 >
   <div
     className=""
@@ -76,19 +75,18 @@ exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isD
     <label
       className="xui-text-label xui-fieldlabel-layout"
       data-automationid={null}
-      htmlFor="testSelectBoxId-control"
+      htmlFor="xui-testSelectBoxId-control"
     >
       test
     </label>
     <div
-      className="xui-select-layout"
+      className="xui-select xui-select-layout"
       data-automationid={null}
     >
       <div
         className="xui-dropdown--toggledwrapper"
         data-automationid={null}
         data-ref="toggled-wrapper"
-        role="presentation"
       >
         <button
           aria-activedescendant={null}
@@ -96,7 +94,7 @@ exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isD
           className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon xui-button-is-disabled"
           data-automationid={null}
           disabled={true}
-          id="testSelectBoxId-control"
+          id="xui-testSelectBoxId-control"
           onClick={[Function]}
           onKeyDown={null}
           onKeyUp={[Function]}
@@ -109,7 +107,7 @@ exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isD
             test
           </span>
           <div
-            className="xui-button--caret xui-select--caret xui-iconwrapper xui-iconwrapper-medium"
+            className="xui-button--caret xui-select--caret"
           >
             <svg
               className="xui-icon"

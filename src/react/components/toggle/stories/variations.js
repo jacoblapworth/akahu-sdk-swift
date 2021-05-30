@@ -256,6 +256,12 @@ const variations = [
       },
     ],
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with icons',
+    label: 'Toggle with icon content',
+    options: 'icons',
+  },
 ];
 
 export { storiesWithVariationsKindName, variations };

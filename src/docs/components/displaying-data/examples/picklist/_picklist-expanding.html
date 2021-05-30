@@ -1,8 +1,7 @@
 <div class="xui-panel">
-  <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="group">
-    <li class="xui-picklist--nestedcontainer" aria-expanded="true">
+  <ul class="xui-picklist xui-picklist-layout xui-picklist-medium" role="tree">
+    <li class="xui-picklist--nestedcontainer" aria-expanded="true" role="treeitem">
       <input
-        role="treeitem"
         type="checkbox"
         class="xui-pickitem--submenucontrol"
         id="nested-checkbox"
@@ -10,7 +9,6 @@
         aria-owns="nested"
       />
       <label
-        role="button"
         for="nested-checkbox"
         class="xui-submenu-uicontrol xui-pickitem--body"
         tabindex="0"
@@ -23,9 +21,9 @@
           </svg>
         </div>
       </label>
-      <ul role="listbox" class="xui-submenu xui-submenu-layout" id="nested">
-        <li class="xui-pickitem xui-pickitem-medium" role="option" id="0-1">
-          <button type="button" class="xui-pickitem--body">
+      <ul role="group" class="xui-submenu xui-submenu-layout" id="nested">
+        <li class="xui-pickitem xui-pickitem-medium" role="treeitem" id="0-1">
+          <button type="button" class="xui-pickitem--body xui-pickitem--body-has-leftelement">
             <span class="xui-pickitem--sideelement">
               <abbr
                 class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-7"
@@ -36,8 +34,8 @@
             <span class="xui-pickitem--text">Andy Carrell</span>
           </button>
         </li>
-        <li class="xui-pickitem xui-pickitem-medium" role="option" id="0-2">
-          <button type="button" class="xui-pickitem--body">
+        <li class="xui-pickitem xui-pickitem-medium" role="treeitem" id="0-2">
+          <button type="button" class="xui-pickitem--body xui-pickitem--body-has-leftelement">
             <span class="xui-pickitem--sideelement">
               <abbr
                 class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-8"
@@ -48,8 +46,8 @@
             <span class="xui-pickitem--text">Jishaal Kalyan</span>
           </button>
         </li>
-        <li class="xui-pickitem xui-pickitem-medium" role="option" id="0-3">
-          <button type="button" class="xui-pickitem--body">
+        <li class="xui-pickitem xui-pickitem-medium" role="treeitem" id="0-3">
+          <button type="button" class="xui-pickitem--body xui-pickitem--body-has-leftelement">
             <span class="xui-pickitem--sideelement">
               <abbr
                 class="xui-avatar xui-avatar-business xui-avatar-small xui-avatar-color-9"

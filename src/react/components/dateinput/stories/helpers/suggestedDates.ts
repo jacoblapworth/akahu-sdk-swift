@@ -22,9 +22,7 @@ export const dateInputSuggestedDates = [
   {
     id: 'jan2019',
     text: 'January 2019',
-    getDate: () => {
-      return new Date(Date.UTC(2019, 0, 10));
-    },
+    getDate: () => new Date(Date.UTC(2019, 0, 10)),
   },
 ];
 

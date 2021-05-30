@@ -3,8 +3,7 @@ async function wait(ms) {
 }
 
 module.exports = async (page, scenario) => {
-  const { clickSelector, hoverSelector } = scenario;
-
+  const { clickSelector, hoverSelector, useCustomFontSize } = scenario;
   const xuiMotionDelayLong = 500;
 
   await page.evaluate(() => {
@@ -26,6 +25,13 @@ module.exports = async (page, scenario) => {
   if (hoverSelector) {
     await page.hover(hoverSelector);
     await wait(xuiMotionDelayLong);
+  }
+
+  // Used to test whether `rem` unit takes effect
+  if (useCustomFontSize) {
+    await page.evaluate(() => {
+      document.documentElement.style.fontSize = '130%';
+    });
   }
 
   await page.waitFor(() => {

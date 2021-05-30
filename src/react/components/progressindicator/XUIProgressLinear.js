@@ -1,29 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import '../helpers/xuiGlobalChecks';
 import { enrichLinearProps } from './helpers/enrichprops';
 import { NAME_SPACE } from './helpers/constants';
 import LinearTrack from './customElements/LinearTrack';
 import ProgressWrapper from './customElements/ProgressWrapper';
+import labelRequiredWarning, { ariaLabelOnly } from '../helpers/labelRequiredWarning';
 
-const XUIProgressLinear = props => (
-  <ProgressWrapper {...enrichLinearProps(props)}>
-    {({ isSegmented, total, progress, isGrow, thickness, hasSegmentDots }) => (
-      <div className={`${NAME_SPACE}--fragment`}>
-        <LinearTrack
-          {...{
-            isSegmented,
-            total,
-            progress,
-            isGrow,
-            thickness,
-            hasSegmentDots,
-          }}
-        />
-      </div>
-    )}
-  </ProgressWrapper>
-);
+const XUIProgressLinear = props => {
+  useEffect(() => {
+    labelRequiredWarning(XUIProgressLinear.name, ariaLabelOnly, [props.ariaLabel]);
+  }, [props.ariaLabel]);
+
+  return (
+    <ProgressWrapper {...enrichLinearProps(props)}>
+      {({ isSegmented, total, progress, isGrow, thickness, hasSegmentDots }) => (
+        <div className={`${NAME_SPACE}--fragment`}>
+          <LinearTrack
+            {...{
+              isSegmented,
+              total,
+              progress,
+              isGrow,
+              thickness,
+              hasSegmentDots,
+            }}
+          />
+        </div>
+      )}
+    </ProgressWrapper>
+  );
+};
 
 export default XUIProgressLinear;
 

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import { tableName } from './private/constants';
+import { tableVariantClassNames } from './private/constants';
 import XUIEditableTableCell from './XUIEditableTableCell';
 import XUIIconButton from '../button/XUIIconButton';
 
-const baseName = `${tableName}celliconbutton`;
+const baseName = `${tableVariantClassNames.editable}celliconbutton`;
 
 const XUIEditableTableCellIconButton = ({
   ariaLabel,
@@ -15,19 +15,17 @@ const XUIEditableTableCellIconButton = ({
   onClick,
   qaHook,
   ...spreadProps
-}) => {
-  return (
-    <XUIEditableTableCell {...cellProps} className={cn(baseName, cellProps.className)}>
-      <XUIIconButton
-        {...spreadProps}
-        ariaLabel={ariaLabel}
-        icon={iconReference}
-        onClick={onClick}
-        qaHook={qaHook}
-      />
-    </XUIEditableTableCell>
-  );
-};
+}) => (
+  <XUIEditableTableCell {...cellProps} className={cn(baseName, cellProps.className)}>
+    <XUIIconButton
+      {...spreadProps}
+      ariaLabel={ariaLabel}
+      icon={iconReference}
+      onClick={onClick}
+      qaHook={qaHook}
+    />
+  </XUIEditableTableCell>
+);
 
 XUIEditableTableCellIconButton.propTypes = {
   ariaLabel: PropTypes.string,

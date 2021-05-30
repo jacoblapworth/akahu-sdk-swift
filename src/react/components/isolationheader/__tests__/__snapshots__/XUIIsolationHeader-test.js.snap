@@ -68,7 +68,6 @@ exports[`<XUIIsolationHeader> renders correctly 1`] = `
           >
             <span
               className="xui-tagcontent"
-              role="status"
             >
               First tag
             </span>
@@ -78,7 +77,6 @@ exports[`<XUIIsolationHeader> renders correctly 1`] = `
           >
             <span
               className="xui-tagcontent"
-              role="status"
             >
               Second tag
             </span>

@@ -4,10 +4,10 @@ import cn from 'classnames';
 
 import XUIEditableTableCellControl from './XUIEditableTableCellControl';
 import XUITextInput from '../textinput/XUITextInput';
-import { tableName } from './private/constants';
+import { tableVariantClassNames } from './private/constants';
 import combineRefs from '../helpers/combineRefs';
 
-const baseName = `${tableName}celltextinput`;
+const baseName = `${tableVariantClassNames.editable}celltextinput`;
 
 const XUIEditableTableCellTextInput = ({
   cellProps = {},
@@ -94,7 +94,7 @@ XUIEditableTableCellTextInput.propTypes = {
   /** Default value of the text input */
   defaultValue: PropTypes.string,
   /** After rendering set focus at the end of the input */
-  focusByDefault: PropTypes.bool,
+  focusOnMount: PropTypes.bool,
   /** Class names to add to the input element */
   inputClassName: PropTypes.string,
   /** Props to be spread onto the input element itself */

@@ -2,8 +2,6 @@
 //
 // Teaser: Select multiple items from a range of options
 //
-// flags: updated
-//
 // Introduction:
 // XUI provides a custom checkbox control for consistency across platforms and visual alignment with other form elements.
 //
@@ -66,6 +64,8 @@
 // Styleguide: Components.Controls.Checkbox.3
 
 // Grouped checkboxes
+//
+// flags: updated
 //
 // To increase hit states and create visual similarity with other form elements, consider using a checkbox group.
 //
@@ -172,6 +172,8 @@
 // xui-styledcheckboxradio--checkbox-xsmall: Sets the checkbox size to xsmall
 // xui-styledcheckboxradio--label-xsmall: Sets the label size to xsmall
 // xui-touchtarget: Invisible touch target element inside a checkbox
+// xui-controlgroup: Sets some styles common to groups of inputs
+// xui-controlgroup-vertical: Sets some styles common to vertically stacked groups of inputs
 //
 // Styleguide: Components.Controls.Checkbox.50
 

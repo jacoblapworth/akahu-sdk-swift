@@ -21,9 +21,7 @@
 }
 
 .#{$ns}-heading-separator {
-  @include xui-heading-small;
-  @include xui-text-deemphasis;
-  @include xui-text-muted;
+  @include xui-heading-separator;
 }
 
 // Generic Headings

@@ -1,19 +1,20 @@
 import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
+import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import { v4 as uuidv4 } from 'uuid';
 
 import XUIEditableTable from '../XUIEditableTable';
-import { tableName } from '../private/constants';
+import { tableVariantClassNames } from '../private/constants';
+const tableName = tableVariantClassNames.editable;
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
-jest.mock('uuid');
-const mockedUuid = 'testGeneratedId';
-uuidv4.mockImplementation(() => mockedUuid);
+jest.mock('nanoid');
+const mockedNanoid = 'testGeneratedId';
+nanoid.mockImplementation(() => mockedNanoid);
 
 describe('<XUIEditableTable />', () => {
   it('renders correctly', () => {
@@ -43,10 +44,10 @@ describe('<XUIEditableTable />', () => {
   it('renders rules to hide the proper columns, when hiddenColumns are passed', () => {
     const wrapper = mount(<XUIEditableTable hiddenColumns={[1, 2]} />);
     expect(wrapper.text()).toContain(
-      `#${tableName}-${mockedUuid} .xui-editabletablerow > *:nth-child(2) { display: none; }`,
+      `#${tableName}-${mockedNanoid} .xui-editabletablerow > *:nth-child(2) { display: none; }`,
     );
     expect(wrapper.text()).toContain(
-      `#${tableName}-${mockedUuid} .xui-editabletablerow > *:nth-child(3) { display: none; }`,
+      `#${tableName}-${mockedNanoid} .xui-editabletablerow > *:nth-child(3) { display: none; }`,
     );
   });
 

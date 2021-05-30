@@ -2,12 +2,12 @@ import React from 'react';
 import Enzyme, { render, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { nanoid } from 'nanoid';
 import XUIToggleOption from '../XUIToggleOption';
-import { v4 as uuidv4 } from 'uuid';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testToggleId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testToggleId');
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
@@ -109,8 +109,8 @@ describe('XUIToggleOption', function () {
   });
 
   // accessibility
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIToggleOption onChange={() => {}} />);
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<XUIToggleOption onChange={() => {}}>Option</XUIToggleOption>);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

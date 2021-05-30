@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { isVisible, intervalRunner } from '../helpers';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -22,6 +22,7 @@ describe('autocompleter helpers', () => {
   });
 
   describe('intervalRunner', () => {
+    // eslint-disable-next-line jest/no-done-callback
     it('should run until the check returns true', done => {
       let count = 0;
       let success = false;
@@ -42,7 +43,7 @@ describe('autocompleter helpers', () => {
 
       intervalRunner(check, callback);
       // This function is marked to change to advanceTimersByTime from version 21.3.0
-      jest.runTimersToTime(1000);
+      jest.advanceTimersByTime(1000);
 
       expect(check.mock.calls.length).toBeGreaterThan(5);
       expect(callback.mock.calls.length).toEqual(1);
@@ -54,7 +55,7 @@ describe('autocompleter helpers', () => {
       const callback = jest.fn();
       intervalRunner(check, callback);
       // This function is marked to change to advanceTimersByTime from version 21.3.0
-      jest.runTimersToTime(1000);
+      jest.advanceTimersByTime(1000);
 
       expect(check.mock.calls.length).toBeGreaterThan(5);
       expect(callback.mock.calls.length).toEqual(0);

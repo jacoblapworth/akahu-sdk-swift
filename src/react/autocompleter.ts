@@ -4,10 +4,10 @@ import XUIAutocompleterEmptyState from './components/autocompleter/XUIAutocomple
 import XUIAutocompleterSecondarySearch from './components/autocompleter/XUIAutocompleterSecondarySearch';
 
 export {
+  boldMatch,
+  decorateSubStr,
   XUIAutocompleter as default,
   XUIAutocompleter,
   XUIAutocompleterEmptyState,
   XUIAutocompleterSecondarySearch,
-  boldMatch,
-  decorateSubStr,
 };

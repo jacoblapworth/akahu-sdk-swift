@@ -14,22 +14,6 @@ pastMonth.setMonth(currentMonth2.getMonth() - 1);
 const nextMonth = new Date(currentMonth2);
 nextMonth.setMonth(currentMonth2.getMonth() + 1);
 
-const wkdShort = ['d', 'l', 'ma', 'me', 'j', 'v', 's'];
-const customMonths = [
-  'janvier',
-  'fevrier',
-  'mars',
-  'avril',
-  'mai',
-  'juin',
-  'juillet',
-  'aout',
-  'septembre',
-  'octobre',
-  'novembre',
-  'decembre',
-];
-
 const variations = [
   {
     storyKind: storiesWithVariationsKindName,
@@ -67,16 +51,29 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Weeks Starting on Monday with Custom Labels',
+    storyTitle: 'as Weeks Starting on Monday',
     firstDayOfWeek: 1,
-    weekdaysShort: wkdShort,
-    months: customMonths,
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: 'as Right-to-Left',
-    dir: 'rtl',
+    storyTitle: 'as Localised with Language String Only',
+    locale: 'es',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Localised with Full Locale String',
+    locale: 'fr-CA',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as First Day of Week Determined by Locale',
+    locale: 'de',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'as Right-to-Left Determined by Locale',
+    locale: 'ar',
   },
 ];
 
-export { storiesWithVariationsKindName, variations, wkdShort, customMonths, currentMonth0 };
+export { storiesWithVariationsKindName, variations, currentMonth0 };

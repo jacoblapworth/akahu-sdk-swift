@@ -20,7 +20,6 @@ Object.keys(storyNames).forEach(name => {
   variations.push({
     storyKind: compositionKind,
     storyTitle: storyNames[name],
-    viewports: undefined,
   });
 });
 

@@ -7,7 +7,6 @@ exports[`XUISwitch should accept an isChecked prop that determines the value of 
   <label
     className="xui-switch"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={true}
@@ -42,7 +41,6 @@ exports[`XUISwitch should include a reversed class when a text label is present 
   <label
     className="xui-switch xui-switch-reversed"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={false}
@@ -77,7 +75,6 @@ exports[`XUISwitch should include a text label when label is passed 1`] = `
   <label
     className="xui-switch"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={false}
@@ -112,7 +109,6 @@ exports[`XUISwitch should include an aria-label when label is passed and hidden 
   <label
     className="xui-switch"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={false}
@@ -142,11 +138,10 @@ exports[`XUISwitch should render an automationid for most elements when a qaHook
     className="xui-switch"
     data-automationid="switch-test"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={false}
-      aria-labelledby="testSwitchId"
+      aria-labelledby="xui-testSwitchId"
       checked={false}
       className="xui-switch--checkbox"
       data-automationid="switch-test--input"
@@ -165,7 +160,7 @@ exports[`XUISwitch should render an automationid for most elements when a qaHook
     <span
       className="xui-switch--label xui-switch--label-medium"
       data-automationid="switch-test--label"
-      id="testSwitchId"
+      id="xui-testSwitchId"
     >
       Switch test
     </span>
@@ -180,7 +175,6 @@ exports[`XUISwitch should render checked 1`] = `
   <label
     className="xui-switch"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={true}
@@ -208,7 +202,6 @@ exports[`XUISwitch should render not checked and not disabled 1`] = `
   <label
     className="xui-switch"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={false}
@@ -236,11 +229,10 @@ exports[`XUISwitch should render with validation message 1`] = `
   <label
     className="xui-switch"
     onClick={[Function]}
-    role="presentation"
   >
     <input
       aria-checked={false}
-      aria-describedby="testSwitchId-message"
+      aria-describedby="xui-testSwitchId-message"
       aria-invalid={true}
       checked={false}
       className="xui-switch--checkbox"
@@ -258,7 +250,7 @@ exports[`XUISwitch should render with validation message 1`] = `
   </label>
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid xui-switch--message"
-    id="testSwitchId-message"
+    id="xui-testSwitchId-message"
     role="status"
   >
     <svg

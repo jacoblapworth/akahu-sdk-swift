@@ -4,14 +4,12 @@ import cn from 'classnames';
 import dragIcon from '@xero/xui-icon/icons/drag';
 import trashIcon from '@xero/xui-icon/icons/trash';
 
-import { tableName } from './private/constants';
 import Draggable from './private/DragAndDrop/Draggable';
 import XUIEditableTableCellIconButton from './XUIEditableTableCellIconButton';
 import XUIEditableTableContext from './contexts/XUIEditableTableContext';
+import XUIEditableTableClassContext from './contexts/XUIEditableTableClassContext';
 import XUIEditableTableHeadContext from './contexts/XUIEditableTableHeadContext';
 import EditableTableHeadRow from './private/EditableTableHeadRow';
-
-export const baseName = `${tableName}row`;
 
 const XUIEditableTableRow = ({
   children,
@@ -27,6 +25,8 @@ const XUIEditableTableRow = ({
     dragAndDrop: { dragHandleDescribedBy },
     rowOptions: { dragButtonAriaLabel, isDraggable, isRemovable, removeButtonAriaLabel },
   } = React.useContext(XUIEditableTableContext);
+  const tableClassName = React.useContext(XUIEditableTableClassContext);
+  const baseName = `${tableClassName}row`;
 
   const isHeaderRow = React.useContext(XUIEditableTableHeadContext);
 
@@ -101,7 +101,7 @@ const XUIEditableTableRow = ({
 };
 
 XUIEditableTableRow.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+  children: PropTypes.node,
   className: PropTypes.string,
   /**
    * Whether to disable controls in the row, including drag and remove icons

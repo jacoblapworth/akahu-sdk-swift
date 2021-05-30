@@ -21,7 +21,7 @@ test.add(storyNames.dateDDInModal, () => {
   const trigger = <XUIButton hasCaret>Datepicker Button</XUIButton>;
   const dropdown = (
     <XUIDropdown>
-      <XUIDatePicker displayedMonth={displayMonth} onSelectDate={NOOP} />
+      <XUIDatePicker displayedMonth={displayMonth} locale="en" onSelectDate={NOOP} />
     </XUIDropdown>
   );
 

@@ -1,0 +1,413 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XUITable XUITableBody empty states emptyStateIcon replaces the default icon when there are no rows 1`] = `
+<div
+  class="xui-readonlytable--alert"
+  data-automationid="testId-empty"
+>
+  <div
+    class="xui-readonlytable--emptystate"
+  >
+    <div
+      class="xui-iconwrapper xui-iconwrapper-large"
+    >
+      <svg
+        class="xui-icon"
+        focusable="false"
+        height="20"
+        viewBox="0 0 15 15"
+        width="20"
+      >
+        <path
+          d="M11.019 9.588L15 13.57 13.57 15l-3.982-3.981a6.048 6.048 0 0 1-3.519 1.12A6.061 6.061 0 0 1 0 6.069 6.061 6.061 0 0 1 6.07 0a6.061 6.061 0 0 1 6.069 6.07 6.048 6.048 0 0 1-1.12 3.518zm-4.95 1.033a4.546 4.546 0 0 0 4.552-4.552A4.546 4.546 0 0 0 6.07 1.517 4.546 4.546 0 0 0 1.517 6.07a4.546 4.546 0 0 0 4.552 4.552z"
+          role="presentation"
+        />
+      </svg>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`XUITable XUITableHead sorting by columns snapshot 1`] = `
+<div>
+  <div
+    class="xui-readonlytable-hasborder xui-readonlytable-noscroll xui-readonlytable-nopointerevents"
+    data-automationid="testId"
+  >
+    <div
+      class="xui-readonlytablewrapper xui-readonlytableoverflow"
+      data-rbd-droppable-context-id="12"
+      data-rbd-droppable-id="xui-nanoid"
+      style="--xui-editableoverflow--scrollbar-height: 0px;"
+    >
+      <div
+        class="xui-readonlytablewrapper--scrollcontainer"
+      >
+        <table
+          aria-label="List of fruits with color and price per kg"
+          class="xui-readonlytable"
+          data-automationid="testId-table"
+          id="xui-readonlytable-nanoid"
+        >
+          <thead
+            class="xui-readonlytablehead"
+            data-automationid="testId-head"
+          >
+            <tr
+              class="xui-readonlytablerow"
+            >
+              <th
+                class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytableheadingcell-leftaligned"
+                scope="col"
+              >
+                <div
+                  class="xui-readonlytable--sortbutton"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="xui-readonlytable--sortbuttoncontent xui-readonlytable--sortbuttoncontent-active"
+                  >
+                    Fruit
+                    <div
+                      class="xui-readonlytable--sorticonwrapper"
+                    >
+                      <svg
+                        class="xui-icon xui-readonlytable--sorticon"
+                        focusable="false"
+                        height="11"
+                        viewBox="0 0 8 11"
+                        width="8"
+                      >
+                        <path
+                          d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </th>
+              <th
+                class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytableheadingcell-leftaligned"
+                scope="col"
+              >
+                <div
+                  class="xui-readonlytable--sortbutton"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="xui-readonlytable--sortbuttoncontent"
+                  >
+                    Color
+                    <div
+                      class="xui-readonlytable--sorticonwrapper xui-readonlytable--sorticonwrapper-hidden"
+                    >
+                      <svg
+                        class="xui-icon xui-readonlytable--sorticon"
+                        focusable="false"
+                        height="11"
+                        viewBox="0 0 8 11"
+                        width="8"
+                      >
+                        <path
+                          d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </th>
+              <th
+                class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-rightaligned xui-readonlytableheadingcell-leftaligned"
+                scope="col"
+              >
+                <div
+                  class="xui-readonlytable--sortbutton"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="xui-readonlytable--sortbuttoncontent"
+                  >
+                    Price / kg
+                    <div
+                      class="xui-readonlytable--sorticonwrapper xui-readonlytable--sorticonwrapper-hidden"
+                    >
+                      <svg
+                        class="xui-icon xui-readonlytable--sorticon"
+                        focusable="false"
+                        height="11"
+                        viewBox="0 0 8 11"
+                        width="8"
+                      >
+                        <path
+                          d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
+                          role="presentation"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="xui-readonlytablebody"
+            data-automationid="testId-body"
+          >
+            <tr
+              class="xui-readonlytablerow"
+              data-automationid="testId-body-row"
+            >
+              <td
+                class="xui-readonlytablecell xui-readonlytablecellreadonly xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-layout"
+              >
+                Apple
+              </td>
+              <td
+                class="xui-readonlytablecell xui-readonlytablecellreadonly xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-layout"
+              >
+                Red
+              </td>
+              <td
+                class="xui-readonlytablecell xui-readonlytablecellreadonly xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-rightaligned xui-readonlytablecell-layout"
+              >
+                $2.99
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          class="xui-readonlytablewrapper--dndinstructions"
+          id="xui-nanoid"
+        />
+      </div>
+      <div
+        class="xui-readonlytablewrapper--border"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`XUITable snapshot 1`] = `
+<div>
+  <div
+    class="snapshot xui-readonlytable-hasborder xui-readonlytable-noscroll xui-readonlytable-nopointerevents"
+    data-automationid="testId"
+  >
+    <div
+      class="xui-readonlytable--customheader"
+      data-automationid="testId-header"
+    >
+      Custom header
+    </div>
+    <div
+      class="xui-readonlytablewrapper xui-readonlytableoverflow"
+      data-rbd-droppable-context-id="0"
+      data-rbd-droppable-id="xui-nanoid"
+      style="--xui-editableoverflow--scrollbar-height: 0px;"
+    >
+      <div
+        class="xui-readonlytablewrapper--scrollcontainer"
+      >
+        <table
+          aria-label="List of fruits with color and price per kg"
+          class="xui-readonlytable"
+          data-automationid="testId-table"
+          id="xui-readonlytable-nanoid"
+        >
+          <thead
+            class="xui-readonlytablehead"
+            data-automationid="testId-head"
+          >
+            <tr
+              class="xui-readonlytablerow"
+            >
+              <th
+                class="xui-readonlytableheadingcell xui-readonlytablecell xui-readonlytablecell-action xui-readonlytableheadingcell-leftaligned"
+                scope="col"
+              >
+                <div
+                  class="xui-readonlytable--checkbox-head xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+                >
+                  <label
+                    class="xui-styledcheckboxradio"
+                    data-automationid="testId-head-checkbox"
+                  >
+                    <input
+                      class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      data-automationid="testId-head-checkbox--input"
+                      type="checkbox"
+                      value=""
+                    />
+                    <div
+                      class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                      data-automationid="testId-head-checkbox--checkbox"
+                    >
+                      <div
+                        class="xui-touchtarget"
+                      />
+                    </div>
+                  </label>
+                </div>
+              </th>
+              <th
+                class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytableheadingcell-leftaligned"
+                scope="col"
+              >
+                <span>
+                  Fruit
+                </span>
+              </th>
+              <th
+                class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytableheadingcell-leftaligned"
+                scope="col"
+              >
+                <span>
+                  Color
+                </span>
+              </th>
+              <th
+                class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytableheadingcell-leftaligned"
+                scope="col"
+              >
+                <span>
+                  Price / kg
+                </span>
+              </th>
+              <th
+                class="xui-readonlytableheadingcell xui-readonlytablecell xui-readonlytablecell--placeholder xui-readonlytableheadingcell-leftaligned"
+                scope="col"
+              />
+            </tr>
+          </thead>
+          <tbody
+            class="xui-readonlytablebody"
+            data-automationid="testId-body"
+          >
+            <tr
+              class="xui-readonlytablerow"
+              data-automationid="testId-body-row"
+            >
+              <td
+                class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-action"
+              >
+                <div
+                  class="xui-readonlytable--checkbox-body xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
+                >
+                  <label
+                    class="xui-styledcheckboxradio"
+                    data-automationid="testId-body-row-checkbox"
+                  >
+                    <input
+                      class="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+                      data-automationid="testId-body-row-checkbox--input"
+                      type="checkbox"
+                      value=""
+                    />
+                    <div
+                      class="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+                      data-automationid="testId-body-row-checkbox--checkbox"
+                    >
+                      <div
+                        class="xui-touchtarget"
+                      />
+                    </div>
+                  </label>
+                </div>
+              </td>
+              <td
+                class="xui-readonlytablecell xui-readonlytablecellreadonly xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-layout"
+              >
+                Apple
+              </td>
+              <td
+                class="xui-readonlytablecell xui-readonlytablecellreadonly xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-layout"
+              >
+                Red
+              </td>
+              <td
+                class="xui-readonlytablecell xui-readonlytablecellreadonly xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-layout"
+              >
+                $2.99
+              </td>
+              <td
+                class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-action"
+              >
+                <div
+                  class="xui-readonlytable--overflowmenu-body xui-dropdown--toggledwrapper"
+                  data-ref="toggled-wrapper"
+                >
+                  <button
+                    aria-haspopup="listbox"
+                    aria-label="More row options"
+                    class="xui-button xui-button-icon-medium xui-button-icon"
+                    data-automationid="testId-body-row-overflowmenu"
+                    tabindex="0"
+                    title="More row options"
+                    type="button"
+                  >
+                    <svg
+                      class="xui-icon"
+                      focusable="false"
+                      height="13"
+                      viewBox="0 0 3 13"
+                      width="3"
+                    >
+                      <path
+                        d="M1.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 10a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                        role="presentation"
+                      />
+                    </svg>
+                    <div
+                      class="xui-touchtarget"
+                    />
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          class="xui-readonlytablewrapper--dndinstructions"
+          id="xui-nanoid"
+        />
+      </div>
+      <div
+        class="xui-readonlytablewrapper--border"
+      />
+    </div>
+    <div
+      class="xui-readonlytable--loader xui-readonlytable--alert"
+      data-automationid="testId-loader"
+    >
+      <div
+        aria-label="Loading more data"
+        class="xui-loader xui-loader-medium xui-loader-layout"
+        role="progressbar"
+      >
+        <div
+          class="xui-loader--dot"
+        />
+        <div
+          class="xui-loader--dot"
+        />
+        <div
+          class="xui-loader--dot"
+        />
+      </div>
+    </div>
+    <div
+      class="xui-readonlytable--customfooter"
+      data-automationid="testId-footer"
+    >
+      Custom footer
+    </div>
+  </div>
+</div>
+`;

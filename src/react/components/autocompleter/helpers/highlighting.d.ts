@@ -1,3 +1,5 @@
+type DecorateFunction<T> = (str: string, key: string) => T;
+
 /**
  * Find all case-insensitive matches of a sub-string in a string and replace them with the
  * output of decorateFn. For example, if you wanted to italicize all instances of 'ca' in
@@ -10,7 +12,7 @@
 export const decorateSubStr: <T>(
   str: string,
   searchStr: string,
-  decorateFn: (str: string, key: string) => T,
+  decorateFn: DecorateFunction<T>,
 ) => string | Array<string | T>;
 
 /**

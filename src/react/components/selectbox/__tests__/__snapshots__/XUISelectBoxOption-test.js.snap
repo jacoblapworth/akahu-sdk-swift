@@ -124,15 +124,13 @@ exports[`<XUISelectBoxOption /> should render checkboxes when the showCheckboxes
       <label
         className="xui-styledcheckboxradio"
         onClick={[Function]}
-        role="presentation"
       >
         <input
-          aria-labelledby="testCheckboxId"
+          aria-labelledby="xui-testCheckboxId"
           checked={false}
           className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
           disabled={false}
           onChange={[Function]}
-          onClick={[Function]}
           required={false}
           tabIndex={-1}
           type="checkbox"
@@ -146,7 +144,7 @@ exports[`<XUISelectBoxOption /> should render checkboxes when the showCheckboxes
         </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
-          id="testCheckboxId"
+          id="xui-testCheckboxId"
         >
           <span
             className=""
@@ -160,7 +158,7 @@ exports[`<XUISelectBoxOption /> should render checkboxes when the showCheckboxes
 </li>
 `;
 
-exports[`<XUISelectBoxOption /> should render extra classes on the option element when values are added to the optionClasses prop 1`] = `
+exports[`<XUISelectBoxOption /> should render extra classes on the option element when values are added to the optionClassName prop 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem option-class xui-pickitem-medium"
@@ -181,7 +179,7 @@ exports[`<XUISelectBoxOption /> should render extra classes on the option elemen
 </li>
 `;
 
-exports[`<XUISelectBoxOption /> should render text as truncated when the truncatedText prop is set to true 1`] = `
+exports[`<XUISelectBoxOption /> should render text as truncated when the truncateText prop is set to true 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem xui-pickitem-medium"
@@ -265,15 +263,13 @@ exports[`<XUISelectBoxOption /> should render the option and the checkboxes as d
       <label
         className="xui-styledcheckboxradio xui-styledcheckboxradio-is-disabled"
         onClick={[Function]}
-        role="presentation"
       >
         <input
-          aria-labelledby="testCheckboxId"
+          aria-labelledby="xui-testCheckboxId"
           checked={false}
           className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
           disabled={true}
           onChange={[Function]}
-          onClick={[Function]}
           required={false}
           tabIndex={-1}
           type="checkbox"
@@ -287,7 +283,7 @@ exports[`<XUISelectBoxOption /> should render the option and the checkboxes as d
         </div>
         <span
           className="xui-styledcheckboxradio--label xui-styledcheckboxradio--label-small xui-pickitem--text xui-pickitem-multiselect--label"
-          id="testCheckboxId"
+          id="xui-testCheckboxId"
         >
           <span
             className=""
@@ -385,7 +381,7 @@ exports[`<XUISelectBoxOption /> shouldn't render checkboxes when the showCheckbo
 </li>
 `;
 
-exports[`<XUISelectBoxOption /> shouldn't render text as truncated when the truncatedText prop is set to false 1`] = `
+exports[`<XUISelectBoxOption /> shouldn't render text as truncated when the truncateText prop is set to false 1`] = `
 <li
   aria-selected={null}
   className="xui-pickitem xui-pickitem-medium"

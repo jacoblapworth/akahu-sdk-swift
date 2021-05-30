@@ -72,7 +72,7 @@ const variations = [
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'does not have default layout',
     value: 'No default layout',
-    defaultLayout: false,
+    hasDefaultLayout: false,
     avatarProps,
     onClick: NOOP,
   },
@@ -88,7 +88,7 @@ const variations = [
     storyTitle: 'with long text and size limit',
     value: 'I am the primary value, I have long text',
     avatarProps,
-    isLimitedWidth: true,
+    hasLimitedWidth: true,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -121,7 +121,7 @@ const variations = [
     value: 'I am the primary value, I have long text',
     avatarProps,
     debugShowToolTip: true,
-    isLimitedWidth: true,
+    hasLimitedWidth: true,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -130,7 +130,7 @@ const variations = [
     secondaryText: 'I am secondary text, I am long',
     avatarProps,
     debugShowToolTip: true,
-    isLimitedWidth: true,
+    hasLimitedWidth: true,
   },
 ];
 

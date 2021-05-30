@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { DateUtils } from 'react-day-picker';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import arrow from '@xero/xui-icon/icons/arrow';
 import XUIIconButton from '../../button/XUIIconButton';
 import MonthSelector from './navbar/MonthSelector';
@@ -28,8 +28,8 @@ const CustomNavbar = ({
   const yearSelect = useRef();
   const monthSelect = useRef();
 
-  const yearId = uuidv4();
-  const monthId = uuidv4();
+  const yearId = `xui-${nanoid(10)}`;
+  const monthId = `xui-${nanoid(10)}`;
 
   const onDateChange = date => {
     if (onMonthSelect != null) {
@@ -125,7 +125,10 @@ const CustomNavbar = ({
         size={controlSize}
       />
 
-      <div className={`${baseClassName}--heading-dates`}>
+      <div
+        className={`${baseClassName}--heading-dates`}
+        data-automationid={`${qaHook}--heading-dates`}
+      >
         {dir === 'rtl' ? yearSelector : monthSelector}
         {dir === 'rtl' ? monthSelector : yearSelector}
       </div>

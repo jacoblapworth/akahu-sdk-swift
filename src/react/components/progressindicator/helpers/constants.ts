@@ -16,4 +16,4 @@ const COLORS = [
 
 const constants = { NAME_SPACE, COLORS };
 
-export { constants as default, NAME_SPACE, COLORS };
+export { COLORS, constants as default, NAME_SPACE };

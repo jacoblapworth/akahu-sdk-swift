@@ -60,22 +60,20 @@ const longExampleTabs = breakpoint => (
     </XUIPickitem>
   </XUIPicklist>
 );
-const buildActions = ({ longContent, ...props } = {}) => {
-  return (
-    <XUIActions
-      hasLayout={false}
-      primaryAction={
-        <XUIButton size="small" variant="primary">
-          {longContent ? 'ActionCompletion' : 'One'}
-        </XUIButton>
-      }
-      secondaryAction={
-        <XUIButton size="small">{longContent ? 'Action2Completion' : 'Two'}</XUIButton>
-      }
-      {...props}
-    />
-  );
-};
+const buildActions = ({ longContent, ...props } = {}) => (
+  <XUIActions
+    hasLayout={false}
+    primaryAction={
+      <XUIButton size="small" variant="primary">
+        {longContent ? 'ActionCompletion' : 'One'}
+      </XUIButton>
+    }
+    secondaryAction={
+      <XUIButton size="small">{longContent ? 'Action2Completion' : 'Two'}</XUIButton>
+    }
+    {...props}
+  />
+);
 
 const longSampleBreadcrumb = [
   <span

@@ -1,4 +1,5 @@
 @import './vars';
+@import '../../src/sass/vars';
 // Header
 
 .ds-xui-logo {
@@ -38,7 +39,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 3vh 0;
-  font-size: 15px;
+  font-size: $xui-font-size-medium;
 }
 
 .ds-definition--term,

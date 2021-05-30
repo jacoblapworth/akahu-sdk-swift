@@ -14,7 +14,7 @@ export default function useResizeObserver<T extends HTMLElement = HTMLElement>()
   const observedElementRef = React.useRef<T>(null);
   const [resizeObserverEntry, setResizeObserverEntry] = React.useState<ResizeObserverEntry>();
   const [resizeObserver] = React.useState(
-    new ResizeObserver(entries => {
+    new ResizeObserver((entries: ResizeObserverEntry[]) => {
       const currentEntry = entries.find(entry => entry.target === observedElementRef.current);
       setResizeObserverEntry(currentEntry);
     }),

@@ -171,7 +171,7 @@ XUIIntroBanner.propTypes = {
    *
    * We recommend a `XUIIntroBannerFooter`.
    */
-  footer(...parameters) {
+  footer(...parameters: [Record<string, unknown>, string, string, string, string]) {
     return checkRequiredProps('onVideoClick', PropTypes.string.isRequired, ...parameters);
   },
   /**
@@ -210,7 +210,7 @@ XUIIntroBanner.propTypes = {
    *
    * Recommended English value: *Watch video*
    */
-  videoButtonLabel(...parameters) {
+  videoButtonLabel(...parameters: [Record<string, unknown>, string, string, string, string]) {
     return checkRequiredProps('onVideoClick', PropTypes.string.isRequired, ...parameters);
   },
 };

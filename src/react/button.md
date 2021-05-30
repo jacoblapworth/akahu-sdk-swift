@@ -202,7 +202,7 @@ The `isLoading` prop replaces the contents of the button with a loader, as well 
 
 The `retainLayout` prop modifies the internals to keep the original button size, but shows a loader instead of the content
 
-The `minLoaderWidth` prop modifies the button by applying a 75px min width on it. Useful for short content buttons.
+The `hasMinLoaderWidth` prop modifies the button by applying a 75px min width on it. Useful for short content buttons.
 
 ```jsx harmony
 import XUIButton from '@xero/xui/react/button';
@@ -243,11 +243,11 @@ import XUIButton from '@xero/xui/react/button';
     className="xui-margin-right-small"
     variant="primary"
     loadingAriaLabel="Loading"
-    minLoaderWidth
+    hasMinLoaderWidth
   >
     OK
   </XUIButton>
-  <XUIButton variant="primary" isLoading loadingAriaLabel="Loading" minLoaderWidth>
+  <XUIButton variant="primary" isLoading loadingAriaLabel="Loading" hasMinLoaderWidth>
     OK
   </XUIButton>
 </div>;

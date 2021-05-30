@@ -22,7 +22,7 @@ storiesWithKnobs.add('Playground', () => {
   return (
     <XUIIcon
       color={color === 'standard' ? undefined : color}
-      desc={text('Desc', '')}
+      description={text('Description', '')}
       icon={flattenedIconMap[icon]}
       isBoxed={boolean('Boxed', true)}
       role={text('Role', undefined)}

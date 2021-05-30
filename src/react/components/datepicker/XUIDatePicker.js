@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import ReactDayPicker, { DateUtils } from 'react-day-picker';
+import { getLangDir } from 'rtl-detect';
+import { getWeekStartByLocale } from 'weekstart';
+
 import '../helpers/xuiGlobalChecks';
 import CustomNavbar from './customElements/CustomNavbar';
 import CustomCaption from './customElements/CustomCaption';
@@ -13,6 +16,7 @@ import {
   isPartialRange,
   isStartOfPartialRange,
   normalizeDisplayedMonth,
+  getLocalisedDateTimeData,
   isDayOutsideRange,
 } from './helpers/utils';
 import { ns } from '../helpers/xuiClassNamespace';
@@ -193,10 +197,10 @@ export default class XUIDatePicker extends PureComponent {
   onDayMouseEnter = (date, modifiers) => {
     const disabled = modifiers[customClassNames.disabled];
     /*
-		When the user navigates via the keyboard, focus is manually moved between elements.
-		So, for the keyboard and mouse to have the same state, we need to manually set focus
-		on the day that we're hovering.
-		*/
+     * When the user navigates via the keyboard, focus is manually moved between elements.
+     * So, for the keyboard and mouse to have the same state, we need to manually set focus
+     * on the day that we're hovering.
+     */
     if (!disabled) {
       const dayNode = this.dateRefs[formatDateISO(date)];
       setTimeout(() => dayNode != null && dayNode.parentNode.focus(), 0);
@@ -255,12 +259,10 @@ export default class XUIDatePicker extends PureComponent {
 
   render() {
     const {
-      dir,
       firstDayOfWeek,
       locale,
       maxDate,
       minDate,
-      months,
       nextButtonAriaLabel,
       prevButtonAriaLabel,
       qaHook,
@@ -268,9 +270,12 @@ export default class XUIDatePicker extends PureComponent {
       selectedRange,
       showDaysInOtherMonths,
       showFixedNumberOfWeeks,
-      weekdaysLong,
-      weekdaysShort,
     } = this.props;
+
+    const computedFirstDayOfWeek = firstDayOfWeek || getWeekStartByLocale(locale);
+    const dir = getLangDir(locale) || 'ltr';
+    const { months, weekdaysLong, weekdaysShort } = getLocalisedDateTimeData(locale);
+
     const normalizedRange = normalizeRange(selectedRange);
     const modifiers = selectedRange
       ? getRangeModifiers(normalizedRange, this.state.hoverDate, this.isDayDisabled)
@@ -307,7 +312,7 @@ export default class XUIDatePicker extends PureComponent {
         dir={dir}
         disabledDays={this.isDayDisabled}
         enableOutsideDaysClick={false}
-        firstDayOfWeek={firstDayOfWeek}
+        firstDayOfWeek={computedFirstDayOfWeek}
         fixedWeeks={showFixedNumberOfWeeks}
         fromMonth={minDate}
         labels={{
@@ -337,9 +342,6 @@ export default class XUIDatePicker extends PureComponent {
 }
 
 XUIDatePicker.propTypes = {
-  /** Whether the language is right-to-left or left-to-right */
-  dir: PropTypes.oneOf(['ltr', 'rtl']),
-
   /** A date which represents the year and month that the calendar will display. Could
    * be any day in the given day and month. */
   displayedMonth: PropTypes.instanceOf(Date),
@@ -351,7 +353,7 @@ XUIDatePicker.propTypes = {
   isDateDisabled: PropTypes.func,
 
   /** The locale of the calendar */
-  locale: PropTypes.string,
+  locale: PropTypes.string.isRequired,
 
   /** If you want to disable every date after a given day, pass in the maximum enabled
    * date here.  Can be used with the isDateDisabled function. */
@@ -361,12 +363,12 @@ XUIDatePicker.propTypes = {
    * date here.  Can be used with the isDateDisabled function. */
   minDate: PropTypes.instanceOf(Date),
 
-  /** An array of localised month names */
-  months: PropTypes.arrayOf(PropTypes.string),
-
-  /** An accessibility label for the next month button that will be read to users with
-   * a screen reader.  */
-  nextButtonAriaLabel: PropTypes.string,
+  /** An accessibility label for the next month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Next month*
+   */
+  nextButtonAriaLabel: PropTypes.string.isRequired,
 
   /** Callback for when a user switches to a different month */
   onMonthChange: PropTypes.func,
@@ -375,9 +377,12 @@ XUIDatePicker.propTypes = {
    * already been selected.  Will not fire for disbled days. */
   onSelectDate: PropTypes.func.isRequired,
 
-  /** An accessibility label for the previous month button that will be read to users
-   * with a screen reader. */
-  prevButtonAriaLabel: PropTypes.string,
+  /** An accessibility label for the previous month button that will be used
+   * by assistive technologies.
+   *
+   * Recommended English value: *Previous month*
+   */
+  prevButtonAriaLabel: PropTypes.string.isRequired,
 
   qaHook: PropTypes.string,
 
@@ -400,21 +405,9 @@ XUIDatePicker.propTypes = {
 
   /** Whether or not to show six full weeks no matter how many days are in the month. */
   showFixedNumberOfWeeks: PropTypes.bool,
-
-  /** An array of localised full weekday names (e.g. ["Sunday", "Monday", ...]) */
-  weekdaysLong: PropTypes.arrayOf(PropTypes.string),
-
-  /** An array of localised short weekday names (e.g. ["Su", "Mo", ...]) */
-  weekdaysShort: PropTypes.arrayOf(PropTypes.string),
 };
 
 XUIDatePicker.defaultProps = {
-  dir: 'ltr',
-  locale: 'en',
-  nextButtonAriaLabel: 'Next Month',
-  prevButtonAriaLabel: 'Previous Month',
-  qaHook: undefined,
   showDaysInOtherMonths: true,
   showFixedNumberOfWeeks: false,
-  weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
 };

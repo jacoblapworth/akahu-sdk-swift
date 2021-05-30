@@ -100,35 +100,33 @@ const buildCrumbsWithCarets = crumbItemsToUse => {
   return crumbsWithCarets;
 };
 
-const XUIBreadcrumbTrail = ({ breadcrumbs, className, qaHook, swapAtBreakpoint }) => {
-  return (
-    <WidthContext.Consumer>
-      {headerSizeState => {
-        const listClasses = cn(className, `${baseClass}trail`);
-        // Choose either the full set or the compact set, depending on context and props.
-        let crumbItemsToUse;
-        if (
-          qualifiesForCompact({
-            crumbLength: breadcrumbs.length,
-            swapAtBreakpoint,
-            headerSizeState,
-          })
-        ) {
-          // Build the picklist, if props and item count call for it.
-          crumbItemsToUse = buildCompactBreadcrumbs(breadcrumbs);
-        } else {
-          crumbItemsToUse = breadcrumbs;
-        }
+const XUIBreadcrumbTrail = ({ breadcrumbs, className, qaHook, swapAtBreakpoint }) => (
+  <WidthContext.Consumer>
+    {headerSizeState => {
+      const listClasses = cn(className, `${baseClass}trail`);
+      // Choose either the full set or the compact set, depending on context and props.
+      let crumbItemsToUse;
+      if (
+        qualifiesForCompact({
+          crumbLength: breadcrumbs.length,
+          swapAtBreakpoint,
+          headerSizeState,
+        })
+      ) {
+        // Build the picklist, if props and item count call for it.
+        crumbItemsToUse = buildCompactBreadcrumbs(breadcrumbs);
+      } else {
+        crumbItemsToUse = breadcrumbs;
+      }
 
-        return (
-          <ol className={listClasses} data-automationid={qaHook}>
-            {buildCrumbsWithCarets(crumbItemsToUse)}
-          </ol>
-        );
-      }}
-    </WidthContext.Consumer>
-  );
-};
+      return (
+        <ol className={listClasses} data-automationid={qaHook}>
+          {buildCrumbsWithCarets(crumbItemsToUse)}
+        </ol>
+      );
+    }}
+  </WidthContext.Consumer>
+);
 
 export default XUIBreadcrumbTrail;
 

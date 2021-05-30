@@ -1,7 +1,7 @@
+import { nanoid } from 'nanoid';
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { Droppable as RBDDroppable } from 'react-beautiful-dnd';
-import { v4 as uuid } from 'uuid';
 
 import DroppableContext from './contexts/DroppableContext';
 
@@ -20,7 +20,7 @@ type Props = BaseProps & Omit<React.ComponentProps<typeof RBDDroppable>, 'droppa
  * - `snapshot.isDraggingOver` is made available via `DroppableContext`
  */
 const Droppable: React.FunctionComponent<Props> = ({ children, droppableId, ...spreadProps }) => {
-  const [generatedDroppableId] = React.useState(uuid());
+  const [generatedDroppableId] = React.useState(`xui-${nanoid(10)}`);
 
   return (
     <RBDDroppable droppableId={droppableId || generatedDroppableId} {...spreadProps}>

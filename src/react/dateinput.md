@@ -11,7 +11,7 @@
 
 Similar to `XUIDatePicker`, in order to use the standard `XUIDateInput` or `XUIDateRangeInput` component, you should use the `onSelectDate` callback to update state in your application. This callback will receive the new selected date as a parameter.
 
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import XUIDateInput from '@xero/xui/react/dateinput';
 
@@ -22,7 +22,15 @@ const ExampleDateInput = () => {
     setSelectedDate(newDate);
   };
 
-  return <XUIDateInput onSelectDate={onSelectDate} />;
+  return (
+    <XUIDateInput
+      inputLabel="Start date"
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
+    />
+  );
 };
 
 <ExampleDateInput />;
@@ -33,7 +41,7 @@ const ExampleDateInput = () => {
 Each of the two dates in `XUIDateRangeInput` are configured in its own prop `startDateInputConfig` and `endDateInputConfig` to handle the first and the second DateInput respectively.
 Date range selection also takes advantage of the suggested dates array that allows users to select from predefined shortcut dates.
 
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
 
@@ -75,8 +83,17 @@ const ExampleDateRangePicker = () => {
   return (
     <XUIDateRangeInput
       suggestedDates={dateRangeInputSuggestedDates}
-      endDateInputConfig={{ onSelectDate: onSelectStartDate }}
-      startDateInputConfig={{ onSelectDate: onSelectEndDate }}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
+      endDateInputConfig={{
+        inputLabel: 'End date',
+        onSelectDate: onSelectStartDate
+      }}
+      startDateInputConfig={{
+        inputLabel: 'Start date',
+        onSelectDate: onSelectEndDate
+      }}
     />
   );
 };
@@ -89,7 +106,7 @@ const ExampleDateRangePicker = () => {
 When setting initial date input values use `selectedDateDefaultValue`. Pass the same property in `startDateInputConfig` and `endDateInputConfig` props for `XUIDateRangeInput`.
 When controlling changes in input values in your store, pass it as `selectedDateValue` prop. These properties all accept `Date` value type.
 
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import XUIDateInput from '@xero/xui/react/dateinput';
 
@@ -101,13 +118,22 @@ const ExampleDateInput = () => {
     setSelectedDate(newDate);
   };
 
-  return <XUIDateInput onSelectDate={onSelectDate} selectedDateDefaultValue={defaultValue} />;
+  return (
+    <XUIDateInput
+      inputLabel="Start date"
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
+      selectedDateDefaultValue={defaultValue}
+    />
+  );
 };
 
 <ExampleDateInput />;
 ```
 
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
 
@@ -149,13 +175,16 @@ const ExampleDateRangePicker = () => {
   return (
     <XUIDateRangeInput
       suggestedDates={dateRangeInputSuggestedDates}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
         onSelectDate: onSelectEndDate,
-        inputLabel: 'First label'
+        inputLabel: 'Start date'
       }}
       endDateInputConfig={{
         onSelectDate: onSelectStartDate,
-        inputLabel: 'Second label'
+        inputLabel: 'End date'
       }}
     />
   );
@@ -168,7 +197,7 @@ const ExampleDateRangePicker = () => {
 
 Pass the `isDisabled` property to disable the date input (use `startDateInputConfig` and `endDateInputConfig` props for `XUIDateRangeInput`).
 
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import XUIDateInput from '@xero/xui/react/dateinput';
 
@@ -179,13 +208,22 @@ const ExampleDateInput = () => {
     setSelectedDate(newDate);
   };
 
-  return <XUIDateInput onSelectDate={onSelectDate} isDisabled={true} />;
+  return (
+    <XUIDateInput
+      inputLabel="Start date"
+      isDisabled={true}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
+    />
+  );
 };
 
 <ExampleDateInput />;
 ```
 
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
 
@@ -227,15 +265,18 @@ const ExampleDateRangePicker = () => {
   return (
     <XUIDateRangeInput
       suggestedDates={dateRangeInputSuggestedDates}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
         onSelectDate: onSelectEndDate,
         isDisabled: true,
-        inputLabel: 'First label'
+        inputLabel: 'Start date'
       }}
       endDateInputConfig={{
         onSelectDate: onSelectStartDate,
         isDisabled: true,
-        inputLabel: 'Second label'
+        inputLabel: 'End date'
       }}
     />
   );
@@ -248,7 +289,7 @@ const ExampleDateRangePicker = () => {
 
 For `XUIDateInput`, hints can be provided using the `hintMessage` prop. For `XUIDateRangeInput` hints can be provided by providing `hintMessage` properties to the `startDateInputConfig` and/or `endDateInputConfig` object props.
 
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import XUIDateInput from '@xero/xui/react/dateinput';
 
@@ -259,13 +300,22 @@ const ExampleDateInput = () => {
     setSelectedDate(newDate);
   };
 
-  return <XUIDateInput onSelectDate={onSelectDate} hintMessage="Helpful hint" />;
+  return (
+    <XUIDateInput
+      hintMessage="Helpful hint"
+      inputLabel="Start date"
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
+    />
+  );
 };
 
 <ExampleDateInput />;
 ```
 
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
 
@@ -307,6 +357,9 @@ const ExampleDateRangePicker = () => {
   return (
     <XUIDateRangeInput
       suggestedDates={dateRangeInputSuggestedDates}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
         onSelectDate: onSelectEndDate,
         hintMessage: 'Start hint text',
@@ -328,7 +381,7 @@ const ExampleDateRangePicker = () => {
 
 To control validation use the `validationMessage` and `isInvalid` props for `XUIDateInput`. For `XUIDateRangeInput` use the same names but as an object property passed in `startDateInputConfig` and `endDateInputConfig` props.
 
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import XUIDateInput from '@xero/xui/react/dateinput';
 
@@ -341,7 +394,11 @@ const ExampleDateInput = () => {
 
   return (
     <XUIDateInput
+      locale="en"
+      inputLabel="Start date"
+      nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
       validationMessage="Start error explanation"
       isInvalid={true}
     />
@@ -351,7 +408,7 @@ const ExampleDateInput = () => {
 <ExampleDateInput />;
 ```
 
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
 
@@ -393,6 +450,9 @@ const ExampleDateRangePicker = () => {
   return (
     <XUIDateRangeInput
       suggestedDates={dateRangeInputSuggestedDates}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
         onSelectDate: onSelectEndDate,
         validationMessage: 'Start error explanation',
@@ -436,7 +496,7 @@ The `suggestedDates` property is an array of objects with the following structur
 }
 ```
 
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import XUIDateInput from '@xero/xui/react/dateinput';
 
@@ -465,7 +525,16 @@ const ExampleDateInput = () => {
     }
   ];
 
-  return <XUIDateInput onSelectDate={onSelectDate} suggestedDates={dateInputSuggestedDates} />;
+  return (
+    <XUIDateInput
+      inputLabel="Start date"
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
+      suggestedDates={dateInputSuggestedDates}
+    />
+  );
 };
 
 <ExampleDateInput />;
@@ -473,7 +542,7 @@ const ExampleDateInput = () => {
 
 `XUIDateInput` with suggested dates allows to control the icon displayed next to the item used to select the calendar. It is achieved by passing icon properties to `selectDateIcon`.
 
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
 
@@ -515,13 +584,16 @@ const ExampleDateRangePicker = () => {
   return (
     <XUIDateRangeInput
       suggestedDates={dateRangeInputSuggestedDates}
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
         onSelectDate: onSelectEndDate,
-        inputLabel: 'First label'
+        inputLabel: 'Start date'
       }}
       endDateInputConfig={{
         onSelectDate: onSelectStartDate,
-        inputLabel: 'Second label'
+        inputLabel: 'End date'
       }}
     />
   );
@@ -529,6 +601,10 @@ const ExampleDateRangePicker = () => {
 
 <ExampleDateRangePicker />;
 ```
+
+### Localisation
+
+A `locale` string is required. This can be either the language only, like `en`, or language and region, like `fr-CA`.
 
 ### QA hooks and locale
 
@@ -543,28 +619,7 @@ When a date picker is opened by interacting with date input components, it can b
 
 Date input is available in three sizes: `medium`, `small` and `xsmall`. Similar to `XUITextInput`, the size can be adjusted with the `size` property.
 
-```jsx harmony
-import { useState } from 'react';
-import XUIDateInput from '@xero/xui/react/dateinput';
-
-const ExampleDateInput = () => {
-  const [selectedDate, setSelectedDate] = useState();
-
-  const onSelectDate = newDate => {
-    setSelectedDate(newDate);
-  };
-
-  return <XUIDateInput inputLabel="Small date input" onSelectDate={onSelectDate} size="small" />;
-};
-
-<ExampleDateInput />;
-```
-
-### Calendar selection range
-
-You can limit the range of selectable dates using the `minDate` and `maxDate` props.
-
-```jsx harmony
+```jsx
 import { useState } from 'react';
 import XUIDateInput from '@xero/xui/react/dateinput';
 
@@ -577,11 +632,44 @@ const ExampleDateInput = () => {
 
   return (
     <XUIDateInput
-      inputLabel="Start date"
+      inputLabel="Small date input"
+      locale="en"
+      nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
-      minDate={new Date(1999, 0, 1)}
-      maxDate={new Date(2000, 0, 1)}
+      prevButtonAriaLabel="Previous month"
+      size="small"
+    />
+  );
+};
+
+<ExampleDateInput />;
+```
+
+### Calendar selection range
+
+You can limit the range of selectable dates using the `minDate` and `maxDate` props.
+
+```jsx
+import { useState } from 'react';
+import XUIDateInput from '@xero/xui/react/dateinput';
+
+const ExampleDateInput = () => {
+  const [selectedDate, setSelectedDate] = useState();
+
+  const onSelectDate = newDate => {
+    setSelectedDate(newDate);
+  };
+
+  return (
+    <XUIDateInput
       displayedMonth={new Date(1999, 0)}
+      inputLabel="Start date"
+      locale="en"
+      maxDate={new Date(2000, 0, 1)}
+      minDate={new Date(1999, 0, 1)}
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
     />
   );
 };

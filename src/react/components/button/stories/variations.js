@@ -136,9 +136,9 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
-    storyTitle: `with short content and minLoaderWidth`,
+    storyTitle: `with short content and hasMinLoaderWidth`,
     value: 'B',
-    minLoaderWidth: true,
+    hasMinLoaderWidth: true,
   },
 ];
 

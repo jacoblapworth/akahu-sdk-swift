@@ -13,7 +13,7 @@ export default function useContainerQuery<T extends HTMLElement>(
     ? observedElementRef.current?.getBoundingClientRect().width
     : contentRect.width;
 
-  const isWidthAboveBreakpoint = breakpoint => {
+  const isWidthAboveBreakpoint = (breakpoint: string) => {
     if (typeof width !== 'number') {
       // In many testing frameworks, a width will not be available.
       // Return `true` in order to default to full-width behaviour.

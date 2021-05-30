@@ -12,6 +12,8 @@ import { ns } from '../helpers/xuiClassNamespace';
 const baseClass = `${ns}-positioningInline`;
 
 class PositioningInline extends Positioning {
+  positionEl = React.createRef();
+
   componentDidMount() {
     // Pushing this to the end of the queue seems to give styles enough time
     // to be applied before doing the positioning calculations.
@@ -49,7 +51,7 @@ class PositioningInline extends Positioning {
 
     if (parentRef != null) {
       const triggerDOM = parentRef.firstChild;
-      const baseRect = this.positionEl && this.positionEl.firstChild.getBoundingClientRect();
+      const baseRect = this.positionEl.current?.firstChild.getBoundingClientRect();
 
       if (isBaseRendered(baseRect)) {
         alignBaseWithTrigger(baseRect, triggerDOM, this);
@@ -68,8 +70,7 @@ class PositioningInline extends Positioning {
    *
    */
   calculateMaxDimensions = popupRect => {
-    const baseRect =
-      popupRect || (this.positionEl && this.positionEl.firstChild.getBoundingClientRect());
+    const baseRect = popupRect || this.positionEl.current?.firstChild.getBoundingClientRect();
     const {
       viewportGutter,
       parentRef,
@@ -202,7 +203,7 @@ class PositioningInline extends Positioning {
       <span
         className={wrapperClasses}
         data-automationid={qaHook}
-        ref={c => (this.positionEl = c)}
+        ref={this.positionEl}
         style={{ top: topOffset, flexDirection: isHorizontal ? 'row' : 'column' }}
       >
         {clonedChildren}

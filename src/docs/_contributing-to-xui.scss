@@ -98,177 +98,118 @@
 
 // Process for building a new component
 //
-// <div class="xui-table xui-panel xui-table-hasheader xui-table-responsive">
-//   <div class="xui-table-wrapper">
-//     <table class="xui-table-element">
-//       <thead class="xui-table--head">
-//         <tr class="xui-table--row xui-text-align-left">
-//           <th
-//             class="xui-table--cell xui-heading-separator xui-table--cell-first"
-//             tabindex="0"
-//           >
-//             <div>
-//               Stage
-//             </div>
+// <div class="xui-readonlytable-hasborder">
+//   <div class="xui-readonlytablewrapper--scrollcontainer">
+//     <table class="xui-readonlytable">
+//       <thead class="xui-readonlytablehead">
+//         <tr class="xui-readonlytablerow">
+//           <th class="xui-readonlytableheadingcell xui-readonlytablecell xui-readonlytablecell-singleline">
+//             <span>Stage</span>
 //           </th>
-//           <th
-//             class="xui-table--cell xui-heading-separator xui-table--cell-second"
-//             tabindex="0"
-//           >
-//             <div>
-//               Owner
-//             </div>
+//           <th class="xui-readonlytableheadingcell xui-readonlytablecell xui-readonlytablecell-singleline">
+//             <span>Owner</span>
 //           </th>
-//           <th
-//             class="xui-table--cell xui-heading-separator xui-table--cell-secondtolast"
-//             tabindex="0"
-//           >
-//             <div>
-//               Definition of done
-//             </div>
+//           <th class="xui-readonlytableheadingcell xui-readonlytablecell xui-readonlytablecell-singleline">
+//             <span>Definition of done</span>
 //           </th>
-//           <th
-//             class="xui-table--cell xui-heading-separator xui-table--cell-last xui-text-align-left"
-//             tabindex="0"
-//           >
-//             <div class="xui-text-align-left">
-//               Reviewer
-//             </div>
+//           <th class="xui-readonlytableheadingcell xui-readonlytablecell xui-readonlytablecell-singleline">
+//             <span>Reviewer</span>
 //           </th>
 //         </tr>
 //       </thead>
-//       <tbody class="xui-table--body">
-//         <tr class="xui-table--row">
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-//           >
+//       <tbody class="xui-readonlytablebody">
+//         <tr class="xui-readonlytablerow">
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout">
 //             <span class="xui-text-emphasis">Discovery</span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
-//           >
-//             Designer
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+//             <span>Designer</span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
-//           >
-//             Discovery section of the <a href="https://www.figma.com/file/SdTC3smsNHjEQaGr8jj9b7/Project-Template-XUI" target="_blank">XUI Figma Project Template<span class="xui-iconwrapper xui-iconwrapper-medium"><svg focusable="false" class="xui-icon xui-icon-color-blue" role="presentation"><use xlink:href="#xui-icon-external" /></svg></span></a> completed
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>
+//               Discovery section of the
+//               <a href="https://www.figma.com/file/SdTC3smsNHjEQaGr8jj9b7/Project-Template-XUI" target="_blank">
+//                 XUI Figma Project Template
+//                 <span class="xui-iconwrapper xui-iconwrapper-medium">
+//                   <svg focusable="false" class="xui-icon xui-icon-color-blue" role="presentation">
+//                     <use xlink:href="#xui-icon-external" />
+//                   </svg>
+//                 </span>
+//               </a> completed
+//             </span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-text-align-left"
-//           >
-//             Designer, Developer
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>Designer,<br />Developer</span>
 //           </td>
 //         </tr>
-//         <tr class="xui-table--row">
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-//           >
+//         <tr class="xui-readonlytablerow">
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
 //             <span class="xui-text-emphasis">Design</span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
-//           >
-//             Designer
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>Designer</span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
-//           >
-//             Design meets discovery requirements<br/>Design specification completed<br/>Appropriate testing done<br/>Documentation drafted<br/>Design is accessible, responsive and internationalised
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>
+//               Design meets discovery requirements<br />
+//               Design specification completed<br />
+//               Appropriate testing done<br />
+//               Documentation drafted<br />
+//               Design is accessible, responsive and internationalised
+//             </span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-text-align-left"
-//           >
-//             Designer, Developer
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>Designer,<br />Developer</span>
 //           </td>
 //         </tr>
-//         <tr class="xui-table--row">
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-//           >
+//         <tr class="xui-readonlytablerow">
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
 //             <span class="xui-text-emphasis">Build</span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
-//           >
-//             Developer
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>Developer</span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
-//           >
-//             See <a href="section-getting-started-developing-with-xui.html">Developing with XUI</a> to get started <br/>
-//             Follows <a href="section-getting-started-developing-with-xui.html#getting-started-developing-with-xui-1-2">XUI conventions</a> <br/>
-//             Meets <a href="https://confluence.teamxero.com/pages/viewpage.action?spaceKey=PLAT&title=Definitions+of+done" target="_blank">‘New Feature’ Definition of Done<span class="xui-iconwrapper xui-iconwrapper-medium"><svg focusable="false" class="xui-icon xui-icon-color-blue" role="presentation"><use xlink:href="#xui-icon-external" /></svg></span></a> and PR checklist<br/>
-//             PR opened and reviewed
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>
+//               See <a href="section-getting-started-developing-with-xui.html">Developing with XUI</a> to get started <br/>
+//               Follows <a href="section-getting-started-developing-with-xui.html#getting-started-developing-with-xui-1-2">XUI conventions</a> <br/>
+//               Meets <a href="https://confluence.teamxero.com/pages/viewpage.action?spaceKey=PLAT&title=Definitions+of+done" target="_blank">‘New Feature’ Definition of Done<span class="xui-iconwrapper xui-iconwrapper-medium"><svg focusable="false" class="xui-icon xui-icon-color-blue" role="presentation"><use xlink:href="#xui-icon-external" /></svg></span></a> and PR checklist<br/>
+//               PR opened and reviewed
+//             </span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-text-align-left"
-//           >
-//             Designer, Developer
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>Designer,<br />Developer</span>
 //           </td>
 //         </tr>
-//         <tr class="xui-table--row">
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-//           >
+//         <tr class="xui-readonlytablerow">
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
 //             <span class="xui-text-emphasis">Document</span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second"
-//           >
-//             Designer, Developer
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>Designer,<br />Developer</span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
-//           >
-//             Documentation is in XUI Guide and React docs <br/> Figma component is created in relevant version of library
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>
+//               Documentation is in XUI Guide and React docs<br />
+//               Figma component is created in relevant version of library
+//             </span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-text-align-left"
-//           >
-//             Designer, Developer
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>Designer,<br />Developer</span>
 //           </td>
 //         </tr>
-//         <tr class="xui-table--row">
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-first xui-table--cell-singleline"
-//           >
+//         <tr class="xui-readonlytablerow">
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
 //             <span class="xui-text-emphasis">Deploy</span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-second xui-table--cell-singleline"
-//           >
-//             Developer
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>Developer</span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-secondtolast xui-table--cell-singleline"
-//           >
-//             Component is available to the community
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>Component is available to the community</span>
 //           </td>
-//           <td
-//             tabindex="0"
-//             class="xui-table--cell xui-table--cell-layout xui-table--cell-divider xui-table--cell-last xui-text-align-left"
-//           >
-//             Developer
+//           <td class="xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-singleline">
+//             <span>Developer</span>
 //           </td>
 //         </tr>
 //       </tbody>

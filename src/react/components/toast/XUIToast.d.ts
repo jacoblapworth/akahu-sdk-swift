@@ -16,9 +16,16 @@ interface BaseProps {
    */
   className?: string;
   /**
+   * Title and accessibility label to be applied to the toast close "X" button.
+   * This is required if an `onCloseClick` callback prop is provided.
+   *
+   * Recommended English value: *Close*
+   */
+  closeButtonLabel?: string;
+  /**
    * Applies default layout class to the component.
    */
-  defaultLayout?: boolean;
+  hasDefaultLayout?: boolean;
   /**
    * Hides the component when set to `true`.
    */

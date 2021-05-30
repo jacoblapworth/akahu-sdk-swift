@@ -1,13 +1,13 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import { v4 as uuidv4 } from 'uuid';
-import Adapter from 'enzyme-adapter-react-16';
+import { nanoid } from 'nanoid';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIDateInput from '../XUIDateInput';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testDateinputId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testDateinputId');
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
@@ -30,6 +30,10 @@ describe('XUIDateInput', () => {
       onSelectDate={() => {}}
       {...props}
       displayedMonth={new Date(Date.UTC(2020, 10))}
+      inputLabel="Date"
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       selectedDateValue={selectedDate}
     />
   );
@@ -51,7 +55,11 @@ describe('XUIDateInput', () => {
     const wrapper = mount(
       <XUIDateInput
         displayedMonth={newSelectedDate}
+        inputLabel="Date"
+        locale="en"
+        nextButtonAriaLabel="Next month"
         onSelectDate={onSelectDate}
+        prevButtonAriaLabel="Previous month"
         selectedDateValue={newSelectedDate}
       />,
     );
@@ -98,7 +106,11 @@ describe('XUIDateInput', () => {
     const wrapper = mount(
       <XUIDateInput
         displayedMonth={newSelectedDate}
+        inputLabel="Date"
+        locale="en"
+        nextButtonAriaLabel="Next month"
         onSelectDate={onSelectProp}
+        prevButtonAriaLabel="Previous month"
         suggestedDates={dateInputSuggestedDates}
       />,
     );

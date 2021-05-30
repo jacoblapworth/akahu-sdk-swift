@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useContext, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import AccordionWrapper from './customElements/AccordionWrapper';
 import XUIAccordionContext from './XUIAccordionContext';
 import AccordionTrigger from './customElements/AccordionTrigger';
@@ -16,13 +16,13 @@ const XUIAccordionItem = ({
   overflow,
   pinnedValue,
   primaryHeading,
+  qaHook,
   secondaryHeading,
 }) => {
-  const [id] = useState(uuidv4());
+  const [id] = useState(nanoid(10));
   const {
     emptyStateComponent,
     openAccordionItemId,
-    qaHook,
     setOpenAccordionItem,
     toggleLabel,
   } = useContext(XUIAccordionContext);
@@ -57,11 +57,11 @@ const XUIAccordionItem = ({
     <AccordionWrapper
       _wrapperId={id}
       isOpen={isItemOpen}
-      qaHook={qaHook && `${qaHook}-wrapper`}
+      qaHook={qaHook}
       trigger={
         <AccordionTrigger
           isOpen={isItemOpen}
-          qaHook={qaHook && `${qaHook}-trigger`}
+          qaHook={qaHook && `${qaHook}--trigger`}
           {...{
             action,
             description,
@@ -110,6 +110,8 @@ XUIAccordionItem.propTypes = {
 
   /** Primary heading content. */
   primaryHeading: PropTypes.node,
+
+  qaHook: PropTypes.string,
 
   /** Secondary heading content. */
   secondaryHeading: PropTypes.node,

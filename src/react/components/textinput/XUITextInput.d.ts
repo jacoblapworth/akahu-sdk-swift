@@ -3,6 +3,9 @@ import * as React from 'react';
 import CharacterCounterProps from './private/CharacterCounterProps';
 import { baseSizeClasses } from './private/constants';
 
+// This isn't actually a shadow variable, I think it just triggers a false positive. Try removing
+// the rule if you like :)
+// eslint-disable-next-line no-shadow
 declare enum InputType {
   'text',
   'number',
@@ -39,7 +42,7 @@ interface Props {
    */
   fieldClassName?: string;
   /** After rendering set focus at the end of the input */
-  focusByDefault?: boolean;
+  focusOnMount?: boolean;
   /**
    * Hint message to show under the input.
    */

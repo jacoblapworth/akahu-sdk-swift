@@ -24,11 +24,6 @@
 }
 /* doiuse-enable object-fit*/
 
-// Required for alignment of img avatars in IE 11
-img.#{$ns}-avatar {
-  display: inline;
-}
-
 .#{$ns}-avatar-2xsmall {
   @include xui-text-2xsmall;
   height: $xui-control-size-2xsmall;

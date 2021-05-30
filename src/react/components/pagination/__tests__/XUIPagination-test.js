@@ -2,8 +2,8 @@ import React from 'react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { v4 as uuidv4 } from 'uuid';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { nanoid } from 'nanoid';
 import XUIPagination from '../XUIPagination';
 import {
   defaultPerPageContent,
@@ -11,8 +11,8 @@ import {
   defaultCreatePagingContent,
 } from '../private/helpers';
 
-jest.mock('uuid');
-uuidv4.mockImplementation(() => 'testPaginationId');
+jest.mock('nanoid');
+nanoid.mockImplementation(() => 'testPaginationId');
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
@@ -185,7 +185,8 @@ describe('<XUIPagination/>', () => {
     expect(onPerPageCountChange).toBeCalled();
   });
 
-  it.skip('should pass accessibility testing', async () => {
+  it('should pass accessibility testing', async () => {
+    nanoid.mockReturnValue('001').mockReturnValueOnce('002');
     wrapper = mount(<DefaultPagination />);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();

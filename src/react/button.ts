@@ -8,7 +8,7 @@ export {
   XUIButton as default,
   XUIButton,
   XUIButtonGroup,
+  XUIIconButton,
   XUISecondaryButton,
   XUISplitButtonGroup,
-  XUIIconButton,
 };

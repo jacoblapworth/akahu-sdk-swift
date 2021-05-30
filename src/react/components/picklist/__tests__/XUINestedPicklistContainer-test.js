@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIStatefulPicklist from '../XUIStatefulPicklist';
 import XUIPicklist from '../XUIPicklist';
@@ -18,9 +18,7 @@ const MockNestedPicklistContainer = props => (
       Nested List
     </XUINestedPicklistTrigger>
     <XUINestedPicklist>
-      <XUIPickitem ariaRole="treeitem" id="a">
-        A
-      </XUIPickitem>
+      <XUIPickitem id="a">A</XUIPickitem>
     </XUINestedPicklist>
   </XUINestedPicklistContainer>
 );
@@ -38,8 +36,8 @@ const setup = (props = {}) => {
 };
 
 describe('<XUIPicklistContainer />', () => {
-  it.skip('should pass accessibility testing', async () => {
-    const wrapper = mount(MockNestedPicklistContainer());
+  it('should pass accessibility testing', async () => {
+    const wrapper = mount(<ul role="tree">{MockNestedPicklistContainer()}</ul>);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });

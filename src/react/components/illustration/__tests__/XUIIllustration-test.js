@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIIllustration from '../XUIIllustration';
 import renderer from 'react-test-renderer';

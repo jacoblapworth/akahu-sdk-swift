@@ -12,12 +12,12 @@ import XUICompositionSplitHeader from './components/compositions/XUICompositionS
 export {
   XUICompositionDetail,
   XUICompositionDetailHeader,
-  XUICompositionSplit,
-  XUICompositionSplitHeader,
+  XUICompositionDetailSummary,
+  XUICompositionDetailSummaryHeader,
   XUICompositionMasterDetail,
   XUICompositionMasterDetailHeader,
   XUICompositionMasterDetailSummary,
   XUICompositionMasterDetailSummaryHeader,
-  XUICompositionDetailSummary,
-  XUICompositionDetailSummaryHeader,
+  XUICompositionSplit,
+  XUICompositionSplitHeader,
 };

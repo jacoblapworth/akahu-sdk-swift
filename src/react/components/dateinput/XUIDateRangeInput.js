@@ -168,6 +168,7 @@ class XUIDateRangeInput extends Component {
         {...groupSpread}
       >
         <XUIDateInputItem
+          {...spreadStartProps}
           closeOnSelect={closeOnSelect}
           displayedMonth={displayedStartMonth}
           hintMessage={startHintMessage}
@@ -196,9 +197,9 @@ class XUIDateRangeInput extends Component {
           size={size}
           triggerClassName={startTriggerClassName}
           validationMessage={startValidationMessage}
-          {...spreadStartProps}
         />
         <XUIDateInputItem
+          {...spreadEndProps}
           closeOnSelect={closeOnSelect}
           displayedMonth={displayedEndMonth}
           exposeInputRef={el => (this.endInputRef.current = el)}
@@ -227,7 +228,6 @@ class XUIDateRangeInput extends Component {
           size={size}
           triggerClassName={endTriggerClassName}
           validationMessage={endValidationMessage}
-          {...spreadEndProps}
         />
         {suggestedDates && (
           <XUIDropdownToggled

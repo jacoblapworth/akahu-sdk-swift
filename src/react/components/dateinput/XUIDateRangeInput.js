@@ -33,8 +33,8 @@ class XUIDateRangeInput extends Component {
     });
 
     this.props.startDateInputConfig?.onSelectDate?.(date);
-    this.endInputRef?.current.focus();
-    this.endInputRef?.current.select();
+    this.endDateComponentRef?.current?.handleInitialFocus();
+    this.endInputRef?.current?.select();
   };
 
   onSelectEndDate = date => {

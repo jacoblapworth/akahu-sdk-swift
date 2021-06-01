@@ -155,8 +155,8 @@
     </div>
     <div class="ds-flexgrid--subrow">
       <a class="ds-resource" target="_blank" href="https://xui.xero.com/product-language-guide/">
-        <h3 class="ds-resource--heading">Language <span class="ds-nowrap">Guide <svg focusable="false" class="xui-icon" role="presentation"> <use xlink:href="#xui-icon-external" /></svg></span></h3>
-        <p class="ds-detail">Guide for understanding how we speak to people through our products</p>
+        <h3 class="ds-resource--heading">Content <span class="ds-nowrap">Guide <svg focusable="false" class="xui-icon" role="presentation"> <use xlink:href="#xui-icon-external" /></svg></span></h3>
+        <p class="ds-detail">Find voice and tone, punctuation and style rules, and writing guidance for product</p>
       </a>
       <a class="ds-resource" target="_blank" href="https://research.xero.com/">
         <h3 class="ds-resource--heading">Research <span class="ds-nowrap">library <svg focusable="false" class="xui-icon" role="presentation"> <use xlink:href="#xui-icon-external" /></svg></span></h3>

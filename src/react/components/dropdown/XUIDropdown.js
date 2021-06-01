@@ -312,7 +312,8 @@ XUIDropdown.propTypes = {
   /** Force wrapping `XUIDropdownPanel` children in a `XUIStatefulPicklist` */
   forceStatefulPicklist: PropTypes.bool,
 
-  /** Whether the fixed width class variant should be used for the size prop */
+  /** If a size is set, this will force the dropdown to that size instead of setting it as a
+   * max width. */
   hasFixedWidth: PropTypes.bool,
 
   /** Whether or not the dropdown should take focus and handle keyboard events automatically */
@@ -356,7 +357,7 @@ XUIDropdown.propTypes = {
   /** Whether the stateful picklist manages highlighting of list elements */
   shouldManageInitialHighlight: PropTypes.bool,
 
-  /** Applies the correct XUI class based on the chosen size. Default will
+  /** Sets a max-width via XUI class based on the chosen size. Default will
    * fit to children's width. */
   size: PropTypes.oneOf(Object.keys(fixedWidthDropdownSizes)),
 

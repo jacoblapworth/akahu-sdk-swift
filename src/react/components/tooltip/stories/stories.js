@@ -12,7 +12,7 @@ import XUITextInput from '../../textinput/XUITextInput';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 import { positionOptions } from '../../positioning/private/constants';
 
 const createTriggerInput = props => (
@@ -61,7 +61,7 @@ const createParaWithInlineTrigger = props => (
   </p>
 );
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 
 storiesWithKnobs.add('Playground', () => {
   const props = {

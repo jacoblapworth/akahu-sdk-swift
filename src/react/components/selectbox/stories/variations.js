@@ -1,7 +1,9 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/XUISelectBox';
 const listHelpers = require('../../helpers/list');
+
+const storiesWithKnobsKindName = 'Components/XUISelectBox';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const buildCustomItems = () => {
   const customItems = listHelpers.AddIdPropsToTextList(listHelpers.ShortListShortItems);
@@ -168,4 +170,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

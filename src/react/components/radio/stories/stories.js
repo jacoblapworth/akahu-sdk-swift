@@ -9,9 +9,9 @@ import { boolean, text, select } from '@storybook/addon-knobs';
 import XUIRadioGroup from '../XUIRadioGroup';
 import XUIRadio from '../XUIRadio';
 
-import { storiesWithVariationsKindName, variations } from './variations';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 
 storiesWithKnobs.add('Playground', () => (
   <XUIRadio

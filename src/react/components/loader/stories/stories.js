@@ -11,14 +11,14 @@ import XUILoader from '../XUILoader';
 
 import ExampleContainer from '../../../docs/ExampleContainer';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
 const sizes = Object.keys(sizeClassNames);
 
 const getContainerStyle = isRequired =>
   isRequired ? { position: 'relative', height: '40px', width: '100px' } : {};
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   const size = select('size', sizes, sizes[0]);

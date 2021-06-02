@@ -17,7 +17,7 @@ import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
 
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-import { storiesWithVariationsKindName, variations } from './variations';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 import {
   textButtonVariants,
   sizeClassNames,
@@ -58,7 +58,7 @@ const buttonContents = {
   asSplitGroupDropdown: [<XUIButton key="main3">Main</XUIButton>, dropdownWithTrigger],
 };
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const hasLeftIcon = boolean('leftIcon', false);
@@ -105,6 +105,7 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {

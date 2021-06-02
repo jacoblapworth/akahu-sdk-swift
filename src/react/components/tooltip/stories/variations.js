@@ -2,7 +2,9 @@ import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const privateConsts = require('../../positioning/private/constants');
 
-const storiesWithVariationsKindName = 'Instances/XUITooltip';
+const storiesWithKnobsKindName = 'Components/XUITooltip';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
+
 const { positionOptions } = privateConsts;
 
 const longTipText =
@@ -131,4 +133,4 @@ positionOptions.forEach(position => {
   });
 });
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

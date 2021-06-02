@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper inline (stacked button) layout" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests inline (stacked button) layout" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   hasStackedButtons={true}
@@ -351,7 +351,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper inline (stacked buttons) with truncation" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests inline (stacked buttons) with truncation" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   hasStackedButtons={true}
@@ -649,7 +649,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper inline (stacked buttons) with wrapping" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests inline (stacked buttons) with wrapping" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   hasStackedButtons={true}
@@ -947,7 +947,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper inline standard layout" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests inline standard layout" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
@@ -1297,7 +1297,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper inline with truncation" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests inline with truncation" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
@@ -1594,7 +1594,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper inline with wrapping" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests inline with wrapping" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
@@ -1891,7 +1891,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper progress button combinations" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests progress button combinations" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
@@ -2940,7 +2940,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper sidebar layout" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests sidebar layout" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
@@ -3290,7 +3290,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper sidebar with truncation" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests sidebar with truncation" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
@@ -3587,7 +3587,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper sidebar with wrapping" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests sidebar with wrapping" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
@@ -3884,7 +3884,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper stacked layout" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests stacked layout" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
@@ -4234,7 +4234,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper stacked with truncation" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests stacked with truncation" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
@@ -4531,7 +4531,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper stacked with wrapping" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests stacked with wrapping" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"
@@ -4828,7 +4828,7 @@ exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUISte
 </XUIStepper>
 `;
 
-exports[`<XUIStepper /> emulate stories should render scenario "Instances/XUIStepper standard button combinations" correctly 1`] = `
+exports[`<XUIStepper /> emulate stories should render scenario "Components/XUIStepper/Tests standard button combinations" correctly 1`] = `
 <XUIStepper
   currentStep={0}
   id="myCustomStepperId"

@@ -4,7 +4,8 @@ const constants = require('../constants');
 
 const sizes = Object.keys(constants.sizeClassNames);
 
-const storiesWithVariationsKindName = 'Instances/XUIAvatar';
+const storiesWithKnobsKindName = 'Components/XUIAvatar';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const avatarVariations = [
   {
@@ -110,4 +111,4 @@ const avatarVariations = [
   },
 ];
 
-export { avatarVariations as variations, storiesWithVariationsKindName };
+export { avatarVariations as variations, storiesWithVariationsKindName, storiesWithKnobsKindName };

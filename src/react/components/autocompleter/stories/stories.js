@@ -15,11 +15,16 @@ import EmptyStateExample from './components/EmptyStateExample';
 
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-import { variations, storiesWithVariationsKindName, fixedWidthDropdownSizes } from './variations';
+import {
+  variations,
+  storiesWithVariationsKindName,
+  fixedWidthDropdownSizes,
+  storiesWithKnobsKindName,
+} from './variations';
 
 const iconExample = <XUIIcon color="red" icon={invalid} />;
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const userSelectedPerson = select(
@@ -55,6 +60,7 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {

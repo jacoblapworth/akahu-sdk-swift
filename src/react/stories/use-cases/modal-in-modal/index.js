@@ -13,7 +13,7 @@ import Example2 from './components/Example2';
 <Example />;
 <Example2 />;
 
-const test = storiesOf(compositionKind, module);
+const test = storiesOf(`${compositionKind}/${nonBackstopStoryNames.modalInModal}`, module);
 
 test.add(nonBackstopStoryNames.modalInModal, () => {
   const body = document.querySelector('body.xui-container');

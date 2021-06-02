@@ -15,7 +15,7 @@ import XUITag from '../../../tag';
 // Story book things
 import logReadyState from '../../../stories/helpers/log-ready-state';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
 const sampleText =
   "1. Some content could go here and we want to be sure it doesn't get hidden behind the sticky elements.2. Some content could go here and we want to be sure it doesn't get hidden behind the sticky elements.3. Some content could go here and we want to be sure it doesn't get hidden behind the sticky elements.4. Some content could go here and we want to be sure it doesn't get hidden behind the sticky elements.";
@@ -71,7 +71,7 @@ const sampleContentBlock = (
   </XUIContentBlock>
 );
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => (
   <>
     {sampleLongContentPanel}

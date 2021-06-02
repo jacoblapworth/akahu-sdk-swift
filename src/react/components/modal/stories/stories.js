@@ -14,11 +14,11 @@ import XUITextInput from '../../textinput/XUITextInput';
 import XUIButton from '../../button/XUIButton';
 import { modalSizes } from '../constants';
 
-import { storiesWithVariationsKindName, variations } from './variations';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
-const isolatedInstance = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 
-isolatedInstance.add('XUIModal', () => {
+storiesWithKnobs.add('Playground', () => {
   const headerEnabled = boolean('Show Header', true);
   const header = headerEnabled ? <XUIModalHeader>Header</XUIModalHeader> : null;
 

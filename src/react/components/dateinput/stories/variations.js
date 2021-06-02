@@ -1,7 +1,8 @@
 import clockIcon from '@xero/xui-icon/icons/clock';
 import { dateInputSuggestedDates, dateRangeInputSuggestedDates } from './helpers/suggestedDates';
 
-const storiesWithVariationsKindName = 'Instances/XUIDateInput';
+const storiesWithKnobsKindName = 'Components/XUIDateInput';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = [
   {
@@ -258,4 +259,4 @@ const variations = [
   },
 ];
 
-export { variations, storiesWithVariationsKindName };
+export { variations, storiesWithKnobsKindName, storiesWithVariationsKindName };

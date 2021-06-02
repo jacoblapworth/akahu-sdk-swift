@@ -1,6 +1,7 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/XUITextInput';
+const storiesWithKnobsKindName = 'Components/XUITextInput';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const sideElements = [
   {
@@ -315,4 +316,4 @@ const variations = [
   ...characterLimitStories,
 ];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

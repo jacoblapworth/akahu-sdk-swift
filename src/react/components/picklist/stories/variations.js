@@ -7,7 +7,8 @@ import XUIIcon from '../../icon/XUIIcon';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/XUIPicklist';
+const storiesWithKnobsKindName = 'Components/XUIPicklist';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const iconsList = [view, arrow, search, contact];
 
@@ -599,4 +600,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

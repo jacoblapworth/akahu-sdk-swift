@@ -14,7 +14,7 @@ import XUITextInput from '../../../textinput';
 import * as lists from '../../../components/helpers/list';
 import { storyNames, compositionKind } from '../tests';
 
-const test = storiesOf(compositionKind, module);
+const test = storiesOf(`${compositionKind}/${storyNames.multiDropdowns}`, module);
 
 const buildDropdownPicklist = items => {
   const pickItems = items.map((text, id) => (

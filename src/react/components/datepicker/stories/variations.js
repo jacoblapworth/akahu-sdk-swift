@@ -1,4 +1,5 @@
-const storiesWithVariationsKindName = 'Instances/XUIDatePicker';
+const storiesWithKnobsKindName = 'Components/XUIDatePicker';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const currentMonth0 = new Date('Oct 02 2017 00:00:00 GMT');
 const currentMonth1 = new Date(currentMonth0);
@@ -76,4 +77,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations, currentMonth0 };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations, currentMonth0 };

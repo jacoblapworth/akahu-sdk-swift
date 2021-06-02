@@ -23,7 +23,7 @@ import { storyNames, compositionKind } from '../tests';
 const NOOP = () => {};
 const displayMonth = new Date('Nov 01 2019 00:00:00');
 
-const test = storiesOf(compositionKind, module);
+const test = storiesOf(`${compositionKind}/${storyNames.touchTargets}`, module);
 
 test.addDecorator(revealTouchTargets);
 

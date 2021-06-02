@@ -1,4 +1,5 @@
-const storiesWithVariationsKindName = 'Instances/XUIRolloverCheckbox';
+const storiesWithKnobsKindName = 'Components/XUIRolloverCheckbox';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = [
   {
@@ -51,4 +52,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

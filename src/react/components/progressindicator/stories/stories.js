@@ -13,7 +13,7 @@ import XUIProgressCircular from '../XUIProgressCircular';
 import XUIIcon from '../../icon/XUIIcon';
 
 import { COLORS } from '../helpers/constants';
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
 import ToolTipComparison from './components/ToolTipComparison';
 import ColorComparison from './components/ColorComparison';
@@ -60,7 +60,7 @@ const tinyWidthStyle = {
   width: 'auto',
 };
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground | Circular', () => {
   const totalColor =
     select('totalColor', colorOptions, defaultColor) === defaultColor

@@ -2,7 +2,8 @@ import { commonViewports, desktopPlus320 } from '../../../stories/helpers/viewpo
 
 const { rowVariants } = require('../private/constants');
 
-const storiesWithVariationsKindName = 'Instances/Structure';
+const storiesWithKnobsKindName = 'Components/Structure';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = Object.keys(rowVariants).map(variant => ({
   storyKind: storiesWithVariationsKindName,
@@ -13,4 +14,4 @@ const variations = Object.keys(rowVariants).map(variant => ({
   type: 'row',
 }));
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

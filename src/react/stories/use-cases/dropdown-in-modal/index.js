@@ -12,7 +12,7 @@ import XUIButton from '../../../button';
 
 import { storyNames, compositionKind } from '../tests';
 
-const test = storiesOf(compositionKind, module);
+const test = storiesOf(`${compositionKind}/${storyNames.dropDownInModal}`, module);
 
 const toggledItems = [
   'Apricot',

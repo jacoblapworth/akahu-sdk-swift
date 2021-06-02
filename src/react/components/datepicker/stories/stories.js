@@ -10,7 +10,12 @@ import XUIDatePicker from '../XUIDatePicker';
 import XUIPanel from '../../panel/XUIPanel';
 
 import NOOP from '../../helpers/noop';
-import { storiesWithVariationsKindName, variations, currentMonth0 } from './variations';
+import {
+  storiesWithVariationsKindName,
+  variations,
+  currentMonth0,
+  storiesWithKnobsKindName,
+} from './variations';
 
 function minDate(d1, d2) {
   return d1 < d2 ? d1 : d2;
@@ -69,7 +74,7 @@ class ExamplePicker extends React.Component {
   }
 }
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => (
   <XUIPanel>

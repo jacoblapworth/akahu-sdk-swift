@@ -7,7 +7,9 @@ import XUIContentBlock from '../../contentblock/XUIContentBlock';
 import XUIContentBlockItem from '../../contentblock/XUIContentBlockItem';
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storyKind = 'Instances/XUIAccordion';
+const storiesWithKnobsKindName = 'Components/XUIAccordion';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
+
 const items = [
   {
     id: 1,
@@ -46,7 +48,7 @@ const items = [
   },
 ];
 const withChildContent = {
-  storyKind,
+  storyKind: storiesWithVariationsKindName,
   storyTitle: 'with child content',
   viewports: desktopPlus320,
   children: items.map(({ id, name, contacts }) => {
@@ -79,7 +81,7 @@ const withChildContent = {
 };
 const variations = [
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'basic accordion',
     children: [
       { id: 1, name: 'John Smith' },
@@ -88,7 +90,7 @@ const variations = [
     ].map(({ id, name }) => <XUIAccordionItem key={id} primaryHeading={name} />),
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'basic accordion with item open',
     children: [
       { id: 1, name: 'John Smith' },
@@ -97,7 +99,7 @@ const variations = [
     ].map(({ id, name }) => <XUIAccordionItem isOpen={id === 2} key={id} primaryHeading={name} />),
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'accordion tab composition',
     children: [
       { id: 1, name: 'John Smith', projects: '0 projects', minutes: '0:00' },
@@ -122,4 +124,4 @@ const variations = [
   },
 ];
 
-export { storyKind as storiesWithVariationsKindName, variations };
+export { storiesWithKnobsKindName, storiesWithVariationsKindName, variations };

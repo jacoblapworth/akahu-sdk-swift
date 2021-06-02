@@ -1,6 +1,7 @@
 const { wrapperSizeClasses, rotationClasses, colorClasses } = require('../private/constants');
 
-const storiesWithVariationsKindName = 'Instances/XUIIcon';
+const storiesWithKnobsKindName = 'Components/XUIIcon';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = [
   {
@@ -38,4 +39,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

@@ -25,7 +25,8 @@ import { XUIButton, XUISplitButtonGroup, XUISecondaryButton } from '../../../but
 import { XUIRow, XUIColumn } from '../../../structural';
 import { XUICheckbox, XUICheckboxGroup } from '../../../checkbox';
 
-import { storiesWithVariationsKindName, variations, NOOP } from './variations';
+import NOOP from '../../helpers/noop';
+import { storiesWithVariationsKindName, variations, storiesWithKnobsKindName } from './variations';
 import { ShortListShortItems, LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
 import { maxWidthDropdownSizes, dropdownPositionOptions } from '../private/constants';
 
@@ -186,7 +187,7 @@ const DropdownInDropdown = () => {
   );
 };
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => {
   const forceDesktop = boolean('forceDesktop', false);
   const showHeader = boolean('show header?', false);

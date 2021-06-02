@@ -14,7 +14,7 @@ import XUIIcon from '../../icon/XUIIcon';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { textButtonVariants } from '../../button/private/constants';
-import { storiesWithVariationsKindName, variations } from './variations';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 import { LongListLongItems, AddIdPropsToTextList } from '../../helpers/list';
 
 function createItems(settings) {
@@ -39,7 +39,7 @@ const button = (
   </span>
 );
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const size = select('size', ['medium', 'small', 'xsmall']);
@@ -81,6 +81,7 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {

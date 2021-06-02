@@ -8,7 +8,12 @@ import { boolean, number, text, select, object } from '@storybook/addon-knobs';
 // Components we need to test with
 import XUIStepper from '../XUIStepper';
 
-import { variations, storiesWithVariationsKindName, baseProps } from './variations';
+import {
+  variations,
+  storiesWithVariationsKindName,
+  baseProps,
+  storiesWithKnobsKindName,
+} from './variations';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 const wrapperStyles = {
@@ -21,7 +26,7 @@ const contentStyles = {
   width: '100%',
 };
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const layout = select('lockLayout', ['default', 'stacked', 'sidebar', 'inline']);
@@ -43,6 +48,7 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   const { storyTitle, storyKind, ...props } = variation;

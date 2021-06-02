@@ -6,9 +6,10 @@ import { boolean, number, select, text } from '@storybook/addon-knobs';
 
 import {
   variations,
-  variationStoryKindName,
+  storiesWithVariationsKindName,
   regressionVariations,
   regressionVariationStoryKindName,
+  storiesWithKnobsKindName,
 } from './variations';
 
 import {
@@ -155,7 +156,7 @@ class EditableTablePlayground extends React.Component {
   }
 }
 
-const storiesWithKnobs = storiesOf(variationStoryKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => (
   <EditableTablePlayground
     ariaLabel={text('Aria label', '')}
@@ -200,7 +201,7 @@ storiesWithKnobs.add('Playground', () => (
   />
 ));
 
-const storiesWithVariations = storiesOf(variationStoryKindName, module);
+const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {

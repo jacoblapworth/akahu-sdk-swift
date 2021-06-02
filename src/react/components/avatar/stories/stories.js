@@ -10,9 +10,9 @@ import XUIAvatar from '../XUIAvatar';
 import XUIAvatarGroup from '../XUIAvatarGroup';
 import { sizeClassNames, colorClassNames } from '../constants';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   const props = {};

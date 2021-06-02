@@ -1,6 +1,7 @@
 import { commonViewports, desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/XUIContentBlock';
+const storiesWithKnobsKindName = 'Components/XUIContentBlock';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = [
   {
@@ -190,4 +191,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

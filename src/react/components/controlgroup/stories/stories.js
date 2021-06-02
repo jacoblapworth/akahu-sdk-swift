@@ -15,7 +15,7 @@ import XUIDateInput from '../../../dateinput';
 // Story book things
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 import { dateInputSuggestedDates } from '../../dateinput/stories/helpers/suggestedDates';
 
 const singleDateProps = {
@@ -49,7 +49,7 @@ const baseElements = {
   XUIDateInput: props => <XUIDateInput {...singleDateProps} {...props} />,
 };
 
-const storiesWithResponsiveAndKnobs = storiesOf(storiesWithVariationsKindName, module).addDecorator(
+const storiesWithResponsiveAndKnobs = storiesOf(storiesWithKnobsKindName, module).addDecorator(
   customCentered,
 );
 

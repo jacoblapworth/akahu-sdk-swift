@@ -1,4 +1,4 @@
-const compositionKind = 'Components in Components';
+const compositionKind = 'Use cases';
 
 const storyNames = {
   dateDDInModal: 'Datepicker dropdown in a modal',
@@ -18,7 +18,7 @@ const variations = [];
 
 Object.keys(storyNames).forEach(name => {
   variations.push({
-    storyKind: compositionKind,
+    storyKind: `${compositionKind}/${storyNames[name]}`,
     storyTitle: storyNames[name],
   });
 });

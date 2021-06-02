@@ -14,10 +14,10 @@ import XUITag from '../../tag/XUITag';
 
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 /* eslint-disable react/prop-types */
 function getComponent({
@@ -100,6 +100,7 @@ storiesWithKnobs.add('Playground', () =>
 );
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {

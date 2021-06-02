@@ -2,7 +2,8 @@ import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const { sizeClasses } = require('../private/constants');
 
-const storiesWithVariationsKindName = 'Instances/XUIIllustration';
+const storiesWithKnobsKindName = 'Components/XUIIllustration';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const storyVariations = [
   {
@@ -33,4 +34,4 @@ const sizeVariations = Object.keys(sizeClasses).map(size => ({
 
 const variations = [...sizeVariations, ...storyVariations];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

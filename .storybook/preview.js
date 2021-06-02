@@ -9,9 +9,7 @@ function requireAll(requireContext) {
 function loadStories() {
   require('./welcome.js');
   requireAll(require.context('../src/react/components', true, /stories.(j|t)sx?$/));
-  requireAll(
-    require.context('../src/react/stories/components-in-components', true, /index.(j|t)sx?$/),
-  );
+  requireAll(require.context('../src/react/stories/use-cases', true, /index.(j|t)sx?$/));
   requireAll(require.context('../src/react/stories/form-controls', true, /index.(j|t)sx?$/));
 }
 

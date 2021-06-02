@@ -11,7 +11,10 @@ import XUIAutoCompleter from '../../../autocompleter';
 
 import { nonBackstopStoryNames, compositionKind } from '../tests';
 
-const test = storiesOf(compositionKind, module);
+const test = storiesOf(
+  `${compositionKind}/${nonBackstopStoryNames.inifiniteStatefulPicklist}`,
+  module,
+);
 
 test.add(nonBackstopStoryNames.inifiniteStatefulPicklist, () => {
   const ConditionalRender = ({ shouldRender, render, children }) => {

@@ -8,9 +8,9 @@ import { text, select } from '@storybook/addon-knobs';
 // Components we need to test with
 import XUITag, { variants, sizes } from '../XUITag';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => (
   <XUITag
     size={select('size', Object.keys(sizes), 'medium')}

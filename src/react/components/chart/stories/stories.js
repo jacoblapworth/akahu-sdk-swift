@@ -4,7 +4,7 @@ import React, { PureComponent } from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 import { object, boolean, text, select, number, color } from '@storybook/addon-knobs';
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 import { createArray } from '../../progressindicator/helpers/utilities';
 
 // Components we need to test with
@@ -12,7 +12,7 @@ import XUIBarChart from '../XUIBarChart';
 
 import logReadyState from '../../../stories/helpers/log-ready-state';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 
 storiesWithKnobs.add('Playground', () => {
   const chartWidth = number('Chart width', 500);

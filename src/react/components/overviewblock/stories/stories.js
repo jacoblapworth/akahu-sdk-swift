@@ -10,13 +10,13 @@ import XUIOverviewBlock from '../XUIOverviewBlock';
 import XUIOverviewSection from '../XUIOverviewSection';
 import { overviewSentiments } from '../private/constants';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
 
 const buildExampleSections = children =>
   children.map((child, index) => <XUIOverviewSection key={index} {...child} />);
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 
 storiesWithKnobs.add('Playground', () => {
   const indicator = (

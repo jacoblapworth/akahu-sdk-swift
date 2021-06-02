@@ -10,7 +10,7 @@ import XUIFileUploader from '../XUIFileUploader';
 
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 import { defaultFileList, defaultProps, fakeUpload } from '../private/helpers';
 
 const Example = props => {
@@ -76,7 +76,7 @@ const Example = props => {
   );
 };
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(customCentered);
 
 storiesWithKnobs.add('Playground', () => {
@@ -107,6 +107,7 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(customCentered);
 
 variations.forEach(variations => {
   const { storyTitle, storyKind, ...variationMinusStoryDetails } = variations;

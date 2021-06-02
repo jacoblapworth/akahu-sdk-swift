@@ -2,7 +2,8 @@ import React from 'react';
 import { commonViewports, desktopPlus320 } from '../../../stories/helpers/viewports';
 import XUIProgressLinear from '../../progressindicator/XUIProgressLinear';
 
-const storiesWithVariationsKindName = 'Instances/XUIOverviewBlock';
+const storiesWithKnobsKindName = 'Components/XUIOverviewBlock';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const buildPI = (total, progress) => (
   <XUIProgressLinear
@@ -64,4 +65,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

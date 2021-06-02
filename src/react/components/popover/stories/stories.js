@@ -12,7 +12,7 @@ import XUIButton, { XUIIconButton } from '../../../button';
 import XUITextInput from '../../../textinput';
 import XUIPopover, { XUIPopoverBody, XUIPopoverHeader, XUIPopoverFooter } from '../../../popover';
 
-import { variations, storyKind, variationStoryKind } from './variations';
+import { variations, storiesWithKnobsKindName, storiesWithVariationsKindName } from './variations';
 
 const buildTrigger = (
   triggerText = 'trigger',
@@ -121,7 +121,7 @@ const Playground = props => (
   </div>
 );
 
-const storiesWithKnobs = storiesOf(storyKind, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => (
   <Playground
@@ -133,7 +133,7 @@ storiesWithKnobs.add('Playground', () => (
   />
 ));
 
-const storiesWithVariations = storiesOf(variationStoryKind, module);
+const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addParameters({ layout: 'centered' });
 
 variations.forEach(({ storyKind, storyTitle, subVariants, ...variation }) => {

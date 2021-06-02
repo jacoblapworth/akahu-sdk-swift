@@ -8,10 +8,10 @@ import { boolean, text } from '@storybook/addon-knobs';
 // Components we need to test with
 import XUICapsule from '../XUICapsule';
 
-import { storiesWithVariationsKindName, variations } from './variations';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const isInteractive = boolean('is interactive', false);

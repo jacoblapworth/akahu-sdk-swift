@@ -18,7 +18,7 @@ import XUIPanelSection from '../XUIPanelSection';
 import XUIPanelHeading from '../XUIPanelHeading';
 import XUIPanelFooter from '../XUIPanelFooter';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
 const exampleTabs = (
   <XUIPicklist secondaryProps={{ role: 'menu' }}>
@@ -70,7 +70,7 @@ const section = settings => (
   </XUIPanelSection>
 );
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => {
   const hasHeading = boolean('Has panel heading?', false);
   const hasFooter = boolean('Has panel footer?', false);

@@ -16,9 +16,9 @@ import ExampleContainer from '../../../docs/ExampleContainer';
 
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-import { storiesWithVariationsKindName, variations } from './variations';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 const toggleOptions = [
   {
@@ -55,6 +55,7 @@ storiesWithKnobs.add('Playground', () => (
 ));
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {

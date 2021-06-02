@@ -11,13 +11,13 @@ import XUIDateRangeInput from '../XUIDateRangeInput';
 
 import { dateInputSuggestedDates, dateRangeInputSuggestedDates } from './helpers/suggestedDates';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
 const sampleOnSelectDateFunction = date => {
   console.log('Print date', date);
 };
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => {
   const isDateRangeDemo = boolean('isDateRangeInput', false);
 

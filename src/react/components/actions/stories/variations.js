@@ -1,6 +1,8 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/XUIActions';
+const storiesWithKnobsKindName = 'Components/XUIActions';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
+
 const variations = [
   {
     storyKind: storiesWithVariationsKindName,
@@ -45,4 +47,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

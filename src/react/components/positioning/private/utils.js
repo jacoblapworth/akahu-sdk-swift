@@ -1,5 +1,5 @@
 import { getSpacesAroundTrigger, mapOppositeSpaces } from './dom-helpers';
-import { defaultAlignemnt, flipDirection, verticals, horizontals } from './constants';
+import { defaultAlignment, flipDirection, verticals, horizontals } from './constants';
 
 /**
  * Given a positionSetting property, split into side and alignment positioning values.
@@ -12,7 +12,7 @@ export const getPreferredPosition = preferredPositionStr => {
   const [side, alignment] = preferredPositionStr.split('-');
   return {
     side,
-    alignment: alignment || defaultAlignemnt,
+    alignment: alignment || defaultAlignment,
     positionVertically: verticals.indexOf(side) > -1,
     alignVertically: horizontals.indexOf(side) > -1,
   };
@@ -140,7 +140,7 @@ export const alignBaseWithTrigger = (popupRect, triggerDOM, popup) => {
       return 'bottom';
     }
     // These cases both get the default alignment.
-    requestedAlignment = defaultAlignemnt;
+    requestedAlignment = defaultAlignment;
     if (!isRotated) {
       // Doesn't fit on either side on the preferred axis. Try placing again, but
       // switch horizontal / vertical placement.

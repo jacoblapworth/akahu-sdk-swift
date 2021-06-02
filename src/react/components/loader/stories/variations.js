@@ -1,6 +1,7 @@
 const constants = require('../private/constants');
 
-const storiesWithVariationsKindName = 'Instances/XUILoader';
+const storiesWithKnobsKindName = 'Components/XUILoader';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = [
   {
@@ -30,4 +31,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

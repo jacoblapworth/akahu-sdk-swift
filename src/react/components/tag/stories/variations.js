@@ -1,9 +1,9 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
-import NOOP from '../../helpers/noop';
 
 const { sizes, variants } = require('../private/constants');
 
-const storiesWithVariationsKindName = 'Instances/XUITag';
+const storiesWithKnobsKindName = 'Components/XUITag';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variantVariations = Object.keys(variants).map(variant => ({
   children: 'Tag content',
@@ -40,4 +40,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations, NOOP };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

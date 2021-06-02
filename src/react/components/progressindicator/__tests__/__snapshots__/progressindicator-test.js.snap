@@ -208,7 +208,7 @@ exports[`<XUIProgressIndicator /> custom colors should override default color wi
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular completion alert" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular completion alert" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   isAlertOnComplete={true}
@@ -342,7 +342,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular custom (icon) hard error" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular custom (icon) hard error" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   isHardError={true}
@@ -476,7 +476,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular custom content" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular custom content" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   isGrow={true}
@@ -581,7 +581,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular custom hard error" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular custom hard error" correctly 1`] = `
 <XUIProgressCircular
   hardErrorAlert="S"
   id="myCustomProgressId"
@@ -694,7 +694,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular grow layout" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular grow layout" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   isGrow={true}
@@ -799,7 +799,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular hard error" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular hard error" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   isHardError={true}
@@ -933,7 +933,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular multiline completion alert" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular multiline completion alert" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   isAlertOnComplete={true}
@@ -1095,7 +1095,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular multiline" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular multiline" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   progress={3}
@@ -1222,7 +1222,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular overflow segments" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular overflow segments" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   isOverflow={true}
@@ -1328,7 +1328,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular overflow standard" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular overflow standard" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   isOverflow={true}
@@ -1429,7 +1429,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular segments thickness" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular segments thickness" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   isSegmented={true}
@@ -1536,7 +1536,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular segments" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular segments" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   isSegmented={true}
@@ -1640,7 +1640,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular soft error" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular soft error" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   isSoftError={true}
@@ -1741,7 +1741,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular standard (exaggerated thickness)" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular standard (exaggerated thickness)" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   progress={3}
@@ -1843,7 +1843,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular standard (zero thickness)" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular standard (zero thickness)" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   progress={3}
@@ -1945,7 +1945,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular standard thickness" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular standard thickness" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   progress={3}
@@ -2047,7 +2047,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular standard" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular standard" correctly 1`] = `
 <XUIProgressCircular
   id="myCustomProgressId"
   progress={3}
@@ -2146,7 +2146,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator circular tooltip" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests circular tooltip" correctly 1`] = `
 <XUIProgressCircular
   hasToolTip={true}
   id="myCustomProgressId"
@@ -2420,7 +2420,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressCircular>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear grow (exaggerated thickness)" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear grow (exaggerated thickness)" correctly 1`] = `
 <XUIProgressLinear
   id="myCustomProgressId"
   isGrow={true}
@@ -2502,7 +2502,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear grow (minimal thickness)" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear grow (minimal thickness)" correctly 1`] = `
 <XUIProgressLinear
   id="myCustomProgressId"
   isGrow={true}
@@ -2584,7 +2584,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear grow layout" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear grow layout" correctly 1`] = `
 <XUIProgressLinear
   id="myCustomProgressId"
   isGrow={true}
@@ -2663,7 +2663,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear overflow segments" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear overflow segments" correctly 1`] = `
 <XUIProgressLinear
   id="myCustomProgressId"
   isOverflow={true}
@@ -2777,7 +2777,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear overflow standard" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear overflow standard" correctly 1`] = `
 <XUIProgressLinear
   id="myCustomProgressId"
   isOverflow={true}
@@ -2845,7 +2845,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear segment dots" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear segment dots" correctly 1`] = `
 <XUIProgressLinear
   hasSegmentDots={true}
   id="myCustomProgressId"
@@ -3009,7 +3009,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear segments thickness" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear segments thickness" correctly 1`] = `
 <XUIProgressLinear
   id="myCustomProgressId"
   isSegmented={true}
@@ -3114,7 +3114,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear segments" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear segments" correctly 1`] = `
 <XUIProgressLinear
   id="myCustomProgressId"
   isSegmented={true}
@@ -3216,7 +3216,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear soft error" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear soft error" correctly 1`] = `
 <XUIProgressLinear
   id="myCustomProgressId"
   isSoftError={true}
@@ -3284,7 +3284,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear standard - very short" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear standard - very short" correctly 1`] = `
 <XUIProgressLinear
   id="myCustomProgressId"
   progress={4}
@@ -3350,7 +3350,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear standard thickness (zero)" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear standard thickness (zero)" correctly 1`] = `
 <XUIProgressLinear
   id="myCustomProgressId"
   progress={3}
@@ -3419,7 +3419,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear standard thickness" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear standard thickness" correctly 1`] = `
 <XUIProgressLinear
   id="myCustomProgressId"
   progress={3}
@@ -3488,7 +3488,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear standard" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear standard" correctly 1`] = `
 <XUIProgressLinear
   id="myCustomProgressId"
   progress={3}
@@ -3554,7 +3554,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instan
 </XUIProgressLinear>
 `;
 
-exports[`<XUIProgressIndicator /> emulate stories should render scenario "Instances/XUIProgressIndicator linear tooltip" correctly 1`] = `
+exports[`<XUIProgressIndicator /> emulate stories should render scenario "Components/XUIProgressIndicator/Tests linear tooltip" correctly 1`] = `
 <XUIProgressLinear
   hasToolTip={true}
   id="myCustomProgressId"

@@ -1,9 +1,9 @@
 import { commonViewports, desktopPlus320 } from '../../../stories/helpers/viewports';
-import NOOP from '../../helpers/noop';
 
 const privateConsts = require('../private/constants');
 
-const storiesWithVariationsKindName = 'Instances/XUIDropdown';
+const storiesWithKnobsKindName = 'Components/XUIDropdown';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = [
   {
@@ -150,4 +150,26 @@ Object.keys(privateConsts.fixedWidthDropdownSizes).forEach(size => {
   });
 });
 
-export { storiesWithVariationsKindName, variations, NOOP };
+privateConsts.dropdownPositionOptions.forEach(position => {
+  variations.push({
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `as preferredPosition ${position}`,
+    preferredPosition: position,
+    ddSettings: {},
+  });
+});
+
+privateConsts.dropdownPositionOptions.forEach(position => {
+  variations.push({
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `as inline with preferredPosition ${position}`,
+    preferredPosition: position,
+    isLegacyDisplay: false,
+    ddSettings: {
+      hasFixedWidth: true,
+      size: 'large',
+    },
+  });
+});
+
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

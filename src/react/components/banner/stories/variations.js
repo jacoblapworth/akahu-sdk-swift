@@ -1,7 +1,8 @@
 import NOOP from '../../helpers/noop';
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/XUIBanner';
+const storiesWithKnobsKindName = 'Components/XUIBanner';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = [
   {
@@ -151,4 +152,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations, NOOP };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

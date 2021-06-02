@@ -14,8 +14,8 @@ import XUIPickitem from '../../picklist/XUIPickitem';
 import XUITag from '../../tag/XUITag';
 
 import logReadyState from '../../../stories/helpers/log-ready-state';
-import { variations, storiesWithVariationsKindName } from './variations';
-import noop from '../../helpers/noop';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
+import NOOP from '../../helpers/noop';
 
 const tableStyles = {
   background: 'white',
@@ -56,7 +56,7 @@ const customStyles = `
 `;
 
 const createOverflowMenu = () => [
-  <XUIPickitem id="0" key="0" onClick={noop}>
+  <XUIPickitem id="0" key="0" onClick={NOOP}>
     Menu Option
   </XUIPickitem>,
 ];
@@ -83,7 +83,7 @@ const createTags = total =>
     </XUITag>
   ));
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 
 storiesWithKnobs.add('Playground', () => {
   const data = {
@@ -98,8 +98,8 @@ storiesWithKnobs.add('Playground', () => {
     hasCheckbox,
     hasPinnedFirstColumn,
     checkedIds: { 0: true },
-    onCheckAllToggle: noop,
-    onCheckOneToggle: noop,
+    onCheckAllToggle: NOOP,
+    onCheckOneToggle: NOOP,
   };
 
   const hasOverflowMenu = boolean('hasOverflowMenu', false);
@@ -121,7 +121,7 @@ storiesWithKnobs.add('Playground', () => {
   const sortkeyProps = {
     activeSortKey,
     isSortAsc,
-    onSortChange: noop,
+    onSortChange: NOOP,
   };
 
   const onRowClick = boolean('onRowClick', false);

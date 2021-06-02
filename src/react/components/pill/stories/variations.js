@@ -3,7 +3,8 @@ import XUIAvatar from '../../avatar/XUIAvatar';
 import NOOP from '../../helpers/noop';
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/XUIPill';
+const storiesWithKnobsKindName = 'Components/XUIPill';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const avatarProps = {
   className: '',
@@ -134,4 +135,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations, avatarProps };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations, avatarProps };

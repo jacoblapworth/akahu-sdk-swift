@@ -13,7 +13,7 @@ const variations = [];
 
 Object.keys(storyNames).forEach(name => {
   variations.push({
-    storyKind: compositionKind,
+    storyKind: `${compositionKind}/${storyNames[name]}`,
     storyTitle: storyNames[name],
     useCustomFontSize: name === 'formOnAPageUseCustomFontSize',
     viewports: name === 'formOnAPage' || name === 'formLayout' ? desktopPlus320 : undefined,

@@ -15,7 +15,7 @@ import XUIButton from '../../button/XUIButton';
 
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 import NOOP from '../../helpers/noop';
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
 const body = (
   <XUIIntroBannerBody>
@@ -44,7 +44,7 @@ const footer = hasVideoIllustration => (
   </XUIIntroBannerFooter>
 );
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const hasFooter = boolean('Has footer', true);
@@ -72,7 +72,7 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-
+storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
     const variationMinusStoryDetails = { ...variation };

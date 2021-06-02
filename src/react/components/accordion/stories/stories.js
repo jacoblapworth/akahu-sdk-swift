@@ -18,9 +18,9 @@ import { createArray } from '../../progressindicator/helpers/utilities';
 
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
@@ -105,6 +105,8 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(centered);
+
 variations.forEach(variation => {
   const { storyTitle, children, ...props } = variation;
   const Comparison = (

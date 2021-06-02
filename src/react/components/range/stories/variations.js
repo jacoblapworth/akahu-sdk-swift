@@ -1,7 +1,8 @@
 import React from 'react';
 import XUIAvatar from '../../avatar/XUIAvatar';
 
-const storiesWithVariationsKindName = 'Instances/XUIRange';
+const storiesWithKnobsKindName = 'Components/XUIRange';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const leftElement = {
   leftElement: (
@@ -56,4 +57,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

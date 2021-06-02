@@ -9,9 +9,9 @@ import { boolean, text, select } from '@storybook/addon-knobs';
 import XUICheckboxGroup from '../XUICheckboxGroup';
 import XUICheckbox from '../XUICheckbox';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => (
   <XUICheckbox

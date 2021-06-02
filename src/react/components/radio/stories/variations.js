@@ -1,6 +1,8 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/XUIRadio';
+const storiesWithKnobsKindName = 'Components/XUIRadio';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
+
 const variations = [
   {
     storyKind: storiesWithVariationsKindName,
@@ -138,4 +140,4 @@ const variations = [
   });
 });
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

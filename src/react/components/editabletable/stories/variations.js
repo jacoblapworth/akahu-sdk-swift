@@ -3,8 +3,9 @@ import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 import { sandwichData } from './user-tests';
 
-const variationStoryKindName = 'Instances/XUIEditableTable';
-const regressionVariationStoryKindName = `${variationStoryKindName}/User stories`;
+const storiesWithKnobsKindName = 'Components/XUIEditableTable';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
+const regressionVariationStoryKindName = `${storiesWithVariationsKindName}/User stories`;
 
 const dragAndDropProps = {
   dndDragCancelledMessage: NOOP,
@@ -19,13 +20,13 @@ const dragAndDropProps = {
 
 const variations = [
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Default 5 by 5',
     rows: 5,
     columnCount: 5,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'responsive',
     columnCount: 10,
     columnWidths: [
@@ -52,7 +53,7 @@ const variations = [
     ...dragAndDropProps,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'responsive with pinned first and last action columns',
     columnCount: 10,
     columnWidths: [
@@ -81,7 +82,7 @@ const variations = [
     ...dragAndDropProps,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'responsive with pinned first and last text columns',
     columnCount: 10,
     columnWidths: [
@@ -104,7 +105,7 @@ const variations = [
     ...dragAndDropProps,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'responsive with pinned first and last input columns',
     columnCount: 10,
     columnWidths: [
@@ -129,7 +130,7 @@ const variations = [
     ...dragAndDropProps,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with a focused cell',
     columnCount: 1,
     cellType: 'textInput',
@@ -139,7 +140,7 @@ const variations = [
     ...dragAndDropProps,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with a focused cell and pinned first column',
     columnCount: 10,
     columnWidths: [
@@ -163,7 +164,7 @@ const variations = [
     ...dragAndDropProps,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with a focused cell and pinned last column',
     columnCount: 10,
     columnWidths: [
@@ -187,7 +188,7 @@ const variations = [
     ...dragAndDropProps,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with a focused cell and pinned first and last columns',
     columnCount: 3,
     columnWidths: ['100px', '900px', '100px'],
@@ -201,7 +202,7 @@ const variations = [
     ...dragAndDropProps,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with max-width smaller than container',
     columnCount: 2,
     columnWidths: ['88px', '88px'],
@@ -212,7 +213,7 @@ const variations = [
     renderSmallerWrapper: true,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'without max-width',
     columnCount: 2,
     hasHeader: true,
@@ -221,7 +222,7 @@ const variations = [
     renderSmallerWrapper: true,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with add new row (button)',
     columnCount: 10,
     columnWidths: ['59px', '59px', '59px', '59px', '59px', '59px', '59px', '59px', '59px', '59px'],
@@ -232,7 +233,7 @@ const variations = [
     showAddRowButton: true,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'without header',
     columnCount: 4,
     hasHeader: false,
@@ -245,7 +246,7 @@ const variations = [
     renderSmallerWrapper: true,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with drag and drop, without delete',
     columnCount: 4,
     columnWidths: ['100px', '100px', '100px', 'auto'],
@@ -260,7 +261,7 @@ const variations = [
     ...dragAndDropProps,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with a single row',
     columnCount: 4,
     columnWidths: ['100px', '100px', '100px', 'auto'],
@@ -275,7 +276,7 @@ const variations = [
     ...dragAndDropProps,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with max-width',
     columnCount: 2,
     hasHeader: true,
@@ -285,7 +286,7 @@ const variations = [
     ...dragAndDropProps,
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with min-width and max-width',
     columnCount: 1,
     hasHeader: true,
@@ -295,7 +296,7 @@ const variations = [
     minWidth: '400px',
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with read-only cells',
     columnCount: 4,
     hasHeader: false,
@@ -306,7 +307,7 @@ const variations = [
     maxWidth: '1200px',
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with text input cells',
     columnCount: 4,
     hasHeader: false,
@@ -316,7 +317,7 @@ const variations = [
     maxWidth: '900px',
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with multiline text input cells',
     columnCount: 4,
     hasHeader: false,
@@ -326,7 +327,7 @@ const variations = [
     maxWidth: '900px',
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with select cells',
     columnCount: 4,
     hasHeader: false,
@@ -336,7 +337,7 @@ const variations = [
     maxWidth: '900px',
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with select cell spanning multiple lines',
     columnCount: 2,
     hasHeader: false,
@@ -346,7 +347,7 @@ const variations = [
     maxWidth: '300px',
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with autocompleter cells',
     columnCount: 4,
     hasHeader: false,
@@ -356,7 +357,7 @@ const variations = [
     maxWidth: '900px',
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with multi pick autocompleter cells',
     columnCount: 4,
     hasHeader: false,
@@ -366,7 +367,7 @@ const variations = [
     maxWidth: '900px',
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with mixed type cells',
     columnCount: 4,
     hasHeader: false,
@@ -375,7 +376,7 @@ const variations = [
     maxWidth: '900px',
   },
   {
-    storyKind: variationStoryKindName,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with invalid and mixed type cells',
     columnCount: 4,
     hasHeader: true,
@@ -413,8 +414,9 @@ const regressionVariations = [
 ];
 
 export {
-  variationStoryKindName,
+  storiesWithVariationsKindName,
   regressionVariationStoryKindName,
+  storiesWithKnobsKindName,
   variations,
   regressionVariations,
 };

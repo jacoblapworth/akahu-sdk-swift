@@ -40,7 +40,7 @@ class Example extends Component {
 }
 <Example />;
 
-const test = storiesOf(compositionKind, module);
+const test = storiesOf(`${compositionKind}/${nonBackstopStoryNames.fiveNestedModals}`, module);
 
 test.add(nonBackstopStoryNames.fiveNestedModals, () => {
   const body = document.querySelector('body.xui-container');

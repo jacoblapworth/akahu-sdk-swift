@@ -26,7 +26,11 @@ import XUITextInput from '../../../textinput';
 
 const NOOP = () => {};
 
-const test = storiesOf(compositionKind, module);
+const formOnAPageStories = storiesOf(`${compositionKind}/${storyNames.formOnAPage}`, module);
+const formOnAPageCustomFontStories = storiesOf(
+  `${compositionKind}/${storyNames.formOnAPageUseCustomFontSize}`,
+  module,
+);
 
 const toggledItems = [
   'Apricot',
@@ -195,5 +199,7 @@ const testFormOnAPage = () => {
   );
 };
 
-test.add(storyNames.formOnAPage, testFormOnAPage);
-test.add(storyNames.formOnAPageUseCustomFontSize, testFormOnAPage);
+// These are separate stories as otherwise a second instance of the same element won't render properly for vis-regs.
+// Can be changed once there is a difference between them.
+formOnAPageStories.add(storyNames.formOnAPage, testFormOnAPage);
+formOnAPageCustomFontStories.add(storyNames.formOnAPageUseCustomFontSize, testFormOnAPage);

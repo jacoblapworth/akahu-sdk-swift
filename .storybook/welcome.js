@@ -4,7 +4,10 @@ import React, { Component, PureComponent } from 'react';
 // Story book things
 import { storiesOf } from '@storybook/react';
 
-const stories = storiesOf('Welcome', module);
+const introPageName = 'About Storybook for XUI';
+const introCategory = 'Introduction';
+
+const stories = storiesOf(`${introCategory}/${introPageName}`, module);
 
 class Welcome extends Component {
   constructor(props) {
@@ -27,7 +30,7 @@ class Welcome extends Component {
       <div className="xui-page-width-standard">
         <div className="xui-row xui-row-grid">
           <div className="xui-panel xui-padding xui-margin-vertical xui-column-12-of-12">
-            <h1 className="xui-heading-large">About story books for XUI</h1>
+            <h1 className="xui-heading-large">About Storybook for XUI</h1>
             <p>
               Storybook is used to help us with composition and UI regression testing. We also use
               it to help us develop our components in isolation.
@@ -45,8 +48,8 @@ class Welcome extends Component {
             <div className="xui-padding">
               <h2 className="xui-heading-large">Isolated components</h2>
               <p>
-                You'll find isolated components under the <b>Instances</b> section, in the left hand
-                nav. It's used for building components in isolation, away from everything else.
+                You'll find isolated components under the <b>Components</b> section, in the left
+                hand nav. It's used for building components in isolation, away from everything else.
               </p>
             </div>
           </div>
@@ -57,9 +60,9 @@ class Welcome extends Component {
               style={{ width: '100%', height: '100px', objectFit: 'cover' }}
             />
             <div className="xui-padding">
-              <h2 className="xui-heading-large">Component compositions</h2>
+              <h2 className="xui-heading-large">Use cases</h2>
               <p>
-                You'll find composed components under the <b>Usages of</b> section, in the left hand
+                You'll find composed components under the <b>Use cases</b> section, in the left hand
                 nav. It's used for building up stories of composed components so we can test common
                 compositions and UI regressions.
               </p>
@@ -71,6 +74,6 @@ class Welcome extends Component {
   }
 }
 
-stories.add('Introduction', () => {
+stories.add(introPageName, () => {
   return <Welcome />;
 });

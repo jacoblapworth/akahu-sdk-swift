@@ -1,9 +1,9 @@
 import { commonViewports, desktopPlus320 } from '../../../stories/helpers/viewports';
-import NOOP from '../../helpers/noop';
 
 const privateConsts = require('../private/constants');
 
-const storiesWithVariationsKindName = 'Instances/XUIDropdown';
+const storiesWithKnobsKindName = 'Components/XUIDropdown';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = [
   {
@@ -172,4 +172,4 @@ privateConsts.dropdownPositionOptions.forEach(position => {
   });
 });
 
-export { storiesWithVariationsKindName, variations, NOOP };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

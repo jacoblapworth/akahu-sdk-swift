@@ -3,7 +3,8 @@ import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const privateConsts = require('../private/constants');
 
-const storiesWithVariationsKindName = 'Instances/XUIButton';
+const storiesWithKnobsKindName = 'Components/XUIButton';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 const sizes = Object.keys(privateConsts.sizeClassNames);
 const iconSizes = Object.keys(privateConsts.iconSizeClassNames);
 const variations = [
@@ -191,4 +192,4 @@ iconSizes.forEach(iconSize => {
   });
 });
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

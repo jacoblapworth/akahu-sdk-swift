@@ -1,8 +1,8 @@
-import NOOP from '../../helpers/noop';
 import { fixedWidthDropdownSizes } from '../../dropdown/private/constants';
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/XUIAutocompleter';
+const storiesWithKnobsKindName = 'Components/XUIAutocompleter';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = [
   {
@@ -103,4 +103,9 @@ Object.keys(fixedWidthDropdownSizes).map(dropdownSize =>
   }),
 );
 
-export { variations, NOOP, storiesWithVariationsKindName, fixedWidthDropdownSizes };
+export {
+  variations,
+  storiesWithVariationsKindName,
+  storiesWithKnobsKindName,
+  fixedWidthDropdownSizes,
+};

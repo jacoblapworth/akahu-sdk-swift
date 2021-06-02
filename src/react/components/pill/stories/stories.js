@@ -10,9 +10,14 @@ import { sizeClasses } from '../private/constants';
 import XUIPill from '../XUIPill';
 
 import NOOP from '../../helpers/noop';
-import { variations, avatarProps, storiesWithVariationsKindName } from './variations';
+import {
+  variations,
+  avatarProps,
+  storiesWithVariationsKindName,
+  storiesWithKnobsKindName,
+} from './variations';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => (
   <XUIPill
     avatarProps={object('avatarProps', avatarProps)}

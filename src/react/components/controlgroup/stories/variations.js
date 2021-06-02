@@ -1,6 +1,7 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/XUIControlGroup';
+const storiesWithKnobsKindName = 'Components/XUIControlGroup';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const controlTypes = ['XUITextInput', 'XUIDateInput', 'XUIButton', 'XUIButtonGroup'];
 
@@ -106,4 +107,4 @@ controlTypes.forEach(type =>
   }),
 );
 
-export { storiesWithVariationsKindName, variations, controlTypes };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations, controlTypes };

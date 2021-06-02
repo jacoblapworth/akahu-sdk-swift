@@ -5,7 +5,9 @@ import XUIButton from '../../button/XUIButton';
 import { defaultFileList } from '../private/helpers';
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithVariationsKindName = 'Instances/XUIFileUploader';
+const storiesWithKnobsKindName = 'Components/XUIFileUploader';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
+
 const fileList = defaultFileList.slice(1);
 
 const variations = [
@@ -176,4 +178,4 @@ const variations = [
   });
 });
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

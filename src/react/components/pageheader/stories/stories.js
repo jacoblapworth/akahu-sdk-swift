@@ -17,7 +17,7 @@ import { userBreakpoints } from '../../helpers/breakpoints';
 
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
 const exampleTabs = (breakpoint, includeAnchor) => (
   <XUIPicklist
@@ -90,7 +90,7 @@ const longSampleBreadcrumb = [
   { label: 'Invite new member', href: '#3' },
 ];
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(customCentered);
 
 storiesWithKnobs.add('Playground', () => {
@@ -136,6 +136,7 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(customCentered);
 
 variations.forEach(baseVariation => {
   const { storyTitle, storyKind, ...variationMinusStoryDetails } = baseVariation;

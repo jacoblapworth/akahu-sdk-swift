@@ -1,4 +1,4 @@
-const notColonRegex = /([^:]+)/g;
+const splitOnFirstColonRegex = /^(.+?):(.*)/;
 
 /**
 * Example of accepted format for tips
@@ -7,7 +7,7 @@ const notColonRegex = /([^:]+)/g;
 // Do: Do something exceptional
 // Do: Something else good we should do
 // Dont: Don't do that
-// Do: Is in a random order. Also this text should be super long. It will wrap nicelyt and not look completely foolish next to the other tips.
+// Do: Is in a random order. Also this text should be super long. It will wrap nicely and not look completely foolish next to the other tips.
 // Warning: I'm warning you
 */
 
@@ -43,9 +43,9 @@ const renderTips = (data, block) => {
 	let newBlock = '';
 
 	tips.forEach(tip => {
-		const parts = tip.match(notColonRegex);
-		const icon = matchTitleToIcon(parts[0].toLowerCase().replace(/'/g, ''));
-		const details = parts.slice(1).map( s => s.trim() );
+		const parts = tip.match(splitOnFirstColonRegex);
+		const icon = matchTitleToIcon(parts[1].toLowerCase().replace(/'/g, ''));
+		const details = parts.slice(2).map( s => s.trim() );
 
 		this.tip = {
 			iconName: icon.iconName,

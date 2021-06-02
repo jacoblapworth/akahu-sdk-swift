@@ -11,7 +11,7 @@ import XUIPanel from '../../panel/XUIPanel';
 
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 import {
   defaultPerPageCountOptions,
   defaultPerPageContent,
@@ -77,7 +77,7 @@ const ControlledExample = ({ count = 200, ...props }) => {
   );
 };
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(customCentered);
 
 storiesWithKnobs.add('Playground', () => {
@@ -95,6 +95,7 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(customCentered);
 
 variations.forEach(variations => {
   const {

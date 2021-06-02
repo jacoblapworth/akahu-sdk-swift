@@ -1,6 +1,7 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storyKind = 'Instances/XUIStepper';
+const storiesWithKnobsKindName = 'Components/XUIStepper';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const defaultTabs = [
   {
@@ -104,14 +105,14 @@ const progressTabs = [
 const variations = [
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'inline standard layout',
     lockLayout: 'inline',
   },
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'inline (stacked button) layout',
     hasStackedButtons: true,
     lockLayout: 'inline',
@@ -119,21 +120,21 @@ const variations = [
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'sidebar layout',
     lockLayout: 'sidebar',
   },
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'stacked layout',
     lockLayout: 'stacked',
   },
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'standard button combinations',
     lockLayout: 'stacked',
     tabs: standardTabs,
@@ -141,7 +142,7 @@ const variations = [
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'progress button combinations',
     lockLayout: 'stacked',
     tabs: progressTabs,
@@ -149,7 +150,7 @@ const variations = [
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'stacked with truncation',
     viewports: desktopPlus320,
     lockLayout: 'stacked',
@@ -158,7 +159,7 @@ const variations = [
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'stacked with wrapping',
     viewports: desktopPlus320,
     lockLayout: 'stacked',
@@ -168,7 +169,7 @@ const variations = [
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'inline with truncation',
     viewports: desktopPlus320,
     lockLayout: 'inline',
@@ -177,7 +178,7 @@ const variations = [
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'inline with wrapping',
     viewports: desktopPlus320,
     lockLayout: 'inline',
@@ -187,7 +188,7 @@ const variations = [
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'inline (stacked buttons) with truncation',
     viewports: desktopPlus320,
     lockLayout: 'inline',
@@ -197,7 +198,7 @@ const variations = [
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'inline (stacked buttons) with wrapping',
     viewports: desktopPlus320,
     lockLayout: 'inline',
@@ -208,7 +209,7 @@ const variations = [
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'sidebar with truncation',
     viewports: desktopPlus320,
     lockLayout: 'sidebar',
@@ -217,7 +218,7 @@ const variations = [
 
   {
     ...baseProps,
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'sidebar with wrapping',
     viewports: desktopPlus320,
     lockLayout: 'sidebar',
@@ -226,4 +227,4 @@ const variations = [
   },
 ];
 
-export { storyKind as storiesWithVariationsKindName, variations, baseProps };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations, baseProps };

@@ -10,9 +10,9 @@ import NOOP from '../../helpers/noop';
 import XUISwitchGroup from '../XUISwitchGroup';
 import XUISwitch from '../XUISwitch';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => (
   <XUISwitch
     hintMessage={text('hintMessage', '')}

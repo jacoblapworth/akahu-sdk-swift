@@ -25,7 +25,7 @@ import XUIPanel from '../../panel/XUIPanel';
 
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
-import { storiesWithVariationsKindName, variations } from './variations';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 import { userBreakpoints } from '../../helpers/breakpoints';
 
 const itemLabels = [
@@ -93,7 +93,7 @@ const buildLists = (lists, componentType) => {
   return builtLists;
 };
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
   const avatarSize = sizeShift('medium', -1);
@@ -170,6 +170,7 @@ storiesWithKnobs.add('Playground', () => {
 });
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+storiesWithVariations.addDecorator(centered);
 
 variations.forEach(variation => {
   const {

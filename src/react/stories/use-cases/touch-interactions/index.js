@@ -41,7 +41,7 @@ const avatarSizeMap = {
   xsmall: '2xsmall',
 };
 
-const test = storiesOf(compositionKind, module);
+const test = storiesOf(`${compositionKind}/${nonBackstopStoryNames.touchInteractions}`, module);
 
 test.add(nonBackstopStoryNames.touchInteractions, () => {
   class TouchInteractions extends React.Component {

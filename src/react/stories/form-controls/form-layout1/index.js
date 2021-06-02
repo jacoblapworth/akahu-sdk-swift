@@ -34,7 +34,7 @@ import { storyNames, compositionKind } from '../tests';
 
 const NOOP = () => {};
 
-const test = storiesOf(compositionKind, module);
+const test = storiesOf(`${compositionKind}/${storyNames.formLayout}`, module);
 
 const inputMap = {
   ah: 'account-holder',

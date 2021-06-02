@@ -29,6 +29,7 @@ const ExampleDateInput = () => {
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
       prevButtonAriaLabel="Previous month"
+      selectedDateValue={selectedDate}
     />
   );
 };
@@ -88,11 +89,13 @@ const ExampleDateRangePicker = () => {
       prevButtonAriaLabel="Previous month"
       endDateInputConfig={{
         inputLabel: 'End date',
-        onSelectDate: onSelectStartDate
+        onSelectDate: onSelectEndDate,
+        selectedDateValue: endDate
       }}
       startDateInputConfig={{
         inputLabel: 'Start date',
-        onSelectDate: onSelectEndDate
+        onSelectDate: onSelectStartDate,
+        selectedDateValue: startDate
       }}
     />
   );
@@ -126,6 +129,7 @@ const ExampleDateInput = () => {
       onSelectDate={onSelectDate}
       prevButtonAriaLabel="Previous month"
       selectedDateDefaultValue={defaultValue}
+      selectedDateValue={selectedDate}
     />
   );
 };
@@ -179,11 +183,13 @@ const ExampleDateRangePicker = () => {
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
-        onSelectDate: onSelectEndDate,
+        onSelectDate: onSelectStartDate,
+        selectedDateValue: startDate,
         inputLabel: 'Start date'
       }}
       endDateInputConfig={{
-        onSelectDate: onSelectStartDate,
+        onSelectDate: onSelectEndDate,
+        selectedDateValue: endDate,
         inputLabel: 'End date'
       }}
     />
@@ -216,6 +222,7 @@ const ExampleDateInput = () => {
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
       prevButtonAriaLabel="Previous month"
+      selectedDateValue={selectedDate}
     />
   );
 };
@@ -269,12 +276,14 @@ const ExampleDateRangePicker = () => {
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
-        onSelectDate: onSelectEndDate,
+        onSelectDate: onSelectStartDate,
+        selectedDateValue: startDate,
         isDisabled: true,
         inputLabel: 'Start date'
       }}
       endDateInputConfig={{
-        onSelectDate: onSelectStartDate,
+        onSelectDate: onSelectEndDate,
+        selectedDateValue: endDate,
         isDisabled: true,
         inputLabel: 'End date'
       }}
@@ -308,6 +317,7 @@ const ExampleDateInput = () => {
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
       prevButtonAriaLabel="Previous month"
+      selectedDateValue={selectedDate}
     />
   );
 };
@@ -361,12 +371,14 @@ const ExampleDateRangePicker = () => {
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
-        onSelectDate: onSelectEndDate,
+        onSelectDate: onSelectStartDate,
+        selectedDateValue: startDate,
         hintMessage: 'Start hint text',
         inputLabel: 'Start date'
       }}
       endDateInputConfig={{
-        onSelectDate: onSelectStartDate,
+        onSelectDate: onSelectEndDate,
+        selectedDateValue: endDate,
         hintMessage: 'End hint text',
         inputLabel: 'End date'
       }}
@@ -398,6 +410,7 @@ const ExampleDateInput = () => {
       inputLabel="Start date"
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
+      selectedDateValue={selectedDate}
       prevButtonAriaLabel="Previous month"
       validationMessage="Start error explanation"
       isInvalid={true}
@@ -454,13 +467,15 @@ const ExampleDateRangePicker = () => {
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
-        onSelectDate: onSelectEndDate,
+        onSelectDate: onSelectStartDate,
+        selectedDateValue: startDate,
         validationMessage: 'Start error explanation',
         isInvalid: true,
         inputLabel: 'First label'
       }}
       endDateInputConfig={{
-        onSelectDate: onSelectStartDate,
+        onSelectDate: onSelectEndDate,
+        selectedDateValue: endDate,
         validationMessage: 'End error explanation',
         isInvalid: true,
         inputLabel: 'Second label'
@@ -533,6 +548,7 @@ const ExampleDateInput = () => {
       onSelectDate={onSelectDate}
       prevButtonAriaLabel="Previous month"
       suggestedDates={dateInputSuggestedDates}
+      selectedDateValue={selectedDate}
     />
   );
 };
@@ -588,11 +604,13 @@ const ExampleDateRangePicker = () => {
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
-        onSelectDate: onSelectEndDate,
+        onSelectDate: onSelectStartDate,
+        selectedDateValue: startDate,
         inputLabel: 'Start date'
       }}
       endDateInputConfig={{
-        onSelectDate: onSelectStartDate,
+        onSelectDate: onSelectEndDate,
+        selectedDateValue: endDate,
         inputLabel: 'End date'
       }}
     />
@@ -637,6 +655,7 @@ const ExampleDateInput = () => {
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
       prevButtonAriaLabel="Previous month"
+      selectedDateValue={selectedDate}
       size="small"
     />
   );
@@ -670,6 +689,7 @@ const ExampleDateInput = () => {
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
       prevButtonAriaLabel="Previous month"
+      selectedDateValue={selectedDate}
     />
   );
 };

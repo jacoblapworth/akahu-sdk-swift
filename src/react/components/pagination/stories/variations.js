@@ -1,7 +1,8 @@
 import { commonViewports, desktopPlus320 } from '../../../stories/helpers/viewports';
 import { numberFormat } from '../private/helpers';
 
-const storiesWithVariationsKindName = 'Instances/XUIPagination';
+const storiesWithKnobsKindName = 'Components/XUIPagination';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = [
   {
@@ -61,4 +62,4 @@ const variations = [
   },
 ];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

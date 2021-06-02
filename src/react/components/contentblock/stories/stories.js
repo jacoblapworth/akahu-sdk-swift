@@ -18,7 +18,7 @@ import XUIRolloverCheckbox from '../../rollovercheckbox/XUIRolloverCheckbox';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUITag from '../../tag/XUITag';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
 const buildExampleContentblockItem = children =>
   children.map((child, index) => {
@@ -71,7 +71,7 @@ const buildExampleContentblockItem = children =>
 
 const exampleClickHandler = () => console.log('clicked');
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   const staticItems = [

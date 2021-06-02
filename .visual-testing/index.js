@@ -235,9 +235,9 @@ const componentsToTest = [
     variationsPath: `${variationsPath}/structural/stories/variations.js`,
   },
   {
-    testsPrefix: 'Components in Components',
+    testsPrefix: 'Use cases',
     variationsPath: relativeToProjectDirectory(
-      '.tmp/react-visualregression/stories/components-in-components/tests.js',
+      '.tmp/react-visualregression/stories/use-cases/tests.js',
     ),
     selectors: '.xui-container',
   },

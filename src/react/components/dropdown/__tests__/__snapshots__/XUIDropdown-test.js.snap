@@ -39,6 +39,7 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
         className="xui-dropdown--scrollable-container"
         data-automationid="dropdown-test--scrollable-container"
         onKeyDown={[Function]}
+        onMouseDown={[Function]}
         tabIndex={null}
       >
         <div

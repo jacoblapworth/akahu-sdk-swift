@@ -12,7 +12,8 @@ import XUIBannerActions from '../XUIBannerActions';
 import XUIBannerMessage from '../XUIBannerMessage';
 import XUIBannerMessageDetail from '../XUIBannerMessageDetail';
 
-import { variations, storiesWithVariationsKindName, NOOP } from './variations';
+import NOOP from '../../helpers/noop';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
 class DetailedBanner extends Component {
   render() {
@@ -43,7 +44,7 @@ class DetailedBanner extends Component {
   }
 }
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => (
   <DetailedBanner

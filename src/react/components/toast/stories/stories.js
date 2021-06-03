@@ -12,9 +12,9 @@ import XUIToastAction from '../XUIToastAction';
 import XUIToastActions from '../XUIToastActions';
 import { sentimentMap } from '../private/constants';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
-const NOOP = () => {};
+import NOOP from '../../helpers/noop';
 
 const ucFirst = string => string.charAt(0).toUpperCase() + string.slice(1);
 
@@ -60,7 +60,7 @@ class DetailedToast extends Component {
   }
 }
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => {
   const sentiments = {
     '': 'No Sentiment',

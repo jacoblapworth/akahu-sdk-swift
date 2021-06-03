@@ -9,9 +9,9 @@ import { boolean, text, number, select } from '@storybook/addon-knobs';
 import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIRange from '../XUIRange';
 
-import { storiesWithVariationsKindName, variations } from './variations';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => {
   const showLeftElement = boolean('Show left element', true);
   const showRightElement = boolean('Show right element', true);

@@ -2,7 +2,8 @@ import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const modalSizes = require('../constants').modalSizes;
 
-const storiesWithVariationsKindName = 'Instances/XUIModal';
+const storiesWithKnobsKindName = 'Components/XUIModal';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const sizes = Object.keys(modalSizes).map(size => ({
   storyKind: storiesWithVariationsKindName,
@@ -33,4 +34,4 @@ const variations = [
   ...sizes,
 ];
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

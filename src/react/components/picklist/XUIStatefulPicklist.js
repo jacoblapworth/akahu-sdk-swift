@@ -346,6 +346,8 @@ class XUIStatefulPicklist extends Component {
         data-automationid={qaHook}
         id={id}
         onKeyDown={spl.onKeyDown}
+        /** TODO: Figure out why this is needed */
+        onMouseDown={e => e.preventDefault()}
         ref={spl.list}
         tabIndex={isFocusable ? 0 : null}
       >

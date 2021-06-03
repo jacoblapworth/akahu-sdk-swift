@@ -2,7 +2,8 @@ import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const starIcon = require('@xero/xui-icon/icons/star').default;
 
-const storiesWithVariationsKindName = 'Instances/XUICheckbox';
+const storiesWithKnobsKindName = 'Components/XUICheckbox';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = [
   {
@@ -207,4 +208,4 @@ const variations = [
   });
 });
 
-export { storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

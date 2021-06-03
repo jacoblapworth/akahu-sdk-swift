@@ -9,10 +9,10 @@ import { text, select, boolean } from '@storybook/addon-knobs';
 import { wrapperSizeClasses, rotationClasses, colorClasses } from '../private/constants';
 import XUIIcon from '../XUIIcon';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
   const rotation = select('Rotation', [0, ...Object.keys(rotationClasses)]);

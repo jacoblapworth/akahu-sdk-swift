@@ -10,7 +10,7 @@ import XUIRow from '../XUIRow';
 import XUIColumn from '../XUIColumn';
 import { rowVariants } from '../private/constants';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
 const buildColumns = widths =>
   widths.map((width, index) => (
@@ -26,7 +26,7 @@ const buildColumns = widths =>
     </XUIColumn>
   ));
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 
 storiesWithKnobs.add('Columns Playground', () => {
   const columnCount = number('number of columns', 3);

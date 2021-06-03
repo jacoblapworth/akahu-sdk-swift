@@ -63,7 +63,7 @@ const splitButtonExample = (
 );
 <Example />;
 
-const test = storiesOf(compositionKind, module);
+const test = storiesOf(`${compositionKind}/${nonBackstopStoryNames.layeringElements}`, module);
 
 test.add(nonBackstopStoryNames.layeringElements, () => {
   const body = document.querySelector('body.xui-container');

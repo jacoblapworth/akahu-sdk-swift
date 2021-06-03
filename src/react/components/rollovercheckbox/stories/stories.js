@@ -9,9 +9,9 @@ import { boolean, select } from '@storybook/addon-knobs';
 import XUIRolloverCheckbox from '../XUIRolloverCheckbox';
 import XUIAvatar from '../../avatar/XUIAvatar';
 
-import { variations, storiesWithVariationsKindName } from './variations';
+import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 
-const storiesWithKnobs = storiesOf(storiesWithVariationsKindName, module);
+const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => {
   const sizedAvatar = (
     <XUIAvatar

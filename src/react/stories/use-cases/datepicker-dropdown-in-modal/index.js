@@ -15,7 +15,7 @@ import { storyNames, compositionKind } from '../tests';
 
 const displayMonth = new Date('Oct 02 2017 00:00:00 GMT+1300');
 
-const test = storiesOf(compositionKind, module);
+const test = storiesOf(`${compositionKind}/${storyNames.dateDDInModal}`, module);
 
 test.add(storyNames.dateDDInModal, () => {
   const trigger = <XUIButton hasCaret>Datepicker Button</XUIButton>;

@@ -1,7 +1,8 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 import chipper from './chipper';
 
-const storyKind = 'Instances/XUIBarChart';
+const storiesWithKnobsKindName = 'Components/XUIBarChart';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const standardBarsData = [
   { id: 0, x: 'Apple', y: 1 },
@@ -25,7 +26,7 @@ const stackedBarColor = ['#50DCAA', null, '#B446C8'];
 
 const variations = [
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Standard Active Bars',
     examples: [
       {
@@ -53,7 +54,7 @@ const variations = [
     ],
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Standard Colored Bars',
     examples: [
       {
@@ -74,7 +75,7 @@ const variations = [
     ],
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Bars Overflow',
     examples: [
       {
@@ -104,7 +105,7 @@ const variations = [
     ],
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Customise Y-Axis',
     examples: [
       {
@@ -139,7 +140,7 @@ const variations = [
     ],
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Undefined / Disparit Stress Test',
     examples: [
       {
@@ -167,7 +168,7 @@ const variations = [
     ],
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Loading State',
     examples: [
       {
@@ -181,7 +182,7 @@ const variations = [
     ],
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Empty States',
     examples: [
       {
@@ -208,7 +209,7 @@ const variations = [
     ],
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Avatar X-Axis Label',
     examples: [
       {
@@ -249,7 +250,7 @@ const variations = [
     ],
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Avatar Image X-Axis Label',
     delay: 3000,
     examples: [
@@ -319,7 +320,7 @@ const variations = [
     ],
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Abbreviation X-Axis Label',
     examples: [
       {
@@ -360,7 +361,7 @@ const variations = [
     ],
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Header elements',
     examples: [
       {
@@ -409,7 +410,7 @@ const variations = [
     ],
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Standard Negative Bars',
     examples: [
       {
@@ -449,7 +450,7 @@ const variations = [
     ],
   },
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Responsive with Stacked Active Bars',
     viewports: desktopPlus320,
     customDecorator: true,
@@ -470,4 +471,4 @@ const variations = [
   },
 ];
 
-export { storyKind as storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

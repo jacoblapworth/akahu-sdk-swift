@@ -1,7 +1,8 @@
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
+import NOOP from '../../helpers/noop';
 
-const noop = () => {};
-const storyKind = 'Instances/XUITable';
+const storiesWithKnobsKindName = 'Components/XUITable';
+const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 const data = {
   0: {},
   1: {},
@@ -13,7 +14,7 @@ const tableProps = {
 };
 const variations = [
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'basic',
     examples: [
       {
@@ -27,7 +28,7 @@ const variations = [
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'no header',
     examples: [
       {
@@ -58,7 +59,7 @@ const variations = [
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'responsive',
     examples: [
       {
@@ -71,7 +72,7 @@ const variations = [
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'checkbox',
     examples: [
       {
@@ -79,8 +80,8 @@ const variations = [
         tableProps: {
           ...tableProps,
           hasCheckbox: true,
-          onCheckAllToggle: noop,
-          onCheckOneToggle: noop,
+          onCheckAllToggle: NOOP,
+          onCheckOneToggle: NOOP,
         },
       },
       {
@@ -90,8 +91,8 @@ const variations = [
           hasCheckbox: true,
           checkedIds: { 1: true },
           disabledIds: { 2: true },
-          onCheckAllToggle: noop,
-          onCheckOneToggle: noop,
+          onCheckAllToggle: NOOP,
+          onCheckOneToggle: NOOP,
         },
       },
       {
@@ -104,15 +105,15 @@ const variations = [
             1: true,
             2: true,
           },
-          onCheckAllToggle: noop,
-          onCheckOneToggle: noop,
+          onCheckAllToggle: NOOP,
+          onCheckOneToggle: NOOP,
         },
       },
     ],
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'overflow menu',
     examples: [
       {
@@ -120,14 +121,14 @@ const variations = [
         tableProps: {
           ...tableProps,
           hasOverflowMenu: true,
-          createOverflowMenu: noop,
+          createOverflowMenu: NOOP,
         },
       },
     ],
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'pinned actions',
     viewports: desktopPlus320,
     examples: [
@@ -137,8 +138,8 @@ const variations = [
           ...tableProps,
           hasPinnedFirstColumn: true,
           hasCheckbox: true,
-          onCheckAllToggle: noop,
-          onCheckOneToggle: noop,
+          onCheckAllToggle: NOOP,
+          onCheckOneToggle: NOOP,
         },
       },
       {
@@ -147,7 +148,7 @@ const variations = [
           ...tableProps,
           hasPinnedLastColumn: true,
           hasOverflowMenu: true,
-          createOverflowMenu: noop,
+          createOverflowMenu: NOOP,
         },
       },
       {
@@ -157,17 +158,17 @@ const variations = [
           hasPinnedFirstColumn: true,
           hasPinnedLastColumn: true,
           hasCheckbox: true,
-          onCheckAllToggle: noop,
-          onCheckOneToggle: noop,
+          onCheckAllToggle: NOOP,
+          onCheckOneToggle: NOOP,
           hasOverflowMenu: true,
-          createOverflowMenu: noop,
+          createOverflowMenu: NOOP,
         },
       },
     ],
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'truncation',
     viewports: desktopPlus320,
     examples: [
@@ -192,17 +193,17 @@ const variations = [
           },
           isTruncated: true,
           hasCheckbox: true,
-          onCheckAllToggle: noop,
-          onCheckOneToggle: noop,
+          onCheckAllToggle: NOOP,
+          onCheckOneToggle: NOOP,
           hasOverflowMenu: true,
-          createOverflowMenu: noop,
+          createOverflowMenu: NOOP,
         },
       },
     ],
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'custom classes',
     examples: [
       {
@@ -242,7 +243,7 @@ const variations = [
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'wrapping',
     viewports: desktopPlus320,
     examples: [
@@ -305,10 +306,10 @@ const variations = [
           hasPinnedFirstColumn: true,
           hasPinnedLastColumn: true,
           hasCheckbox: true,
-          onCheckAllToggle: noop,
-          onCheckOneToggle: noop,
+          onCheckAllToggle: NOOP,
+          onCheckOneToggle: NOOP,
           hasOverflowMenu: true,
-          createOverflowMenu: noop,
+          createOverflowMenu: NOOP,
         },
       },
       {
@@ -323,7 +324,7 @@ const variations = [
               content: 'The quick brown fox jumps over the lazy dog',
             },
           },
-          onRowClick: noop,
+          onRowClick: NOOP,
           shouldRowClick: () => true,
         },
       },
@@ -331,7 +332,7 @@ const variations = [
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'sorting',
     examples: [
       {
@@ -345,7 +346,7 @@ const variations = [
           },
           activeSortKey: 'content',
           isSortAsc: true,
-          onSortChange: noop,
+          onSortChange: NOOP,
         },
       },
       {
@@ -359,7 +360,7 @@ const variations = [
           },
           activeSortKey: 'content',
           isSortAsc: false,
-          onSortChange: noop,
+          onSortChange: NOOP,
         },
       },
       {
@@ -373,7 +374,7 @@ const variations = [
           },
           activeSortKey: 'content',
           isSortAsc: false,
-          onSortChange: noop,
+          onSortChange: NOOP,
           customSort: (data, isAsc) => {
             const comparison = isAsc
               ? (a, b) => a.tags.length > b.tags.length
@@ -387,7 +388,7 @@ const variations = [
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'header / footer',
     examples: [
       {
@@ -416,7 +417,7 @@ const variations = [
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'loading',
     examples: [
       {
@@ -438,7 +439,7 @@ const variations = [
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'widths',
     viewports: desktopPlus320,
     examples: [
@@ -461,7 +462,7 @@ const variations = [
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'empty',
     examples: [
       {
@@ -494,15 +495,15 @@ const variations = [
           data: {},
           hasPinnedFirstColumn: true,
           hasCheckbox: true,
-          onCheckAllToggle: noop,
-          onCheckOneToggle: noop,
+          onCheckAllToggle: NOOP,
+          onCheckOneToggle: NOOP,
         },
       },
     ],
   },
 
   {
-    storyKind,
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'custom header and footer with pinned columns',
     examples: [
       {
@@ -512,10 +513,10 @@ const variations = [
           hasPinnedFirstColumn: true,
           hasPinnedLastColumn: true,
           hasCheckbox: true,
-          onCheckAllToggle: noop,
-          onCheckOneToggle: noop,
+          onCheckAllToggle: NOOP,
+          onCheckOneToggle: NOOP,
           hasOverflowMenu: true,
-          createOverflowMenu: noop,
+          createOverflowMenu: NOOP,
           hasCustomHeader: true,
           hasCustomFooter: true,
         },
@@ -524,4 +525,4 @@ const variations = [
   },
 ];
 
-export { storyKind as storiesWithVariationsKindName, variations };
+export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

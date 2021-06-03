@@ -40,6 +40,7 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -109,6 +110,7 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -190,6 +192,7 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -259,6 +262,7 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -340,6 +344,7 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -409,6 +414,7 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -490,6 +496,7 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -559,6 +566,7 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -640,6 +648,7 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -709,6 +718,7 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -790,6 +800,7 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -859,6 +870,7 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -940,6 +952,7 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -1009,6 +1022,7 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -1092,6 +1106,7 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -1161,6 +1176,7 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -1242,6 +1258,7 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -1311,6 +1328,7 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -1392,6 +1410,7 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -1461,6 +1480,7 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -1542,6 +1562,7 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -1611,6 +1632,7 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -1692,6 +1714,7 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-panelone--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div
@@ -1761,6 +1784,7 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
           className="xui-dropdown--scrollable-container"
           data-automationid="nestedDropdown-paneltwo--scrollable-container"
           onKeyDown={[Function]}
+          onMouseDown={[Function]}
           tabIndex={null}
         >
           <div

@@ -66,6 +66,32 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with no retry button fileList',
+    fileList: [
+      {
+        uid: nanoid(10),
+        status: 'error',
+        errorMessage: `File couldn't be uploaded because it's too large`,
+        originalFile: {
+          name: 'hideRetryButton.pdf',
+          type: 'application/pdf',
+          size: 600000000000,
+        },
+        hideRetryButton: true,
+      },
+      {
+        uid: nanoid(10),
+        status: 'error',
+        originalFile: {
+          name: 'showRetryButton.pdf',
+          type: 'application/pdf',
+          size: 600,
+        },
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'drag and drop',
     hasDragAndDrop: true,
   },

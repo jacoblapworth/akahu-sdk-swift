@@ -5,11 +5,16 @@ $xui-introbanner-illustration-height: 220px;
 $xui-introbanner-illustration-s-to-m-height: 190px;
 $xui-introbanner-illustration-width: 400px;
 
+.#{$ns}-introbanner--wrapper {
+  background-color: $xui-panel-bg-color;
+  box-shadow: $xui-shadow-depth-overlap-top;
+  width: 100%;
+}
+
 .#{$ns}-introbanner {
   @include xui-padding-vertical($xui-s-2xlarge);
   @include xui-padding-horizontal($xui-s-large);
   background-color: $xui-panel-bg-color;
-  box-shadow: $xui-shadow-depth-overlap-top;
   margin: auto;
   max-width: $xui-page-width-large;
   position: relative;

@@ -19,6 +19,8 @@ The bare minimum intro banner component can be achieved by using `XUIIntroBanner
 
 ```js
 import { XUIIntroBanner, XUIIntroBannerBody } from '@xero/xui/react/introbanner';
+import XUIIcon from '@xero/xui/react/icon';
+import external from '@xero/xui-icon/icons/external';
 
 const dismiss = () => {
   window.alert('Dismiss');
@@ -35,8 +37,15 @@ const dismiss = () => {
       quantities on hand.
     </p>
     <p>
-      Learn more about <a href="#tracked-inventory">setting up tracked inventory</a> and{' '}
-      <a href="#inventory-items">managing your inventory items</a>
+      Learn more about
+      <a href="#tracked-inventory">
+        setting up tracked inventory
+        <XUIIcon icon={external} />
+      </a> and
+      <a href="#inventory-items">
+        managing your inventory items
+        <XUIIcon icon={external} />
+      </a>
     </p>
   </XUIIntroBannerBody>
 </XUIIntroBanner>;
@@ -55,6 +64,7 @@ import {
   XUIIntroBannerBody,
   XUIIntroBannerFooter
 } from '@xero/xui/react/introbanner';
+import XUIIcon from '@xero/xui/react/icon';
 import external from '@xero/xui-icon/icons/external';
 
 const dismiss = () => {
@@ -72,8 +82,15 @@ const body = (
       quantities on hand.
     </p>
     <p>
-      Learn more about <a href="#tracked-inventory">setting up tracked inventory</a> and
-      <a href="#inventory-items">managing your inventory items</a>
+      Learn more about
+      <a href="#tracked-inventory">
+        setting up tracked inventory
+        <XUIIcon icon={external} />
+      </a> and
+      <a href="#inventory-items">
+        managing your inventory items
+        <XUIIcon icon={external} />
+      </a>
     </p>
   </XUIIntroBannerBody>
 );
@@ -102,6 +119,8 @@ The intro banner can also include an illustration, which is displayed in the for
 
 ```js
 import { XUIIntroBanner, XUIIntroBannerBody } from '@xero/xui/react/introbanner';
+import XUIIcon from '@xero/xui/react/icon';
+import external from '@xero/xui-icon/icons/external';
 
 const dismiss = () => {
   window.alert('Dismiss');
@@ -114,8 +133,15 @@ const body = (
       quantities on hand.
     </p>
     <p>
-      Learn more about <a href="#tracked-inventory">setting up tracked inventory</a> and
-      <a href="#inventory-items">managing your inventory items</a>
+      Learn more about
+      <a href="#tracked-inventory">
+        setting up tracked inventory
+        <XUIIcon icon={external} />
+      </a> and
+      <a href="#inventory-items">
+        managing your inventory items
+        <XUIIcon icon={external} />
+      </a>
     </p>
   </XUIIntroBannerBody>
 );
@@ -143,6 +169,8 @@ import {
   XUIIntroBannerBody,
   XUIIntroBannerFooter
 } from '@xero/xui/react/introbanner';
+import XUIIcon from '@xero/xui/react/icon';
+import external from '@xero/xui-icon/icons/external';
 import videoIcon from '@xero/xui-icon/icons/social-youtube';
 
 const dismiss = () => {
@@ -160,8 +188,15 @@ const body = (
       quantities on hand.
     </p>
     <p>
-      Learn more about <a href="#tracked-inventory">setting up tracked inventory</a> and
-      <a href="#inventory-items">managing your inventory items</a>
+      Learn more about
+      <a href="#tracked-inventory">
+        setting up tracked inventory
+        <XUIIcon icon={external} />
+      </a> and
+      <a href="#inventory-items">
+        managing your inventory items
+        <XUIIcon icon={external} />
+      </a>
     </p>
   </XUIIntroBannerBody>
 );

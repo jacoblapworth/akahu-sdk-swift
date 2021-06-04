@@ -34,7 +34,7 @@ const variations = [
     video: true,
     illustration: true,
     footer: true,
-    viewports: [...desktopPlus320, commonViewports[2]],
+    viewports: [...desktopPlus320, commonViewports[2], commonViewports[6]],
   },
 ];
 

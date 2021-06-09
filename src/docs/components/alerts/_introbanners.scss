@@ -20,7 +20,7 @@
 //
 // Tips:
 // Do: Focus content on introducing a product and providing access to more information about it
-// Do: Always place beneath the [page header](./section-components-navigation-page-header.html) or [isolation header](./section-components-navigation-isolation-header.html)
+// Do: Always place beneath the [page header](./section-components-navigation-page-header.html) or [isolation header](./section-components-navigation-isolation-header.html) at 100% width of the viewport
 // Do: Only display 1 intro banner per page
 // Do: Always include a heading, body content, and a dismiss button
 // Do: Only provide an illustration to support the content, not to add decoration
@@ -107,6 +107,7 @@
 // For building a component without React, following these HTML classes will provide the appropriate styling. However, there is some functionality reliant on javascript that will not be available through this method of building.
 //
 // Classes:
+// xui-introbanner--wrapper: Wrapper for the intro banner
 // xui-introbanner: Base class
 // xui-introbanner-small-up: Applies layout for the wide screen variant
 // xui-introbanner-has-illustration: Applies layout for the illustration variant

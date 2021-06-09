@@ -14,8 +14,10 @@ const XUIEditableTableCellTextInput = ({
   containerClassName,
   onBlur,
   onFocus,
+  inlineAlignment,
   isDisabled,
   isInvalid,
+  isValueReverseAligned,
   validationMessage,
   inputProps,
   inputRef,
@@ -78,6 +80,7 @@ const XUIEditableTableCellTextInput = ({
         isDisabled={isDisabled}
         isInvalid={isInvalid}
         isLabelHidden
+        isValueReverseAligned={isValueReverseAligned || inlineAlignment === 'end'}
         onBlur={composedOnBlur}
         onFocus={composedOnFocus}
         ref={combineRefs(innerRef, inputRef)}
@@ -95,6 +98,8 @@ XUIEditableTableCellTextInput.propTypes = {
   defaultValue: PropTypes.string,
   /** After rendering set focus at the end of the input */
   focusOnMount: PropTypes.bool,
+  /** Aligns the content of the cell on the inline (horizontal) axis. */
+  inlineAlignment: PropTypes.oneOf(['end', 'start']),
   /** Class names to add to the input element */
   inputClassName: PropTypes.string,
   /** Props to be spread onto the input element itself */
@@ -163,3 +168,7 @@ XUIEditableTableCellTextInput.propTypes = {
 };
 
 export default XUIEditableTableCellTextInput;
+
+XUIEditableTableCellTextInput.defaultProps = {
+  inlineAlignment: 'start',
+};

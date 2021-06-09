@@ -234,6 +234,42 @@ const data = {
 </Table>;
 ```
 
+## Alignment
+
+All cells except cells in the last column of the table align left by default. We recommend aligning numbers, including currency to the right. The `inlineAlignment` prop can be used on `XUITableColumn` to change the text alignment.
+
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
+
+const data = {
+  abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 }
+};
+
+<Table
+  data={data}
+  loaderAriaLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
+  overflowMenuTitle="More row options"
+  caption="List of fruits with color and price per kg"
+>
+  <Column
+    head={<Cell>Fruit</Cell>}
+    body={({ fruit }) => <Cell>{fruit}</Cell>}
+    inlineAlignment="end"
+  />
+
+  <Column
+    head={<Cell>Color</Cell>}
+    body={({ color }) => <Cell>{color}</Cell>}
+    inlineAlignment="end"
+  />
+
+  <Column head={<Cell>Price / kg</Cell>} body={({ price }) => <Cell>{`$${price}`}</Cell>} />
+</Table>;
+```
+
 ## Custom CSS Classes
 
 Pass the `className` prop to the `<XUITable>` to add CSS classes to the outer most element of the the _Table_ scaffold.

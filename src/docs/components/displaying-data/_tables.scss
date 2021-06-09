@@ -159,6 +159,22 @@
 //
 // Styleguide: Components.DisplayingData.Table.5.2
 
+// Alignment
+//
+// All cells except cells in the last column of the table align left by default.
+//
+// Tips:
+// Do: Aligned numbers, including currency to the right
+// Do: Cells in a column must be aligned consistently with each other, including the heading cell
+//
+// Classes:
+// xui-readonlytableheadingcell-rightaligned: Apply to header cells
+// xui-readonlytablecell-rightaligned: Apply to body cells
+//
+// Markup: ./examples/table/_table-alignment.html
+//
+// Styleguide: Components.DisplayingData.Table.6
+
 // Related links
 //
 // Related:

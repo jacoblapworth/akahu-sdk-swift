@@ -229,19 +229,25 @@ XUIFileUploader.propTypes = {
    * Class names to be added to the div wrapping the select button/drop zone
    */
   fieldClassName: PropTypes.string,
-  /**
-   * Array of the following format Object:
-   * <br />
-   * {
-   *   uid: String, // Unique identifier used as a file key. This value is generated when the file input changed, and should not be modified
-   *   status: String, // User could change it to: uploading / done / error
-   *   originalFile: File, // Original File object
-   *   errorMessage: String, // Optional, custom error message, will overwrite prop `defaultErrorMessage`
-   *   rightContent: ReactNode, // Optional, custom rightContent for files with `done` status, shows in the left of delete icon
-   *   uploadProgressPercentage: Number, // Optional, percentage of upload completed. When present, the progress icon will illustrate completion amount. Must be an integer between 0 and 100 inclusive.
-   * }
-   */
-  fileList: PropTypes.array.isRequired,
+  /** FileList props */
+  fileList: PropTypes.arrayOf(
+    PropTypes.shape({
+      /** Custom error message, will overwrite prop `defaultErrorMessage` */
+      errorMessage: PropTypes.string,
+      /** If set to true the retry button will not display. Use only for cases where you would not want the user to attempt the same upload again. */
+      hideRetryButton: PropTypes.bool,
+      /** Original File object */
+      originalFile: PropTypes.object.isRequired,
+      /** Custom rightContent for files with `done` status, shows in the left of delete icon */
+      rightContent: PropTypes.node,
+      /** User could change it to: uploading / done / error */
+      status: PropTypes.string.isRequired,
+      /** Unique identifier used as a file key. This value is generated when the file input is changed, and should not be modified */
+      uid: PropTypes.string.isRequired,
+      /** Percentage of upload completed. When present, the progress icon will illustrate completion amount. Must be an integer between 0 and 100 inclusive. */
+      uploadProgressPercentage: PropTypes.number,
+    }),
+  ).isRequired,
   /**
    * Class names to be added to the div wrapping filelist
    */

@@ -8,6 +8,7 @@ exports[`EditableTableHeadRow renders utility control columns, if applicable 1`]
     <EditableTableHeadRow>
       <tr>
         <XUIEditableTableHeadingCell
+          inlineAlignment="start"
           scope="col"
           style={
             Object {
@@ -26,6 +27,7 @@ exports[`EditableTableHeadRow renders utility control columns, if applicable 1`]
           />
         </XUIEditableTableHeadingCell>
         <XUIEditableTableHeadingCell
+          inlineAlignment="start"
           scope="col"
           style={
             Object {

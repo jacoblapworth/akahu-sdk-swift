@@ -57,6 +57,7 @@ class EditableTablePlayground extends React.Component {
       cellsValidationMessage,
       showAddRowButton,
       tableValidationMessage,
+      isSecondColumnEndAligned,
     } = this.props;
     let cellsCount = 0;
     const colWidths = columnWidths && columnWidths.split(/[\s,]/g);
@@ -107,7 +108,10 @@ class EditableTablePlayground extends React.Component {
             <XUIEditableTableHead>
               <XUIEditableTableRow>
                 {Array.from(Array(columnCount).keys()).map((item, index) => (
-                  <XUIEditableTableHeadingCell key={`head_${index}`}>
+                  <XUIEditableTableHeadingCell
+                    inlineAlignment={isSecondColumnEndAligned && index === 1 ? 'end' : 'start'}
+                    key={`head_${index}`}
+                  >
                     I’m a cell
                   </XUIEditableTableHeadingCell>
                 ))}
@@ -126,16 +130,19 @@ class EditableTablePlayground extends React.Component {
                 {Array.from(Array(columnCount).keys()).map((item, columnIndex) => {
                   const isDisabled = disableSecondRow && rowIndex === 1;
                   const isInvalid = invalidSecondColumn && columnIndex === 1;
+                  const inlineAlignment =
+                    isSecondColumnEndAligned && columnIndex === 1 ? 'end' : 'start';
                   cellsCount += 1;
                   return generateCell({
                     cellsCount,
                     cellType,
                     columnIndex,
-                    randomiseContent,
+                    inlineAlignment,
                     isDisabled,
                     isInvalid,
-                    validationMessage: cellsValidationMessage,
+                    randomiseContent,
                     rowIndex,
+                    validationMessage: cellsValidationMessage,
                   });
                 })}
               </XUIEditableTableRow>
@@ -183,6 +190,7 @@ storiesWithKnobs.add('Playground', () => (
     hasPinnedLastColumn={boolean('Has pinned last column?', false)}
     hideShowColumns={boolean('Show column-hiding filter?', false)}
     invalidSecondColumn={boolean('Invalid cells in the second column?', false)}
+    isSecondColumnEndAligned={boolean('End align the second column', false)}
     maxWidth={text('Max width', '1100px')}
     minWidth={text('Min width', '300px')}
     randomiseContent={boolean('Various assorted strings as content?', false)}
@@ -210,6 +218,7 @@ variations.forEach(variation => {
       clickSelector,
       columnCount,
       hasHeader,
+      inlineAlignment,
       randomiseContent,
       renderSmallerWrapper,
       rows,
@@ -228,6 +237,7 @@ variations.forEach(variation => {
         cellType={cellType}
         columnCount={columnCount}
         hasHeader={hasHeader}
+        inlineAlignment={inlineAlignment}
         randomiseContent={randomiseContent}
         renderSmallerWrapper={renderSmallerWrapper}
         rows={rows}
@@ -256,6 +266,7 @@ class EditableTableStoryWrapper extends React.Component {
     const {
       columnCount,
       hasHeader,
+      inlineAlignment,
       randomiseContent,
       rows,
       renderSmallerWrapper,
@@ -277,7 +288,10 @@ class EditableTableStoryWrapper extends React.Component {
           <XUIEditableTableHead>
             <XUIEditableTableRow>
               {Array.from(Array(columnCount).keys()).map((item, index) => (
-                <XUIEditableTableHeadingCell key={`head_${index}`}>
+                <XUIEditableTableHeadingCell
+                  inlineAlignment={inlineAlignment}
+                  key={`head_${index}`}
+                >
                   I’m a cell
                 </XUIEditableTableHeadingCell>
               ))}
@@ -305,6 +319,7 @@ class EditableTableStoryWrapper extends React.Component {
                     cellType,
                     columnIndex: index,
                     randomiseContent,
+                    inlineAlignment,
                     isDisabled: withDisabled && index === 2,
                     isInvalid: withInvalid && rowIndex === 2,
                     validationMessage,

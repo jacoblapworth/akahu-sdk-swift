@@ -23,7 +23,8 @@ const XUIEditableTableCellReadOnly = ({ cellProps = {}, children, ...spreadProps
 XUIEditableTableCellReadOnly.propTypes = {
   cellProps: PropTypes.object,
   children: PropTypes.node,
-  qaHook: PropTypes.string,
+  /** Aligns the content of the cell on the inline (horizontal) axis. */
+  inlineAlignment: PropTypes.oneOf(['end', 'start']),
 };
 
 export default XUIEditableTableCellReadOnly;

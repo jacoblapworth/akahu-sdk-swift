@@ -156,6 +156,7 @@ interface Props {
 
 export type FileObject = {
   errorMessage?: string;
+  hideRetryButton?: boolean;
   originalFile: File;
   rightContent?: React.ReactNode;
   status: string;

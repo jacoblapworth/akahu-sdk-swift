@@ -256,7 +256,8 @@ $xui-table-z-alert: 4;
   vertical-align: middle;
 }
 
-.#{$ns}-readonlytablecell-rightaligned {
+.#{$ns}-readonlytablecell-rightaligned,
+.#{$ns}-readonlytableheadingcell-rightaligned {
   text-align: right;
 }
 

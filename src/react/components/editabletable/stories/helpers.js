@@ -18,8 +18,8 @@ import { XUITextInputSideElement } from '../../../textinput';
 import XUIPill from '../../../pill';
 import people from '../../autocompleter/private/people';
 
-const sampleReadOnly = (id, text, settings, rowIndex) => (
-  <XUIEditableTableCellReadOnly id={id} key={`${rowIndex}_${id}`}>
+const sampleReadOnly = (id, text, { inlineAlignment }, rowIndex) => (
+  <XUIEditableTableCellReadOnly id={id} inlineAlignment={inlineAlignment} key={`${rowIndex}_${id}`}>
     {text}
   </XUIEditableTableCellReadOnly>
 );
@@ -27,7 +27,7 @@ const sampleReadOnly = (id, text, settings, rowIndex) => (
 const sampleTextInput = (
   id,
   text,
-  { isDisabled, isInvalid, isMultiline, validationMessage },
+  { isDisabled, inlineAlignment, isInvalid, isMultiline, validationMessage },
   rowIndex,
 ) => (
   <XUIEditableTableCellTextInput
@@ -36,6 +36,7 @@ const sampleTextInput = (
     isDisabled={isDisabled}
     isInvalid={isInvalid}
     isMultiline={isMultiline}
+    isValueReverseAligned={inlineAlignment === 'end'}
     key={`${rowIndex}_${id}`}
     minRows={1}
     validationMessage={validationMessage}
@@ -241,16 +242,18 @@ const generateCell = ({
   cellsCount,
   cellType,
   columnIndex,
-  randomiseContent,
+  inlineAlignment,
   isDisabled,
   isInvalid,
-  validationMessage,
+  randomiseContent,
   rowIndex,
+  validationMessage,
 }) => {
   const cellIndex = cellsCount.toString();
   const derivedCellType =
     cellType === 'assorted' ? samples[columnIndex % samples.length] : cellType;
   const settings = {
+    inlineAlignment,
     isDisabled,
     isInvalid,
     isMultiline: derivedCellType === 'textInputMultiline',

@@ -4,12 +4,22 @@ import cn from 'classnames';
 
 import XUIEditableTableClassContext from './contexts/XUIEditableTableClassContext';
 
-const XUIEditableTableHeadingCell = ({ children, className, qaHook, scope, ...spreadProps }) => {
+const XUIEditableTableHeadingCell = ({
+  children,
+  className,
+  qaHook,
+  scope,
+  inlineAlignment,
+  ...spreadProps
+}) => {
   const tableClassName = React.useContext(XUIEditableTableClassContext);
   const baseName = `${tableClassName}headingcell`;
 
-  // TODO: sort out how we’re going to handle text alignment and add some logic here
-  const cellClassName = cn(baseName, className, `${baseName}-leftaligned`);
+  const cellClassName = cn(
+    baseName,
+    className,
+    `${baseName}-${inlineAlignment === 'end' ? 'right' : 'left'}aligned`,
+  );
 
   return (
     <th className={cellClassName} data-automationid={qaHook} scope={scope} {...spreadProps}>
@@ -21,6 +31,8 @@ const XUIEditableTableHeadingCell = ({ children, className, qaHook, scope, ...sp
 XUIEditableTableHeadingCell.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  /** Aligns the content of the cell on the inline (horizontal) axis. */
+  inlineAlignment: PropTypes.oneOf(['end', 'start']),
   qaHook: PropTypes.string,
   /**
    * The `scope` attribute added to the <th> element
@@ -34,5 +46,6 @@ XUIEditableTableHeadingCell.propTypes = {
 export default XUIEditableTableHeadingCell;
 
 XUIEditableTableHeadingCell.defaultProps = {
+  inlineAlignment: 'start',
   scope: 'col',
 };

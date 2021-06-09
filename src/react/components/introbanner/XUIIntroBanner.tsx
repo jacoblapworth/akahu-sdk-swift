@@ -118,38 +118,40 @@ const XUIIntroBanner = ({
   const playButton = <div className={`${baseClass}--videoicon`} />;
 
   return (
-    <div {...spreadProps} className={classes} data-automationid={qaHook} ref={observedElementRef}>
-      {dismissButton}
+    <div className={`${baseClass}--wrapper`}>
+      <div {...spreadProps} className={classes} data-automationid={qaHook} ref={observedElementRef}>
+        {dismissButton}
 
-      {illustration && onVideoClick && (
-        <button
-          aria-label={videoButtonLabel}
-          className={`${baseClass}--illustration ${baseClass}--illustration-has-video`}
-          onClick={onVideoClick}
-          type="button"
-        >
-          {illustration}
-          {playButton}
-        </button>
-      )}
+        {illustration && onVideoClick && (
+          <button
+            aria-label={videoButtonLabel}
+            className={`${baseClass}--illustration ${baseClass}--illustration-has-video`}
+            onClick={onVideoClick}
+            type="button"
+          >
+            {illustration}
+            {playButton}
+          </button>
+        )}
 
-      {illustration && !onVideoClick && (
-        <div className={`${baseClass}--illustration`}>{illustration}</div>
-      )}
+        {illustration && !onVideoClick && (
+          <div className={`${baseClass}--illustration`}>{illustration}</div>
+        )}
 
-      {illustration ? (
-        <div className={`${baseClass}--main`}>
-          {header}
-          {children}
-          {footer}
-        </div>
-      ) : (
-        <>
-          {header}
-          {children}
-          {footer}
-        </>
-      )}
+        {illustration ? (
+          <div className={`${baseClass}--main`}>
+            {header}
+            {children}
+            {footer}
+          </div>
+        ) : (
+          <>
+            {header}
+            {children}
+            {footer}
+          </>
+        )}
+      </div>
     </div>
   );
 };

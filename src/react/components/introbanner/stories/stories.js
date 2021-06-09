@@ -8,6 +8,7 @@ import { boolean } from '@storybook/addon-knobs';
 // Components we need to test with
 import external from '@xero/xui-icon/icons/external';
 import videoIcon from '@xero/xui-icon/icons/social-youtube';
+import XUIIcon from '../../icon/XUIIcon';
 import XUIIntroBanner from '../XUIIntroBanner';
 import XUIIntroBannerBody from '../XUIIntroBannerBody';
 import XUIIntroBannerFooter from '../XUIIntroBannerFooter';
@@ -24,8 +25,14 @@ const body = (
       quantities on hand.
     </p>
     <p>
-      Learn more about <a href="">setting up tracked inventory</a> and{' '}
-      <a href="">managing your inventory items</a>
+      Learn more about{' '}
+      <a href="">
+        setting up tracked inventory <XUIIcon icon={external} />
+      </a>{' '}
+      and{' '}
+      <a href="">
+        managing your inventory items <XUIIcon icon={external} />
+      </a>
     </p>
   </XUIIntroBannerBody>
 );

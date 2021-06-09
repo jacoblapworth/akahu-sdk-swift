@@ -205,7 +205,7 @@ class DetailedListExample extends Component {
 
     return (
       <XUIAutocompleter
-        closeOnTab={noDrawerFooter}
+        closeOnTab={noDrawerFooter === undefined ? false : noDrawerFooter}
         disableWrapPills={disableWrapPills}
         dropdownClassName="xui-loader-static"
         dropdownHasFixedWidth={dropdownHasFixedWidth}

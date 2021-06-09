@@ -3,6 +3,7 @@
 exports[`<XUIEditableTableCell /> composes the className correctly 1`] = `
 <ForwardRef
   className="xui-editabletablecelliconbutton test-classname"
+  inlineAlignment="start"
 >
   <XUIIconButton
     ariaLabel="test-aria-label"
@@ -25,6 +26,7 @@ exports[`<XUIEditableTableCell /> composes the className correctly 1`] = `
 exports[`<XUIEditableTableCell /> renders correctly 1`] = `
 <ForwardRef
   className="xui-editabletablecelliconbutton"
+  inlineAlignment="start"
 >
   <XUIIconButton
     ariaLabel="test-aria-label"

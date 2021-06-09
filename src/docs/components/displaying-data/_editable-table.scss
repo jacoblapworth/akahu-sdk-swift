@@ -76,6 +76,7 @@
 // Do: Provide a header to help users navigate data points in a table
 // Do: Ensure label copy is descriptive of the data in its associated column
 // Do: Ensure label copy is concise to help with scanning across multiple columns
+// Do: Align numbers, including currency to the right
 //
 // Markup: ./examples/editable-table/_editable-table-header.html
 //
@@ -175,6 +176,7 @@
 // Tips:
 // Do: If a table is only using read-only cells for its data points, consider using XUI’s [table component](section-components-displayingdata-table.html).
 // Do: Read-only cells should contain data that is clearly static (eg a timestamp) to avoid the user attempting to interact with the cell.
+// Do: Align numbers, including currency to the right
 // Warning: Use caution when combining both interactive and read-only cells in a table as they are styled similarly and could cause confusion to the user of what information is and is not editable. Provide clear header labels to help describe which data is editable or static.
 //
 // ExampleClass: ds-example-transparent ds-example-flush

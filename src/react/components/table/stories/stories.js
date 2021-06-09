@@ -173,6 +173,7 @@ storiesWithKnobs.add('Playground', () => {
         <Column
           body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
           head={<Cell sortKey="header-1">Header 1</Cell>}
+          inlineAlignment={boolean('end-aligned first column', false) ? 'end' : 'start'}
         />
         <Column
           body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
@@ -228,6 +229,7 @@ class ScrollResetWrapper extends PureComponent {
 const TestScaffold = (
   {
     columns,
+    columnsProps,
     removeHeader,
     hasHeaderClassName,
     styleOverrides,
@@ -276,6 +278,7 @@ const TestScaffold = (
               </Cell>
             )
           }
+          {...columnsProps}
           key={columnIndex}
         />
       ))}

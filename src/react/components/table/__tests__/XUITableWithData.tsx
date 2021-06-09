@@ -12,8 +12,9 @@ const XUITableWithData = React.forwardRef<
     customBodyProps?: Array<React.ComponentProps<typeof XUITableColumn>['body']>;
     customHeadProps?: Array<React.ComponentProps<typeof XUITableColumn>['head']>;
     data?: React.ComponentProps<typeof XUITable>['data'];
+    inlineAlignment?: 'end' | 'start';
   }
->(({ customBodyProps = [], customHeadProps = [], ...props }, ref) => (
+>(({ customBodyProps = [], customHeadProps = [], inlineAlignment, ...props }, ref) => (
   <XUITable
     caption="List of fruits with color and price per kg"
     data={{
@@ -31,6 +32,7 @@ const XUITableWithData = React.forwardRef<
       head={
         customHeadProps.hasOwnProperty(0) ? customHeadProps[0] : <XUITableCell>Fruit</XUITableCell>
       }
+      inlineAlignment={inlineAlignment}
     />
 
     <XUITableColumn

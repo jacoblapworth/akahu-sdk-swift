@@ -386,6 +386,15 @@ const variations = [
     withInvalid: true,
     validationMessage: 'There was an error.',
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with end-aligned cells',
+    columnCount: 3,
+    hasHeader: true,
+    rows: 4,
+    cellType: 'assorted',
+    inlineAlignment: 'end',
+  },
 ];
 
 const regressionVariations = [

@@ -132,6 +132,7 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
                   hasOverflowMenu,
                   this.state.hasCellPrecedence,
                 )}
+                inlineAlignment={column.props.inlineAlignment}
                 key={nanoid()}
                 onPointerOut={() => isCellClickable && this.removeCellPrecedence()}
                 onPointerOver={() => isCellClickable && this.addCellPrecedence()}

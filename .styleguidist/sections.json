@@ -478,6 +478,9 @@
                 "content": "../src/react/components/editabletable/editabletable.pinnedcolumns.md"
               },
               {
+                "content": "../src/react/components/editabletable/editabletable.alignment.md"
+              },
+              {
                 "content": "../src/react/components/editabletable/editabletable.pagination.md"
               },
               {

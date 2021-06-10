@@ -112,13 +112,14 @@ $xui-table-z-alert: 4;
 
   // Left aligned sort button: Always create space for the sort icon.
   &-active,
-  .#{$ns}-readonlytablecell:not(.#{$ns}-readonlytablecell-rightaligned) &:not(&-rightaligned) {
+  .#{$ns}-readonlytablecell:not(.#{$ns}-readonlytableheadingcell-rightaligned)
+    &:not(&-rightaligned) {
     padding-right: $xui-s-standard;
   }
 
   // Right aligned sort button: Only create space for the sort icon when the sort icon is visible.
   &-rightaligned#{&}-active,
-  .#{$ns}-readonlytablecell-rightaligned &-active {
+  .#{$ns}-readonlytableheadingcell-rightaligned &-active {
     padding-right: $xui-s-standard;
   }
 
@@ -131,7 +132,7 @@ $xui-table-z-alert: 4;
   // change width. To fix this we add a padding-left as placeholder padding.
 
   &-rightaligned:not(&-active),
-  .#{$ns}-readonlytablecell-rightaligned &:not(&-active) {
+  .#{$ns}-readonlytableheadingcell-rightaligned &:not(&-active) {
     padding-left: $xui-s-standard;
   }
 }

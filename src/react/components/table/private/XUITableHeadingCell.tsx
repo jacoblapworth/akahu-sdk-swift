@@ -13,7 +13,6 @@ interface Props<RD extends RowData> {
   activeSortKey?: string;
   generatedCellProps: ReturnType<typeof generateCellProps>;
   head: XUITableCell<RD>;
-  inlineAlignment?: 'start' | 'end';
   isSortAsc?: boolean;
   onSortChange?: (newKey: string) => void;
 }
@@ -22,14 +21,7 @@ class XUITableHeadingCell<RD extends RowData> extends React.PureComponent<Props<
   sortButtonContentRef = React.createRef<HTMLDivElement>();
 
   render() {
-    const {
-      activeSortKey,
-      generatedCellProps,
-      head,
-      inlineAlignment,
-      isSortAsc,
-      onSortChange,
-    } = this.props;
+    const { activeSortKey, generatedCellProps, head, isSortAsc, onSortChange } = this.props;
     const handleInteraction = () => head.props.sortKey && onSortChange?.(head.props.sortKey);
     const sortButtonClassName = `${tableName}--sortbutton`;
     const sortButtonContentClassName = `${tableName}--sortbuttoncontent`;
@@ -38,10 +30,10 @@ class XUITableHeadingCell<RD extends RowData> extends React.PureComponent<Props<
     const isRightAligned =
       (this.sortButtonContentRef.current &&
         window?.getComputedStyle(this.sortButtonContentRef.current).textAlign === 'right') ||
-      inlineAlignment === 'end';
+      generatedCellProps?.inlineAlignment === 'end';
 
     return (
-      <XUIEditableTableHeadingCell {...generatedCellProps} inlineAlignment={inlineAlignment}>
+      <XUIEditableTableHeadingCell {...generatedCellProps}>
         {head.props.sortKey ? (
           <div
             className={head.props.sortKey && sortButtonClassName}

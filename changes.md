@@ -16,6 +16,10 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 ## XUI CSS
 
+### XUITable
+
+- For heading cells, use `xui-readonlytableheadingcell-rightaligned` instead of `xui-readonlytablecell-rightaligned`
+
 ## XUI React components
 
 ### Component props

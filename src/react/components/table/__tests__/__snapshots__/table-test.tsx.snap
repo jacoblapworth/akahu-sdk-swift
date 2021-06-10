@@ -122,7 +122,7 @@ exports[`XUITable XUITableHead sorting by columns snapshot 1`] = `
                 </div>
               </th>
               <th
-                class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-rightaligned xui-readonlytableheadingcell-rightaligned"
+                class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytableheadingcell-rightaligned"
                 scope="col"
               >
                 <div
@@ -174,7 +174,7 @@ exports[`XUITable XUITableHead sorting by columns snapshot 1`] = `
                 Red
               </td>
               <td
-                class="xui-readonlytablecell xui-readonlytablecellreadonly xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-rightaligned xui-readonlytablecell-layout"
+                class="xui-readonlytablecell xui-readonlytablecellreadonly xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-layout xui-readonlytablecell-rightaligned"
               >
                 $2.99
               </td>

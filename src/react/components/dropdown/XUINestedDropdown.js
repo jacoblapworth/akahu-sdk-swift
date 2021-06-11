@@ -96,6 +96,11 @@ export default class XUINestedDropdown extends XUIDropdown {
 }
 
 XUINestedDropdown.propTypes = {
+  /** Internal prop to control whether to open without focusing opened element
+   * @ignore
+   */
+  _skipFocusOnOpen: PropTypes.bool,
+
   /** Will add the closing animation class */
   animateClosed: PropTypes.bool,
 

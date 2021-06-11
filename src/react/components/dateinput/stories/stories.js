@@ -24,7 +24,7 @@ storiesWithKnobs.add('Playground', () => {
   let singleDateProps = {
     closeOnSelect: true,
     inputLabel: 'Single date',
-    locale: 'en',
+    locale: 'en-NZ',
     nextButtonAriaLabel: 'Next month',
     onSelectDate: sampleOnSelectDateFunction,
     prevButtonAriaLabel: 'Previous month',
@@ -32,7 +32,7 @@ storiesWithKnobs.add('Playground', () => {
   };
 
   let dateRangeProps = {
-    locale: 'en',
+    locale: 'en-NZ',
     nextButtonAriaLabel: 'Next month',
     prevButtonAriaLabel: 'Previous month',
     startDateInputConfig: {
@@ -53,7 +53,7 @@ storiesWithKnobs.add('Playground', () => {
       hintMessage: text('Hint Message', ''),
       isDisabled: boolean('isDisabled', false),
       isInvalid: boolean('isInvalid', false),
-      locale: text('Locale', 'en'),
+      locale: text('Locale', 'en-NZ'),
     };
   } else {
     const showLabels = select(
@@ -69,7 +69,7 @@ storiesWithKnobs.add('Playground', () => {
         isGroupLabelHidden: showLabels === 'individual',
         isDisabled: boolean('Group disabled?', false),
         isInvalid: boolean('Group invalid?', false),
-        locale: text('Locale', 'en'),
+        locale: text('Locale', 'en-NZ'),
         validationMessage: text('Validation message for group', ''),
       },
       startDateInputConfig: {
@@ -119,7 +119,7 @@ variations.forEach(variation => {
         endDateInputConfig={{
           inputLabel: 'End date',
         }}
-        locale="en"
+        locale="en-NZ"
         nextButtonAriaLabel="Next month"
         prevButtonAriaLabel="Previous month"
         startDateInputConfig={{
@@ -130,7 +130,7 @@ variations.forEach(variation => {
     ) : (
       <XUIDateInput
         inputLabel="Start date"
-        locale="en"
+        locale="en-NZ"
         nextButtonAriaLabel="Next month"
         prevButtonAriaLabel="Previous month"
         {...variationMinusStoryDetails}

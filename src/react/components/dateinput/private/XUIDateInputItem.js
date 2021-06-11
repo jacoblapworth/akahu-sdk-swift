@@ -298,7 +298,7 @@ class XUIDateInputItem extends Component {
           qaHook={qaHook && `${qaHook}-dateinputitem--input`}
           size={size}
           validationMessage={validationMessage}
-          value={formatSelectedDateToString(selectedDate, inputValue)}
+          value={formatSelectedDateToString(selectedDate, inputValue, locale)}
           {...spreadProps}
         />
       </div>
@@ -418,7 +418,7 @@ XUIDateInputItem.propTypes = {
   /** Whether the current input value is invalid */
   isInvalid: PropTypes.bool,
 
-  /** The locale of the calendar. */
+  /** The locale of the calendar and the input. Use specific locale for english because `en` defaults to `en-US`. */
   locale: PropTypes.string.isRequired,
 
   /**

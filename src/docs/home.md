@@ -177,7 +177,41 @@
     <h2 class="ds-section--heading ds-title--level-2">Help to grow XUI</h2>
     <p class="ds-detail">Whether you have a game-changing idea or just want to plant a seed, there is no idea too large or too small. Head over to <a href="./section-contributing-to-xui.html">“Contributing to XUI”</a> for more on the process, or request a feature or report a bug below.</p>
     <div class="ds-actions">
-      <a class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth-layout" href="https://confluence.teamxero.com/display/PLAT/Help+to+grow+XUI">Request a feature or report a bug</a>
+      <button id="request-feature" class="xui-button xui-button-standard xui-button-medium xui-button-fullwidth-layout" type="button">Request a feature</button>
+      <button id="report-bug" class="xui-button xui-button-borderless-main xui-button-medium xui-button-fullwidth-layout"type="button">Report a bug</button>
     </div>
   </div>
 </section>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://xero.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/sb53l8/b/24/bc54840da492f9ca037209037ef0522a/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-GB&collectorId=df1e8803"></script>
+<script type="text/javascript" src="https://xero.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/sb53l8/b/24/bc54840da492f9ca037209037ef0522a/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-GB&collectorId=83cb3f5e"></script>
+
+<script>
+  const reportABug = {
+    triggerFunction: function(showCollectorDialog) {
+      document.querySelector("#report-bug").onclick = function(e) {
+        e.preventDefault();
+        showCollectorDialog();
+      };
+    },
+    fieldValues: {
+      description: "*Expected behaviour* [Attach screenshot if possible]\n-\n\n*Observed behaviour* [Attach screenshot]\n-\n\n*Steps to reproduce* [Code snippet if possible]\n-\n\n*Specifications*\n- XUI Version(s): \n- Browser(s) affected: \n- Operating system(s) affected: \n- Component(s) affected: "
+    }
+  };
+  const requestAFeature = {
+    triggerFunction: function(showCollectorDialog) {
+      document.querySelector("#request-feature").onclick = function(e) {
+        e.preventDefault();
+        showCollectorDialog();
+      };
+    },
+    fieldValues: {
+      description : "*Rationale*\nHow does it improve the current implementation?\n-\n\nHow does it benefit the user?\n-\n\nHow does it assist others at Xero?\n-\n\n*Context*\nWhat product team or feature would use this?\n-\n\nAre you aware of any others with similar problems?\n-\n\n*Timeline requirements*\n[Hard or soft deadline]\n\n*Possible solution*\n[design/code]"
+    }
+  };
+  window.ATL_JQ_PAGE_PROPS = {
+    ['df1e8803']: reportABug,
+    ['83cb3f5e']: requestAFeature,
+  };
+</script>

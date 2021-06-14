@@ -83,23 +83,27 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
     const variationMinusStoryDetails = { ...variation };
-    const hasIllustration = variationMinusStoryDetails.illustration;
-    const hasFooter = variationMinusStoryDetails.footer;
-    const hasVideoIllustration = variationMinusStoryDetails.video;
+    const {
+      dismissButtonText,
+      hasFooter,
+      hasIllustration,
+      hasVideo,
+      headerTitle,
+    } = variationMinusStoryDetails;
 
     return (
       <XUIIntroBanner
-        dismissButtonText="Hide"
-        footer={hasFooter ? footer(hasVideoIllustration) : undefined}
-        headerTitle="Learn how to manage your inventory"
+        dismissButtonText={dismissButtonText || 'Hide'}
+        footer={hasFooter ? footer(hasVideo) : undefined}
+        headerTitle={headerTitle || 'Learn how to manage your inventory'}
         illustrationUrl={
           hasIllustration
             ? 'https://edge.xero.com/illustration/job-maker-01/job-maker-01.svg'
             : undefined
         }
         onDismiss={NOOP}
-        onVideoClick={hasVideoIllustration ? NOOP : undefined}
-        videoButtonLabel={hasVideoIllustration ? 'Watch video' : undefined}
+        onVideoClick={hasVideo ? NOOP : undefined}
+        videoButtonLabel={hasVideo ? 'Watch video' : undefined}
       >
         {body}
       </XUIIntroBanner>

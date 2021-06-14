@@ -26,6 +26,7 @@ import XUIActions from '../../../actions';
 import generateCell from './helpers';
 import ColumnHideSelect from './column-hide-select';
 import { EditableTableUserTest } from './user-tests';
+import XUIEditableTableCellTextInput from '../XUIEditableTableCellTextInput';
 
 class EditableTablePlayground extends React.Component {
   state = {
@@ -56,6 +57,7 @@ class EditableTablePlayground extends React.Component {
       minWidth,
       cellsValidationMessage,
       showAddRowButton,
+      showFooterRow,
       tableValidationMessage,
       isSecondColumnEndAligned,
     } = this.props;
@@ -148,15 +150,32 @@ class EditableTablePlayground extends React.Component {
               </XUIEditableTableRow>
             ))}
           </XUIEditableTableBody>
-          {(showAddRowButton && (
+          {(showAddRowButton || showFooterRow) && (
             <XUIEditableTableFoot>
-              <XUIEditableTableFootAction
-                addButtonContent="Add new row"
-                onAdd={() => console.log('Add a row')}
-              />
+              {showFooterRow && (
+                <XUIEditableTableRow
+                  disableRowControls
+                  index={rows.length}
+                  key={`row_${rows.length}`}
+                >
+                  {Array.from(Array(columnCount).keys()).map((_, index) => (
+                    <XUIEditableTableCellTextInput
+                      key={`foot_${index}`}
+                      placeholder={index === 0 ? 'Add new row' : undefined}
+                    >
+                      textInput
+                    </XUIEditableTableCellTextInput>
+                  ))}
+                </XUIEditableTableRow>
+              )}
+              {showAddRowButton && (
+                <XUIEditableTableFootAction
+                  addButtonContent="Add new row"
+                  onAdd={() => console.log('Add new row')}
+                />
+              )}
             </XUIEditableTableFoot>
-          )) ||
-            null}
+          )}
         </XUIEditableTable>
       </>
     );
@@ -202,6 +221,7 @@ storiesWithKnobs.add('Playground', () => (
     }}
     rows={number('Rows', 3)}
     showAddRowButton={boolean('Show add row button?', false)}
+    showFooterRow={boolean('Show pinned row?', false)}
     tableValidationMessage={text(
       'Table validationMessage',
       '3 of the table cells have invalid data entered',
@@ -224,6 +244,7 @@ variations.forEach(variation => {
       rows,
       scrollLeft,
       showAddRowButton,
+      showFooterRow,
       storyKind,
       storyTitle,
       withDisabled,
@@ -243,6 +264,7 @@ variations.forEach(variation => {
         rows={rows}
         scrollLeft={scrollLeft}
         showAddRowButton={showAddRowButton}
+        showFooterRow={showFooterRow}
         validationMessage={validationMessage}
         variationMinusStoryDetails={variationMinusStoryDetails}
         withDisabled={withDisabled}
@@ -271,6 +293,7 @@ class EditableTableStoryWrapper extends React.Component {
       rows,
       renderSmallerWrapper,
       showAddRowButton,
+      showFooterRow,
       cellType,
       withDisabled,
       withInvalid,
@@ -330,15 +353,30 @@ class EditableTableStoryWrapper extends React.Component {
             </XUIEditableTableRow>
           ))}
         </XUIEditableTableBody>
-        {(showAddRowButton && (
+        {(showAddRowButton || showFooterRow) && (
           <XUIEditableTableFoot>
-            <XUIEditableTableFootAction
-              addButtonContent="Add new row"
-              onAdd={() => console.log('Add new row')}
-            />
+            {showFooterRow && (
+              <XUIEditableTableRow
+                disableRowControls
+                index={columnCount}
+                key={`row_${columnCount}`}
+              >
+                {Array.from(Array(columnCount).keys()).map((_, index) => (
+                  <XUIEditableTableCellTextInput
+                    key={`foot_${index}`}
+                    placeholder={index === 0 ? 'Add new row' : undefined}
+                  />
+                ))}
+              </XUIEditableTableRow>
+            )}
+            {showAddRowButton && (
+              <XUIEditableTableFootAction
+                addButtonContent="Add new row"
+                onAdd={() => console.log('Add new row')}
+              />
+            )}
           </XUIEditableTableFoot>
-        )) ||
-          null}
+        )}
       </XUIEditableTable>
     );
 

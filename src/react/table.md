@@ -778,6 +778,123 @@ const Appendage = ({ children }) => (
 </Table>;
 ```
 
+## With pagination
+
+If you’re dealing with large amounts of data, you can pass a [`<XUIPagination />`](#pagination) to the `footer`.
+
+### Fixing column widths
+
+As the user navigates between pages of table content the table columns may change width to match the content.
+
+To prevent this you can fix the column widths of the table one of two ways. The first is to provide the table with specific column widths. The second is by setting the table's `useFixedLayout` prop to `true`, this will tell the table to calculate the column widths based on the first row (heading row) which shouldn't change as the user navigates through the table data.
+
+```jsx
+import { useEffect, useState } from 'react';
+import XUITable, { XUITableColumn, XUITableCell } from '@xero/xui/react/table';
+import XUIPagination from '@xero/xui/react/pagination';
+import {
+  defaultCreateCountContent,
+  defaultCreatePagingContent
+} from './components/pagination/private/helpers';
+
+const data = [
+  { fruit: 'Apple', colour: 'Red', price: 2.99 },
+  { fruit: 'Banana', colour: 'Yellow', price: 2.99 },
+  { fruit: 'Cherry', colour: 'Red', price: 3.99 },
+  { fruit: 'Durian', colour: 'Brown', price: 4.99 },
+  { fruit: 'Elderberry', colour: 'Purple', price: 2.99 },
+  { fruit: 'Feijoa', colour: 'Green', price: 2.99 },
+  { fruit: 'Grape', colour: 'Green', price: 2.99 },
+  { fruit: 'Huckleberry', colour: 'Yellow', price: 2.99 },
+  { fruit: 'Iyokan', colour: 'Orange', price: 4.99 },
+  { fruit: 'Jackfruit', colour: 'Yellow', price: 2.99 },
+  { fruit: 'Kiwifruit', colour: 'Green', price: 2.99 },
+  { fruit: 'Liliko‘i', colour: 'Purple', price: 3.99 },
+  { fruit: 'Mandarin', colour: 'Orange', price: 2.99 },
+  { fruit: 'Nectarine', colour: 'Red', price: 2.99 },
+  { fruit: 'Orange', colour: 'Orange', price: 3.99 },
+  { fruit: 'Pineapple', colour: 'Brown', price: 3.99 },
+  { fruit: 'Quince', colour: 'Green', price: 2.99 },
+  { fruit: 'Rambutan', colour: 'Brown', price: 4.99 },
+  { fruit: 'Strawberry', colour: 'Red', price: 2.99 },
+  { fruit: 'Tangerine', colour: 'Orange', price: 2.99 },
+  { fruit: 'Ugli', colour: 'Green', price: 3.99 },
+  { fruit: 'Valencia', colour: 'Orange', price: 3.99 },
+  { fruit: 'Watermelon', colour: 'Green', price: 2.99 },
+  { fruit: 'Yuzu', colour: 'Yellow', price: 3.99 },
+  { fruit: 'Zwetschge', colour: 'Purple', price: 3.99 }
+];
+const defaultPerPageCountOptions = [10, 25, 50, 100, 200];
+
+const [page, setPage] = useState(1);
+const [perPageCount, setPerPageCount] = useState(defaultPerPageCountOptions[0]);
+const [tableData, setTableData] = useState(data);
+
+useEffect(() => {
+  onPageChange(page);
+}, [page, perPageCount]);
+
+const onPageChange = page => {
+  setPage(page);
+
+  const firstIndex = (page - 1) * perPageCount;
+  const lastIndex = firstIndex + perPageCount;
+
+  setTableData(data.slice(firstIndex, lastIndex));
+};
+
+const onPerPageCountChange = perPageCount => {
+  setPerPageCount(perPageCount);
+
+  const pageCount = Math.ceil(data.length / perPageCount);
+
+  setPage(page > pageCount ? pageCount : page);
+};
+
+<XUITable
+  data={tableData}
+  loaderAriaLabel="Loading more data"
+  emptyMessage="Nothing to show here"
+  checkOneRowAriaLabel="Select row"
+  checkAllRowsAriaLabel="Select all rows"
+  overflowMenuTitle="More row options"
+  caption="List of fruits with colour and price per kg"
+  footer={
+    <XUIPagination
+      ariaLabel="Pagination"
+      count={data.length}
+      createCountContent={defaultCreateCountContent}
+      createPagingContent={defaultCreatePagingContent}
+      nextPageLabel="Next Page"
+      onPageChange={onPageChange}
+      onPerPageCountChange={onPerPageCountChange}
+      page={page}
+      pageSelectLabel="Select a page"
+      perPageContent="Items per page"
+      perPageCount={perPageCount}
+      perPageCountSelectLabel="Select a per page count"
+      previousPageLabel="Previous Page"
+    />
+  }
+  useFixedLayout
+>
+  <XUITableColumn
+    head={<XUITableCell>Fruit</XUITableCell>}
+    body={({ fruit }) => <XUITableCell>{fruit}</XUITableCell>}
+  />
+
+  <XUITableColumn
+    head={<XUITableCell>Colour</XUITableCell>}
+    body={({ colour }) => <XUITableCell>{colour}</XUITableCell>}
+  />
+
+  <XUITableColumn
+    head={<XUITableCell>Price / kg</XUITableCell>}
+    body={({ price }) => <XUITableCell>{`$${price}`}</XUITableCell>}
+  />
+</XUITable>;
+```
+
 ## Loader
 
 Appends a `<XUILoader />` after the last _Row_ in the _Table_ with the `isLoading` prop. If you provide this prop, you must also provide a `loaderAriaLabel` for accessibility purposes.
@@ -955,11 +1072,9 @@ import ValueType from '@xero/xui/react/helpers/ValueType';
 const data = { abc123: { fruit: 'apple' }, def456: { fruit: 'banana' } };
 
 <XUITable data={data}>
-  <XUITableColumn<ValueType<typeof data>> // Will be used to determine the shape of the `head` and `body` props
+  <XUITableColumn<ValueType<typeof data>>
     body={({ fruit }) => (
-      <XUITableCell<ValueType<typeof data>> // Will be used to determine the shape of `rowData` the onCellClick prop
-        onCellClick={rowData => console.log(rowData)}
-      >
+      <XUITableCell<ValueType<typeof data>> onCellClick={rowData => console.log(rowData)}>
         {fruit}
       </XUITableCell>
     )}

@@ -150,7 +150,7 @@ storiesWithKnobs.add('Playground', () => {
     <div style={tableStyles}>
       <Table
         {...tableProps}
-        caption={text('caption', '')}
+        caption={text('caption', 'Sample cell data')}
         checkAllRowsAriaLabel="Select all rows"
         checkOneRowAriaLabel="Select row"
         className={text('className', '')}
@@ -239,6 +239,7 @@ const TestScaffold = (
 ) => (
   <ScrollResetWrapper key={tableIndex} style={{ ...tableStyles, ...styleOverrides }}>
     <Table
+      caption="Sample cell data"
       checkAllRowsAriaLabel="Select all rows"
       checkOneRowAriaLabel="Select row"
       emptyMessage="Nothing to show here"

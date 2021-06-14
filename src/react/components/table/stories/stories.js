@@ -252,11 +252,13 @@ const TestScaffold = (
       }
       footer={
         (tableProps.footer && <Appendage>Footer</Appendage>) ||
-        (tableProps.hasCustomFooter && <CustomFooter />)
+        (tableProps.hasCustomFooter && <CustomFooter />) ||
+        tableProps.customFooter
       }
       header={
         (tableProps.header && <Appendage>Header</Appendage>) ||
-        (tableProps.hasCustomHeader && <CustomHeader />)
+        (tableProps.hasCustomHeader && <CustomHeader />) ||
+        tableProps.customHeader
       }
     >
       {new Array(columns).fill(0).map((_, columnIndex) => (

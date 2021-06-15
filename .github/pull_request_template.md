@@ -1,6 +1,6 @@
 ## Summary
 
-Ref: https://jira.teamxero.com/browse/XUI-
+Ref: https://xero.atlassian.net/browse/XUI-
 
 ## Checklist
 

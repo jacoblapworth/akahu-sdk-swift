@@ -20,6 +20,10 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 - For heading cells, use `xui-readonlytableheadingcell-rightaligned` instead of `xui-readonlytablecell-rightaligned`
 
+### Mixins updates
+
+- `xui-readonlytable-overflow` and `xui-editabletable-overflow` mixins have been removed, use `xui-table-overflow` instead
+
 ## XUI React components
 
 ### Component props

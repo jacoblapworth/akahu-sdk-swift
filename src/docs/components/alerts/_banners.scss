@@ -1,8 +1,8 @@
 // Banner
 //
-// Teaser: To provide in-page feedback or introduce additional actions.
+// Teaser: Use a banner to give feedback on an action or to inform a user of actions they can take.
 //
-// Introduction: Banners are used to provide in-page feedback or introduce additional actions.
+// Introduction: Use a banner to give feedback on an action or to inform a user of actions they can take.
 //
 // Components: Banner
 //
@@ -13,20 +13,21 @@
 // Best practice
 //
 // Tips:
-// Do: Use a banner when inline validation is not possible
-// Do: Display banner above the main content
-// Do: A banner should contain content relevant to a single theme or message
-// Warning: Avoid using more than one banner per page. There’s evidence that people often miss banners, and overuse can make this problem worse
-// Warning: Avoid using banners to confirm user actions – use a toast instead
-// Warning: Avoid hiding banners automatically – use a toast instead
-// Warning: Avoid displaying more than two actions within a banner, excluding the close button
-// Don't: Don't use banners for client-side validation
+// Do: Use when inline validation isn’t possible
+// Do: Display above the main content
+// Do: Text should have a single theme or message
+// Do: Use clear, descriptive text and don’t only rely on sentiment (colour) to communicate the message type
+// Warning: Use thoughtfully and sparingly and only for the most important information
+// Warning: Avoid using more than one banner per page. People often miss or ignore banners (banner blindness) and overuse makes this problem worse
+// Warning: Avoid using to confirm user actions – [toasts](./section-components-alerts-toast.html) can be used instead
+// Warning: Avoid hiding automatically – [toasts](./section-components-alerts-toast.html) can be used instead
+// Warning: Avoid displaying more than 2 actions, excluding the close button
 //
 // Styleguide: Components.Alerts.Banner.1
 
 // Anatomy
 //
-// To create a banner, use the following classes. Note that close buttons must come first in the DOM order to provide the correct conditional formatting.
+// To create a banner, use the following classes. Close buttons must come first in the DOM order to provide the correct conditional formatting.
 //
 // Classes:
 // xui-banner: Base class
@@ -43,32 +44,37 @@
 
 // Sentiment
 //
-// Positive, negative and neutral sentiment can be applied to banners by adding the following modifiers to `xui-banner`.
+// Apply positive, negative, and neutral sentiment to banners by adding the following modifiers to `xui-banner`.
 //
 // Tips:
-// Do: Use descriptive text alongside colour sentiment to convey information so it’s meaningful to people who can’t discern colour
-// Do: When using sentiment, use descriptive text like "We are unable to load your data due to a problem with your internet connection"
-// Warning: When using sentiment, avoid vague text like "Internet connection"
+// Do: Use clear, descriptive text alongside colour sentiment so the banner is also meaningful to users who use screen readers or have colour blindness
 //
 // Styleguide: Components.Alerts.Banner.3
+
+// Examples of banner content
+//
+// ExampleContentTable:
+// Data can't be loaded as there's a problem with your internet connection. Check your connection and try again. | Internet connection
+//
+// Styleguide: Components.Alerts.Banner.3.1
 
 // Positive Sentiment
 //
 // Tips:
-// Do: Use a banner with a positive sentiment if feedback is delayed, persistent or has a relevant action
-// Warning: Avoid using banners for success messages - use a toast instead
+// Do: Use positive sentiment if an action’s feedback is delayed, persistent, or has a relevant action
+// Warning: Avoid using for success messages – use a [toast](./section-components-alerts-toast.html) instead
 //
 // Definitions:
 // Positive: Adds green border: `-positive`
 //
 // Markup: ./examples/banner/_banner-sentiment-positive.html
 //
-// Styleguide: Components.Alerts.Banner.3.1
+// Styleguide: Components.Alerts.Banner.3.2
 
 // Negative Sentiment
 //
 // Tips:
-// Do: Use the negative sentiment to inform users of information that requires immediate attention
+// Do: Use negative sentiment for information that requires immediate attention
 // Don't: Don’t make negative banners dismissable if they contain critical information or actions
 //
 // Definitions:
@@ -76,23 +82,23 @@
 //
 // Markup: ./examples/banner/_banner-sentiment-negative.html
 //
-// Styleguide: Components.Alerts.Banner.3.2
+// Styleguide: Components.Alerts.Banner.3.3
 
 // Neutral Sentiment
 //
 // flags: new
 //
 // Tips:
-// Do: Use when the message is neutral in tone, but needs more hierarchy than the standard banner
-// Warning: If the message contains non critical, low priority information, use the standard banner
-// Warning: While displaying multiple banners on a single page should be avoided, if it must happen consider using a mixture of standard and sentiment to achieve the desired visual hierarchy between them
+// Do: Use when the message is neutral in tone but needs more prominence than a standard banner
+// Warning: If the message contains non-critical, low-priority information, use a standard banner
+// Warning: In the rare case that a second banner can’t be avoided, consider using a mixture of standard and sentiment to establish a visual hierarchy between them
 //
 // Definitions:
 // Neutral: Adds grey border: `-neutral`
 //
 // Markup: ./examples/banner/_banner-sentiment-neutral.html
 //
-// Styleguide: Components.Alerts.Banner.3.3
+// Styleguide: Components.Alerts.Banner.3.4
 
 // Animation
 //
@@ -106,14 +112,31 @@
 
 // Accessibility
 //
-// It is recommended to use the `alert` role when using the error banner variant.
-// Only use this role when you require the user's immediate attention.
-// For further information about this role, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
+// Use the `alert` role for negative sentiment. Only use this role when the user's immediate attention is required. For more information, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
 //
-// Use the `status` role when presenting any other information that doesn't justify using the alert role.
-// For further information about this role, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role).
+// Use the `status` role for any information that doesn't suit the alert role. For more information, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role).
+//
+// When using sentiment, the text must be clear and descriptive for people who can’t detect colour.
 //
 // Styleguide: Components.Alerts.Banner.5
+
+// Content guidelines
+//
+// Tips:
+// Do: Focus on a single theme, piece of information, or required action to avoid overwhelming users
+// Do: Be concise and scannable – users should quickly understand what they need to know and do
+// Do: Body copy should be 1 to 2 sentences (aim for fewer than 25 words)
+// Do: Use sentence case (first word and proper nouns capitalised)
+// Do: For single sentences, don’t use a full stop
+// Don't: Avoid repeating or rehashing the heading text in the body copy
+//
+// Related:
+// Here’s how to write for the following areas of a banner component:
+// * [Buttons](./section-components-controls-button.html#components-controls-button-15)
+// * [Headings](//xui.xero.com/product-language-guide/components/examples-of-product-writing/#headings)
+// * [Links](//xui.xero.com/product-language-guide/components/writing-style/#links)
+//
+// Styleguide: Components.Alerts.Banner.6
 
 // Related links
 //

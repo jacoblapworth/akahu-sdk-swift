@@ -50,6 +50,7 @@ function generateCellProps<RD extends RowData>(
       hasCellPrecedence && `${tableName}cell-hasprecedence`,
       className,
     ),
+    id: cell.props.id,
     onClick: (event: React.MouseEvent) =>
       rowData && isCellClickable && handleCellInteraction(event, rowData, cell.props.onCellClick),
     onKeyDown: (event: React.KeyboardEvent) =>

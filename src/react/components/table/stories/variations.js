@@ -549,6 +549,31 @@ const variations = [
       },
     ],
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with start-aligned cells',
+    examples: [
+      {
+        columns: 3,
+        styleOverrides: { width: '500px' },
+        columnsProps: {
+          inlineAlignment: 'start',
+        },
+        tableProps: {
+          ...tableProps,
+          data: {
+            0: { content: 'Apple' },
+            1: { content: 'Carrot Carrot Carrot' },
+            2: { content: 'Banana Banana' },
+          },
+          activeSortKey: 'content',
+          isSortAsc: true,
+          isTruncated: true,
+          onSortChange: NOOP,
+        },
+      },
+    ],
+  },
 ];
 
 export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

@@ -13,6 +13,10 @@ interface Props<RD extends RowData> {
    */
   hasWrapping?: boolean;
   /**
+   * Id to be applied to the root HTML element.
+   */
+  id?: string;
+  /**
    * A function that conditionally adds a callback for cells that need an interaction.
    */
   onCellClick?: (rowData: RD) => void;
@@ -38,6 +42,7 @@ class XUITableCell<RD extends RowData> extends React.PureComponent<Props<RD>> {
   static propTypes = {
     className: PropTypes.string,
     hasWrapping: PropTypes.bool,
+    id: PropTypes.string,
     onCellClick: PropTypes.func,
     qaHook: PropTypes.string,
     sortKey: PropTypes.string,

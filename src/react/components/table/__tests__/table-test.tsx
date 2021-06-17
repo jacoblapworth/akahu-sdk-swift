@@ -397,6 +397,24 @@ describe('XUITable', () => {
       expect(screen.getByText('Apple')).not.toHaveClass('xui-readonlytablecell-hasprecedence');
     });
 
+    test('cell has id', () => {
+      // Arrange
+      render(
+        <XUITableWithData
+          customBodyProps={[
+            ({ fruit }) => (
+              <XUITableCell id="test-cell-id" qaHook="testId">
+                {fruit}
+              </XUITableCell>
+            ),
+          ]}
+        />,
+      );
+
+      // Assert
+      expect(screen.queryByTestId('testId-cell')).toHaveAttribute('id', 'test-cell-id');
+    });
+
     describe('select row checkbox', () => {
       test("checkOneRowAriaLabel is applied to the row's checkbox", () => {
         // Arrange

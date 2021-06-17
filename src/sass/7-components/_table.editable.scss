@@ -120,16 +120,16 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
   .#{$ns}-editabletablerow {
     background-color: $xui-editabletablehead-bg-color;
   }
-}
-
-.#{$ns}-editabletablehead,
-.#{$ns}-editabletablefoot {
-  background-color: $xui-editabletable-bg-color;
 
   .#{$ns}-editabletablecell:not(:last-child),
   .#{$ns}-editabletableheadingcell:not(:last-child) {
     box-shadow: 1px 0 0 0 $xui-editabletablehead-bg-color, 1px 0 0 0 $xui-editabletable-bg-color;
   }
+}
+
+.#{$ns}-editabletablehead,
+.#{$ns}-editabletablefoot {
+  background-color: $xui-editabletable-bg-color;
 }
 
 /**

@@ -136,6 +136,7 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
                 key={nanoid()}
                 onPointerOut={() => isCellClickable && this.removeCellPrecedence()}
                 onPointerOver={() => isCellClickable && this.addCellPrecedence()}
+                qaHook={cell.props.qaHook && `${cell.props.qaHook}-cell`}
               >
                 {cell.props.children}
               </XUIEditableTableCellReadOnly>

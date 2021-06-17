@@ -14,7 +14,8 @@ import XUITableBody from './private/XUITableBody';
 import XUITableHead from './private/XUITableHead';
 
 export interface RowData {
-  [columnName: string]: unknown;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [columnName: string]: any;
   rowClassName?: string;
 }
 

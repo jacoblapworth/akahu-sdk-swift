@@ -405,7 +405,7 @@ import {
   XUIEditableTableHeadingCell,
   XUIEditableTableRow
 } from '@xero/xui/react/editabletable';
-import overflowIcon from '@xero/xui-icon/icons/overflow';
+import archiveIcon from '@xero/xui-icon/icons/archive';
 
 const DisableControlsExample = () => {
   const [rows, setRows] = React.useState([{ id: nanoid(), fruit: '', colour: '', price: '' }]);
@@ -459,9 +459,9 @@ const DisableControlsExample = () => {
                 {row.price}
               </XUIEditableTableCellTextInput>
               <XUIEditableTableCellIconButton
-                iconReference={overflowIcon}
+                iconReference={archiveIcon}
                 isDisabled={isControlsDisabled}
-                ariaLabel="More options"
+                ariaLabel="Archive"
               />
             </XUIEditableTableRow>
           );

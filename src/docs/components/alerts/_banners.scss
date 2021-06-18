@@ -58,11 +58,11 @@
 //
 // Styleguide: Components.Alerts.Banner.3.1
 
-// Positive Sentiment
+// Positive sentiment
 //
 // Tips:
 // Do: Use positive sentiment if an action’s feedback is delayed, persistent, or has a relevant action
-// Warning: Avoid using for success messages – use a [toast](./section-components-alerts-toast.html) instead
+// Warning: Avoid using for success messages – [toasts](./section-components-alerts-toast.html) can be used instead
 //
 // Definitions:
 // Positive: Adds green border: `-positive`
@@ -71,7 +71,7 @@
 //
 // Styleguide: Components.Alerts.Banner.3.2
 
-// Negative Sentiment
+// Negative sentiment
 //
 // Tips:
 // Do: Use negative sentiment for information that requires immediate attention
@@ -84,7 +84,7 @@
 //
 // Styleguide: Components.Alerts.Banner.3.3
 
-// Neutral Sentiment
+// Neutral sentiment
 //
 // flags: new
 //
@@ -112,11 +112,11 @@
 
 // Accessibility
 //
-// Use the `alert` role for negative sentiment. Only use this role when the user's immediate attention is required. For more information, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
+// Use the `alert` role for negative sentiment. Only use this role when the user's immediate attention is required. For more information, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
 //
-// Use the `status` role for any information that doesn't suit the alert role. For more information, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role).
+// Use the `status` role for any information that doesn't suit the alert role. For more information, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_status_role)
 //
-// When using sentiment, the text must be clear and descriptive for people who can’t detect colour.
+// When using sentiment, the text must be clear and descriptive for users who use screen readers or have colour blindness.
 //
 // Styleguide: Components.Alerts.Banner.5
 

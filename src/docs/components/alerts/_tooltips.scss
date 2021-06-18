@@ -2,7 +2,10 @@
 //
 // Teaser: To provide clarification for ambiguous actions or non-interactive elements.
 //
-// Introduction: Tooltips provide additional information in-line with page elements.
+// Introduction: A tooltip is a small amount of non-essential information that appears when tapping, hovering or tabbing over a page element. <br /> <br />
+// Tooltips can be placed in-line with a page element or are used to clarify the action of an icon button.
+//
+// Text in a tooltip is very brief and can't include links, buttons, illustrations, or headings. To include any of these, consider a [popover](./section-components-alerts-popover.html).
 //
 // Components: Tooltip
 //
@@ -13,18 +16,19 @@
 // Best practice
 //
 // Tips:
-// Do: Use tooltips to display content that would live in an element's 'title' tag (icon-buttons, truncated items)
-// Do: Use a dedicated icon-button to trigger supportive, non-essential tips
-// Dont: Don't use tooltips for validation and error messaging
-// Dont: Don't use content other than text inside a tooltip
-// Warning: Styles directly affecting the trigger or its classes may need to be duplicated on the wrapping `.xui-tooltip` DOM element. For example, fixed/absolute positioning or some flexbox styling.
+// Do: Use tooltips to display text that would live in an element's ‘title’ tag (icon buttons, truncated items)
+// Do: Use a dedicated icon button to trigger supportive text in a tooltip
+// Warning: Styles directly affecting the trigger or its classes may need to be duplicated on the wrapping `.xui-tooltip` DOM element, for example, fixed/absolute positioning or some flexbox styling
+// Don't: Don't use for validation and error messaging
+// Don't: Don't include information that's crucial to a workflow
+// Don't: Don't use headings, links, buttons, bold text, or content other than text
 //
 // Styleguide: Components.Alerts.Tooltip.1
 
 // Anatomy
 //
 // To create a tooltip, use the following classes.
-// Note that the trigger and tip need to be wrapped together for positioning purposes.
+// Note that the trigger and tooltip need to be wrapped together for positioning purposes.
 //
 // Classes:
 // xui-tooltip: Container class for both tooltip and trigger
@@ -41,10 +45,9 @@
 
 // Positioning
 //
-// Then, add an additional `xui-positioningInline--content-*` modifier to specify the preferred position of the tooltip, relative to the trigger. Format is `sidealignment` for example, `topright` would attempt to place the tooltip above the trigger and aligned to the right edge of the trigger. Side options are `top`, `bottom`, `left`, and `right`, and alignment options are `left`, `right`, `top`, `bottom`, and `center`, as appropriate.
+// Add an additional `xui-positioningInline--content-<side><alignment>` modifier to specify the preferred position of the tooltip relative to the trigger. Side options are `top`, `bottom`, `left`, and `right`, and alignment options are `left`, `right`, `top`, `bottom`, and `center`.
 //
-// Tips:
-// Warning: If done with React, the tooltip will automatically reposition when there is not sufficient space for the tip to appear in the preferred location.
+// Any combination of the `side` and `alignment` options are supported. For example, `topright` places the tooltip above the trigger (`top`) and aligned to the trigger’s right edge (`right`). If done with React, the tooltip will automatically reposition when there isn’t sufficient space for the tip to appear in the preferred location.
 //
 // ExampleClass: ds-example-transparent
 //
@@ -58,10 +61,48 @@
 //
 // Styleguide: Components.Alerts.Tooltip.3
 
+// Content guidelines
+//
+// Tips:
+// Do: Be concise - 1 short sentence, ideally no more than 8 words
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Don't: Don’t use for information that’s essential for completing a task
+// Don't: Don’t repeat visible UI text
+// Don't: Don’t use links, buttons, illustrations, or headings
+// Don't: Don’t use a full stop for a single sentence
+// Don't: Don’t use bold
+//
+// Styleguide: Components.Alerts.Tooltip.4
+
+// Icon button tooltips
+//
+// Use a verb to show what the button does, rather than what the button represents.
+//
+// ExampleContentTable:
+// Insert rows | Rows
+// Delete column | Delete
+//
+// More information on [icon buttons](./section-components-controls-button.html#components-controls-button-6).
+//
+// Styleguide: Components.Alerts.Tooltip.4.1
+
+// Supportive text in tooltips
+//
+// Tooltips can provide supportive text to further explain something, for example what a form field is. Information given should be brief, helpful and non-essential.
+//
+// If the text is essential for a user to complete their task, use a [hint message](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-9).
+//
+// ExampleContentTable:
+// The 11-digit number that’s issued by the ATO | Passwords should be at least 12 characters long and include 1 uppercase character, 1 number, and 1 special character
+// Email address will be used to send e-invoices to your customer | Email address must be the email linked to your Xero account
+//
+// Styleguide: Components.Alerts.Tooltip.4.2
+
 // Related links
 //
 // Related:
 // * [Banner](./section-components-alerts-banner.html)
+// * [Button](./section-components-controls-button.html)
 // * [Popover](./section-components-alerts-popover.html)
 //
 // Styleguide: Components.Alerts.Tooltip.99

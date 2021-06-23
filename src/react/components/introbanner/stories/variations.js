@@ -11,29 +11,46 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with long title and button text',
+    headerTitle:
+      'Learn how to manage your inventory learn how to manage your inventory learn how to manage your inventory learn how to manage your inventory',
+    dismissButtonText: 'Hidehidehidehidehidehidehidehidehidehide',
+    viewports: desktopPlus320,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with footer',
-    footer: true,
+    hasFooter: true,
     viewports: desktopPlus320,
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with illustration',
-    illustration: true,
+    hasIllustration: true,
     viewports: [...desktopPlus320, commonViewports[2]],
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with illustration and long title and button text',
+    hasIllustration: true,
+    headerTitle:
+      'Learn how to manage your inventory learn how to manage your inventory learn how to manage your inventory learn how to manage your inventory',
+    dismissButtonText: 'Hidehidehidehidehidehidehidehidehidehide',
+    viewports: desktopPlus320,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with footer and illustration',
-    illustration: true,
-    footer: true,
+    hasIllustration: true,
+    hasFooter: true,
     viewports: [...desktopPlus320, commonViewports[2]],
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'with footer and video illustration',
-    video: true,
-    illustration: true,
-    footer: true,
+    hasVideo: true,
+    hasIllustration: true,
+    hasFooter: true,
     viewports: [...desktopPlus320, commonViewports[2], commonViewports[6]],
   },
 ];

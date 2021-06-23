@@ -150,7 +150,7 @@ storiesWithKnobs.add('Playground', () => {
     <div style={tableStyles}>
       <Table
         {...tableProps}
-        caption={text('caption', '')}
+        caption={text('caption', 'Sample cell data')}
         checkAllRowsAriaLabel="Select all rows"
         checkOneRowAriaLabel="Select row"
         className={text('className', '')}
@@ -241,6 +241,7 @@ const TestScaffold = (
 ) => (
   <ScrollResetWrapper key={tableIndex} style={{ ...tableStyles, ...styleOverrides }}>
     <Table
+      caption="Sample cell data"
       checkAllRowsAriaLabel="Select all rows"
       checkOneRowAriaLabel="Select row"
       emptyMessage="Nothing to show here"
@@ -253,11 +254,13 @@ const TestScaffold = (
       }
       footer={
         (tableProps.footer && <Appendage>Footer</Appendage>) ||
-        (tableProps.hasCustomFooter && <CustomFooter />)
+        (tableProps.hasCustomFooter && <CustomFooter />) ||
+        tableProps.customFooter
       }
       header={
         (tableProps.header && <Appendage>Header</Appendage>) ||
-        (tableProps.hasCustomHeader && <CustomHeader />)
+        (tableProps.hasCustomHeader && <CustomHeader />) ||
+        tableProps.customHeader
       }
     >
       {new Array(columns).fill(0).map((_, columnIndex) => (

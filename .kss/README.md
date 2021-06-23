@@ -55,6 +55,7 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 - `image`
 - `image-caption`
 - `language`
+- `examplecontenttable`
 
 #### Adding new properties
 
@@ -211,6 +212,16 @@ Small text used to describe what is shown in an image. This should be the very n
 
 ```
 // Image-caption: Caption to describe images
+```
+
+### Example Content Table
+
+A table used to compare examples of preferred and suboptimal content.
+
+```
+// ExampleContentTable:
+// A preferred example of content | A suboptimal example of content
+// Another preferred example of content | Another suboptimal example of content
 ```
 
 ## Handlebars Index Template

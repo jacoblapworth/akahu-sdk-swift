@@ -237,6 +237,54 @@ import {
   XUIEditableTableCellIconButton,
   XUIEditableTableRow
 } from '@xero/xui/react/editabletable';
+import archiveIcon from '@xero/xui-icon/icons/archive';
+
+<XUIEditableTable
+  ariaLabel="List of fruits with colour and price per kg"
+  columnWidths={['auto', 'auto', 'auto', '40px']}
+>
+  <XUIEditableTableHead>
+    <XUIEditableTableRow>
+      <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
+      <XUIEditableTableHeadingCell>Colour</XUIEditableTableHeadingCell>
+      <XUIEditableTableHeadingCell>Price / kg</XUIEditableTableHeadingCell>
+      <XUIEditableTableHeadingCell />
+    </XUIEditableTableRow>
+  </XUIEditableTableHead>
+  <XUIEditableTableBody>
+    <XUIEditableTableRow>
+      <XUIEditableTableCellReadOnly>Banana</XUIEditableTableCellReadOnly>
+      <XUIEditableTableCellReadOnly>Yellow</XUIEditableTableCellReadOnly>
+      <XUIEditableTableCellReadOnly>2.99</XUIEditableTableCellReadOnly>
+      <XUIEditableTableCellIconButton
+        ariaLabel="Archive"
+        iconReference={archiveIcon}
+        onClick={() => alert('Banana has been archived')}
+      />
+    </XUIEditableTableRow>
+  </XUIEditableTableBody>
+</XUIEditableTable>;
+```
+
+### Creating a custom cell
+
+You can create a custom editable table cell using `XUIEditableTableCell`. This component is used to build the various cell types offered by XUI, and can be used by you to create your own custom cell types too.
+
+In the example below we use a `XUIEditableTableCell` to create an overflow menu using [`XUIDropdownToggled`](#dropdown-toggled) and [`XUIIconButton`](#icon-button).
+
+```jsx harmony
+import {
+  XUIEditableTable,
+  XUIEditableTableBody,
+  XUIEditableTableCellReadOnly,
+  XUIEditableTableHead,
+  XUIEditableTableHeadingCell,
+  XUIEditableTableCell,
+  XUIEditableTableRow
+} from '@xero/xui/react/editabletable';
+import { XUIIconButton } from '@xero/xui/react/button';
+import { XUIDropdown, XUIDropdownToggled } from '@xero/xui/react/dropdown';
+import { XUIPicklist, XUIPickitem } from '@xero/xui/react/picklist';
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 
 <XUIEditableTable
@@ -256,7 +304,18 @@ import overflowIcon from '@xero/xui-icon/icons/overflow';
       <XUIEditableTableCellReadOnly>Banana</XUIEditableTableCellReadOnly>
       <XUIEditableTableCellReadOnly>Yellow</XUIEditableTableCellReadOnly>
       <XUIEditableTableCellReadOnly>2.99</XUIEditableTableCellReadOnly>
-      <XUIEditableTableCellIconButton ariaLabel="More options" iconReference={overflowIcon} />
+      <XUIEditableTableCell>
+        <XUIDropdownToggled
+          trigger={<XUIIconButton ariaLabel="More options" icon={overflowIcon} />}
+          dropdown={
+            <XUIDropdown>
+              <XUIPicklist>
+                <XUIPickitem id="pay-for-bananas">Pay for Bananas</XUIPickitem>
+              </XUIPicklist>
+            </XUIDropdown>
+          }
+        />
+      </XUIEditableTableCell>
     </XUIEditableTableRow>
   </XUIEditableTableBody>
 </XUIEditableTable>;

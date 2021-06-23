@@ -18,7 +18,8 @@
     "storybook",
     "image",
     "image-caption",
-    "language"
+    "language",
+    "examplecontenttable"
   ],
   "destination": "./dist/docs",
   "css": ["./kss-assets/xui.css", "./style.css"],

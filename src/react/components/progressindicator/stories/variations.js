@@ -221,6 +221,36 @@ const variations = [
     progress: 5,
     isAlertOnComplete: true,
   },
+  {
+    ...baseProps,
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'circular completion alert - large',
+    progress: 5,
+    isAlertOnComplete: true,
+    isGrow: true,
+  },
+  {
+    ...baseProps,
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'circular hard error - large',
+    isHardError: true,
+    isGrow: true,
+  },
+  {
+    ...baseProps,
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'circular custom hard error - large',
+    hardErrorAlert: 'S',
+    isHardError: true,
+    isGrow: true,
+  },
+  {
+    ...baseProps,
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'circular custom (icon) hard error - large',
+    isHardError: true,
+    isGrow: true,
+  },
 
   // Color:
 

@@ -413,6 +413,15 @@ const variations = [
           footer: true,
         },
       },
+      {
+        columns: 3,
+        styleOverrides: { background: 'yellow' },
+        tableProps: {
+          ...tableProps,
+          customHeader: 'Header transparency test',
+          customFooter: 'Footer transparency test',
+        },
+      },
     ],
   },
 

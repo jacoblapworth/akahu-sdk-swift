@@ -27,22 +27,31 @@ const EditableTableUtilityBar: React.FunctionComponent<Props> = ({
   const [colSpan, setColSpan] = React.useState<number>(0);
   const [wrapperWidth, setWrapperWidth] = React.useState<number>();
 
-  const {
-    contentRect: { width },
-    observedElementRef,
-  } = useResizeObserver<HTMLTableDataCellElement>();
+  const { observedElementRef } = useResizeObserver<HTMLTableDataCellElement>();
 
+  /* eslint-disable-next-line react-hooks/exhaustive-deps */
   React.useLayoutEffect(() => {
     const wrapperNode = scrollContainerRef?.current;
     if (wrapperNode) {
       const tableCells = wrapperNode?.querySelector('tr')?.children;
       if (tableCells) {
         // The action cell should stretch to the whole row
-        setColSpan(tableCells.length);
         setWrapperWidth(wrapperNode.clientWidth - 2);
       }
     }
-  }, [scrollContainerRef, width]);
+  });
+
+  /* eslint-disable-next-line react-hooks/exhaustive-deps */
+  React.useEffect(() => {
+    const tableCells = scrollContainerRef?.current?.querySelector('tr')?.children;
+    if (tableCells) {
+      const visibleTableCells = Array.from(tableCells).filter(
+        tableCell => getComputedStyle(tableCell).display !== 'none',
+      );
+      // The action cell should stretch to the whole row
+      setColSpan(visibleTableCells.length);
+    }
+  });
 
   return (
     <tr className={cn(baseName, className)} data-automationid={qaHook} {...spreadProps}>

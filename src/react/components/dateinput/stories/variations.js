@@ -167,6 +167,40 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Date range localised',
+    isDateRangeInput: true,
+    suggestedDates: dateRangeInputSuggestedDates,
+    locale: 'el',
+    startDateInputConfig: {
+      selectedDateDefaultValue: new Date(1999, 5, 5),
+      inputLabel: 'First Date',
+      displayedMonth: new Date(1999, 5, 5),
+    },
+    endDateInputConfig: {
+      selectedDateDefaultValue: new Date(2000, 11, 15),
+      inputLabel: 'Second Date',
+      displayedMonth: new Date(2000, 11, 15),
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Date range US localised',
+    isDateRangeInput: true,
+    suggestedDates: dateRangeInputSuggestedDates,
+    locale: 'en-US',
+    startDateInputConfig: {
+      selectedDateDefaultValue: new Date(1999, 5, 5),
+      inputLabel: 'First Date',
+      displayedMonth: new Date(1999, 5, 5),
+    },
+    endDateInputConfig: {
+      selectedDateDefaultValue: new Date(2000, 11, 15),
+      inputLabel: 'Second Date',
+      displayedMonth: new Date(2000, 11, 15),
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'In fixed width container',
     isDateRangeInput: true,
     suggestedDates: dateRangeInputSuggestedDates,

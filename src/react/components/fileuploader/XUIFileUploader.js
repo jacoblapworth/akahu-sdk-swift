@@ -11,7 +11,7 @@ import FileList from './private/FileList';
 import { ns } from '../helpers/xuiClassNamespace';
 import { baseClass } from './private/helpers';
 import checkRequiredProps from '../../helpers/checkRequiredProps';
-import labelRequiredWarning from '../helpers/labelRequiredWarning';
+import labelRequiredWarning, { nodeContainsText } from '../helpers/labelRequiredWarning';
 
 const XUIFileUploader = ({
   acceptedFileExtensions,
@@ -117,7 +117,7 @@ const XUIFileUploader = ({
     labelRequiredWarning(
       XUIFileUploader.name,
       ['includes a label with text', 'labelId provided'],
-      [label?.innerText && !isLabelHidden, typeof label?.[0] === 'string', labelId],
+      [nodeContainsText(label) && !isLabelHidden, typeof label?.[0] === 'string', labelId],
     );
   }, [isLabelHidden, label, labelId]);
   useEffect(() => {
@@ -287,7 +287,7 @@ XUIFileUploader.propTypes = {
   /**
    * Label to show above the input
    */
-  label: PropTypes.string,
+  label: PropTypes.node,
   /**
    * Class names to add to the label
    */

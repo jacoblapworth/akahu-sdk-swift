@@ -232,8 +232,8 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
   width: 10px;
 }
 
-.#{$ns}-progress-grow .#{$ns}-progress-icon-complete {
-  height: auto;
+.#{$ns}-progress-grow .#{$ns}-icon {
+  height: 50%;
   width: 50%;
 }
 

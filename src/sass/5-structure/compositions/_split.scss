@@ -8,6 +8,12 @@
     'detail' / minmax(0, 1fr);
 }
 
+@mixin composition-s-small-primarybelow {
+  grid-template:
+    'detail'
+    'primary' / minmax(0, 1fr);
+}
+
 @mixin composition-s-medium {
   grid-template: 'primary detail' / minmax(0, 1fr) minmax(0, 1fr);
 }
@@ -16,6 +22,11 @@
 @mixin composition-s-small-gap {
   @include xui-composition-grid-gap;
   @include composition-s-small;
+}
+
+@mixin composition-s-small-gap-primarybelow {
+  @include xui-composition-grid-gap;
+  @include composition-s-small-primarybelow;
 }
 
 @mixin composition-s-medium-gap {
@@ -36,6 +47,14 @@
         @include composition-s-medium-gap;
       }
     }
+  }
+}
+
+// In the stacked layout, when "primary" content should be below the secondary content.
+.#{$ns}-composition-split-primarybelow {
+  @include composition-s-small-primarybelow;
+  &.#{$ns}-composition-has-grid-gap {
+    @include composition-s-small-gap-primarybelow;
   }
 }
 

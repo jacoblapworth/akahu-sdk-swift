@@ -340,6 +340,11 @@ storiesWithKnobs.add('Split', () => {
   const settings = {
     isReal: boolean('Show example content', false, '1'),
     hasGridGap: boolean('Apply a gap between grid areas', true, '1'),
+    hasPrimaryBelowAtSmall: boolean(
+      'Should primary be below the secondary content when stacked?',
+      false,
+      '1',
+    ),
     hasAutoSpaceAround: boolean(
       'Apply context-dependent space between the grid and the viewport',
       true,

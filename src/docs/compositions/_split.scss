@@ -120,11 +120,23 @@
 //
 // Styleguide: Compositions.Split.4.4
 
+// Primary below
+//
+// In the stacked layout for this composition, the default behaviour is for the Primary container to stack above the Detail container. To swap the position of these composition containers for the "small" layout only, use the `-primarybelow` class on the composition wrapper.
+//
+// Classes:
+// xui-composition-split-primarybelow: Changes the stacking order for the "small" layout in Split compositions
+// xui-composition-splitheader-primarybelow: Changes the stacking order for the "small" layout in Split compositions with a content header
+//
+// Styleguide: Compositions.Split.4.5
+
 // Class list
 //
 // Classes:
 // xui-composition-split: Style for Split composition when no content header is included
 // xui-composition-splitheader: Style for Split composition when including a content header
+// xui-composition-split-primarybelow: Changes the stacking order for the "small" layout in Split compositions
+// xui-composition-splitheader-primarybelow: Changes the stacking order for the "small" layout in Split compositions with a content header
 // xui-composition-auto-template: Allows the layout to adjust automatically to the viewport width. Remove this class to lock the layout at the "small" version
 // xui-composition-grid-gap: Modifier for applying standard spacing between composition containers
 // xui-composition-has-auto-space-around: Modifier for applying $xui-s-large spacing around the outside of the composition

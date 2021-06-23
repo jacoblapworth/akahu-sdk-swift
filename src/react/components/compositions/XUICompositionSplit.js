@@ -8,12 +8,21 @@ import XUIGridAreaDetail from './XUIGridAreaDetail';
 import baseCompositionClass, { buildLayoutClass, buildGlobalCompositionClasses } from './helpers';
 
 const compositionName = 'split';
+const rootClass = `${baseCompositionClass}-${compositionName}`;
 
-const XUICompositionSplit = ({ className, primary, retainWidth, secondary, ...spreadProps }) => {
+const XUICompositionSplit = ({
+  className,
+  hasPrimaryBelowAtSmall,
+  primary,
+  retainWidth,
+  secondary,
+  ...spreadProps
+}) => {
   const compositionClasses = cn(
     buildGlobalCompositionClasses(spreadProps),
     buildLayoutClass({ retainWidth, compositionName }),
-    `${baseCompositionClass}-${compositionName}`,
+    rootClass,
+    hasPrimaryBelowAtSmall && `${rootClass}-primarybelow`,
     className,
   );
 
@@ -37,6 +46,10 @@ XUICompositionSplit.propTypes = {
    * Whether to apply a pre-set grid-gap between all grid areas. Defaults to true.
    */
   hasGridGap: PropTypes.bool,
+  /**
+   * In the stacked layout, whether to put primary content below the secondary content. Defaults to false.
+   */
+  hasPrimaryBelowAtSmall: PropTypes.bool,
   /**
    * Determines whether the main content takes full width of page. Defaults to false.
    */

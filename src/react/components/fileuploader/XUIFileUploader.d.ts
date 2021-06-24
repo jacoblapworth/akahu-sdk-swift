@@ -94,7 +94,7 @@ interface Props {
   /**
    * Label to show above the input
    */
-  label?: string;
+  label?: React.ReactNode;
   /**
    * Class names to add to the label
    */

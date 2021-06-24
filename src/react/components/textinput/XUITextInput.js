@@ -12,7 +12,7 @@ import { sizeShift } from '../helpers/sizes';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import SizeContext from '../../contexts/SizeContext';
 import DisabledStateContext from '../../contexts/DisabledStateContext';
-import labelRequiredWarning from '../helpers/labelRequiredWarning';
+import labelRequiredWarning, { nodeContainsText } from '../helpers/labelRequiredWarning';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
@@ -87,7 +87,7 @@ class XUITextInput extends PureComponent {
         "includes a sideElement of type='text'",
       ],
       [
-        label?.innerText && !isLabelHidden,
+        nodeContainsText(label) && !isLabelHidden,
         typeof label?.[0] === 'string',
         placeholder,
         labelId,

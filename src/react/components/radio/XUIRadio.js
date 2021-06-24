@@ -8,7 +8,10 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
-import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
+import labelRequiredWarning, {
+  nodeContainsText,
+  textChildOrLabelId,
+} from '../helpers/labelRequiredWarning';
 
 /**
  * @function handleLabelClick - Prevent 2 click events bubbling. Since our input is
@@ -156,7 +159,7 @@ const XUIRadio = props => {
 
   useEffect(() => {
     labelRequiredWarning(XUIRadio.name, textChildOrLabelId, [
-      children?.innerText && !isLabelHidden,
+      nodeContainsText(children) && !isLabelHidden,
       typeof children?.[0] === 'string',
       props.labelId,
     ]);

@@ -493,7 +493,8 @@
                   "../src/react/components/editabletable/XUIEditableTableCellTextInput.js",
                   "../src/react/components/editabletable/XUIEditableTableCellSelectBox.js",
                   "../src/react/components/editabletable/XUIEditableTableCellAutocompleter.js",
-                  "../src/react/components/editabletable/XUIEditableTableCellIconButton.js"
+                  "../src/react/components/editabletable/XUIEditableTableCellIconButton.js",
+                  "../src/react/components/editabletable/XUIEditableTableCell.js"
                 ],
                 "content": "../src/react/components/editabletable/editabletable.celltypes.md"
               }

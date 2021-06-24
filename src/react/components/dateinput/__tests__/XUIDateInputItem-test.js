@@ -20,7 +20,7 @@ describe('XUIDateInputItem', () => {
   const createComponent = props => (
     <XUIDateInputItem
       inputLabel="Date"
-      locale="en"
+      locale="en-NZ"
       nextButtonAriaLabel="Next month"
       onSelectDate={() => {}}
       prevButtonAriaLabel="Previous month"
@@ -99,7 +99,7 @@ describe('XUIDateInputItem', () => {
     render(
       <XUIDateInputItem
         inputLabel="Date"
-        locale="en"
+        locale="en-NZ"
         nextButtonAriaLabel="Next month"
         onSelectDate={() => {}}
         prevButtonAriaLabel="Previous month"

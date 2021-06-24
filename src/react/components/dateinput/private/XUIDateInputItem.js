@@ -92,9 +92,9 @@ class XUIDateInputItem extends Component {
    * listener to a parent (`window` by default) to catch this key press
    */
   _keyUpHandler = event => {
-    if (event.key === eventKeyValues.escape) {
+    if (event.key === eventKeyValues.escape && event.target === this.inputRef?.current) {
       this.closeDropdown();
-      this.inputRef?.current.focus();
+      this.inputRef?.current?.focus();
     }
 
     if (event.key === eventKeyValues.tab && event.target === this.inputRef?.current) {
@@ -121,24 +121,15 @@ class XUIDateInputItem extends Component {
 
   focusDatePicker = () => {
     if (this.state.activePanel === this.customDatesId) {
-      this.datepickerRef.current.focus();
+      this.datepickerRef?.current?.focus();
     }
   };
 
   handleInitialFocus = () => {
     if (!this.props.isDisabled) {
       this.setState({ pickitemInitialHighlight: false });
-      this.ddtRef.current.openDropdown(() => {
-        // This has to be in a timeout until Dropdown is extended to open a panel without focusing it.
-        // DropdownPanel will always focus the opened panel so this has to happen after.
-        // This doesn't solve everything because input focus will flick if input is focused again.
-        // onOpenAnimationEnd can't be used here because down arrow interaction requires different behaviour,
-        // after opening DD panel, DatePicker has to be focused instead of DateInput like in this case.
-        setTimeout(() => {
-          this.inputRef?.current.focus();
-          this.inputRef?.current.select();
-        }, 100);
-      });
+      this.ddtRef?.current?.openDropdown();
+      this.inputRef?.current?.select();
     }
   };
 
@@ -150,34 +141,30 @@ class XUIDateInputItem extends Component {
 
   onIconFocus = () => {
     if (!this.props.isDisabled) {
-      this.inputRef?.current.focus();
-      this.ddtRef.current.openDropdown();
+      this.inputRef?.current?.focus();
+      this.ddtRef?.current?.openDropdown();
     }
   };
 
   onInputKeyDown = event => {
     if (event.key === eventKeyValues.enter || event.key === eventKeyValues.tab) {
-      this.ddtRef.current.closeDropdown();
+      this.ddtRef?.current?.closeDropdown();
       this.setDate();
     }
 
     if (event.key === eventKeyValues.down) {
-      this.ddtRef.current.openDropdown(() => {
-        // Focus first item only after pressing down arrow (not when dropdown is visible during initial input focus).
-        if (this.props.suggestedDates) {
-          this.ddtRef.current.dropdown.highlightFirstItem();
-        }
+      this.ddtRef.current.openDropdown();
+      // Focus first item only after pressing down arrow (not when dropdown is visible during initial input focus).
+      if (this.props.suggestedDates) {
+        this.ddtRef?.current?.dropdown?.current?.highlightFirstItem();
+      }
 
-        // This is in a timeout due to DropdownPanel focusing the panel after it's opened.
-        setTimeout(() => {
-          this.datepickerRef?.current?.focus();
+      this.datepickerRef?.current?.focus();
 
-          // focus suggested panel for single input
-          if (this.props.suggestedDates) {
-            this.suggestedDatePanelRef?.current?.focus();
-          }
-        }, 100);
-      });
+      // focus suggested panel for single input
+      if (this.props.suggestedDates) {
+        this.suggestedDatePanelRef?.current?.focus();
+      }
     }
   };
 
@@ -311,7 +298,7 @@ class XUIDateInputItem extends Component {
           qaHook={qaHook && `${qaHook}-dateinputitem--input`}
           size={size}
           validationMessage={validationMessage}
-          value={formatSelectedDateToString(selectedDate, inputValue)}
+          value={formatSelectedDateToString(selectedDate, inputValue, locale)}
           {...spreadProps}
         />
       </div>
@@ -337,6 +324,7 @@ class XUIDateInputItem extends Component {
     /** The main dropdown */
     const dateInputDropdown = (
       <XUINestedDropdown
+        _skipFocusOnOpen
         currentPanelId={activePanel}
         ignoreKeyboardEvents={ignoreKeyboardEvents}
         onPanelChange={this.focusDatePicker}
@@ -430,7 +418,7 @@ XUIDateInputItem.propTypes = {
   /** Whether the current input value is invalid */
   isInvalid: PropTypes.bool,
 
-  /** The locale of the calendar. */
+  /** The locale of the calendar and the input. Use specific locale for english because `en` defaults to `en-US`. */
   locale: PropTypes.string.isRequired,
 
   /**

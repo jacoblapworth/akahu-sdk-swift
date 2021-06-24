@@ -4,6 +4,8 @@
 $xui-introbanner-illustration-height: 220px;
 $xui-introbanner-illustration-s-to-m-height: 190px;
 $xui-introbanner-illustration-width: 400px;
+$xui-introbanner-padding-horizontal: $xui-s-large;
+$xui-introbanner-padding-vertical: $xui-s-2xlarge;
 
 .#{$ns}-introbanner--wrapper {
   background-color: $xui-panel-bg-color;
@@ -12,12 +14,17 @@ $xui-introbanner-illustration-width: 400px;
 }
 
 .#{$ns}-introbanner {
-  @include xui-padding-vertical($xui-s-2xlarge);
-  @include xui-padding-horizontal($xui-s-large);
+  @include xui-padding-horizontal($xui-introbanner-padding-horizontal);
   background-color: $xui-panel-bg-color;
   margin: auto;
   max-width: $xui-page-width-large;
+  padding-bottom: $xui-introbanner-padding-vertical;
+  padding-top: $xui-introbanner-padding-vertical + $xui-control-size-small;
   position: relative;
+
+  &.#{$ns}-introbanner-small-up {
+    padding-top: $xui-introbanner-padding-vertical;
+  }
 
   &.#{$ns}-introbanner-has-illustration.#{$ns}-introbanner-small-up {
     display: flex;
@@ -91,27 +98,27 @@ $xui-introbanner-illustration-width: 400px;
   transform: translate(-7px, 50%);
 }
 
+// INTRO BANNER DISMISS BUTTON
+// -----------------------------------------------------------------------------
+
+.#{$ns}-introbanner--dismissbutton {
+  position: absolute;
+  right: $xui-introbanner-padding-horizontal;
+  top: $xui-introbanner-padding-vertical;
+
+  .#{$ns}-introbanner-small-up & {
+    float: right;
+    margin-left: $xui-s-large;
+    position: static;
+  }
+}
+
 // INTRO BANNER HEADER
 // -----------------------------------------------------------------------------
 
 .#{$ns}-introbanner--header {
   @include xui-heading-xlarge;
   margin: 0;
-
-  .#{$ns}-introbanner-small-up & {
-    margin-right: 50px;
-  }
-}
-
-.#{$ns}-introbanner--dismissbutton {
-  display: block;
-  margin-left: auto;
-  position: static;
-  right: $xui-s-large;
-
-  .#{$ns}-introbanner-small-up & {
-    position: absolute;
-  }
 }
 
 // INTRO BANNER BODY

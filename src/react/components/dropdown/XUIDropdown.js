@@ -31,12 +31,13 @@ export default class XUIDropdown extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const { isHidden, hasKeyboardEvents, restrictFocus } = this.props;
+    const { isHidden, hasKeyboardEvents, restrictFocus, _skipFocusOnOpen } = this.props;
 
     this.memoizedComponentDidUpdate(
       isHidden,
       hasKeyboardEvents,
       restrictFocus,
+      _skipFocusOnOpen,
       prevProps.isHidden,
       prevProps.restrictFocus,
     );
@@ -48,11 +49,18 @@ export default class XUIDropdown extends PureComponent {
   }
 
   memoizedComponentDidUpdate = memoizeOne(
-    (isHidden, hasKeyboardEvents, restrictFocus, prevIsHidden, prevRestrictFocus) => {
+    (
+      isHidden,
+      hasKeyboardEvents,
+      restrictFocus,
+      _skipFocusOnOpen,
+      prevIsHidden,
+      prevRestrictFocus,
+    ) => {
       const currentPanel = this.panel.current;
 
       if (!isHidden) {
-        if (hasKeyboardEvents && currentPanel && !currentPanel.hasFocus()) {
+        if (hasKeyboardEvents && currentPanel && !currentPanel.hasFocus() && !_skipFocusOnOpen) {
           currentPanel.focus();
         }
         const id = currentPanel && currentPanel.getHighlightedId();
@@ -286,6 +294,11 @@ export default class XUIDropdown extends PureComponent {
 }
 
 XUIDropdown.propTypes = {
+  /** Internal prop to control whether to open without focusing opened element
+   * @ignore
+   */
+  _skipFocusOnOpen: PropTypes.bool,
+
   /** Will cause the dropdown to animate when closing. */
   animateClosed: PropTypes.bool,
 
@@ -354,7 +367,7 @@ XUIDropdown.propTypes = {
   /** Whether focus should be restricted to the dropdown while it's open. */
   restrictFocus: PropTypes.bool,
 
-  /** Whether the stateful picklist manages highlighting of list elements */
+  /** Whether the stateful picklist manages highlighting of list elements. */
   shouldManageInitialHighlight: PropTypes.bool,
 
   /** Sets a max-width via XUI class based on the chosen size. Default will

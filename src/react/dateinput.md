@@ -633,6 +633,10 @@ You can set the locale by providing the `locale` prop.
 
 When a date picker is opened by interacting with date input components, it can be closed using the `escape` key. When date input components are focused but a date picker is not open, it can be opened by pressing the `down` arrow key. After focusing the date picker or suggested dates dropdown the corresponding `XUIDatePicker` or `XUIPicklist` keyboard navigation can be used.
 
+### Shortcuts
+
+`XUIDateInput` supports the use of Xero's [date entry shortcuts](https://central.xero.com/s/article/Tips-and-shortcuts#Dateentryshortcuts). To enable due-date specific shortcuts, e.g. `*12`, use the `isDueDate` prop.
+
 ### Size variants
 
 Date input is available in three sizes: `medium`, `small` and `xsmall`. Similar to `XUITextInput`, the size can be adjusted with the `size` property.

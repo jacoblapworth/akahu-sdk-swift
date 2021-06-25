@@ -41,7 +41,7 @@ describe('XUIDateRangeInput', () => {
         inputLabel: 'End date',
         selectedDateDefaultValue: selectedEndDate,
       }}
-      locale="en"
+      locale="en-NZ"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
       qaHook="test"
@@ -60,7 +60,7 @@ describe('XUIDateRangeInput', () => {
         endDateInputConfig={{
           inputLabel: 'End date',
         }}
-        locale="en"
+        locale="en-NZ"
         nextButtonAriaLabel="Next month"
         prevButtonAriaLabel="Previous month"
         startDateInputConfig={{
@@ -90,7 +90,7 @@ describe('XUIDateRangeInput', () => {
           selectedDateDefaultValue: selectedEndDate,
           onSelectDate: onSelectEndDate,
         }}
-        locale="en"
+        locale="en-NZ"
         nextButtonAriaLabel="Next month"
         prevButtonAriaLabel="Previous month"
         qaHook={qaHook}

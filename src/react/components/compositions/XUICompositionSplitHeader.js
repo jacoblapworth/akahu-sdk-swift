@@ -9,9 +9,11 @@ import XUIGridAreaHeader from './XUIGridAreaHeader';
 import baseCompositionClass, { buildLayoutClass, buildGlobalCompositionClasses } from './helpers';
 
 const compositionName = 'splitheader';
+const rootClass = `${baseCompositionClass}-${compositionName}`;
 
 const XUICompositionSplitHeader = ({
   className,
+  hasPrimaryBelowAtSmall,
   header,
   primary,
   retainWidth,
@@ -21,7 +23,8 @@ const XUICompositionSplitHeader = ({
   const compositionClasses = cn(
     buildGlobalCompositionClasses(spreadProps),
     buildLayoutClass({ retainWidth, compositionName }),
-    `${baseCompositionClass}-${compositionName}`,
+    rootClass,
+    hasPrimaryBelowAtSmall && `${rootClass}-primarybelow`,
     className,
   );
 
@@ -46,6 +49,10 @@ XUICompositionSplitHeader.propTypes = {
    * Whether to apply a pre-set grid-gap between all grid areas. Defaults to true.
    */
   hasGridGap: PropTypes.bool,
+  /**
+   * In the stacked layout, whether to put primary content below the secondary content. Defaults to false.
+   */
+  hasPrimaryBelowAtSmall: PropTypes.bool,
   /**
    * Header content or component
    */

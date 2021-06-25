@@ -6,20 +6,19 @@ import cn from 'classnames';
 import '../helpers/xuiGlobalChecks';
 import {
   attachListeners,
-  calcSpaceAbove,
-  calcSpaceBelow,
-  calcSpaceLeft,
-  calcSpaceRight,
   detachListeners,
   getAbsoluteBoundingClientRect,
+  getSpacesAroundTrigger,
   getTriggerNodeFromParentRef,
   isBaseRendered,
   isNarrowViewport,
   scrollLeftAmount,
   scrollTopAmount,
 } from './private/dom-helpers';
+import { positionOptions } from './private/constants';
 import portalContainer from '../helpers/portalContainer';
 import { ns } from '../helpers/xuiClassNamespace';
+import { getPreferredPosition } from './private/utils';
 
 /**
  * @private
@@ -40,26 +39,45 @@ function getTriggerAlignmentStyles({
   viewportGutter,
   triggerDropdownGap,
   isNotResponsive,
+  preferredPosition,
 }) {
-  const spaceAboveTrigger = calcSpaceAbove(triggerRect);
-  const spaceBelowTrigger = calcSpaceBelow(triggerRect);
-  const spaceLeftOfTrigger = calcSpaceLeft(triggerRect);
-  const spaceRightOfTrigger = calcSpaceRight(triggerRect);
+  const spaceAroundTrigger = getSpacesAroundTrigger(triggerRect);
 
-  const canGoBelow = popupRect.height <= spaceBelowTrigger - viewportGutter - triggerDropdownGap;
+  const canGoBelow =
+    popupRect.height <= spaceAroundTrigger.below - viewportGutter - triggerDropdownGap;
+  const canGoAbove =
+    popupRect.height <= spaceAroundTrigger.above - viewportGutter - triggerDropdownGap;
   const canAlignLeftEdge =
     popupRect.width <=
-    spaceRightOfTrigger + triggerRect.width - viewportGutter - triggerDropdownGap;
+    spaceAroundTrigger.right + triggerRect.width - viewportGutter - triggerDropdownGap;
+  const canAlignRightEdge =
+    popupRect.width <=
+    spaceAroundTrigger.left + triggerRect.width - viewportGutter - triggerDropdownGap;
 
-  const placeBelow = canGoBelow || spaceBelowTrigger >= spaceAboveTrigger;
-  const alignLeftEdge = canAlignLeftEdge || spaceRightOfTrigger >= spaceLeftOfTrigger;
+  // Place popup above if:
+  // it is the preferred position and either it fits, or it doesn't fit properly above or below.
+  // OR if it doesn't fit below, and the space above is larger than the space below.
+  // For all other cases (default), place below.
+  const placeAbove =
+    (preferredPosition.side === 'top' && (canGoAbove || (!canGoBelow && !canGoAbove))) ||
+    (!canGoBelow && spaceAroundTrigger.above > spaceAroundTrigger.below);
 
-  const popupLeftPos = alignLeftEdge
-    ? Math.max(triggerRect.left, viewportGutter)
-    : Math.min(
+  // Aligning the popup to one edge means the popup overhang will be on the opposite side.
+  // Align popup to the right if:
+  // it is the preferred position AND EITHER it fits when right-aligned, or it doesn't fit properly to either side.
+  // OR if it doesn't fit left-aligned, and the space to the left is larger than the space to the right.
+  // For all other cases (default), align to the left edge.
+  const alignRightEdge =
+    (preferredPosition.alignment === 'right' &&
+      (canAlignRightEdge || (!canAlignLeftEdge && !canAlignRightEdge))) ||
+    (!canAlignLeftEdge && spaceAroundTrigger.left > spaceAroundTrigger.right);
+
+  const popupLeftPos = alignRightEdge
+    ? Math.min(
         Math.max(triggerRect.right - popupRect.width, viewportGutter),
         verge.viewportW() - popupRect.width - viewportGutter,
-      );
+      )
+    : Math.max(triggerRect.left, viewportGutter);
 
   // Use `round` to cater for subpixel calculations
   // Tested in FF (osx), Chrome (osx), Safari (osx)
@@ -68,13 +86,16 @@ function getTriggerAlignmentStyles({
       ? '0px'
       : `${Math.round(popupLeftPos + scrollLeftAmount())}px`;
 
-  const translateYAmount = placeBelow
-    ? `${triggerRect.height + triggerDropdownGap}px`
-    : `calc(-100% - ${triggerDropdownGap}px)`;
+  const marginRight = !isNotResponsive && isNarrowViewport() ? '0px' : `${viewportGutter}px`;
+
+  const translateYAmount = placeAbove
+    ? `calc(-100% - ${triggerDropdownGap}px)`
+    : `${triggerRect.height + triggerDropdownGap}px`;
   const transform = `translateY(${translateYAmount})`;
 
   return {
     marginLeft,
+    marginRight,
     top: triggerRect.top + scrollTopAmount(),
     transform,
     bottom: null,
@@ -87,6 +108,7 @@ const defaultState = {
   maxHeight: verge.viewportH() * 0.99,
   positioned: false,
   marginLeft: 0,
+  marginRight: 0,
 };
 
 const stylesForCalculation = {
@@ -104,6 +126,7 @@ const stylesForBottomLeftPositioning = {
   maxHeight: null,
   top: null,
   marginLeft: 0,
+  marginRight: 0,
 };
 
 class Positioning extends PureComponent {
@@ -158,7 +181,7 @@ class Positioning extends PureComponent {
 
     if (prevProps.shouldRestrictMaxHeight !== shouldRestrictMaxHeight) {
       if (shouldRestrictMaxHeight) {
-        this.calculateMaxHeight();
+        this.calculateMaxDimensions();
       } else {
         this.setState({
           maxHeight: null,
@@ -183,9 +206,7 @@ class Positioning extends PureComponent {
     // Safety check due to slim chance of unmount during setTimeout duration
     if (this.positionEl.current && document.body.contains(this.positionEl.current)) {
       this.positionComponent();
-      if (this.props.shouldRestrictMaxHeight) {
-        this.calculateMaxHeight();
-      }
+      this.calculateMaxDimensions();
       // Tell the render method it's OK to render without "visibility: hidden"
       this.setState({
         positioned: true,
@@ -213,6 +234,7 @@ class Positioning extends PureComponent {
       leaveRoomForValidationMessage,
       viewportGutter,
       triggerDropdownGap,
+      preferredPosition,
     } = this.props;
 
     if (parentRef) {
@@ -231,6 +253,7 @@ class Positioning extends PureComponent {
                 viewportGutter,
                 triggerDropdownGap,
                 isNotResponsive,
+                preferredPosition: getPreferredPosition(preferredPosition),
               });
         this.setState(styles);
       }
@@ -240,12 +263,11 @@ class Positioning extends PureComponent {
   };
 
   /**
-   * Given we're rendering in the greatest whitespace, we need to work out if a maxHeight should
-   * be added to the popup in order for the full popup to show its content and scroll.
+   * Work out the max dimensions of the popup, given its position. Store them to state.
    *
    * @public
    */
-  calculateMaxHeight = () => {
+  calculateMaxDimensions = () => {
     const {
       viewportGutter,
       leaveRoomForValidationMessage,
@@ -253,6 +275,7 @@ class Positioning extends PureComponent {
       triggerDropdownGap,
       maxHeight,
       isNotResponsive,
+      shouldRestrictMaxHeight,
     } = this.props;
 
     if (!parentRef) {
@@ -264,22 +287,36 @@ class Positioning extends PureComponent {
     if (verge.inViewport(triggerDOM)) {
       if (!isNotResponsive && isNarrowViewport()) {
         const viewportH = verge.viewportH();
+        const viewportW = verge.viewportW();
         this.setState({
           maxHeight: Math.min(viewportH, maxHeight),
+          maxWidth: viewportW,
         });
       } else {
         const triggerRect = triggerDOM.getBoundingClientRect();
-        const spaceAboveTrigger = calcSpaceAbove(triggerRect);
-        const spaceBelowTrigger = calcSpaceBelow(triggerRect);
-        const availableSpace =
-          Math.max(spaceAboveTrigger, spaceBelowTrigger) - viewportGutter - triggerDropdownGap;
-        const calculatedHeight = Math.round(
-          maxHeight ? Math.min(availableSpace, maxHeight) : availableSpace,
-        );
-
-        this.setState({
-          maxHeight: calculatedHeight,
-        });
+        const spaceAroundTrigger = getSpacesAroundTrigger(triggerRect);
+        if (shouldRestrictMaxHeight) {
+          const availableVerticalSpace =
+            Math.max(spaceAroundTrigger.above, spaceAroundTrigger.below) -
+            viewportGutter -
+            triggerDropdownGap;
+          const calculatedHeight = Math.round(
+            maxHeight ? Math.min(availableVerticalSpace, maxHeight) : availableVerticalSpace,
+          );
+          this.setState({
+            maxHeight: calculatedHeight,
+          });
+        }
+        // If the popup is right-aligned, the left margin will be less than the space to the left of the trigger.
+        // We may need to re-calc the max-width to keep that aligned to the right edge of the trigger.
+        if (parseInt(this.state.marginLeft, 10) < spaceAroundTrigger.left) {
+          const availableHorizontalSpace =
+            spaceAroundTrigger.left + triggerRect.width - viewportGutter - triggerDropdownGap;
+          const calculatedWidth = Math.round(availableHorizontalSpace);
+          this.setState({
+            maxWidth: calculatedWidth,
+          });
+        }
       }
     }
   };
@@ -287,15 +324,16 @@ class Positioning extends PureComponent {
   /**
    * Uses internal state to work out inline styles and returns them.
    *
-   * @return {{ maxHeight: Number, left: Number, top: Number }}
+   * @return {{ maxHeight: Number, maxWidth: Number, bottom: Number, top: Number, width: Number, transform: String, willChange: String, marginLeft: Number, marginRight: Number }}
    */
   getStyles = () => {
-    const { maxHeight, transform, top, bottom, marginLeft } = this.state;
+    const { maxHeight, maxWidth, transform, top, bottom, marginLeft, marginRight } = this.state;
     const {
       isTriggerWidthMatched,
       leaveRoomForValidationMessage,
       parentRef,
       isNotResponsive,
+      isDynamicWidth,
     } = this.props;
 
     const isMobile = isNarrowViewport() && !isNotResponsive;
@@ -303,18 +341,17 @@ class Positioning extends PureComponent {
       parentRef && getTriggerNodeFromParentRef(parentRef, leaveRoomForValidationMessage);
 
     const shouldMatchTriggerWidth = isTriggerWidthMatched && !isMobile && triggerElement != null;
-    const width = shouldMatchTriggerWidth ? triggerElement.getBoundingClientRect().width : null;
-    const maxWidth = shouldMatchTriggerWidth ? 'none' : null;
 
     return {
       maxHeight: isMobile ? null : maxHeight,
       top,
-      width,
-      maxWidth,
+      width: shouldMatchTriggerWidth ? triggerElement.getBoundingClientRect().width : null,
+      maxWidth: (isDynamicWidth && !isMobile && maxWidth) || null, // Allows CSS max-widths to do their thing.
       bottom,
       transform: isMobile ? '' : transform,
       willChange: 'transform, max-height, max-width, top, bottom, margin-left',
       marginLeft,
+      marginRight,
     };
   };
 
@@ -346,6 +383,8 @@ class Positioning extends PureComponent {
 
 Positioning.propTypes = {
   children: PropTypes.node,
+  /** If dropdown width is not limited by other props and max should be set dynamically. */
+  isDynamicWidth: PropTypes.bool,
   /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
   isNotResponsive: PropTypes.bool,
   /** Setting to true will for the dropdown to be as wide as the trigger. */
@@ -364,6 +403,11 @@ Positioning.propTypes = {
   /** Callback for when the positioned element becomes visible  */
   onVisible: PropTypes.func,
   parentRef: PropTypes.object,
+  /**
+   * Preferred side of the trigger and alignment in relation to the trigger for showing the popup.
+   * This will potentially be over-ridden by dimensions of the viewport and popup contents.
+   */
+  preferredPosition: PropTypes.oneOf(positionOptions),
   qaHook: PropTypes.string,
   /** A max height will mean an overflowed popup will scroll for the user rather than render
    * outside of the viewport. True by default. */

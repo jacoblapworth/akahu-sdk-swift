@@ -94,7 +94,7 @@ interface Props {
   /**
    * Label to show above the input
    */
-  label?: string;
+  label?: React.ReactNode;
   /**
    * Class names to add to the label
    */
@@ -156,6 +156,7 @@ interface Props {
 
 export type FileObject = {
   errorMessage?: string;
+  hideRetryButton?: boolean;
   originalFile: File;
   rightContent?: React.ReactNode;
   status: string;

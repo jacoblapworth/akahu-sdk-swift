@@ -67,5 +67,18 @@ describe('<XUIEditableTableCellReadOnly />', () => {
       );
       expect(wrapper.find(XUIEditableTableCell).props().id).toBe('testId');
     });
+
+    it('pass inlineAlignment to the table cell', () => {
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellReadOnly inlineAlignment="end" />
+            </tr>
+          </tbody>
+        </table>,
+      );
+      expect(wrapper.find(XUIEditableTableCell).props().inlineAlignment).toBe('end');
+    });
   });
 });

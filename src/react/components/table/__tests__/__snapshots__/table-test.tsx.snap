@@ -37,7 +37,7 @@ exports[`XUITable XUITableHead sorting by columns snapshot 1`] = `
   >
     <div
       class="xui-readonlytablewrapper xui-readonlytableoverflow"
-      data-rbd-droppable-context-id="12"
+      data-rbd-droppable-context-id="13"
       data-rbd-droppable-id="xui-nanoid"
       style="--xui-editableoverflow--scrollbar-height: 0px;"
     >
@@ -122,7 +122,7 @@ exports[`XUITable XUITableHead sorting by columns snapshot 1`] = `
                 </div>
               </th>
               <th
-                class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-rightaligned xui-readonlytableheadingcell-leftaligned"
+                class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytablecell-rightaligned xui-readonlytableheadingcell-rightaligned"
                 scope="col"
               >
                 <div
@@ -131,7 +131,7 @@ exports[`XUITable XUITableHead sorting by columns snapshot 1`] = `
                   tabindex="0"
                 >
                   <div
-                    class="xui-readonlytable--sortbuttoncontent"
+                    class="xui-readonlytable--sortbuttoncontent xui-readonlytable--sortbuttoncontent-rightaligned"
                   >
                     Price / kg
                     <div

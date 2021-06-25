@@ -14,7 +14,8 @@ import XUITableBody from './private/XUITableBody';
 import XUITableHead from './private/XUITableHead';
 
 export interface RowData {
-  [columnName: string]: unknown;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [columnName: string]: any;
   rowClassName?: string;
 }
 
@@ -25,7 +26,8 @@ interface BaseProps<RD extends RowData> {
   activeSortKey?: string;
   /**
    * A non-visible description of the table for accessibility purposes. Particularly useful
-   * for scrollable tables, to help screenreaders understand the scrollable element.
+   * for scrollable tables, to help screenreaders understand the scrollable element. This prop also
+   * satisifies the 'ariaLabel' requirement for XUIEditableTable.
    */
   caption?: string;
   /**
@@ -181,6 +183,10 @@ interface BaseProps<RD extends RowData> {
    * have the `onRowClick` click handler applied to it.
    */
   shouldRowClick?: (rowData: RD) => boolean;
+  /**
+   * Sets the table's layout to `fixed`.
+   */
+  useFixedLayout?: boolean;
 }
 
 type Props<RD extends RowData> = BaseProps<RD>;
@@ -243,6 +249,7 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
       overflowMenuTitle,
       qaHook,
       shouldRowClick,
+      useFixedLayout,
     } = this.props;
 
     const checkedRowIds = Object.keys(checkedIds).filter(key => checkedIds[key]);
@@ -282,7 +289,10 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
           qaHook={qaHook && `${qaHook}-table`}
           ref={this.tableNode}
           scrollContainerRef={this.wrapperNode}
-          tableClassName={cn(isTruncated && `${tableName}-is-truncated`)}
+          tableClassName={cn(
+            isTruncated && `${tableName}-is-truncated`,
+            useFixedLayout && `${tableName}-fixed-layout`,
+          )}
         >
           {everyColumnHasHeader && (
             <XUITableHead
@@ -392,6 +402,7 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
     overflowMenuTitle: PropTypes.string,
     qaHook: PropTypes.string,
     shouldRowClick: PropTypes.func,
+    useFixedLayout: PropTypes.bool,
   };
 }
 

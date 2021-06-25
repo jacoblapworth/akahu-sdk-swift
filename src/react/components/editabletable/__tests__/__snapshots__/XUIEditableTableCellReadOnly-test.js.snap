@@ -3,12 +3,14 @@
 exports[`<XUIEditableTableCellReadOnly /> composes the className correctly 1`] = `
 <ForwardRef
   className="xui-editabletablecellreadonly test-classname"
+  inlineAlignment="start"
 />
 `;
 
 exports[`<XUIEditableTableCellReadOnly /> renders correctly 1`] = `
 <ForwardRef
   className="xui-editabletablecellreadonly"
+  inlineAlignment="start"
 >
   XUIEditableTableCellReadOnly
 </ForwardRef>

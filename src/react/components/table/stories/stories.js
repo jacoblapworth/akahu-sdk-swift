@@ -150,7 +150,7 @@ storiesWithKnobs.add('Playground', () => {
     <div style={tableStyles}>
       <Table
         {...tableProps}
-        caption={text('caption', '')}
+        caption={text('caption', 'Sample cell data')}
         checkAllRowsAriaLabel="Select all rows"
         checkOneRowAriaLabel="Select row"
         className={text('className', '')}
@@ -173,6 +173,7 @@ storiesWithKnobs.add('Playground', () => {
         <Column
           body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
           head={<Cell sortKey="header-1">Header 1</Cell>}
+          inlineAlignment={boolean('end-aligned first column', false) ? 'end' : 'start'}
         />
         <Column
           body={data => <Cell {...cellProps}>Body Cell Data {data._id}</Cell>}
@@ -228,6 +229,7 @@ class ScrollResetWrapper extends PureComponent {
 const TestScaffold = (
   {
     columns,
+    columnsProps,
     removeHeader,
     hasHeaderClassName,
     styleOverrides,
@@ -239,6 +241,7 @@ const TestScaffold = (
 ) => (
   <ScrollResetWrapper key={tableIndex} style={{ ...tableStyles, ...styleOverrides }}>
     <Table
+      caption="Sample cell data"
       checkAllRowsAriaLabel="Select all rows"
       checkOneRowAriaLabel="Select row"
       emptyMessage="Nothing to show here"
@@ -251,11 +254,13 @@ const TestScaffold = (
       }
       footer={
         (tableProps.footer && <Appendage>Footer</Appendage>) ||
-        (tableProps.hasCustomFooter && <CustomFooter />)
+        (tableProps.hasCustomFooter && <CustomFooter />) ||
+        tableProps.customFooter
       }
       header={
         (tableProps.header && <Appendage>Header</Appendage>) ||
-        (tableProps.hasCustomHeader && <CustomHeader />)
+        (tableProps.hasCustomHeader && <CustomHeader />) ||
+        tableProps.customHeader
       }
     >
       {new Array(columns).fill(0).map((_, columnIndex) => (
@@ -276,6 +281,7 @@ const TestScaffold = (
               </Cell>
             )
           }
+          {...columnsProps}
           key={columnIndex}
         />
       ))}

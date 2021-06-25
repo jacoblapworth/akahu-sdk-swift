@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { baseClass, typeMap } from './private/constants';
 import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
-import labelRequiredWarning from '../helpers/labelRequiredWarning';
+import labelRequiredWarning, { nodeContainsText } from '../helpers/labelRequiredWarning';
 
 const XUIToggleOption = props => {
   const wrapperIds = generateIds(props.id);
@@ -28,7 +28,7 @@ const XUIToggleOption = props => {
     labelRequiredWarning(
       XUIToggleOption.name,
       ['includes a child with text'],
-      [children?.innerText],
+      [nodeContainsText(children)],
     );
   }, [children]);
 

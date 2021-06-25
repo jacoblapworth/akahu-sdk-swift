@@ -88,13 +88,6 @@ exports[`XUIIntroBanner renders illustration variant correctly 1`] = `
       class="xui-introbanner xui-introbanner-has-illustration xui-introbanner-small-up"
       data-automationid="introbanner"
     >
-      <button
-        class="xui-button xui-introbanner--dismissbutton xui-button-borderless-main xui-button-small"
-        tabindex="0"
-        type="button"
-      >
-        Hide
-      </button>
       <div
         class="xui-introbanner--illustration"
       >
@@ -108,6 +101,13 @@ exports[`XUIIntroBanner renders illustration variant correctly 1`] = `
       <div
         class="xui-introbanner--main"
       >
+        <button
+          class="xui-button xui-introbanner--dismissbutton xui-button-borderless-main xui-button-small"
+          tabindex="0"
+          type="button"
+        >
+          Hide
+        </button>
         <header
           class="xui-introbanner--header"
         >
@@ -130,13 +130,6 @@ exports[`XUIIntroBanner renders video illustration variant correctly 1`] = `
       data-automationid="introbanner"
     >
       <button
-        class="xui-button xui-introbanner--dismissbutton xui-button-borderless-main xui-button-small"
-        tabindex="0"
-        type="button"
-      >
-        Hide
-      </button>
-      <button
         aria-label="Watch video"
         class="xui-introbanner--illustration xui-introbanner--illustration-has-video"
         type="button"
@@ -154,6 +147,13 @@ exports[`XUIIntroBanner renders video illustration variant correctly 1`] = `
       <div
         class="xui-introbanner--main"
       >
+        <button
+          class="xui-button xui-introbanner--dismissbutton xui-button-borderless-main xui-button-small"
+          tabindex="0"
+          type="button"
+        >
+          Hide
+        </button>
         <header
           class="xui-introbanner--header"
         >

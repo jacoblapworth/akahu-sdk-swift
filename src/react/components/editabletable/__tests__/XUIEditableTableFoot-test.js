@@ -5,6 +5,7 @@ import toJson from 'enzyme-to-json';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import XUIEditableTableFoot from '../XUIEditableTableFoot';
+import XUIEditableTableRow from '../XUIEditableTableRow';
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
@@ -22,6 +23,16 @@ describe('<XUIEditableTableFoot />', () => {
   it('composes the className correctly', () => {
     const wrapper = shallow(<XUIEditableTableFoot className="test-classname" />);
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('adds footer-row class to an included row', () => {
+    const wrapper = shallow(
+      <XUIEditableTableFoot>
+        <XUIEditableTableRow></XUIEditableTableRow>
+      </XUIEditableTableFoot>,
+    );
+
+    expect(wrapper.find('.xui-editabletablerow-footer')).toBeTruthy();
   });
 
   it('should pass accessibility testing', async () => {

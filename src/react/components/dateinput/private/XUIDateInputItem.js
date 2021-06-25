@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import dateIcon from '@xero/xui-icon/icons/date-end';
 import dateStartIcon from '@xero/xui-icon/icons/date-start';
-import { parseDate, DateFormat } from '@xero/blind-date';
+import { parseDate, parseDueDate, DateFormat } from '@xero/blind-date';
 import { nanoid } from 'nanoid';
 import cn from 'classnames';
 import { ns } from '../../helpers/xuiClassNamespace';
@@ -92,9 +92,9 @@ class XUIDateInputItem extends Component {
    * listener to a parent (`window` by default) to catch this key press
    */
   _keyUpHandler = event => {
-    if (event.key === eventKeyValues.escape) {
+    if (event.key === eventKeyValues.escape && event.target === this.inputRef?.current) {
       this.closeDropdown();
-      this.inputRef?.current.focus();
+      this.inputRef?.current?.focus();
     }
 
     if (event.key === eventKeyValues.tab && event.target === this.inputRef?.current) {
@@ -121,24 +121,15 @@ class XUIDateInputItem extends Component {
 
   focusDatePicker = () => {
     if (this.state.activePanel === this.customDatesId) {
-      this.datepickerRef.current.focus();
+      this.datepickerRef?.current?.focus();
     }
   };
 
   handleInitialFocus = () => {
     if (!this.props.isDisabled) {
       this.setState({ pickitemInitialHighlight: false });
-      this.ddtRef.current.openDropdown(() => {
-        // This has to be in a timeout until Dropdown is extended to open a panel without focusing it.
-        // DropdownPanel will always focus the opened panel so this has to happen after.
-        // This doesn't solve everything because input focus will flick if input is focused again.
-        // onOpenAnimationEnd can't be used here because down arrow interaction requires different behaviour,
-        // after opening DD panel, DatePicker has to be focused instead of DateInput like in this case.
-        setTimeout(() => {
-          this.inputRef?.current.focus();
-          this.inputRef?.current.select();
-        }, 100);
-      });
+      this.ddtRef?.current?.openDropdown();
+      this.inputRef?.current?.select();
     }
   };
 
@@ -150,45 +141,43 @@ class XUIDateInputItem extends Component {
 
   onIconFocus = () => {
     if (!this.props.isDisabled) {
-      this.inputRef?.current.focus();
-      this.ddtRef.current.openDropdown();
+      this.inputRef?.current?.focus();
+      this.ddtRef?.current?.openDropdown();
     }
   };
 
   onInputKeyDown = event => {
     if (event.key === eventKeyValues.enter || event.key === eventKeyValues.tab) {
-      this.ddtRef.current.closeDropdown();
+      this.ddtRef?.current?.closeDropdown();
       this.setDate();
     }
 
     if (event.key === eventKeyValues.down) {
-      this.ddtRef.current.openDropdown(() => {
-        // Focus first item only after pressing down arrow (not when dropdown is visible during initial input focus).
-        if (this.props.suggestedDates) {
-          this.ddtRef.current.dropdown.highlightFirstItem();
-        }
+      this.ddtRef.current.openDropdown();
+      // Focus first item only after pressing down arrow (not when dropdown is visible during initial input focus).
+      if (this.props.suggestedDates) {
+        this.ddtRef?.current?.dropdown?.current?.highlightFirstItem();
+      }
 
-        // This is in a timeout due to DropdownPanel focusing the panel after it's opened.
-        setTimeout(() => {
-          this.datepickerRef?.current?.focus();
+      this.datepickerRef?.current?.focus();
 
-          // focus suggested panel for single input
-          if (this.props.suggestedDates) {
-            this.suggestedDatePanelRef?.current?.focus();
-          }
-        }, 100);
-      });
+      // focus suggested panel for single input
+      if (this.props.suggestedDates) {
+        this.suggestedDatePanelRef?.current?.focus();
+      }
     }
   };
 
   setDate = () => {
     if (!this.state.inputValue) return;
 
-    const { minDate, maxDate } = this.props;
+    const { isDueDate, minDate, maxDate } = this.props;
     const base = new Date();
     const now = new Date();
     const dateFormat = DateFormat.DMY;
-    const parsedDate = parseDate({ now, base, dateFormat }, this.state.inputValue);
+    const parsedDate = isDueDate
+      ? parseDueDate({ now, base, dateFormat }, this.state.inputValue)
+      : parseDate({ now, base, dateFormat }, this.state.inputValue);
 
     if (parsedDate && !isDayOutsideRange(parsedDate, minDate, maxDate)) {
       this.onSelectDate(parsedDate, true);
@@ -253,6 +242,7 @@ class XUIDateInputItem extends Component {
       inputLabel,
       isDisabled,
       isInvalid,
+      isDueDate, // Destructured so as not to spread.
       locale,
       maxDate,
       minDate,
@@ -311,7 +301,7 @@ class XUIDateInputItem extends Component {
           qaHook={qaHook && `${qaHook}-dateinputitem--input`}
           size={size}
           validationMessage={validationMessage}
-          value={formatSelectedDateToString(selectedDate, inputValue)}
+          value={formatSelectedDateToString(selectedDate, inputValue, locale)}
           {...spreadProps}
         />
       </div>
@@ -337,6 +327,7 @@ class XUIDateInputItem extends Component {
     /** The main dropdown */
     const dateInputDropdown = (
       <XUINestedDropdown
+        _skipFocusOnOpen
         currentPanelId={activePanel}
         ignoreKeyboardEvents={ignoreKeyboardEvents}
         onPanelChange={this.focusDatePicker}
@@ -427,10 +418,13 @@ XUIDateInputItem.propTypes = {
   /** Whether the input is disabled */
   isDisabled: PropTypes.bool,
 
+  /** Whether to use the `parseDueDate` [API](https://github.dev.xero.com/A22N/blind-date#usage). */
+  isDueDate: PropTypes.bool,
+
   /** Whether the current input value is invalid */
   isInvalid: PropTypes.bool,
 
-  /** The locale of the calendar. */
+  /** The locale of the calendar and the input. Use specific locale for english because `en` defaults to `en-US`. */
   locale: PropTypes.string.isRequired,
 
   /**
@@ -513,6 +507,7 @@ XUIDateInputItem.propTypes = {
 XUIDateInputItem.defaultProps = {
   closeOnSelect: true,
   displayedMonth: new Date(),
+  isDueDate: false,
 };
 
 export default XUIDateInputItem;

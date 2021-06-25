@@ -5,6 +5,11 @@ import { fixedWidthDropdownSizes } from './private/constants';
 
 interface Props {
   /**
+   * Internal prop to control whether to open without focusing opened element
+   * @ignore
+   */
+  _skipFocusOnOpen?: boolean;
+  /**
    * Will cause the dropdown to animate when closing.
    */
   animateClosed?: boolean;
@@ -35,7 +40,8 @@ interface Props {
    */
   forceStatefulPicklist?: boolean;
   /**
-   * Whether the fixed width class variant should be used for the size prop.
+   * If a size is set, this will force the dropdown to that size instead of setting it as a
+   * max width.
    */
   hasFixedWidth?: boolean;
   /**
@@ -93,7 +99,7 @@ interface Props {
    */
   shouldManageInitialHighlight?: boolean;
   /**
-   * Applies the correct XUI class based on the chosen size. Default will fit to children's width.
+   * Sets a max-width via XUI class based on the chosen size. Default will fit to children's width.
    */
   size?: keyof typeof fixedWidthDropdownSizes;
   /**

@@ -413,6 +413,15 @@ const variations = [
           footer: true,
         },
       },
+      {
+        columns: 3,
+        styleOverrides: { background: 'yellow' },
+        tableProps: {
+          ...tableProps,
+          customHeader: 'Header transparency test',
+          customFooter: 'Footer transparency test',
+        },
+      },
     ],
   },
 
@@ -519,6 +528,57 @@ const variations = [
           createOverflowMenu: NOOP,
           hasCustomHeader: true,
           hasCustomFooter: true,
+        },
+      },
+    ],
+  },
+
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with end-aligned cells',
+    examples: [
+      {
+        columns: 3,
+        styleOverrides: { width: '500px' },
+        columnsProps: {
+          inlineAlignment: 'end',
+        },
+        tableProps: {
+          ...tableProps,
+          data: {
+            0: { content: 'Apple' },
+            1: { content: 'Carrot Carrot Carrot' },
+            2: { content: 'Banana Banana' },
+          },
+          activeSortKey: 'content',
+          isSortAsc: true,
+          isTruncated: true,
+          onSortChange: NOOP,
+        },
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with start-aligned cells',
+    examples: [
+      {
+        columns: 3,
+        styleOverrides: { width: '500px' },
+        columnsProps: {
+          inlineAlignment: 'start',
+        },
+        tableProps: {
+          ...tableProps,
+          data: {
+            0: { content: 'Apple' },
+            1: { content: 'Carrot Carrot Carrot' },
+            2: { content: 'Banana Banana' },
+          },
+          activeSortKey: 'content',
+          isSortAsc: true,
+          isTruncated: true,
+          onSortChange: NOOP,
         },
       },
     ],

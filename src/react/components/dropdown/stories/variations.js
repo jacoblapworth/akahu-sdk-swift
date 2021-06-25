@@ -150,4 +150,26 @@ Object.keys(privateConsts.fixedWidthDropdownSizes).forEach(size => {
   });
 });
 
+privateConsts.dropdownPositionOptions.forEach(position => {
+  variations.push({
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `as preferredPosition ${position}`,
+    preferredPosition: position,
+    ddSettings: {},
+  });
+});
+
+privateConsts.dropdownPositionOptions.forEach(position => {
+  variations.push({
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `as inline with preferredPosition ${position}`,
+    preferredPosition: position,
+    isLegacyDisplay: false,
+    ddSettings: {
+      hasFixedWidth: true,
+      size: 'large',
+    },
+  });
+});
+
 export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

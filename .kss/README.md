@@ -56,6 +56,7 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 - `image-caption`
 - `language`
 - `examplecontenttable`
+- `topdescription`
 
 #### Adding new properties
 
@@ -130,6 +131,12 @@ Adds a defined introduction wrapped in a `<p/>` tag with a `.ds-intro` class.
 ```
 // Introduction: Some wise words
 ```
+
+### Top Description
+
+Add descriptions to a section without titles.
+
+// TopDescription: Some wise words
 
 ### Teaser
 

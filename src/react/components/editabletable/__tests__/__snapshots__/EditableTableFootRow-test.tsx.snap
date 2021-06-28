@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditableTableFootRow renders correctly 1`] = `<tr />`;
+
+exports[`EditableTableFootRow renders utility control columns, if applicable 1`] = `
+<table>
+  <tfoot>
+    <EditableTableFootRow>
+      <tr>
+        <ForwardRef
+          inlineAlignment="start"
+          style={
+            Object {
+              "width": "40px",
+            }
+          }
+        >
+          <td
+            className="xui-editabletablecell"
+            style={
+              Object {
+                "width": "40px",
+              }
+            }
+          />
+        </ForwardRef>
+        <ForwardRef
+          inlineAlignment="start"
+          style={
+            Object {
+              "width": "40px",
+            }
+          }
+        >
+          <td
+            className="xui-editabletablecell"
+            style={
+              Object {
+                "width": "40px",
+              }
+            }
+          />
+        </ForwardRef>
+      </tr>
+    </EditableTableFootRow>
+  </tfoot>
+</table>
+`;
+
+exports[`EditableTableFootRow renders with children, qaHook, and spreadprops 1`] = `
+<tr
+  className="test-classname"
+  data-automationid="test-qaHook"
+>
+  <td>
+    Test content
+  </td>
+</tr>
+`;

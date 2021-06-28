@@ -9,7 +9,9 @@ import XUIEditableTableCellIconButton from './XUIEditableTableCellIconButton';
 import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 import XUIEditableTableClassContext from './contexts/XUIEditableTableClassContext';
 import XUIEditableTableHeadContext from './contexts/XUIEditableTableHeadContext';
+import XUIEditableTableFootContext from './contexts/XUIEditableTableFootContext';
 import EditableTableHeadRow from './private/EditableTableHeadRow';
+import EditableTableFootRow from './private/EditableTableFootRow';
 
 const XUIEditableTableRow = ({
   children,
@@ -29,6 +31,7 @@ const XUIEditableTableRow = ({
   const baseName = `${tableClassName}row`;
 
   const isHeaderRow = React.useContext(XUIEditableTableHeadContext);
+  const isFooterRow = React.useContext(XUIEditableTableFootContext);
 
   if (isHeaderRow) {
     return (
@@ -40,6 +43,19 @@ const XUIEditableTableRow = ({
       >
         {children}
       </EditableTableHeadRow>
+    );
+  }
+
+  if (isFooterRow) {
+    return (
+      <EditableTableFootRow
+        className={cn(baseName, `${baseName}-footer`, className)}
+        qaHook={qaHook}
+        style={style}
+        {...spreadProps}
+      >
+        {children}
+      </EditableTableFootRow>
     );
   }
 

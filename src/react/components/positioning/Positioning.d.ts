@@ -1,7 +1,13 @@
 import * as React from 'react';
 
+import { positionOptions } from './private/constants';
+
 interface Props {
   children?: React.ReactNode;
+  /**
+   * If dropdown width is not limited by other props and max should be set dynamically.
+   */
+  isDynamicWidth?: boolean;
   /**
    * Force the desktop UI, even if the viewport is narrow enough for mobile.
    */
@@ -28,6 +34,11 @@ interface Props {
    * A DOM object of the parent node.
    */
   parentRef?: React.Ref<HTMLElement>;
+  /**
+   * Preferred side of the trigger and alignment in relation to the trigger for showing the tip.
+   * This will potentially be overridden by dimensions of the viewport and tip contents.
+   */
+  preferredPosition?: typeof positionOptions[number];
   qaHook?: string;
   /**
    * A max height will mean an overflowed popup will scroll for the user rather than render outside

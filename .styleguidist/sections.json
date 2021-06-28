@@ -463,6 +463,10 @@
                 "content": "../src/react/components/editabletable/editabletable.head.md"
               },
               {
+                "components": ["../src/react/components/editabletable/XUIEditableTableFoot.js"],
+                "content": "../src/react/components/editabletable/editabletable.foot.md"
+              },
+              {
                 "content": "../src/react/components/editabletable/editabletable.responsive.md"
               },
               {
@@ -476,6 +480,9 @@
               },
               {
                 "content": "../src/react/components/editabletable/editabletable.pinnedcolumns.md"
+              },
+              {
+                "content": "../src/react/components/editabletable/editabletable.alignment.md"
               },
               {
                 "content": "../src/react/components/editabletable/editabletable.pagination.md"

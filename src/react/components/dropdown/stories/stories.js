@@ -147,7 +147,7 @@ const sideBySide = (
     />
     <XUIDropdownToggled
       dropdown={
-        <XUIDropdown restrictFocus={false} size="medium">
+        <XUIDropdown hasFixedWidth restrictFocus={false} size="medium">
           <XUIPicklist>{createItems(toggledItems, 'two')}</XUIPicklist>
         </XUIDropdown>
       }
@@ -207,7 +207,11 @@ storiesWithKnobs.add('Playground', () => {
           hasFixedWidth={boolean('hasFixedWidth', false)}
           header={showHeader ? header : undefined}
           restrictFocus={boolean('restrictFocus', false)}
-          size={select('dropdown size', Object.keys(maxWidthDropdownSizes), 'large')}
+          size={select(
+            'dropdown size',
+            [...Object.keys(maxWidthDropdownSizes), undefined],
+            'large',
+          )}
         >
           {picklist}
         </XUIDropdown>

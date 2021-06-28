@@ -109,6 +109,11 @@ export default class XUIDropdownToggled extends PureComponent {
   dropdownId = this.props.dropdown?.props.id || `xui-${nanoid(10)}`;
 
   /**
+   * If dropdown width is not limited by size prop or trigger width, max width will be calculated dynamically.
+   */
+  isDynamicWidth = !this.props?.dropdown?.props?.size && !this.props.matchTriggerWidth;
+
+  /**
    * `openedDropdowns` is used to keep track of nested dropdowns that have been opened.
    *
    * Only root dropdown's `openedDropdowns` property will contain all opened child dropdowns.
@@ -501,8 +506,9 @@ export default class XUIDropdownToggled extends PureComponent {
    */
   repositionDropdown = () => {
     if (this.positioning.current != null) {
-      if (this.props.restrictToViewPort) {
-        this.positioning.current.calculateMaxHeight();
+      // Only need to recheck dimensions if we're dynamically sizing the height or width.
+      if (this.props.restrictToViewPort || this.isDynamicWidth) {
+        this.positioning.current.calculateMaxDimensions();
       }
       this.positioning.current.positionComponent();
     }
@@ -581,6 +587,7 @@ export default class XUIDropdownToggled extends PureComponent {
 
           const commonPositioningProps = {
             maxHeight,
+            preferredPosition,
             isVisible: !isHidden,
             shouldRestrictMaxHeight: restrictToViewPort,
             isNotResponsive: forceDesktop,
@@ -589,6 +596,7 @@ export default class XUIDropdownToggled extends PureComponent {
             leaveRoomForValidationMessage: Boolean(cellRef.current),
             parentRef: cellRef.current || this.wrapper.current,
             isTriggerWidthMatched: matchTriggerWidth,
+            isDynamicWidth: this.isDynamicWidth,
           };
 
           const positionedDropdown =
@@ -601,7 +609,6 @@ export default class XUIDropdownToggled extends PureComponent {
                 {...otherProps}
                 {...commonPositioningProps}
                 maxWidth={-1}
-                preferredPosition={preferredPosition}
                 qaHook={qaHook && `${qaHook}--positioning-inline`}
                 useDropdownPositioning
               >
@@ -725,7 +732,7 @@ XUIDropdownToggled.propTypes = {
   onOpenAnimationEnd: PropTypes.func,
 
   /**
-   * This setting is only for non-legacy display. Preferred position to display the dropdown,
+   * Preferred position to display the dropdown,
    * relative to the trigger. Defaults to bottom-left.
    */
   preferredPosition: PropTypes.oneOf(dropdownPositionOptions),

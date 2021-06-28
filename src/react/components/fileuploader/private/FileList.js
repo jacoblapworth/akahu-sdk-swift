@@ -52,7 +52,9 @@ const FileList = ({
             errorMessage,
             rightContent,
             uploadProgressPercentage,
+            hideRetryButton,
           } = file;
+
           const roundedUploadProgressPercentage = parseUploadProgressPercentage(
             uploadProgressPercentage,
           );
@@ -115,7 +117,7 @@ const FileList = ({
               </div>
               <div className={`${fileItemBaseClass}--rightcontent`}>
                 {status === 'done' && rightContent}
-                {status === 'error' && (
+                {status === 'error' && !hideRetryButton && (
                   <XUIButton
                     onClick={event => onRetry(file, fileList, event)}
                     size="small"

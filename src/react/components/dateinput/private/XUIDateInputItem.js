@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import dateIcon from '@xero/xui-icon/icons/date-end';
 import dateStartIcon from '@xero/xui-icon/icons/date-start';
-import { parseDate, DateFormat } from '@xero/blind-date';
+import { parseDate, parseDueDate, DateFormat } from '@xero/blind-date';
 import { nanoid } from 'nanoid';
 import cn from 'classnames';
 import { ns } from '../../helpers/xuiClassNamespace';
@@ -171,11 +171,13 @@ class XUIDateInputItem extends Component {
   setDate = () => {
     if (!this.state.inputValue) return;
 
-    const { minDate, maxDate } = this.props;
+    const { isDueDate, minDate, maxDate } = this.props;
     const base = new Date();
     const now = new Date();
     const dateFormat = DateFormat.DMY;
-    const parsedDate = parseDate({ now, base, dateFormat }, this.state.inputValue);
+    const parsedDate = isDueDate
+      ? parseDueDate({ now, base, dateFormat }, this.state.inputValue)
+      : parseDate({ now, base, dateFormat }, this.state.inputValue);
 
     if (parsedDate && !isDayOutsideRange(parsedDate, minDate, maxDate)) {
       this.onSelectDate(parsedDate, true);
@@ -240,6 +242,7 @@ class XUIDateInputItem extends Component {
       inputLabel,
       isDisabled,
       isInvalid,
+      isDueDate, // Destructured so as not to spread.
       locale,
       maxDate,
       minDate,
@@ -415,6 +418,9 @@ XUIDateInputItem.propTypes = {
   /** Whether the input is disabled */
   isDisabled: PropTypes.bool,
 
+  /** Whether to use the `parseDueDate` [API](https://github.dev.xero.com/A22N/blind-date#usage). */
+  isDueDate: PropTypes.bool,
+
   /** Whether the current input value is invalid */
   isInvalid: PropTypes.bool,
 
@@ -501,6 +507,7 @@ XUIDateInputItem.propTypes = {
 XUIDateInputItem.defaultProps = {
   closeOnSelect: true,
   displayedMonth: new Date(),
+  isDueDate: false,
 };
 
 export default XUIDateInputItem;

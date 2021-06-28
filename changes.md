@@ -176,6 +176,7 @@ TypeScript types have also been made slightly more strict for instances of rootN
 ### XUIFileUploader
 
 - `FileObject` now accepts an `uploadProgressPercentage` prop for visually communicating the upload progress
+- `FileObject` now accepts a `hideRetryButton` prop to hide the retry button where it doesn't make sense to have it
 
 ### XUISelectBox
 

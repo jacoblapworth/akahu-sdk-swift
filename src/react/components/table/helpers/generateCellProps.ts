@@ -44,9 +44,13 @@ function generateCellProps<RD extends RowData>(
       isCellClickable && `${tableName}cell-link`,
       `${tableName}cell`,
       hasCellPrecedence && `${tableName}cell-hasprecedence`,
-      columnIndex === columns.length - 1 && !hasOverflowMenu && `${tableName}cell-rightaligned`,
+      columnIndex === columns.length - 1 &&
+        !hasOverflowMenu &&
+        columns[columnIndex].props.inlineAlignment !== 'start' &&
+        `${tableName}cell-rightaligned`,
       className,
     ),
+    id: cell.props.id,
     onClick: (event: React.MouseEvent) =>
       rowData && isCellClickable && handleCellInteraction(event, rowData, cell.props.onCellClick),
     onKeyDown: (event: React.KeyboardEvent) =>

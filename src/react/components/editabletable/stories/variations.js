@@ -234,6 +234,27 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with footer row',
+    columnCount: 4,
+    hasHeader: true,
+    rows: 3,
+    rowOptions: { isRemovable: true, isDraggable: true, removeButtonAriaLabel: 'Remove row' },
+    showFooterRow: true,
+    maxWidth: '800px',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with footer row and actions',
+    columnCount: 4,
+    hasHeader: true,
+    rows: 3,
+    rowOptions: { isRemovable: true, isDraggable: true, removeButtonAriaLabel: 'Remove row' },
+    showFooterRow: true,
+    showAddRowButton: true,
+    maxWidth: '800px',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'without header',
     columnCount: 4,
     hasHeader: false,
@@ -385,6 +406,15 @@ const variations = [
     maxWidth: '900px',
     withInvalid: true,
     validationMessage: 'There was an error.',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with end-aligned cells',
+    columnCount: 3,
+    hasHeader: true,
+    rows: 4,
+    cellType: 'assorted',
+    inlineAlignment: 'end',
   },
 ];
 

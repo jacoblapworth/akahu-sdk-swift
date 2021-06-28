@@ -9,7 +9,7 @@ import { defaultFileList, defaultProps } from '../private/helpers';
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
-const testFileList = defaultFileList.map((file, index) => ({ ...file, uid: index }));
+const testFileList = defaultFileList.map((file, index) => ({ ...file, uid: index.toString() }));
 const FileUploaderWrapper = props => (
   <XUIFileUploader {...defaultProps} labelId="testLabel" {...props} />
 );
@@ -118,6 +118,13 @@ describe('<XUIFileUploader/>', () => {
         <WithFileListWrapper
           fileList={[{ ...testFileList[1], rightContent: <button>test rightContent</button> }]}
         />,
+      );
+      expect(component).toMatchSnapshot();
+    });
+
+    it('should render without retry button', () => {
+      const component = renderer.create(
+        <WithFileListWrapper fileList={[{ ...testFileList[2], hideRetryButton: true }]} />,
       );
       expect(component).toMatchSnapshot();
     });

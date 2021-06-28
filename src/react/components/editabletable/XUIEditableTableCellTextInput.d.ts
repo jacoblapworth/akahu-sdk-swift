@@ -6,6 +6,10 @@ import XUITextInput from '../textinput/XUITextInput';
 interface BaseProps {
   cellProps?: React.ComponentProps<typeof XUIEditableTableCellControl>;
   className?: string;
+  /**
+   * Aligns the content of the cell on the inline (horizontal) axis.
+   */
+  inlineAlignment?: 'end' | 'start';
 }
 
 type Props = BaseProps &

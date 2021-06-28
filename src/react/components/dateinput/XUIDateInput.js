@@ -28,6 +28,7 @@ class XUIDateInput extends React.Component {
       hintMessage,
       inputLabel,
       isDisabled,
+      isDueDate,
       isInvalid,
       locale,
       maxDate,
@@ -57,6 +58,7 @@ class XUIDateInput extends React.Component {
           hintMessage={hintMessage}
           inputLabel={inputLabel}
           isDisabled={isDisabled}
+          isDueDate={isDueDate}
           isInvalid={isInvalid}
           locale={locale}
           maxDate={maxDate}
@@ -101,6 +103,9 @@ XUIDateInput.propTypes = {
 
   /** Whether the input is disabled */
   isDisabled: PropTypes.bool,
+
+  /** Whether to use the `parseDueDate` [API](https://github.dev.xero.com/A22N/blind-date#usage). */
+  isDueDate: PropTypes.bool,
 
   /** Whether the current input value is invalid */
   isInvalid: PropTypes.bool,
@@ -181,6 +186,7 @@ XUIDateInput.propTypes = {
 XUIDateInput.defaultProps = {
   closeOnSelect: true,
   displayedMonth: new Date(),
+  isDueDate: false,
 };
 
 export default XUIDateInput;

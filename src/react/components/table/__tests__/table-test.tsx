@@ -79,7 +79,9 @@ describe('XUITable', () => {
 
     // Assert
     const headingCells = screen.getByTestId('testId-head').querySelectorAll('th');
-    expect(headingCells[headingCells.length - 1]).toHaveClass('xui-readonlytablecell-rightaligned');
+    expect(headingCells[headingCells.length - 1]).toHaveClass(
+      'xui-readonlytableheadingcell-rightaligned',
+    );
   });
 
   test('isBorderless removes the border', () => {
@@ -124,6 +126,19 @@ describe('XUITable', () => {
 
     // Assert
     expect(screen.getByTestId('testId-table')).toHaveClass('xui-readonlytable-pinlast');
+  });
+
+  test('End align the first column', () => {
+    // Arrange
+    render(<XUITableWithData inlineAlignment="end" qaHook="testId" />);
+
+    // Assert
+    expect(screen.getByTestId('testId-head').querySelectorAll('th')[0]).toHaveClass(
+      'xui-readonlytableheadingcell-rightaligned',
+    );
+    expect(screen.getByTestId('testId-table').querySelectorAll('td')[0]).toHaveClass(
+      'xui-readonlytablecell-rightaligned',
+    );
   });
 
   describe('XUITableHead', () => {
@@ -380,6 +395,24 @@ describe('XUITable', () => {
 
       // Assert
       expect(screen.getByText('Apple')).not.toHaveClass('xui-readonlytablecell-hasprecedence');
+    });
+
+    test('cell has id', () => {
+      // Arrange
+      render(
+        <XUITableWithData
+          customBodyProps={[
+            ({ fruit }) => (
+              <XUITableCell id="test-cell-id" qaHook="testId">
+                {fruit}
+              </XUITableCell>
+            ),
+          ]}
+        />,
+      );
+
+      // Assert
+      expect(screen.queryByTestId('testId-cell')).toHaveAttribute('id', 'test-cell-id');
     });
 
     describe('select row checkbox', () => {

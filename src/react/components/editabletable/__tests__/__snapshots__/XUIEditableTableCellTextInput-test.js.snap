@@ -15,6 +15,7 @@ exports[`<XUIEditableTableCellTextInput /> renders correctly 1`] = `
     containerClassName="xui-editabletablecelltextinput--control"
     inputProps={Object {}}
     isLabelHidden={true}
+    isValueReverseAligned={false}
     minRows={3}
     onBlur={[Function]}
     onFocus={[Function]}

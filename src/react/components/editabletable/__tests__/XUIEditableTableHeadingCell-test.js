@@ -3,6 +3,7 @@ import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
 import { axe, toHaveNoViolations } from 'jest-axe';
+import { render, screen } from '@testing-library/react';
 
 import XUIEditableTableHeadingCell from '../XUIEditableTableHeadingCell';
 
@@ -39,5 +40,21 @@ describe('<XUIEditableTableCell />', () => {
     );
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
+  });
+
+  test('renders end-aligned cells', () => {
+    // Arrange
+    render(
+      <table>
+        <tbody>
+          <tr>
+            <XUIEditableTableHeadingCell qaHook="testId" inlineAlignment="end" />
+          </tr>
+        </tbody>
+      </table>,
+    );
+
+    // Assert
+    expect(screen.getByTestId('testId')).toHaveClass('xui-editabletableheadingcell-rightaligned');
   });
 });

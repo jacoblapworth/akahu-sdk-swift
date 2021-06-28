@@ -16,7 +16,7 @@ export const positionOptions = [
   'left-center',
   'left-bottom',
 ] as const;
-export const defaultAlignemnt = 'center';
+export const defaultAlignment = 'center';
 export const flipDirection = {
   top: 'bottom',
   bottom: 'top',

@@ -12,6 +12,10 @@ interface Props<RD extends RowData> {
    * The head Cell for the Column. Either all of the Columns have to have it or none of them.
    */
   head?: React.ReactNode;
+  /**
+   * Aligns the content of the cell on the inline (horizontal) axis.
+   */
+  inlineAlignment?: 'end' | 'start';
 }
 
 class XUITableColumn<RD extends RowData> extends React.PureComponent<Props<RD>> {
@@ -33,6 +37,7 @@ class XUITableColumn<RD extends RowData> extends React.PureComponent<Props<RD>> 
   static propTypes = {
     body: PropTypes.func.isRequired,
     head: PropTypes.node,
+    inlineAlignment: PropTypes.oneOf(['end', 'start']),
   };
   /* eslint-enable react/no-unused-prop-types */
 }

@@ -218,5 +218,18 @@ describe('<XUIEditableTableCellTextInput />', () => {
       );
       expect(wrapper.find(XUITextInput).props()).toMatchObject(spreadProps);
     });
+
+    it('pass inlineAlignment to the table cell', () => {
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellTextInput inlineAlignment="end" />
+            </tr>
+          </tbody>
+        </table>,
+      );
+      expect(wrapper.find(XUITextInput).props().isValueReverseAligned).toBe(true);
+    });
   });
 });

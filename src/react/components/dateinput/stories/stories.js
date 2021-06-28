@@ -20,11 +20,13 @@ const sampleOnSelectDateFunction = date => {
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => {
   const isDateRangeDemo = boolean('isDateRangeInput', false);
+  const isDueDate = boolean('isDueDate', false);
 
   let singleDateProps = {
     closeOnSelect: true,
     inputLabel: 'Single date',
     locale: 'en-NZ',
+    isDueDate,
     nextButtonAriaLabel: 'Next month',
     onSelectDate: sampleOnSelectDateFunction,
     prevButtonAriaLabel: 'Previous month',
@@ -36,10 +38,12 @@ storiesWithKnobs.add('Playground', () => {
     nextButtonAriaLabel: 'Next month',
     prevButtonAriaLabel: 'Previous month',
     startDateInputConfig: {
-      onInputChange: sampleOnSelectDateFunction,
+      isDueDate,
+      onSelectDate: sampleOnSelectDateFunction,
     },
     endDateInputConfig: {
-      onInputChange: sampleOnSelectDateFunction,
+      isDueDate,
+      onSelectDate: sampleOnSelectDateFunction,
     },
     suggestedDates: dateRangeInputSuggestedDates,
   };

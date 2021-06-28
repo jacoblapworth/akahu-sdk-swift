@@ -3,15 +3,23 @@
 exports[`<XUIEditableTableFoot /> composes the className correctly 1`] = `
 <tfoot
   className="xui-editabletablefoot test-classname"
-/>
+>
+  <ContextProvider
+    value={true}
+  />
+</tfoot>
 `;
 
 exports[`<XUIEditableTableFoot /> renders correctly 1`] = `
 <tfoot
   className="xui-editabletablefoot"
 >
-  <div>
-    XUIEditableTableFoot
-  </div>
+  <ContextProvider
+    value={true}
+  >
+    <div>
+      XUIEditableTableFoot
+    </div>
+  </ContextProvider>
 </tfoot>
 `;

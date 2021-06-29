@@ -41,6 +41,10 @@ interface Props {
    */
   labelClassName?: string;
   /**
+   * Sets a ref for the label element
+   */
+  labelRef?: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
+  /**
    * Function to call on click inside the control.
    */
   onClick?: React.MouseEventHandler<HTMLDivElement>;

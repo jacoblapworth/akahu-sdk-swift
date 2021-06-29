@@ -19,6 +19,7 @@ const XUIControlWrapper = React.forwardRef(
       isLabelHidden,
       label,
       labelClassName,
+      labelRef,
       onClick,
       onKeyDown,
       qaHook,
@@ -43,6 +44,7 @@ const XUIControlWrapper = React.forwardRef(
             characterCounter,
             label,
             labelClassName,
+            labelRef,
             isLabelHidden,
             qaHook,
             wrapperIds,
@@ -101,6 +103,9 @@ XUIControlWrapper.propTypes = {
 
   /** Class names to add to the label */
   labelClassName: PropTypes.string,
+
+  /** Sets a ref for the label element */
+  labelRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 
   /** Function to call on click inside the control */
   onClick: PropTypes.func,

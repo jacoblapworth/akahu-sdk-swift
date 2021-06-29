@@ -12,7 +12,7 @@ import { sizeShift } from '../helpers/sizes';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import SizeContext from '../../contexts/SizeContext';
 import DisabledStateContext from '../../contexts/DisabledStateContext';
-import labelRequiredWarning, { nodeContainsText } from '../helpers/labelRequiredWarning';
+import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
@@ -20,6 +20,8 @@ const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
 
 class XUITextInput extends PureComponent {
   rootNode = React.createRef();
+
+  labelRef = React.createRef();
 
   state = {
     charCount: null,
@@ -87,7 +89,7 @@ class XUITextInput extends PureComponent {
         "includes a sideElement of type='text'",
       ],
       [
-        nodeContainsText(label) && !isLabelHidden,
+        this.labelRef.current?.innerText && !isLabelHidden,
         typeof label?.[0] === 'string',
         placeholder,
         labelId,
@@ -244,6 +246,7 @@ class XUITextInput extends PureComponent {
                   }}
                   fieldClassName={rootClasses}
                   isInvalid={isOverCharacterLimit || isInvalid}
+                  labelRef={this.labelRef}
                   validationMessage={
                     isOverCharacterLimit ? characterCounter?.validationMessage : validationMessage
                   }

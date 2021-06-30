@@ -101,7 +101,13 @@ violate our conventions.
 
 ## React Components
 
-When developing components that use XUI CSS classes, use the namespace variable instead of hard-coding `xui`:
+`npm run generate:component` generates the skeleton code required for a new React component. There are some manual adjustments you’ll still need to make, though:
+
+- The SCSS file created in `src/docs/components/` will need to be moved to the appropriate subdirectory.
+- The new entries at the top of `.styleguidist/sections.json` and `.visual-testing/index.js` will need to be shifted to the correct location in the file.
+- You may also want to move the new entry in `src/sass/xui.scss`.
+
+When developing components that use XUI CSS classes, use the namespace variable instead of hard-coding `xui`. (This is already done for you if you use the component generator script.)
 
 ```
 import {ns} from 'src/react/components/helpers/xuiClassNamespace'

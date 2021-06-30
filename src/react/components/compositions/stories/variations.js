@@ -26,6 +26,7 @@ const compositions = {
 };
 
 // Testing only the viewports we expect to show different behavior for compositions.
+const smallViewport = commonViewports.slice(1, 2);
 const compViewports = commonViewports.slice(1, 6);
 const lockViewports = commonViewports.slice(3, 6);
 const biggestViewport = commonViewports.slice(6);
@@ -43,8 +44,32 @@ Object.keys(compositions).forEach(compositionName => {
     }
     [false, true].forEach(hasGridGap => {
       // gap switch
-      if (/^(split|detailheader)|^detail$/i.test(compositionName)) {
+      if (/^detailheader|^detail$/i.test(compositionName)) {
         addComposition(compositionName, hasAutoSpaceAround, hasGridGap);
+        return;
+      }
+      // Split composition has a layout swapping prop for stacked layout. Test only at one breakpoint.
+      if (/^split/i.test(compositionName)) {
+        [false, true].forEach(hasPrimaryBelowAtSmall => {
+          if (hasPrimaryBelowAtSmall) {
+            const titleString = [
+              compositionName,
+              hasAutoSpaceAround && 'hasAutoSpaceAround',
+              hasGridGap && 'hasGridGap',
+              hasPrimaryBelowAtSmall && 'hasPrimaryBelowAtSmall',
+            ]
+              .filter(value => Boolean(value))
+              .join(' ');
+            pushBlockVariation({
+              storyTitle: titleString,
+              composition: compositions[compositionName],
+              compositionProps: { hasAutoSpaceAround, hasGridGap, hasPrimaryBelowAtSmall },
+              viewports: hasPrimaryBelowAtSmall ? smallViewport : compViewports,
+            });
+            return;
+          }
+          addComposition(compositionName, hasAutoSpaceAround, hasGridGap);
+        });
         return;
       }
 

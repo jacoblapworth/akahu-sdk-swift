@@ -55,8 +55,7 @@
 
 // Examples of label content
 //
-// |<svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-green" role="presentation" viewbox="0 0 12 12"><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z"></path></svg>&nbsp;Do| <svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-red" role="presentation" viewbox="0 0 12 12"><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"></path></svg>&nbsp;Don't|
-// |:---|:---|
+// ExampleContentTable:
 // IR number| My IR number is
 // Email address| What’s your email address?
 // Bank account number| Enter bank account number
@@ -89,9 +88,8 @@
 
 // Examples of placeholder content
 //
-// |<svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-green" role="presentation" viewbox="0 0 12 12"><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z"></path></svg>&nbsp;Do| <svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-red" role="presentation" viewbox="0 0 12 12"><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"></path></svg>&nbsp;Don't|
-// |:---|:---|
-// 0&#58;00| E.g 3.5 hours
+// ExampleContentTable:
+// 0:00| E.g 3.5 hours
 // 0.00| Enter invoice amount
 //
 // Styleguide: Components.CollectingInput.Forms.4.8
@@ -121,8 +119,7 @@
 
 // Examples of hint message content
 //
-// |<svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-green" role="presentation" viewbox="0 0 12 12"><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z"></path></svg>&nbsp;Do| <svg width="12" height="12" focusable="false" class="xui-icon xui-icon-color-red" role="presentation" viewbox="0 0 12 12"><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"></path></svg>&nbsp;Don't|
-// |:---|:---|
+// ExampleContentTable:
 // Found on the top of your IR3 form| Your IRD number is your unique tax number from the Inland Revenue Department. It can be found on the top of your IR3 form.
 //
 // Note:

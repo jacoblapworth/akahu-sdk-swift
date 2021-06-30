@@ -390,6 +390,23 @@ Array [
   Object {
     "composition": [Function],
     "compositionProps": Object {
+      "hasAutoSpaceAround": false,
+      "hasGridGap": false,
+      "hasPrimaryBelowAtSmall": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "split hasPrimaryBelowAtSmall",
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
       "hasAutoColumnWidths": undefined,
       "hasAutoSpaceAround": false,
       "hasGridGap": true,
@@ -439,6 +456,23 @@ Array [
         "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
+      "hasAutoSpaceAround": false,
+      "hasGridGap": true,
+      "hasPrimaryBelowAtSmall": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "split hasGridGap hasPrimaryBelowAtSmall",
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
       },
     ],
   },
@@ -500,6 +534,23 @@ Array [
   Object {
     "composition": [Function],
     "compositionProps": Object {
+      "hasAutoSpaceAround": true,
+      "hasGridGap": false,
+      "hasPrimaryBelowAtSmall": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "split hasAutoSpaceAround hasPrimaryBelowAtSmall",
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
       "hasAutoColumnWidths": undefined,
       "hasAutoSpaceAround": true,
       "hasGridGap": true,
@@ -549,6 +600,23 @@ Array [
         "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
+      "hasAutoSpaceAround": true,
+      "hasGridGap": true,
+      "hasPrimaryBelowAtSmall": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "split hasAutoSpaceAround hasGridGap hasPrimaryBelowAtSmall",
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
       },
     ],
   },
@@ -610,6 +678,23 @@ Array [
   Object {
     "composition": [Function],
     "compositionProps": Object {
+      "hasAutoSpaceAround": false,
+      "hasGridGap": false,
+      "hasPrimaryBelowAtSmall": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "splitHeader hasPrimaryBelowAtSmall",
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
       "hasAutoColumnWidths": undefined,
       "hasAutoSpaceAround": false,
       "hasGridGap": true,
@@ -659,6 +744,23 @@ Array [
         "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
+      "hasAutoSpaceAround": false,
+      "hasGridGap": true,
+      "hasPrimaryBelowAtSmall": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "splitHeader hasGridGap hasPrimaryBelowAtSmall",
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
       },
     ],
   },
@@ -720,6 +822,23 @@ Array [
   Object {
     "composition": [Function],
     "compositionProps": Object {
+      "hasAutoSpaceAround": true,
+      "hasGridGap": false,
+      "hasPrimaryBelowAtSmall": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "splitHeader hasAutoSpaceAround hasPrimaryBelowAtSmall",
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
       "hasAutoColumnWidths": undefined,
       "hasAutoSpaceAround": true,
       "hasGridGap": true,
@@ -769,6 +888,23 @@ Array [
         "height": 911,
         "label": "bigger than 2xlarge breakpoint",
         "width": 1620,
+      },
+    ],
+  },
+  Object {
+    "composition": [Function],
+    "compositionProps": Object {
+      "hasAutoSpaceAround": true,
+      "hasGridGap": true,
+      "hasPrimaryBelowAtSmall": true,
+    },
+    "storyKind": "Compositions/Tests",
+    "storyTitle": "splitHeader hasAutoSpaceAround hasGridGap hasPrimaryBelowAtSmall",
+    "viewports": Array [
+      Object {
+        "height": 800,
+        "label": "between xsmall and small breakpoints",
+        "width": 500,
       },
     ],
   },

@@ -33,13 +33,15 @@ const XUIRange = props => {
     validationMessage,
   } = props;
 
+  const labelRef = React.createRef();
+
   useEffect(() => {
     labelRequiredWarning(
       XUIRange.name,
       ['includes a label with text'],
-      [label?.innerText && !isLabelHidden, typeof label?.[0] === 'string'],
+      [labelRef.current?.innerText && !isLabelHidden, typeof label?.[0] === 'string'],
     );
-  }, [isLabelHidden, label]);
+  }, [isLabelHidden, label, labelRef]);
 
   return (
     <XUIControlWrapper
@@ -47,6 +49,7 @@ const XUIRange = props => {
       isInvalid={isInvalid}
       isLabelHidden={isLabelHidden}
       label={label}
+      labelRef={labelRef}
       qaHook={qaHook}
       validationMessage={validationMessage}
       wrapperIds={wrapperIds}

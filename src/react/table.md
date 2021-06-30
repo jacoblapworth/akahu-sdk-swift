@@ -797,38 +797,44 @@ import {
   defaultCreatePagingContent
 } from './components/pagination/private/helpers';
 
-const data = [
-  { fruit: 'Apple', colour: 'Red', price: 2.99 },
-  { fruit: 'Banana', colour: 'Yellow', price: 2.99 },
-  { fruit: 'Cherry', colour: 'Red', price: 3.99 },
-  { fruit: 'Durian', colour: 'Brown', price: 4.99 },
-  { fruit: 'Elderberry', colour: 'Purple', price: 2.99 },
-  { fruit: 'Feijoa', colour: 'Green', price: 2.99 },
-  { fruit: 'Grape', colour: 'Green', price: 2.99 },
-  { fruit: 'Huckleberry', colour: 'Yellow', price: 2.99 },
-  { fruit: 'Iyokan', colour: 'Orange', price: 4.99 },
-  { fruit: 'Jackfruit', colour: 'Yellow', price: 2.99 },
-  { fruit: 'Kiwifruit', colour: 'Green', price: 2.99 },
-  { fruit: 'Liliko‘i', colour: 'Purple', price: 3.99 },
-  { fruit: 'Mandarin', colour: 'Orange', price: 2.99 },
-  { fruit: 'Nectarine', colour: 'Red', price: 2.99 },
-  { fruit: 'Orange', colour: 'Orange', price: 3.99 },
-  { fruit: 'Pineapple', colour: 'Brown', price: 3.99 },
-  { fruit: 'Quince', colour: 'Green', price: 2.99 },
-  { fruit: 'Rambutan', colour: 'Brown', price: 4.99 },
-  { fruit: 'Strawberry', colour: 'Red', price: 2.99 },
-  { fruit: 'Tangerine', colour: 'Orange', price: 2.99 },
-  { fruit: 'Ugli', colour: 'Green', price: 3.99 },
-  { fruit: 'Valencia', colour: 'Orange', price: 3.99 },
-  { fruit: 'Watermelon', colour: 'Green', price: 2.99 },
-  { fruit: 'Yuzu', colour: 'Yellow', price: 3.99 },
-  { fruit: 'Zwetschge', colour: 'Purple', price: 3.99 }
-];
+const data = {
+  row1: { fruit: 'Apple', colour: 'Red', price: 2.99 },
+  row2: { fruit: 'Banana', colour: 'Yellow', price: 2.99 },
+  row3: { fruit: 'Cherry', colour: 'Red', price: 3.99 },
+  row4: { fruit: 'Durian', colour: 'Brown', price: 4.99 },
+  row5: { fruit: 'Elderberry', colour: 'Purple', price: 2.99 },
+  row6: { fruit: 'Feijoa', colour: 'Green', price: 2.99 },
+  row7: { fruit: 'Grape', colour: 'Green', price: 2.99 },
+  row8: { fruit: 'Huckleberry', colour: 'Yellow', price: 2.99 },
+  row9: { fruit: 'Iyokan', colour: 'Orange', price: 4.99 },
+  row10: { fruit: 'Jackfruit', colour: 'Yellow', price: 2.99 },
+  row11: { fruit: 'Kiwifruit', colour: 'Green', price: 2.99 },
+  row12: { fruit: 'Liliko‘i', colour: 'Purple', price: 3.99 },
+  row13: { fruit: 'Mandarin', colour: 'Orange', price: 2.99 },
+  row14: { fruit: 'Nectarine', colour: 'Red', price: 2.99 },
+  row15: { fruit: 'Orange', colour: 'Orange', price: 3.99 },
+  row16: { fruit: 'Pineapple', colour: 'Brown', price: 3.99 },
+  row17: { fruit: 'Quince', colour: 'Green', price: 2.99 },
+  row18: { fruit: 'Rambutan', colour: 'Brown', price: 4.99 },
+  row19: { fruit: 'Strawberry', colour: 'Red', price: 2.99 },
+  row20: { fruit: 'Tangerine', colour: 'Orange', price: 2.99 },
+  row21: { fruit: 'Ugli', colour: 'Green', price: 3.99 },
+  row22: { fruit: 'Valencia', colour: 'Orange', price: 3.99 },
+  row23: { fruit: 'Watermelon', colour: 'Green', price: 2.99 },
+  row24: { fruit: 'Yuzu', colour: 'Yellow', price: 3.99 },
+  row25: { fruit: 'Zwetschge', colour: 'Purple', price: 3.99 }
+};
+
 const defaultPerPageCountOptions = [10, 25, 50, 100, 200];
 
 const [page, setPage] = useState(1);
 const [perPageCount, setPerPageCount] = useState(defaultPerPageCountOptions[0]);
 const [tableData, setTableData] = useState(data);
+const [dataLength, setDataLength] = useState(Object.keys(data).length);
+
+useEffect(() => {
+  setDataLength(Object.keys(data).length);
+}, [data]);
 
 useEffect(() => {
   onPageChange(page);
@@ -840,7 +846,14 @@ const onPageChange = page => {
   const firstIndex = (page - 1) * perPageCount;
   const lastIndex = firstIndex + perPageCount;
 
-  setTableData(data.slice(firstIndex, lastIndex));
+  const filteredTableData = Object.entries(data).reduce((acc, [rowIndex, row], index) => {
+    if (index >= firstIndex && index < lastIndex) {
+      acc[rowIndex] = row;
+    }
+    return acc;
+  }, {});
+
+  setTableData(filteredTableData);
 };
 
 const onPerPageCountChange = perPageCount => {
@@ -862,7 +875,7 @@ const onPerPageCountChange = perPageCount => {
   footer={
     <XUIPagination
       ariaLabel="Pagination"
-      count={data.length}
+      count={dataLength}
       createCountContent={defaultCreateCountContent}
       createPagingContent={defaultCreatePagingContent}
       nextPageLabel="Next Page"

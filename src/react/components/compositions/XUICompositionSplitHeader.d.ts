@@ -15,6 +15,10 @@ interface Props {
    */
   hasGridGap?: boolean;
   /**
+   * In the stacked layout, whether to put primary content below the secondary content. Defaults to false.
+   */
+  hasPrimaryBelowAtSmall?: boolean;
+  /**
    * Header content or component.
    */
   header: React.ReactNode;

@@ -5,6 +5,11 @@ import { fixedWidthDropdownSizes } from './private/constants';
 
 interface Props {
   /**
+   * Internal prop to control whether to open without focusing opened element
+   * @ignore
+   */
+  _skipFocusOnOpen?: boolean;
+  /**
    * Will add the closing animation class.
    */
   animateClosed?: boolean;

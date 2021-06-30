@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { createRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { baseClass, typeMap } from './private/constants';
@@ -24,19 +24,22 @@ const XUIToggleOption = props => {
   } = props;
   const classes = cn(className, `${baseClass}--option`, isDisabled && `${baseClass}-is-disabled`);
 
+  const labelRef = createRef();
+
   useEffect(() => {
     labelRequiredWarning(
       XUIToggleOption.name,
       ['includes a child with text'],
-      [children?.innerText],
+      [labelRef.current?.innerText],
     );
-  }, [children]);
+  }, [labelRef]);
 
   return (
     <XUIControlWrapperInline
       fieldClassName={classes}
       label={children}
       labelClassName={`${baseClass}--label`}
+      labelRef={labelRef}
       qaHook={qaHook}
       rootClassName={`${baseClass}--optionwrapper`}
       wrapperIds={wrapperIds}

@@ -83,7 +83,7 @@ XUIRadioGroup.propTypes = {
   labelId: PropTypes.string,
   qaHook: PropTypes.string,
   /** Validation message to show under the input if `isInvalid` is true */
-  validationMessage: PropTypes.string,
+  validationMessage: PropTypes.node,
 };
 
 XUIRadioGroup.defaultProps = {

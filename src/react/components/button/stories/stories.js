@@ -96,7 +96,7 @@ storiesWithKnobs.add('Playground', () => {
           Object.keys(buttonTypes).map(type => buttonTypes[type]),
           'button',
         )}
-        variant={!isIcon && select('variant', textButtonVariants, 'standard')}
+        variant={!isIcon && select('variant', Object.keys(textButtonVariants), 'standard')}
       >
         {isIcon ? null : 'Test button'}
       </Tag>

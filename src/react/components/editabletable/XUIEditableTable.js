@@ -58,7 +58,11 @@ const XUIEditableTable = React.forwardRef(
 
     useEffect(() => {
       // XUIEditableTable.name is undefined as this is a forwardRef component
-      labelRequiredWarning('XUIEditableTable', ariaLabelOnly, [ariaLabel]);
+      labelRequiredWarning(
+        'XUIEditableTable',
+        [...ariaLabelOnly, '`caption` provided to XUITable'],
+        [ariaLabel],
+      );
     }, [ariaLabel]);
 
     return (

@@ -209,6 +209,7 @@ $xui-table-z-alert: 4;
 }
 
 .#{$ns}-readonlytable--customheader {
+  background: $xui-table-bg-color;
   border-bottom: $xui-border-standard;
   > * {
     border-radius: $xui-radius $xui-radius 0 0;
@@ -216,6 +217,7 @@ $xui-table-z-alert: 4;
 }
 
 .#{$ns}-readonlytable--customfooter {
+  background: $xui-table-bg-color;
   border-top: $xui-border-standard;
   > * {
     border-radius: 0 0 $xui-radius $xui-radius;

@@ -2,7 +2,7 @@
 //
 // Teaser: Separating complex options into digestible sections.
 //
-// Introduction: Nested dropdowns are used to group complex options into separate sections.
+// Introduction: Use nested dropdowns to group complex options into separate sections.
 //
 // Components: Nested-dropdowns
 //
@@ -11,12 +11,10 @@
 // Best practice
 //
 // Tips:
-// Do: Dismiss dropdown and apply actions on selection of item in dropdown
-// Do: If user can select multiple items at once, display an "Apply" button in a dropdown header to apply selection and dismiss dropdown
-// Do: Use nested dropdowns to segment catergories and options shown at one time
-// Do: Include a back button on children to enable selections to be applied across multiple categories at once
-// Do: Nest datepicker in a dropdown for displaying a custom date or date-range option
-// Warning: Always include a header at narrow viewports to enable dismissing the dropdown
+// Do: Use nested dropdowns to navigate between categories and multi-step selections
+// Do: Include a back button on children so selections can be applied across multiple categories at once
+// Do: Nest a datepicker to show a custom date or date-range option
+// Warning: Always include a header at narrow viewports so a dropdown can be dismissed
 //
 // Styleguide: Components.CollectingInput.Dropdowns.20.1
 

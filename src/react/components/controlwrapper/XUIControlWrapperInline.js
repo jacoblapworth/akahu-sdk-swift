@@ -12,6 +12,7 @@ const XUIControlWrapperInline = ({
   isLabelHidden,
   label,
   labelClassName,
+  labelRef,
   messageClassName,
   onClick,
   onKeyDown,
@@ -34,6 +35,7 @@ const XUIControlWrapperInline = ({
         {...{
           labelClassName,
           label,
+          labelRef,
           isLabelHidden,
           qaHook,
           wrapperIds,
@@ -74,6 +76,8 @@ XUIControlWrapperInline.propTypes = {
   label: PropTypes.node,
   /** Class names to add to the label */
   labelClassName: PropTypes.string,
+  /** Sets a ref for the label element */
+  labelRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   /** Class names to add to the hint and validation messages */
   messageClassName: PropTypes.string,
   /** Function to call on click inside the control */

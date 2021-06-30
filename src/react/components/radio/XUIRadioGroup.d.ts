@@ -46,7 +46,7 @@ interface Props {
   /**
    * Validation message to show under the input if `isInvalid` is `true`.
    */
-  validationMessage?: string;
+  validationMessage?: React.ReactNode;
 }
 
 declare const XUIRadioGroup: React.FunctionComponent<Props>;

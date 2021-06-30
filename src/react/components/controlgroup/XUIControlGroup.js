@@ -120,7 +120,7 @@ XUIControlGroup.propTypes = {
    */
   swapAtBreakpoint: PropTypes.oneOf([...Object.keys(defaultBreakpoints)]),
   /** Validation message to show under the group if `isInvalid` is true */
-  validationMessage: PropTypes.string,
+  validationMessage: PropTypes.node,
 };
 
 XUIControlGroup.defaultProps = {

@@ -36,6 +36,8 @@ const XUIAccordionItem = ({
   useLayoutEffect(() => {
     if (propsIsOpen && !prevPropsIsOpen) {
       setOpenAccordionItem(id);
+    } else if (!propsIsOpen && prevPropsIsOpen) {
+      setOpenAccordionItem(null);
     }
   }, [propsIsOpen, prevPropsIsOpen, setOpenAccordionItem, id]);
 

@@ -21,6 +21,8 @@ const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
 class XUITextInput extends PureComponent {
   rootNode = React.createRef();
 
+  labelRef = React.createRef();
+
   state = {
     charCount: null,
     hasFocus: false,
@@ -87,7 +89,7 @@ class XUITextInput extends PureComponent {
         "includes a sideElement of type='text'",
       ],
       [
-        label?.innerText && !isLabelHidden,
+        this.labelRef.current?.innerText && !isLabelHidden,
         typeof label?.[0] === 'string',
         placeholder,
         labelId,
@@ -244,6 +246,7 @@ class XUITextInput extends PureComponent {
                   }}
                   fieldClassName={rootClasses}
                   isInvalid={isOverCharacterLimit || isInvalid}
+                  labelRef={this.labelRef}
                   validationMessage={
                     isOverCharacterLimit ? characterCounter?.validationMessage : validationMessage
                   }

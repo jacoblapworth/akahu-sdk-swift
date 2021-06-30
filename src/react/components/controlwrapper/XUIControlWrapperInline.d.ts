@@ -27,6 +27,10 @@ interface Props {
    */
   labelClassName?: string;
   /**
+   * Sets a ref for the label element
+   */
+  labelRef?: React.Ref<HTMLInputElement | HTMLTextAreaElement>;
+  /**
    * Class names to add to the hint and validation messages.
    */
   messageClassName?: string;

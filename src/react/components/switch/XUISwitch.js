@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -46,6 +46,8 @@ const XUISwitch = props => {
     // size, TODO: add size options.
     // isGrouped, TODO: add grouping flag to match Checkbox/Radio. Maybe try context instead?
   } = props;
+
+  const labelRef = createRef();
 
   // User can manually provide an id, or we will generate one.
   const wrapperIds = generateIds(labelId);
@@ -109,17 +111,18 @@ const XUISwitch = props => {
 
   useEffect(() => {
     labelRequiredWarning(XUISwitch.name, textChildOrLabelId, [
-      children?.innerText && !isLabelHidden,
+      labelRef.current?.innerText && !isLabelHidden,
       typeof children?.[0] === 'string',
       labelId,
     ]);
-  }, [children, isLabelHidden, labelId]);
+  }, [children, isLabelHidden, labelId, labelRef]);
 
   return (
     <XUIControlWrapperInline
       fieldClassName={classes}
       label={children}
       labelClassName={labelClasses}
+      labelRef={labelRef}
       messageClassName={`${baseClass}--message`}
       onClick={onLabelClick}
       rootClassName={wrapperClasses}

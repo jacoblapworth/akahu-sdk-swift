@@ -283,6 +283,9 @@ XUIDateRangeInput.propTypes = {
     /** Whether the input is disabled */
     isDisabled: PropTypes.bool,
 
+    /** Whether to use the `parseDueDate` [API](https://github.dev.xero.com/A22N/blind-date#usage). */
+    isDueDate: PropTypes.bool,
+
     /** Whether the current input value is invalid */
     isInvalid: PropTypes.bool,
 
@@ -381,6 +384,9 @@ XUIDateRangeInput.propTypes = {
 
     /** Whether the input is disabled */
     isDisabled: PropTypes.bool,
+
+    /** Whether to use the `parseDueDate` [API](https://github.dev.xero.com/A22N/blind-date#usage). */
+    isDueDate: PropTypes.bool,
 
     /** Whether the current input value is invalid */
     isInvalid: PropTypes.bool,

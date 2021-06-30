@@ -10,6 +10,7 @@
     "note",
     "teaser",
     "teaser-image",
+    "topdescription",
     "exampleclass",
     "introduction",
     "tips",
@@ -18,7 +19,8 @@
     "storybook",
     "image",
     "image-caption",
-    "language"
+    "language",
+    "examplecontenttable"
   ],
   "destination": "./dist/docs",
   "css": ["./kss-assets/xui.css", "./style.css"],

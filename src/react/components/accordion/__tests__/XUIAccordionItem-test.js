@@ -4,6 +4,7 @@ import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
+import { render, screen } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAccordionItem from '../XUIAccordionItem';
 import XUIAccordionContext from '../XUIAccordionContext';
@@ -18,7 +19,7 @@ const emptyStateComponent = <div>Empty state component</div>;
 const qaHook = 'testHook';
 
 // eslint-disable-next-line react/prop-types
-const Test = ({ children }) => {
+const Test = ({ children, isOpen }) => {
   const [openItemId, setOpenItemId] = useState(null);
   return (
     <div>
@@ -31,7 +32,7 @@ const Test = ({ children }) => {
           toggleLabel: 'Toggle',
         }}
       >
-        <XUIAccordionItem>{children}</XUIAccordionItem>
+        <XUIAccordionItem isOpen={isOpen}>{children}</XUIAccordionItem>
       </XUIAccordionContext.Provider>
     </div>
   );
@@ -82,5 +83,27 @@ describe('<XUIAccordionItem />', () => {
     const component = getAccordionItem('Children! 👩‍👧‍👧');
     const results = await axe(component.html());
     expect(results).toHaveNoViolations();
+  });
+
+  test('should open/close accordion item when isOpen prop is changed', () => {
+    // Arrange
+    const contentText = 'Content';
+    const TestAccordionItem = ({ isOpen }) => (
+      <Test isOpen={isOpen}>
+        <div>{contentText}</div>
+      </Test>
+    );
+    const initialIsOpen = true;
+    const subsequentIsOpen = false;
+    const { rerender } = render(<TestAccordionItem isOpen={initialIsOpen} />);
+
+    // Pre-assert
+    expect(screen.getByText(contentText));
+
+    // Act
+    rerender(<TestAccordionItem isOpen={subsequentIsOpen} />);
+
+    // Post-Assert
+    expect(screen.queryByText(contentText)).not.toBeInTheDocument();
   });
 });

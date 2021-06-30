@@ -120,8 +120,6 @@ const XUIIntroBanner = ({
   return (
     <div className={`${baseClass}--wrapper`}>
       <div {...spreadProps} className={classes} data-automationid={qaHook} ref={observedElementRef}>
-        {dismissButton}
-
         {illustration && onVideoClick && (
           <button
             aria-label={videoButtonLabel}
@@ -140,12 +138,14 @@ const XUIIntroBanner = ({
 
         {illustration ? (
           <div className={`${baseClass}--main`}>
+            {dismissButton}
             {header}
             {children}
             {footer}
           </div>
         ) : (
           <>
+            {dismissButton}
             {header}
             {children}
             {footer}

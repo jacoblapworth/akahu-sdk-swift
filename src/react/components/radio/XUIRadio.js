@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { createRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -116,6 +116,8 @@ const XUIRadio = props => {
     value,
   } = props;
 
+  const labelRef = createRef();
+
   // Grouped inputs default to 'small'.
   const calculatedSize = (isGrouped && 'small') || size;
 
@@ -156,11 +158,11 @@ const XUIRadio = props => {
 
   useEffect(() => {
     labelRequiredWarning(XUIRadio.name, textChildOrLabelId, [
-      children?.innerText && !isLabelHidden,
+      labelRef.current?.innerText && !isLabelHidden,
       typeof children?.[0] === 'string',
       props.labelId,
     ]);
-  }, [children, isLabelHidden, props.labelId]);
+  }, [children, isLabelHidden, labelRef, props.labelId]);
 
   if (typeof isChecked !== 'boolean') {
     inputProps.defaultChecked = !!isDefaultChecked;
@@ -178,6 +180,7 @@ const XUIRadio = props => {
       fieldClassName={classes}
       label={children}
       labelClassName={labelClasses}
+      labelRef={labelRef}
       messageClassName={`${baseClass}--message`}
       onClick={onLabelClick}
       rootClassName={wrapperClasses}

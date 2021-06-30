@@ -31,7 +31,7 @@ describe('XUIDateInput', () => {
       {...props}
       displayedMonth={new Date(Date.UTC(2020, 10))}
       inputLabel="Date"
-      locale="en"
+      locale="en-NZ"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
       selectedDateValue={selectedDate}
@@ -56,7 +56,7 @@ describe('XUIDateInput', () => {
       <XUIDateInput
         displayedMonth={newSelectedDate}
         inputLabel="Date"
-        locale="en"
+        locale="en-NZ"
         nextButtonAriaLabel="Next month"
         onSelectDate={onSelectDate}
         prevButtonAriaLabel="Previous month"
@@ -107,7 +107,7 @@ describe('XUIDateInput', () => {
       <XUIDateInput
         displayedMonth={newSelectedDate}
         inputLabel="Date"
-        locale="en"
+        locale="en-NZ"
         nextButtonAriaLabel="Next month"
         onSelectDate={onSelectProp}
         prevButtonAriaLabel="Previous month"

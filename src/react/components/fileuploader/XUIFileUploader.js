@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { createRef, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { nanoid } from 'nanoid';
@@ -52,6 +52,8 @@ const XUIFileUploader = ({
   const [dragState, setDragState] = useState();
   const invalidState = isInvalid && !isDisabled;
 
+  const labelRef = createRef();
+
   const onClick = () => {
     inputEl.current.click();
   };
@@ -99,6 +101,7 @@ const XUIFileUploader = ({
     labelClassName,
     label,
     labelId,
+    labelRef,
     isLabelHidden,
     isInvalid: invalidState,
     validationMessage,
@@ -117,9 +120,9 @@ const XUIFileUploader = ({
     labelRequiredWarning(
       XUIFileUploader.name,
       ['includes a label with text', 'labelId provided'],
-      [label?.innerText && !isLabelHidden, typeof label?.[0] === 'string', labelId],
+      [labelRef.current?.innerText && !isLabelHidden, typeof label?.[0] === 'string', labelId],
     );
-  }, [isLabelHidden, label, labelId]);
+  }, [isLabelHidden, label, labelId, labelRef]);
   useEffect(() => {
     labelRequiredWarning(
       XUIFileUploader.name,
@@ -287,7 +290,7 @@ XUIFileUploader.propTypes = {
   /**
    * Label to show above the input
    */
-  label: PropTypes.string,
+  label: PropTypes.node,
   /**
    * Class names to add to the label
    */

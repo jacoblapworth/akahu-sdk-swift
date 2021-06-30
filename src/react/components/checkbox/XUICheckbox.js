@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, createRef } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -113,13 +113,15 @@ export default class XUICheckbox extends PureComponent {
 
   _input = React.createRef();
 
+  labelRef = createRef();
+
   componentDidMount() {
     setIndeterminate(this);
 
     const { children, labelId, isLabelHidden } = this.props;
 
     labelRequiredWarning(XUICheckbox.name, textChildOrLabelId, [
-      children?.innerText && !isLabelHidden,
+      this.labelRef.current?.innerText && !isLabelHidden,
       typeof children?.[0] === 'string',
       labelId,
     ]);
@@ -214,6 +216,7 @@ export default class XUICheckbox extends PureComponent {
         fieldClassName={classes}
         label={children}
         labelClassName={labelClasses}
+        labelRef={this.labelRef}
         messageClassName={`${baseClass}--message`}
         onClick={onLabelClick}
         rootClassName={wrapperClasses}

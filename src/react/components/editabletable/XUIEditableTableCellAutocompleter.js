@@ -51,6 +51,14 @@ class XUIEditableTableCellAutocompleter extends Component {
   };
 
   /**
+   * Focuses the input inside the cell, before calling any user-supplied handlers.
+   */
+  composedOnClick = () => {
+    this.focusInput();
+    this.props.cellProps?.onClick?.();
+  };
+
+  /**
    * @public
    * Focus the input inside the cell.
    */
@@ -72,6 +80,10 @@ class XUIEditableTableCellAutocompleter extends Component {
       ...spreadProps
     } = this.props;
 
+    const {
+      onClick, // Destructured so as not to spread.
+    } = cellProps;
+
     return (
       <XUIEditableTableCellControl
         {...cellProps}
@@ -83,7 +95,7 @@ class XUIEditableTableCellAutocompleter extends Component {
         isDisabled={isDisabled}
         isFocused={this.state.isFocused}
         isInvalid={isInvalid}
-        onClick={this.focusInput}
+        onClick={this.composedOnClick}
         validationMessage={validationMessage}
       >
         <XUIAutocompleter

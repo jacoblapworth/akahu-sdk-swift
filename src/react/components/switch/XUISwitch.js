@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -7,10 +7,7 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
-import labelRequiredWarning, {
-  nodeContainsText,
-  textChildOrLabelId,
-} from '../helpers/labelRequiredWarning';
+import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
 
 const baseClass = `${ns}-switch`;
 
@@ -49,6 +46,8 @@ const XUISwitch = props => {
     // size, TODO: add size options.
     // isGrouped, TODO: add grouping flag to match Checkbox/Radio. Maybe try context instead?
   } = props;
+
+  const labelRef = createRef();
 
   // User can manually provide an id, or we will generate one.
   const wrapperIds = generateIds(labelId);
@@ -112,17 +111,18 @@ const XUISwitch = props => {
 
   useEffect(() => {
     labelRequiredWarning(XUISwitch.name, textChildOrLabelId, [
-      nodeContainsText(children) && !isLabelHidden,
+      labelRef.current?.innerText && !isLabelHidden,
       typeof children?.[0] === 'string',
       labelId,
     ]);
-  }, [children, isLabelHidden, labelId]);
+  }, [children, isLabelHidden, labelId, labelRef]);
 
   return (
     <XUIControlWrapperInline
       fieldClassName={classes}
       label={children}
       labelClassName={labelClasses}
+      labelRef={labelRef}
       messageClassName={`${baseClass}--message`}
       onClick={onLabelClick}
       rootClassName={wrapperClasses}

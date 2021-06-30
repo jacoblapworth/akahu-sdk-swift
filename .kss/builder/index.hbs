@@ -79,27 +79,51 @@
 		{{#wrapSection referenceURI}}
 			<div data-search-section>
 				<div class="kss-style ds-section-part">
-					<h{{depth}} class="ds-title ds-title--level-{{depth}}" data-search-section-title {{#ifDepth 1}}data-search-page-title{{/ifDepth}}>
-						<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}" data-search-section-link>
-							<svg class="xui-icon ds-anchor-hash" role="presentation"> <use xlink:href="#xui-icon-hash" /></svg>
-						</a>
-						<span>{{header}}</span>
-						{{#if flags}}
-							{{#renderFlags flags}}
-								<a href="./section-getting-started.html#getting-started-5" class="ds-flag {{#if flag.shortName}}{{getStatusClass flag.shortName}}{{/if}}" {{#if flag.shortName}}aria-describedby="{{flag.shortName}}"{{/if}}>
-										{{flag.label}}
-										{{#if flag.desc}}
-											<span class="hover-tooltip hover-tooltip-below xui-button" {{#if flag.shortName}}id="{{flag.shortName}}"{{/if}}>{{flag.desc}}</span>
-										{{/if}}
-								</a>
-							{{/renderFlags}}
-						{{/if}}
-					</h{{depth}}>
+					{{#if topdescription}}
+						<div class="ds-description">
+							<p>
+								{{{topdescription}}}
+							<p>
+						</div>
+					{{else}}
+						<h{{depth}} class="ds-title ds-title--level-{{depth}}" data-search-section-title {{#ifDepth 1}}data-search-page-title{{/ifDepth}}>
+							<a class="kss-title__permalink ds-anchor" href="#{{referenceURI}}" data-search-section-link>
+								<svg class="xui-icon ds-anchor-hash" role="presentation"> <use xlink:href="#xui-icon-hash" /></svg>
+							</a>
+							<span>{{header}}</span>
+							{{#if flags}}
+								{{#renderFlags flags}}
+									<a href="./section-getting-started.html#getting-started-5" class="ds-flag {{#if flag.shortName}}{{getStatusClass flag.shortName}}{{/if}}" {{#if flag.shortName}}aria-describedby="{{flag.shortName}}"{{/if}}>
+											{{flag.label}}
+											{{#if flag.desc}}
+												<span class="hover-tooltip hover-tooltip-below xui-button" {{#if flag.shortName}}id="{{flag.shortName}}"{{/if}}>{{flag.desc}}</span>
+											{{/if}}
+									</a>
+								{{/renderFlags}}
+							{{/if}}
+						</h{{depth}}>
+					{{/if}}
 
 					{{#if introduction}}
 						<div class="xui-u-flex ds-intro">
 							{{{renderSectionInMarkdown introduction}}}
 						</div>
+					{{/if}}
+
+					{{#if @first}}
+						{{#ifStyleguide "Components.CollectingInput.Forms"}}
+							{{! noop }}
+						{{else}}
+							<ul>
+								{{#each  @root.sections}} {{#ifDepth 2}}
+								<li>
+									<a href="#{{referenceURI}}">
+										{{header}}
+									</a>
+								</li>
+								{{/ifDepth}} {{/each}}
+							</ul>
+						{{/ifStyleguide}}
 					{{/if}}
 
 					{{#if @first}}

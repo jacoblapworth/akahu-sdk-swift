@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { createRef, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { nanoid } from 'nanoid';
@@ -11,7 +11,7 @@ import FileList from './private/FileList';
 import { ns } from '../helpers/xuiClassNamespace';
 import { baseClass } from './private/helpers';
 import checkRequiredProps from '../../helpers/checkRequiredProps';
-import labelRequiredWarning, { nodeContainsText } from '../helpers/labelRequiredWarning';
+import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 const XUIFileUploader = ({
   acceptedFileExtensions,
@@ -51,6 +51,8 @@ const XUIFileUploader = ({
   const inputEl = useRef();
   const [dragState, setDragState] = useState();
   const invalidState = isInvalid && !isDisabled;
+
+  const labelRef = createRef();
 
   const onClick = () => {
     inputEl.current.click();
@@ -99,6 +101,7 @@ const XUIFileUploader = ({
     labelClassName,
     label,
     labelId,
+    labelRef,
     isLabelHidden,
     isInvalid: invalidState,
     validationMessage,
@@ -117,9 +120,9 @@ const XUIFileUploader = ({
     labelRequiredWarning(
       XUIFileUploader.name,
       ['includes a label with text', 'labelId provided'],
-      [nodeContainsText(label) && !isLabelHidden, typeof label?.[0] === 'string', labelId],
+      [labelRef.current?.innerText && !isLabelHidden, typeof label?.[0] === 'string', labelId],
     );
-  }, [isLabelHidden, label, labelId]);
+  }, [isLabelHidden, label, labelId, labelRef]);
   useEffect(() => {
     labelRequiredWarning(
       XUIFileUploader.name,

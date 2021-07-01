@@ -42,6 +42,10 @@ interface Props {
    */
   dropZoneMessage: string;
   /**
+   * Aria label for the error progress icon
+   */
+  errorIconAriaLabel?: string;
+  /**
    * Class names to be added to the div wrapping the select button/drop zone
    */
   fieldClassName?: string;
@@ -142,6 +146,10 @@ interface Props {
    * Show icon in the file list item
    */
   showIcon?: boolean;
+  /**
+   * Aria label for the uploading progress icon
+   */
+  uploadingIconAriaLabel?: string;
   /**
    * Message to display while the file is uploading. Required if the `showFilesAsMultiline` prop is set to `true`
    * <br />

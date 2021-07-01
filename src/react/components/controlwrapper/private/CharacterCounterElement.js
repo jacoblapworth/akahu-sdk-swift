@@ -44,7 +44,7 @@ CharacterCounterElement.propTypes = {
     minCharCountToShowCounter: PropTypes.number,
     /** Validation message to show when the user input length passes the maxCharCount
      * Recommended English value: "Username can't be longer than {character limit #} characters" */
-    validationMessage: PropTypes.string.isRequired,
+    validationMessage: PropTypes.node.isRequired,
   }),
 
   qaHook: PropTypes.string,

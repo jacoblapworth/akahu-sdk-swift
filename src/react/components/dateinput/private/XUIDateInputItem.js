@@ -404,7 +404,7 @@ XUIDateInputItem.propTypes = {
   exposeInputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 
   /** Hint message to display below input */
-  hintMessage: PropTypes.string,
+  hintMessage: PropTypes.node,
 
   /** Class names to be added to the input element */
   inputClassName: PropTypes.string,
@@ -413,7 +413,7 @@ XUIDateInputItem.propTypes = {
   inputFieldClassName: PropTypes.string,
 
   /** Input label */
-  inputLabel: PropTypes.string.isRequired,
+  inputLabel: PropTypes.node.isRequired,
 
   /** Whether the input is disabled */
   isDisabled: PropTypes.bool,

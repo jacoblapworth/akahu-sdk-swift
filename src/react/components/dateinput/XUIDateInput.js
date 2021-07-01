@@ -96,10 +96,10 @@ XUIDateInput.propTypes = {
   displayedMonth: PropTypes.instanceOf(Date),
 
   /** Hint message to display below input */
-  hintMessage: PropTypes.string,
+  hintMessage: PropTypes.node,
 
   /** Input label */
-  inputLabel: PropTypes.string.isRequired,
+  inputLabel: PropTypes.node.isRequired,
 
   /** Whether the input is disabled */
   isDisabled: PropTypes.bool,

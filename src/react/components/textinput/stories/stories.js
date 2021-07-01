@@ -195,7 +195,7 @@ TextInputWrapper.defaultProps = {
 
 TextInputWrapper.propTypes = {
   defaultValue: PropTypes.string,
-  hintMessage: PropTypes.string,
+  hintMessage: PropTypes.node,
   inputProps: PropTypes.object,
   isBorderlessSolid: PropTypes.bool,
   isBorderlessTransparent: PropTypes.bool,
@@ -234,7 +234,7 @@ TextInputWrapper.propTypes = {
   ]),
   rows: PropTypes.number,
   size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
-  validationMessage: PropTypes.string,
+  validationMessage: PropTypes.node,
   value: PropTypes.string,
 };
 

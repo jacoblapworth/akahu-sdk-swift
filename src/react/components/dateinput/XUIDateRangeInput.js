@@ -272,13 +272,13 @@ XUIDateRangeInput.propTypes = {
     displayedMonth: PropTypes.instanceOf(Date),
 
     /** Hint message to display below input */
-    hintMessage: PropTypes.string,
+    hintMessage: PropTypes.node,
 
     /** Label for the second input.
      *
      * Recommended English value: *End date*
      */
-    inputLabel: PropTypes.string.isRequired,
+    inputLabel: PropTypes.node.isRequired,
 
     /** Whether the input is disabled */
     isDisabled: PropTypes.bool,
@@ -322,14 +322,14 @@ XUIDateRangeInput.propTypes = {
     triggerClassName: PropTypes.string,
 
     /** Message to display below input when invalid date inputted */
-    validationMessage: PropTypes.string,
+    validationMessage: PropTypes.node,
   }),
   groupConfig: PropTypes.shape({
     /** Label to display for the entire date range group. Recommended for accessibility purposes. */
-    groupLabel: PropTypes.string,
+    groupLabel: PropTypes.node,
 
     /** Hint message to display below range */
-    hintMessage: PropTypes.string,
+    hintMessage: PropTypes.node,
 
     /** Whether the group is disabled */
     isDisabled: PropTypes.bool,
@@ -374,13 +374,13 @@ XUIDateRangeInput.propTypes = {
     displayedMonth: PropTypes.instanceOf(Date),
 
     /** Hint message to display below input */
-    hintMessage: PropTypes.string,
+    hintMessage: PropTypes.node,
 
     /** Label for the first input.
      *
      * Recommended English value: *Start date*
      */
-    inputLabel: PropTypes.string.isRequired,
+    inputLabel: PropTypes.node.isRequired,
 
     /** Whether the input is disabled */
     isDisabled: PropTypes.bool,

@@ -78,7 +78,7 @@ interface Props {
   /**
    * Hint message to show under the input
    */
-  hintMessage?: string;
+  hintMessage?: React.ReactNode;
   /**
    * Whether the fileUploader is disabled
    */
@@ -159,7 +159,7 @@ interface Props {
   /**
    * Validation message to show under the input if `isInvalid` is true
    */
-  validationMessage?: string;
+  validationMessage?: React.ReactNode;
 }
 
 export type FileObject = {

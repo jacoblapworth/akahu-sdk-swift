@@ -155,7 +155,7 @@ EditableTableWrapper.propTypes = {
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]),
-  validationMessage: PropTypes.string,
+  validationMessage: PropTypes.node,
 };
 
 export default EditableTableWrapper;

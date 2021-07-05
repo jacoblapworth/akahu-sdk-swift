@@ -9,7 +9,7 @@ interface CharacterCounterProps {
   minCharCountToShowCounter?: number;
   /** Validation message to show when the user input length passes the maxCharCount
    * Recommended English value: "Username can't be longer than {character limit #} characters" */
-  validationMessage: string;
+  validationMessage: React.ReactNode;
 }
 
 export default CharacterCounterProps;

@@ -95,7 +95,7 @@ XUIControlGroup.propTypes = {
   /** Classes to go on the group element */
   groupClassName: PropTypes.string,
   /** Hint message to show under the group */
-  hintMessage: PropTypes.string,
+  hintMessage: PropTypes.node,
   /** Whether to align grouped items to the bottom, rather than the top. This is useful when labels across grouped inputs are varying line lengths, but NOT good when validation and hint messages may vary in line-lengths between inputs. */
   isBottomAligned: PropTypes.bool,
   /** Whether to use the field layout classes. Defaults to false. */
@@ -107,7 +107,7 @@ XUIControlGroup.propTypes = {
   /** Whether the group is permanently grouped as a column, rather than a row. Defaults to false. */
   isLockedVertical: PropTypes.bool,
   /** Label to show above the group, or for accessibility when the group label is hidden. Highly recommended */
-  label: PropTypes.string,
+  label: PropTypes.node,
   /** Class names to add to the label text element */
   labelClassName: PropTypes.string,
   /** Provide a specific label ID which will be used as the "labelleby" aria property */

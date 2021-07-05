@@ -1,5 +1,4 @@
 import cn from 'classnames';
-import { nanoid } from 'nanoid';
 import * as React from 'react';
 
 import XUICheckbox from '../../../checkbox';
@@ -101,7 +100,8 @@ class XUITableHead<RD extends RowData> extends React.PureComponent<Props<RD>> {
                   head={head}
                   inlineAlignment={headingCellAlignment}
                   isSortAsc={isSortAsc}
-                  key={nanoid()}
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={`head_${columnIndex}`}
                   onSortChange={onSortChange}
                 />
               ));

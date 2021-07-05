@@ -42,6 +42,10 @@ interface Props {
    */
   dropZoneMessage: string;
   /**
+   * Aria label for the error progress icon
+   */
+  errorIconAriaLabel?: string;
+  /**
    * Class names to be added to the div wrapping the select button/drop zone
    */
   fieldClassName?: string;
@@ -74,7 +78,7 @@ interface Props {
   /**
    * Hint message to show under the input
    */
-  hintMessage?: string;
+  hintMessage?: React.ReactNode;
   /**
    * Whether the fileUploader is disabled
    */
@@ -143,6 +147,10 @@ interface Props {
    */
   showIcon?: boolean;
   /**
+   * Aria label for the uploading progress icon
+   */
+  uploadingIconAriaLabel?: string;
+  /**
    * Message to display while the file is uploading. Required if the `showFilesAsMultiline` prop is set to `true`
    * <br />
    * Recommended English value: *Uploading...*
@@ -151,7 +159,7 @@ interface Props {
   /**
    * Validation message to show under the input if `isInvalid` is true
    */
-  validationMessage?: string;
+  validationMessage?: React.ReactNode;
 }
 
 export type FileObject = {

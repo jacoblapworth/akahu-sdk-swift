@@ -587,6 +587,43 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'multiline pickitems with and without truncation',
+    viewports: desktopPlus320,
+    panelSize: '400px',
+    lists: [
+      {
+        items: [
+          {
+            value: 'Truncated but not multiline. The content is long for demonstrative purposes',
+            headingElement: 'This is a heading element that is long for demonstrative purposes',
+            secondaryElement: 'This will truncate the value, heading and secondary element',
+            isMultiline: false,
+            shouldTruncate: true,
+          },
+          { isDivider: true },
+          {
+            value: 'Multiline but not truncated. The content is long for demonstrative purposes',
+            headingElement: 'This is a heading element that is long for demonstrative purposes',
+            secondaryElement:
+              'This will make sure value, heading and secondary elements are on separate lines.',
+            isMultiline: true,
+            shouldTruncate: false,
+          },
+          { isDivider: true },
+          {
+            value: 'Truncated and multiline. The content is long for demonstrative purposes',
+            headingElement: 'This is a heading element that is long for demonstrative purposes',
+            secondaryElement:
+              'This will make sure value, heading and secondary elements are on separate lines and truncated',
+            isMultiline: true,
+            shouldTruncate: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with custom swapAtBreakpoint value',
     panelSize: '100vw',
     viewports: desktopPlus320,

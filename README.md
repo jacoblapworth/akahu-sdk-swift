@@ -348,8 +348,8 @@ See [CONTRIBUTING.md](https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTI
 
 ## Help
 
-For general Q & A ask a question in the [#xui-development](https://xero.slack.com/messages/C565NP1A5) Slack or ask a question with [the topic "xui" on Confluence Questions](https://confluence.inside.xero.com/questions/topics/126091267/xui).
+For general Q & A ask a question in the [#xui-development](https://xero.slack.com/messages/C565NP1A5) Slack channel.
 
 We have a UXE team member on interrupts each week who can provide a prompt response to any specific questions or issues. Check Slack for who's on duty.
 
-XUI's Roadmap and backlog live within the [UX Engineering teams's page](https://confluence.inside.xero.com/display/PLAT/UX+Engineering) on Confluence.
+XUI's Roadmap and backlog live within the [UX Engineering teams's page](https://xero.atlassian.net/l/c/kGwkN7SS) on Confluence.

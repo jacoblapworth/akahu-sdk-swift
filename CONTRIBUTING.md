@@ -4,7 +4,7 @@
 
 XUI is built using [Node.js](https://nodejs.org/). Checkout [README.md](README.md) for info on setting up your local development environment.
 
-We use [JIRA](https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028) to keep a backlog and track our issues, and we try to tag items as being "[Beginner Friendly](https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028&view=planning&quickFilter=12144)," where applicable. These should be accessible for those learning their way around the codebase.
+We use [JIRA](https://xero.atlassian.net/secure/RapidBoard.jspa?rapidView=2028) to keep a backlog and track our issues, and we try to tag items as being "[Beginner Friendly](https://xero.atlassian.net/secure/RapidBoard.jspa?rapidView=2028&view=planning&quickFilter=12144)," where applicable. These should be accessible for those learning their way around the codebase.
 
 **Some useful info**
 
@@ -18,17 +18,17 @@ We use [JIRA](https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028) t
 
 ### Finding Issues
 
-We use [JIRA](https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028) to track our bugs. We keep a close eye on the issues and try to make it clear when we'll have a fix. Before filing a new issue, you can check JIRA or chat with us on [Slack](https://xero.slack.com/messages/C565NP1A5) to determine whether it has already been reported.
+We use [JIRA](https://xero.atlassian.net/secure/RapidBoard.jspa?rapidView=2028) to track our bugs. We keep a close eye on the issues and try to make it clear when we'll have a fix. Before filing a new issue, you can check JIRA or chat with us on [Slack](https://xero.slack.com/messages/C565NP1A5) to determine whether it has already been reported.
 
 ### Reporting New Issues
 
-The best way to get your bug fixed is to provide a reduced test case. If possible, please provide this test case along side a [new issue](https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028). A bug-type issue in JIRA includes a template that will guide you to provide the team with everything we need in order to assist.
+The best way to get your bug fixed is to provide a reduced test case. If possible, please provide this test case along side a [new issue](https://xero.atlassian.net/secure/RapidBoard.jspa?rapidView=2028). A bug-type issue in JIRA includes a template that will guide you to provide the team with everything we need in order to assist.
 
 If you're fixing a bug, it's also fine to submit a pull request right away.
 
 ## Proposing a Change
 
-If something existing doesn't quite fit your needs, feel free to [create a new issue](https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028) of the "feature" or "improvement" types and we will be more than happy to look at it. Alternatively feel free to talk to us on [Slack](https://xero.slack.com/messages/C565NP1A5).
+If something existing doesn't quite fit your needs, feel free to [create a new issue](https://xero.atlassian.net/secure/RapidBoard.jspa?rapidView=2028) of the "feature" or "improvement" types and we will be more than happy to look at it. Alternatively feel free to talk to us on [Slack](https://xero.slack.com/messages/C565NP1A5).
 
 If you're only fixing a bug, it's fine to submit a pull request right away.
 
@@ -78,7 +78,7 @@ should not make assumptions about their layout (e.g. by setting margins, padding
 Examples in the documentation can make use of layout primitive classes.
 
 A modifier class with the `-layout` suffix may be provided for the purpose of providing the most common layout
-configuration for that component, including responsive styling. More info on layout styling can be found in this blog post: [Styling Components in XUI 10](https://confluence.inside.xero.com/x/ww0YCQ).
+configuration for that component, including responsive styling. More info on layout styling can be found in this blog post: [Styling Components in XUI 10](https://xero.atlassian.net/l/c/GBReorKd).
 
 Avoid the anti-pattern of applying styles in a generic class and then undoing them in a more specific class.
 
@@ -224,7 +224,7 @@ coordinate releases, which adhere to the following guidelines.
 | Minor                    | New features/components that are backwards-compatible | 30 - 60 days\*      |
 | Major (Breaking changes) | Updates that will cause regressions to older versions | 3 - 6 months\*      |
 
-\*Longest times depend on relevant changes having been merged to the working branch. If there are no changes awaiting release, time between releases could be longer. [Read more on this release strategy.](https://confluence.teamxero.com/display/PLAT/2019/11/28/The+evolution+of+release+strategy+for+XUI)
+\*Longest times depend on relevant changes having been merged to the working branch. If there are no changes awaiting release, time between releases could be longer. [Read more on this release strategy.](https://xero.atlassian.net/l/c/og8hv1pT)
 
 ## Breaking changes
 

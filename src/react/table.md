@@ -1100,7 +1100,11 @@ type of your `customSort` function. The key to getting this type to work correct
 generic to ensure the input and output data are the same shape.
 
 ```ts harmony static
-function customSort<Items extends Array<Record<string, unknown>>>(
+import ValueType from '@xero/xui/react/helpers/ValueType';
+
+const data = { abc123: { fruit: 'apple' }, def456: { fruit: 'banana' } };
+
+function customSort<Items extends Array<ValueType<typeof data>>>(
   items: Items,
   isAscending?: boolean,
   activeSortKey?: string

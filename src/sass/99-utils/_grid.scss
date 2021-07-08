@@ -26,7 +26,7 @@ Responsive variants are : -small-up, -large-up
 The spacing between columns will be $xui-grid-gutter, and the space added to
 each side of each column will be half of that.
 */
-$xui-half-column-padding: $xui-grid-gutter / 2;
+$xui-half-column-padding: $xui-grid-gutter * 0.5;
 
 /*
 Setting up the parent class for padded columns

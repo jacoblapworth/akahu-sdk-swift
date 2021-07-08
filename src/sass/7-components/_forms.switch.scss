@@ -138,7 +138,7 @@ $xui-switch-label-padding: $xui-s-xsmall;
 
   .#{$ns}-switch {
     display: flex;
-    padding: $xui-switch-label-padding/2; // Border padding
+    padding: $xui-switch-label-padding * 0.5; // Border padding
   }
 
   &.#{$ns}-controlgroup-vertical .#{$ns}-switchwrapper:nth-last-of-type(n + 2),
@@ -165,7 +165,7 @@ $xui-switch-label-padding: $xui-s-xsmall;
   .#{$ns}-switch--control {
     align-self: flex-start;
     flex-shrink: 0;
-    margin: $xui-switch-label-padding/2;
+    margin: $xui-switch-label-padding * 0.5;
   }
 }
 

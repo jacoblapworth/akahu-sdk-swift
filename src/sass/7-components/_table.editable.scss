@@ -105,7 +105,7 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
   display: flex;
   font-size: $xui-font-size-xsmall;
   line-height: $xui-editabletable-invalid-icon-size;
-  padding-top: $xui-s-small / 2;
+  padding-top: $xui-s-small * 0.5;
   .#{$ns}-icon {
     height: $xui-editabletable-invalid-icon-size;
     margin-right: $xui-s-xsmall;

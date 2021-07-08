@@ -171,7 +171,7 @@
     "recast": "0.20.4",
     "regenerator-runtime": "0.13.7",
     "rimraf": "3.0.2",
-    "sass": "1.32.12",
+    "sass": "1.33.0",
     "sass-loader": "8.0.2",
     "serve-static": "1.14.1",
     "simple-mock": "0.8.0",

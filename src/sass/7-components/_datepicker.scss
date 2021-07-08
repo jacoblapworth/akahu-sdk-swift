@@ -4,12 +4,12 @@
 $xui-datepicker-day-size: $xui-control-size-standard;
 
 @mixin xui-datepicker-highlight-size-left() {
-  border-radius: $xui-datepicker-day-size / 2 0 0 $xui-datepicker-day-size / 2;
-  width: $xui-datepicker-day-size / 2;
+  border-radius: $xui-datepicker-day-size * 0.5 0 0 $xui-datepicker-day-size * 0.5;
+  width: $xui-datepicker-day-size * 0.5;
 }
 @mixin xui-datepicker-highlight-size-right() {
-  border-radius: 0 $xui-datepicker-day-size / 2 $xui-datepicker-day-size / 2 0;
-  width: $xui-datepicker-day-size / 2;
+  border-radius: 0 $xui-datepicker-day-size * 0.5 $xui-datepicker-day-size * 0.5 0;
+  width: $xui-datepicker-day-size * 0.5;
 }
 
 .#{$ns}-datepicker {

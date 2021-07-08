@@ -19,9 +19,11 @@
  * See: http://www.w3.org/Style/Examples/007/units.en.html
  */
 
+@use "sass:math";
+
 // Function for converting pixel to rem.
 @function prem($pixel) {
-  @return $pixel / 16px * 1rem;
+  @return math.div($pixel, 16px) * 1rem;
 }
 
 // @section Core Font Sizes

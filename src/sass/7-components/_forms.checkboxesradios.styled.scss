@@ -139,9 +139,7 @@
 }
 
 .#{$ns}-styledcheckboxradio--focus,
-.#{$ns}-styledcheckboxradio--main,
-.#{$ns}-styledcheckboxradio--check,
-.#{$ns}-styledcheckboxradio--indeterminate {
+.#{$ns}-styledcheckboxradio--main {
   transition: all $xui-motion-speed-fast ease;
 }
 
@@ -156,12 +154,6 @@
   fill: $xui-control-bg-color;
   stroke: $xui-control-border-color;
   stroke-linejoin: round;
-}
-
-.#{$ns}-styledcheckboxradio--check,
-.#{$ns}-styledcheckboxradio--indeterminate {
-  fill: transparent;
-  opacity: 0; // Hide checkmark
 }
 
 // Unchecked styles
@@ -238,18 +230,6 @@
     }
   }
 
-  &:indeterminate + .#{$ns}-iconwrapper {
-    .#{$ns}-styledcheckboxradio--check {
-      fill: transparent;
-      opacity: 0; // Hide checkmark
-    }
-
-    .#{$ns}-styledcheckboxradio--indeterminate {
-      fill: $xui-checkboxradio-check-checked-fill;
-      opacity: 1; // Show indeterminate
-    }
-  }
-
   // Indeterminate, hover/focus
   &:indeterminate:hover + .#{$ns}-iconwrapper {
     .#{$ns}-styledcheckboxradio--main {
@@ -277,11 +257,6 @@
     .#{$ns}-styledcheckboxradio--main {
       fill: $xui-checkboxradio-disabled-fill;
       stroke: $xui-checkboxradio-disabled-stroke;
-    }
-
-    .#{$ns}-styledcheckboxradio--check,
-    .#{$ns}-styledcheckboxradio--indeterminate {
-      fill: $xui-checkboxradio-check-disabled-fill;
     }
   }
   &:disabled:checked + .#{$ns}-iconwrapper {

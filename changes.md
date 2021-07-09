@@ -16,6 +16,10 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 ## XUI CSS
 
+### Removals
+
+- `xui-styledcheckboxradio--indeterminate` and `xui-styledcheckboxradio--check` have been removed with no replacement. These were obsolete classes and styles that were no longer applied via React and are not required for styling checkboxes in HTML.
+
 ### XUITable
 
 - For heading cells, use `xui-readonlytableheadingcell-rightaligned` instead of `xui-readonlytablecell-rightaligned`

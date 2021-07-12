@@ -95,11 +95,12 @@ export default class XUIPopover extends React.Component {
   }
 
   addEventListeners = () => {
-    document.addEventListener('click', this.handleClickOutside);
+    // Capture settings have been added in as from React 17, React no longer attaches event handlers at the document level
+    document.addEventListener('click', this.handleClickOutside, { capture: true });
   };
 
   removeEventListeners = () => {
-    document.removeEventListener('click', this.handleClickOutside);
+    document.removeEventListener('click', this.handleClickOutside, { capture: true });
   };
 
   handleClickOutside = event => {

@@ -4,13 +4,15 @@ const config = {
   globals: {
     window: true,
   },
-  roots: ['<rootDir>/src/react/components'],
+  roots: ['<rootDir>/.plop/', '<rootDir>/src/react/components'],
   testRegex: '-test\\.((j|t)sx?)$',
   testResultsProcessor: 'jest-teamcity-reporter',
   testEnvironment: 'jsdom',
   moduleDirectories: ['node_modules'],
   collectCoverageFrom: [
+    '**/.plop/**/*.{js,jsx,ts,tsx}',
     '**/src/react/components/**/*.{js,jsx,ts,tsx}',
+    '!**/.plop/**/__tests__/*',
     '!**/src/react/components/**/__tests__/*',
     '!**/src/react/components/**/stories/*',
     '!**/node_modules/**',

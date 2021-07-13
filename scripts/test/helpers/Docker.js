@@ -106,7 +106,7 @@ class Docker {
 
   async getImageId() {
     const images = await this.dockerode.listImages({ all: true });
-    const xuiBackstopImage = images.find(image => image.RepoTags.includes('xui-backstop:latest'));
+    const xuiBackstopImage = images.find(image => image.RepoTags?.includes('xui-backstop:latest'));
     return xuiBackstopImage ? xuiBackstopImage.Id : undefined;
   }
 

@@ -43,6 +43,7 @@ const fullPageSettings = {
  * }
  */
 const componentsToTest = [
+  /* PLOP_INJECT_IMPORT */
   {
     testsPrefix: 'XUI Accordion',
     variationsPath: `${variationsPath}/accordion/stories/variations.js`,

@@ -99,7 +99,7 @@ interface Props {
   /**
    * Callback on mouseup of the pickitem.
    */
-  onMouseUp?: React.KeyboardEventHandler<HTMLElement>;
+  onMouseUp?: React.MouseEventHandler<HTMLElement>;
   /**
    * Callback when this item is selected by a parent component.
    */

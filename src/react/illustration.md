@@ -4,7 +4,7 @@
 
 XUI provides a [centralised illustrations repository](https://github.dev.xero.com/UXE/illustrations/) to host illustrations, and a component to help teams implement illustrations consistently into products.
 
-To find out more about creating or requesting illustrations [visit the Confluence page](https://confluence.teamxero.com/pages/viewpage.action?pageId=309631564).
+To find out more about creating or requesting illustrations [visit the Confluence page](https://xero.atlassian.net/l/c/LLnbrRnK).
 
 For teams not using XUI to implement illustrations, try to mirror the functionality of the XUI component classes to ensure consistency if the illustrations are ever updated.
 

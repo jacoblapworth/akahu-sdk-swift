@@ -54,7 +54,7 @@ library:
   # For automated build number versioning use the following format.
   # version: '16.5.0+{env.BUILD_NUMBER}'
   # More details at: https://kotahi.xero.dev/learn/hY7hDl2g9kSGMaIXZn9geA#version
-  version: '18.1.1'
+  version: '18.2.0'
 
   #########################################
   #       Ownership
@@ -140,12 +140,12 @@ library:
         # ref: Uuid of a published book here
 
     homepage:
-      url: https://confluence.teamxero.com/display/PLAT/UX+Engineering
+      url: https://xero.atlassian.net/l/c/ZTsrAG0N
 
     source:
       url: https://github.dev.xero.com/uxe/xui
     issues:
-      url: https://jira.teamxero.com/secure/RapidBoard.jspa?rapidView=2028
+      url: https://xero.atlassian.net/secure/RapidBoard.jspa?rapidView=2028
     builds:
       url: https://teamcity1.inside.xero-support.com/project.html?projectId=Xui_Style
     deployment:
@@ -156,7 +156,7 @@ library:
       - name: XUI homepage
         url: https://xui.xero.com/latest
       - name: XUI's confluence page
-        url: https://confluence.teamxero.com/display/PLAT/UX+Engineering
+        url: https://xero.atlassian.net/l/c/ZTsrAG0N
     dashboards:
       - name: PaaS Gloo dashboard in Grafana
         url: https://paas.xero.dev/grafana/d/gloo-data-plane/gloo-data-plane?orgId=1&from=now-6h&to=now&var-datasource=istio&var-cluster=us-east-1.k8s-paas-svc-rua&var-Namespace=All&var-Service=manual-xui-xero-com_gloo-system

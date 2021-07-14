@@ -15,10 +15,10 @@ interface Props {
   displayedMonth?: Date;
 
   /** Hint message to display below input */
-  hintMessage?: string;
+  hintMessage?: React.ReactNode;
 
   /** Input label */
-  inputLabel: string;
+  inputLabel: React.ReactNode;
 
   /** Whether the input is disabled */
   isDisabled?: boolean;

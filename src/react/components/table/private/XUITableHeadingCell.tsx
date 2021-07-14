@@ -7,6 +7,7 @@ import { XUITableCell } from '../../../table';
 import XUIIcon from '../../icon/XUIIcon';
 import { tableName } from '../helpers/constants';
 import generateCellProps from '../helpers/generateCellProps';
+import queryIsValidInteraction from '../helpers/isQueryValidInteraction';
 import { RowData } from '../XUITable';
 
 interface Props<RD extends RowData> {
@@ -30,7 +31,15 @@ class XUITableHeadingCell<RD extends RowData> extends React.PureComponent<Props<
       isSortAsc,
       onSortChange,
     } = this.props;
-    const handleInteraction = () => head.props.sortKey && onSortChange?.(head.props.sortKey);
+    const handleInteraction = (event: React.MouseEvent | React.KeyboardEvent) => {
+      const isValidInteraction = queryIsValidInteraction(event);
+
+      if (isValidInteraction) {
+        head.props.sortKey && onSortChange?.(head.props.sortKey);
+        event.preventDefault();
+      }
+    };
+
     const sortButtonClassName = `${tableName}--sortbutton`;
     const sortButtonContentClassName = `${tableName}--sortbuttoncontent`;
     const sortIconWrapperClassName = `${tableName}--sorticonwrapper`;

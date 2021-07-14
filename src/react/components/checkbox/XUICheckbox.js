@@ -69,16 +69,21 @@ const buildSvgCheckbox = (qaHook, { svgClassName, iconMain }) => {
  * @param qaHook - Optional hook label
  * @param htmlClassName - Optional classname to add to html version of checkbox
  * @param calculatedSize - String to specify the size of the checkbox
+ * @param onAnimationEnd - Callback for onAnimationEnd
  *
  */
-const buildHtmlCheckbox = (qaHook, htmlClassName, calculatedSize) => {
+const buildHtmlCheckbox = (qaHook, htmlClassName, calculatedSize, onAnimationEnd) => {
   const htmlClasses = cn(
     `${baseClass}--checkbox`,
     htmlClassName,
     calculatedSize && `${baseClass}--checkbox-${calculatedSize}`,
   );
   return (
-    <div className={htmlClasses} data-automationid={qaHook && `${qaHook}--checkbox`}>
+    <div
+      className={htmlClasses}
+      data-automationid={qaHook && `${qaHook}--checkbox`}
+      onAnimationEnd={onAnimationEnd}
+    >
       <XUITouchTarget />
     </div>
   );
@@ -91,13 +96,14 @@ const buildHtmlCheckbox = (qaHook, htmlClassName, calculatedSize) => {
  * @param htmlClassName - Optional classname to add to html version of checkbox
  * @param svgSettings - Object containing optional svg properties (classname, icon paths)
  * @param calculatedSize - String to specify the size of the checkbox
+ * @param onAnimationEnd - Callback for onAnimationEnd
  *
  */
-const buildCheckbox = (qaHook, htmlClassName, svgSettings, calculatedSize) => {
+const buildCheckbox = (qaHook, htmlClassName, svgSettings, calculatedSize, onAnimationEnd) => {
   if (svgSettings.iconMain) {
     return buildSvgCheckbox(qaHook, svgSettings);
   }
-  return buildHtmlCheckbox(qaHook, htmlClassName, calculatedSize);
+  return buildHtmlCheckbox(qaHook, htmlClassName, calculatedSize, onAnimationEnd);
 };
 
 /**
@@ -115,6 +121,10 @@ export default class XUICheckbox extends PureComponent {
 
   labelRef = createRef();
 
+  state = {
+    shouldAnimate: true,
+  };
+
   componentDidMount() {
     setIndeterminate(this);
 
@@ -127,9 +137,29 @@ export default class XUICheckbox extends PureComponent {
     ]);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
+    if (
+      (prevProps.isChecked && !this.props.isChecked) ||
+      (prevProps.isDefaultChecked && !this.props.isDefaultChecked)
+    ) {
+      this.setShouldAnimate(true);
+    }
     setIndeterminate(this);
   }
+
+  setShouldAnimate = state => {
+    this.setState({
+      shouldAnimate: state,
+    });
+  };
+
+  handleChange = event => {
+    // When it's unchecked, add the animation class back
+    if (!event.target.checked) {
+      this.setShouldAnimate(true);
+    }
+    this.props.onChange?.(event);
+  };
 
   render() {
     const {
@@ -141,6 +171,7 @@ export default class XUICheckbox extends PureComponent {
       isDefaultChecked,
       isChecked,
       isDisabled,
+      isIndeterminate,
       isRequired,
       isReversed,
       isLabelHidden,
@@ -188,7 +219,7 @@ export default class XUICheckbox extends PureComponent {
       required: isRequired,
       tabIndex,
       name,
-      onChange,
+      onChange: this.handleChange,
       value,
       ...getAriaAttributesInline(this.wrapperIds, this.props),
     };
@@ -239,7 +270,14 @@ export default class XUICheckbox extends PureComponent {
           )}
           data-automationid={qaHook && `${qaHook}--input`}
         />
-        {buildCheckbox(qaHook, htmlClassName, svgSettings, calculatedSize)}
+        {buildCheckbox(
+          qaHook,
+          cn(htmlClassName, !this.state.shouldAnimate && `${baseClass}--checkbox-is-animationdone`),
+          svgSettings,
+          calculatedSize,
+          // Remove the animation class when animation end
+          () => !isIndeterminate && this.setShouldAnimate(false),
+        )}
       </XUIControlWrapperInline>
     );
   }

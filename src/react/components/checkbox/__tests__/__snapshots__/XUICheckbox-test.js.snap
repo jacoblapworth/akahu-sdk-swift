@@ -19,6 +19,7 @@ exports[`XUICheckbox should be a small variant, if specified 1`] = `
     />
     <div
       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-small"
+      onAnimationEnd={[Function]}
     >
       <div
         className="xui-touchtarget"
@@ -53,6 +54,7 @@ exports[`XUICheckbox should be a xsmall variant, if specified 1`] = `
     />
     <div
       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-xsmall"
+      onAnimationEnd={[Function]}
     >
       <div
         className="xui-touchtarget"
@@ -87,6 +89,7 @@ exports[`XUICheckbox should have a hidden label, if specified 1`] = `
     />
     <div
       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"
+      onAnimationEnd={[Function]}
     >
       <div
         className="xui-touchtarget"
@@ -117,6 +120,7 @@ exports[`XUICheckbox should have a qaHook as an automation id if provided 1`] = 
     <div
       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"
       data-automationid="test-checkbox--checkbox"
+      onAnimationEnd={[Function]}
     >
       <div
         className="xui-touchtarget"
@@ -145,6 +149,7 @@ exports[`XUICheckbox should have a visible label, if specified 1`] = `
     />
     <div
       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"
+      onAnimationEnd={[Function]}
     >
       <div
         className="xui-touchtarget"
@@ -218,11 +223,13 @@ exports[`XUICheckbox should render with validation message 1`] = `
       className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-medium"
       defaultChecked={false}
       disabled={false}
+      onChange={[Function]}
       required={false}
       type="checkbox"
     />
     <div
       className="xui-styledcheckboxradio--checkbox xui-styledcheckboxradio--checkbox-medium"
+      onAnimationEnd={[Function]}
     >
       <div
         className="xui-touchtarget"

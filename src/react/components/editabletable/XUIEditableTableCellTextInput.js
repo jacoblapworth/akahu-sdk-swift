@@ -25,6 +25,7 @@ const XUIEditableTableCellTextInput = ({
 }) => {
   const innerRef = React.useRef();
   const [isFocused, setIsFocused] = React.useState();
+  const [timeoutHandle, setTimeoutHandle] = React.useState(null);
 
   /**
    * Records the focus state onBlur, before calling any user-supplied handlers.
@@ -32,6 +33,8 @@ const XUIEditableTableCellTextInput = ({
    */
   const composedOnBlur = event => {
     setIsFocused(false);
+
+    clearTimeout(timeoutHandle);
 
     onBlur && onBlur(event);
   };
@@ -46,7 +49,7 @@ const XUIEditableTableCellTextInput = ({
 
     const { target } = event;
     // Timeout must be used to avoid a synchronisation issue with Safari
-    window.setTimeout(() => target.select(), 0);
+    setTimeoutHandle(setTimeout(() => target.select(), 0));
 
     onFocus && onFocus(event);
   };

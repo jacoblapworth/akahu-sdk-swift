@@ -24,6 +24,10 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 - For heading cells, use `xui-readonlytableheadingcell-rightaligned` instead of `xui-readonlytablecell-rightaligned`
 
+### XUIDropdownFooter
+
+- Pickitems inside a XUIDropdownFooter now have a text-black colour, rather than a link-blue colour. This is because blue is used to identify active/selected items. This style change does not require a code change, but will result in a visual change.
+
 ### Mixins updates
 
 - `xui-readonlytable-overflow` and `xui-editabletable-overflow` mixins have been removed, use `xui-table-overflow` instead

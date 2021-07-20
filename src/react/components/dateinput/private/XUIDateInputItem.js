@@ -313,7 +313,6 @@ class XUIDateInputItem extends Component {
         className={`${ns}-dateinputitem-suggesteddates--footer`}
         pickItems={
           <XUIPickitem
-            className={`${ns}-dateinputitem-suggesteddates--footer--item`}
             id={this.suggestedDatesFooterId}
             leftElement={<XUIIcon color="black" icon={selectDateIcon || dateStartIcon} isBoxed />}
             onClick={this.showDatepickerPanel}

@@ -91,6 +91,7 @@ class XUIDateRangeInput extends Component {
       maxDate: startMaxDate,
       minDate: startMinDate,
       onInputChange: onStartInputChange,
+      onValidationFailed: onStartValidationFailed,
       selectedDateValue: selectedStateDateValue,
       selectedDateDefaultValue: selectedStartDateDefaultValue,
       triggerClassName: startTriggerClassName,
@@ -107,6 +108,7 @@ class XUIDateRangeInput extends Component {
       maxDate: endMaxDate,
       minDate: endMinDate,
       onInputChange: onEndInputChange,
+      onValidationFailed: onEndValidationFailed,
       selectedDateValue: selectedEndDateValue,
       selectedDateDefaultValue: selectedEndDateDefaultValue,
       triggerClassName: endTriggerClassName,
@@ -189,6 +191,7 @@ class XUIDateRangeInput extends Component {
           nextButtonAriaLabel={nextButtonAriaLabel}
           onInputChange={onStartInputChange}
           onSelectDate={this.onSelectStartDate}
+          onValidationFailed={onStartValidationFailed}
           prevButtonAriaLabel={prevButtonAriaLabel}
           preventFocusOnSelect
           qaHook={qaHook && `${qaHook}-daterangeinput-firstinput`}
@@ -221,6 +224,7 @@ class XUIDateRangeInput extends Component {
           nextButtonAriaLabel={nextButtonAriaLabel}
           onInputChange={onEndInputChange}
           onSelectDate={this.onSelectEndDate}
+          onValidationFailed={onEndValidationFailed}
           prevButtonAriaLabel={prevButtonAriaLabel}
           qaHook={qaHook && `${qaHook}-daterangeinput-secondinput`}
           ref={this.endDateComponentRef}
@@ -312,6 +316,11 @@ XUIDateRangeInput.propTypes = {
      * already been selected.
      */
     onSelectDate: PropTypes.func,
+
+    /**
+     * Callback for when the user selects an invalid date. Will not fire onSelectDate
+     */
+    onValidationFailed: PropTypes.func,
 
     selectedDateDefaultValue: PropTypes.instanceOf(Date),
 
@@ -414,6 +423,11 @@ XUIDateRangeInput.propTypes = {
      * already been selected.
      */
     onSelectDate: PropTypes.func,
+
+    /**
+     * Callback for when the user selects an invalid date. Will not fire onSelectDate
+     */
+    onValidationFailed: PropTypes.func,
 
     selectedDateDefaultValue: PropTypes.instanceOf(Date),
 

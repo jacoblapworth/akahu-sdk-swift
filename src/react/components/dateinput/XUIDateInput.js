@@ -36,6 +36,7 @@ class XUIDateInput extends React.Component {
       nextButtonAriaLabel,
       onInputChange,
       onSelectDate, // Destructured so as not to spread.
+      onValidationFailed,
       prevButtonAriaLabel,
       selectedDateValue, // Destructured so as not to spread.
       selectedDateDefaultValue,
@@ -66,6 +67,7 @@ class XUIDateInput extends React.Component {
           nextButtonAriaLabel={nextButtonAriaLabel}
           onInputChange={onInputChange}
           onSelectDate={this.onSelectDate}
+          onValidationFailed={onValidationFailed}
           prevButtonAriaLabel={prevButtonAriaLabel}
           qaHook={qaHook && `${qaHook}-dateinput`}
           selectDateIcon={selectDateIcon}
@@ -96,10 +98,10 @@ XUIDateInput.propTypes = {
   displayedMonth: PropTypes.instanceOf(Date),
 
   /** Hint message to display below input */
-  hintMessage: PropTypes.string,
+  hintMessage: PropTypes.node,
 
   /** Input label */
-  inputLabel: PropTypes.string.isRequired,
+  inputLabel: PropTypes.node.isRequired,
 
   /** Whether the input is disabled */
   isDisabled: PropTypes.bool,
@@ -137,6 +139,9 @@ XUIDateInput.propTypes = {
 
   /** Callback for when the user selects a date */
   onSelectDate: PropTypes.func,
+
+  /** Callback for when the user selects an invalid date. Will not fire onSelectDate */
+  onValidationFailed: PropTypes.func,
 
   /** An accessibility label for the previous month button that will be used
    * by assistive technologies.

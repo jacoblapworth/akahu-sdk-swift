@@ -7,12 +7,14 @@ import { XUITableCell } from '../../../table';
 import XUIIcon from '../../icon/XUIIcon';
 import { tableName } from '../helpers/constants';
 import generateCellProps from '../helpers/generateCellProps';
+import queryIsValidInteraction from '../helpers/isQueryValidInteraction';
 import { RowData } from '../XUITable';
 
 interface Props<RD extends RowData> {
   activeSortKey?: string;
   generatedCellProps: ReturnType<typeof generateCellProps>;
   head: XUITableCell<RD>;
+  inlineAlignment?: 'start' | 'end';
   isSortAsc?: boolean;
   onSortChange?: (newKey: string) => void;
 }
@@ -21,8 +23,23 @@ class XUITableHeadingCell<RD extends RowData> extends React.PureComponent<Props<
   sortButtonContentRef = React.createRef<HTMLDivElement>();
 
   render() {
-    const { activeSortKey, generatedCellProps, head, isSortAsc, onSortChange } = this.props;
-    const handleInteraction = () => head.props.sortKey && onSortChange?.(head.props.sortKey);
+    const {
+      activeSortKey,
+      generatedCellProps,
+      head,
+      inlineAlignment,
+      isSortAsc,
+      onSortChange,
+    } = this.props;
+    const handleInteraction = (event: React.MouseEvent | React.KeyboardEvent) => {
+      const isValidInteraction = queryIsValidInteraction(event);
+
+      if (isValidInteraction) {
+        head.props.sortKey && onSortChange?.(head.props.sortKey);
+        event.preventDefault();
+      }
+    };
+
     const sortButtonClassName = `${tableName}--sortbutton`;
     const sortButtonContentClassName = `${tableName}--sortbuttoncontent`;
     const sortIconWrapperClassName = `${tableName}--sorticonwrapper`;
@@ -30,10 +47,10 @@ class XUITableHeadingCell<RD extends RowData> extends React.PureComponent<Props<
     const isRightAligned =
       (this.sortButtonContentRef.current &&
         window?.getComputedStyle(this.sortButtonContentRef.current).textAlign === 'right') ||
-      generatedCellProps?.inlineAlignment === 'end';
+      inlineAlignment === 'end';
 
     return (
-      <XUIEditableTableHeadingCell {...generatedCellProps}>
+      <XUIEditableTableHeadingCell {...generatedCellProps} inlineAlignment={inlineAlignment}>
         {head.props.sortKey ? (
           <div
             className={head.props.sortKey && sortButtonClassName}

@@ -13,7 +13,7 @@ interface Props {
   /**
    * Hint message to show under the input.
    */
-  hintMessage?: string;
+  hintMessage?: React.ReactNode;
   /**
    * Whether to use the field layout classes.
    *

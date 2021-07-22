@@ -87,7 +87,7 @@ LayoutSelect.propTypes = {
   className: PropTypes.string,
   htmlFor: PropTypes.string,
   isFieldLayout: PropTypes.bool,
-  label: PropTypes.string,
+  label: PropTypes.node,
   name: PropTypes.string,
   onSelect: PropTypes.func,
   title: PropTypes.string,

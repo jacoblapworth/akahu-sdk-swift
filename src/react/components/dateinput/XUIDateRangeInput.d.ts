@@ -8,10 +8,10 @@ interface DateInputConfig {
   displayedMonth?: Date;
 
   /** Hint message to display below input */
-  hintMessage?: string;
+  hintMessage?: React.ReactNode;
 
   /** Label for an input. */
-  inputLabel: string;
+  inputLabel: React.ReactNode;
 
   /** Whether the input is disabled */
   isDisabled?: boolean;
@@ -39,6 +39,9 @@ interface DateInputConfig {
   /** Callback for when the user selects a date */
   onSelectDate?: (day: Date) => void;
 
+  /** Callback for when the user selects an invalid date */
+  onValidationFailed?: (invalidDate: string) => string;
+
   selectedDateDefaultValue?: Date;
 
   /** Value of the date input. Must be a Date object */
@@ -53,10 +56,10 @@ interface DateInputConfig {
 
 interface GroupConfig {
   /** Label to display for the entire date range group. Recommended for accessibility purposes. */
-  groupLabel?: string;
+  groupLabel?: React.ReactNode;
 
   /** Hint message to display below range */
-  hintMessage?: string;
+  hintMessage?: React.ReactNode;
 
   /** Whether the group is disabled */
   isDisabled?: boolean;
@@ -68,7 +71,7 @@ interface GroupConfig {
   isInvalid?: boolean;
 
   /** Message to display below range when invalid */
-  validationMessage?: string;
+  validationMessage?: React.ReactNode;
 }
 
 interface Props {

@@ -75,6 +75,7 @@ import XUIButton from '@xero/xui/react/button';
 
 const builtActions = (
   <XUIActions
+    hasLayout={false}
     primaryAction={
       <XUIButton key="one" variant="primary" size="small">
         Create
@@ -100,6 +101,7 @@ import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 const builtActions = (
   <XUIActions
+    hasLayout={false}
     primaryAction={
       <XUIButton key="one" variant="primary" size="small">
         Create

@@ -398,10 +398,13 @@ class Demo extends React.Component {
     super(...args);
     this.state = {
       checkedIds: { abc123: true, def456: false, ghi789: true },
-      disabledIds: { ghi789: true }
+      disabledIds: { ghi789: true },
+      activeSortKey: 'color',
+      isSortAsc: true
     };
     this.handleCheckAllToggle = this.handleCheckAllToggle.bind(this);
     this.handleCheckOneToggle = this.handleCheckOneToggle.bind(this);
+    this.handleSortChange = this.handleSortChange.bind(this);
   }
 
   handleCheckAllToggle() {
@@ -437,7 +440,15 @@ class Demo extends React.Component {
     this.setState(() => ({ checkedIds: { ...checkedIds, [_id]: !isChecked } }));
   }
 
+  handleSortChange(newKey) {
+    const { activeSortKey: oldKey, isSortAsc: oldIsAsc } = this.state;
+    const newIsAsc = oldKey === newKey ? !oldIsAsc : true;
+    this.setState({ activeSortKey: newKey, isSortAsc: newIsAsc });
+  }
+
   render() {
+    const { activeSortKey, isSortAsc } = this.state;
+
     return (
       <Table
         data={data}
@@ -446,6 +457,9 @@ class Demo extends React.Component {
         disabledIds={this.state.disabledIds}
         onCheckAllToggle={this.handleCheckAllToggle}
         onCheckOneToggle={this.handleCheckOneToggle}
+        onSortChange={this.handleSortChange}
+        activeSortKey={activeSortKey}
+        isSortAsc={isSortAsc}
         loaderAriaLabel="Loading more data"
         emptyMessage="Nothing to show here"
         checkOneRowAriaLabel="Select row"
@@ -453,11 +467,20 @@ class Demo extends React.Component {
         overflowMenuTitle="More row options"
         caption="List of fruits with color, price per kg and checkboxes"
       >
-        <Column head={<Cell>Fruit</Cell>} body={({ fruit }) => <Cell>{fruit}</Cell>} />
+        <Column
+          head={<Cell sortKey="fruit">Fruit</Cell>}
+          body={({ fruit }) => <Cell>{fruit}</Cell>}
+        />
 
-        <Column head={<Cell>Color</Cell>} body={({ color }) => <Cell>{color}</Cell>} />
+        <Column
+          head={<Cell sortKey="color">Color</Cell>}
+          body={({ color }) => <Cell>{color}</Cell>}
+        />
 
-        <Column head={<Cell>Price / kg</Cell>} body={({ price }) => <Cell>{`$${price}`}</Cell>} />
+        <Column
+          head={<Cell sortKey="price">Price / kg</Cell>}
+          body={({ price }) => <Cell>{`$${price}`}</Cell>}
+        />
       </Table>
     );
   }
@@ -1100,7 +1123,11 @@ type of your `customSort` function. The key to getting this type to work correct
 generic to ensure the input and output data are the same shape.
 
 ```ts harmony static
-function customSort<Items extends Array<Record<string, unknown>>>(
+import ValueType from '@xero/xui/react/helpers/ValueType';
+
+const data = { abc123: { fruit: 'apple' }, def456: { fruit: 'banana' } };
+
+function customSort<Items extends Array<ValueType<typeof data>>>(
   items: Items,
   isAscending?: boolean,
   activeSortKey?: string

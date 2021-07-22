@@ -91,6 +91,7 @@ class XUIDateRangeInput extends Component {
       maxDate: startMaxDate,
       minDate: startMinDate,
       onInputChange: onStartInputChange,
+      onValidationFailed: onStartValidationFailed,
       selectedDateValue: selectedStateDateValue,
       selectedDateDefaultValue: selectedStartDateDefaultValue,
       triggerClassName: startTriggerClassName,
@@ -107,6 +108,7 @@ class XUIDateRangeInput extends Component {
       maxDate: endMaxDate,
       minDate: endMinDate,
       onInputChange: onEndInputChange,
+      onValidationFailed: onEndValidationFailed,
       selectedDateValue: selectedEndDateValue,
       selectedDateDefaultValue: selectedEndDateDefaultValue,
       triggerClassName: endTriggerClassName,
@@ -189,6 +191,7 @@ class XUIDateRangeInput extends Component {
           nextButtonAriaLabel={nextButtonAriaLabel}
           onInputChange={onStartInputChange}
           onSelectDate={this.onSelectStartDate}
+          onValidationFailed={onStartValidationFailed}
           prevButtonAriaLabel={prevButtonAriaLabel}
           preventFocusOnSelect
           qaHook={qaHook && `${qaHook}-daterangeinput-firstinput`}
@@ -221,6 +224,7 @@ class XUIDateRangeInput extends Component {
           nextButtonAriaLabel={nextButtonAriaLabel}
           onInputChange={onEndInputChange}
           onSelectDate={this.onSelectEndDate}
+          onValidationFailed={onEndValidationFailed}
           prevButtonAriaLabel={prevButtonAriaLabel}
           qaHook={qaHook && `${qaHook}-daterangeinput-secondinput`}
           ref={this.endDateComponentRef}
@@ -272,13 +276,13 @@ XUIDateRangeInput.propTypes = {
     displayedMonth: PropTypes.instanceOf(Date),
 
     /** Hint message to display below input */
-    hintMessage: PropTypes.string,
+    hintMessage: PropTypes.node,
 
     /** Label for the second input.
      *
      * Recommended English value: *End date*
      */
-    inputLabel: PropTypes.string.isRequired,
+    inputLabel: PropTypes.node.isRequired,
 
     /** Whether the input is disabled */
     isDisabled: PropTypes.bool,
@@ -313,6 +317,11 @@ XUIDateRangeInput.propTypes = {
      */
     onSelectDate: PropTypes.func,
 
+    /**
+     * Callback for when the user selects an invalid date. Will not fire onSelectDate
+     */
+    onValidationFailed: PropTypes.func,
+
     selectedDateDefaultValue: PropTypes.instanceOf(Date),
 
     /** Value of the date input. Must be a Date object */
@@ -322,14 +331,14 @@ XUIDateRangeInput.propTypes = {
     triggerClassName: PropTypes.string,
 
     /** Message to display below input when invalid date inputted */
-    validationMessage: PropTypes.string,
+    validationMessage: PropTypes.node,
   }),
   groupConfig: PropTypes.shape({
     /** Label to display for the entire date range group. Recommended for accessibility purposes. */
-    groupLabel: PropTypes.string,
+    groupLabel: PropTypes.node,
 
     /** Hint message to display below range */
-    hintMessage: PropTypes.string,
+    hintMessage: PropTypes.node,
 
     /** Whether the group is disabled */
     isDisabled: PropTypes.bool,
@@ -374,13 +383,13 @@ XUIDateRangeInput.propTypes = {
     displayedMonth: PropTypes.instanceOf(Date),
 
     /** Hint message to display below input */
-    hintMessage: PropTypes.string,
+    hintMessage: PropTypes.node,
 
     /** Label for the first input.
      *
      * Recommended English value: *Start date*
      */
-    inputLabel: PropTypes.string.isRequired,
+    inputLabel: PropTypes.node.isRequired,
 
     /** Whether the input is disabled */
     isDisabled: PropTypes.bool,
@@ -414,6 +423,11 @@ XUIDateRangeInput.propTypes = {
      * already been selected.
      */
     onSelectDate: PropTypes.func,
+
+    /**
+     * Callback for when the user selects an invalid date. Will not fire onSelectDate
+     */
+    onValidationFailed: PropTypes.func,
 
     selectedDateDefaultValue: PropTypes.instanceOf(Date),
 

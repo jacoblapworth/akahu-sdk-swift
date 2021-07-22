@@ -319,9 +319,15 @@
       border-color: $xui-checkboxradio-checked-active-bg-color;
     }
   }
-  &:checked:not(:disabled) + .#{$ns}-styledcheckboxradio--checkbox:after {
-    animation: #{$ns}-tick-checkbox $xui-motion-speed-medium $xui-motion-curve-standard both;
-    opacity: 1;
+
+  &:checked:not(:disabled) + .#{$ns}-styledcheckboxradio--checkbox {
+    &:after {
+      animation: #{$ns}-tick-checkbox $xui-motion-speed-medium $xui-motion-curve-standard both;
+      opacity: 1;
+    }
+    &.#{$ns}-styledcheckboxradio--checkbox-is-animationdone:after {
+      animation: none;
+    }
   }
   &:indeterminate:not(:disabled) + .#{$ns}-styledcheckboxradio--checkbox:before {
     animation: #{$ns}-indeterminate-checkbox $xui-motion-speed-medium $xui-motion-curve-standard both;

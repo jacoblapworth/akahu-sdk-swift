@@ -1,6 +1,5 @@
 import overflowIcon from '@xero/xui-icon/icons/overflow';
 import cn from 'classnames';
-import { nanoid } from 'nanoid';
 import * as React from 'react';
 
 import { XUIIconButton } from '../../../button';
@@ -123,7 +122,6 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
               <XUIEditableTableCellReadOnly
                 cellProps={generateCellProps(
                   cell,
-                  column,
                   columnIndex,
                   columns,
                   isCellClickable,
@@ -133,7 +131,9 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
                   hasOverflowMenu,
                   this.state.hasCellPrecedence,
                 )}
-                key={nanoid()}
+                inlineAlignment={column.props.inlineAlignment}
+                // eslint-disable-next-line react/no-array-index-key
+                key={`cell_${columnIndex}`}
                 onPointerOut={() => isCellClickable && this.removeCellPrecedence()}
                 onPointerOver={() => isCellClickable && this.addCellPrecedence()}
                 qaHook={cell.props.qaHook && `${cell.props.qaHook}-cell`}

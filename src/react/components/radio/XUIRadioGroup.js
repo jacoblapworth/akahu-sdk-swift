@@ -68,7 +68,7 @@ XUIRadioGroup.propTypes = {
   /** Class names to be added to the field wrapper element */
   fieldClassName: PropTypes.string,
   /** Hint message to show under the input */
-  hintMessage: PropTypes.string,
+  hintMessage: PropTypes.node,
   /** Whether to use the field layout classes. Defaults to true. */
   isFieldLayout: PropTypes.bool,
   /** Whether the current input value is invalid */

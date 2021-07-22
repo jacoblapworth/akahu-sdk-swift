@@ -191,7 +191,13 @@ const renderTableTokens = (tokens, tokenType) => {
 		let example;
 		switch(tokenType) {
 			case types.fontSize:
-				example = `<span class="xui-text-truncated" style="font-size:${value};">Aa</span>`;
+				let fontSizeClassName;
+				['$xui-font-size', '$xui-line-height'].forEach(prefix => {
+					if (name.includes(prefix)) {
+						fontSizeClassName = name.replace(prefix, 'ds-fontsize');
+					}
+				});
+				example = `<span class="xui-text-truncated ${fontSizeClassName}">Aa</span>`;
 				break;
 			case types.fontWeight:
 				example = `<span style="font-weight:${value};">Aa</span>`;

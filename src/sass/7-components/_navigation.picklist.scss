@@ -112,6 +112,7 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
     display: flex;
   }
   .#{$ns}-pickitem-multiline & {
+    display: flex;
     flex-wrap: wrap;
   }
   .#{$ns}-pickitem-text-truncated {

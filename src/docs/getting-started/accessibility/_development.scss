@@ -86,6 +86,7 @@
 // * Provide enough time for users to interact with content. Avoid time limits, unless absolutely necessary, and allow users to pause/play content that automatically moves or updates ([2.2](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html))
 // * Animations shouldn't last more than 5 seconds unless they're part of an activity where it is essential, like a progress bar ([2.2.2](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html))
 // * Nothing on the page should flash more than 3 times per second ([2.3.1](https://www.wuhcag.com/three-flashes-or-below/))
+// * Allow users to disable non-essential motion animations if they have requested it, see our <a href="section-fundamentals-motion.html#fundamentals-motion-1">Motion Fundamentals</a> page. ([2.3.3 - AAA](https://www.w3.org/WAI/standards-guidelines/wcag/new-in-21/#233-animation-from-interactions-aaa))
 //
 // Styleguide: Getting Started.Accessibility.Development.5
 

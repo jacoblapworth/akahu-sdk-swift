@@ -250,6 +250,8 @@ $xui-datepicker-day-size: $xui-control-size-standard;
 
 .#{$ns}-datepicker--day-is-selected {
   &:not(.#{$ns}-datepicker--day-is-selected-middle) {
+    // prefers-reduced-motion can be ignored here because this instance is not a motion animation
+    // stylelint-disable-next-line a11y/media-prefers-reduced-motion
     .#{$ns}-datepicker--day--time {
       background: $xui-datepicker-selected-bg-color;
       box-shadow: 0 0 0 0 $xui-datepicker-selected-shadow-color;

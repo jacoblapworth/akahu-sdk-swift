@@ -6,6 +6,13 @@
 //
 // Styleguide: Fundamentals.Motion
 
+// Accessibility
+//
+// Some users experience distraction or nausea from animated content.
+// Therefore, all [motion animation](https://www.w3.org/TR/WCAG21/#dfn-motion-animation) should use the [`prefers-reduced-motion` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) to detect if the user has requested that non-essential motion is minimised.
+//
+// Styleguide: Fundamentals.Motion.1
+
 // Common transitions
 //
 // For most use cases, one of the following transition classes will suffice.
@@ -19,14 +26,14 @@
 // Scale up: Increase size and animate opacity in:`.xui-transition-scaleup`
 // Scale down: Decrease size and animate opacity out: `.xui-transition-scaledown`
 //
-// Styleguide: Fundamentals.Motion.1
+// Styleguide: Fundamentals.Motion.2
 
 // Custom transitions
 //
 // Alternatively, you can also use a combination of the following `.xui-transition-*-*` classes for more granular control of transition properties while still retaining the recommended XUI values.
 // These are also available as `$xui-motion-*-*` variables for use in keyframes.
 //
-// Styleguide: Fundamentals.Motion.2
+// Styleguide: Fundamentals.Motion.3
 
 // Duration
 //
@@ -36,7 +43,7 @@
 // Slow:0.5s:`-speed-slow`
 // Xslow:1s:`-speed-xslow`
 //
-// Styleguide: Fundamentals.Motion.2.1
+// Styleguide: Fundamentals.Motion.3.1
 
 // Easing curves
 //
@@ -45,7 +52,7 @@
 // Standard: Ease in and out: `-curve-standard`
 // Exit: Ease out:`-curve-exit`
 //
-// Styleguide: Fundamentals.Motion.2.2
+// Styleguide: Fundamentals.Motion.3.2
 
 // Delay
 //
@@ -54,4 +61,4 @@
 // Medium: 0.3s: `-delay-medium`
 // Long: 0.5s: `-delay-long`
 //
-// Styleguide: Fundamentals.Motion.2.3
+// Styleguide: Fundamentals.Motion.3.3

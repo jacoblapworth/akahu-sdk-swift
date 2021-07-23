@@ -26,6 +26,8 @@ $xui-switch-label-padding: $xui-s-xsmall;
   cursor: not-allowed;
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-switch--control {
   background-color: $xui-switch-bg-color;
   cursor: pointer;
@@ -48,7 +50,9 @@ $xui-switch-label-padding: $xui-s-xsmall;
     content: ' ';
     display: inline-block;
     position: absolute;
-    transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+    @include xui-motion-animation(false, transition) {
+      transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+    }
   }
   .#{$ns}-switch-is-disabled & {
     background: $xui-switch-disabled-bg-color;

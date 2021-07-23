@@ -108,6 +108,8 @@
 }
 
 // Label styles
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-toggle--label {
   align-items: center;
   border: $xui-border-control;

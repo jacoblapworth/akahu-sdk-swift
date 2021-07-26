@@ -28,7 +28,7 @@ class Welcome extends Component {
 
     return (
       <div className="xui-page-width-standard">
-        <div className="xui-row xui-row-grid">
+        <div className="xui-row-grid">
           <div className="xui-panel xui-padding xui-margin-vertical xui-column-12-of-12">
             <h1 className="xui-heading-large">About Storybook for XUI</h1>
             <p>

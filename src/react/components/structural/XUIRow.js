@@ -26,7 +26,7 @@ XUIRow.propTypes = {
 };
 
 XUIRow.defaultProps = {
-  variant: 'standard',
+  variant: 'flex',
 };
 
 export { XUIRow as default };

@@ -36,4 +36,21 @@ module.exports = {
   //     newImportPath: 'selectbox',
   //   },
   // ],
+  structural: [
+    {
+      name: 'XUIRow',
+      props: [
+        {
+          name: 'variant',
+          valueTransform: stringReplace(
+            {
+              // prettier-ignore
+              'standard': 'float',
+            },
+            'float',
+          ),
+        },
+      ],
+    },
+  ],
 };

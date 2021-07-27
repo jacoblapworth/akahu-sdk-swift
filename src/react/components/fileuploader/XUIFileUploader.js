@@ -270,7 +270,7 @@ XUIFileUploader.propTypes = {
   /**
    * Hint message to show under the input
    */
-  hintMessage: PropTypes.string,
+  hintMessage: PropTypes.node,
   /**
    * Whether the fileUploader is disabled
    */
@@ -353,5 +353,5 @@ XUIFileUploader.propTypes = {
   /**
    * Validation message to show under the input if `isInvalid` is true
    */
-  validationMessage: PropTypes.string,
+  validationMessage: PropTypes.node,
 };

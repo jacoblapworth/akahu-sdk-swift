@@ -153,7 +153,7 @@ You can achieve this by supplying the `uploadProgressPercentage` value a percent
 },
 ```
 
-**Note:** Currently, the native `fetch` method does not support tracking the progress of the upload. You can achieve this via Axios or XHR, examples of each can be found [here](https://confluence.teamxero.com/display/~alexander.lee/Upload+Progress+in+XUIFileUploader).
+**Note:** Currently, the native `fetch` method does not support tracking the progress of the upload. You can achieve this via Axios or XHR, examples of each can be found [here](https://xero.atlassian.net/l/c/uWa7NXTc).
 
 ## Drag and Drop
 

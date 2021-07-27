@@ -70,6 +70,30 @@ describe('XUIDateInput', () => {
     expect(onSelectDate).toHaveBeenCalled();
   });
 
+  it('triggers validation callback on invalid dates', () => {
+    const onSelectDate = jest.fn();
+    const onValidationFailed = jest.fn();
+
+    const newSelectedDate = new Date(Date.UTC(2020, 11, 18));
+    const wrapper = mount(
+      <XUIDateInput
+        displayedMonth={newSelectedDate}
+        inputLabel="Date"
+        locale="en-NZ"
+        nextButtonAriaLabel="Next month"
+        onSelectDate={onSelectDate}
+        onValidationFailed={onValidationFailed}
+        prevButtonAriaLabel="Previous month"
+        selectedDateValue={newSelectedDate}
+      />,
+    );
+
+    wrapper.find('input').simulate('change', { target: { value: 'not a valid date!' } });
+    wrapper.find('input').simulate('blur');
+
+    expect(onValidationFailed).toHaveBeenCalledWith('not a valid date!');
+  });
+
   it('uses suggested dates', () => {
     const wrapper = mount(
       createComponent({

@@ -15,10 +15,10 @@ interface Props {
   displayedMonth?: Date;
 
   /** Hint message to display below input */
-  hintMessage?: string;
+  hintMessage?: React.ReactNode;
 
   /** Input label */
-  inputLabel: string;
+  inputLabel: React.ReactNode;
 
   /** Whether the input is disabled */
   isDisabled?: boolean;
@@ -53,6 +53,9 @@ interface Props {
 
   /** Callback for when the user selects a date */
   onSelectDate?: (day: Date) => void;
+
+  /** Callback for when the user selects an invalid date */
+  onValidationFailed?: (invalidDate: string) => string;
 
   /**
    * An accessibility label for the previous month button that will be used

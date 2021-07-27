@@ -24,6 +24,7 @@ exports[`<PickitemMultiselect /> basic example 1`] = `
       />
       <div
         className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
+        onAnimationEnd={[Function]}
       >
         <div
           className="xui-touchtarget"
@@ -68,6 +69,7 @@ exports[`<PickitemMultiselect /> is selected, adds truncation and custom classes
       />
       <div
         className="xui-styledcheckboxradio--checkbox xui-pickitem--input xui-styledcheckboxradio--checkbox-small"
+        onAnimationEnd={[Function]}
       >
         <div
           className="xui-touchtarget"

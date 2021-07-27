@@ -259,10 +259,77 @@ describe('XUITable', () => {
           />,
         );
 
+        // Act
         userEvent.click(screen.getByText('Color'));
 
         // Assert
         expect(mockOnSortChange).toBeCalledWith('color');
+      });
+
+      test('pressing enter on a heading cell calls onSortChange', () => {
+        // Arrange
+        const mockOnSortChange = jest.fn();
+        render(
+          <XUITableWithData
+            customHeadProps={[
+              <XUITableCell sortKey="fruit">Fruit</XUITableCell>,
+              <XUITableCell sortKey="color">Color</XUITableCell>,
+              <XUITableCell sortKey="price">Price / kg</XUITableCell>,
+            ]}
+            isSortAsc
+            onSortChange={mockOnSortChange}
+          />,
+        );
+
+        // Act
+        fireEvent.keyDown(screen.getByText('Color'), { key: 'Enter', code: 13 });
+
+        // Assert
+        expect(mockOnSortChange).toBeCalledWith('color');
+      });
+
+      test('pressing space on a heading cell calls onSortChange', () => {
+        // Arrange
+        const mockOnSortChange = jest.fn();
+        render(
+          <XUITableWithData
+            customHeadProps={[
+              <XUITableCell sortKey="fruit">Fruit</XUITableCell>,
+              <XUITableCell sortKey="color">Color</XUITableCell>,
+              <XUITableCell sortKey="price">Price / kg</XUITableCell>,
+            ]}
+            isSortAsc
+            onSortChange={mockOnSortChange}
+          />,
+        );
+
+        // Act
+        fireEvent.keyDown(screen.getByText('Color'), { key: ' ', code: 32 });
+
+        // Assert
+        expect(mockOnSortChange).toBeCalledWith('color');
+      });
+
+      test('pressing tab on a heading cell does not call onSortChange', () => {
+        // Arrange
+        const mockOnSortChange = jest.fn();
+        render(
+          <XUITableWithData
+            customHeadProps={[
+              <XUITableCell sortKey="fruit">Fruit</XUITableCell>,
+              <XUITableCell sortKey="color">Color</XUITableCell>,
+              <XUITableCell sortKey="price">Price / kg</XUITableCell>,
+            ]}
+            isSortAsc
+            onSortChange={mockOnSortChange}
+          />,
+        );
+
+        // Act
+        fireEvent.keyDown(screen.getByText('Color'), { key: 'Tab', code: 9 });
+
+        // Assert
+        expect(mockOnSortChange).toBeCalledTimes(0);
       });
     });
 

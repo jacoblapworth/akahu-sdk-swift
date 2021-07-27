@@ -203,6 +203,8 @@ $stepper-spacing: $xui-s-2xlarge;
   }
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-stepper-link,
 .#{$ns}-stepper-link-icon,
 .#{$ns}-stepper-link-icon:before,

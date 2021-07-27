@@ -53,6 +53,8 @@
   width: 100%;
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-tooltip--tip {
   @include xui-text-small;
   background-color: $xui-tooltip-bg-color;
@@ -81,6 +83,8 @@
     box-sizing: border-box;
   }
 
+  // prefers-reduced-motion can be ignored here because this instance is not a motion animation
+  // stylelint-disable-next-line a11y/media-prefers-reduced-motion
   &.#{$ns}-tooltip--tip-open {
     opacity: 1;
     pointer-events: auto;

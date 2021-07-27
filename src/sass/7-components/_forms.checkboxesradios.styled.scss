@@ -138,6 +138,8 @@
   }
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-styledcheckboxradio--focus,
 .#{$ns}-styledcheckboxradio--main,
 .#{$ns}-styledcheckboxradio--check,
@@ -347,15 +349,20 @@
 
   &:checked:not(:disabled) + .#{$ns}-styledcheckboxradio--checkbox {
     &:after {
-      animation: #{$ns}-tick-checkbox $xui-motion-speed-medium $xui-motion-curve-standard both;
+      @include xui-motion-animation(false, animation) {
+        animation: #{$ns}-tick-checkbox $xui-motion-speed-medium $xui-motion-curve-standard both;
+      }
       opacity: 1;
     }
     &.#{$ns}-styledcheckboxradio--checkbox-is-animationdone:after {
       animation: none;
     }
   }
+
   &:indeterminate:not(:disabled) + .#{$ns}-styledcheckboxradio--checkbox:before {
-    animation: #{$ns}-indeterminate-checkbox $xui-motion-speed-medium $xui-motion-curve-standard both;
+    @include xui-motion-animation(false, animation) {
+      animation: #{$ns}-indeterminate-checkbox $xui-motion-speed-medium $xui-motion-curve-standard both;
+    }
     opacity: 1;
   }
 
@@ -401,6 +408,8 @@
   }
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-styledcheckboxradio--checkbox {
   border-radius: $xui-radius;
   transition: background-color $xui-motion-speed-fast $xui-motion-curve-standard;
@@ -459,6 +468,8 @@
   }
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-styledcheckboxradio--radio {
   border-radius: $xui-radius-circle;
   display: flex;
@@ -475,7 +486,9 @@
     box-sizing: border-box;
     content: '';
     height: 100%;
-    transition: all $xui-motion-speed-medium cubic-bezier(0.25, 1, 0.5, 1.2);
+    @include xui-motion-animation(false, transition) {
+      transition: all $xui-motion-speed-medium cubic-bezier(0.25, 1, 0.5, 1.2);
+    }
     width: 100%;
   }
 }

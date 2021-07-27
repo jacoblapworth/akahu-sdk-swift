@@ -24,7 +24,7 @@
 // Tips:
 // Do: Use a date input to provide an easy way for users to type in and select dates. Alternatively, use a button to trigger a [datepicker](./section-components-collectinginput-datepicker.html) in a [dropdown](./section-components-collectinginput-dropdowns.html) for when users don’t need to type.
 // Do: Use succinct labels that clearly indicate the type of date (eg. "Issue date" or "Due date").
-// Do: Ensure date formatting matches the user’s locale (see [time and date formatting guidelines](//xui.xero.com/product-language-guide/components/our-language-style/index.html#time-and-date)).
+// Do: Ensure date formatting matches the user’s locale (see [time and date formatting guidelines](//xui.xero.com/product-language-guide/components/writing-style/#dates)).
 // Do: <span>Use locale specific shortcuts from the [Xero date-shortcuts library](//github.dev.xero.com/XeroJS/date-shortcuts) to enable appropriate shortcuts in different regions.</span>
 // Warning: Only pre-fill date input values when you’re confident it will speed up the user’s workflow.
 //
@@ -164,7 +164,7 @@
 //
 // Tips:
 // Do: Use sentence case for date input labels, values, hint and validation messages (capitalise the first word in a sentence in addition to proper nouns)
-// Do: Follow [time and date formatting guidelines](//xui.xero.com/product-language-guide/components/our-language-style/index.html#time-and-date) to format dates correctly
+// Do: Follow [time and date formatting guidelines](//xui.xero.com/product-language-guide/components/writing-style/#dates) to format dates correctly
 //
 // Styleguide: Components.CollectingInput.DateInput.10
 
@@ -189,7 +189,7 @@
 // * [Datepicker](./section-components-collectinginput-datepicker.html)
 // * [Dropdown](./section-components-collectinginput-dropdowns.html)
 // * [Text input](./section-components-controls-textinput.html)
-// * [Time and date formatting](https://xui.xero.com/product-language-guide/components/our-language-style/index.html#time-and-date")
+// * [Time and date formatting](//xui.xero.com/product-language-guide/components/writing-style/#dates)
 // * [Xero date-shortcuts library](https://github.dev.xero.com/XeroJS/date-shortcuts)
 //
 // Styleguide: Components.CollectingInput.DateInput.99

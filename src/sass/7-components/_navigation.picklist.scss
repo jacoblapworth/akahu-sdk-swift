@@ -202,7 +202,9 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
 .#{$ns}-submenu {
   @include xui-listreset;
   flex: none;
-  transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+  @include xui-motion-animation(false, transition) {
+    transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+  }
 
   .#{$ns}-pickitem-multiselect--checkbox {
     padding-left: $xui-s-xsmall;
@@ -260,7 +262,9 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
 .#{$ns}-submenu-uicontrol--icon {
   align-self: center;
   color: $xui-submenu-uicontrol-icon-color;
-  transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+  @include xui-motion-animation(false, transition) {
+    transition: all $xui-motion-speed-fast $xui-motion-curve-standard;
+  }
 }
 
 .#{$ns}-pickitem--submenucontrol {

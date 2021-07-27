@@ -3,6 +3,8 @@
 
 $toast-max-width: 400px;
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-toast {
   @include xui-clearfix;
   background: $xui-toast-bg-color;

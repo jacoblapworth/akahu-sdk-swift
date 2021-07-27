@@ -1,7 +1,8 @@
 module.exports = {
-  plugins: ['stylelint-order'],
+  plugins: ['stylelint-order', 'stylelint-a11y'],
   ignoreFiles: [['src/sass/_conflicts.scss', 'src/sass/tmp/*']],
   rules: {
+    'a11y/media-prefers-reduced-motion': true,
     // indentation: 2, // TODO: Enable this once the repo is Prettier
     'max-line-length': 305,
     'max-nesting-depth': 3,

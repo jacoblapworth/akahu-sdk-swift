@@ -13,6 +13,8 @@
     type="search"
     placeholder="Search contacts"
     aria-label="Search contacts"
+    onfocus="this.parentElement.classList.toggle('xui-textinput-focus')"
+    onblur="this.parentElement.classList.toggle('xui-textinput-focus')"
   />
   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
     <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">

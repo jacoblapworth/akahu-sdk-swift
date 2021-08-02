@@ -1,6 +1,6 @@
 {
   "name": "@xero/xui",
-  "version": "18.2.0",
+  "version": "18.3.0",
   "description": "Shared styles for Xero applications",
   "private": true,
   "repository": {
@@ -179,6 +179,7 @@
     "snapshot-diff": "0.8.1",
     "style-loader": "1.2.1",
     "stylelint": "13.13.0",
+    "stylelint-a11y": "1.2.3",
     "stylelint-order": "4.1.0",
     "tiny-lr": "2.0.0",
     "tinycolor2": "1.4.2",

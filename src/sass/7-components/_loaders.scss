@@ -34,14 +34,28 @@
   $dot-size-medium: ($xui-s-small + 2);
   $dot-margin-small: 2px;
   $dot-margin-medium: 3px;
-  $animation-time: 1.3s;
-  $animation-delay: -0.16s;
+  @include xui-motion-animation(true) {
+    $animation-time: 1.3s;
+    $animation-delay: -0.16s;
 
-  // easeInOutSine
-  $animation-easing: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    // easeInOutSine
+    $animation-easing: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
-  animation: #{$ns}-loader-animation $animation-time infinite $animation-easing;
-  animation-fill-mode: both;
+    animation: #{$ns}-loader-animation $animation-time infinite $animation-easing;
+    animation-fill-mode: both;
+
+    &:nth-child(1) {
+      animation-delay: $animation-delay * 2;
+    }
+
+    &:nth-child(2) {
+      animation-delay: $animation-delay * 1;
+    }
+
+    &:nth-child(3) {
+      animation-delay: $animation-delay * 0;
+    }
+  }
   background-color: currentColor;
   border-radius: $xui-radius-circle;
   // Gives a fake AA effect to the dot during animation
@@ -50,18 +64,6 @@
   display: inline-block;
   transform-style: preserve-3d; // Firefox jank fix
   vertical-align: middle;
-
-  &:nth-child(1) {
-    animation-delay: $animation-delay * 2;
-  }
-
-  &:nth-child(2) {
-    animation-delay: $animation-delay * 1;
-  }
-
-  &:nth-child(3) {
-    animation-delay: $animation-delay * 0;
-  }
 
   .#{$ns}-loader-medium & {
     height: $dot-size-medium;

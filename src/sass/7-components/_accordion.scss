@@ -17,16 +17,11 @@ $xui-accordion-pop-width: $xui-s-xsmall;
   box-shadow: $xui-shadow-border-all;
   outline: 0;
   position: relative;
-  transition-duration: $xui-motion-speed-fast;
-  transition-property: width, margin, padding;
   width: 100%;
-  // There is an issue with the expand animation on IE where the fast content
-  // expand toggle animation is suboptimal. Because the animation is a very subtle
-  // enhancement it was decided to remove the effect for the offending browsers.
-  // The `-ms` declaration needs to come after the other transition references and
-  // therefore needs to ignore the alphabetical linting rule.
-  // stylelint-disable-next-line order/properties-alphabetical-order
-  -ms-transition: none;
+  @include xui-motion-animation(false, transition) {
+    transition-duration: $xui-motion-speed-fast;
+    transition-property: width, margin, padding;
+  }
 
   @include xui-breakpoint-medium-up {
     &:first-child {
@@ -45,6 +40,8 @@ $xui-accordion-pop-width: $xui-s-xsmall;
   opacity: 0;
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-accordionwrapper--content-is-open {
   border-top: $xui-border-muted;
   opacity: 1;

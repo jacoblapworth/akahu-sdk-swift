@@ -77,6 +77,8 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
   stroke: $xui-progress-error-color;
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-progress-circular-current {
   transition: {
     duration: $xui-motion-speed-medium;
@@ -136,6 +138,8 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
   background: $xui-progress-error-color;
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-progress-linear-current {
   will-change: width;
   transition: {
@@ -202,6 +206,8 @@ $xui-progress-linear-min-height: $xui-s-2xsmall;
   background: $xui-progress-error-color;
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-progress-icon {
   align-items: center;
   border-radius: $xui-radius-circle;

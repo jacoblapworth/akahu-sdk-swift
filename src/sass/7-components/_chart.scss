@@ -1,6 +1,8 @@
 @import '../vars';
 @import '../mixins';
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-chart--position,
 .#{$ns}-chart--base {
   position: relative;
@@ -40,6 +42,8 @@
   position: absolute;
   z-index: $xui-z-index-body;
 
+  // prefers-reduced-motion can be ignored here because this instance is not a motion animation
+  // stylelint-disable-next-line a11y/media-prefers-reduced-motion
   &:before,
   &:after {
     content: '';
@@ -114,7 +118,9 @@
 }
 
 .#{$ns}-chart-has-pagination .#{$ns}-chart--scroll {
-  transition: $xui-motion-speed-medium;
+  @include xui-motion-animation(false, transition) {
+    transition: $xui-motion-speed-medium;
+  }
 }
 
 .#{$ns}-chart-is-loading {

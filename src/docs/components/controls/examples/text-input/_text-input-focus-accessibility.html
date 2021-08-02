@@ -1,0 +1,21 @@
+<div class="xui-textinput xui-textinput-medium xui-margin">
+  <input
+    class="xui-textinput--input xui-padding-right-none"
+    id="focusableinput"
+    type="text"
+    placeholder="Add something to submit"
+    aria-label="Add something to submit"
+    onfocus="this.parentElement.classList.toggle('xui-textinput-focus')"
+    onblur="this.parentElement.classList.toggle('xui-textinput-focus')"
+  />
+  <div class="xui-textinput--sideelement xui-textinput--sideelement-button">
+    <button
+      type="button"
+      class="xui-button xui-button-main xui-button-small"
+      title="Submit"
+      aria-label="Submit"
+    >
+      Submit
+    </button>
+  </div>
+</div>

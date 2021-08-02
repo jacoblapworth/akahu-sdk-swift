@@ -1,10 +1,14 @@
 <!-- Solid + Inverted + Borderless -->
-<div>
+<div
+  class="xui-textinput xui-textinput-medium xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-inverted"
+>
   <input
-    class="xui-textinput xui-textinput--input xui-textinput-borderless xui-textinput-borderless-solid xui-textinput-borderless-inverted"
+    class="xui-textinput--input xui-textinput--input-medium"
     type="text"
     placeholder="Email address"
     aria-label="Email address"
+    onfocus="this.parentElement.classList.toggle('xui-textinput-focus')"
+    onblur="this.parentElement.classList.toggle('xui-textinput-focus')"
   />
 </div>
 <!-- Transparent + Inverted with icons-->
@@ -23,5 +27,7 @@
     type="search"
     placeholder="Search sales & purchases"
     aria-label="Search sales & purchases"
+    onfocus="this.parentElement.classList.toggle('xui-textinput-focus')"
+    onblur="this.parentElement.classList.toggle('xui-textinput-focus')"
   />
 </div>

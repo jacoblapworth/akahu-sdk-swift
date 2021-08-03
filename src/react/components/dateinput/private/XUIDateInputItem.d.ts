@@ -60,6 +60,9 @@ interface Props {
   /** Callback for when the user selects a date */
   onSelectDate?: (day: Date) => void;
 
+  /** Callback for when the user selects an invalid date */
+  onValidationFailed?: (invalidDate: string) => string;
+
   /**
    * An accessibility label for the previous month button that will be used
    * by assistive technologies.

@@ -171,7 +171,7 @@ class XUIDateInputItem extends Component {
   setDate = () => {
     if (!this.state.inputValue) return;
 
-    const { isDueDate, minDate, maxDate } = this.props;
+    const { isDueDate, minDate, maxDate, onValidationFailed } = this.props;
     const base = new Date();
     const now = new Date();
     const dateFormat = DateFormat.DMY;
@@ -182,9 +182,11 @@ class XUIDateInputItem extends Component {
     if (parsedDate && !isDayOutsideRange(parsedDate, minDate, maxDate)) {
       this.onSelectDate(parsedDate, true);
     } else {
-      this.setState({
-        isDateInvalid: true,
-      });
+      onValidationFailed
+        ? onValidationFailed(this.state.inputValue)
+        : this.setState({
+            isDateInvalid: true,
+          });
     }
   };
 
@@ -249,6 +251,7 @@ class XUIDateInputItem extends Component {
       nextButtonAriaLabel,
       onInputChange, // Destructured so as not to spread.
       onSelectDate, // Destructured so as not to spread.
+      onValidationFailed, // Destructured so as not to spread.
       prevButtonAriaLabel,
       preventFocusOnSelect,
       selectedDate,
@@ -454,6 +457,9 @@ XUIDateInputItem.propTypes = {
    * already been selected.
    */
   onSelectDate: PropTypes.func,
+
+  /** Callback for when the user selects an invalid date. Will not fire onSelectDate */
+  onValidationFailed: PropTypes.func,
 
   /** An accessibility label for the previous month button that will be used
    * by assistive technologies.

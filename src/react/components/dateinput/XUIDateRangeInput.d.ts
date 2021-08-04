@@ -39,6 +39,9 @@ interface DateInputConfig {
   /** Callback for when the user selects a date */
   onSelectDate?: (day: Date) => void;
 
+  /** Callback for when the user selects an invalid date */
+  onValidationFailed?: (invalidDate: string) => string;
+
   selectedDateDefaultValue?: Date;
 
   /** Value of the date input. Must be a Date object */

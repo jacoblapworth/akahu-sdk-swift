@@ -78,10 +78,12 @@
 .#{$ns}-fileuploader--fileitem--loading-indeterminate {
   // This should be moved to progress circular when adding the prop for loading spin.
   .#{$ns}-progress-circular-wrapper {
-    animation-duration: $xui-motion-speed-xslow;
-    animation-iteration-count: infinite;
-    animation-name: #{$ns}-loading-animation;
-    animation-timing-function: linear;
+    @include xui-motion-animation(true) {
+      animation-duration: $xui-motion-speed-xslow;
+      animation-iteration-count: infinite;
+      animation-name: #{$ns}-loading-animation;
+      animation-timing-function: linear;
+    }
   }
 }
 

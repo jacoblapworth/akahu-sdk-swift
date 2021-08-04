@@ -4,27 +4,28 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.n0x4g065o3eg
 //
-// Teaser: How to use the different variations of buttons and links within XUI
+// Teaser: Use buttons for the most important actions on a page.
 //
-// Introduction: How to use the different variations of buttons and links within XUI
+// Introduction: Use buttons for the most important actions on a page.
 //
 // Styleguide: Components.Controls.Button
 
 // Best practice
 //
 // Tips:
-// Do: In most circumstances, the standard and main button variants will suffice
-// Do: Use the small button variant in toolbars
+// Do: In most circumstances, the 'main' and 'standard' button variants will suffice
+// Do: Make sure the button text clearly describes what will happen when a user selects the button
+// Do: Use the 'small' button variant in toolbars
 // Do: Use anchor tags when an href is present
 // Do: Use button tags in all other circumstances
 // Warning: Avoid using non-standard controls like divs for buttons
-// Warning: Use the create and negative colour variants sparingly
-// Dont: Never rely on the unstyled button class in isolation
-// Info: Visit our [Page-level actions guidance](./section-patterns-page-level-actions.html) for more information about page-level action patterns
+// Warning: Use the green 'create' and red 'negative' colour variants sparingly
+// Dont: In general, avoid using unstyled buttons
+// Info: For guidance on where to place buttons (or actions) on a page, see [Page-level actions guidance](./section-patterns-page-level-actions.html)
 //
 // Styleguide: Components.Controls.Button.1
 
-// User agent reset
+// Reset default styling
 //
 // First, apply the base button class to clear buttons of their default user agent styling.
 //
@@ -41,20 +42,17 @@
 //
 // Add a `xui-button-*` modifier to specify which kind of button you require.
 //
-// Use descriptive button text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
-//
-// For example, using a ‘negative’ button:
-//
-// Tips:
-// Do: When using colour variation, use descriptive text like "Delete user records"
-// Dont: When using colour variation, avoid vague text like "Complete"
+// Aim to use [1 primary action on each page](./section-patterns-page-level-actions.html#patterns-page-level-actions-1). The primary action can be:
+// - a blue ‘main’ button (this is the most common),
+// - a green ‘create’ button, or
+// - a red ‘negative’ button.
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Classes:
 // -main: Primary actions
-// -create: Creating new objects
-// -negative: Destructive actions
+// -create: Primary actions that create new objects
+// -negative: Primary actions that are destructive actions
 // -standard: Secondary actions
 //
 // Markup: ./examples/button/_button-variants.html
@@ -65,26 +63,26 @@
 //
 // Borderless `xui-button-*` modifiers are also available for actions that require less visual emphasis.
 //
-// Use descriptive button text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
-//
-// For example, using a ‘negative’ button:
-//
-// Tips:
-// Do: When using colour variation, use descriptive text like "Delete user records"
-// Dont: When using colour variation, avoid vague text like "Complete"
-//
 // Classes:
-// -borderless-main: Primary actions
-// -borderless-create: Creating new objects
-// -borderless-negative: Desctructive actions
-// -borderless-muted: Secondary text colour
-// -borderless-standard: Standard text colour
+// -borderless-main: Primary or secondary actions
+// -borderless-create: Actions that create new objects
+// -borderless-negative: Destructive actions
+// -borderless-muted: Secondary or tertiary actions, muted text colour
+// -borderless-standard: Secondary or tertiary actions, standard text colour
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup: ./examples/button/_button-variants-borderless.html
 //
 // Styleguide: Components.Controls.Button.3.1
+
+// Using colour
+//
+// Use descriptive button text as well as colour to convey information so it’s still meaningful to people who can’t discern colour.
+//
+// For example, don’t depend on the colour red to communicate that an action is destructive – explain the action in the button text as well.
+//
+// Styleguide: Components.Controls.Button.3.2
 
 // Size variants
 //
@@ -121,7 +119,7 @@
 //
 // Styleguide: Components.Controls.Button.5
 
-// Full width at mobile
+// Full width for mobile
 //
 // To force a button to occupy the entire width of its parent at narrow viewports, apply the following modifier.
 //
@@ -136,16 +134,18 @@
 
 // Icon buttons
 //
-// At times, icon-only buttons are desired for optimal space utilisation, or quick actions that are common and performed frequently.
-// To create one, apply the following class to the button, and insert the desired [icon](section-fundamentals-icons.html) and the [touch target element](section-getting-started-responsive.html#getting-started-responsive-3) inside.
+// Icons that are universally understood are rare. Only use icon buttons with no text if the meaning of the icon is universally understood. If you’re not certain the meaning of the icon is clear on its own, use a [button with text and an icon](#components-controls-button-9).
+//
+// Sometimes, icon buttons are used for quick actions that are common and performed frequently.
+// To create an icon button, apply the following class to the button, and insert the desired [icon](./section-fundamentals-icons.html) and the [touch target element](section-getting-started-responsive.html#getting-started-responsive-3) inside.
 //
 // Tips:
 // Do: Use icons from XUI icon set
 // Do: When nesting icon-buttons, use the same size variant as the parent
-// Do: Use icon buttons to optimise screen real-estate on small screen sizes
-// Do: Always include descriptive Title and ARIA labels on buttons
-// Warning: Ensure that users understand an icon and its purpose before solely relying on one to convey meaning
-// Warning: If displaying multiple icon buttons, ensure there is adequate space between so that touch targets don't overlap
+// Do: You can use icon buttons to optimise screen real estate on small screen sizes – make sure the button’s touch target is large enough
+// Do: Always add a tooltip component that describes what the button does – see how to write [tooltips for icon buttons](./section-components-alerts-tooltip.html#components-alerts-tooltip-4)
+// Do: Always add a matching aria label that describes what the button does, for people using screen readers
+// Warning: If displaying multiple icon buttons, ensure there's adequate space between them so that touch targets don't overlap
 //
 // Classes:
 // xui-button-icon: Apply to button
@@ -171,7 +171,7 @@
 //
 // Styleguide: Components.Controls.Button.6.1
 
-// Inverted
+// Inverted buttons
 //
 // To provide adequate contrast for use on darker backgrounds, inverted styles are also available for all button variants.
 //
@@ -186,7 +186,7 @@
 //
 // Styleguide: Components.Controls.Button.7
 
-// Disabled
+// Disabled buttons
 //
 // To disable a button, apply the following modifier.
 // Make sure you also add the `disabled` attribute to prevent keyboard focus.
@@ -202,21 +202,23 @@
 
 // Icons in buttons
 //
-// Icons are a powerful tool to help users identify meaning quickly, and they can be used inside buttons
-// to help provide context or support to the internal text content. We provide classes to make this
-// more convenient for you. Icons must be placed in an [icon wrapper](./section-fundamentals-icons.html#fundamentals-icons-3)
+// Icons help users identify meaning quickly and can be used inside buttons
+// to help provide context or support to the button text.
+//
+// When developing icons in buttons, you can use the provided classes.
+// Remember that icons must be placed in an [icon wrapper](./section-fundamentals-icons.html#fundamentals-icons-3)
 // to ensure the correct layout.
 //
 // Tips:
-// Do: Use icons to support button text with the intention to make the action more clear or faster to understand
-// Do: Icons on the left are graphical labels to support the text content
-// Do: Icons on the right represent an action described by the text content
-// Dont: In a single button, don’t display an icon on both the left and right side of the text content
+// Do: Use icons to support button text so the action is clearer or faster to understand
+// Do: Icons on the left represent an entity, action or direction (for example, a document icon means that a document can be uploaded; a filter icon reinforces the meaning of a **Filter** button)
+// Do: Icons on the right represent an interaction  (for example, a caret indicates a dropdown; an external window icon indicates that a link will open in a new tab or window)
+// Dont: Don’t display an icon on both the left and right side of the button text
 //
 // Classes:
 // xui-button-has-icon: Apply to button to ensure the content has the correct layout
-// xui-button--lefticon: Apply to icon wrapper to place the icon to the left of the button text content
-// xui-button--righticon: Apply to icon wrapper to place the icon to the right of the button text content
+// xui-button--lefticon: Apply to icon wrapper to place the icon to the left of the button text
+// xui-button--righticon: Apply to icon wrapper to place the icon to the right of the button text
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -239,7 +241,7 @@
 //
 // Styleguide: Components.Controls.Button.10
 
-// Grouped
+// Grouped buttons
 //
 // To group a series of similar actions in a more compact space, apply the following classes.
 //
@@ -253,13 +255,18 @@
 //
 // Styleguide: Components.Controls.Button.11
 
-// Split
+// Split button
 //
-// To seperate an action from similar, but secondary actions that appear behind a dropdown, use a split button.
+// To separate an action from similar but secondary actions that appear in a dropdown, use a split button. Use a
+// button group, but for the last child, insert a caret icon instead of text.
 //
-// Use a button group, but for the last child, insert a caret icon instead of text. To do this, include the SVG in an [icon wrapper](/section-fundamentals-icons.html#fundamentals-icons-3). As with any icon-only button, add an aria-label for accessibility.
+// To do this, include the SVG in an [icon wrapper](./section-fundamentals-icons.html#fundamentals-icons-3).
 //
-// Classes: xui-button-split: Apply to dropdown trigger button
+// As with any icon button, add an aria-label for accessibility. The following modifiers must also be applied to provide the correct layout.
+//
+// Classes:
+// xui-button-split: Apply to dropdown trigger button
+// xui-button-caret: Apply to icon
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -283,7 +290,7 @@
 
 // Linear flow
 //
-// In the case of a linear flow, apply the following modifier to push buttons to opposite sides of the container.
+// For a linear flow, apply the following modifier to push buttons to opposite sides of the container.
 //
 // Classes:
 // xui-actions-linear: Apply to button container to push buttons apart and stack below 600px ($xui-breakpoint-small-down)
@@ -295,23 +302,72 @@
 // Accessibility
 //
 // Buttons can be rendered using either the `<button>` or `<a>` element.
-// However, we recommend using the `<button>` element wherever possible, with the exception of links that need to appear like buttons.
-// If you have no `href` attribute on your `<a>` element, or are using `href="javascript:void(0)"` or `href="#"`, then you really should be using a `<button>` instead.
+// We recommend using the `<button>` element wherever possible, with the exception of links that need to appear like buttons.
+//
+// If you have no `href` attribute on your `<a>` element, or are using `href="javascript:void(0)"` or `href="#"`, then use a `<button>` instead.
 //
 // If you must create a button using the `<a>` element, take care to add the appropriate aria attributes and keyboard controls.
 // For example, buttons can be activated by either the spacebar or the enter key.
-// In the case of the `<a>` tag, the spacebar does not activate the link and you must implement this behaviour yourself.
+// In the case of the `<a>` tag, the spacebar doesn't activate the link and you must implement this behaviour yourself.
+//
+// For instructions on making icon buttons accessible, see [icon buttons](./section-components-controls-button.html#components-controls-button-6).
 //
 // Styleguide: Components.Controls.Button.14
 
-// Icon buttons
+// Content guidelines
 //
-// As icon-only buttons do not contain text labels, take care to provide an alternative in the markup.
-// The `title` attribute can be used to offer additional information to users via a tooltip.
-// However, you must also apply an `aria-label` attribute that matches this value, in order for screen readers to access the information as well.
-// For more information, read this [Silktide article](https://silktide.com/i-thought-title-text-improved-accessibility-i-was-wrong/).
+// Tips:
+// Do: Be short and succinct
+// Do: Avoid using unnecessary words such as a, an, the (e.g: use **Add task** not **Add a task**)
+// Do: Use sentence case (capitalise first word and proper nouns)
 //
-// Styleguide: Components.Controls.Button.14.1
+//  Styleguide: Components.Controls.Button.15
+
+// Use the format: verb + noun
+//
+// Do this unless the [button is common](#components-controls-button-15-3) and the context is very clear.
+//
+// ExampleContentTable:
+// View PDF | View
+// Post pay run | Post
+// Add client | New client
+//
+// Styleguide: Components.Controls.Button.15.1
+
+// Clearly explain what will happen next
+//
+// Be specific about what the action is.
+//
+// ExampleContentTable:
+// Submit to ATO | Submit form
+// Connect your bank | Get started
+// Start trial | Let’s go!
+// Approve leave | Accept
+//
+// Styleguide: Components.Controls.Button.15.2
+
+// Commonly used buttons
+//
+// For commonly used buttons, use consistent terms that users are familiar with, so they’re easy to scan.
+//
+// ExampleContentTable:
+// Save | Save invoice
+// Cancel | Abort
+// OK | Okay
+// Back  | Previous
+// Next | Next step
+//
+// Styleguide: Components.Controls.Button.15.3
+
+// Using ‘you’ or ‘your’
+//
+// If you need to use a pronoun on a button, use ‘you’ or ‘your’ (not ‘me’ or ‘my’). Usually the pronoun can be removed.
+//
+// ExampleContentTable:
+// See your spending | See my spending
+// See spending | See my spending
+//
+// Styleguide: Components.Controls.Button.15.4
 
 // Class list
 //
@@ -358,10 +414,12 @@
 // Related links
 //
 // Related:
+// * [Dropdown](./section-components-collectinginput-dropdowns.html)
 // * [Icons](./section-fundamentals-icons.html)
 // * [Loader](./section-components-identifiers-loader.html)
 // * [Page-level actions](./section-patterns-page-level-actions.html)
 // * [Switch](./section-components-controls-switch.html)
 // * [Toggle](./section-components-controls-toggle.html)
+// * [Tooltip](./section-components-alerts-tooltip.html)
 //
 // Styleguide: Components.Controls.Button.99

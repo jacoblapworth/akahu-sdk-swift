@@ -96,3 +96,58 @@ Alternatively, you can specify widths on the cells in the first row (this may be
 When calculating a table `maxWidth` to match the sum of explicit column widths, include space for 1px cell borders. Otherwise, the widths of the cell borders will cause the table to overflow horizontally, and you will see the scroll-indicator overlay shadow
 
 When passing `minWidth` together with `columnWidths` as pixel values (without an `auto` sized column), make sure that `minWidth` doesn't exceed the sum of all the column widths. If it does, utility button columns (like delete or drag and drop) will stretch and lose proper size.
+
+### Custom widths with responsive behaviour
+
+To use custom column widths in the table while maintaining some responsive behaviour, use the [container query](#container-queries) or [resize observer](#resize-observers) APIs.
+
+The resize observer API can be used to programmatically adjust the `columnWidths` object, while the container query API can be used to adjust the `columnWidths` object according to the default breakpoints and/or breakpoints you define yourself.
+
+See the code snippet below for an example of the container query API.
+
+Try to resize: Click and drag the bottom right corner of the following container.
+
+```jsx harmony
+import React from 'react';
+import useContainerQuery from '@xero/xui/react/helpers/useContainerQuery';
+import {
+  XUIEditableTable,
+  XUIEditableTableBody,
+  XUIEditableTableCellReadOnly,
+  XUIEditableTableRow
+} from '@xero/xui/react/editabletable';
+
+const wrapperStyles = {
+  resize: 'horizontal',
+  overflow: 'hidden'
+};
+
+const ResponsiveColumnWidthsExample = () => {
+  const { isWidthAboveBreakpoint, observedElementRef } = useContainerQuery();
+
+  let columnWidths = ['33%', '33%', '33%'];
+
+  // start with larger breakpoints for the shortest code path
+  if (isWidthAboveBreakpoint('small')) {
+    columnWidths = ['40%', '20%', '20%'];
+  } else if (isWidthAboveBreakpoint('xsmall')) {
+    columnWidths = ['20%', '60%', '20%'];
+  }
+
+  return (
+    <div style={wrapperStyles} ref={observedElementRef}>
+      <XUIEditableTable columnWidths={columnWidths} minWidth="250px">
+        <XUIEditableTableBody>
+          <XUIEditableTableRow>
+            <XUIEditableTableCellReadOnly>Banana</XUIEditableTableCellReadOnly>
+            <XUIEditableTableCellReadOnly>Orange</XUIEditableTableCellReadOnly>
+            <XUIEditableTableCellReadOnly>Apple</XUIEditableTableCellReadOnly>
+          </XUIEditableTableRow>
+        </XUIEditableTableBody>
+      </XUIEditableTable>
+    </div>
+  );
+};
+
+<ResponsiveColumnWidthsExample />;
+```

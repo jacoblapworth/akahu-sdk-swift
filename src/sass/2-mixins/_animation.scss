@@ -1,0 +1,26 @@
+/*
+Should be used with motion animations.
+This disables the motion if the user has requested it.
+
+To assess whether or not an animation or transition is a motion animation, see here: https://www.w3.org/TR/WCAG21/#dfn-motion-animation
+
+@param  {Boolean} [$is-motion-essential:false] If set to true, the user's motion preference is always ignored.
+  To assess whether or not an animation is essential, see here: https://www.w3.org/TR/WCAG21/#dfn-essential.
+@param  {String} [$apply-properties:both] (animation|transition|both) Which css properties should be affected by reduced motion.
+*/
+@mixin xui-motion-animation($is-motion-essential: false, $apply-properties: both) {
+  @content;
+  @if $is-motion-essential == false {
+    @media screen and (prefers-reduced-motion: reduce) {
+      @if $apply-properties == both or $apply-properties == animation {
+        animation-delay: 0ms;
+        animation-duration: 0ms;
+        animation-iteration-count: 1;
+      }
+      @if $apply-properties == both or $apply-properties == transition {
+        transition-delay: 0ms;
+        transition-duration: 0ms;
+      }
+    }
+  }
+}

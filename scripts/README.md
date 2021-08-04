@@ -92,10 +92,6 @@ This was created originally to replace an older, aging Grunt pipeline. Grunt was
 
 #### release // N/A
 
-#### security
-
-- [x] index.js
-
 #### start
 
 - [x] index.js

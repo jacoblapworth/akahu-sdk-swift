@@ -4,13 +4,7 @@ const path = require('path');
 const chalk = require('chalk');
 const fs = require('fs');
 const { rootDirectory } = require('../helpers');
-// TODO: Is this being replace with something else down the track?
-const checkSecurity = () => Promise.resolve();
-// const checkSecurity = require(path.resolve(
-// 	rootDirectory,
-// 	'scripts',
-// 	'security'
-// ));
+
 const updateVersion = require('../update-versions/index');
 const updateVersionForCheckXUIVersionJsFile = require('../versions/versions');
 const packageLockUpdate = require('./package-lock-update');
@@ -324,7 +318,6 @@ inquirer.prompt([initialQuestion]).then(answers => {
 
   console.log(startingReleaseMessage(`Starting Release for Version ${newPackageJson.version}`));
   writePackageJson(async () => {
-    await checkSecurity();
     await packageLockUpdate();
     console.log(
       chalk.green.bold(`Release for version ${newPackageJson.version} finished. Have a nice day!`),

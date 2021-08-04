@@ -59,6 +59,7 @@
 // 5. Non-default states of UI components have also been audited by the design team to ensure non-text information is clear for low-vision users. For example, error, hover, focus, selected, and disabled states are being continuously revised.
 // 6. Standard sizes across the design system have recently been adjusted for improved readability and interaction. This will take the form of larger base fonts, less dense interfaces, and larger controls. However, increased density is still supported where it makes sense.
 // 7. Very limited testing has been done with screen readers (primarily MacOS VoiceOver). We hope to dedicate additional resources to this, as the more readily-detected issues are resolved.
+// 8. All non-essential motion animations use the `prefers-reduced-motion` media query, which disables motion animations if the user has requested it.
 //
 // We strongly recommend using the first three methods in your own application testing process.
 //

@@ -26,6 +26,8 @@ $xui-table-z-alert: 4;
   overflow: hidden;
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-readonlytablerow {
   background: $xui-table-bg-color;
   transition: {
@@ -69,6 +71,8 @@ $xui-table-z-alert: 4;
   }
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-readonlytable--sortbutton {
   background: $xui-table-bg-color;
   cursor: pointer;
@@ -99,7 +103,9 @@ $xui-table-z-alert: 4;
 
 .#{$ns}-readonlytable--sortbuttoncontent {
   padding: 0;
-  transition: padding $xui-motion-speed-fast;
+  @include xui-motion-animation(false, transition) {
+    transition: padding $xui-motion-speed-fast;
+  }
 
   // Left aligned sort button: Always create space for the sort icon.
   &-active,
@@ -139,7 +145,9 @@ $xui-table-z-alert: 4;
 }
 
 .#{$ns}-readonlytable--sorticon {
-  transition: transform $xui-motion-speed-fast;
+  @include xui-motion-animation(false, transition) {
+    transition: transform $xui-motion-speed-fast;
+  }
   vertical-align: middle;
 }
 
@@ -293,6 +301,8 @@ $xui-table-z-alert: 4;
   overflow-wrap: break-word;
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-readonlytablecell-link {
   cursor: pointer;
   outline: 0;

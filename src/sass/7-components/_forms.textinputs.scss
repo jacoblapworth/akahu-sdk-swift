@@ -76,6 +76,8 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-s-xlar
   }
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-textinput-focus {
   &:not(.#{$ns}-textinput-cell) {
     box-shadow: $xui-shadow-focus;

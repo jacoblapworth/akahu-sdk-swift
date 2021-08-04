@@ -17,6 +17,8 @@
 
 // Applies standard focus styling on focus
 @mixin xui-state-focus-inverted {
+  // prefers-reduced-motion can be ignored here because this instance is not a motion animation
+  // stylelint-disable-next-line a11y/media-prefers-reduced-motion
   &:focus {
     box-shadow: $xui-shadow-focus-inverted;
     outline: none;

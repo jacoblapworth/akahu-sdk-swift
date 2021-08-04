@@ -199,7 +199,7 @@ After an install, there are a couple of things we want to do in order to help en
 
 First, we'll want to make sure that you're using an appropriate version of node and npm, so there's a `check-engines` script that runs.
 
-Second, if we're using a library with a known security vulnerability, we **DEFINITELY** want to know about and fix that. Luckily, there's a centrally [maintained list of known vulnerabilities](https://nodesecurity.io/advisories/) in node packages. It may not be exhaustive, but it's better than nothing. The `nsp` script utilizes the [nsp package](https://www.npmjs.com/package/nsp) to check and see if we're exposed to one of those known vulnerabilities.
+Second, if we're using a library with a known security vulnerability, we **DEFINITELY** want to know about and fix that. Luckily, there's a centrally [maintained list of known vulnerabilities](https://nodesecurity.io/advisories/) in node packages.
 
 ## Prepack
 
@@ -279,7 +279,7 @@ The UXE team manage releases of XUI via AWS Codepipeline. Following are the comm
 
 When you upgrade XUI, please check [changes.md](./changes.md) to see what shared dependencies have changed in XUI and check which dependencies you need to update in your projects - otherwise you may end up bundling multiple versions of xui-icon or other dependencies and bloating your application artifacts.
 
-As of XUI 15, we also offer [upgrade guides](https://drive.google.com/drive/search?q=upgrade%20guide:%20xui) to provide a step-by-step walkthrough of upgrading your project across a major version.
+As of XUI 15, we also offer [upgrade guides](https://xero.atlassian.net/wiki/spaces/PLAT/pages/19705047433/Upgrade+Guides) to provide a step-by-step walkthrough of upgrading your project across a major version.
 
 To make the upgrade process between versions of XUI easier, we maintain a codemod to automate some of the API changes in your code. The codemod runs using [jscodeshift](https://github.com/facebook/jscodeshift).
 

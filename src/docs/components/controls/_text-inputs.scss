@@ -219,6 +219,24 @@
 //
 // Styleguide: Components.Controls.TextInput.11.2
 
+// Accessibility
+//
+// Styleguide: Components.Controls.TextInput.12.0
+
+// Focus state
+//
+// For text input components created with React, focus states will be automatically applied; however for text inputs created with HTML, you will need to implement focus styling yourself.
+//
+// In order to enable focus styling for these inputs, you should apply the `xui-textinput-focus` class to the top-level element (the element with the `xui-textinput` class) when the input is focused.
+//
+// An example of how to implement this behaviour is shown below.
+//
+// exampleclass: ds-example-narrow
+//
+// Markup: ./examples/text-input/_text-input-focus-accessibility.html
+//
+// Styleguide: Components.Controls.TextInput.12.1
+
 // Class list
 //
 // Classes:
@@ -246,7 +264,7 @@
 // xui-textinput--input-small: Sets textinput size to small
 // xui-textinput--input-xsmall: Sets textinput size to xsmall
 //
-// Styleguide: Components.Controls.TextInput.11.8
+// Styleguide: Components.Controls.TextInput.13
 
 // Related links
 //

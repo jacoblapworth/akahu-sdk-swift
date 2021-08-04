@@ -150,6 +150,8 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
   background-color: $xui-editabletable-bg-color;
 }
 
+// prefers-reduced-motion can be ignored here because this instance is not a motion animation
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-editabletablerow-dragging {
   animation: #{$ns}-drag-shadow-animation $xui-motion-speed-fast $xui-motion-curve-exit;
   // $xui-shadow-depth-lift, but without the border shadow it applies.

@@ -184,6 +184,8 @@ export default class XUIAutocompleter extends PureComponent {
    * @param {item} Object
    */
   onHighlightChange = item => {
+    this.setHighlightedItem();
+
     this.props.onHighlightChange && this.props.onHighlightChange(item);
   };
 
@@ -241,6 +243,16 @@ export default class XUIAutocompleter extends PureComponent {
         });
       }
     }, 333);
+  };
+
+  onOpenAnimationEnd = () => {
+    this.setHighlightedItem();
+  };
+
+  setHighlightedItem = () => {
+    this.setState({
+      highlightedId: this.dropdown.current.getHighlightedId(),
+    });
   };
 
   renderPills = () => {
@@ -351,6 +363,7 @@ export default class XUIAutocompleter extends PureComponent {
             role: 'textbox',
             'aria-multiline': false,
             'aria-autocomplete': 'list',
+            'aria-activedescendant': this.state.highlightedId,
             style: {
               flexBasis: inputWidth,
             },
@@ -421,6 +434,7 @@ export default class XUIAutocompleter extends PureComponent {
           matchTriggerWidth={matchTriggerWidth && !dropdownSize}
           onClose={onClose}
           onOpen={onOpen}
+          onOpenAnimationEnd={this.onOpenAnimationEnd}
           qaHook={dropdownQaHook}
           ref={this.ddt}
           trigger={trigger}

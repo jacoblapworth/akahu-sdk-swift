@@ -20,10 +20,11 @@ Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
 describe('XUIAutocompleter', () => {
+  const item1 = <XUIPickitem id="item1">Item 1</XUIPickitem>;
   const createComponent = props => (
     <XUIAutocompleter dropdownSize="medium" forceDesktop {...props}>
       <XUIPicklist>
-        <XUIPickitem id="item1">Item 1</XUIPickitem>
+        {item1}
         <XUIPickitem id="item2">Item 2</XUIPickitem>
       </XUIPicklist>
     </XUIAutocompleter>
@@ -461,6 +462,33 @@ describe('XUIAutocompleter', () => {
       // Assert
       expect(onKeyDownMock).toHaveBeenCalled();
     });
+  });
+
+  it('adds aria-activedescendant to the input when pickitems are highlighted', async () => {
+    // Arrange
+    const onOptionSelect = jest.fn();
+
+    const wrapper = mount(
+      createComponent({
+        onSearch: jest.fn(),
+      }),
+    );
+    const input = wrapper.find('input');
+
+    // Act
+    wrapper.instance().openDropdown();
+    wrapper.instance().highlightItem(item1);
+    input.simulate('keydown', { key: eventKeyValues.down });
+
+    /**
+     * Why are we awaiting a 0ms timer?
+     * Rationale: To ensure that the test assertion runs after all the required re-renders have taken placed.
+     * Important: If jest.useFakeTimers() is used, this test must be placed in a separate describe test.
+     */
+    await wait();
+
+    // Assert
+    expect(wrapper.find('input').prop('aria-activedescendant')).toEqual('item1');
   });
 
   it('should pass accessibility testing', async () => {

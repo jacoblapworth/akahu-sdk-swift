@@ -106,17 +106,19 @@
 
 // Showing and hiding columns
 //
-// Depending on the workflow, it may not be necessary for all columns to be visible at all times. To facilitate this, optionally hide and show columns. This can be done three ways: by conditionally rendering the hidden cells, by adding a class of `xui-editabletable--column-hidden` to the hidden cells, or by using the `hiddenColumns` property of `XUIEditableTable` which is designed for performance with very large datasets. The mechanism by which Xero users will show and hide columns is not defined via the editable table component as the desired experience will likely vary depending on the product experience.
+// Depending on the workflow, it may not be necessary for all columns to be visible at all times. To facilitate this, give users the option to show and hide columns.
 //
-// Classes:
-// xui-editabletable--column-hidden: Applied to cells in a column to visually hide
+// This can be done two ways:
+// - By conditionally rendering the hidden cells
+// - By using the `hiddenColumns` property of `XUIEditableTable` which is designed for performance with very large datasets
+//
+// The mechanism by which Xero users will show and hide columns is not defined via the editable table component as the desired experience will likely vary depending on the product experience.
 //
 // Tips:
 // Do: Provide the ability to hide and show columns to focus the user on the most important parts of the dataset for their relevant workflow
 // Do: Use an appropriate control for your experience, based on design aspects such as visual hierarchy, prevalence of the interaction within the workflow, and the placement of the control with other elements on the page
-// Do: Conditionally render hidden cells when you plan to save the user’s preferences for future page loads, and columns may not need to be rendered at all
-// Do: Provide the `xui-editabletable--column-hidden` class when the dataset is not large, and users are expected to repeatedly hide and show columns, or the table content is highly variable
 // Do: Use the `hiddenColumns` property when the dataset is large but consistently structured, and users may wish to hide and show content repeatedly
+// Do: All other cases should conditionally render hidden cells. For example, when you plan to save the user’s preferences for future page loads, and columns may not need to be rendered at all
 //
 // Styleguide: Components.DisplayingData.EditableTable.3.2.2
 

@@ -122,6 +122,12 @@ interface BaseProps<RD extends RowData> {
    */
   header?: React.ReactNode;
   /**
+   * Array of column _indexes_ to be hidden. Zero-based. Hidden elements remain in the DOM.
+   * Convenient and performant for when the available columns and their order will not be changing.
+   * For more dynamic tables, consider an alternate approach.
+   */
+  hiddenColumns?: Array<number | string>;
+  /**
    * Whether the table should omit the xui-panel class to render without a border.
    */
   isBorderless?: boolean;
@@ -236,6 +242,7 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
       hasPinnedFirstColumn,
       hasPinnedLastColumn,
       header,
+      hiddenColumns,
       isBorderless,
       isLoading,
       isResponsive,
@@ -286,6 +293,7 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
           ariaLabel={caption}
           hasPinnedFirstColumn={hasPinnedFirstColumn}
           hasPinnedLastColumn={hasPinnedLastColumn}
+          hiddenColumns={hiddenColumns}
           qaHook={qaHook && `${qaHook}-table`}
           ref={this.tableNode}
           scrollContainerRef={this.wrapperNode}
@@ -389,6 +397,7 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
     hasPinnedFirstColumn: PropTypes.bool,
     hasPinnedLastColumn: PropTypes.bool,
     header: PropTypes.node,
+    hiddenColumns: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
     isBorderless: PropTypes.bool,
     isLoading: PropTypes.bool,
     isResponsive: PropTypes.bool,

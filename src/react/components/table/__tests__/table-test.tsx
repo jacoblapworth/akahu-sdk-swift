@@ -8,6 +8,7 @@ import * as React from 'react';
 import { toMatchDiffSnapshot } from 'snapshot-diff';
 
 import NOOP from '../../helpers/noop';
+import { tableName } from '../helpers/constants';
 import TestScaffold from '../stories/stories';
 import XUITable from '../XUITable';
 import XUITableCell from '../XUITableCell';
@@ -138,6 +139,21 @@ describe('XUITable', () => {
     );
     expect(screen.getByTestId('testId-table').querySelectorAll('td')[0]).toHaveClass(
       'xui-readonlytablecell-rightaligned',
+    );
+  });
+
+  it('renders a style element, when hiddenColumns are passed', () => {
+    render(<XUITableWithData hiddenColumns={[1]} qaHook="testId" />);
+    expect(screen.getByTestId('testId').querySelectorAll('style')).toHaveLength(1);
+  });
+
+  it('renders rules to hide the proper columns, when hiddenColumns are passed', () => {
+    render(<XUITableWithData hiddenColumns={[1, 2]} qaHook="testId" />);
+    expect(screen.getByTestId('testId').querySelector('style')).toHaveTextContent(
+      `#${tableName}-nanoid .${tableName}row > *:nth-child(2):not(.${tableName}--emptystate-cell) { display: none; }`,
+    );
+    expect(screen.getByTestId('testId').querySelector('style')).toHaveTextContent(
+      `#${tableName}-nanoid .${tableName}row > *:nth-child(3):not(.${tableName}--emptystate-cell) { display: none; }`,
     );
   });
 

@@ -1096,6 +1096,70 @@ const emptyStateComponent = (
 </Table>;
 ```
 
+## Hiding and showing columns
+
+There are two possible approaches for hiding and showing columns.
+
+- Selectively exclude the `XUITableColumn` you wish to hide.
+- Using the `XUITable` `hiddenColumns` API.
+
+The `hiddenColumns` API is optimal for very large tables, in which re-rendering all the rows and cells is not desired, and the order of columns is not expected to change. For best performance in these cases, cells should be [memoized](https://reactjs.org/docs/react-api.html#reactmemo) to reduce unnecessary renders. For more details, check [XUI Performance tips](https://xui.xero.com/latest/section-getting-started-performance.html#getting-started-performance-3-1).
+
+To use this feature, pass an array of column indexes that should be hidden (zero-based, inclusive of any controls, like checkboxes) to the `hiddenColumns` prop for `XUITable`
+
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
+import { XUIActions } from '@xero/xui/react/actions';
+import ColumnHideSelect from './components/editabletable/stories/column-hide-select';
+
+const data = {
+  abc123: { Fruit: 'Banana', Color: 'Yellow', 'Price / kg': 2.99 },
+  def456: { Fruit: 'Apple', Color: 'Red', 'Price / kg': 3.49 }
+};
+
+const HideShowExample = () => {
+  const [hiddenColumns, setHiddenColumns] = React.useState([]);
+
+  handleColumnVisibility = selectedColumns => {
+    setHiddenColumns(selectedColumns);
+  };
+
+  const columns = Object.keys(data['abc123']);
+  return (
+    <>
+      <XUIActions className="xui-margin-bottom">
+        <ColumnHideSelect
+          columns={columns}
+          passedOnItemSelect={handleColumnVisibility}
+          rowOptions={{}}
+        />
+      </XUIActions>
+      <Table
+        data={data}
+        loaderAriaLabel="Loading more data"
+        emptyMessage="Nothing to show here"
+        checkOneRowAriaLabel="Select row"
+        checkAllRowsAriaLabel="Select all rows"
+        overflowMenuTitle="More row options"
+        caption="List of fruits with color and price per kg"
+        hiddenColumns={hiddenColumns}
+      >
+        <Column head={<Cell>Fruit</Cell>} body={({ Fruit }) => <Cell>{Fruit}</Cell>} />
+
+        <Column head={<Cell>Color</Cell>} body={({ Color }) => <Cell>{Color}</Cell>} />
+
+        <Column
+          head={<Cell>Price / kg</Cell>}
+          body={data => <Cell>{`$${data['Price / kg']}`}</Cell>}
+        />
+      </Table>
+    </>
+  );
+};
+
+<HideShowExample />;
+```
+
 ## TypeScript
 
 XUITable components take an optional generic type that represents the shape of an individual row's

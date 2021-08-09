@@ -71,9 +71,9 @@ const XUIEditableTable = React.forwardRef(
           <style>
             {hiddenColumns.map(
               hiddenColumn =>
-                `#${calculatedId} .xui-editabletablerow > *:nth-child(${
+                `#${calculatedId} .${tableVariantClassName}row > *:nth-child(${
                   parseInt(hiddenColumn) + 1
-                }) { display: none; }`,
+                }):not(.${tableVariantClassName}--emptystate-cell) { display: none; }`,
             )}
           </style>
         )}

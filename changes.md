@@ -79,6 +79,7 @@ _Note: This will mean that many key functionalities that worked for IE11 users p
 ### XUIEditableTable
 
 - Default colour and font weight have been removed from `XUIEditableTableFoot`
+- `xui-editabletable--column-hidden` has been removed from the docs, because it was not implemented nor used anywhere
 
 ### XUITable
 
@@ -191,6 +192,7 @@ TypeScript types have also been made slightly more strict for instances of rootN
 - Captions are now handled by adding an `ariaLabel` to the table element
 - XUITable's cell contents will now vertically align to the top of the cell instead of the middle
 - XUITable now supports server side rendering
+- XUITable now has the `hiddenColumns` prop which can be used to show/hide columns
 
 ### XUIToast
 

@@ -1,0 +1,88 @@
+// Contributing to XUI Labs
+//
+// Weight: 8.12
+//
+// Flags: New WIP
+//
+// Teaser: Contributing and ownership information for XUI Labs components
+//
+// Styleguide: Contributing to XUI.XUI Labs.Contributing
+
+// How to contribute
+//
+// Contributing to XUI Labs should follow this general process:
+// 1. Document your problem space using a [component DHR](https://docs.google.com/document/d/1CqUe_yWGSbBNSShxlntgv1f5bDgN1w064HdQLshgFXA/edit?usp=sharing)
+// 2. Collaborate with others
+//    * Reach out on the [#xui-labs Slack channel](https://xero.slack.com/archives/C029NB2838Q)
+//    * Create a working group channel on Slack ("[topic]-working-group")
+// 3. Document design discovery and exploration in Figma ([Figma template](https://www.figma.com/files/713083859032680705/project/34123697/XUI-Labs?fuid=933842156634281734))
+// 4. Build component
+//    * Fork and clone the [XUI Labs repository](https://github.dev.xero.com/UXE/xui-labs/)
+//    * Ensure component meets the [minimum requirements](#contributing-to-xui-xui-labs-contributing-4)
+//    * Submit, review, and merge pull request
+// 5. Figma component created and added to the [XUI Labs Figma Library](https://www.figma.com/file/xqDr1beaIqEsh5euo0oSrz/XUI-Labs-Library?node-id=2%3A56)
+//
+// For more information about versioning, package dependencies, namespacing, and how to technically contribute a component, check out the [XUI Labs contributing document](https://github.dev.xero.com/UXE/xui-labs/blob/main/CONTRIBUTING.md).
+//
+// Styleguide: Contributing to XUI.XUI Labs.Contributing.1
+
+// Ways to contribute to XUI Labs
+//
+// **Contributing a new component**
+//
+// A new component in XUI Labs should be solving a problem that isn’t already being solved by a component in either XUI or XUI Labs. Read about [XUI Labs components](./section-contributing-to-xui-xui-labs-xui-labs-overview.html#contributing-to-xui-xui-labs-xui-labs-overview-1) for more information.
+// <br></br>
+//
+// **Contributing a component feature enhancement**
+//
+// Contributing a component feature also requires a new XUI Labs component, but would extend from an existing XUI component.
+//
+// For example: Introducing a new button style variant, would require a component duplicated from `XUIButton` (now represented as `XLabsButton`), with an additional property for the new style variant.
+// <br></br>
+//
+// **Contributing to an existing XUI Labs component**
+//
+// Collaborating on XUI Labs components is encouraged where possible, to solve for multiple product contexts with a single solution. When there’s an existing component in XUI Labs that could work for you with some iterations, it’s better to collaborate on that single solution as opposed to having multiple similar components for the same problem.
+//
+// If this is something you want to do, reach out to the original contributor of the component you wish to contribute to, to discuss how you may collaborate on the shared solution.
+//
+// Styleguide: Contributing to XUI.XUI Labs.Contributing.2
+
+// Component minimum requirements
+//
+// To add a component to XUI Labs, some minimum requirements must be met to ensure people can understand what problem the contributed component is solving and how it should be used.
+//
+// To contribute a new XUI Labs component you will need to provide the following:
+//
+// **Development assets** (submitted in pull request)
+// * Component name
+// * Version of XUI component consumes
+// * Component overview information (follow the [XUI Labs component DHR](https://docs.google.com/document/d/1CqUe_yWGSbBNSShxlntgv1f5bDgN1w064HdQLshgFXA/edit?usp=sharing)):
+//    * A clearly defined problem statement for the component
+//    * Contributor details
+//    * Any available links to supporting research or data
+// * Component code
+// * API documentation (automatically generated from script)
+//
+// **Design assets**
+// * Figma Library component (to be added to [XUI Labs Figma Library](https://www.figma.com/file/xqDr1beaIqEsh5euo0oSrz/XUI-Labs-Library?node-id=2%3A56) after PR is merged)
+//
+// Styleguide: Contributing to XUI.XUI Labs.Contributing.3
+
+// Moving components from XUI Labs into XUI
+//
+// If a XUI Labs component tests well, and there’s an established need for the solution from other teams, it can undergo a process to move into the XUI design system officially.
+//
+// Additional changes, tests, and documentation will likely be required to meet XUI’s [component definition of done](https://xero.atlassian.net/wiki/spaces/PLAT/pages/19591963182/Definitions+of+done) as a part of this process, which the XUI team will help facilitate. Reach out on the [#xui-labs Slack channel](https://xero.slack.com/archives/C029NB2838Q) if you have any questions about this process.
+//
+// Styleguide: Contributing to XUI.XUI Labs.Contributing.4
+
+// Support and maintenance
+//
+// Components in XUI Labs are owned by the team that’s contributed them, meaning they are responsible for bug fixes, enhancements, and upgrades.
+//
+// exampleClass: ds-example-flush ds-example-transparent ds-example-wide ds-example-nomarkuplink
+//
+// Markup: ./examples/_xui-labs-ownership-table.html
+//
+// Styleguide: Contributing to XUI.XUI Labs.Contributing.5

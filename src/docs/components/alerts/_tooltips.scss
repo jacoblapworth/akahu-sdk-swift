@@ -2,10 +2,8 @@
 //
 // Teaser: To provide clarification for ambiguous actions or non-interactive elements.
 //
-// Introduction: A tooltip is a small amount of non-essential information that appears when tapping, hovering or tabbing over a page element. <br /> <br />
+// Introduction: A tooltip is a small amount of non-essential information that appears when tapping, hovering, or tabbing over a page element. <br /> <br />
 // Tooltips can be placed in-line with a page element or are used to clarify the action of an icon button.
-//
-// Text in a tooltip is very brief and can't include links, buttons, illustrations, or headings. To include any of these, consider a [popover](./section-components-alerts-popover.html).
 //
 // Components: Tooltip
 //
@@ -18,10 +16,10 @@
 // Tips:
 // Do: Use tooltips to display text that would live in an element's ‘title’ tag (icon buttons, truncated items)
 // Do: Use a dedicated icon button to trigger supportive text in a tooltip
-// Warning: Styles directly affecting the trigger or its classes may need to be duplicated on the wrapping `.xui-tooltip` DOM element, for example, fixed/absolute positioning or some flexbox styling
+// Warning: If using styles directly affecting the trigger or its classes, these may need to be duplicated on the wrapping `.xui-tooltip` DOM element (e.g. fixed/absolute positioning, or some flexbox styling)
 // Don't: Don't use for validation and error messaging
 // Don't: Don't include information that's crucial to a workflow
-// Don't: Don't use headings, links, buttons, bold text, or content other than text
+// Don't: Don't use headings, links, buttons, bold text, or content other than text. To include any of these, consider a [popover](./section-components-alerts-popover.html)
 //
 // Styleguide: Components.Alerts.Tooltip.1
 
@@ -82,15 +80,13 @@
 // Insert rows | Rows
 // Delete column | Delete
 //
-// More information on [icon buttons](./section-components-controls-button.html#components-controls-button-6).
-//
 // Styleguide: Components.Alerts.Tooltip.4.1
 
 // Supportive text in tooltips
 //
-// Tooltips can provide supportive text to further explain something, for example what a form field is. Information given should be brief, helpful and non-essential.
+// Tooltips can provide supportive text to further explain something, like what a form field is. Information given should be brief, helpful, and non-essential.
 //
-// If the text is essential for a user to complete their task, use a [hint message](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-9).
+// If the text is essential for a user to complete their task, use a [hint message](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-9)
 //
 // ExampleContentTable:
 // The 11-digit number that’s issued by the ATO | Passwords should be at least 12 characters long and include 1 uppercase character, 1 number, and 1 special character

@@ -157,6 +157,31 @@ describe('XUITable', () => {
     );
   });
 
+  test('columnWidths applied', () => {
+    // Arrange
+    render(<XUITableWithData columnWidths={['200px', '100px', 'auto']} qaHook="testId" />);
+
+    // Assert
+    expect(
+      window.getComputedStyle(screen.getByTestId('testId').querySelectorAll('col')[0]).width,
+    ).toBe('200px');
+    expect(
+      window.getComputedStyle(screen.getByTestId('testId').querySelectorAll('col')[1]).width,
+    ).toBe('100px');
+    expect(
+      window.getComputedStyle(screen.getByTestId('testId').querySelectorAll('col')[2]).width,
+    ).toBe('auto');
+  });
+
+  test('get minWidth and maxWidth styling', () => {
+    // Arrange
+    render(<XUITableWithData maxWidth="750px" minWidth="350px" qaHook="testId" />);
+
+    // Assert
+    expect(window.getComputedStyle(screen.getByTestId('testId')).maxWidth).toBe('750px');
+    expect(window.getComputedStyle(screen.getByTestId('testId')).minWidth).toBe('350px');
+  });
+
   describe('XUITableHead', () => {
     test('the header row is only rendered when every column has a header', () => {
       // Arrange

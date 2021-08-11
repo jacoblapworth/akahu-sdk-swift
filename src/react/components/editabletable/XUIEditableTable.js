@@ -115,8 +115,8 @@ const XUIEditableTable = React.forwardRef(
             ref={combinedRef}
             style={style}
           >
-            <EditableTableColGroup columnWidths={columnWidths} />
             {children}
+            <EditableTableColGroup columnWidths={columnWidths} />
           </table>
         </EditableTableWrapper>
         {isInvalid && validationMessage && (

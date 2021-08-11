@@ -144,6 +144,7 @@ storiesWithKnobs.add('Playground', () => {
     ...overflowMenuProps,
     ...sortkeyProps,
     ...rowClickProps,
+    columnWidths: text('Column widths (space-separated)'),
   };
 
   return (
@@ -154,6 +155,7 @@ storiesWithKnobs.add('Playground', () => {
         checkAllRowsAriaLabel="Select all rows"
         checkOneRowAriaLabel="Select row"
         className={text('className', '')}
+        columnWidths={tableProps.columnWidths && tableProps.columnWidths.split(/[\s,]/g)}
         data={data}
         emptyMessage="Nothing to show here"
         footer={
@@ -167,6 +169,8 @@ storiesWithKnobs.add('Playground', () => {
         isResponsive={boolean('isResponsive', false)}
         isTruncated={boolean('isTruncated', false)}
         loaderAriaLabel="Loading more data"
+        maxWidth={text('Max width', '')}
+        minWidth={text('Min width', '')}
         overflowMenuTitle="More row options"
         qaHook={text('qaHook', '')}
       >

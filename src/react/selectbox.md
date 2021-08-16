@@ -101,13 +101,13 @@ class MiniApp extends Component {
   }
   onBoatSelect(value) {
     if (this.state.selectedBoats.indexOf(value) > -1) {
-      this.setState({
-        selectedBoats: this.state.selectedBoats.filter(boat => boat !== value)
-      });
+      this.setState(previousState => ({
+        selectedBoats: previousState.selectedBoats.filter(boat => boat !== value)
+      }));
     } else {
-      this.setState({
-        selectedBoats: [...this.state.selectedBoats, value]
-      });
+      this.setState(previousState => ({
+        selectedBoats: [...previousState.selectedBoats, value]
+      }));
     }
   }
 

@@ -36,6 +36,36 @@ module.exports = {
   //     newImportPath: 'selectbox',
   //   },
   // ],
+  checkbox: [
+    {
+      name: 'XUICheckbox',
+      props: [
+        {
+          name: 'htmlClassName',
+          newName: 'checkboxElementClassName',
+        },
+        {
+          name: 'svgClassName',
+          newName: 'checkboxElementClassName',
+        },
+      ],
+    },
+  ],
+  radio: [
+    {
+      name: 'XUIRadio',
+      props: [
+        {
+          name: 'htmlClassName',
+          newName: 'radioElementClassName',
+        },
+        {
+          name: 'svgClassName',
+          newName: 'radioElementClassName',
+        },
+      ],
+    },
+  ],
   structural: [
     {
       name: 'XUIRow',

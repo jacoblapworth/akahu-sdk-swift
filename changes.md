@@ -34,9 +34,24 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 ## XUI React components
 
+### New components
+
+- `XUICheckboxRangeSelector` has been added to allow selecting multiple checkboxes at once while holding `Shift`
+  - `XUICheckbox` has 2 new optional props for range selection
+    - `excludeFromRangeSelection` allows individual checkboxes to be excluded from range-select (e.g. "Select all" checkboxes)
+    - `rangeSelectionGroup` allows multiple groups of checkboxes to be nested under one `XUICheckboxRangeSelector`
+  - `XUICheckboxGroup`, `XUIPicklist`, `XUIEditableTable`, and `XUITable` make use of `XUICheckboxRangeSelector` out of the box
+
 ### Component props
 
 #### Prop Replacements
+
+- `XUICheckbox`
+  - `htmlClassName` and `svgClassName` have been combined into `checkboxElementClassName`
+    - `checkboxElementClassName` will also be added to the invisible checkbox input element
+- `XUIRadio`
+  - `htmlClassName` and `svgClassName` have been combined into `radioElementClassName`
+    - `radioElementClassName` will also be added to the invisible radio input element
 
 #### Prop Renaming
 

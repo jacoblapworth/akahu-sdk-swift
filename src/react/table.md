@@ -437,7 +437,9 @@ class Demo extends React.Component {
   handleCheckOneToggle(event, _id) {
     const { checkedIds } = this.state;
     const isChecked = Boolean(checkedIds[_id]);
-    this.setState(() => ({ checkedIds: { ...checkedIds, [_id]: !isChecked } }));
+    this.setState(previousState => ({
+      checkedIds: { ...previousState.checkedIds, [_id]: !isChecked }
+    }));
   }
 
   handleSortChange(newKey) {

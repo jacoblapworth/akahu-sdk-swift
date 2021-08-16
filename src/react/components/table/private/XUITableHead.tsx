@@ -57,6 +57,7 @@ class XUITableHead<RD extends RowData> extends React.PureComponent<Props<RD>> {
               {onCheckAllToggle && (
                 <XUICheckbox
                   className={`${tableName}--checkbox-head`}
+                  excludeFromRangeSelection
                   isChecked={isSelectAllChecked}
                   isDisabled={isSelectAllDisabled}
                   isGrouped

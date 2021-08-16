@@ -199,11 +199,6 @@ $xui-table-z-alert: 4;
   position: absolute;
 }
 
-.#{$ns}-readonlytable--checkbox-body {
-  left: $xui-s-small;
-  top: $xui-s-small;
-}
-
 .#{$ns}-readonlytable--checkbox-head {
   left: 0;
   padding: $xui-s-xsmall $xui-s-small;

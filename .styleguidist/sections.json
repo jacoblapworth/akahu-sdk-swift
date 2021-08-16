@@ -73,7 +73,10 @@
             "content": "../src/react/checkbox.md",
             "sections": [
               {
-                "components": "../src/react/components/checkbox/XUICheckbox.js"
+                "components": [
+                  "../src/react/components/checkbox/XUICheckbox.js",
+                  "../src/react/components/checkbox/XUICheckboxRangeSelector.tsx"
+                ]
               },
               {
                 "name": "Checkbox Groups",

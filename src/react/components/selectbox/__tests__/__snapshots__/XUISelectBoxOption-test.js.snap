@@ -128,7 +128,7 @@ exports[`<XUISelectBoxOption /> should render checkboxes when the showCheckboxes
         <input
           aria-labelledby="xui-testCheckboxId"
           checked={false}
-          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small xui-pickitem--input"
           disabled={false}
           onChange={[Function]}
           required={false}
@@ -268,7 +268,7 @@ exports[`<XUISelectBoxOption /> should render the option and the checkboxes as d
         <input
           aria-labelledby="xui-testCheckboxId"
           checked={false}
-          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small xui-pickitem--input"
           disabled={true}
           onChange={[Function]}
           required={false}

@@ -1,0 +1,84 @@
+// XUI Labs
+//
+// Weight: 8.10
+//
+// Styleguide: Contributing to XUI.XUI Labs
+
+// XUI Labs Overview
+//
+// Weight: 8.11
+//
+// Flags: New WIP
+//
+// Teaser: Overview information about XUI Labs
+//
+// XUI Labs is an extension of the XUI design system where product teams can collaborate on new component solutions to common user problems. These components are centralised within a single repository, meaning teams can easily find and use components that fit their needs or contribute new ones to help others.
+//
+// If appropriate, components can move from XUI Labs into XUI where they’ll be maintained and supported by the design systems team.
+//
+// **XUI Labs allows teams to:**
+// * Spend less time building multiple similar solutions
+// * Reduce the technical and design debt within their products
+// * Collaboratively test and iterate on components
+// * Create a more cohesive experience for our users
+//
+// Browse available XUI Labs components in [Storybook](https://xui.xero.com/xui-labs/) or the [Figma library](https://www.figma.com/file/xqDr1beaIqEsh5euo0oSrz/XUI-Labs-Library?node-id=2%3A56), and view the [repository on GitHub](https://github.dev.xero.com/UXE/xui-labs).
+//
+// Styleguide: Contributing to XUI.XUI Labs.XUI Labs Overview
+
+// XUI Labs components
+//
+// XUI Labs components should solve common user problems. If an existing XUI or XUI Labs component can be used to solve a problem, avoid creating a new one. Review the [XUI Labs decision tree](#contributing-to-xui-xui-labs-xui-labs-overview-2) below.
+//
+// Start by creating a DHR (Design History Rationale) for your XUI Labs component to ensure you and others understand the context and rationale behind the problem space. Make a copy of the [XUI Labs DHR template](https://docs.google.com/document/d/1CqUe_yWGSbBNSShxlntgv1f5bDgN1w064HdQLshgFXA/edit?usp=sharing) in the [shared Drive folder](https://drive.google.com/drive/u/0/folders/1b73HnksURj7jf59OdnK0OmCEXHt8Vbw8) and fill in the details for your component.
+//
+// We've also created a [Figma component starter file](https://www.figma.com/file/LPXR8OI78qZsCVRS8Mhfs7/Component-starter-file-XUI-Labs?node-id=808%3A39) which you can use to document your design discovery and exploration, helping others understand your process and make collaboration easier.
+// <br></br>
+//
+// **Designed to be shared**
+//
+// When creating a new component, consider how other teams could benefit from your contribution. We encourage you to reach out to others in the early stages of your process to collaborate on the direction. A good place to start is the [#xui-labs Slack channel](https://xero.slack.com/archives/C029NB2838Q).
+// <br></br>
+//
+// **Designed to be tested**
+//
+// XUI Labs provides a space for contributors to progressively iterate on their components based on feedback. User testing helps create better solutions for our users and may show that aspects of a new component need improving or removing. Use the findings from testing to iterate on your design or as an opportunity to investigate an alternative solution.
+// <br></br>
+//
+// **Designed for Xero**
+//
+// The visual language for Xero products is grounded by a set of [fundamental styles](./section-fundamentals.html), defining the look and feel. Components and patterns use these fundamentals to create consistent and cohesive Xero experiences.
+//
+// Diverging from these fundamentals creates design and tech debt in our products, and creates unexpected experiences for our users, eroding trust. If you have any questions about the use of fundamentals, reach out on the [#xui-design Slack channel](https://xero.slack.com/archives/C56RA62Q5)
+//
+// Styleguide: Contributing to XUI.XUI Labs.XUI Labs Overview.1
+
+// Consuming XUI Labs components
+//
+// Follow the following steps to use a XUI Labs component in your product:
+// 1. Review the [XUI Labs decision tree](#contributing-to-xui-xui-labs-xui-labs-overview-2) to ensure it makes sense for your circumstance
+// 2. Review the available components in [Storybook](https://xui.xero.com/xui-labs/)
+// 3. Choose a component that is appropriate for your use-case
+// 4. Ensure the component is compatible with the version of XUI your product is on
+// 5. Use the [Figma library](https://www.figma.com/file/xqDr1beaIqEsh5euo0oSrz/XUI-Labs-Library?node-id=2%3A56) component in your design files
+// 6. Install the XUI Labs component dependency into your product, using the version that’s best suited for your product
+//
+// Styleguide: Contributing to XUI.XUI Labs.XUI Labs Overview.1.1
+
+// When to use XUI Labs
+//
+// Below is a decision tree you can use to determine whether your situation requires creating, using or contributing to a XUI Labs component.
+//
+// exampleClass: ds-example-nomarkuplink ds-example-transparent ds-example-flush ds-example-wide
+//
+// Markup: ./examples/_xui-labs-figma-tree.html
+//
+// Styleguide: Contributing to XUI.XUI Labs.XUI Labs Overview.2
+
+// Decision tree overview
+//
+// exampleClass: ds-example-nomarkuplink ds-example-transparent ds-example-flush ds-example-wide
+//
+// Markup: ./examples/_xui-labs-decision-tree-overview.html
+//
+// Styleguide: Contributing to XUI.XUI Labs.XUI Labs Overview.2.1

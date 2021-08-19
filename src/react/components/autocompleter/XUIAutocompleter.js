@@ -184,6 +184,8 @@ export default class XUIAutocompleter extends PureComponent {
    * @param {item} Object
    */
   onHighlightChange = item => {
+    this.setHighlightedItem();
+
     this.props.onHighlightChange && this.props.onHighlightChange(item);
   };
 
@@ -194,6 +196,22 @@ export default class XUIAutocompleter extends PureComponent {
         this.flushDebounced && this.flushDebounced();
       }
       event.persist();
+
+      /**
+       * When a user presses tab, the focus is moved to the dropdown panel.
+       * This lets the browser handle the tabbing of events so that the footer gets focused.
+       */
+      if (this.props.footer && event.key === eventKeyValues.tab) {
+        this.dropdown.current.panel.current.focus();
+      }
+
+      /**
+       * When a user presses escape when the focus is on the input but the dropdown is open, the dropdown closes.
+       * This is required as DropdownToggled only handles escape keydown when focus is within the dropdown.
+       */
+      if (event.key === eventKeyValues.escape) {
+        this.closeDropdown();
+      }
 
       /**
        * Why use setTimeout():
@@ -218,8 +236,11 @@ export default class XUIAutocompleter extends PureComponent {
     }
   };
 
-  onInputFocus = () => {
-    if (!this.state.focused) {
+  onInputFocus = e => {
+    // When the trigger wrapper is programmatically focused the inner TextInput is focused
+    e.target === e.currentTarget && this.inputNode.current.focus();
+
+    if (this.props.openOnFocus && !this.state.focused) {
       this.openDropdown();
     }
   };
@@ -241,6 +262,16 @@ export default class XUIAutocompleter extends PureComponent {
         });
       }
     }, 333);
+  };
+
+  onOpenAnimationEnd = () => {
+    this.setHighlightedItem();
+  };
+
+  setHighlightedItem = () => {
+    this.setState({
+      highlightedId: this.dropdown.current.getHighlightedId(),
+    });
   };
 
   renderPills = () => {
@@ -332,11 +363,7 @@ export default class XUIAutocompleter extends PureComponent {
     const inputClassNames = cn(inputClassName, `${ns}-autocompleter--textinput`);
 
     const trigger = (
-      <div
-        className={triggerClassName}
-        onFocus={openOnFocus ? this.onInputFocus : null}
-        ref={this.tg}
-      >
+      <div className={triggerClassName} onFocus={this.onInputFocus} ref={this.tg} tabIndex={-1}>
         <div aria-hidden className={`${ns}-autocompleter--textinputplaceholder`} ref={this._area}>
           {placeholder}
         </div>
@@ -351,6 +378,7 @@ export default class XUIAutocompleter extends PureComponent {
             role: 'textbox',
             'aria-multiline': false,
             'aria-autocomplete': 'list',
+            'aria-activedescendant': this.state.highlightedId,
             style: {
               flexBasis: inputWidth,
             },
@@ -386,7 +414,6 @@ export default class XUIAutocompleter extends PureComponent {
         onSelect={onOptionSelect}
         qaHook={listQaHook}
         ref={this.dropdown}
-        restrictFocus={false}
         size={dropdownSize}
       >
         {isLoading ? (
@@ -421,6 +448,7 @@ export default class XUIAutocompleter extends PureComponent {
           matchTriggerWidth={matchTriggerWidth && !dropdownSize}
           onClose={onClose}
           onOpen={onOpen}
+          onOpenAnimationEnd={this.onOpenAnimationEnd}
           qaHook={dropdownQaHook}
           ref={this.ddt}
           trigger={trigger}

@@ -198,6 +198,22 @@ export default class XUIAutocompleter extends PureComponent {
       event.persist();
 
       /**
+       * When a user presses tab, the focus is moved to the dropdown panel.
+       * This lets the browser handle the tabbing of events so that the footer gets focused.
+       */
+      if (this.props.footer && event.key === eventKeyValues.tab) {
+        this.dropdown.current.panel.current.focus();
+      }
+
+      /**
+       * When a user presses escape when the focus is on the input but the dropdown is open, the dropdown closes.
+       * This is required as DropdownToggled only handles escape keydown when focus is within the dropdown.
+       */
+      if (event.key === eventKeyValues.escape) {
+        this.closeDropdown();
+      }
+
+      /**
        * Why use setTimeout():
        * The default setTimeout of 0ms will place the running of the callback function to the end of the callstack.
        * This will ensure that dropdown onKeyDown event occurs after the re-rendering of the picklist selection is complete.
@@ -220,8 +236,11 @@ export default class XUIAutocompleter extends PureComponent {
     }
   };
 
-  onInputFocus = () => {
-    if (!this.state.focused) {
+  onInputFocus = e => {
+    // When the trigger wrapper is programmatically focused the inner TextInput is focused
+    e.target === e.currentTarget && this.inputNode.current.focus();
+
+    if (this.props.openOnFocus && !this.state.focused) {
       this.openDropdown();
     }
   };
@@ -344,11 +363,7 @@ export default class XUIAutocompleter extends PureComponent {
     const inputClassNames = cn(inputClassName, `${ns}-autocompleter--textinput`);
 
     const trigger = (
-      <div
-        className={triggerClassName}
-        onFocus={openOnFocus ? this.onInputFocus : null}
-        ref={this.tg}
-      >
+      <div className={triggerClassName} onFocus={this.onInputFocus} ref={this.tg} tabIndex={-1}>
         <div aria-hidden className={`${ns}-autocompleter--textinputplaceholder`} ref={this._area}>
           {placeholder}
         </div>
@@ -399,7 +414,6 @@ export default class XUIAutocompleter extends PureComponent {
         onSelect={onOptionSelect}
         qaHook={listQaHook}
         ref={this.dropdown}
-        restrictFocus={false}
         size={dropdownSize}
       >
         {isLoading ? (

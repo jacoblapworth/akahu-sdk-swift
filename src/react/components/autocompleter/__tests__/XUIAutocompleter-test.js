@@ -11,8 +11,11 @@ import XUIPickitem from '../../picklist/XUIPickitem';
 import XUILoader from '../../loader/XUILoader';
 import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
 import XUIDropdownLayout from '../../dropdown/XUIDropdownLayout';
+import XUIDropdownFooter from '../../dropdown/XUIDropdownFooter';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import wait from '../../../helpers/wait';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testAutocompleterId');
@@ -496,5 +499,63 @@ describe('XUIAutocompleter', () => {
     const component = mount(createComponent({ onSearch, inputLabel: 'Items' }));
     const results = await axe(component.html());
     expect(results).toHaveNoViolations();
+  });
+
+  it('should tab from trigger input to footer if prop `closeOnTab` is false', () => {
+    // Arrange
+    const onSearch = jest.fn();
+    const footerComponent = (
+      <XUIDropdownFooter
+        pickItems={
+          <XUIPickitem id="footer" className="footer">
+            Footer
+          </XUIPickitem>
+        }
+      />
+    );
+    const autocompleterComponent = createComponent({
+      onSearch,
+      closeOnTab: false,
+      footer: footerComponent,
+      isLegacyDisplay: false,
+    });
+
+    render(autocompleterComponent);
+    const input = screen.getByRole('textbox');
+    const footer = screen.getByText('Footer').parentNode;
+
+    // Act
+    userEvent.type(input, 'a');
+    userEvent.tab();
+
+    // Assert
+    expect(footer).toHaveFocus();
+  });
+
+  describe('when ESC is pressed', () => {
+    it('while the the dropdown is open and focus is on trigger, dropdown should close', () => {
+      // Arrange
+      const onSearch = jest.fn();
+      const onClose = jest.fn();
+      const autocompleterRef = React.createRef();
+      const autocompleterComponent = createComponent({
+        onClose,
+        onSearch,
+        closeOnTab: false,
+        isLegacyDisplay: false,
+        ref: autocompleterRef,
+      });
+
+      render(autocompleterComponent);
+      const input = screen.getByRole('textbox');
+
+      // Act
+      userEvent.click(input);
+      autocompleterRef.current.openDropdown();
+      userEvent.keyboard('{esc}');
+
+      // Assert
+      expect(onClose).toHaveBeenCalled();
+    });
   });
 });

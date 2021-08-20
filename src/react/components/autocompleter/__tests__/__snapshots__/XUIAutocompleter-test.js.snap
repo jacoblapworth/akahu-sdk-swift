@@ -18,9 +18,10 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
       aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}
@@ -77,9 +78,10 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
       aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}
@@ -136,9 +138,10 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
       aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}
@@ -196,9 +199,10 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
       aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}
@@ -262,9 +266,10 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
       aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}
@@ -321,9 +326,10 @@ exports[`XUIAutocompleter should render a class on the input element when passed
       aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}
@@ -380,9 +386,10 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
       aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}
@@ -440,9 +447,10 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
       aria-haspopup="listbox"
       className="test-class"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}
@@ -499,9 +507,10 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
       aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}
@@ -562,9 +571,10 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
       aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}
@@ -622,9 +632,10 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
       aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}
@@ -681,9 +692,10 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
       aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}
@@ -741,9 +753,10 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
       aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
-      onFocus={null}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex={-1}
     >
       <div
         aria-hidden={true}

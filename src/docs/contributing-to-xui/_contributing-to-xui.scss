@@ -13,7 +13,7 @@
 //
 // [View XUI communication channels](./section-getting-started-directory.html#getting-started-directory-8)
 //
-// Styleguide: Contributing to XUI.2
+// Styleguide: Contributing to XUI.1
 
 // Identifying an opportunity
 //
@@ -26,19 +26,19 @@
 // Do: <span>Attend one of <a href="section-getting-started-directory.html#getting-started-directory-11">XUI’s drop-in sessions</a></span>
 // Do: Invite someone from the XUI team to chat in person about what you’ve found
 //
-// Styleguide: Contributing to XUI.3
+// Styleguide: Contributing to XUI.2
 
 // Proposing an improvement to XUI
 //
 // Once you have a solution in mind, collaborate with the XUI team to determine if it should live in the system, in a single product, or if there is an existing alternative that can be used. Once a decision is made, we’ll choose the most sensible way forward together based on impact, urgency and capacity.
 //
-// Styleguide: Contributing to XUI.4
+// Styleguide: Contributing to XUI.3
 
 // When:
 //
 // Ideally these conversations happen in the design phase, before development begins. Discussing improvements early in your process can save time in the long run and help to avoid creating design or technical debt. We understand this isn’t always possible, so please don’t hesitate to reach out at any stage.
 //
-// Styleguide: Contributing to XUI.4.1
+// Styleguide: Contributing to XUI.3.1
 
 // What to do:
 //
@@ -57,13 +57,13 @@
 //
 // <!--The decision tree above illustrates how we arrive at each option.-->
 //
-// Styleguide: Contributing to XUI.4.2
+// Styleguide: Contributing to XUI.3.2
 
 // Making a change to XUI
 //
 // The XUI team appreciates when contributors improve a component, fix a bug, or introduce other enhancements to the system, and we encourage you to do so. Reach out to the team to discuss an idea, to attend one of our [regular drop-in sessions](./section-getting-started-directory.html#getting-started-directory-11), or to request a review once you've opened a pull request.
 //
-// Styleguide: Contributing to XUI.5
+// Styleguide: Contributing to XUI.4
 
 // Useful links:
 //
@@ -71,19 +71,19 @@
 // * [#xui-design Slack channel](https://xero.slack.com/messages/C56RA62Q5)
 // * [#xui-development Slack channel](https://xero.slack.com/messages/C565NP1A5)
 //
-// Styleguide: Contributing to XUI.5.1
+// Styleguide: Contributing to XUI.4.1
 
 // Workflow for adding improvements for to XUI
 //
 // This is the process for building a component to be added to XUI. This helps us build things in a high-quality and consistent way. As a contributor, you will get the help and support of the XUI team throughout this process.
 //
-// Styleguide: Contributing to XUI.6
+// Styleguide: Contributing to XUI.5
 
 // When:
 //
 // Once a working group has identified a valuable [addition/improvement to XUI](#contributing-to-xui-4-2), or demand has increased for a component that currently lives inside a single product.
 //
-// Styleguide: Contributing to XUI.6.1
+// Styleguide: Contributing to XUI.5.1
 
 // Process for building a new component
 //
@@ -206,7 +206,7 @@
 //   </div>
 // </div>
 //
-// Styleguide: Contributing to XUI.6.2
+// Styleguide: Contributing to XUI.5.2
 
 // Related resources:
 //
@@ -214,13 +214,13 @@
 // * [Developing with XUI](./section-getting-started-developing-with-xui.html)
 // * [Project Figma Template](https://www.figma.com/file/SdTC3smsNHjEQaGr8jj9b7/Project-Template-XUI)
 //
-// Styleguide: Contributing to XUI.6.3
+// Styleguide: Contributing to XUI.5.3
 
 // Extending XUI or making a contextual override
 //
 // The XUI team only recommend making contextual overrides as a last resort. Contextual overrides can create inconsistencies for users and makes upgrading XUI versions more complicated. If your product requires something to be overridden, consider [suggesting an improvement to XUI](./index.html#XUIFeedback) as the chances are high that other products can benefit from the same change.
 //
-// Styleguide: Contributing to XUI.7
+// Styleguide: Contributing to XUI.6
 
 // Options for extending XUI
 //
@@ -234,7 +234,7 @@
 // |/src/sass/_vars.scss|You'll be able to access the common variables we use throughout the XUI CSS system including colours, spacing, borders and typography|
 // |/src/sass/_mixins.scss|Mixins are frequently used to template features of the components we build. From buttons to our responsive breakpoint system, you'll find many useful style combinations here|
 //
-// Styleguide: Contributing to XUI.7.1
+// Styleguide: Contributing to XUI.6.1
 
 // Related links:
 //
@@ -244,4 +244,4 @@
 // * [Developing with XUI](./section-getting-started-developing-with-xui.html)
 // * [Contributing.md](./section-feedback.html#feedback-4)
 //
-// Styleguide: Contributing to XUI.7.2
+// Styleguide: Contributing to XUI.6.2

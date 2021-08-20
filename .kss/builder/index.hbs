@@ -115,22 +115,32 @@
 							{{! noop }}
 						{{else}} {{#ifStyleguide "Components.DisplayingData.EditableTable"}}
 							{{! noop }}
-						{{else}}
-							<ul>
-								{{#each  @root.sections}} {{#ifDepth 2}}
-								<li>
-									<a href="#{{referenceURI}}">
-										{{header}}
-									</a>
-								</li>
-								{{/ifDepth}} {{/each}}
-							</ul>
-							{{#ifStyleguide "Getting Started" }}
+							{{else}} {{#ifStyleguide "Contributing to XUI.XUI Labs.XUI Labs Overview"}}
 								{{! noop }}
-							{{else}}
-								{{> landingpage }}
+								{{else}} {{#ifStyleguide "Contributing to XUI.XUI Labs.Contributing"}}
+									{{! noop }}
+									{{else}}
+										<ul>
+											{{#each  @root.sections}} {{#ifDepth 2}}
+												<li>
+													<a href="#{{referenceURI}}">
+														{{header}}
+													</a>
+												</li>
+											{{/ifDepth}} {{/each}}
+										</ul>
+										{{#ifStyleguide "Getting Started"}}
+											{{! noop }}
+										{{else}} {{#ifStyleguide "Contributing to XUI"}}
+											{{! noop }}
+											{{else}}
+												{{> landingpage }}
+											{{/ifStyleguide}}
+										{{/ifStyleguide}}
+									{{/ifStyleguide}}
+								{{/ifStyleguide}}
 							{{/ifStyleguide}}
-						{{/ifStyleguide}} {{/ifStyleguide}}
+						{{/ifStyleguide}}
 					{{/if}}
 
 					{{#ifStyleguide "Fundamentals.Icons.1" }}

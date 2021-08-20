@@ -1,12 +1,17 @@
 <div class="xui-introbanner--wrapper">
   <div class="xui-introbanner xui-introbanner-has-illustration xui-introbanner-small-up">
-    <div class="xui-introbanner--illustration">
+    <button
+      aria-label="Watch video"
+      class="xui-introbanner--illustration xui-introbanner--illustration-has-video"
+      type="button"
+    >
       <img
         src="https://edge.xero.com/illustration/collaboration-over-monitor-01/collaboration-over-monitor-01.svg"
         alt=""
         class="xui-illustration"
       />
-    </div>
+      <div class="xui-introbanner--videoicon"></div>
+    </button>
     <div class="xui-introbanner--main">
       <button
         class="xui-button xui-introbanner--dismissbutton xui-button-borderless-main xui-button-small"
@@ -23,13 +28,27 @@
         </p>
         <p>
           Learn more about
-          <a href="#chart-of-accounts">
-            setting up and using chart of accounts in Xero
+          <a href="#chart-of-accounts"
+            >setting up and using chart of accounts in Xero
             <svg class="xui-icon" focusable="false" height="12" viewBox="0 0 12 12" width="12">
               <use xlink:href="#xui-icon-external" /></svg
           ></a>
         </p>
       </div>
+      <footer class="xui-introbanner--footer">
+        <button
+          class="xui-button xui-button-standard xui-button-small xui-button-has-icon"
+          tabindex="0"
+          type="button"
+        >
+          <div class="xui-button--lefticon xui-iconwrapper xui-iconwrapper-small">
+            <svg class="xui-icon" focusable="false" height="12" viewBox="0 0 17 12" width="17">
+              <use xlink:href="#xui-icon-social-youtube" />
+            </svg>
+          </div>
+          Watch video [3:26]
+        </button>
+      </footer>
     </div>
   </div>
 </div>

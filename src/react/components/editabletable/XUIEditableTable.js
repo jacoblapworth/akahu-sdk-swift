@@ -72,9 +72,9 @@ const XUIEditableTable = React.forwardRef(
           <style>
             {hiddenColumns.map(
               hiddenColumn =>
-                `#${calculatedId} .xui-editabletablerow > *:nth-child(${
+                `#${calculatedId} .${tableVariantClassName}row > *:nth-child(${
                   parseInt(hiddenColumn) + 1
-                }) { display: none; }`,
+                }):not(.${tableVariantClassName}--emptystate-cell) { display: none; }`,
             )}
           </style>
         )}
@@ -116,8 +116,8 @@ const XUIEditableTable = React.forwardRef(
             ref={combinedRef}
             style={style}
           >
-            <EditableTableColGroup columnWidths={columnWidths} />
             {children}
+            <EditableTableColGroup columnWidths={columnWidths} />
           </table>
         </EditableTableWrapper>
         {isInvalid && validationMessage && (

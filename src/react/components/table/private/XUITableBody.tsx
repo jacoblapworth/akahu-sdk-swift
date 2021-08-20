@@ -25,6 +25,7 @@ interface BaseProps<RD extends RowData> {
   emptyStateIcon?: XUIIconData;
   hasCheckbox?: boolean;
   hasOverflowMenu?: boolean;
+  hiddenColumns?: Array<number | string>;
   isLoading?: boolean;
   isSortAsc?: boolean;
   isTruncated?: boolean;
@@ -105,6 +106,7 @@ class XUITableBody<RD extends RowData = RowData> extends React.PureComponent<Pro
         {!isLoading && sortedRowsData.length === 0 && (
           <XUIEditableTableRow>
             <XUIEditableTableCell
+              className={`${tableName}--emptystate-cell`}
               colSpan={
                 columns.length + [hasCheckbox, hasOverflowMenu].filter(value => value).length
               }

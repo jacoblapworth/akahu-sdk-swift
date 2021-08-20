@@ -31,19 +31,38 @@
 
 // Illustrations
 //
-// An illustration is used to complement or enhance the body content inside the intro banner. If an introduction video displays inside the product, a play button should be displayed on top of the illustration, in addition to a call to action button below the body content.
+// An illustration is used to complement or enhance the body content inside the intro banner.
 //
 // Tips:
 // Do: Always position illustrations on the left-hand side of the component
-// Do: Provide a ‘Watch video’ button in addition to the illustration play button for videos that play inside the product
-// Don't: Don’t display an illustration play button if the video opens in an external page, such as Xero TV
-// Don't: Don’t use illustrations to provide decoration that doesn’t support the body content
+// Do: Illustrations should be visually meaningful and support the written content
+// Don't: Don’t use illustrations to provide decoration
 //
 // exampleclass: ds-example-wide
 //
 // Markup: ./examples/introbanner/_intro-banner-illustration.html
 //
 // Styleguide: Components.Alerts.IntroBanner.2
+
+// Videos
+//
+// A video can be linked to from an illustration. It should open in a modal to keep the user within the original experience.
+// This is especially beneficial when onboarding or educating a user.
+//
+// Videos should be accessible to everyone. Include captions, a transcript, and an audio description delivered in an accessible video player.
+// Ideally, timestamps should also be included. See details in our [video player guidance](https://docs.google.com/document/d/1Jiob2o-fZGVjQvpWGPkO9CX_NrQVUMPQmAVDBoSxuJQ/).
+//
+// Tips:
+// Do: Use an xLarge modal for videos on larger screens or a small modal for smaller breakpoints
+// Do: Allow users to view the video at full width on all viewports
+// Do: Include a 'play' button on top of the illustration and a 'Watch video' button below the body copy
+// Do: Button text should include the video length in square brackets - for example: [3:26] - after the text
+//
+// exampleclass: ds-example-wide
+//
+// Markup: ./examples/introbanner/_intro-banner-video.html
+//
+// Styleguide: Components.Alerts.IntroBanner.3
 
 // Dismiss button
 //
@@ -54,7 +73,7 @@
 // Do: Label button as ‘Hide’ if it’s connected to the ‘Getting started’ switch, to convey that the intro banner can be revealed later
 // Do: Label button as ‘Close’ if it’s not connected to the ‘Getting started’ switch
 //
-// Styleguide: Components.Alerts.IntroBanner.3
+// Styleguide: Components.Alerts.IntroBanner.4
 
 // Call to action buttons
 //
@@ -70,7 +89,7 @@
 // Info: [Page-level actions](./section-patterns-page-level-actions.html)
 // Info: [Button content guidelines](//docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.n0x4g065o3eg)
 //
-// Styleguide: Components.Alerts.IntroBanner.4
+// Styleguide: Components.Alerts.IntroBanner.5
 
 // Responsive
 //
@@ -84,7 +103,7 @@
 //
 // Markup: ./examples/introbanner/_intro-banner-responsive.html
 //
-// Styleguide: Components.Alerts.IntroBanner.5
+// Styleguide: Components.Alerts.IntroBanner.6
 
 // Content guidelines
 //
@@ -100,7 +119,7 @@
 // Don't: Avoid repeating the heading text inside the body content
 // Don't: Avoid marketing or upselling the product – use the [relevant tone](//xui.xero.com/product-language-guide/components/tone/) for product content
 //
-// Styleguide: Components.Alerts.IntroBanner.6
+// Styleguide: Components.Alerts.IntroBanner.7
 
 // Using HTML and CSS only
 //
@@ -120,7 +139,7 @@
 // xui-introbanner--body: Container for body content
 // xui-introbanner--footer: Container for footer content
 //
-// Styleguide: Components.Alerts.IntroBanner.7
+// Styleguide: Components.Alerts.IntroBanner.8
 
 // Related links
 //

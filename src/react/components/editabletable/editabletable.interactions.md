@@ -288,9 +288,8 @@ const DisableControlsExample = () => {
 
 ### Hiding and showing columns
 
-There are several possible approaches for hiding and showing columns.
+There are two possible approaches for hiding and showing columns.
 
-- Apply a className of `xui-editabletable--column-hidden` to the hidden cell(s) in each row.
 - Selectively render `null` instead of the specified cells in each row.
 - Using the XUIEditableTable `hiddenColumns` API
 

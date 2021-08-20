@@ -1,0 +1,194 @@
+<div class="xui-readonlytable-hasborder">
+  <style>
+    tbody ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+  </style>
+  <div class="xui-readonlytablewrapper--scrollcontainer">
+    <table class="xui-readonlytable">
+      <thead class="xui-readonlytablehead">
+        <tr class="xui-readonlytablerow">
+          <th
+            class="xui-readonlytableheadingcell xui-readonlytablecell xui-readonlytablecell-singleline"
+          >
+            <span>Event / Trigger</span>
+          </th>
+          <th
+            class="xui-readonlytableheadingcell xui-readonlytablecell xui-readonlytablecell-singleline"
+          >
+            <span>Contributor action</span>
+          </th>
+          <th
+            class="xui-readonlytableheadingcell xui-readonlytablecell xui-readonlytablecell-singleline"
+          >
+            <span>Consumer action</span>
+          </th>
+          <th
+            class="xui-readonlytableheadingcell xui-readonlytablecell xui-readonlytablecell-singleline"
+          >
+            <span>XUI team action</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="xui-readonlytablebody">
+        <tr class="xui-readonlytablerow">
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Adding new XUI Labs component</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Create component</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Install and use component</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Verify new component meets XUI Labs requirements (Pull request stage)</span>
+          </td>
+        </tr>
+        <tr class="xui-readonlytablerow">
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>XUI Labs component bug fix</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <ul>
+              <li>Fix bug</li>
+              <li>Increase component patch version number</li>
+            </ul>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Update project to consume latest component</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Verify bug fix meets XUI Labs requirements (Pull request stage)</span>
+          </td>
+        </tr>
+        <tr class="xui-readonlytablerow">
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>New XUI Labs component feature</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <ul>
+              <li>Add feature</li>
+              <li>Increase component minor version number</li>
+            </ul>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Update project to consume latest component</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span
+              >Verify new component feature meets XUI Labs requirements (Pull request stage)</span
+            >
+          </td>
+        </tr>
+        <tr class="xui-readonlytablerow">
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>XUI Labs component breaking change</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <ul>
+              <li>Make breaking change</li>
+              <li>Increase component major version number</li>
+            </ul>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Update project to consume latest component</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Verify changes meet XUI Labs requirements (Pull request stage)</span>
+          </td>
+        </tr>
+        <tr class="xui-readonlytablerow">
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Moving XUI Labs component into XUI</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <ul>
+              <li>
+                Work with the XUI team to ensure component meets the
+                <a
+                  href="https://xero.atlassian.net/wiki/spaces/PLAT/pages/19591963182/Definitions+of+done"
+                  >XUI component definition of done</a
+                >
+              </li>
+              <li>Contribute component to new minor version of XUI</li>
+            </ul>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <ul>
+              <li>Update project to latest version of XUI</li>
+              <li>Swap out XUI Labs component for XUI component</li>
+            </ul>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <ul>
+              <li>
+                Work with the contributor to ensure component meets the
+                <a
+                  href="https://xero.atlassian.net/wiki/spaces/PLAT/pages/19591963182/Definitions+of+done"
+                  >XUI component definition of done</a
+                >
+              </li>
+              <li>Release new minor version of XUI</li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="xui-readonlytablerow">
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>XUI patch/minor release</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Update component to consume latest XUI version (optional)</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Update project to consume latest component (optional)</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Notify teams of the new XUI version release</span>
+          </td>
+        </tr>
+        <tr class="xui-readonlytablerow">
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>XUI major release</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <ul>
+              <li>Update component to consume latest XUI version (required)</li>
+              <li>Fix component breakages & re-test</li>
+            </ul>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>Update project to consume latest component (optional)</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span
+              >Pre-release comms with contributors to give adequate lead time to make adjustments to
+              component if necessary</span
+            >
+          </td>
+        </tr>
+        <tr class="xui-readonlytablerow">
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span
+              >XUI Labs component is no longer used (no active consumers for an extended period of
+              time)</span
+            >
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>N/A</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <span>N/A</span>
+          </td>
+          <td class="xui-readonlytablecell xui-readonlytablecell-layout">
+            <ul>
+              <li>Notify original contributors that component will be sunset</li>
+              <li>Sunset component</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

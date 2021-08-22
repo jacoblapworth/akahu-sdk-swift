@@ -41,12 +41,12 @@ exports[`<XUIEditableTable /> renders correctly 1`] = `
       className="xui-editabletable"
       id="xui-editabletable-testGeneratedId"
     >
-      <EditableTableColGroup
-        columnWidths={Array []}
-      />
       <div>
         XUIEditableTable
       </div>
+      <EditableTableColGroup
+        columnWidths={Array []}
+      />
     </table>
   </EditableTableWrapper>
 </XUICheckboxRangeSelector>

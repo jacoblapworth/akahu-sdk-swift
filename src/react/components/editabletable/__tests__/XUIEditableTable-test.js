@@ -44,10 +44,10 @@ describe('<XUIEditableTable />', () => {
   it('renders rules to hide the proper columns, when hiddenColumns are passed', () => {
     const wrapper = mount(<XUIEditableTable hiddenColumns={[1, 2]} />);
     expect(wrapper.text()).toContain(
-      `#${tableName}-${mockedNanoid} .xui-editabletablerow > *:nth-child(2) { display: none; }`,
+      `#${tableName}-${mockedNanoid} .${tableName}row > *:nth-child(2):not(.${tableName}--emptystate-cell) { display: none; }`,
     );
     expect(wrapper.text()).toContain(
-      `#${tableName}-${mockedNanoid} .xui-editabletablerow > *:nth-child(3) { display: none; }`,
+      `#${tableName}-${mockedNanoid} .${tableName}row > *:nth-child(3):not(.${tableName}--emptystate-cell) { display: none; }`,
     );
   });
 

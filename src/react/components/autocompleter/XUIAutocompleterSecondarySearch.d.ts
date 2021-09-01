@@ -114,7 +114,8 @@ interface Props {
   /**
    * Callback to handle when an option has been selected from the dropdown.
    */
-  onOptionSelect?: (value: string, element?: React.ReactElement<XUIPickitem>) => void;
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  onOptionSelect?: (value: any, element?: React.ReactElement<XUIPickitem>) => void;
   /**
    * Callback for when the user types into the search box.
    */

@@ -3,7 +3,11 @@ module.exports = {
   ignoreFiles: [['src/sass/_conflicts.scss', 'src/sass/tmp/*']],
   rules: {
     'a11y/media-prefers-reduced-motion': true,
-    // indentation: 2, // TODO: Enable this once the repo is Prettier
+    'declaration-bang-space-after': 'never',
+    'declaration-bang-space-before': 'always',
+    'declaration-colon-space-after': 'always-single-line',
+    'declaration-colon-space-before': 'never',
+    indentation: 2,
     'max-line-length': 305,
     'max-nesting-depth': 3,
     'no-duplicate-selectors': true,
@@ -11,12 +15,6 @@ module.exports = {
     'no-eol-whitespace': true,
     'no-extra-semicolons': true,
     'no-missing-end-of-source-newline': true,
-
     'order/properties-alphabetical-order': true,
-
-    'declaration-bang-space-after': 'never',
-    'declaration-bang-space-before': 'always',
-    'declaration-colon-space-after': 'always-single-line',
-    'declaration-colon-space-before': 'never',
   },
 };

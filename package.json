@@ -1,6 +1,6 @@
 {
   "name": "@xero/xui",
-  "version": "18.3.1",
+  "version": "18.3.2",
   "description": "Shared styles for Xero applications",
   "private": true,
   "repository": {
@@ -41,7 +41,7 @@
     "release": "node scripts/release"
   },
   "dependencies": {
-    "@xero/blind-date": "^2.5.0",
+    "@xero/blind-date": "^2.5.1",
     "@xero/xui-icon": "^6.7.0",
     "autosize": "4.0.2",
     "babel-runtime": "^6.26.0",

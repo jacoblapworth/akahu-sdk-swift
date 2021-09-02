@@ -173,6 +173,7 @@ TypeScript types have also been made slightly more strict for instances of rootN
   - "Press Space bar or Enter to start a drag. When dragging you can use the arrow keys to move the
     item around and escape to cancel. Ensure your screen reader is in focus mode or to use your pass
     through key."
+- Support for sorting table rows by column has been added
 
 ### XUIFileUploader
 

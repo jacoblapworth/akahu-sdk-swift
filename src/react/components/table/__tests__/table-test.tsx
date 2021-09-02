@@ -451,6 +451,36 @@ describe('XUITable', () => {
         expect(screen.queryByTestId('testId-head-checkbox--input')).toHaveAttribute('disabled');
       });
     });
+
+    test('pressing tab moves through sortable headers', () => {
+      const mockOnSortChange = jest.fn();
+      render(
+        <XUITableWithData
+          customHeadProps={[
+            <XUITableCell sortKey="fruit">Fruit</XUITableCell>,
+            <XUITableCell sortKey="color">Color</XUITableCell>,
+            <XUITableCell sortKey="price">Price / kg</XUITableCell>,
+          ]}
+          isSortAsc
+          onSortChange={mockOnSortChange}
+        />,
+      );
+      const [tableHeadCell1, tableHeadCell2, tableHeadCell3] = screen.getAllByRole('button');
+
+      expect(document.body).toHaveFocus();
+
+      userEvent.tab();
+
+      expect(tableHeadCell1).toHaveFocus();
+
+      userEvent.tab();
+
+      expect(tableHeadCell2).toHaveFocus();
+
+      userEvent.tab();
+
+      expect(tableHeadCell3).toHaveFocus();
+    });
   });
 
   describe('XUITableBody', () => {

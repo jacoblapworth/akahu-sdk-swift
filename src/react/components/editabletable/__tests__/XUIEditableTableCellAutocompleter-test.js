@@ -1,4 +1,6 @@
 import React from 'react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
@@ -6,6 +8,7 @@ import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import XUIAutocompleter from '../../autocompleter/XUIAutocompleter';
+import XUIPill from '../../pill/XUIPill';
 import XUIEditableTableCell from '../XUIEditableTableCell';
 import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellAutocompleter from '../XUIEditableTableCellAutocompleter';

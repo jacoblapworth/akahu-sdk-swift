@@ -92,6 +92,11 @@ const datepicker = (
   />
 );
 const plaintext = <p>Some content that appears in a dropdown panel would go here.</p>;
+const shortText = (
+  <XUIDropdown>
+    <XUIPicklist>{createItems(toggledShort, 'a')}</XUIPicklist>
+  </XUIDropdown>
+);
 const nested = (
   <XUINestedDropdown currentPanelId="customDate" isHidden={false}>
     <XUIDropdownPanel panelId="samplePicklist">{picklist}</XUIDropdownPanel>
@@ -218,7 +223,7 @@ storiesWithKnobs.add('Playground', () => {
       }
       forceDesktop={forceDesktop}
       isHidden={boolean('is dropdown initially hidden', true)}
-      matchTriggerWidth={boolean('matchTriggerWidth', false)}
+      matchTriggerWidth={select('matchTriggerWidth', [true, false, 'min'], false)}
       preferredPosition={select('preferred position', dropdownPositionOptions, 'bottom-left')}
       repositionOnScroll={boolean('repositionOnScroll', false)}
       restrictToViewPort={boolean('restrictToViewPort', true)}
@@ -240,6 +245,8 @@ function buildDropdown(ddSettings) {
     return nested;
   } else if (ddSettings.children === 'nestedScrollable') {
     return nestedScrollable;
+  } else if (ddSettings.children === 'shortText') {
+    return shortText;
   }
 
   if (ddSettings.headerAndFooter) {

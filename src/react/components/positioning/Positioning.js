@@ -340,9 +340,13 @@ class Positioning extends PureComponent {
     const triggerElement =
       parentRef && getTriggerNodeFromParentRef(parentRef, leaveRoomForValidationMessage);
 
-    const shouldMatchTriggerWidth = isTriggerWidthMatched && !isMobile && triggerElement != null;
+    const shouldMatchTriggerWidth =
+      isTriggerWidthMatched === true && !isMobile && triggerElement != null;
 
-    return {
+    const minWidthShouldMatchTriggerWidth =
+      isTriggerWidthMatched === 'min' && !isMobile && triggerElement != null;
+
+    const styles = {
       maxHeight: isMobile ? null : maxHeight,
       top,
       width: shouldMatchTriggerWidth ? triggerElement.getBoundingClientRect().width : null,
@@ -353,6 +357,12 @@ class Positioning extends PureComponent {
       marginLeft,
       marginRight,
     };
+
+    if (minWidthShouldMatchTriggerWidth) {
+      styles.minWidth = triggerElement.getBoundingClientRect().width;
+    }
+
+    return styles;
   };
 
   render() {
@@ -387,8 +397,16 @@ Positioning.propTypes = {
   isDynamicWidth: PropTypes.bool,
   /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
   isNotResponsive: PropTypes.bool,
-  /** Setting to true will for the dropdown to be as wide as the trigger. */
-  isTriggerWidthMatched: PropTypes.bool,
+  /**
+   * Setting this to `true` makes the dropdown as wide as the trigger.
+   * Setting this to `false` will allow the dropdown's width to be set independent of the trigger width.
+   * Setting this to `'min'` will set the dropdown's `min-width` to be the trigger width.
+   */
+  isTriggerWidthMatched: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([true, false, 'min']),
+  ]),
+
   /** true when the component is rendered but not displayed */
   isVisible: PropTypes.bool,
   /** Prevent the positioned element from sitting over the trigger's validation message */

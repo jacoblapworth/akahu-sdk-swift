@@ -97,6 +97,22 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'matching trigger min-width with short content and max width',
+    dropdownClassName: 'xui-dropdown-large',
+    fullWidth: 'never',
+    items: listHelpers.AddIdPropsToTextList(listHelpers.ShortListShortItems),
+    matchTriggerWidth: 'min',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'matching trigger min-width with long content and max width',
+    dropdownClassName: 'xui-dropdown-large',
+    fullWidth: 'never',
+    items: listHelpers.AddIdPropsToTextList(listHelpers.LongListLongItems),
+    matchTriggerWidth: 'min',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with truncation and no icon',
     buttonContent: 'Choose a classic book',
     isTextTruncated: true,

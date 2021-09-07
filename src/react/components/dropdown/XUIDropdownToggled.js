@@ -705,12 +705,14 @@ XUIDropdownToggled.propTypes = {
   isLegacyDisplay: PropTypes.bool,
 
   /**
-   * Setting to true will for the dropdown to be as wide as the trigger. <br>
-   * **Note:** *Setting this to true will override any size prop on `XUIDropdown`.* <br>
-   * XUI design has also to keep a minimum width on the dropdown,
-   * so dropdown may not match the width of narrow triggers.
+   * Setting this to `true` makes the dropdown as wide as the trigger. <br>
+   * **Note:** *Setting this to `true` will override any `size` prop on Dropdown.* <br>
+   * Setting this to `false` will allow the dropdown's width to be set independent of the trigger width (defaults to `false`). <br>
+   * Setting this to `'min'` will set the dropdown's `min-width` to be the trigger width. <br/>
+   * XUI design has also decided to keep a minimum width on the dropdown,
+   * so dropdown may not match the width of narrow triggers (setting this to `'min'` will not override this).
    */
-  matchTriggerWidth: PropTypes.bool,
+  matchTriggerWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf([true, false, 'min'])]),
 
   /**
    * Setting a number here will force the maximum height of the dropdown to be the number

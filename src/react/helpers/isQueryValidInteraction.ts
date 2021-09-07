@@ -1,4 +1,4 @@
-import { isKeyClick } from '../../helpers/reactKeyHandler';
+import { isKeyClick } from '../components/helpers/reactKeyHandler';
 
 function queryIsValidInteraction(event: React.MouseEvent | React.KeyboardEvent) {
   return event.type === 'click' || isKeyClick(event as React.KeyboardEvent);

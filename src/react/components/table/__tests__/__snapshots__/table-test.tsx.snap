@@ -59,98 +59,92 @@ exports[`XUITable XUITableHead sorting by columns snapshot 1`] = `
                 class="xui-readonlytablerow"
               >
                 <th
-                  class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytableheadingcell-leftaligned"
+                  class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell-link xui-readonlytablecell xui-readonlytableheadingcell-leftaligned xui-readonlytable--sortbutton"
+                  role="button"
                   scope="col"
+                  tabindex="0"
                 >
                   <div
-                    class="xui-readonlytable--sortbutton"
-                    role="button"
-                    tabindex="0"
+                    class="xui-readonlytable--sortbuttoncontent xui-readonlytable--sortbuttoncontent-active"
                   >
-                    <div
-                      class="xui-readonlytable--sortbuttoncontent xui-readonlytable--sortbuttoncontent-active"
-                    >
+                    <span>
                       Fruit
-                      <div
-                        class="xui-readonlytable--sorticonwrapper"
+                    </span>
+                    <div
+                      class="xui-readonlytable--sorticonwrapper"
+                    >
+                      <svg
+                        class="xui-icon xui-readonlytable--sorticon"
+                        focusable="false"
+                        height="11"
+                        viewBox="0 0 8 11"
+                        width="8"
                       >
-                        <svg
-                          class="xui-icon xui-readonlytable--sorticon"
-                          focusable="false"
-                          height="11"
-                          viewBox="0 0 8 11"
-                          width="8"
-                        >
-                          <path
-                            d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
-                            role="presentation"
-                          />
-                        </svg>
-                      </div>
+                        <path
+                          d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
+                          role="presentation"
+                        />
+                      </svg>
                     </div>
                   </div>
                 </th>
                 <th
-                  class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytableheadingcell-leftaligned"
+                  class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell-link xui-readonlytablecell xui-readonlytableheadingcell-leftaligned xui-readonlytable--sortbutton"
+                  role="button"
                   scope="col"
+                  tabindex="0"
                 >
                   <div
-                    class="xui-readonlytable--sortbutton"
-                    role="button"
-                    tabindex="0"
+                    class="xui-readonlytable--sortbuttoncontent"
                   >
-                    <div
-                      class="xui-readonlytable--sortbuttoncontent"
-                    >
+                    <span>
                       Color
-                      <div
-                        class="xui-readonlytable--sorticonwrapper xui-readonlytable--sorticonwrapper-hidden"
+                    </span>
+                    <div
+                      class="xui-readonlytable--sorticonwrapper xui-readonlytable--sorticonwrapper-hidden"
+                    >
+                      <svg
+                        class="xui-icon xui-readonlytable--sorticon"
+                        focusable="false"
+                        height="11"
+                        viewBox="0 0 8 11"
+                        width="8"
                       >
-                        <svg
-                          class="xui-icon xui-readonlytable--sorticon"
-                          focusable="false"
-                          height="11"
-                          viewBox="0 0 8 11"
-                          width="8"
-                        >
-                          <path
-                            d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
-                            role="presentation"
-                          />
-                        </svg>
-                      </div>
+                        <path
+                          d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
+                          role="presentation"
+                        />
+                      </svg>
                     </div>
                   </div>
                 </th>
                 <th
-                  class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell xui-readonlytableheadingcell-rightaligned"
+                  class="xui-readonlytableheadingcell xui-readonlytablecell-singleline xui-readonlytablecell-link xui-readonlytablecell xui-readonlytableheadingcell-rightaligned xui-readonlytable--sortbutton"
+                  role="button"
                   scope="col"
+                  tabindex="0"
                 >
                   <div
-                    class="xui-readonlytable--sortbutton"
-                    role="button"
-                    tabindex="0"
+                    class="xui-readonlytable--sortbuttoncontent xui-readonlytable--sortbuttoncontent-rightaligned"
                   >
-                    <div
-                      class="xui-readonlytable--sortbuttoncontent xui-readonlytable--sortbuttoncontent-rightaligned"
-                    >
+                    <span>
                       Price / kg
-                      <div
-                        class="xui-readonlytable--sorticonwrapper xui-readonlytable--sorticonwrapper-hidden"
+                    </span>
+                    <div
+                      class="xui-readonlytable--sorticonwrapper xui-readonlytable--sorticonwrapper-hidden"
+                    >
+                      <svg
+                        class="xui-icon xui-readonlytable--sorticon"
+                        focusable="false"
+                        height="11"
+                        viewBox="0 0 8 11"
+                        width="8"
                       >
-                        <svg
-                          class="xui-icon xui-readonlytable--sorticon"
-                          focusable="false"
-                          height="11"
-                          viewBox="0 0 8 11"
-                          width="8"
-                        >
-                          <path
-                            d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
-                            role="presentation"
-                          />
-                        </svg>
-                      </div>
+                        <path
+                          d="M3 0h2v8l2-2 1 1-4 4-4-4 1-1 2 2z"
+                          role="presentation"
+                        />
+                      </svg>
                     </div>
                   </div>
                 </th>

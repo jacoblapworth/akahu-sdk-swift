@@ -58,14 +58,18 @@ interface Props {
    */
   isLegacyDisplay?: boolean;
   /**
-   * Setting to `true` makes the dropdown as wide as the trigger.
+   * Setting this to `true` makes the dropdown as wide as the trigger.
    *
    * **Note:** *Setting this to `true` will override any `size` prop on `XUIDropdown`.*
    *
+   * Setting this to `false` will allow the dropdown's width to be set independent of the trigger width.
+   *
+   * Setting this to `'min'` will set the dropdown's `min-width` to be the trigger width.
+   *
    * **Note:** *XUI design has also decided to keep a minimum width on the dropdown, so the dropdown
-   * may not match the width of narrow triggers.*
+   * may not match the width of narrow triggers (setting this to `'min'` will not override this).*
    */
-  matchTriggerWidth?: boolean;
+  matchTriggerWidth?: boolean | true | false | 'min';
   /**
    * Setting a number here will force the maximum height of the dropdown to be the number provided
    * (in pixels) if the viewport is too big. When the viewport is smaller than this number, it still

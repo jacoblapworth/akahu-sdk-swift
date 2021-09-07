@@ -86,7 +86,7 @@ class XUITableHead<RD extends RowData> extends React.PureComponent<Props<RD>> {
                     column,
                     columnIndex,
                     columns,
-                    Boolean(head.props.onCellClick),
+                    Boolean(head.props.onCellClick || head.props.sortKey),
                     isTruncated,
                     undefined,
                     undefined,

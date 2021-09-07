@@ -125,14 +125,18 @@ interface Props {
    */
   loadingAriaLabel?: string;
   /**
-   * Setting to `false` will allow the dropdown's width to be set independent of the trigger width.
+   * Setting this to `true` makes the dropdown as wide as the trigger.
    *
-   * **Note:** *Setting this to `true` will override any size prop on `XUIDropdown`.*
+   * **Note:** *If you have set a `dropdownSize` prop, this will be changed to `false`.*
    *
-   * XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match
-   * the width of narrow triggers.
+   * Setting this to `false` will allow the dropdown's width to be set independent of the trigger width.
+   *
+   * Setting this to `'min'` will set the dropdown's `min-width` to be the trigger width.
+   *
+   * **Note:** *XUI design has also decided to keep a minimum width on the dropdown, so the dropdown
+   * may not match the width of narrow triggers (setting this to `'min'` will not override this).*
    */
-  matchTriggerWidth?: boolean;
+  matchTriggerWidth?: boolean | true | false | 'min';
   /**
    * Max length of the input.
    */

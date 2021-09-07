@@ -115,6 +115,19 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
   }
 }
 
+@mixin xui-editabletable-sortbutton-bg-color($color) {
+  background: $color;
+  box-shadow: -1px 0 0 0 $color, 1px 0 0 0 $color, 1px 0 0 0 $xui-editabletablehead-bg-color,
+    1px 0 0 0 $xui-editabletable-bg-color;
+  &:last-child {
+    box-shadow: -1px 0 0 0 $color;
+  }
+  &:first-child {
+    box-shadow: 1px 0 0 0 $color, 1px 0 0 0 $xui-editabletablehead-bg-color,
+      1px 0 0 0 $xui-editabletable-bg-color;
+  }
+}
+
 .#{$ns}-editabletablehead {
   @include xui-heading-small;
   color: $xui-text-muted-color;
@@ -127,7 +140,26 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
   .#{$ns}-editabletableheadingcell:not(:last-child) {
     box-shadow: 1px 0 0 0 $xui-editabletablehead-bg-color, 1px 0 0 0 $xui-editabletable-bg-color;
   }
+
+  .#{$ns}-editabletable--sortbutton {
+    @include xui-table-sortbutton('editabletable');
+    padding-left: $xui-s-standard;
+    padding-right: $xui-s-standard;
+    &:focus {
+      @include xui-editabletable-sortbutton-bg-color($xui-editabletable-sortbutton-focus-bg-color);
+    }
+
+    &:active {
+      @include xui-editabletable-sortbutton-bg-color($xui-editabletable-sortbutton-active-bg-color);
+    }
+  }
 }
+
+.#{$ns}-editabletable--sortbuttoncontent {
+  @include xui-table-sortbuttoncontent('editabletable');
+}
+
+@include xui-table-sorticonwrapper('editabletable');
 
 .#{$ns}-editabletablehead,
 .#{$ns}-editabletablefoot {

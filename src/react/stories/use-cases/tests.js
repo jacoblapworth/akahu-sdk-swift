@@ -4,6 +4,7 @@ const storyNames = {
   dateDDInModal: 'Datepicker dropdown in a modal',
   dropDownInModal: 'Dropdown in a modal',
   multiDropdowns: 'Multiple dropdowns in a modal',
+  layeringElements: 'Layering elements',
 };
 
 const nonBackstopStoryNames = {
@@ -11,7 +12,6 @@ const nonBackstopStoryNames = {
   modalInModal: 'Modal in a modal with dropdown',
   fiveNestedModals: 'Multiple nested modals',
   touchInteractions: 'Touch interaction tests',
-  layeringElements: 'Layering elements',
 };
 
 const variations = [];
@@ -20,6 +20,7 @@ Object.keys(storyNames).forEach(name => {
   variations.push({
     storyKind: `${compositionKind}/${storyNames[name]}`,
     storyTitle: storyNames[name],
+    clickSelector: (name === 'layeringElements' && '#navMenu') || undefined,
   });
 });
 

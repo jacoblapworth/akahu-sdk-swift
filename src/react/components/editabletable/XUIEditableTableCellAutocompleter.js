@@ -100,6 +100,7 @@ class XUIEditableTableCellAutocompleter extends Component {
       >
         <XUIAutocompleter
           {...spreadProps}
+          _useCellStyling
           className={cn(`${baseName}--control`, className)}
           inputProps={{
             ...inputProps,

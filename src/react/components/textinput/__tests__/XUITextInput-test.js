@@ -12,7 +12,6 @@ import XUIPill from '../../pill/XUIPill';
 import XUIInnerPill from '../../pill/XUIInnerPill';
 import NOOP from '../../helpers/noop';
 import { sizeShift } from '../../helpers/sizes';
-import EditableTableCellContext from '../../../contexts/EditableTableCellContext';
 import { render, screen } from '@testing-library/react';
 
 jest.mock('nanoid');
@@ -362,11 +361,7 @@ describe('<XUITextInput>', () => {
   describe('inside XUIEditableTable', () => {
     it('has a class indicating it is inside an editable table', () => {
       const automationId = 'text-input';
-      const wrapper = mount(
-        <EditableTableCellContext.Provider value={{ useCellStyling: true }}>
-          <XUITextInput qaHook={automationId} />
-        </EditableTableCellContext.Provider>,
-      );
+      const wrapper = mount(<XUITextInput qaHook={automationId} _useCellStyling />);
 
       const { classList } = wrapper.find(`[data-automationid="${automationId}"]`).getDOMNode();
 

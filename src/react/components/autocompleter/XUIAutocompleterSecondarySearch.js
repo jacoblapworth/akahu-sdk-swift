@@ -141,6 +141,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 
   render() {
     const {
+      _useCellStyling,
       qaHook,
       dropdownSize,
       dropdownClassName,
@@ -232,7 +233,11 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
     );
 
     return (
-      <div className={className} data-automationid={containerQaHook} ref={this.rootNode}>
+      <div
+        className={cn(className, _useCellStyling && `${ns}-select-cell`)}
+        data-automationid={containerQaHook}
+        ref={this.rootNode}
+      >
         <XUIDropdownToggled
           className={dropdownToggledClasses}
           closeOnSelect={closeOnSelect}
@@ -253,6 +258,12 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
 }
 
 XUIAutocompleterSecondarySearch.propTypes = {
+  /**
+   * @ignore
+   * Internal use only, used to assist with styling a button to look like part of a table
+   */
+  _useCellStyling: PropTypes.bool,
+
   children: PropTypes.node,
 
   /** CSS class(es) to go on the wrapping DOM node */

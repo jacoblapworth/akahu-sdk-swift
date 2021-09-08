@@ -304,6 +304,7 @@ export default class XUIAutocompleter extends PureComponent {
 
   render() {
     const {
+      _useCellStyling,
       qaHook,
       pills,
       leftElement,
@@ -368,6 +369,7 @@ export default class XUIAutocompleter extends PureComponent {
           {placeholder}
         </div>
         <XUITextInput
+          _useCellStyling={_useCellStyling}
           containerClassName={containerClassNames}
           hintMessage={hintMessage}
           inputClassName={inputClassNames}
@@ -460,6 +462,12 @@ export default class XUIAutocompleter extends PureComponent {
 }
 
 XUIAutocompleter.propTypes = {
+  /**
+   * @ignore
+   * Internal use only, used to assist with styling a button to look like part of a table
+   */
+  _useCellStyling: PropTypes.bool,
+
   children: PropTypes.node,
 
   /** CSS class(es) to go on the wrapping DOM node */

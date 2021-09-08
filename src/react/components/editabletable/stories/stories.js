@@ -191,7 +191,7 @@ class EditableTablePlayground extends React.Component {
 
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => {
-  const columnCount = number('Column count', 4);
+  const columnCount = number('Column count', 7);
   const sortKeyOptions = Array.from(Array(columnCount).keys());
 
   return (
@@ -207,6 +207,7 @@ storiesWithKnobs.add('Playground', () => {
           'selectBox',
           'autoCompleterSingle',
           'autoCompleterMulti',
+          'secondarySearch',
           'assorted',
         ],
         'assorted',

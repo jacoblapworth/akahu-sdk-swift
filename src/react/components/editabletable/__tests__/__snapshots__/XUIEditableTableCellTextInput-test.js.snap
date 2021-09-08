@@ -12,6 +12,7 @@ exports[`<XUIEditableTableCellTextInput /> renders correctly 1`] = `
   onClick={[Function]}
 >
   <XUITextInput
+    _useCellStyling={true}
     containerClassName="xui-editabletablecelltextinput--control"
     inputProps={Object {}}
     isLabelHidden={true}

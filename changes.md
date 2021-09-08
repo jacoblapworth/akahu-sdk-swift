@@ -52,6 +52,9 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 - `XUIRadio`
   - `htmlClassName` and `svgClassName` have been combined into `radioElementClassName`
     - `radioElementClassName` will also be added to the invisible radio input element
+- `XUIDropdownToggled`, `XUIAutocompleter`, `XUIAutocompleterSecondarySearch`, `XUIEditableTableCellAutocompleter`, `XUISelectBox` and `XUIEditableTableCellSelectBox`
+  - `matchTriggerWidth` has been converted from a `boolean` into an `enum` of `true | false | 'min'`
+  - By setting `matchTriggerWidth` to `'min'`, dropdowns can now have a `min-width` which matches the trigger's width, while also being able to expand to fit longer content
 
 #### Prop Renaming
 

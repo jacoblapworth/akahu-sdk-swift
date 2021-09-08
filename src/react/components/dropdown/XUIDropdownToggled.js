@@ -595,7 +595,7 @@ export default class XUIDropdownToggled extends PureComponent {
             ref: this.positioning,
             leaveRoomForValidationMessage: Boolean(cellRef.current),
             parentRef: cellRef.current || this.wrapper.current,
-            isTriggerWidthMatched: matchTriggerWidth,
+            matchTriggerWidth,
             isDynamicWidth: this.isDynamicWidth,
           };
 
@@ -712,7 +712,7 @@ XUIDropdownToggled.propTypes = {
    * XUI design has also decided to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers (setting this to `'min'` will not override this).
    */
-  matchTriggerWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf([true, false, 'min'])]),
+  matchTriggerWidth: PropTypes.oneOf([true, false, 'min']),
 
   /**
    * Setting a number here will force the maximum height of the dropdown to be the number

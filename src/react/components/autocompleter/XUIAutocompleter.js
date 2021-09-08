@@ -562,7 +562,7 @@ XUIAutocompleter.propTypes = {
    * XUI design has also decided to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers (setting this to `'min'` will not override this).
    */
-  matchTriggerWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf([true, false, 'min'])]),
+  matchTriggerWidth: PropTypes.oneOf([true, false, 'min']),
 
   /** Max length of the input */
   maxLength: PropTypes.number,

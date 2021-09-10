@@ -30,6 +30,7 @@ export default class XUIAutocompleter extends PureComponent {
     super(props);
     this.state = {
       focused: false,
+      isDropdownOpen: false,
       placeholderWidth: 0,
       value: props.searchValue,
     };
@@ -237,7 +238,7 @@ export default class XUIAutocompleter extends PureComponent {
   };
 
   onInputFocus = () => {
-    if (this.props.openOnFocus && !this.state.focused) {
+    if (this.props.openOnFocus && !this.state.focused && !this.state.isDropdownOpen) {
       this.openDropdown();
     }
   };
@@ -264,6 +265,18 @@ export default class XUIAutocompleter extends PureComponent {
         });
       }
     }, 333);
+  };
+
+  composedOnOpen = () => {
+    this.setState({ isDropdownOpen: true });
+
+    this.props.onOpen?.();
+  };
+
+  composedOnClose = () => {
+    this.setState({ isDropdownOpen: false });
+
+    this.props.onClose?.();
   };
 
   onOpenAnimationEnd = () => {
@@ -332,8 +345,6 @@ export default class XUIAutocompleter extends PureComponent {
       children,
       className,
       id,
-      onOpen,
-      onClose,
       closeOnTab,
       closeOnSelect,
       forceDesktop,
@@ -449,8 +460,8 @@ export default class XUIAutocompleter extends PureComponent {
           isBlock
           isLegacyDisplay={isLegacyDisplay}
           matchTriggerWidth={matchTriggerWidth && !dropdownSize}
-          onClose={onClose}
-          onOpen={onOpen}
+          onClose={this.composedOnClose}
+          onOpen={this.composedOnOpen}
           onOpenAnimationEnd={this.onOpenAnimationEnd}
           qaHook={dropdownQaHook}
           ref={this.ddt}

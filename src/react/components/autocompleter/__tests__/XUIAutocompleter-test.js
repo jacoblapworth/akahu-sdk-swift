@@ -559,7 +559,7 @@ describe('XUIAutocompleter', () => {
     });
   });
 
-  test('autocompleter closes its dropdown when tabbing between cells', () => {
+  test('closes the dropdown when tabbing between cells', () => {
     // Arrange
     const onOpenMock = jest.fn();
     const onCloseMock = jest.fn();

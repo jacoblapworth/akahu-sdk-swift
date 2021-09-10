@@ -4,13 +4,11 @@
 @mixin header($classname) {
   align-items: stretch;
   background-color: $xui-pageheading-bg-color;
-  box-shadow: $xui-shadow-border-bottom;
   display: flex;
   flex-wrap: nowrap;
   min-height: $xui-navigation-height;
   overflow: hidden;
-  position: relative;
-  z-index: $xui-z-index-contextualtop;
+  z-index: $xui-z-index-belownav;
   &--content {
     align-items: stretch;
     display: flex;
@@ -148,6 +146,16 @@
 
 .#{$ns}-pageheading {
   @include header('#{$ns}-pageheading');
+  width: 100%;
+  &::after {
+    align-self: flex-end;
+    box-shadow: $xui-shadow-border-bottom;
+    content: '';
+    height: 1px;
+    position: absolute;
+    width: inherit;
+    z-index: $xui-z-index-body;
+  }
 }
 
 // Calculating these values here to avoid ‘random’ magic numbers

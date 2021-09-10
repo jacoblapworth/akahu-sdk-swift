@@ -30,6 +30,7 @@ export default class XUIAutocompleter extends PureComponent {
     super(props);
     this.state = {
       focused: false,
+      isDropdownOpen: false,
       placeholderWidth: 0,
       value: props.searchValue,
     };
@@ -236,17 +237,19 @@ export default class XUIAutocompleter extends PureComponent {
     }
   };
 
-  onInputFocus = e => {
-    // When the trigger wrapper is programmatically focused the inner TextInput is focused
-    e.target === e.currentTarget && this.inputNode.current.focus();
-
-    if (this.props.openOnFocus && !this.state.focused) {
+  onInputFocus = () => {
+    if (this.props.openOnFocus && !this.state.focused && !this.state.isDropdownOpen) {
       this.openDropdown();
     }
   };
 
-  onFocus = e => {
-    if (!this.state.focused && e.target.type !== 'button') {
+  onTriggerFocus = event => {
+    // When the trigger wrapper is programmatically focused the inner TextInput is focused
+    event.target === event.currentTarget && this.focusInput();
+  };
+
+  onFocus = event => {
+    if (!this.state.focused && event.target.type !== 'button') {
       this.focusInput();
       this.setState({
         focused: true,
@@ -262,6 +265,18 @@ export default class XUIAutocompleter extends PureComponent {
         });
       }
     }, 333);
+  };
+
+  composedOnOpen = () => {
+    this.setState({ isDropdownOpen: true });
+
+    this.props.onOpen?.();
+  };
+
+  composedOnClose = () => {
+    this.setState({ isDropdownOpen: false });
+
+    this.props.onClose?.();
   };
 
   onOpenAnimationEnd = () => {
@@ -331,8 +346,6 @@ export default class XUIAutocompleter extends PureComponent {
       children,
       className,
       id,
-      onOpen,
-      onClose,
       closeOnTab,
       closeOnSelect,
       forceDesktop,
@@ -364,7 +377,7 @@ export default class XUIAutocompleter extends PureComponent {
     const inputClassNames = cn(inputClassName, `${ns}-autocompleter--textinput`);
 
     const trigger = (
-      <div className={triggerClassName} onFocus={this.onInputFocus} ref={this.tg} tabIndex={-1}>
+      <div className={triggerClassName} onFocus={this.onTriggerFocus} ref={this.tg} tabIndex={-1}>
         <div aria-hidden className={`${ns}-autocompleter--textinputplaceholder`} ref={this._area}>
           {placeholder}
         </div>
@@ -393,6 +406,7 @@ export default class XUIAutocompleter extends PureComponent {
           label={inputLabel}
           leftElement={textInputLeftElement}
           onChange={this.debouncedOnChange}
+          onFocus={this.onInputFocus}
           onKeyDown={this.onInputKeyDown}
           placeholder={placeholder}
           qaHook={inputQaHook}
@@ -448,8 +462,8 @@ export default class XUIAutocompleter extends PureComponent {
           isBlock
           isLegacyDisplay={isLegacyDisplay}
           matchTriggerWidth={!dropdownSize ? matchTriggerWidth : false}
-          onClose={onClose}
-          onOpen={onOpen}
+          onClose={this.composedOnClose}
+          onOpen={this.composedOnOpen}
           onOpenAnimationEnd={this.onOpenAnimationEnd}
           qaHook={dropdownQaHook}
           ref={this.ddt}

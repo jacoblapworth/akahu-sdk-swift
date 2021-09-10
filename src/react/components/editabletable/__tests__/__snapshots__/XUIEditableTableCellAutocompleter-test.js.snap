@@ -11,6 +11,7 @@ exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
   className="xui-editabletablecellautocompleter"
   isFocused={false}
   onClick={[Function]}
+  onMouseDown={[Function]}
 >
   <XUIAutocompleter
     _useCellStyling={true}

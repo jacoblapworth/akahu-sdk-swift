@@ -1,4 +1,6 @@
 import React from 'react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
@@ -9,6 +11,7 @@ import XUIAutocompleter from '../../autocompleter/XUIAutocompleter';
 import XUIEditableTableCell from '../XUIEditableTableCell';
 import XUIEditableTableCellControl from '../XUIEditableTableCellControl';
 import XUIEditableTableCellAutocompleter from '../XUIEditableTableCellAutocompleter';
+import wait from '../../../helpers/wait';
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testGeneratedId');
@@ -185,5 +188,156 @@ describe('<XUIEditableTableCellAutocompleter />', () => {
 
     cellAuto.instance().closeDropdown();
     expect(onCloseMock).toHaveBeenCalledTimes(1);
+  });
+
+  test('autocompleter does not close its dropdown when clicking inside the table cell', () => {
+    // Arrange
+    const onOpenMock = jest.fn();
+    const onCloseMock = jest.fn();
+    render(
+      <table>
+        <tbody>
+          <tr>
+            <XUIEditableTableCellAutocompleter
+              cellProps={{ qaHook: 'test-autocompleter-cell' }}
+              onClose={onCloseMock}
+              onOpen={onOpenMock}
+              onSearch={() => {}}
+              openOnFocus
+              qaHook="test-autocompleter-input"
+            />
+          </tr>
+        </tbody>
+      </table>,
+    );
+
+    // Act
+    userEvent.click(screen.getByTestId('test-autocompleter-input'));
+    userEvent.click(screen.getByTestId('test-autocompleter-cell'));
+
+    // Assert
+    expect(onOpenMock).toHaveBeenCalled();
+    expect(onCloseMock).not.toHaveBeenCalled();
+  });
+
+  test('autocompleter is focused onMouseDown inside the table cell', async () => {
+    // Arrange
+    const onFocusMock = jest.fn();
+    render(
+      <table>
+        <tbody>
+          <tr>
+            <XUIEditableTableCellAutocompleter
+              cellProps={{ qaHook: 'test-autocompleter-cell' }}
+              inputProps={{ onFocus: onFocusMock }}
+              onSearch={() => {}}
+              openOnFocus
+            />
+          </tr>
+        </tbody>
+      </table>,
+    );
+
+    // Act
+    fireEvent.mouseDown(screen.getByTestId('test-autocompleter-cell'));
+
+    await wait();
+
+    // Assert
+    expect(onFocusMock).toHaveBeenCalled();
+  });
+
+  test('autocompleter is focused onMouseDown inside the table cell even when another autocompleter dropdown is already open', async () => {
+    // Arrange
+    const onFocusMock = jest.fn();
+    render(
+      <table>
+        <tbody>
+          <tr>
+            <XUIEditableTableCellAutocompleter
+              cellProps={{ qaHook: 'test-autocompleter-cell-1' }}
+              inputProps={{ onFocus: onFocusMock }}
+              onSearch={() => {}}
+              openOnFocus
+              qaHook="test-autocompleter-input-1"
+            />
+            <XUIEditableTableCellAutocompleter
+              cellProps={{ qaHook: 'test-autocompleter-cell-2' }}
+              inputProps={{ onFocus: onFocusMock }}
+              onSearch={() => {}}
+              openOnFocus
+              qaHook="test-autocompleter-input-2"
+            />
+          </tr>
+        </tbody>
+      </table>,
+    );
+
+    // Act
+    userEvent.click(screen.getByTestId('test-autocompleter-cell-1'));
+    fireEvent.mouseDown(screen.getByTestId('test-autocompleter-cell-2'));
+
+    await wait();
+
+    // Assert
+    expect(screen.getByTestId('test-autocompleter-input-2--input')).toBe(document.activeElement);
+  });
+
+  test('autocompleter does not loose focus when clicking inside the table cell', () => {
+    // Arrange
+    const onBlurMock = jest.fn();
+    render(
+      <table>
+        <tbody>
+          <tr>
+            <XUIEditableTableCellAutocompleter
+              cellProps={{ qaHook: 'test-autocompleter-cell' }}
+              inputProps={{ onBlur: onBlurMock }}
+              onSearch={() => {}}
+              openOnFocus
+              qaHook="test-autocompleter-input"
+            />
+          </tr>
+        </tbody>
+      </table>,
+    );
+
+    // Act
+    userEvent.click(screen.getByTestId('test-autocompleter-input'));
+    userEvent.click(screen.getByTestId('test-autocompleter-cell'));
+
+    // Assert
+    expect(onBlurMock).not.toHaveBeenCalled();
+  });
+
+  test('autocompleter closes its dropdown when the user is interacting with the validation message', () => {
+    // Arrange
+    const onOpenMock = jest.fn();
+    const onCloseMock = jest.fn();
+    render(
+      <table>
+        <tbody>
+          <tr>
+            <XUIEditableTableCellAutocompleter
+              isInvalid
+              onClose={onCloseMock}
+              onOpen={onOpenMock}
+              onSearch={() => {}}
+              openOnFocus
+              qaHook="test-autocompleter-input"
+              validationMessage="Test validation message"
+            />
+          </tr>
+        </tbody>
+      </table>,
+    );
+
+    // Act
+    userEvent.click(screen.getByTestId('test-autocompleter-input'));
+    userEvent.click(screen.getByText('Test validation message'));
+
+    // Assert
+    expect(onOpenMock).toHaveBeenCalled();
+    expect(onCloseMock).toHaveBeenCalled();
   });
 });

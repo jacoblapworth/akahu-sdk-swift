@@ -6,6 +6,7 @@ import XUIEditableTableCellControl from './XUIEditableTableCellControl';
 import XUIAutocompleter from '../autocompleter/XUIAutocompleter';
 import { tableVariantClassNames } from './private/constants';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
+import { ns } from '../helpers/xuiClassNamespace';
 
 const baseName = `${tableVariantClassNames.editable}cellautocompleter`;
 
@@ -53,9 +54,33 @@ class XUIEditableTableCellAutocompleter extends Component {
   /**
    * Focuses the input inside the cell, before calling any user-supplied handlers.
    */
-  composedOnClick = () => {
-    this.focusInput();
-    this.props.cellProps?.onClick?.();
+  composedOnClick = event => {
+    const selection = getSelection();
+    (selection.toString().length === 0 || !event.target?.contains(selection.focusNode)) &&
+      this.focusInput();
+
+    this.props.cellProps?.onClick?.(event);
+  };
+
+  /**
+   * Focuses the input inside the cell, before calling any user-supplied handlers.
+   */
+  composedOnMouseDown = event => {
+    if (event.target.classList.contains(`${ns}-editabletablecell--validation`)) {
+      // Close the dropdown when interacting with validation
+      this.closeDropdown();
+    }
+    if (event.target === event.currentTarget) {
+      // Don't lose focus when interacting with the table cell
+      event.preventDefault();
+
+      // DDT closes its dropdown when the window receives an onMouseDown from outside the dropdown.
+      // When the dropdown is closed the trigger gains focus, so we need to send the focus to this
+      // cell's input after other dropdowns have closed.
+      setTimeout(this.focusInput);
+    }
+
+    this.props.cellProps?.onMouseDown?.(event);
   };
 
   /**
@@ -63,9 +88,7 @@ class XUIEditableTableCellAutocompleter extends Component {
    * Focus the input inside the cell.
    */
   focusInput = () => {
-    getSelection().toString().length === 0 &&
-      this.completerRef.current &&
-      this.completerRef.current.focusInput();
+    this.completerRef.current?.focusInput();
   };
 
   render() {
@@ -80,10 +103,6 @@ class XUIEditableTableCellAutocompleter extends Component {
       ...spreadProps
     } = this.props;
 
-    const {
-      onClick, // Destructured so as not to spread.
-    } = cellProps;
-
     return (
       <XUIEditableTableCellControl
         {...cellProps}
@@ -96,6 +115,7 @@ class XUIEditableTableCellAutocompleter extends Component {
         isFocused={this.state.isFocused}
         isInvalid={isInvalid}
         onClick={this.composedOnClick}
+        onMouseDown={this.composedOnMouseDown}
         validationMessage={validationMessage}
       >
         <XUIAutocompleter

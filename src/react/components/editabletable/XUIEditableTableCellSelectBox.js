@@ -84,6 +84,7 @@ const XUIEditableTableCellSelectBox = ({
     >
       <XUISelectBox
         {...spreadProps}
+        _useCellStyling
         containerClassName={cn(`${baseName}--control`, containerClassName)}
         hasDefaultLayout={false}
         isDisabled={isDisabled}

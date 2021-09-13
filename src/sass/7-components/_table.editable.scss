@@ -230,7 +230,8 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
   @include xui-padding-horizontal($xui-s-standard);
 }
 
-.#{$ns}-editabletablecellselectbox {
+.#{$ns}-editabletablecellselectbox,
+.#{$ns}-editabletablecellsecondarysearch {
   .#{$ns}-select--button {
     @include xui-padding-vertical($xui-editabletablecell-vertical-padding);
     position: relative;

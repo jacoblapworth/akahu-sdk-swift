@@ -86,6 +86,9 @@
 
 .#{$ns}-select--content {
   width: 100%; // This could be flex: 1;
+  &.#{$ns}-select--content-placeholder {
+    color: $xui-input-placeholder-color;
+  }
 }
 
 .#{$ns}-select--content-truncated,

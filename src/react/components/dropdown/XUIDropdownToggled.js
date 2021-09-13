@@ -384,13 +384,14 @@ export default class XUIDropdownToggled extends PureComponent {
   };
 
   /**
-   * Fires when the window triggers an onClick event
+   * Fires when the window triggers an onMouseDown event
    *
    * @param {MouseEvent} event
    */
-  onClick = event => {
+  onMouseDown = event => {
     const { isHidden } = this.state;
     const { firstChild: trigger } = this.wrapper.current;
+    const { cellRef } = this.context;
 
     /*
 		Summary of below checks:
@@ -414,7 +415,10 @@ export default class XUIDropdownToggled extends PureComponent {
       !isHidden &&
       (openedDropdownsDoNotContainTarget ||
         event.target.classList.contains(`${baseClass}--mask`)) &&
-      (trigger == null || !trigger.contains(event.target))
+      (trigger == null || !trigger.contains(event.target)) &&
+      // We consider the entire table cell to be the trigger, this check could be removed if DDT
+      // allowed custom wrapping element tags and editable table used the table cell as the trigger
+      !cellRef.current?.contains(event.target)
     ) {
       this.closeDropdown();
     }
@@ -539,128 +543,125 @@ export default class XUIDropdownToggled extends PureComponent {
   };
 
   render() {
+    const {
+      className,
+      trigger,
+      dropdown,
+      restrictToViewPort,
+      forceDesktop,
+      qaHook,
+      maxHeight,
+      preferredPosition,
+      ariaPopupType,
+      ariaRole,
+      isLegacyDisplay,
+      matchTriggerWidth,
+      ...otherProps
+    } = this.props;
+    const { isOpening, isClosing, isHidden, activeDescendant } = this.state;
+    const { cellRef } = this.context;
+
+    const clonedTrigger = React.cloneElement(trigger, {
+      ref: combineRefs(trigger.ref, this.trigger),
+      onClick: this.handleOnClick,
+      onKeyDown: this.handleOnKeyDown,
+      onKeyUp: this.handleOnKeyUp,
+      'aria-activedescendant': activeDescendant,
+      'aria-haspopup': ariaPopupType,
+      'aria-controls': (!isHidden && this.dropdownId) || undefined,
+    });
+
+    const clonedDropdown = React.cloneElement(dropdown, {
+      isHidden,
+      id: this.dropdownId,
+      forceDesktop,
+      animateOpen: isOpening,
+      animateClosed: isClosing,
+      ref: combineRefs(dropdown.ref, this.dropdown),
+      // TODO: Memoize these props to avoid recreating functions
+      onSelect: compose(dropdown.props.onSelect, this.onSelect),
+      onHighlightChange: compose(dropdown.props.onHighlightChange, this.onHighlightChange),
+      onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, this.onCloseAnimationEnd),
+      onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, this.onOpenAnimationEnd),
+      onKeyDown: compose(dropdown.props.onKeyDown, this.onDropdownKeyDown),
+      className: dropdown.props.className,
+    });
+
+    const commonPositioningProps = {
+      maxHeight,
+      preferredPosition,
+      isVisible: !isHidden,
+      shouldRestrictMaxHeight: restrictToViewPort,
+      isNotResponsive: forceDesktop,
+      onVisible: shouldAnimate(this) ? null : this.onOpenAnimationEnd,
+      ref: this.positioning,
+      leaveRoomForValidationMessage: Boolean(cellRef.current),
+      parentRef: cellRef.current || this.wrapper.current,
+      matchTriggerWidth,
+      isDynamicWidth: this.isDynamicWidth,
+    };
+
+    const positionedDropdown =
+      isLegacyDisplay || (this.state.isNarrowViewport && !forceDesktop) ? (
+        <Positioning {...commonPositioningProps} qaHook={qaHook && `${qaHook}--positioning`}>
+          {clonedDropdown}
+        </Positioning>
+      ) : (
+        <PositioningInline
+          {...otherProps}
+          {...commonPositioningProps}
+          maxWidth={-1}
+          qaHook={qaHook && `${qaHook}--positioning-inline`}
+          useDropdownPositioning
+        >
+          {clonedDropdown}
+        </PositioningInline>
+      );
+
+    const wrapperAria = {
+      role: ariaRole || undefined,
+      'aria-expanded': ariaRole ? !isHidden : undefined,
+      'aria-owns': (!isHidden && this.dropdownId) || undefined,
+    };
+
     return (
-      <EditableTableCellContext.Consumer>
-        {({ cellRef }) => {
-          const {
-            className,
-            trigger,
-            dropdown,
-            restrictToViewPort,
-            forceDesktop,
-            qaHook,
-            maxHeight,
-            preferredPosition,
-            ariaPopupType,
-            ariaRole,
-            isLegacyDisplay,
-            matchTriggerWidth,
-            ...otherProps
-          } = this.props;
-          const { isOpening, isClosing, isHidden, activeDescendant } = this.state;
-
-          const clonedTrigger = React.cloneElement(trigger, {
-            ref: combineRefs(trigger.ref, this.trigger),
-            onClick: this.handleOnClick,
-            onKeyDown: this.handleOnKeyDown,
-            onKeyUp: this.handleOnKeyUp,
-            'aria-activedescendant': activeDescendant,
-            'aria-haspopup': ariaPopupType,
-            'aria-controls': (!isHidden && this.dropdownId) || undefined,
-          });
-
-          const clonedDropdown = React.cloneElement(dropdown, {
-            isHidden,
-            id: this.dropdownId,
-            forceDesktop,
-            animateOpen: isOpening,
-            animateClosed: isClosing,
-            ref: combineRefs(dropdown.ref, this.dropdown),
-            // TODO: Memoize these props to avoid recreating functions
-            onSelect: compose(dropdown.props.onSelect, this.onSelect),
-            onHighlightChange: compose(dropdown.props.onHighlightChange, this.onHighlightChange),
-            onCloseAnimationEnd: compose(dropdown.onCloseAnimationEnd, this.onCloseAnimationEnd),
-            onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, this.onOpenAnimationEnd),
-            onKeyDown: compose(dropdown.props.onKeyDown, this.onDropdownKeyDown),
-            className: dropdown.props.className,
-          });
-
-          const commonPositioningProps = {
-            maxHeight,
-            preferredPosition,
-            isVisible: !isHidden,
-            shouldRestrictMaxHeight: restrictToViewPort,
-            isNotResponsive: forceDesktop,
-            onVisible: shouldAnimate(this) ? null : this.onOpenAnimationEnd,
-            ref: this.positioning,
-            leaveRoomForValidationMessage: Boolean(cellRef.current),
-            parentRef: cellRef.current || this.wrapper.current,
-            matchTriggerWidth,
-            isDynamicWidth: this.isDynamicWidth,
-          };
-
-          const positionedDropdown =
-            isLegacyDisplay || (this.state.isNarrowViewport && !forceDesktop) ? (
-              <Positioning {...commonPositioningProps} qaHook={qaHook && `${qaHook}--positioning`}>
-                {clonedDropdown}
-              </Positioning>
-            ) : (
-              <PositioningInline
-                {...otherProps}
-                {...commonPositioningProps}
-                maxWidth={-1}
-                qaHook={qaHook && `${qaHook}--positioning-inline`}
-                useDropdownPositioning
-              >
-                {clonedDropdown}
-              </PositioningInline>
-            );
-
-          const wrapperAria = {
-            role: ariaRole || undefined,
-            'aria-expanded': ariaRole ? !isHidden : undefined,
-            'aria-owns': (!isHidden && this.dropdownId) || undefined,
-          };
+      <DropdownContext.Consumer>
+        {contextOpenDropdowns => {
+          /**
+           * `currentOpenedDropdowns` is an array which contains all opened Dropdowns
+           * For child dropdown, it's an array contains it's parent Dropdown (contextOpenDropdowns)
+           * For parent dropdown, it's `null` and will get an empty array assigned (this.openedDropdowns)
+           */
+          const currentOpenedDropdowns = contextOpenDropdowns || this.openedDropdowns;
+          if (currentOpenedDropdowns.indexOf(this.dropdown.current) === -1) {
+            currentOpenedDropdowns.push(this.dropdown.current);
+          }
+          // For child dropdown, this.openedDropdowns will only contain itself
+          this.openedDropdowns = contextOpenDropdowns
+            ? [this.dropdown.current]
+            : currentOpenedDropdowns;
 
           return (
-            <DropdownContext.Consumer>
-              {contextOpenDropdowns => {
-                /**
-                 * `currentOpenedDropdowns` is an array which contains all opened Dropdowns
-                 * For child dropdown, it's an array contains it's parent Dropdown (contextOpenDropdowns)
-                 * For parent dropdown, it's `null` and will get an empty array assigned (this.openedDropdowns)
-                 */
-                const currentOpenedDropdowns = contextOpenDropdowns || this.openedDropdowns;
-                if (currentOpenedDropdowns.indexOf(this.dropdown.current) === -1) {
-                  currentOpenedDropdowns.push(this.dropdown.current);
-                }
-                // For child dropdown, this.openedDropdowns will only contain itself
-                this.openedDropdowns = contextOpenDropdowns
-                  ? [this.dropdown.current]
-                  : currentOpenedDropdowns;
-
-                return (
-                  <DropdownContext.Provider value={currentOpenedDropdowns}>
-                    <div
-                      {...wrapperAria}
-                      className={cn(className, `${baseClass}--toggledwrapper`)}
-                      data-automationid={qaHook}
-                      data-ref="toggled-wrapper"
-                      ref={this.wrapper}
-                    >
-                      {clonedTrigger}
-                      {positionedDropdown}
-                    </div>
-                  </DropdownContext.Provider>
-                );
-              }}
-            </DropdownContext.Consumer>
+            <DropdownContext.Provider value={currentOpenedDropdowns}>
+              <div
+                {...wrapperAria}
+                className={cn(className, `${baseClass}--toggledwrapper`)}
+                data-automationid={qaHook}
+                data-ref="toggled-wrapper"
+                ref={this.wrapper}
+              >
+                {clonedTrigger}
+                {positionedDropdown}
+              </div>
+            </DropdownContext.Provider>
           );
         }}
-      </EditableTableCellContext.Consumer>
+      </DropdownContext.Consumer>
     );
   }
 }
+
+XUIDropdownToggled.contextType = EditableTableCellContext;
 
 XUIDropdownToggled.propTypes = {
   /**

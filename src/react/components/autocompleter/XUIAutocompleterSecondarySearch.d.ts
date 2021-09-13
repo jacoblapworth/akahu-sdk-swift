@@ -179,6 +179,11 @@ export default class XUIAutocompleterSecondarySearch extends React.PureComponent
   focusInput(): void;
 
   /**
+   * Focuses the autocompleter input before calling onOpen
+   */
+  onOpen(): void;
+
+  /**
    * Root node to enable users to access as a ref.
    */
   rootNode: React.RefObject<HTMLElement>;

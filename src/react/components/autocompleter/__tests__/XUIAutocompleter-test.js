@@ -558,4 +558,53 @@ describe('XUIAutocompleter', () => {
       expect(onClose).toHaveBeenCalled();
     });
   });
+
+  test('closes the dropdown when tabbing between cells', () => {
+    // Arrange
+    const onOpenMock = jest.fn();
+    const onCloseMock = jest.fn();
+    render(
+      <div>
+        <XUIAutocompleter
+          onClose={onCloseMock}
+          onOpen={onOpenMock}
+          onSearch={() => {}}
+          openOnFocus
+          pills={
+            <XUIPill
+              value="Pill"
+              onDeleteClick={() => {}}
+              deleteButtonLabel="Delete"
+              size="small"
+            />
+          }
+          qaHook="test-autocompleter-1"
+        />
+        <XUIAutocompleter
+          onClose={onCloseMock}
+          onOpen={onOpenMock}
+          onSearch={() => {}}
+          openOnFocus
+          pills={
+            <XUIPill
+              value="Pill"
+              onDeleteClick={() => {}}
+              deleteButtonLabel="Delete"
+              size="small"
+            />
+          }
+          qaHook="test-autocompleter-2"
+        />
+      </div>,
+    );
+
+    // Act
+    userEvent.click(screen.getByTestId('test-autocompleter-1')); // test-autocompleter-1 input
+    userEvent.tab(); // test-autocompleter-2 pill
+    userEvent.tab(); // test-autocompleter-2 input
+
+    // Assert
+    expect(onOpenMock).toHaveBeenCalledTimes(2);
+    expect(onCloseMock).toHaveBeenCalledTimes(1);
+  });
 });

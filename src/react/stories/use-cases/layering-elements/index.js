@@ -12,17 +12,18 @@ import XUIDropdown, { XUIDropdownToggled } from '../../../dropdown';
 import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUIButton, { XUIIconButton, XUISplitButtonGroup, XUISecondaryButton } from '../../../button';
 import XUITextInput from '../../../textinput';
-import { XUICompositionDetail } from '../../../compositions';
+import { XUICompositionSplit } from '../../../compositions';
 import { XUIPageHeader } from '../../../pageheader';
 import XUITooltip from '../../../tooltip';
 import ExampleToast from './components/ExampleToast';
 import Example from './components/Example';
+import ExampleNav from './components/ExampleNav';
 import XUIActions from '../../../actions';
 import XUIFixedFooterWIP from '../../../fixedfooter';
 import FullPageStoryWrapper from '../../helpers/FullPageStoryWrapper';
 
 import * as lists from '../../../components/helpers/list';
-import { nonBackstopStoryNames, compositionKind } from '../tests';
+import { storyNames, compositionKind } from '../tests';
 
 const buildDropdownPicklist = items => {
   const pickItems = items.map((text, id) => (
@@ -63,20 +64,41 @@ const splitButtonExample = (
 );
 <Example />;
 
-const test = storiesOf(`${compositionKind}/${nonBackstopStoryNames.layeringElements}`, module);
+const test = storiesOf(`${compositionKind}/${storyNames.layeringElements}`, module);
 
-test.add(nonBackstopStoryNames.layeringElements, () => {
+test.add(storyNames.layeringElements, () => {
   const body = document.querySelector('body.xui-container');
   if (body && body.style) {
     body.style.height = '200%';
   }
   const isUsingPortal = boolean('isUsingPortal', true);
+
   return (
     <FullPageStoryWrapper>
-      <XUIPageHeader contentClassName="xui-page-width-large" title="Something" />
-      <XUICompositionDetail
-        detail={
-          <>
+      <ExampleNav />
+      {/* <div style={{ display: 'flex' }}> Simulates the Files header */}
+      <XUIPageHeader
+        actions={
+          <XUIDropdownToggled
+            dropdown={
+              <XUIDropdown>
+                <XUIPicklist>
+                  <XUIPickitem id="11111">one</XUIPickitem>
+                  <XUIPickitem id="22222">two</XUIPickitem>
+                </XUIPicklist>
+              </XUIDropdown>
+            }
+            trigger={<XUIIconButton ariaLabel="info" icon={info} />}
+          />
+        }
+        contentClassName="xui-page-width-large"
+        title="Something"
+      />
+      {/* </div> */}
+      <XUICompositionSplit
+        hasAutoSpaceAround={false}
+        primary={
+          <div style={{ padding: '20px' }}>
             <XUITooltip
               trigger={<XUIIconButton ariaLabel="Info" icon={info} />}
               triggerOnClick
@@ -117,8 +139,9 @@ test.add(nonBackstopStoryNames.layeringElements, () => {
               </Example>
               <ExampleToast />
             </Example>
-          </>
+          </div>
         }
+        secondary={<div style={{ height: '100%', backgroundColor: 'white' }} />}
       />
       <XUIFixedFooterWIP>
         <XUIActions

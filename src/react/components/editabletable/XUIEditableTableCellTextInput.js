@@ -76,6 +76,7 @@ const XUIEditableTableCellTextInput = ({
     >
       <XUITextInput
         {...spreadProps}
+        _useCellStyling
         containerClassName={cn(`${baseName}--control`, containerClassName)}
         inputProps={inputProps}
         isDisabled={isDisabled}

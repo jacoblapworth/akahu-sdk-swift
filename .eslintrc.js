@@ -168,5 +168,11 @@ module.exports = {
         'simple-import-sort/exports': 'off',
       },
     },
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      rules: {
+        '@typescript-eslint/ban-ts-comment': 'off',
+      },
+    },
   ],
 };

@@ -808,7 +808,6 @@ describe('XUITable', () => {
 
   test('should pass accessibility testing', async () => {
     const wrapper = render(
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore – This component isn't TS and TS is overly aggressive with its inferred type
       // definitions
       <TestScaffold

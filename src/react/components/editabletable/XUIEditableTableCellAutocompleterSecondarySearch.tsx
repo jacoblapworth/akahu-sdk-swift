@@ -154,7 +154,6 @@ class XUIEditableTableCellAutocompleterSecondarySearch extends React.Component<P
       >
         <XUIAutocompleterSecondarySearch
           {...spreadProps}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           _useCellStyling
           className={cn(`${baseName}--control`, className)}

@@ -389,6 +389,16 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with autocompleter secondary search cells',
+    columnCount: 4,
+    hasHeader: false,
+    rows: 5,
+    cellType: 'secondarySearch',
+    withDisabled: true,
+    maxWidth: '900px',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with mixed type cells',
     columnCount: 4,
     hasHeader: false,

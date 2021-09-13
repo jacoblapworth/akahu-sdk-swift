@@ -2,6 +2,7 @@ import XUIEditableTable from './components/editabletable/XUIEditableTable';
 import XUIEditableTableBody from './components/editabletable/XUIEditableTableBody';
 import XUIEditableTableCell from './components/editabletable/XUIEditableTableCell';
 import XUIEditableTableCellAutocompleter from './components/editabletable/XUIEditableTableCellAutocompleter';
+import XUIEditableTableCellAutocompleterSecondarySearch from './components/editabletable/XUIEditableTableCellAutocompleterSecondarySearch';
 import XUIEditableTableCellControl from './components/editabletable/XUIEditableTableCellControl';
 import XUIEditableTableCellIconButton from './components/editabletable/XUIEditableTableCellIconButton';
 import XUIEditableTableCellReadOnly from './components/editabletable/XUIEditableTableCellReadOnly';
@@ -19,6 +20,7 @@ export {
   XUIEditableTableBody,
   XUIEditableTableCell,
   XUIEditableTableCellAutocompleter,
+  XUIEditableTableCellAutocompleterSecondarySearch,
   XUIEditableTableCellControl,
   XUIEditableTableCellIconButton,
   XUIEditableTableCellReadOnly,

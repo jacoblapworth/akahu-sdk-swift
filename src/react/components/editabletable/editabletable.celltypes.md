@@ -223,6 +223,125 @@ const pills = colours.map(colour => renderPill(colour));
 </XUIEditableTable>;
 ```
 
+### Autocompleter secondary search cell
+
+`XUIEditableTableCellAutocompleter` wraps a [`XUIAutocompleterSecondarySearch`](#autocompleter-secondary-search) with a built-in trigger, exposing its relevant props.
+
+```jsx harmony
+import {
+  XUIEditableTable,
+  XUIEditableTableBody,
+  XUIEditableTableCellAutocompleterSecondarySearch,
+  XUIEditableTableHead,
+  XUIEditableTableHeadingCell,
+  XUIEditableTableRow
+} from '@xero/xui/react/editabletable';
+import { XUIAutocompleterEmptyState } from '@xero/xui/react/autocompleter';
+import { XUIPicklist, XUIPickitem } from '@xero/xui/react/picklist';
+
+const noop = () => {};
+
+const secondarySearchOptionsData = {
+  fruit: [
+    { props: { id: 'ss1' }, text: 'Orange' },
+    { props: { id: 'ss2' }, text: 'Banana' },
+    { props: { id: 'ss3' }, text: 'Lemon' }
+  ],
+  color: [
+    { props: { id: 'ss4' }, text: 'Yellow' },
+    { props: { id: 'ss5' }, text: 'Blue' },
+    { props: { id: 'ss6' }, text: 'Red' }
+  ],
+  price: [
+    { props: { id: 'ss7' }, text: 2.99 },
+    { props: { id: 'ss8' }, text: 3.99 },
+    { props: { id: 'ss9' }, text: 4.99 }
+  ]
+};
+
+const isSelected = (item, selectedIds) =>
+  item.props.id === selectedIds || (Boolean(selectedIds) && selectedIds[item.props.id]);
+
+const createItems = (item, selectedId) => {
+  if (Array.isArray(item)) {
+    return item.map(i => createItems(i, selectedId));
+  }
+
+  return (
+    <XUIPickitem
+      {...item.props}
+      isSelected={isSelected(item, selectedId)}
+      key={item.props.id}
+      value={item.props.id}
+    >
+      {item.text}
+    </XUIPickitem>
+  );
+};
+
+const SecondarySearchExample = ({ searchData, key, ...spreadProps }) => {
+  const [data, setData] = React.useState(searchData);
+  const [selectedItemId, setSelectedItemId] = React.useState(null);
+  const [value, setValue] = React.useState('');
+
+  const onSearch = value => {
+    const matchingData = searchData.filter(item =>
+      String(item.text).toLowerCase().includes(value.toLowerCase())
+    );
+
+    setData(matchingData);
+    setValue(value);
+  };
+
+  const onClose = () => {
+    setData(searchData);
+    setValue('');
+  };
+
+  const items =
+    data.length > 0 ? (
+      createItems(data, selectedItemId)
+    ) : (
+      <XUIAutocompleterEmptyState>No results found</XUIAutocompleterEmptyState>
+    );
+
+  const filteredSearchItem = searchData.filter(item => item.props.id === selectedItemId)[0];
+
+  return (
+    <XUIEditableTableCellAutocompleterSecondarySearch
+      buttonContent={filteredSearchItem && filteredSearchItem.text}
+      buttonContentPlaceholder="Search items"
+      inputLabel="secondary search label"
+      key={key}
+      onClose={onClose}
+      onOptionSelect={setSelectedItemId}
+      onSearch={onSearch}
+      searchValue={value}
+      {...spreadProps}
+    >
+      <XUIPicklist>{items}</XUIPicklist>
+    </XUIEditableTableCellAutocompleterSecondarySearch>
+  );
+};
+
+<XUIEditableTable ariaLabel="List of fruits with colour and price per kg">
+  <XUIEditableTableHead>
+    <XUIEditableTableRow>
+      <XUIEditableTableHeadingCell>Fruit</XUIEditableTableHeadingCell>
+      <XUIEditableTableHeadingCell>Colours</XUIEditableTableHeadingCell>
+      <XUIEditableTableHeadingCell>Price / kg</XUIEditableTableHeadingCell>
+    </XUIEditableTableRow>
+  </XUIEditableTableHead>
+  <XUIEditableTableBody>
+    <XUIEditableTableRow>
+      {Object.keys(secondarySearchOptionsData).map(key =>
+        SecondarySearchExample({ searchData: secondarySearchOptionsData[key], key })
+      )}
+    </XUIEditableTableRow>
+  </XUIEditableTableBody>
+</XUIEditableTable>;
+```
+
 ### Icon button cell
 
 Use `iconReference` to pass a `XUIIcon` to a `XUIEditableTableCellIconButton`. Don’t forget the `ariaLabel`!

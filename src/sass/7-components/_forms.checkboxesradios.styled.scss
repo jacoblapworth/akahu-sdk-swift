@@ -163,7 +163,7 @@
 }
 
 .#{$ns}-styledcheckboxradio--input {
-  cursor: pointer;
+  cursor: inherit;
   margin: 0;
   opacity: 0;
   position: absolute;
@@ -231,6 +231,55 @@
     }
   }
 
+  // Hover states
+  // ===========
+  .#{$ns}-styledcheckboxradio:hover & {
+    + .#{$ns}-iconwrapper {
+      .#{$ns}-styledcheckboxradio--main {
+        stroke: $xui-control-hover-border-color;
+      }
+    }
+
+    &:checked + .#{$ns}-iconwrapper {
+      .#{$ns}-styledcheckboxradio--main {
+        fill: $xui-checkboxradio-checked-hover-bg-color;
+        stroke: $xui-checkboxradio-checked-hover-bg-color;
+      }
+    }
+
+    &:indeterminate + .#{$ns}-iconwrapper {
+      .#{$ns}-styledcheckboxradio--main {
+        stroke: $xui-control-hover-border-color;
+
+        &[type='checkbox'] {
+          fill: $xui-checkboxradio-checked-hover-bg-color;
+          stroke: $xui-checkboxradio-checked-hover-bg-color;
+        }
+      }
+    }
+
+    // HTML versions of checkbox and radio
+    // ========================
+    + .#{$ns}-styledcheckboxradio--checkbox,
+    + .#{$ns}-styledcheckboxradio--radio {
+      border-color: $xui-checkboxradio-hover-border-color;
+    }
+
+    &:checked,
+    &:indeterminate {
+      + .#{$ns}-styledcheckboxradio--checkbox {
+        background-color: $xui-checkboxradio-checked-hover-bg-color;
+        border-color: $xui-checkboxradio-checked-hover-bg-color;
+      }
+    }
+
+    &:checked + .#{$ns}-styledcheckboxradio--radio {
+      &,
+      &:after {
+        border-color: $xui-checkboxradio-checked-hover-bg-color;
+      }
+    }
+  }
   // Disabled styles
   // ===============
   &:disabled + .#{$ns}-iconwrapper,
@@ -330,58 +379,6 @@
     &:checked + .#{$ns}-styledcheckboxradio--radio:after {
       background-color: $xui-checkboxradio-disabled-checked-fill;
       border-color: $xui-checkboxradio-disabled-fill;
-    }
-  }
-}
-
-// Hover states
-// ===========
-.#{$ns}-styledcheckboxradio:hover {
-  .#{$ns}-styledcheckboxradio--input {
-    + .#{$ns}-iconwrapper {
-      .#{$ns}-styledcheckboxradio--main {
-        stroke: $xui-control-hover-border-color;
-      }
-    }
-
-    &:checked + .#{$ns}-iconwrapper {
-      .#{$ns}-styledcheckboxradio--main {
-        fill: $xui-checkboxradio-checked-hover-bg-color;
-        stroke: $xui-checkboxradio-checked-hover-bg-color;
-      }
-    }
-
-    &:indeterminate + .#{$ns}-iconwrapper {
-      .#{$ns}-styledcheckboxradio--main {
-        stroke: $xui-control-hover-border-color;
-
-        &[type='checkbox'] {
-          fill: $xui-checkboxradio-checked-hover-bg-color;
-          stroke: $xui-checkboxradio-checked-hover-bg-color;
-        }
-      }
-    }
-
-    // HTML versions of checkbox and radio
-    // ========================
-    + .#{$ns}-styledcheckboxradio--checkbox,
-    + .#{$ns}-styledcheckboxradio--radio {
-      border-color: $xui-checkboxradio-hover-border-color;
-    }
-
-    &:checked,
-    &:indeterminate {
-      + .#{$ns}-styledcheckboxradio--checkbox {
-        background-color: $xui-checkboxradio-checked-hover-bg-color;
-        border-color: $xui-checkboxradio-checked-hover-bg-color;
-      }
-    }
-
-    &:checked + .#{$ns}-styledcheckboxradio--radio {
-      &,
-      &:after {
-        border-color: $xui-checkboxradio-checked-hover-bg-color;
-      }
     }
   }
 }

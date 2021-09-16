@@ -32,7 +32,7 @@ interface Props {
   /**
    * Boolean to hide/show input label.
    */
-  isLabelHidden?: React.ReactNode;
+  isLabelHidden?: boolean;
   /**
    * Input label.
    */

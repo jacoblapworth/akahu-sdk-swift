@@ -99,7 +99,7 @@ XUIRange.propTypes = {
   /** Displays that the XUIRange component is invalid */
   isInvalid: PropTypes.bool,
   /** Boolean to hide/show Input label */
-  isLabelHidden: PropTypes.node,
+  isLabelHidden: PropTypes.bool,
   /** Input label */
   label: PropTypes.node,
   /** Element on the left of the XUIRange component */

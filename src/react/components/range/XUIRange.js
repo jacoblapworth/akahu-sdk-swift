@@ -9,7 +9,6 @@ import labelRequiredWarning from '../helpers/labelRequiredWarning';
 const baseClass = `${ns}-rangeslider`;
 
 const XUIRange = props => {
-  const wrapperIds = generateIds();
   const {
     containerClassName,
     defaultValue,
@@ -20,6 +19,7 @@ const XUIRange = props => {
     isInvalid,
     isLabelHidden,
     label,
+    labelId,
     leftElement,
     max,
     min,
@@ -33,15 +33,17 @@ const XUIRange = props => {
     validationMessage,
   } = props;
 
+  const wrapperIds = generateIds(labelId);
+
   const labelRef = React.createRef();
 
   useEffect(() => {
     labelRequiredWarning(
       XUIRange.name,
-      ['includes a label with text'],
-      [labelRef.current?.innerText && !isLabelHidden, typeof label?.[0] === 'string'],
+      ['includes a label with text', 'labelId provided'],
+      [labelRef.current?.innerText && !isLabelHidden, typeof label?.[0] === 'string', labelId],
     );
-  }, [isLabelHidden, label, labelRef]);
+  }, [isLabelHidden, label, labelId, labelRef]);
 
   return (
     <XUIControlWrapper
@@ -102,6 +104,8 @@ XUIRange.propTypes = {
   isLabelHidden: PropTypes.node,
   /** Input label */
   label: PropTypes.node,
+  /** Provide a specific label ID which will be used as the "labelleby" aria property */
+  labelId: PropTypes.string,
   /** Element on the left of the XUIRange component */
   leftElement: PropTypes.node,
   /** Maximum value of the XUIRange component */

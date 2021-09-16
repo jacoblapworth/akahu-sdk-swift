@@ -180,6 +180,10 @@ TypeScript types have also been made slightly more strict for instances of rootN
 - `FileObject` now accepts an `uploadProgressPercentage` prop for visually communicating the upload progress
 - `FileObject` now accepts a `hideRetryButton` prop to hide the retry button where it doesn't make sense to have it
 
+### XUIRange
+
+- Now accepts a `labelId` prop, as many other controls do, to allow accessibly connecting a label that exists outside the component.
+
 ### XUISelectBox
 
 - qaHooks have been tidied up. Triple hyphens on sub-elements' hooks have been converted to double hyphens, and `--label--label` has been updated to `--label`.

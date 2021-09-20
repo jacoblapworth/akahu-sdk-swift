@@ -1,3 +1,5 @@
+const stringReplace = require('@xero/xuishift/transforms/stringReplace');
+
 module.exports = {
   // Example usage to copy
   // button: [

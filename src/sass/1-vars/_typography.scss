@@ -19,7 +19,7 @@
  * See: http://www.w3.org/Style/Examples/007/units.en.html
  */
 
-@use "sass:math";
+@use 'sass:math';
 
 // Function for converting pixel to rem.
 @function prem($pixel) {

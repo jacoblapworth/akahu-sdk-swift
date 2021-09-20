@@ -57,14 +57,8 @@ export default class XUIAutocompleter extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const {
-      pills,
-      disableWrapPills,
-      searchDebounceTimeout,
-      searchValue,
-      placeholder,
-      isLoading,
-    } = this.props;
+    const { pills, disableWrapPills, searchDebounceTimeout, searchValue, placeholder, isLoading } =
+      this.props;
 
     if (prevProps.searchDebounceTimeout !== searchDebounceTimeout) {
       this.bindOnChange(searchDebounceTimeout);

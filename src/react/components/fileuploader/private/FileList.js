@@ -55,9 +55,8 @@ const FileList = ({
             hideRetryButton,
           } = file;
 
-          const roundedUploadProgressPercentage = parseUploadProgressPercentage(
-            uploadProgressPercentage,
-          );
+          const roundedUploadProgressPercentage =
+            parseUploadProgressPercentage(uploadProgressPercentage);
           const hasUploadProgressPercentage = roundedUploadProgressPercentage !== undefined;
 
           const progressProps = {

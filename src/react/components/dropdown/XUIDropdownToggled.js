@@ -151,13 +151,8 @@ export default class XUIDropdownToggled extends PureComponent {
    * @param {Object} prevState
    */
   componentDidUpdate(prevProps, prevState) {
-    const {
-      onCloseAnimationEnd,
-      disableScrollLocking,
-      repositionOnScroll,
-      onClose,
-      onOpen,
-    } = this.props;
+    const { onCloseAnimationEnd, disableScrollLocking, repositionOnScroll, onClose, onOpen } =
+      this.props;
     const { isClosing, isHidden, shouldUnlockScroll, isNarrowViewport } = this.state;
 
     // If an animation state has just changed, we need to fire the passed animation

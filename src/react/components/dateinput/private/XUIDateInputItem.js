@@ -141,7 +141,6 @@ class XUIDateInputItem extends Component {
 
   onIconFocus = () => {
     if (!this.props.isDisabled) {
-      this.inputRef?.current?.focus();
       this.ddtRef?.current?.openDropdown();
     }
   };

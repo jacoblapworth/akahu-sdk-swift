@@ -5,6 +5,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 import accessibility from '@xero/xui-icon/icons/accessibility';
+import XUIButton from '../../button/XUIButton';
 import XUITextInput from '../XUITextInput';
 import XUITextInputSideElement from '../XUITextInputSideElement';
 import XUIIcon from '../../icon/XUIIcon';
@@ -12,7 +13,7 @@ import XUIPill from '../../pill/XUIPill';
 import XUIInnerPill from '../../pill/XUIInnerPill';
 import NOOP from '../../helpers/noop';
 import { sizeShift } from '../../helpers/sizes';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testGeneratedId');
@@ -268,6 +269,34 @@ describe('<XUITextInput>', () => {
       );
       expect(wrapper).toMatchSnapshot();
     });
+
+    test('input is focused when side element (text) is clicked', () => {
+      const sideElement = (
+        <XUITextInputSideElement type="text" qaHook="test-text">
+          First name:
+        </XUITextInputSideElement>
+      );
+
+      render(<XUITextInput qaHook="test-input" leftElement={sideElement} />);
+
+      fireEvent.click(screen.getByTestId('test-text'));
+
+      expect(screen.getByTestId('test-input')).toHaveClass('xui-textinput-focus');
+    });
+
+    test('input should not be focused when side element (button) is clicked', () => {
+      const sideElement = (
+        <XUITextInputSideElement type="button">
+          <XUIButton qaHook="test-button">Test button</XUIButton>
+        </XUITextInputSideElement>
+      );
+
+      render(<XUITextInput qaHook="test-input" leftElement={sideElement} />);
+
+      fireEvent.click(screen.getByTestId('test-button'));
+
+      expect(screen.getByTestId('test-input')).not.toHaveClass('xui-textinput-focus');
+    });
   });
 
   describe('Borderless variants', () => {
@@ -355,6 +384,16 @@ describe('<XUITextInput>', () => {
 
       wrapper.find('input').simulate('change');
       expect(onChange.mock.calls.length).toBeGreaterThan(0);
+    });
+
+    test('calls onChange when input changes', () => {
+      const onClick = jest.fn();
+
+      render(<XUITextInput qaHook="test-input" onClick={onClick} />);
+
+      fireEvent.click(screen.getByTestId('test-input'));
+
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
   });
 

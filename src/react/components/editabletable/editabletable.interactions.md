@@ -179,16 +179,19 @@ const DisableControlsExample = () => {
               disableRowControls={isControlsDisabled}
             >
               <XUIEditableTableCellTextInput
+                label="input"
                 onChange={e => onInputChange(e.target.value, row.id, 'fruit')}
               >
                 {row.fruit}
               </XUIEditableTableCellTextInput>
               <XUIEditableTableCellTextInput
+                label="input"
                 onChange={e => onInputChange(e.target.value, row.id, 'colour')}
               >
                 {row.colour}
               </XUIEditableTableCellTextInput>
               <XUIEditableTableCellTextInput
+                label="input"
                 onChange={e => onInputChange(e.target.value, row.id, 'price')}
               >
                 {row.price}
@@ -256,16 +259,19 @@ const DisableControlsExample = () => {
           return (
             <XUIEditableTableRow index={index} key={row.id} disableRowControls={isControlsDisabled}>
               <XUIEditableTableCellTextInput
+                label="input"
                 onChange={e => onInputChange(e.target.value, row.id, 'fruit')}
               >
                 {row.fruit}
               </XUIEditableTableCellTextInput>
               <XUIEditableTableCellTextInput
+                label="input"
                 onChange={e => onInputChange(e.target.value, row.id, 'colour')}
               >
                 {row.colour}
               </XUIEditableTableCellTextInput>
               <XUIEditableTableCellTextInput
+                label="input"
                 onChange={e => onInputChange(e.target.value, row.id, 'price')}
               >
                 {row.price}
@@ -330,7 +336,10 @@ const HideShowExample = () => {
           rowOptions={{}}
         />
       </XUIActions>
-      <XUIEditableTable hiddenColumns={hiddenColumns}>
+      <XUIEditableTable
+        ariaLabel="List of fruits with colour and price per kg"
+        hiddenColumns={hiddenColumns}
+      >
         <XUIEditableTableHead>
           <XUIEditableTableRow>
             {columns.map((item, index) => (

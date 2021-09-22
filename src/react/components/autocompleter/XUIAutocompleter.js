@@ -319,6 +319,7 @@ export default class XUIAutocompleter extends PureComponent {
 
   render() {
     const {
+      _useCellStyling,
       qaHook,
       pills,
       leftElement,
@@ -381,6 +382,7 @@ export default class XUIAutocompleter extends PureComponent {
           {placeholder}
         </div>
         <XUITextInput
+          _useCellStyling={_useCellStyling}
           containerClassName={containerClassNames}
           hintMessage={hintMessage}
           inputClassName={inputClassNames}
@@ -459,7 +461,7 @@ export default class XUIAutocompleter extends PureComponent {
           forceDesktop={forceDesktop}
           isBlock
           isLegacyDisplay={isLegacyDisplay}
-          matchTriggerWidth={matchTriggerWidth && !dropdownSize}
+          matchTriggerWidth={!dropdownSize ? matchTriggerWidth : false}
           onClose={this.composedOnClose}
           onOpen={this.composedOnOpen}
           onOpenAnimationEnd={this.onOpenAnimationEnd}
@@ -474,6 +476,12 @@ export default class XUIAutocompleter extends PureComponent {
 }
 
 XUIAutocompleter.propTypes = {
+  /**
+   * @ignore
+   * Internal use only, used to assist with styling a button to look like part of a table
+   */
+  _useCellStyling: PropTypes.bool,
+
   children: PropTypes.node,
 
   /** CSS class(es) to go on the wrapping DOM node */
@@ -569,12 +577,14 @@ XUIAutocompleter.propTypes = {
   loadingAriaLabel: PropTypes.string,
 
   /**
-   * Setting to false will allow the dropdown's width to be set independent of the trigger width. <br>
-   * **Note:** *Setting this to true will override any size prop on `XUIDropdown`.* <br>
+   * Setting this to `true` makes the dropdown as wide as the trigger (defaults to `true`). <br>
+   * **Note:** *If you have set a `dropdownSize` prop, this will be changed to `false`.* <br>
+   * Setting this to `false` will allow the dropdown's width to be set independent of the trigger width. <br>
+   * Setting this to `'min'` will set the dropdown's `min-width` to be the trigger width. <br/>
    * XUI design has also decided to keep a minimum width on the dropdown,
-   * so dropdown may not match the width of narrow triggers.
+   * so dropdown may not match the width of narrow triggers (setting this to `'min'` will not override this).
    */
-  matchTriggerWidth: PropTypes.bool,
+  matchTriggerWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf([true, false, 'min'])]),
 
   /** Max length of the input */
   maxLength: PropTypes.number,

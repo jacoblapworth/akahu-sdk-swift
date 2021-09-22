@@ -9,5 +9,74 @@
   overflow-x: auto;
 }
 
+// stylelint-disable-next-line a11y/media-prefers-reduced-motion
+@mixin xui-table-sortbutton($variant) {
+  cursor: pointer;
+  line-height: $xui-line-height-standard;
+  min-width: $xui-minimum-touch-target;
+  outline: 0;
+  overflow: hidden;
+  position: relative;
+  transition: {
+    duration: $xui-motion-speed-fast;
+    property: background, color, box-shadow;
+  }
+
+  &:hover {
+    color: $xui-table-sortbutton-hover-color;
+  }
+}
+
+@mixin xui-table-sortbuttoncontent($variant) {
+  padding: 0;
+  @include xui-motion-animation(false, transition) {
+    transition: padding $xui-motion-speed-fast;
+  }
+
+  // Left aligned sort button: Always create space for the sort icon.
+  &-active,
+  .#{$ns}-#{$variant}cell:not(.#{$ns}-#{$variant}cell-rightaligned) &:not(&-rightaligned) {
+    padding-right: $xui-s-standard;
+  }
+
+  // Right aligned sort button: Only create space for the sort icon when the sort icon is visible.
+  &-rightaligned#{&}-active,
+  .#{$ns}-#{$variant}cell-rightaligned &-active {
+    padding-right: $xui-s-standard;
+  }
+
+  // Table columns will change widths when the following is true:
+  // - Column width is auto
+  // - Column header is the widest column
+  // - Column header content changes
+  //
+  // This makes adding padding-right problematic as it will cause the table columns to potentially
+  // change width. To fix this we add a padding-left as placeholder padding.
+
+  &-rightaligned:not(&-active),
+  .#{$ns}-#{$variant}cell-rightaligned &:not(&-active) {
+    padding-left: $xui-s-standard;
+  }
+}
+
+@mixin xui-table-sorticonwrapper($variant) {
+  .#{$ns}-#{$variant}--sorticonwrapper {
+    display: inline-block;
+    margin-left: $xui-s-xsmall;
+    position: absolute;
+  }
+
+  .#{$ns}-#{$variant}--sorticonwrapper-hidden {
+    opacity: 0;
+  }
+
+  .#{$ns}-#{$variant}--sorticon {
+    @include xui-motion-animation(false, transition) {
+      transition: transform $xui-motion-speed-fast;
+    }
+    vertical-align: middle;
+  }
+}
+
 @import 'table.editable';
 @import 'table.readonly';

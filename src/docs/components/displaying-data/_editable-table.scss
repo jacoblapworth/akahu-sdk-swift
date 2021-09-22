@@ -106,17 +106,19 @@
 
 // Showing and hiding columns
 //
-// Depending on the workflow, it may not be necessary for all columns to be visible at all times. To facilitate this, optionally hide and show columns. This can be done three ways: by conditionally rendering the hidden cells, by adding a class of `xui-editabletable--column-hidden` to the hidden cells, or by using the `hiddenColumns` property of `XUIEditableTable` which is designed for performance with very large datasets. The mechanism by which Xero users will show and hide columns is not defined via the editable table component as the desired experience will likely vary depending on the product experience.
+// Depending on the workflow, it may not be necessary for all columns to be visible at all times. To facilitate this, give users the option to show and hide columns.
 //
-// Classes:
-// xui-editabletable--column-hidden: Applied to cells in a column to visually hide
+// This can be done two ways:
+// - By conditionally rendering the hidden cells
+// - By using the `hiddenColumns` property of `XUIEditableTable` which is designed for performance with very large datasets
+//
+// The mechanism by which Xero users will show and hide columns is not defined via the editable table component as the desired experience will likely vary depending on the product experience.
 //
 // Tips:
 // Do: Provide the ability to hide and show columns to focus the user on the most important parts of the dataset for their relevant workflow
 // Do: Use an appropriate control for your experience, based on design aspects such as visual hierarchy, prevalence of the interaction within the workflow, and the placement of the control with other elements on the page
-// Do: Conditionally render hidden cells when you plan to save the user’s preferences for future page loads, and columns may not need to be rendered at all
-// Do: Provide the `xui-editabletable--column-hidden` class when the dataset is not large, and users are expected to repeatedly hide and show columns, or the table content is highly variable
 // Do: Use the `hiddenColumns` property when the dataset is large but consistently structured, and users may wish to hide and show content repeatedly
+// Do: All other cases should conditionally render hidden cells. For example, when you plan to save the user’s preferences for future page loads, and columns may not need to be rendered at all
 //
 // Styleguide: Components.DisplayingData.EditableTable.3.2.2
 
@@ -215,8 +217,8 @@
 // xui-select-cell: Sets cell styling
 //
 // Tips:
-// Do: Use select box cells when a user needs to select an option (or multiple options) from a small list.
-// Don't: Avoid using a select box cell to display a large number of options in a dropdown as forcing a user to scroll to find an item could cause frustration. Instead, use an autocompleter cell to enable the user to search items.
+// Do: Use when a user needs to select one or more options from a small list, and a dropdown caret
+// Don't: Avoid using when there’s a large number of options in a dropdown, as it’s frustrating to scroll to find an option. Instead, use [autocompleter cells](#components-displayingdata-editabletable-3-4-4) or [autocompleter secondary search cells](#components-displayingdata-editabletable-3-4-5) so the user can search.
 //
 // ExampleClass: ds-example-transparent ds-example-flush
 //
@@ -237,9 +239,11 @@
 // xui-editabletablecellautocompleter--trigger: Sets cell styling
 //
 // Tips:
-// Do: Trigger dropdown on cell focus to minimise the interactions required for selecting items.
-// Do: Provide smart suggestions or recent items in the dropdown prior to characters being entered for a quick way to populate the cell content.
-// Do: Avoid using an autocompleter cell to display a small number of options in a dropdown as searching may be an unnecessary task for a user to complete. Instead, use a select box cell.
+// Do: Use when you’d like a user to directly type in the field to select one or more options from a large list
+// Do: Use when you’d like a user to get a result quicker (compared to [autocompleter secondary search cells](#components-displayingdata-editabletable-3-4-5))
+// Do: Provide smart suggestions or recent items in the dropdown when a cell is selected and a user hasn’t entered any characters. This gives a user a quick way to populate cell content.
+// Don't: Avoid using when there is a small number of options in a dropdown as a search field is unnecessary. Instead, use [select box cells](#components-displayingdata-editabletable-3-4-3).
+// Don't: Avoid using when the cell is too narrow for users to type search terms. Instead, use [autocompleter secondary search cells](#components-displayingdata-editabletable-3-4-5).
 //
 // ExampleClass: ds-example-transparent ds-example-flush
 //
@@ -249,6 +253,34 @@
 // Markup: ./examples/editable-table/_editable-table-cell-autocompleter.html
 //
 // Styleguide: Components.DisplayingData.EditableTable.3.4.4
+
+// Autocompleter secondary search cells
+//
+// Autocompleter secondary search cells are used to trigger a dropdown that contains a search field and a list of options.
+//
+// These options can be selected, which then replaces the placeholder text  inside the cell container. This has to be hooked up manually upon implementation of the autocompleter secondary search for your particular data.
+//
+// Autocompleter secondary search cells is a variant of XUI’s [secondary search autocompleter component](section-components-collectinginput-autocompleter.html#components-collectinginput-autocompleter-5) but with the trigger built-in.
+//
+// Classes:
+// xui-editabletablecellsecondarysearch: Sets cell styling
+// xui-editabletablecellsecondarysearch--control: Sets cell styling
+// xui-editabletablecellsecondarysearch--trigger: Sets cell styling
+//
+// Tips:
+// Do: Use when a user needs to select a single option from a large list
+// Do: Use to trigger a search field to give users extra space to type in
+// Do: Provide smart suggestions or recent items in the dropdown when a cell is selected and a user hasn’t entered any characters. This gives a user a quick way to populate cell content.
+// Don't: Avoid using when there is a small number of options in a dropdown as a search field is unnecessary. Instead, use [select box cells](#components-displayingdata-editabletable-3-4-3).
+//
+// ExampleClass: ds-example-transparent ds-example-flush
+//
+// Note:
+// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+//
+// Markup: ./examples/editable-table/_editable-table-cell-secondarysearch.html
+//
+// Styleguide: Components.DisplayingData.EditableTable.3.4.5
 
 // Icon button cells
 //
@@ -265,7 +297,7 @@
 //
 // Markup: ./examples/editable-table/_editable-table-cell-iconbutton.html
 //
-// Styleguide: Components.DisplayingData.EditableTable.3.4.5
+// Styleguide: Components.DisplayingData.EditableTable.3.4.6
 
 // Custom cell content
 //
@@ -287,7 +319,7 @@
 //
 // Markup: ./examples/editable-table/_editable-table-cell-customcontent.html
 //
-// Styleguide: Components.DisplayingData.EditableTable.3.4.6
+// Styleguide: Components.DisplayingData.EditableTable.3.4.7
 
 // Disabling
 //
@@ -412,9 +444,9 @@
 //
 // Styleguide: Components.DisplayingData.EditableTable.7.1
 
-// Column sorting
+// Sorting rows by columns
 //
-// *The editable table component doesn’t currently support column sorting, but we have identified this as a feature to be developed in the future. If you have any questions about this or other features, please contact the XUI team.*
+// *The editable table component supports sorting rows by columns. Visit the <a href="./react/#editable-table">React documentation</a> for an example. *
 //
 // Styleguide: Components.DisplayingData.EditableTable.7.2
 

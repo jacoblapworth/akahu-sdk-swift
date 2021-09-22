@@ -120,6 +120,7 @@ class XUIEditableTableCellAutocompleter extends Component {
       >
         <XUIAutocompleter
           {...spreadProps}
+          _useCellStyling
           className={cn(`${baseName}--control`, className)}
           inputProps={{
             ...inputProps,
@@ -219,12 +220,14 @@ XUIEditableTableCellAutocompleter.propTypes = {
   loadingLabel: PropTypes.string,
 
   /**
-   * Setting to false will allow the dropdown's width to be set independent of the trigger width. <br>
-   * **Note:** *Setting this to true will override any size prop on Dropdown.* <br>
+   * Setting this to `true` makes the dropdown as wide as the trigger (defaults to `true`). <br>
+   * **Note:** *Setting this to `true` will override any `size` prop on Dropdown.* <br>
+   * Setting this to `false` will allow the dropdown's width to be set independent of the trigger width. <br>
+   * Setting this to `'min'` will set the dropdown's `min-width` to be the trigger width. <br/>
    * XUI design has also decided to keep a minimum width on the dropdown,
-   * so dropdown may not match the width of narrow triggers. Defaults to true.
+   * so dropdown may not match the width of narrow triggers (setting this to `'min'` will not override this).
    */
-  matchTriggerWidth: PropTypes.bool,
+  matchTriggerWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf([true, false, 'min'])]),
 
   /** Max length of the input */
   maxLength: PropTypes.number,

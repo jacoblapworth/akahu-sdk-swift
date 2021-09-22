@@ -14,6 +14,7 @@ exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
   onMouseDown={[Function]}
 >
   <XUIAutocompleter
+    _useCellStyling={true}
     className="xui-editabletablecellautocompleter--control"
     closeOnTab={true}
     disableWrapPills={false}

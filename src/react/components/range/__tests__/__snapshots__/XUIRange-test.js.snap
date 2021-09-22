@@ -189,6 +189,23 @@ exports[`Range invalid 1`] = `
 </div>
 `;
 
+exports[`Range label ID provided 1`] = `
+<div
+  className=""
+>
+  <div
+    className="xui-rangeslider-container"
+  >
+    <input
+      aria-labelledby="myTestLabel"
+      className="xui-rangeslider xui-rangeslider-thumb-medium"
+      id="myTestLabel-control"
+      type="range"
+    />
+  </div>
+</div>
+`;
+
 exports[`Range should be disabled 1`] = `
 <div
   className=""

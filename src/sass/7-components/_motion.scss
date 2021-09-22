@@ -74,6 +74,10 @@
   transition-duration: $xui-motion-speed-slow;
 }
 
+.#{$ns}-transition-speed-xslow {
+  transition-duration: $xui-motion-speed-xslow;
+}
+
 .#{$ns}-transition-curve-standard {
   transition-timing-function: $xui-motion-curve-standard;
 }

@@ -136,9 +136,10 @@ class XUITextInput extends PureComponent {
   render() {
     return (
       <EditableTableCellContext.Consumer>
-        {({ useCellStyling, cellAttributes }) => {
+        {({ cellAttributes }) => {
           const input = this;
           const {
+            _useCellStyling,
             value,
             type,
             size,
@@ -214,7 +215,7 @@ class XUITextInput extends PureComponent {
             isInverted && `${inputBaseClass}-borderless-inverted`,
             hasFocus && `${inputBaseClass}-focus`,
             isDisabled && `${inputBaseClass}-is-disabled`,
-            useCellStyling && `${inputBaseClass}-cell`,
+            _useCellStyling && `${inputBaseClass}-cell`,
           );
 
           const InputEl = isMultiline ? 'textarea' : 'input';
@@ -295,6 +296,12 @@ class XUITextInput extends PureComponent {
 }
 
 XUITextInput.propTypes = {
+  /**
+   * @ignore
+   * Internal use only, used to assist with styling a button to look like part of a table
+   */
+  _useCellStyling: PropTypes.bool,
+
   /** Character counter props */
   characterCounter: PropTypes.shape({
     /** Current character count of user input */

@@ -1,8 +1,9 @@
 /* eslint-disable max-classes-per-file */
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
+import NOOP from '../../helpers/noop';
 
 import {
   variations,
@@ -39,6 +40,7 @@ class EditableTablePlayground extends React.Component {
 
   render() {
     const {
+      activeSortKey,
       ariaLabel,
       cellType,
       columnCount,
@@ -48,6 +50,7 @@ class EditableTablePlayground extends React.Component {
       hasHeader,
       hideShowColumns,
       invalidSecondColumn,
+      isSortAsc,
       hasPinnedFirstColumn,
       hasPinnedLastColumn,
       randomiseContent,
@@ -58,6 +61,7 @@ class EditableTablePlayground extends React.Component {
       cellsValidationMessage,
       showAddRowButton,
       showFooterRow,
+      showSortingByColumns,
       tableValidationMessage,
       isSecondColumnEndAligned,
     } = this.props;
@@ -112,7 +116,10 @@ class EditableTablePlayground extends React.Component {
                 {Array.from(Array(columnCount).keys()).map((item, index) => (
                   <XUIEditableTableHeadingCell
                     inlineAlignment={isSecondColumnEndAligned && index === 1 ? 'end' : 'start'}
+                    isSortActive={activeSortKey === item}
+                    isSortAsc={isSortAsc}
                     key={`head_${index}`}
+                    onSortChange={showSortingByColumns ? NOOP : undefined}
                   >
                     I’m a cell
                   </XUIEditableTableHeadingCell>
@@ -183,68 +190,80 @@ class EditableTablePlayground extends React.Component {
 }
 
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
-storiesWithKnobs.add('Playground', () => (
-  <EditableTablePlayground
-    ariaLabel={text('Aria label', '')}
-    cellType={select(
-      'Cell type',
-      [
-        'readOnly',
-        'textInput',
-        'textInputMultiline',
-        'selectBox',
-        'autoCompleterSingle',
-        'autoCompleterMulti',
+storiesWithKnobs.add('Playground', () => {
+  const columnCount = number('Column count', 7);
+  const sortKeyOptions = Array.from(Array(columnCount).keys());
+
+  return (
+    <EditableTablePlayground
+      activeSortKey={select('Sort by column number', sortKeyOptions, sortKeyOptions[0])}
+      ariaLabel={text('Aria label', '')}
+      cellType={select(
+        'Cell type',
+        [
+          'readOnly',
+          'textInput',
+          'textInputMultiline',
+          'selectBox',
+          'autoCompleterSingle',
+          'autoCompleterMulti',
+          'secondarySearch',
+          'assorted',
+        ],
         'assorted',
-      ],
-      'assorted',
-    )}
-    cellsValidationMessage={text('Cells validationMessage', 'Example validation message')}
-    columnCount={number('Column count', 4)}
-    columnWidths={text('Column widths (space-separated)')}
-    disableRowControls={boolean('Disable controls in the last row?', false)}
-    disableSecondRow={boolean('Disable cells in the second row?', false)}
-    hasHeader={boolean('Has header?', true)}
-    hasPinnedFirstColumn={boolean('Has pinned first column?', false)}
-    hasPinnedLastColumn={boolean('Has pinned last column?', false)}
-    hideShowColumns={boolean('Show column-hiding filter?', false)}
-    invalidSecondColumn={boolean('Invalid cells in the second column?', false)}
-    isSecondColumnEndAligned={boolean('End align the second column', false)}
-    maxWidth={text('Max width', '1100px')}
-    minWidth={text('Min width', '300px')}
-    randomiseContent={boolean('Various assorted strings as content?', false)}
-    rowOptions={{
-      isDraggable: boolean('Show drag handle?', true),
-      isRemovable: boolean('Show remove button?', true),
-      removeButtonAriaLabel: 'Remove row',
-      dragButtonAriaLabel: 'Reorder row',
-    }}
-    rows={number('Rows', 3)}
-    showAddRowButton={boolean('Show add row button?', false)}
-    showFooterRow={boolean('Show pinned row?', false)}
-    tableValidationMessage={text(
-      'Table validationMessage',
-      '3 of the table cells have invalid data entered',
-    )}
-  />
-));
+      )}
+      cellsValidationMessage={text('Cells validationMessage', 'Example validation message')}
+      columnCount={columnCount}
+      columnWidths={text('Column widths (space-separated)')}
+      disableRowControls={boolean('Disable controls in the last row?', false)}
+      disableSecondRow={boolean('Disable cells in the second row?', false)}
+      hasHeader={boolean('Has header?', true)}
+      hasPinnedFirstColumn={boolean('Has pinned first column?', false)}
+      hasPinnedLastColumn={boolean('Has pinned last column?', false)}
+      hideShowColumns={boolean('Show column-hiding filter?', false)}
+      invalidSecondColumn={boolean('Invalid cells in the second column?', false)}
+      isSecondColumnEndAligned={boolean('End align the second column', false)}
+      isSortAsc={boolean('isSortAsc', false)}
+      maxWidth={text('Max width', '1100px')}
+      minWidth={text('Min width', '300px')}
+      randomiseContent={boolean('Various assorted strings as content?', false)}
+      rowOptions={{
+        isDraggable: boolean('Show drag handle?', true),
+        isRemovable: boolean('Show remove button?', true),
+        removeButtonAriaLabel: 'Remove row',
+        dragButtonAriaLabel: 'Reorder row',
+      }}
+      rows={number('Rows', 3)}
+      showAddRowButton={boolean('Show add row button?', false)}
+      showFooterRow={boolean('Show pinned row?', false)}
+      showSortingByColumns={boolean('Show sorting by columns?', true)}
+      tableValidationMessage={text(
+        'Table validationMessage',
+        '3 of the table cells have invalid data entered',
+      )}
+    />
+  );
+});
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
     const {
+      activeSortKey,
       cellType,
       clickSelector,
       columnCount,
       hasHeader,
       inlineAlignment,
+      isSortAsc,
       randomiseContent,
       renderSmallerWrapper,
       rows,
       scrollLeft,
       showAddRowButton,
       showFooterRow,
+      showSortingByColumns,
       storyKind,
       storyTitle,
       withDisabled,
@@ -255,16 +274,19 @@ variations.forEach(variation => {
 
     return (
       <EditableTableStoryWrapper
+        activeSortKey={activeSortKey}
         cellType={cellType}
         columnCount={columnCount}
         hasHeader={hasHeader}
         inlineAlignment={inlineAlignment}
+        isSortAsc={isSortAsc}
         randomiseContent={randomiseContent}
         renderSmallerWrapper={renderSmallerWrapper}
         rows={rows}
         scrollLeft={scrollLeft}
         showAddRowButton={showAddRowButton}
         showFooterRow={showFooterRow}
+        showSortingByColumns={showSortingByColumns}
         validationMessage={validationMessage}
         variationMinusStoryDetails={variationMinusStoryDetails}
         withDisabled={withDisabled}
@@ -275,120 +297,118 @@ variations.forEach(variation => {
   });
 });
 
-class EditableTableStoryWrapper extends React.Component {
-  componentDidMount() {
+const EditableTableStoryWrapper = ({
+  activeSortKey,
+  columnCount,
+  hasHeader,
+  inlineAlignment,
+  isSortAsc,
+  randomiseContent,
+  rows,
+  renderSmallerWrapper,
+  showAddRowButton,
+  showFooterRow,
+  showSortingByColumns,
+  scrollLeft,
+  cellType,
+  withDisabled,
+  withInvalid,
+  validationMessage,
+  variationMinusStoryDetails,
+}) => {
+  useEffect(() => {
     setTimeout(() => {
-      document.querySelector(
-        '.xui-editabletablewrapper--scrollcontainer',
-      ).scrollLeft = this.props.scrollLeft;
+      document.querySelector('.xui-editabletablewrapper--scrollcontainer').scrollLeft = scrollLeft;
     });
-  }
+  }, [scrollLeft]);
 
-  render() {
-    const {
-      columnCount,
-      hasHeader,
-      inlineAlignment,
-      randomiseContent,
-      rows,
-      renderSmallerWrapper,
-      showAddRowButton,
-      showFooterRow,
-      cellType,
-      withDisabled,
-      withInvalid,
-      validationMessage,
-      variationMinusStoryDetails,
-    } = this.props;
-    let cellsCount = 0;
-    const editableTableComponent = (
-      <XUIEditableTable
-        {...variationMinusStoryDetails}
-        isInvalid={withInvalid}
-        validationMessage={validationMessage}
-      >
-        {(hasHeader && (
-          <XUIEditableTableHead>
-            <XUIEditableTableRow>
-              {Array.from(Array(columnCount).keys()).map((item, index) => (
-                <XUIEditableTableHeadingCell
-                  inlineAlignment={inlineAlignment}
-                  key={`head_${index}`}
-                >
-                  I’m a cell
-                </XUIEditableTableHeadingCell>
+  let cellsCount = 0;
+  const editableTableComponent = (
+    <XUIEditableTable
+      {...variationMinusStoryDetails}
+      isInvalid={withInvalid}
+      validationMessage={validationMessage}
+    >
+      {(hasHeader && (
+        <XUIEditableTableHead>
+          <XUIEditableTableRow>
+            {Array.from(Array(columnCount).keys()).map((item, index) => (
+              <XUIEditableTableHeadingCell
+                inlineAlignment={inlineAlignment}
+                isSortActive={activeSortKey === item}
+                isSortAsc={isSortAsc}
+                key={`head_${index}`}
+                onSortChange={showSortingByColumns ? NOOP : undefined}
+              >
+                I’m a cell
+              </XUIEditableTableHeadingCell>
+            ))}
+          </XUIEditableTableRow>
+        </XUIEditableTableHead>
+      )) ||
+        null}
+      <XUIEditableTableBody>
+        {Array.from(Array(rows).keys()).map((item, rowIndex) => (
+          <XUIEditableTableRow
+            index={rowIndex}
+            key={`row_${rowIndex}`}
+            onRemove={() => console.log('remove me')}
+          >
+            {Array.from(Array(columnCount).keys()).map((item, index) => {
+              cellsCount += 1;
+
+              return !cellType ? (
+                <XUIEditableTableCellReadOnly id={index} key={`${rowIndex}_${index}`}>
+                  Cell text
+                </XUIEditableTableCellReadOnly>
+              ) : (
+                generateCell({
+                  cellsCount: randomiseContent ? cellsCount : 1,
+                  cellType,
+                  columnIndex: index,
+                  randomiseContent,
+                  inlineAlignment,
+                  isDisabled: withDisabled && index === 2,
+                  isInvalid: withInvalid && rowIndex === 2,
+                  validationMessage,
+                  rowIndex,
+                })
+              );
+            })}
+          </XUIEditableTableRow>
+        ))}
+      </XUIEditableTableBody>
+      {(showAddRowButton || showFooterRow) && (
+        <XUIEditableTableFoot>
+          {showFooterRow && (
+            <XUIEditableTableRow disableRowControls index={columnCount} key={`row_${columnCount}`}>
+              {Array.from(Array(columnCount).keys()).map((_, index) => (
+                <XUIEditableTableCellTextInput
+                  key={`foot_${index}`}
+                  placeholder={index === 0 ? 'Add new row' : undefined}
+                />
               ))}
             </XUIEditableTableRow>
-          </XUIEditableTableHead>
-        )) ||
-          null}
-        <XUIEditableTableBody>
-          {Array.from(Array(rows).keys()).map((item, rowIndex) => (
-            <XUIEditableTableRow
-              index={rowIndex}
-              key={`row_${rowIndex}`}
-              onRemove={() => console.log('remove me')}
-            >
-              {Array.from(Array(columnCount).keys()).map((item, index) => {
-                cellsCount += 1;
+          )}
+          {showAddRowButton && (
+            <XUIEditableTableFootAction
+              addButtonContent="Add new row"
+              onAdd={() => console.log('Add new row')}
+            />
+          )}
+        </XUIEditableTableFoot>
+      )}
+    </XUIEditableTable>
+  );
 
-                return !cellType ? (
-                  <XUIEditableTableCellReadOnly id={index} key={`${rowIndex}_${index}`}>
-                    Cell text
-                  </XUIEditableTableCellReadOnly>
-                ) : (
-                  generateCell({
-                    cellsCount: randomiseContent ? cellsCount : 1,
-                    cellType,
-                    columnIndex: index,
-                    randomiseContent,
-                    inlineAlignment,
-                    isDisabled: withDisabled && index === 2,
-                    isInvalid: withInvalid && rowIndex === 2,
-                    validationMessage,
-                    rowIndex,
-                  })
-                );
-              })}
-            </XUIEditableTableRow>
-          ))}
-        </XUIEditableTableBody>
-        {(showAddRowButton || showFooterRow) && (
-          <XUIEditableTableFoot>
-            {showFooterRow && (
-              <XUIEditableTableRow
-                disableRowControls
-                index={columnCount}
-                key={`row_${columnCount}`}
-              >
-                {Array.from(Array(columnCount).keys()).map((_, index) => (
-                  <XUIEditableTableCellTextInput
-                    key={`foot_${index}`}
-                    placeholder={index === 0 ? 'Add new row' : undefined}
-                  />
-                ))}
-              </XUIEditableTableRow>
-            )}
-            {showAddRowButton && (
-              <XUIEditableTableFootAction
-                addButtonContent="Add new row"
-                onAdd={() => console.log('Add new row')}
-              />
-            )}
-          </XUIEditableTableFoot>
-        )}
-      </XUIEditableTable>
-    );
+  const displayComponent = renderSmallerWrapper ? (
+    <div style={{ width: '400px' }}>{editableTableComponent}</div>
+  ) : (
+    editableTableComponent
+  );
 
-    const displayComponent = renderSmallerWrapper ? (
-      <div style={{ width: '400px' }}>{editableTableComponent}</div>
-    ) : (
-      editableTableComponent
-    );
-
-    return displayComponent;
-  }
-}
+  return displayComponent;
+};
 
 const regressionStoriesWithVariations = storiesOf(regressionVariationStoryKindName, module);
 

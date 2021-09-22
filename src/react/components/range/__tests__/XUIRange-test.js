@@ -41,6 +41,11 @@ describe('Range', () => {
     expect(invalidRangeComponent).toMatchSnapshot();
   });
 
+  it('label ID provided', () => {
+    const externalLabelComponent = renderer.create(<XUIRange labelId="myTestLabel" />);
+    expect(externalLabelComponent).toMatchSnapshot();
+  });
+
   it('should be disabled', () => {
     const disabledRangeComponent = renderer.create(
       <XUIRange

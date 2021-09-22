@@ -101,7 +101,7 @@ XUIRange.propTypes = {
   /** Displays that the XUIRange component is invalid */
   isInvalid: PropTypes.bool,
   /** Boolean to hide/show Input label */
-  isLabelHidden: PropTypes.node,
+  isLabelHidden: PropTypes.bool,
   /** Input label */
   label: PropTypes.node,
   /** Provide a specific label ID which will be used as the "labelleby" aria property */

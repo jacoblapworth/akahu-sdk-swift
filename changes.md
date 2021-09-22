@@ -34,30 +34,37 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 ## XUI React components
 
+- `XUIRow` now uses flexbox by default. As part of this work the `standard` variant has been replaced with an explicit `float` variant. _Note. Codemod will resolve these changes automatically when run._
+
+- `XUITextInput` has been adjusted to make sure that clicking a non-interactive side element which is a icon, text, or avatar focuses the input. _Note. We have purposefully excluded the following side elements from this change: buttons, icon buttons and pills._
+
 ### New components
 
 - `XUICheckboxRangeSelector` has been added to allow selecting multiple checkboxes at once while holding `Shift`
-  - `XUICheckbox` has 2 new optional props for range selection
+  - `XUICheckbox` has 2 new optional props for range selection:
     - `excludeFromRangeSelection` allows individual checkboxes to be excluded from range-select (e.g. "Select all" checkboxes)
     - `rangeSelectionGroup` allows multiple groups of checkboxes to be nested under one `XUICheckboxRangeSelector`
   - `XUICheckboxGroup`, `XUIPicklist`, `XUIEditableTable`, and `XUITable` make use of `XUICheckboxRangeSelector` out of the box
 
 ### Component props
 
-#### Prop Replacements
+_Note. The codemod will resolve most prop differences automatically when run._
 
 - `XUICheckbox`
   - `htmlClassName` and `svgClassName` have been combined into `checkboxElementClassName`
-    - `checkboxElementClassName` will also be added to the invisible checkbox input element
+  - `checkboxElementClassName` will also be added to the invisible checkbox input element
 - `XUIRadio`
   - `htmlClassName` and `svgClassName` have been combined into `radioElementClassName`
-    - `radioElementClassName` will also be added to the invisible radio input element
+  - `radioElementClassName` will also be added to the invisible radio input element
 - `XUIDropdownToggled`, `XUIAutocompleter`, `XUIAutocompleterSecondarySearch`, `XUIEditableTableCellAutocompleter`, `XUISelectBox` and `XUIEditableTableCellSelectBox`
   - `matchTriggerWidth` has been converted from a `boolean` into an `enum` of `true | false | 'min'`
   - By setting `matchTriggerWidth` to `'min'`, dropdowns can now have a `min-width` which matches the trigger's width, while also being able to expand to fit longer content
 
-#### Prop Renaming
-
-_Note. The codemod will resolve most prop differences automatically when run._
-
 ## Other changes
+
+- We have replaced all `/` division operators with `sass:math`'s `math.div()` function. `sass` 2.0 will be removing `/` and this change prevents potential future issues. _Note. This change is under the hood and shouldn't result in any changes required by users._
+
+- The following npm dependencies have had major updates:
+  - `autosize`
+  - `jest-axe`
+  - `victory`

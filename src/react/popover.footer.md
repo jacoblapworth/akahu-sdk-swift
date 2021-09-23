@@ -22,7 +22,7 @@ const ExampleComponent = () => {
               onClick={() => {
                 // Close the popover
               }}
-              variant="primary"
+              variant="main"
             >
               Done
             </XUIButton>

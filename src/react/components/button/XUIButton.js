@@ -367,8 +367,8 @@ XUIButton.propTypes = {
   /** The type attribute of this button. `submit`, `button`, or `reset`. */
   type: PropTypes.oneOf(Object.keys(buttonTypes).map(type => buttonTypes[type])),
 
-  /** Determines the styling variation to apply: `standard`, `primary`, `create`, `negative`,
-   * `borderless-standard`, `borderless-primary`, `borderless-create`, `borderless-negative`,
+  /** Determines the styling variation to apply: `standard`, `main`, `create`, `negative`,
+   * `borderless-standard`, `borderless-main`, `borderless-create`, `borderless-negative`,
    * or `unstyled`.
    */
   variant: PropTypes.oneOf(Object.keys(textButtonVariants)),

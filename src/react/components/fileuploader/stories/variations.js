@@ -38,7 +38,7 @@ const variations = [
           size: 12345678,
         },
         rightContent: (
-          <XUIButton size="small" variant="borderless-primary">
+          <XUIButton size="small" variant="borderless-main">
             Action
           </XUIButton>
         ),

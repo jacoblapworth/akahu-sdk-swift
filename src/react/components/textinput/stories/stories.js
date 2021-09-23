@@ -102,7 +102,7 @@ const TextInputWrapper = props => {
         return (
           childComponentSize !== '2xsmall' && (
             <XUITextInputSideElement alignment={sideElementAlignment} type="button">
-              <XUIButton size={childComponentSize} variant="primary">
+              <XUIButton size={childComponentSize} variant="main">
                 Test
               </XUIButton>
             </XUITextInputSideElement>
@@ -138,7 +138,7 @@ const TextInputWrapper = props => {
         return (
           childComponentSize !== '2xsmall' && (
             <XUITextInputSideElement alignment={sideElementAlignment} type="button">
-              <XUIButton size={childComponentSize} variant="primary">
+              <XUIButton size={childComponentSize} variant="main">
                 Elaborate explanation for an onclick action
               </XUIButton>
             </XUITextInputSideElement>

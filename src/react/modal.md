@@ -65,7 +65,7 @@ class Example extends PureComponent {
               inputRef={i => (this.input = i)}
               rightElement={
                 <XUITextInputSideElement type="button">
-                  <XUIButton onClick={this.selectAndCopy} variant="primary" size="small">
+                  <XUIButton onClick={this.selectAndCopy} variant="main" size="small">
                     Copy
                   </XUIButton>
                 </XUITextInputSideElement>
@@ -183,11 +183,7 @@ class Example extends PureComponent {
             <XUITextInput placeholder="Give it a title" />
           </XUIModalBody>
           <XUIModalFooter className="xui-actions xui-actions-layout xui-padding-large">
-            <XUIButton
-              variant="primary"
-              className="xui-actions--primary"
-              onClick={this.toggleModal}
-            >
+            <XUIButton variant="main" className="xui-actions--primary" onClick={this.toggleModal}>
               Create project
             </XUIButton>
           </XUIModalFooter>
@@ -260,10 +256,10 @@ class Example extends PureComponent {
             </div>
           </XUIModalBody>
           <XUIModalFooter className="xui-u-flex xui-u-flex-justify-center">
-            <XUIButton className="xui-margin-right" variant="borderless-primary">
+            <XUIButton className="xui-margin-right" variant="borderless-main">
               Just for me now
             </XUIButton>
-            <XUIButton variant="primary" onClick={this.toggleModal}>
+            <XUIButton variant="main" onClick={this.toggleModal}>
               Add Projects users
             </XUIButton>
           </XUIModalFooter>

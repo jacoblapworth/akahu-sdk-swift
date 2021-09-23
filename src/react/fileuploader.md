@@ -38,7 +38,7 @@ const defaultFileList = [
     status: 'done',
     originalFile: new File([new ArrayBuffer(12345678)], 'test2.pdf', { type: 'application/pdf' }),
     rightContent: (
-      <XUIButton size="small" variant="borderless-primary">
+      <XUIButton size="small" variant="borderless-main">
         Action
       </XUIButton>
     )

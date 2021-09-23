@@ -113,7 +113,7 @@ const ExampleComponent = () => {
           </XUIPopoverBody>
           <XUIPopoverFooter
             primaryAction={
-              <XUIButton onClick={() => setStep(1)} variant="primary">
+              <XUIButton onClick={() => setStep(1)} variant="main">
                 Next
               </XUIButton>
             }
@@ -137,7 +137,7 @@ const ExampleComponent = () => {
           </XUIPopoverBody>
           <XUIPopoverFooter
             primaryAction={
-              <XUIButton onClick={() => setStep(2)} variant="primary">
+              <XUIButton onClick={() => setStep(2)} variant="main">
                 Next
               </XUIButton>
             }
@@ -161,7 +161,7 @@ const ExampleComponent = () => {
           </XUIPopoverBody>
           <XUIPopoverFooter
             primaryAction={
-              <XUIButton onClick={() => setIsPopoverOpen(false)} variant="primary">
+              <XUIButton onClick={() => setIsPopoverOpen(false)} variant="main">
                 Done
               </XUIButton>
             }

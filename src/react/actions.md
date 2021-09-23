@@ -14,7 +14,7 @@ import XUIButton from '@xero/xui/react/button';
 
 <XUIActions
   primaryAction={
-    <XUIButton key="one" variant="primary">
+    <XUIButton key="one" variant="main">
       Continue
     </XUIButton>
   }
@@ -33,7 +33,7 @@ import XUIButton from '@xero/xui/react/button';
 <XUIActions
   isLinear
   primaryAction={
-    <XUIButton key="one" variant="primary">
+    <XUIButton key="one" variant="main">
       Next
     </XUIButton>
   }

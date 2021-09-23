@@ -45,7 +45,7 @@ function getComponent({
     : undefined;
 
   const primaryAction = hasActionsPrimaryButton && (
-    <XUIButton size="small" variant="primary">
+    <XUIButton size="small" variant="main">
       Primary
     </XUIButton>
   );

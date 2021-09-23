@@ -50,6 +50,10 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 _Note. The codemod will resolve most prop differences automatically when run._
 
+- `XUIButton`, `XUISplitButton` and `XUISplitButtonGroup`
+  - The variant `primary` is now called `main`
+- `XUIButton`
+  - The variant `borderless-primary` is now called `borderless-main`
 - `XUICheckbox`
   - `htmlClassName` and `svgClassName` have been combined into `checkboxElementClassName`
   - `checkboxElementClassName` will also be added to the invisible checkbox input element

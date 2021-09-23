@@ -41,7 +41,7 @@ const buildDropdownPicklist = items => {
 const buildTrigger = text => <XUIButton hasCaret>{text}</XUIButton>;
 
 const splitButtonExample = (
-  <XUISplitButtonGroup variant="primary">
+  <XUISplitButtonGroup variant="main">
     <XUIButton size="small">Split action</XUIButton>
     <XUIDropdownToggled
       dropdown={
@@ -57,7 +57,7 @@ const splitButtonExample = (
         </XUIDropdown>
       }
       trigger={
-        <XUISecondaryButton aria-label="Other actions" key="split" size="small" variant="primary" />
+        <XUISecondaryButton aria-label="Other actions" key="split" size="small" variant="main" />
       }
     />
   </XUISplitButtonGroup>

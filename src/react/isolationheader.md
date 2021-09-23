@@ -21,7 +21,7 @@ const title = 'Main title';
 const secondary = 'Secondary title';
 const supplementary = 'Supplementary text';
 const actions = (
-  <XUIButton variant="primary" size="small">
+  <XUIButton variant="main" size="small">
     Primary
   </XUIButton>
 );

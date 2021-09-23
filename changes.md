@@ -38,6 +38,8 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 - `XUITextInput` has been adjusted to make sure that clicking a non-interactive side element which is a icon, text, or avatar focuses the input. _Note. We have purposefully excluded the following side elements from this change: buttons, icon buttons and pills._
 
+### New components
+
 - `XUICheckboxRangeSelector` has been added to allow selecting multiple checkboxes at once while holding `Shift`
   - `XUICheckbox` has 2 new optional props for range selection:
     - `excludeFromRangeSelection` allows individual checkboxes to be excluded from range-select (e.g. "Select all" checkboxes)

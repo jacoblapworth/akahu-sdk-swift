@@ -62,6 +62,7 @@ const data = [
           <XUIEditableTableCellTextInput
             defaultValue={colour.data}
             isInvalid={colour.isInvalid}
+            label="input"
             validationMessage={colour.validationMessage}
           ></XUIEditableTableCellTextInput>
           <XUIEditableTableCellReadOnly>{price.data}</XUIEditableTableCellReadOnly>

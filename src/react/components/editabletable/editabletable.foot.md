@@ -30,9 +30,9 @@ const addNewRow = () => console.log('Add row');
   </XUIEditableTableHead>
   <XUIEditableTableBody>
     <XUIEditableTableRow>
-      <XUIEditableTableCellTextInput defaultValue="Banana" />
-      <XUIEditableTableCellTextInput defaultValue="Yellow" />
-      <XUIEditableTableCellTextInput defaultValue="2.99" />
+      <XUIEditableTableCellTextInput defaultValue="Banana" label="input" />
+      <XUIEditableTableCellTextInput defaultValue="Yellow" label="input" />
+      <XUIEditableTableCellTextInput defaultValue="2.99" label="input" />
     </XUIEditableTableRow>
   </XUIEditableTableBody>
   <XUIEditableTableFoot>
@@ -121,11 +121,18 @@ const EditableCreatorRowDemo = () => {
     return (
       <XUIEditableTableRow>
         <XUIEditableTableCellTextInput
+          label="input"
           onKeyUp={event => newRowHandler(event, 'fruit')}
           placeholder={'Add item'}
         />
-        <XUIEditableTableCellTextInput onKeyUp={event => newRowHandler(event, 'color')} />
-        <XUIEditableTableCellTextInput onKeyUp={event => newRowHandler(event, 'price')} />
+        <XUIEditableTableCellTextInput
+          label="input"
+          onKeyUp={event => newRowHandler(event, 'color')}
+        />
+        <XUIEditableTableCellTextInput
+          label="input"
+          onKeyUp={event => newRowHandler(event, 'price')}
+        />
       </XUIEditableTableRow>
     );
   };
@@ -170,16 +177,19 @@ const EditableCreatorRowDemo = () => {
               <XUIEditableTableCellTextInput
                 focusOnMount={row.id === focusId && 'fruit' === focusCell}
                 value={row.fruit}
+                label="input"
                 onChange={event => inputOnChangeHandler(event, row.id, 'fruit')}
               />
               <XUIEditableTableCellTextInput
                 focusOnMount={row.id === focusId && 'color' === focusCell}
                 value={row.color}
+                label="input"
                 onChange={event => inputOnChangeHandler(event, row.id, 'color')}
               />
               <XUIEditableTableCellTextInput
                 focusOnMount={row.id === focusId && 'price' === focusCell}
                 value={row.price}
+                label="input"
                 onChange={event => inputOnChangeHandler(event, row.id, 'price')}
               />
             </XUIEditableTableRow>

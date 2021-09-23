@@ -12,7 +12,7 @@ const XUIBarChart = props => {
 
   useEffect(() => {
     labelRequiredWarning(XUIBarChart.name, loadingAriaLabelOnly, [
-      isLoading && props.loadingAriaLabel,
+      !isLoading || props.loadingAriaLabel,
     ]);
   }, [isLoading, props.loadingAriaLabel]);
   useEffect(() => {

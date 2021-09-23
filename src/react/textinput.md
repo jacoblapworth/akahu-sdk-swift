@@ -162,7 +162,7 @@ import XUITextInput from '@xero/xui/react/textinput';
 
 #### Side Elements
 
-Content can be added to the side of a `XUITextInput` using the `leftElement` and `rightElement` props. It's recommended that you use the `XUITextInputSideElement` component to ensure the correct styling is applied.
+Content can be added to the side of a `XUITextInput` using the `leftElement` and `rightElement` props. It's recommended that you use the `XUITextInputSideElement` component to ensure the correct styling is applied. When using custom static side elements (e.g. icons, text, avatars), focus the input when the side element is clicked. (e.g. `<CustomElement onClick={ this.inputRef?.current?.focus() }>`)
 
 ```jsx harmony
 import linkedin from '@xero/xui-icon/icons/social-linkedin';

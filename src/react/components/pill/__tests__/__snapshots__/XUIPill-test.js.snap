@@ -381,6 +381,7 @@ exports[`<XUIPill /> should render inside a tooltip when using the debug flag 1`
           "marginRight": -220,
           "maxHeight": null,
           "maxWidth": null,
+          "minWidth": null,
           "width": null,
         }
       }

@@ -80,15 +80,8 @@ function generateAvatars({ avatarLength, variant, value, size }) {
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
     const variationMinusStoryDetails = { ...variation };
-    const {
-      sizes,
-      grouped,
-      avatarLength,
-      maxAvatars,
-      variant,
-      value,
-      colors,
-    } = variationMinusStoryDetails;
+    const { sizes, grouped, avatarLength, maxAvatars, variant, value, colors } =
+      variationMinusStoryDetails;
     delete variationMinusStoryDetails.storyKind;
     delete variationMinusStoryDetails.storyTitle;
 

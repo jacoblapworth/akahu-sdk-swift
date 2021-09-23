@@ -7,6 +7,7 @@ import cn from 'classnames';
 import { tableVariantClassNames } from './private/constants';
 import EditableTableColGroup from './private/EditableTableColGroup';
 import EditableTableWrapper from './private/EditableTableWrapper';
+import XUICheckboxRangeSelector from '../checkbox/XUICheckboxRangeSelector';
 import conditionallyRequiredValidator from '../helpers/conditionallyRequiredValidator';
 import XUIIcon from '../icon/XUIIcon';
 import { generateIdsFromControlId } from '../helpers/ariaHelpers';
@@ -66,7 +67,7 @@ const XUIEditableTable = React.forwardRef(
     }, [ariaLabel]);
 
     return (
-      <>
+      <XUICheckboxRangeSelector>
         {hiddenColumns && hiddenColumns.length > 0 && (
           <style>
             {hiddenColumns.map(
@@ -125,7 +126,7 @@ const XUIEditableTable = React.forwardRef(
             {validationMessage}
           </div>
         )}
-      </>
+      </XUICheckboxRangeSelector>
     );
   },
 );

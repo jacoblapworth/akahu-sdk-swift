@@ -57,14 +57,8 @@ export default class XUIAutocompleter extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const {
-      pills,
-      disableWrapPills,
-      searchDebounceTimeout,
-      searchValue,
-      placeholder,
-      isLoading,
-    } = this.props;
+    const { pills, disableWrapPills, searchDebounceTimeout, searchValue, placeholder, isLoading } =
+      this.props;
 
     if (prevProps.searchDebounceTimeout !== searchDebounceTimeout) {
       this.bindOnChange(searchDebounceTimeout);
@@ -584,7 +578,7 @@ XUIAutocompleter.propTypes = {
    * XUI design has also decided to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers (setting this to `'min'` will not override this).
    */
-  matchTriggerWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf([true, false, 'min'])]),
+  matchTriggerWidth: PropTypes.oneOf([true, false, 'min']),
 
   /** Max length of the input */
   maxLength: PropTypes.number,

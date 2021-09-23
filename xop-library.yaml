@@ -54,7 +54,7 @@ library:
   # For automated build number versioning use the following format.
   # version: '16.5.0+{env.BUILD_NUMBER}'
   # More details at: https://kotahi.xero.dev/learn/hY7hDl2g9kSGMaIXZn9geA#version
-  version: '18.4.0'
+  version: "19.0.0-alpha.3"
 
   #########################################
   #       Ownership

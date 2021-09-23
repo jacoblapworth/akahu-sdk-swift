@@ -60,9 +60,8 @@ const Draggable: React.FunctionComponent<Props> = ({
 
   const { draggedRowHeight, draggedRowIndex } = React.useContext(DragDropDraggingContext);
   const { isDraggingOver } = React.useContext(DroppableContext);
-  const { columnWidths, rowOptions, tableRef, tableWrapperRef } = React.useContext(
-    XUIEditableTableContext,
-  );
+  const { columnWidths, rowOptions, tableRef, tableWrapperRef } =
+    React.useContext(XUIEditableTableContext);
 
   if (!useDraggable || typeof index !== 'number') {
     return children();

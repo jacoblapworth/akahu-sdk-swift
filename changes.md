@@ -1,11 +1,8 @@
-# XUI 18 Changes
+# XUI 19 Changes
 
 ## Table of Contents
 
 - [Dependencies](#Dependencies)
-  - [React 17](#React-17)
-  - [Nanoid](#Nanoid-migration)
-- [IE11 Support Removed](#IE11-support-removed)
 - [CSS Changes](#XUI-CSS)
 - [React Component Changes](#XUI-React-components)
   - [Prop Changes](#Component-props)
@@ -17,133 +14,31 @@ Please take some time to check that your projects' `package.json` dependencies m
 
 We recommend running a bundle analyser after upgrading (and regularly in general).
 
-### React 17
-
-React has been updated to version 17. Please ensure your repo's version of `react`, `react-dom` and `@types/react` are adjusted to version `^17.0.0` to match XUI's version of React.
-
-React 17 has several breaking changes and these will be separate from breaking changes that XUI includes. If you are upgrading from previous versions of React we advise you to read the [official react 17 blog post](https://reactjs.org/blog/2020/10/20/react-v17.html) before upgrading.
-
-For Enzyme users, please note before upgrading that there is currently no official enzyme adapter and `enzyme-adapter-react-16` will no longer work with React 17 (as of March 2021). We recommend that you take one of the following options:
-
-1. [**Use the unofficial `enzyme-adapter-react-17` package**](https://www.npmjs.com/package/@wojtekmaj/enzyme-adapter-react-17): While this is not officially endorsed by the Enzyme maintainers, it is a popular package used by many developers using React 17. We are using this library internally after upgrading.
-
-2. [**Migrate to React Testing Library**](https://testing-library.com/): This is the testing library officially endorsed by the React team. We are beginning to trial this library internally, and are seeing some positive results in terms of ease of development.
-
-### Nanoid migration
-
-XUI React components now use `nanoid` instead of `uuid` to generate ids. This package has been chosen as it is [significantly faster than `uuid` and is a much smaller package while maintaining comparable randomisation capabilities](https://github.com/ai/nanoid#comparison-with-uuid).
-If you are currently mocking the `uuid` package to change ids used by XUI components in your unit tests you will need to install the [`nanoid` package](https://www.npmjs.com/package/nanoid) and change your code to use this package instead.
-
-## IE11 support removed
-
-We have removed IE11 support for XUI in line with [Xero's decision to discontinue IE11 support for all products (except WFM and XPM) effective as of 1 December 2020](https://xero.slack.com/archives/C63PJSH25/p1606789311155600). The changes in this release includes alterations to existing components, styles and documents to remove workarounds and content specifically made for IE11 support.
-
-_Note: This will mean that many key functionalities that worked for IE11 users prior to this version will no longer function as before._
-
 ## XUI CSS
 
-### File Uploader
+### Removals
 
-- `xui-fileuploader--fileitem--loading` now presents a static progress icon
-- `xui-fileuploader--fileitem--loading-indeterminate` can be applied alongside `xui-fileuploader--fileitem--loading` to present a spinning progress icon
-
-### Carets
-
-- `xui-button--caret` and `xui-iconwrapper` are no longer used together
-  - Use `xui-button--caret` for carets that sit alongside other content
-  - Use `xui-iconwrapper` for carets that sit on their own, such as those in split buttons
-
-### PickItems
-
-- `xui-pickitem--body-has-leftelement` should be added to the pickitem body element when a left element is present (not required if using React `XUIPickitem` component)
-- `xui-pickitem--body-has-rightelement` should be added to the pickitem body element when a right element is present (not required if using React `XUIPickitem` component)
-
-### Control Groups
-
-- `xui-styledcheckboxradio-group` should appear alongside `xui-controlgroup` plus a modifier class of `xui-controlgroup-vertical`. This will be addressed by the codemod.
-- `xui-switch-group` should appear alongside `xui-controlgroup` plus a modifier class of `xui-controlgroup-vertical`. This will be addressed by the codemod.
-
-### XUIAutocompleter
-
-- The wrapping div of an autocompleter will now have a class of `xui-autocompleter` applied. This will be used for styling when it appears inside a control group, in an upcoming release. This will NOT be addressed by the codemod.
-
-### XUITextInput and all consuming components
-
-- The element with a class of `xui-textinputwrapper` will additionally have a class of `xui-textinputwrapper-is-invalid`, when invalid. This will be used for styling when the component appears inside a control group, in an upcoming release. This will NOT be addressed by the codemod.
-
-### XUISelectBox and all consuming components
-
-- The wrapping div of a select box will now have a class of `xui-selectwrapper` applied. When the contained select box is invalid, this element will also get a class of `xui-selectwrapper-is-invalid`. These new classes will be used for styling when the component appears inside a control group, in an upcoming release. They will NOT be addressed by the codemod.
-- Addtionally, the element that often has a class of `xui-select-layout` will now also have a root class of `xui-select` applied. This will be used for styling when the component appears inside a control group, in an upcoming release. This will be addressed by the codemod, where possible, however `xui-select-layout` is not always present.
-
-### XUIEditableTable
-
-- Default colour and font weight have been removed from `XUIEditableTableFoot`
-- `xui-editabletable--column-hidden` has been removed from the docs, because it was not implemented nor used anywhere
+- `xui-styledcheckboxradio--indeterminate` and `xui-styledcheckboxradio--check` have been removed with no replacement. These were obsolete classes and styles that were no longer applied via React and are not required for styling checkboxes in HTML.
 
 ### XUITable
 
-- Captions are now handled by adding an `aria-label` to the table element
-- XUITable's cell contents will now vertically align to the top of the cell instead of the middle
+- For heading cells, use `xui-readonlytableheadingcell-rightaligned` instead of `xui-readonlytablecell-rightaligned`
 
-#### XUITable classes
+### XUIDropdownFooter
 
-- `xui-table--*` classes have been renamed to `xui-readonlytable*`
-  - `xui-table-wrapper` -> `xui-readonlytablewrapper`
-  - `xui-table` -> `xui-readonlytable`
-  - `xui-table--head` -> `xui-readonlytablehead`
-  - `xui-table--body` -> `xui-readonlytablebody`
-  - `xui-table--row` -> `xui-readonlytablerow`
-  - `xui-table--cell` -> `xui-readonlytablecell`
-  - `xui-table--row-link` -> `xui-readonlytablerow-link`
-  - `xui-table--cell-link` -> `xui-readonlytablecell-link`
-  - `xui-table--cell-action` -> `xui-readonlytablecell-action`
-  - `xui-table--checkbox-head` -> `xui-readonlytable--checkbox-head`
-  - `xui-table--checkbox-body` -> `xui-readonlytable--checkbox-head`
-- `xui-heading-separator` has been replaced with `xui-readonlytableheadingcell` (only for tables)
-- `xui-panel` has been replaced with `xui-readonlytable-hasborder` (only for tables)
-- `xui-table-responsive` has been replaced with `xui-readonlytablewrapper--scrollcontainer` and should be nested under `xui-readonlytable-hasborder` when applicable (see [our XUITable documentation](https://xui.xero.com/18.0.0/section-components-displayingdata-table.html#components-displayingdata-table-4) for examples)
-- `xui-table--cell-divider` has been removed and is no longer needed
-- `xui-readonlytableheadingcell--placeholder` and `xui-readonlytablecell--placeholder` have been added
-  - Used to set the size of checkboxes and/or overflow menu cells in rows without checkboxes and/or overflow menus
-- Classes for pinned actions have also been renamed
-  - `xui-table-pinleft` -> `xui-readonlytable-pinfirst`
-  - `xui-table-pinright` -> `xui-readonlytable-pinright`
-  - `xui-table-overflowleft` -> `xui-readonlytableoverflow-pinoverflowleft`
-  - `xui-table-overflowright` -> `xui-readonlytableoverflow-pinoverflowright`
-
-### ToggleOptions
-
-XUIToggleOption now includes updated padding, horizontal and vertical, for both medium and small variants. If you currently apply utility classes to provide your own horizontal padding, they are expected to still take precedence, but you may be able to remove them to leverage the default layout. You will see a change to the overall height of ALL "small" toggles and all "medium" toggles that have multi-line content.
-
-### Typography variables updates
-
-All `font-size` and `line-height` variables are now using the `rem` unit to support browser-based text sizing.
+- Pickitems inside a XUIDropdownFooter now have a text-black colour, rather than a link-blue colour. This is because blue is used to identify active/selected items. This style change does not require a code change, but will result in a visual change.
 
 ### Mixins updates
 
-- Inset version of `xui-shadow-border-*` mixins now show up on the right side. You need to update the mixin to the opposite direction to make sure they keep the same.
-  - e.g. `xui-shadow-border-bottom($xui-standard-border-color, true)` should be updated to `xui-shadow-border-top($xui-standard-border-color, true)`
+- `xui-readonlytable-overflow` and `xui-editabletable-overflow` mixins have been removed, use `xui-table-overflow` instead
 
 ## XUI React components
 
-### Refs implementation made consistent across XUI
+- `XUIRow` now uses flexbox by default. As part of this work the `standard` variant has been replaced with an explicit `float` variant. _Note. Codemod will resolve these changes automatically when run._
 
-The following components have had refs updated to be implemented with `React.createRef()`, for a more consistent approach across the library. If you are calling or manipulating any of these refs, you may need to update those references to use `nameOfRef.current`.
+- `XUITextInput` has been adjusted to make sure that clicking a non-interactive side element which is a icon, text, or avatar focuses the input. _Note. We have purposefully excluded the following side elements from this change: buttons, icon buttons and pills._
 
-- `XUIAutocompleter` refs: `dropdown` and `inputNode`
-- `XUIAutocompleterSecondarySearch` refs: `ddt` and `dropdown`
-- `XUIButton` refs: `rootNode`
-- `XUIDropdownToggled` refs: `trigger` and `dropdown`
-- `XUIIconButton` refs: `rootNode`
-- `XUIModal` ref: `_maskNode` and `_modalNode` (applications should not be using these internal properties)
-- `XUINestedPicklistTrigger` refs: `rootNode`
-- `XUIRolloverCheckbox` refs: `_checkbox` (applications should not be using this internal property)
-- `XUISelectBox` refs: `ddt` and `trigger`
-- `XUIStepper` refs: `rootNode`
-- `XUITable` refs: `rootNode`, `wrapperNode` and `tableNode`
-
-TypeScript types have also been made slightly more strict for instances of rootNode, as a result of this cleanup.
+### New components
 
 ### XUIAccordion
 
@@ -204,113 +99,33 @@ TypeScript types have also been made slightly more strict for instances of rootN
 - Removed hard-coded English-language string for the close button label. This must now be provided by the implementer in order to enable a better localised experience.
 - A new `closeButtonLabel` prop has been added, which is required when an `onCloseClick` prop has been provided. This prop will provide the `title` and `aria-label` for the close button. Recommended English value is "Close".
 
+### XUICheckboxRangeSelector
+
+- `XUICheckboxRangeSelector` has been added to allow selecting multiple checkboxes at once while holding `Shift`
+  - `XUICheckbox` has 2 new optional props for range selection:
+    - `excludeFromRangeSelection` allows individual checkboxes to be excluded from range-select (e.g. "Select all" checkboxes)
+    - `rangeSelectionGroup` allows multiple groups of checkboxes to be nested under one `XUICheckboxRangeSelector`
+  - `XUICheckboxGroup`, `XUIPicklist`, `XUIEditableTable`, and `XUITable` make use of `XUICheckboxRangeSelector` out of the box
+
 ### Component props
-
-Please note we strongly recommend use of the codemod for this upgrade, as a large number of props have been renamed. The codemod will automate this renaming process, which should reduce a lot of overhead in the upgrade process.
-
-#### Prop Replacements
-
-- `XUIPicklist`
-  - `onMouseDown` replaced with `onClick`
-
-#### Prop Renaming
-
-- `XUIAutocompleter`
-  - `dropdownFixedWidth` renamed to `dropdownHasFixedWidth`
-  - `loading` renamed to `isLoading`
-- `XUIAutocompleterSecondarySearch`
-  - `dropdownFixedWidth` renamed to `dropdownHasFixedWidth`
-- `XUIBanner`
-  - `defaultLayout` renamed to `hasDefaultLayout`
-- `XUIButton`
-  - `minLoaderWidth` renamed to `hasMinLoaderWidth`
-- `XUIDropdown`
-  - `fixedWidth` renamed to `hasFixedWidth`
-- `XUIDropdownLayout`
-  - `fixedWidth` renamed to `hasFixedWidth`
-- `XUIEditableTableCellAutocompleter`
-  - `dropdownFixedWidth` renamed to `dropdownHasFixedWidth`
-  - `loading` renamed to `isLoading`
-- `XUIEditableTableCellSelectBox`
-  - `buttonClasses` renamed to `buttonClassName`
-  - `containerClasses` renamed to `containerClassName`
-  - `defaultLayout` renamed to `hasDefaultLayout`
-  - `dropDownClasses` renamed to `dropdownClassName`
-  - `inputGroupClasses` renamed to `inputGroupClassName`
-- `XUIEditableTableCellTextInput`
-  - `focusByDefault` renamed to `focusOnMount`
-- `XUIIconButton`
-  - `desc` renamed to `description`
-  - `minLoaderWidth` renamed to `hasMinLoaderWidth`
-- `XUIIcon`
-  - `desc` renamed to `description`
-- `XUILoader`
-  - `defaultLayout` renamed to `hasDefaultLayout`
-- `XUIModal`
-  - `defaultLayout` renamed to `hasDefaultLayout`
-- `XUINestedDropdown`
-  - `fixedWidth` renamed to `hasFixedWidth`
-- `XUIPicklist`
-  - `defaultLayout` renamed to `hasDefaultLayout`
-- `XUIStatefulPicklist`
-  - `canFocus` renamed to `isFocusable`
-- `XUIRange`
-  - `containerClasses` renamed to `containerClassName`
-  - `inputClasses` renamed to `inputClassName`
-- `XUISecondaryButton`
-  - `minLoaderWidth` renamed to `hasMinLoaderWidth`
-- `XUISelectBox`
-  - `buttonClasses` renamed to `buttonClassName`
-  - `containerClasses` renamed to `containerClassName`
-  - `defaultLayout` renamed to `hasDefaultLayout`
-  - `dropDownClasses` renamed to `dropdownClassName`
-  - `inputGroupClasses` renamed to `inputGroupClassName`
-- `XUISelectBoxOption`
-  - `optionClasses` renamed to `optionClassName`
-  - `truncatedText` renamed to `truncateText`
-- `XUITextInput`
-  - `focusByDefault` renamed to `focusOnMount`
-- `XUIToast`
-  - `defaultLayout` renamed to `hasDefaultLayout`
-- `XUITooltip`
-  - `limitWidth` renamed to `hasLimitedWidth`
 
 _Note. The codemod will resolve most prop differences automatically when run._
 
+- `XUICheckbox`
+  - `htmlClassName` and `svgClassName` have been combined into `checkboxElementClassName`
+  - `checkboxElementClassName` will also be added to the invisible checkbox input element
+- `XUIRadio`
+  - `htmlClassName` and `svgClassName` have been combined into `radioElementClassName`
+  - `radioElementClassName` will also be added to the invisible radio input element
+- `XUIDropdownToggled`, `XUIAutocompleter`, `XUIAutocompleterSecondarySearch`, `XUIEditableTableCellAutocompleter`, `XUISelectBox` and `XUIEditableTableCellSelectBox`
+  - `matchTriggerWidth` has been converted from a `boolean` into an `enum` of `true | false | 'min'`
+  - By setting `matchTriggerWidth` to `'min'`, dropdowns can now have a `min-width` which matches the trigger's width, while also being able to expand to fit longer content
+
 ## Other changes
 
-### Accessibility
+- We have replaced all `/` division operators with `sass:math`'s `math.div()` function. `sass` 2.0 will be removing `/` and this change prevents potential future issues. _Note. This change is under the hood and shouldn't result in any changes required by users._
 
-- Corrections to `role` attributes to meet WCAG 2.1 AA Standard, these changes may influence your snapshot tests
-  - `XUITag`: `role=”status”` has been removed
-  - `XUISelectBox`: default `role` value has been updated to `listbox`
-  - `XUIDropdownPanel`: `role="presentation` and `role="listbox"` have been removed
-  - `XUIDropdownToggled`: default `role="presentation"` has been removed
-  - `XUIDropdown`: If children `XUIPicklist` / `XUIPickitem` components are provided, they will now have a role of `listbox` / `option`
-  - `XUIPicklist`:
-    - Default `role` value has been removed
-    - `role` value `tree` will be applied if it has a child `XUINestedPicklistContainer`
-  - `XUIPickitem`: default `role` value has been removed
-  - `XUINestedPicklist`
-    - Default `role` value has been updated to `group`
-    - If a child `XUIPickitem` component is provided, this will now have a role of `treeitem`
-  - `XUIStatefulPicklist`: default `role` value has been removed
-  - `XUINestedPicklistTrigger`: `role="button"` has been removed
-  - `XUIControlWrapperInline`: `role="presentation"` has been removed
-    - This element is a control wrapper used in multiple other XUI components. The following XUI components have been affected and your snapshot tests may need to be updated:
-      - `XUICheckbox`, `XUIRadio`, `XUIRolloverCheckbox`, `XUISwitch`, `XUIToggleOption`
-      - `XUIPickitem` - multiselect variant only (where `isMultiselect` prop has been set to `true`)
-      - `XUITable` - checkbox variant only (where `hasCheckbox` prop has been set to `true`)
-      - `XUISelectBoxOption` - multiselect variant only (where `showCheckboxes` prop has been set to `true`)
-- `XUIAutocompleter`: `aria-expanded={false}`has been added when the dropdown is collapsed, which may require your snapshot tests to be updated
-- `XUIStepper`: for variants where a `lockLayout` prop is not provided, the generated ids have been updated to prevent clashes, which may require your snapshot tests to be updated
-- `XUIFileUploader`: `errorIconAriaLabel` and `uploadingIconAriaLabel` props have been added in order to supply an `aria-label` to each of the generated `uploading` and `error` progress icons
-- `XUIPicklist`: `ariaLabel` prop has been added in order to supply an `aria-label` to the picklist. This is recommended when a picklist is being used inside a `XUIDropdown` or `XUIDropdownPanel`
-
-### Resize observers
-
-A few changes have been made to the XUI `resizeObserver` helper in order to bring the API in line with our `useResizeObserver` Hook.
-
-- `resizeObserver` no longer exports `getWidthClasses`. This has been moved to the `containerQuery` helper. Please refer to the [container queries](https://xui.xero.com/latest/react/#container-queries) section of our docs and update your code to use the `containerQuery` helper if you wish to retain this functionality.
-- `resizeObserver` no longer allows custom breakpoints to be set via `_breakpoints`. This has been moved to the `containerQuery` helper. Please refer to the [container queries](https://xui.xero.com/latest/react/#container-queries) section of our docs and update your code to use the `containerQuery` helper if you wish to retain this functionality.
-- The `_onResize` function will return the `contentRect` rather than the `contentRect.width`. This will allow the ability to apply changes on resize of other `contentRect` parameters.
+- The following npm dependencies have had major updates:
+  - `autosize`
+  - `jest-axe`
+  - `victory`

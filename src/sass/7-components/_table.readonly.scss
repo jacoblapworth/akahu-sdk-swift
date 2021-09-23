@@ -7,16 +7,6 @@ $xui-table-z-pinned-column: 2;
 $xui-table-z-pinned-appendages: 3;
 $xui-table-z-alert: 4;
 
-@mixin xui-readonlytable-overflow {
-  border-left: 1px solid $xui-table-divider-bg-color;
-  content: '';
-  display: block;
-  height: 100%;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-}
-
 .#{$ns}-readonlytable {
   width: 100%;
 
@@ -106,7 +96,8 @@ $xui-table-z-alert: 4;
 .#{$ns}-readonlytableoverflow-pinoverflowleft {
   .#{$ns}-readonlytablecell:first-child {
     &:before {
-      @include xui-readonlytable-overflow;
+      @include xui-table-overflow-shadow-left;
+      height: 100%;
       left: 100%;
     }
   }
@@ -115,7 +106,8 @@ $xui-table-z-alert: 4;
 .#{$ns}-readonlytableoverflow-pinoverflowright {
   .#{$ns}-readonlytablecell:last-child {
     &:before {
-      @include xui-readonlytable-overflow;
+      @include xui-table-overflow-shadow-right;
+      height: 100%;
       right: 100%;
     }
   }
@@ -125,11 +117,6 @@ $xui-table-z-alert: 4;
 .#{$ns}-readonlytable--checkbox-head {
   margin: 2px;
   position: absolute;
-}
-
-.#{$ns}-readonlytable--checkbox-body {
-  left: $xui-s-small;
-  top: $xui-s-small;
 }
 
 .#{$ns}-readonlytable--checkbox-head {
@@ -275,6 +262,20 @@ $xui-table-z-alert: 4;
   @include xui-tablewrapper-scrollcontainer;
 }
 
+.#{$ns}-readonlytablewrapper {
+  // `position: relative` allows overflow shadow to position itself.
+  position: relative;
+}
+
+.#{$ns}-readonlytableoverflow-overflowleft:before {
+  @include xui-table-overflow-shadow-left;
+  left: 0;
+}
+
+.#{$ns}-readonlytableoverflow-overflowright:after {
+  @include xui-table-overflow-shadow-right;
+  right: 0;
+}
 .#{$ns}-readonlytablehead {
   .#{$ns}-readonlytable--sortbutton {
     @include xui-table-sortbutton('readonlytable');

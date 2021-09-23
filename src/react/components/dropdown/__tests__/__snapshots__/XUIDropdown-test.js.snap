@@ -48,6 +48,7 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
         >
           <ul
             className="xui-picklist xui-picklist-layout xui-picklist-medium"
+            onChange={[Function]}
             role="listbox"
           >
             <li

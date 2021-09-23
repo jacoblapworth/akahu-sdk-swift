@@ -39,9 +39,3 @@ $xui-dateinput-label-vertical-offset: 25px;
     cursor: not-allowed;
   }
 }
-
-.#{$ns}-dateinputitem-suggesteddates--footer--item {
-  .#{$ns}-pickitem--text {
-    color: $xui-color-grey-1;
-  }
-}

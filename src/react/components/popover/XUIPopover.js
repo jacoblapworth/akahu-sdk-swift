@@ -34,15 +34,8 @@ export default class XUIPopover extends React.Component {
   }
 
   render() {
-    const {
-      className,
-      children,
-      id,
-      onClickOutside,
-      preferredPosition,
-      qaHook,
-      width,
-    } = this.props;
+    const { className, children, id, onClickOutside, preferredPosition, qaHook, width } =
+      this.props;
 
     const bodyId = `${id}-body`;
 

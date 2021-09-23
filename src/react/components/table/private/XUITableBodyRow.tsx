@@ -122,6 +122,7 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
               <XUIEditableTableCellReadOnly
                 cellProps={generateCellProps(
                   cell,
+                  column,
                   columnIndex,
                   columns,
                   isCellClickable,
@@ -131,7 +132,6 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
                   hasOverflowMenu,
                   this.state.hasCellPrecedence,
                 )}
-                inlineAlignment={column.props.inlineAlignment}
                 // eslint-disable-next-line react/no-array-index-key
                 key={`cell_${columnIndex}`}
                 onPointerOut={() => isCellClickable && this.removeCellPrecedence()}

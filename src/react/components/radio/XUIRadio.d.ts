@@ -10,10 +10,6 @@ interface Props {
    */
   hintMessage?: React.ReactNode;
   /**
-   * Additional class names for the html input.
-   */
-  htmlClassName?: string;
-  /**
    * The icon path to use for the radio.
    */
   iconMain?: XUIIconData;
@@ -74,6 +70,10 @@ interface Props {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   qaHook?: string;
   /**
+   * Additional class names for the input and html/svg elements.
+   */
+  radioElementClassName?: string;
+  /**
    * Role to be applied for screen readers.
    */
   role?: string;
@@ -83,10 +83,6 @@ interface Props {
    * Defaults to `medium`.
    */
   size?: 'medium' | 'small' | 'xsmall';
-  /**
-   * Additional class names on the svg element.
-   */
-  svgClassName?: string;
   /**
    * The `tabIndex` property to place on the radio input.
    */

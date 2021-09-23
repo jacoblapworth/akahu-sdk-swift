@@ -131,9 +131,29 @@ describe('XUIRadio', () => {
 
   // isReversed property
   it('should use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true', function () {
-    const component = mount(<XUIRadio onChange={NOOP} isReversed={true} />);
+    const component = mount(
+      <XUIRadio onChange={NOOP} isReversed>
+        Label
+      </XUIRadio>,
+    );
 
     expect(component.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
+  });
+
+  it('should not use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true and there is no label', function () {
+    const component = mount(<XUIRadio onChange={NOOP} isReversed />);
+
+    expect(component.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeFalsy();
+  });
+
+  it('should not use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true and the label is hidden', function () {
+    const component = mount(
+      <XUIRadio onChange={NOOP} isLabelHidden isReversed>
+        Label
+      </XUIRadio>,
+    );
+
+    expect(component.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeFalsy();
   });
 
   // name property

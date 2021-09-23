@@ -57,6 +57,7 @@ class XUITableHead<RD extends RowData> extends React.PureComponent<Props<RD>> {
               {onCheckAllToggle && (
                 <XUICheckbox
                   className={`${tableName}--checkbox-head`}
+                  excludeFromRangeSelection
                   isChecked={isSelectAllChecked}
                   isDisabled={isSelectAllDisabled}
                   isGrouped
@@ -77,17 +78,12 @@ class XUITableHead<RD extends RowData> extends React.PureComponent<Props<RD>> {
               }
 
               const cells = React.Children.toArray(column.props.head) as Array<XUITableCell<RD>>;
-              const isEndAligned =
-                columnIndex === columns.length - 1 && !hasOverflowMenu ? 'end' : 'start';
-              const headingCellAlignment = column.props.inlineAlignment
-                ? column.props.inlineAlignment
-                : isEndAligned;
-
               return cells.map(head => (
                 <XUITableHeadingCell
                   activeSortKey={activeSortKey}
                   generatedCellProps={generateCellProps(
                     head,
+                    column,
                     columnIndex,
                     columns,
                     Boolean(head.props.onCellClick || head.props.sortKey),
@@ -98,7 +94,6 @@ class XUITableHead<RD extends RowData> extends React.PureComponent<Props<RD>> {
                     undefined,
                   )}
                   head={head}
-                  inlineAlignment={headingCellAlignment}
                   isSortAsc={isSortAsc}
                   // eslint-disable-next-line react/no-array-index-key
                   key={`head_${columnIndex}`}

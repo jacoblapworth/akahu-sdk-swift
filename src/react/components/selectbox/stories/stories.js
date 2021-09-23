@@ -71,7 +71,7 @@ storiesWithKnobs.add('Playground', () => {
       isLabelHidden={boolean('isLabelHidden', false)}
       isTextTruncated={boolean('isTextTruncated', false)}
       label={text('label', 'Label for the select box')}
-      matchTriggerWidth={boolean('matchTriggerWidth', true)}
+      matchTriggerWidth={select('matchTriggerWidth', [true, false, 'min'], true)}
       size={size}
       validationMessage={text('validationMessage', '')}
     >

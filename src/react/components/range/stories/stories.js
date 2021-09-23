@@ -20,7 +20,7 @@ storiesWithKnobs.add('Playground', () => {
     <XUIRange
       isDisabled={boolean('isDisabled', false)}
       isInvalid={boolean('isInvalid', false)}
-      label={text('label', 'Label for the select box')}
+      label={text('label', 'Label for the range input')}
       leftElement={
         showLeftElement && (
           <XUIAvatar

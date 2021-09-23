@@ -12,6 +12,7 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
   onMouseDown={[Function]}
 >
   <XUISelectBox
+    _useCellStyling={true}
     buttonContent="EditableTable select box"
     closeAfterSelection={true}
     containerClassName="xui-editabletablecellselectbox--control"

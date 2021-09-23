@@ -1,9 +1,9 @@
 import cn from 'classnames';
 
+import queryIsValidInteraction from '../../../helpers/isQueryValidInteraction';
 import { XUITableCell, XUITableColumn } from '../../../table';
 import { RowData } from '../XUITable';
 import { tableName } from './constants';
-import queryIsValidInteraction from './isQueryValidInteraction';
 
 type OnCellClick<RD extends RowData> = (rowData: RD) => void;
 

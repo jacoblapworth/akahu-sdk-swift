@@ -158,10 +158,19 @@ class PositioningInline extends Positioning {
     const isMobile = isNarrowViewport() && !isNotResponsive;
     let width = null;
     let newMaxWidth = maxWidth;
-    if (isTriggerWidthMatched && !isMobile && parentRef != null && parentRef.firstChild != null) {
+    let minWidth = null;
+
+    const canMatchTriggerWidth = !isMobile && parentRef != null && parentRef.firstChild != null;
+
+    if (isTriggerWidthMatched === true && canMatchTriggerWidth) {
       ({ width } = parentRef.firstChild.getBoundingClientRect());
       newMaxWidth = null;
     }
+
+    if (isTriggerWidthMatched === 'min' && canMatchTriggerWidth) {
+      minWidth = parentRef.firstChild.getBoundingClientRect().width;
+    }
+
     let marginLeft = null;
     let marginRight = null;
     if (isVisible) {
@@ -178,13 +187,20 @@ class PositioningInline extends Positioning {
         marginRight = -1 * maxMargin;
       }
     }
-    return {
+
+    const styles = {
       maxHeight: isMobile ? null : maxHeight,
       width,
       marginLeft,
       marginRight,
       maxWidth: newMaxWidth,
     };
+
+    if (minWidth !== null) {
+      styles.minWidth = minWidth;
+    }
+
+    return styles;
   };
 
   render() {
@@ -217,10 +233,18 @@ PositioningInline.propTypes = {
   className: PropTypes.string,
   /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
   isNotResponsive: PropTypes.bool,
-  /** Setting to true will for the dropdown to be as wide as the trigger. */
-  isTriggerWidthMatched: PropTypes.bool,
+  /**
+   * Setting this to `true` makes the dropdown as wide as the trigger.
+   * Setting this to `false` will allow the dropdown's width to be set independent of the trigger width.
+   * Setting this to `'min'` will set the dropdown's `min-width` to be the trigger width.
+   */
+  isTriggerWidthMatched: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([true, false, 'min']),
+  ]),
   /** true when the component is rendered but not displayed */
   isVisible: PropTypes.bool,
+
   /**
    * Setting a number here will force the maximum size of the child to be the number
    * provided (in pixels). When the viewport is smaller than this number, it still

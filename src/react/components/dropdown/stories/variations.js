@@ -20,6 +20,23 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'matching trigger min-width with short content and max width',
+    ddSettings: {
+      children: 'shortText',
+      size: 'large',
+    },
+    matchTriggerWidth: 'min',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'matching trigger min-width with long content and max width',
+    ddSettings: {
+      size: 'large',
+    },
+    matchTriggerWidth: 'min',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'with Header and Footer',
     viewports: desktopPlus320,
     ddSettings: {

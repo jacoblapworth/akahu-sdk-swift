@@ -1,14 +1,18 @@
 /* eslint-disable max-classes-per-file */
 import React, { Component, PureComponent } from 'react';
 import crossIcon from '@xero/xui-icon/icons/cross-small';
+import plusIcon from '@xero/xui-icon/icons/plus';
 
+import { XUIDropdownFooter } from '../../../dropdown';
+import XUIIcon from '../../../icon';
 import {
   XUIEditableTableCellAutocompleter,
+  XUIEditableTableCellAutocompleterSecondarySearch,
   XUIEditableTableCellReadOnly,
   XUIEditableTableCellSelectBox,
   XUIEditableTableCellTextInput,
 } from '../../../editabletable';
-import XUIButton, { XUIIconButton } from '../../../button';
+import { XUIIconButton } from '../../../button';
 import { XUISelectBoxOption } from '../../../selectbox';
 import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUIAvatar from '../../../avatar';
@@ -238,6 +242,123 @@ const sampleAutocompleter = (id, text, settings, rowIndex) => (
   <AutoExample {...settings} index={id} key={id} placeholder={text} rowIndex={rowIndex} />
 );
 
+const SecondarySearchData = [
+  { props: { id: 'ss1' }, text: 'Cost' },
+  { props: { id: 'ss2' }, text: 'More Costs' },
+  { props: { id: 'ss3' }, text: 'No Costs' },
+  { props: { id: 'ss4' }, text: 'Nothing about Cost' },
+  { props: { id: 'ss5' }, text: 'Something Unrelated' },
+  { props: { id: 'ss6' }, text: 'Random Item' },
+  { props: { id: 'ss7' }, text: 'Coats' },
+  { props: { id: 'ss8' }, text: 'Big Coat' },
+];
+
+const isSelected = (item, selectedIds) =>
+  item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
+
+function createItems(item, selectedId) {
+  if (Array.isArray(item)) {
+    return item.map(i => createItems(i, selectedId));
+  }
+
+  return (
+    <XUIPickitem
+      {...item.props}
+      isSelected={isSelected(item, selectedId)}
+      key={item.props.id}
+      value={item.props.id}
+    >
+      {item.text}
+    </XUIPickitem>
+  );
+}
+class SecondarySearchExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: SecondarySearchData,
+      selectedItemId: null,
+      value: '',
+      buttonContent: props.hasSelectedOption ? SecondarySearchData[1].text : '',
+    };
+  }
+
+  onOptionSelect = (value, item) => {
+    this.setState({
+      selectedItemId: value,
+      buttonContent: SecondarySearchData.filter(item => item.props.id === value)[0]?.text,
+    });
+  };
+
+  onSearch = value => {
+    const matchingData = SecondarySearchData.filter(item =>
+      item.text.toLowerCase().includes(value.toLowerCase()),
+    );
+
+    this.setState({
+      data: matchingData,
+      value,
+    });
+  };
+
+  onClose = () => {
+    this.setState({
+      value: '',
+      data: SecondarySearchData,
+    });
+  };
+
+  render() {
+    const { value, data, selectedItemId } = this.state;
+    const { hasSelectedOption, index, rowIndex, ...spreadProps } = this.props;
+
+    const items =
+      data.length > 0 ? (
+        createItems(data, selectedItemId)
+      ) : (
+        <XUIAutocompleterEmptyState>No results found</XUIAutocompleterEmptyState>
+      );
+
+    const footer = (
+      <XUIDropdownFooter
+        pickItems={
+          <XUIPickitem
+            id="footerAction"
+            leftElement={<XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} />}
+          >
+            Add New Person
+          </XUIPickitem>
+        }
+      />
+    );
+
+    return (
+      <XUIEditableTableCellAutocompleterSecondarySearch
+        buttonContent={this.state.buttonContent}
+        buttonContentPlaceholder="Search items"
+        footer={footer}
+        inputLabel="secondary search label"
+        key={`${rowIndex}_${index}`}
+        onOptionSelect={this.onOptionSelect}
+        onSearch={this.onSearch}
+        searchValue={value}
+        {...spreadProps}
+      >
+        <XUIPicklist>{items}</XUIPicklist>
+      </XUIEditableTableCellAutocompleterSecondarySearch>
+    );
+  }
+}
+
+const sampleSecondarySearch = (id, text, settings, rowIndex) => (
+  <SecondarySearchExample
+    {...settings}
+    hasSelectedOption={rowIndex > 1}
+    index={id}
+    rowIndex={rowIndex}
+  />
+);
+
 const generateCell = ({
   cellsCount,
   cellType,
@@ -274,6 +395,7 @@ const sampleTypes = {
   selectBox: sampleSelect,
   autoCompleterSingle: sampleAutocompleter,
   autoCompleterMulti: sampleAutocompleter,
+  secondarySearch: sampleSecondarySearch,
 };
 const samples = Object.keys(sampleTypes);
 

@@ -372,6 +372,88 @@ const data = {
 </Table>;
 ```
 
+## Custom column width
+
+`XUITable` has the `columnWidths` property which accepts an array of desired column widths. If using pixel values, we recommend setting at least one column to "auto" and setting a minWidth on the table itself, to avoid excess shrinkage.
+Alternatively, you can specify widths on the cells in the first row (this may be the header cells). This is helpful if you expect the columns to change and would prefer not to maintain the ordered array.
+
+When calculating a table `maxWidth` to match the sum of explicit column widths, include space for 1px cell borders. Otherwise, the widths of the cell borders will cause the table to overflow horizontally, and you will see the scroll-indicator overlay shadow
+
+When passing `minWidth` together with `columnWidths` as pixel values (without an `auto` sized column), make sure that `minWidth` doesn't exceed the sum of all the column widths. If it does, utility button columns (like delete or drag and drop) will stretch and lose proper size.
+
+### Custom widths with responsive behaviour
+
+To use custom column widths in the table while maintaining some responsive behaviour, use the [container query](#container-queries) or [resize observer](#resize-observers) APIs.
+
+The resize observer API can be used to programmatically adjust the `columnWidths` object, while the container query API can be used to adjust the `columnWidths` object according to the default breakpoints and/or breakpoints you define yourself.
+
+See the code snippet below for an example of the container query API.
+
+Try to resize: Click and drag the bottom right corner of the following container.
+
+```jsx harmony
+import React from 'react';
+import useContainerQuery from '@xero/xui/react/helpers/useContainerQuery';
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
+
+const wrapperStyles = {
+  resize: 'horizontal',
+  overflow: 'hidden'
+};
+
+const data = {
+  abc123: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
+  def456: { fruit: 'Apple', color: 'Red', price: 3.49 },
+  ghi789: { fruit: 'Cherry', color: 'Black', price: 4.21 }
+};
+
+const ResponsiveColumnWidthsExample = () => {
+  const { isWidthAboveBreakpoint, observedElementRef } = useContainerQuery();
+
+  let columnWidths = ['33%', '33%', '33%'];
+
+  // start with larger breakpoints for the shortest code path
+  if (isWidthAboveBreakpoint('small')) {
+    columnWidths = ['40%', '20%', '20%'];
+  } else if (isWidthAboveBreakpoint('xsmall')) {
+    columnWidths = ['20%', '60%', '20%'];
+  }
+
+  return (
+    <div className="xui-panel xui-padding-xlarge" ref={observedElementRef} style={wrapperStyles}>
+      <Table
+        data={data}
+        columnWidths={columnWidths}
+        minWidth="250px"
+        loaderAriaLabel="Loading more data"
+        emptyMessage="Nothing to show here"
+        checkOneRowAriaLabel="Select row"
+        checkAllRowsAriaLabel="Select all rows"
+        overflowMenuTitle="More row options"
+        caption="List of fruits with color, price per kg and checkboxes"
+      >
+        <Column
+          head={<Cell sortKey="fruit">Fruit</Cell>}
+          body={({ fruit }) => <Cell>{fruit}</Cell>}
+        />
+
+        <Column
+          head={<Cell sortKey="color">Color</Cell>}
+          body={({ color }) => <Cell>{color}</Cell>}
+        />
+
+        <Column
+          head={<Cell sortKey="price">Price / kg</Cell>}
+          body={({ price }) => <Cell>{`$${price}`}</Cell>}
+        />
+      </Table>
+    </div>
+  );
+};
+
+<ResponsiveColumnWidthsExample />;
+```
+
 ## Checkboxes
 
 Prepend the table rows with a check box action with the `hasCheckbox` prop.
@@ -809,7 +891,11 @@ If you’re dealing with large amounts of data, you can pass a [`<XUIPagination 
 
 As the user navigates between pages of table content the table columns may change width to match the content.
 
-To prevent this you can fix the column widths of the table one of two ways. The first is to provide the table with specific column widths. The second is by setting the table's `useFixedLayout` prop to `true`, this will tell the table to calculate the column widths based on the first row (heading row) which shouldn't change as the user navigates through the table data.
+To prevent this you can fix the column widths of the table one of three ways.
+
+1. Provide the table with specific column widths.
+2. Set the table's `useFixedLayout` prop to `true`, this will tell the table to calculate the column widths based on the first row (heading row) which shouldn't change as the user navigates through the table data.
+3. Use the prop `columnWidths` of `XUITable`.
 
 ```jsx
 import { useEffect, useState } from 'react';
@@ -1094,6 +1180,70 @@ const emptyStateComponent = (
 
   <Column head={<Cell>Price / kg</Cell>} body={({ price }) => <Cell>{`$${price}`}</Cell>} />
 </Table>;
+```
+
+## Hiding and showing columns
+
+There are two possible approaches for hiding and showing columns.
+
+- Selectively exclude the `XUITableColumn` you wish to hide.
+- Using the `XUITable` `hiddenColumns` API.
+
+The `hiddenColumns` API is optimal for very large tables, in which re-rendering all the rows and cells is not desired, and the order of columns is not expected to change. For best performance in these cases, cells should be [memoized](https://reactjs.org/docs/react-api.html#reactmemo) to reduce unnecessary renders. For more details, check [XUI Performance tips](https://xui.xero.com/latest/section-getting-started-performance.html#getting-started-performance-3-1).
+
+To use this feature, pass an array of column indexes that should be hidden (zero-based, inclusive of any controls, like checkboxes) to the `hiddenColumns` prop for `XUITable`
+
+```jsx harmony
+import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';
+import { XUIActions } from '@xero/xui/react/actions';
+import ColumnHideSelect from './components/editabletable/stories/column-hide-select';
+
+const data = {
+  abc123: { Fruit: 'Banana', Color: 'Yellow', 'Price / kg': 2.99 },
+  def456: { Fruit: 'Apple', Color: 'Red', 'Price / kg': 3.49 }
+};
+
+const HideShowExample = () => {
+  const [hiddenColumns, setHiddenColumns] = React.useState([]);
+
+  handleColumnVisibility = selectedColumns => {
+    setHiddenColumns(selectedColumns);
+  };
+
+  const columns = Object.keys(data['abc123']);
+  return (
+    <>
+      <XUIActions className="xui-margin-bottom">
+        <ColumnHideSelect
+          columns={columns}
+          passedOnItemSelect={handleColumnVisibility}
+          rowOptions={{}}
+        />
+      </XUIActions>
+      <Table
+        data={data}
+        loaderAriaLabel="Loading more data"
+        emptyMessage="Nothing to show here"
+        checkOneRowAriaLabel="Select row"
+        checkAllRowsAriaLabel="Select all rows"
+        overflowMenuTitle="More row options"
+        caption="List of fruits with color and price per kg"
+        hiddenColumns={hiddenColumns}
+      >
+        <Column head={<Cell>Fruit</Cell>} body={({ Fruit }) => <Cell>{Fruit}</Cell>} />
+
+        <Column head={<Cell>Color</Cell>} body={({ Color }) => <Cell>{Color}</Cell>} />
+
+        <Column
+          head={<Cell>Price / kg</Cell>}
+          body={data => <Cell>{`$${data['Price / kg']}`}</Cell>}
+        />
+      </Table>
+    </>
+  );
+};
+
+<HideShowExample />;
 ```
 
 ## TypeScript

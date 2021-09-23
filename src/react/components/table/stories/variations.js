@@ -583,6 +583,30 @@ const variations = [
       },
     ],
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'width columnWidths and maxWidth/minWidth',
+    examples: [
+      {
+        columns: 4,
+        styleOverrides: { maxWidth: '', width: '100%' },
+        tableProps: {
+          ...tableProps,
+          columnWidths: ['60px', 'auto', '120px', '120px'],
+          isResponsive: false,
+          minWidth: '500px',
+        },
+      },
+      {
+        columns: 3,
+        tableProps: {
+          ...tableProps,
+          columnWidths: ['auto', '60px', '80px'],
+          maxWidth: '330px',
+        },
+      },
+    ],
+  },
 ];
 
 export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

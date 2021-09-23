@@ -76,7 +76,7 @@ XUISplitButton.propTypes = {
   type: PropTypes.oneOf(Object.keys(buttonTypes).map(type => buttonTypes[type])),
 
   /**
-   * Determines the styling variation to apply: `standard`, `primary`, `create`, or `negative`.
+   * Determines the styling variation to apply: `standard`, `main`, `create`, or `negative`.
    */
   variant: PropTypes.oneOf(Object.keys(standardVariantClassNames)),
 };

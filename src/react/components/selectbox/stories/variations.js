@@ -174,14 +174,14 @@ const variations = [
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'as full-width with small size and variant',
-    buttonVariant: 'primary',
+    buttonVariant: 'main',
     fullWidth: 'always',
     size: 'small',
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'as small size with variant',
-    buttonVariant: 'primary',
+    buttonVariant: 'main',
     size: 'small',
   },
 ];

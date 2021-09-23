@@ -12,7 +12,7 @@ const XUIToastAction = ({ children, className, href, qaHook, ...props }) => (
     isLink={!!href}
     qaHook={qaHook}
     size="small"
-    variant="borderless-primary"
+    variant="borderless-main"
   >
     {children}
   </XUIButton>

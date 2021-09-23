@@ -99,7 +99,7 @@ const XUIIntroBanner = ({
       className={`${baseClass}--dismissbutton`}
       onClick={onDismiss}
       size="small"
-      variant="borderless-primary"
+      variant="borderless-main"
     >
       {dismissButtonText}
     </XUIButton>

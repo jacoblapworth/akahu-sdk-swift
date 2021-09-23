@@ -21,7 +21,7 @@ exports[`<XUIPopoverFooter /> renders without crashing 1`] = `
           retainLayout={true}
           tabIndex={0}
           type="button"
-          variant="primary"
+          variant="main"
         >
           Primary action
         </XUIButton>

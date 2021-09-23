@@ -428,7 +428,7 @@ const rightGutter = () => (
 );
 
 const splitButtonInline = () => (
-  <XUISplitButtonGroup variant="primary">
+  <XUISplitButtonGroup variant="main">
     <XUIButton>Split action</XUIButton>
     <XUIDropdownToggled
       dropdown={
@@ -439,7 +439,7 @@ const splitButtonInline = () => (
       isHidden={false}
       isLegacyDisplay={false}
       preferredPosition="bottom-right"
-      trigger={<XUISecondaryButton aria-label="Other actions" key="split" variant="primary" />}
+      trigger={<XUISecondaryButton aria-label="Other actions" key="split" variant="main" />}
     />
   </XUISplitButtonGroup>
 );

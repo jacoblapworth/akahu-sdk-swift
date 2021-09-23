@@ -257,7 +257,7 @@ class MiniApp extends Component {
             {TextHelpers.getText(MiniApp.state.selectedBank, 'Choose a Bank')}
           </span>
         }
-        buttonVariant="primary"
+        buttonVariant="main"
         isTextTruncated={false}
         label="Select a Bank"
         name="selectOne"

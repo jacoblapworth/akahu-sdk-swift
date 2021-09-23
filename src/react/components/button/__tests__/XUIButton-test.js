@@ -158,13 +158,13 @@ describe('<XUIButton/>', () => {
 
   it('does retain layout checks with a myriad of combinations', () => {
     const defaultRetainLayout = renderer.create(
-      <XUIButton variant="primary">Hello, I am a long bit of text</XUIButton>,
+      <XUIButton variant="main">Hello, I am a long bit of text</XUIButton>,
     );
 
     expect(defaultRetainLayout).toMatchSnapshot();
 
     const defaultRetainLayoutWhileLoading = renderer.create(
-      <XUIButton isLoading loadingAriaLabel="Loading" variant="primary">
+      <XUIButton isLoading loadingAriaLabel="Loading" variant="main">
         Hello, I am a long bit of text
       </XUIButton>,
     );
@@ -172,7 +172,7 @@ describe('<XUIButton/>', () => {
     expect(defaultRetainLayoutWhileLoading).toMatchSnapshot();
 
     const loadingButtonNoRetain = renderer.create(
-      <XUIButton isLoading loadingAriaLabel="Loading" retainLayout={false} variant="primary">
+      <XUIButton isLoading loadingAriaLabel="Loading" retainLayout={false} variant="main">
         Hello, I am a long bit of text
       </XUIButton>,
     );
@@ -182,7 +182,7 @@ describe('<XUIButton/>', () => {
 
   it('adds minwidth when we need it to, for short buttons', () => {
     const shortButton = renderer.create(
-      <XUIButton hasMinLoaderWidth variant="primary">
+      <XUIButton hasMinLoaderWidth variant="main">
         75px
       </XUIButton>,
     );

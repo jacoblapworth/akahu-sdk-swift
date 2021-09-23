@@ -255,7 +255,7 @@ import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
     placeholder="Placeholder text"
     leftElement={
       <XUITextInputSideElement type="button">
-        <XUIButton variant="primary" size="small">
+        <XUIButton variant="main" size="small">
           Left Button
         </XUIButton>
       </XUITextInputSideElement>
@@ -268,7 +268,7 @@ import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
     placeholder="Placeholder text"
     rightElement={
       <XUITextInputSideElement type="button">
-        <XUIButton variant="primary" size="small">
+        <XUIButton variant="main" size="small">
           Submit
         </XUIButton>
       </XUITextInputSideElement>
@@ -282,7 +282,7 @@ import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
     placeholder="Top aligned right content"
     rightElement={
       <XUITextInputSideElement type="button" alignment="top">
-        <XUIButton variant="primary" size="small">
+        <XUIButton variant="main" size="small">
           Submit
         </XUIButton>
       </XUITextInputSideElement>
@@ -296,7 +296,7 @@ import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
     placeholder="Center aligned right content"
     rightElement={
       <XUITextInputSideElement type="button" alignment="center">
-        <XUIButton variant="primary" size="small">
+        <XUIButton variant="main" size="small">
           Submit
         </XUIButton>
       </XUITextInputSideElement>
@@ -310,7 +310,7 @@ import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
     placeholder="Bottom aligned right content"
     rightElement={
       <XUITextInputSideElement type="button" alignment="bottom">
-        <XUIButton variant="primary" size="small">
+        <XUIButton variant="main" size="small">
           Submit
         </XUIButton>
       </XUITextInputSideElement>

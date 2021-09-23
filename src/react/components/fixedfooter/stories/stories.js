@@ -33,7 +33,7 @@ const sampleActions = (
   <XUIActions
     className="xui-padding-small"
     primaryAction={
-      <XUIButton onClick={() => console.log('primary click')} size="small" variant="primary">
+      <XUIButton onClick={() => console.log('primary click')} size="small" variant="main">
         ActionCompletion
       </XUIButton>
     }

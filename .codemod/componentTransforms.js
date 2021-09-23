@@ -1,5 +1,4 @@
 const stringReplace = require('@xero/xuishift/transforms/stringReplace');
-
 module.exports = {
   // Example usage to copy
   // button: [
@@ -81,6 +80,47 @@ module.exports = {
             },
             'float',
           ),
+        },
+      ],
+    },
+  ],
+  button: [
+    {
+      name: 'XUIButton',
+      props: [
+        {
+          name: 'variant',
+          valueTransform: stringReplace({
+            // prettier-ignore
+            'primary': 'main',
+            'borderless-primary': 'borderless-main',
+          }),
+        },
+      ],
+    },
+
+    {
+      name: 'XUISplitButton',
+      props: [
+        {
+          name: 'variant',
+          valueTransform: stringReplace({
+            // prettier-ignore
+            'primary': 'main',
+          }),
+        },
+      ],
+    },
+
+    {
+      name: 'XUISplitButtonGroup',
+      props: [
+        {
+          name: 'variant',
+          valueTransform: stringReplace({
+            // prettier-ignore
+            'primary': 'main',
+          }),
         },
       ],
     },

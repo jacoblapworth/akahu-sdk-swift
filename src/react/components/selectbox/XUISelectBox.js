@@ -5,13 +5,13 @@ import { nanoid } from 'nanoid';
 
 import XUIDropdown from '../dropdown/XUIDropdown';
 import XUIDropdownToggled from '../dropdown/XUIDropdownToggled';
-import XUIButton from '../button/XUIButton';
-import { sizes, widths } from './private/constants';
+import SelectBoxTrigger from './private/SelectBoxTrigger';
+import { selectBaseClass, sizes, widths } from './private/constants';
 import XUIPicklist from '../picklist/XUIPicklist';
 import qaHooks from './qaHooks';
-import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
 import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
+import { textButtonVariants } from '../button/private/constants';
 
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 
@@ -29,8 +29,6 @@ function setQaHook(propsQaHook, suffix) {
   return propsQaHook ? `${propsQaHook}${suffix}` : null;
 }
 
-const selectBaseClass = `${ns}-select`;
-
 export default class XUISelectBox extends Component {
   selectId = this.props.id || `xui-${nanoid(10)}`;
 
@@ -45,16 +43,17 @@ export default class XUISelectBox extends Component {
   render() {
     return (
       <EditableTableCellContext.Consumer>
-        {({ useCellStyling, cellAttributes }) => {
+        {({ cellAttributes }) => {
           const selectBox = this;
           const {
+            _useCellStyling,
             buttonClassName,
             buttonContent,
             buttonVariant,
-            caretTitle,
             children,
             closeAfterSelection,
             containerClassName,
+            caretTitle,
             hasDefaultLayout,
             dropdownClassName,
             forceDesktop,
@@ -80,54 +79,40 @@ export default class XUISelectBox extends Component {
             validationMessage,
           } = this.props;
 
-          const buttonClassNames = cn(
-            `${selectBaseClass}--button`,
-            !buttonVariant && `${selectBaseClass}--button-no-variant`,
-            buttonClassName,
-          );
           const inputGroupClassNames = cn(
             `${selectBaseClass}`,
             hasDefaultLayout && `${selectBaseClass}-layout`,
             inputGroupClassName,
-            !useCellStyling && isInvalid && `${selectBaseClass}-is-invalid`,
+            !_useCellStyling && isInvalid && `${selectBaseClass}-is-invalid`,
           );
 
           const containerClassNames = cn(
             `${selectBaseClass}wrapper`,
-            useCellStyling && `${selectBaseClass}-cell`,
-            !useCellStyling && isInvalid && `${selectBaseClass}wrapper-is-invalid`,
+            _useCellStyling && `${selectBaseClass}-cell`,
+            !_useCellStyling && isInvalid && `${selectBaseClass}wrapper-is-invalid`,
             containerClassName,
           );
 
           const ariaAttributes = cellAttributes || getAriaAttributes(this.wrapperIds, this.props);
 
           const trigger = (
-            <XUIButton
+            <SelectBoxTrigger
               _caretClassName={`${selectBaseClass}--caret`}
-              _useCellStyling={useCellStyling}
+              _useCellStyling={_useCellStyling}
+              buttonClassName={buttonClassName}
+              buttonContent={buttonContent}
+              buttonVariant={buttonVariant}
               {...ariaAttributes}
-              className={buttonClassNames}
               fullWidth={fullWidth}
-              hasCaret
               id={this.wrapperIds.control}
               isDisabled={isDisabled}
+              isTextTruncated={isTextTruncated}
               onBlur={onBlur}
               onFocus={onFocus}
               qaHook={setQaHook(qaHook, qaHooks.button)}
               ref={selectBox.trigger}
               size={size}
-              type="button"
-              variant={buttonVariant}
-            >
-              <span
-                className={cn(
-                  `${selectBaseClass}--content`,
-                  isTextTruncated && `${selectBaseClass}--content-truncated`,
-                )}
-              >
-                {buttonContent}
-              </span>
-            </XUIButton>
+            />
           );
 
           const dropdown = (
@@ -190,6 +175,12 @@ export default class XUISelectBox extends Component {
 }
 
 XUISelectBox.propTypes = {
+  /**
+   * @ignore
+   * Internal use only, used to assist with styling a button to look like part of a table
+   */
+  _useCellStyling: PropTypes.bool,
+
   /** Additional classes to be applied to the button */
   buttonClassName: PropTypes.string,
 
@@ -197,7 +188,7 @@ XUISelectBox.propTypes = {
   buttonContent: PropTypes.node.isRequired,
 
   /** The XUI button variant to use as a trigger for the select box */
-  buttonVariant: PropTypes.string,
+  buttonVariant: PropTypes.oneOf(Object.keys(textButtonVariants)),
 
   /**
    * Title for the button caret
@@ -263,12 +254,14 @@ XUISelectBox.propTypes = {
   labelClassName: PropTypes.string,
 
   /**
-   * Setting to false will allow the dropdown's width to be set independent of the trigger width. <br>
-   * **Note:** *Setting this to true will override any size prop on `XUIDropdown`.* <br>
+   * Setting this to `true` makes the dropdown as wide as the trigger (defaults to `true`). <br>
+   * **Note:** *Setting this to true will override any size prop on Dropdown.* <br>
+   * Setting this to `false` will allow the dropdown's width to be set independent of the trigger width. <br>
+   * Setting this to `'min'` will set the dropdown's `min-width` to be the trigger width. <br/>
    * XUI design has also decided to keep a minimum width on the dropdown,
-   * so dropdown may not match the width of narrow triggers.
+   * so dropdown may not match the width of narrow triggers (setting this to `'min'` will not override this).
    */
-  matchTriggerWidth: PropTypes.bool,
+  matchTriggerWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf([true, false, 'min'])]),
 
   /** Optional callback to be executed when the trigger loses focus */
   onBlur: PropTypes.func,

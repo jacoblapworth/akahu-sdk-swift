@@ -38,23 +38,60 @@ describe('<XUIPopover />', () => {
     expect(popoverWidth).toBe('500px');
   });
 
-  it('calls onClickOutside when a click event occurs outside the popover', () => {
+  test('onClickOutside is called when a click event occurs outside the popover', () => {
     // Arrange
     const onClickOutsideMock = jest.fn();
     const triggerRef = React.createRef();
-    mount(
-      <XUIPopover id="test-popover" onClickOutside={onClickOutsideMock} triggerRef={triggerRef} />,
+    render(
+      <>
+        <button ref={triggerRef} />
+        <XUIPopover id="test-popover" onClickOutside={onClickOutsideMock} triggerRef={triggerRef} />
+      </>,
     );
 
     // Act
-    const clickEvent = new MouseEvent('click');
-    document.dispatchEvent(clickEvent);
+    userEvent.click(document.documentElement);
 
     // Assert
     expect(onClickOutsideMock).toHaveBeenCalled();
   });
 
-  it('closing the popover from within the popover returns the focus to the trigger', () => {
+  test('onClickOutside is not called when a click event occurs inside the popover', () => {
+    // Arrange
+    const onClickOutsideMock = jest.fn();
+    const triggerRef = React.createRef();
+    render(
+      <XUIPopover id="test-popover" onClickOutside={onClickOutsideMock} triggerRef={triggerRef}>
+        Inside the popover
+      </XUIPopover>,
+    );
+
+    // Act
+    userEvent.click(screen.getByText('Inside the popover'));
+
+    // Assert
+    expect(onClickOutsideMock).not.toHaveBeenCalled();
+  });
+
+  test('onClickOutside is not called when a click event occurs inside the trigger', () => {
+    // Arrange
+    const onClickOutsideMock = jest.fn();
+    const triggerRef = React.createRef();
+    render(
+      <>
+        <button data-automationid="test-trigger" ref={triggerRef} />
+        <XUIPopover id="test-popover" onClickOutside={onClickOutsideMock} triggerRef={triggerRef} />
+      </>,
+    );
+
+    // Act
+    userEvent.click(screen.getByTestId('test-trigger'));
+
+    // Assert
+    expect(onClickOutsideMock).not.toHaveBeenCalled();
+  });
+
+  test('closing the popover from within the popover returns the focus to the trigger', () => {
     // Arrange
     const triggerFocusMock = jest.fn();
     const closeButtonRef = React.createRef();

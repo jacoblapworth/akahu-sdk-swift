@@ -79,6 +79,7 @@ _Note: This will mean that many key functionalities that worked for IE11 users p
 ### XUIEditableTable
 
 - Default colour and font weight have been removed from `XUIEditableTableFoot`
+- `xui-editabletable--column-hidden` has been removed from the docs, because it was not implemented nor used anywhere
 
 ### XUITable
 
@@ -172,11 +173,16 @@ TypeScript types have also been made slightly more strict for instances of rootN
   - "Press Space bar or Enter to start a drag. When dragging you can use the arrow keys to move the
     item around and escape to cancel. Ensure your screen reader is in focus mode or to use your pass
     through key."
+- Support for sorting table rows by column has been added
 
 ### XUIFileUploader
 
 - `FileObject` now accepts an `uploadProgressPercentage` prop for visually communicating the upload progress
 - `FileObject` now accepts a `hideRetryButton` prop to hide the retry button where it doesn't make sense to have it
+
+### XUIRange
+
+- Now accepts a `labelId` prop, as many other controls do, to allow accessibly connecting a label that exists outside the component.
 
 ### XUISelectBox
 
@@ -191,6 +197,7 @@ TypeScript types have also been made slightly more strict for instances of rootN
 - Captions are now handled by adding an `ariaLabel` to the table element
 - XUITable's cell contents will now vertically align to the top of the cell instead of the middle
 - XUITable now supports server side rendering
+- XUITable now has the `hiddenColumns` prop which can be used to show/hide columns
 
 ### XUIToast
 

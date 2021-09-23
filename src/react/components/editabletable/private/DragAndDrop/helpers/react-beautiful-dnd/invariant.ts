@@ -27,13 +27,11 @@ export function invariant(condition?: boolean, message?: string) {
 
   if (isProduction) {
     // In production we strip the message but still throw
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     throw new RbdInvariant(prefix);
   } else {
     // When not in production we allow the message to pass through
     // *This block will be removed in production builds*
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     throw new RbdInvariant(`${prefix}: ${message || ''}`);
   }

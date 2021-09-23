@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUIEditableTableCellAutocompleterSecondarySearch /> renders basic example correctly 1`] = `
+<DocumentFragment>
+  <table>
+    <tbody>
+      <tr>
+        <td
+          class="xui-editabletablecell xui-editabletablecellsecondarysearch xui-editabletablecell-control"
+        >
+          <div
+            class="xui-editabletablecell--border"
+          >
+            <div
+              class="xui-editabletablecellsecondarysearch--control xui-select-cell"
+              data-automationid="testId--container"
+            >
+              <div
+                class="xui-dropdown--toggledwrapper"
+                data-ref="toggled-wrapper"
+              >
+                <button
+                  aria-haspopup="listbox"
+                  class="xui-button xui-select--button xui-select--button-no-variant xui-editabletablecellsecondarysearch--trigger xui-button-medium xui-button-fullwidth xui-button-has-icon"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="xui-select--content"
+                  >
+                    item 1
+                  </span>
+                  <div
+                    class="xui-button--caret xui-select--caret"
+                  >
+                    <svg
+                      class="xui-icon"
+                      focusable="false"
+                      height="5"
+                      viewBox="0 0 10 5"
+                      width="10"
+                    >
+                      <path
+                        d="M0 0l5 5 5-5z"
+                        role="presentation"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;

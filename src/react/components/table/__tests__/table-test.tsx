@@ -8,6 +8,7 @@ import * as React from 'react';
 import { toMatchDiffSnapshot } from 'snapshot-diff';
 
 import NOOP from '../../helpers/noop';
+import { tableName } from '../helpers/constants';
 import TestScaffold from '../stories/stories';
 import XUITable from '../XUITable';
 import XUITableCell from '../XUITableCell';
@@ -139,6 +140,46 @@ describe('XUITable', () => {
     expect(screen.getByTestId('testId-table').querySelectorAll('td')[0]).toHaveClass(
       'xui-readonlytablecell-rightaligned',
     );
+  });
+
+  it('renders a style element, when hiddenColumns are passed', () => {
+    render(<XUITableWithData hiddenColumns={[1]} qaHook="testId" />);
+    expect(screen.getByTestId('testId').querySelectorAll('style')).toHaveLength(1);
+  });
+
+  it('renders rules to hide the proper columns, when hiddenColumns are passed', () => {
+    render(<XUITableWithData hiddenColumns={[1, 2]} qaHook="testId" />);
+    expect(screen.getByTestId('testId').querySelector('style')).toHaveTextContent(
+      `#${tableName}-nanoid .${tableName}row > *:nth-child(2):not(.${tableName}--emptystate-cell) { display: none; }`,
+    );
+    expect(screen.getByTestId('testId').querySelector('style')).toHaveTextContent(
+      `#${tableName}-nanoid .${tableName}row > *:nth-child(3):not(.${tableName}--emptystate-cell) { display: none; }`,
+    );
+  });
+
+  test('columnWidths applied', () => {
+    // Arrange
+    render(<XUITableWithData columnWidths={['200px', '100px', 'auto']} qaHook="testId" />);
+
+    // Assert
+    expect(
+      window.getComputedStyle(screen.getByTestId('testId').querySelectorAll('col')[0]).width,
+    ).toBe('200px');
+    expect(
+      window.getComputedStyle(screen.getByTestId('testId').querySelectorAll('col')[1]).width,
+    ).toBe('100px');
+    expect(
+      window.getComputedStyle(screen.getByTestId('testId').querySelectorAll('col')[2]).width,
+    ).toBe('auto');
+  });
+
+  test('get minWidth and maxWidth styling', () => {
+    // Arrange
+    render(<XUITableWithData maxWidth="750px" minWidth="350px" qaHook="testId" />);
+
+    // Assert
+    expect(window.getComputedStyle(screen.getByTestId('testId')).maxWidth).toBe('750px');
+    expect(window.getComputedStyle(screen.getByTestId('testId')).minWidth).toBe('350px');
   });
 
   describe('XUITableHead', () => {
@@ -409,6 +450,36 @@ describe('XUITable', () => {
         // Assert
         expect(screen.queryByTestId('testId-head-checkbox--input')).toHaveAttribute('disabled');
       });
+    });
+
+    test('pressing tab moves through sortable headers', () => {
+      const mockOnSortChange = jest.fn();
+      render(
+        <XUITableWithData
+          customHeadProps={[
+            <XUITableCell sortKey="fruit">Fruit</XUITableCell>,
+            <XUITableCell sortKey="color">Color</XUITableCell>,
+            <XUITableCell sortKey="price">Price / kg</XUITableCell>,
+          ]}
+          isSortAsc
+          onSortChange={mockOnSortChange}
+        />,
+      );
+      const [tableHeadCell1, tableHeadCell2, tableHeadCell3] = screen.getAllByRole('button');
+
+      expect(document.body).toHaveFocus();
+
+      userEvent.tab();
+
+      expect(tableHeadCell1).toHaveFocus();
+
+      userEvent.tab();
+
+      expect(tableHeadCell2).toHaveFocus();
+
+      userEvent.tab();
+
+      expect(tableHeadCell3).toHaveFocus();
     });
   });
 
@@ -737,7 +808,6 @@ describe('XUITable', () => {
 
   test('should pass accessibility testing', async () => {
     const wrapper = render(
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore – This component isn't TS and TS is overly aggressive with its inferred type
       // definitions
       <TestScaffold

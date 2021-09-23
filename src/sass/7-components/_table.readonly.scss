@@ -81,85 +81,6 @@ $xui-table-z-alert: 4;
   }
 }
 
-// prefers-reduced-motion can be ignored here because this instance is not a motion animation
-// stylelint-disable-next-line a11y/media-prefers-reduced-motion
-.#{$ns}-readonlytable--sortbutton {
-  background: $xui-table-bg-color;
-  cursor: pointer;
-  height: 100%;
-  line-height: $xui-line-height-standard;
-  min-width: $xui-minimum-touch-target;
-  outline: 0;
-  overflow: hidden;
-  padding: $xui-s-xsmall $xui-s-small;
-  position: relative;
-  transition: {
-    duration: $xui-motion-speed-fast;
-    property: background, color;
-  }
-
-  &:hover {
-    color: $xui-table-sortbutton-hover-color;
-  }
-
-  &:focus {
-    background: $xui-table-sortbutton-focus-bg-color;
-  }
-
-  &:active {
-    background: $xui-table-sortbutton-active-bg-color;
-  }
-}
-
-.#{$ns}-readonlytable--sortbuttoncontent {
-  padding: 0;
-  @include xui-motion-animation(false, transition) {
-    transition: padding $xui-motion-speed-fast;
-  }
-
-  // Left aligned sort button: Always create space for the sort icon.
-  &-active,
-  .#{$ns}-readonlytablecell:not(.#{$ns}-readonlytablecell-rightaligned) &:not(&-rightaligned) {
-    padding-right: $xui-s-standard;
-  }
-
-  // Right aligned sort button: Only create space for the sort icon when the sort icon is visible.
-  &-rightaligned#{&}-active,
-  .#{$ns}-readonlytablecell-rightaligned &-active {
-    padding-right: $xui-s-standard;
-  }
-
-  // Table columns will change widths when the following is true:
-  // - Column width is auto
-  // - Column header is the widest column
-  // - Column header content changes
-  //
-  // This makes adding padding-right problematic as it will cause the table columns to potentially
-  // change width. To fix this we add a padding-left as placeholder padding.
-
-  &-rightaligned:not(&-active),
-  .#{$ns}-readonlytablecell-rightaligned &:not(&-active) {
-    padding-left: $xui-s-standard;
-  }
-}
-
-.#{$ns}-readonlytable--sorticonwrapper {
-  display: inline-block;
-  margin-left: $xui-s-xsmall;
-  position: absolute;
-}
-
-.#{$ns}-readonlytable--sorticonwrapper-hidden {
-  opacity: 0;
-}
-
-.#{$ns}-readonlytable--sorticon {
-  @include xui-motion-animation(false, transition) {
-    transition: transform $xui-motion-speed-fast;
-  }
-  vertical-align: middle;
-}
-
 .#{$ns}-readonlytable-pinfirst {
   .#{$ns}-readonlytablecell {
     &:first-child {
@@ -353,3 +274,25 @@ $xui-table-z-alert: 4;
 .#{$ns}-readonlytablewrapper--scrollcontainer {
   @include xui-tablewrapper-scrollcontainer;
 }
+
+.#{$ns}-readonlytablehead {
+  .#{$ns}-readonlytable--sortbutton {
+    @include xui-table-sortbutton('readonlytable');
+    background: $xui-table-bg-color;
+    padding: $xui-s-xsmall $xui-s-small;
+
+    &:focus {
+      background: $xui-table-sortbutton-focus-bg-color;
+    }
+
+    &:active {
+      background: $xui-table-sortbutton-active-bg-color;
+    }
+  }
+}
+
+.#{$ns}-readonlytable--sortbuttoncontent {
+  @include xui-table-sortbuttoncontent('readonlytable');
+}
+
+@include xui-table-sorticonwrapper('readonlytable');

@@ -93,14 +93,18 @@ interface Props {
    */
   labelClassName?: string;
   /**
-   * Setting to `false` will allow the dropdown's width to be set independent of the trigger width.
+   * Setting this to `true` makes the dropdown as wide as the trigger.
    *
-   * **Note:** *Setting this to true will override any size prop on `XUIDropdown`.*
+   * **Note:** *Setting this to `true` will override any `size` prop on `XUIDropdown`.*
    *
-   * XUI design has also decided to keep a minimum width on the dropdown, so dropdown may not match
-   * the width of narrow triggers.
+   * Setting this to `false` will allow the dropdown's width to be set independent of the trigger width.
+   *
+   * Setting this to `'min'` will set the dropdown's `min-width` to be the trigger width.
+   *
+   * **Note:** *XUI design has also decided to keep a minimum width on the dropdown, so the dropdown
+   * may not match the width of narrow triggers (setting this to `'min'` will not override this).*
    */
-  matchTriggerWidth?: boolean;
+  matchTriggerWidth?: boolean | true | false | 'min';
   /**
    * Optional callback to be executed when the trigger loses focus.
    */

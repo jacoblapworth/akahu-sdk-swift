@@ -44,7 +44,7 @@ const data = [
         <XUIEditableTableCellReadOnly inlineAlignment="end">
           {row.colour}
         </XUIEditableTableCellReadOnly>
-        <XUIEditableTableCellTextInput isValueReverseAligned>
+        <XUIEditableTableCellTextInput isValueReverseAligned label="input">
           {row.price}
         </XUIEditableTableCellTextInput>
       </XUIEditableTableRow>

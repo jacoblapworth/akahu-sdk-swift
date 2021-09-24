@@ -40,7 +40,6 @@ const SelectBoxTrigger: React.FunctionComponent<Props> = React.forwardRef<XUIBut
     return (
       <XUIButton
         {...spreadProps}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         _caretClassName={`${selectBaseClass}--caret`}
         _useCellStyling={_useCellStyling}

@@ -75,9 +75,9 @@ const data = [
   <XUIEditableTableBody>
     {data.map((row, index) => (
       <XUIEditableTableRow key={index}>
-        <XUIEditableTableCellTextInput defaultValue={String(row.fruit)} />
-        <XUIEditableTableCellTextInput defaultValue={String(row.colour)} />
-        <XUIEditableTableCellTextInput defaultValue={String(row.price)} />
+        <XUIEditableTableCellTextInput label="input" defaultValue={String(row.fruit)} />
+        <XUIEditableTableCellTextInput label="input" defaultValue={String(row.colour)} />
+        <XUIEditableTableCellTextInput label="input" defaultValue={String(row.price)} />
       </XUIEditableTableRow>
     ))}
   </XUIEditableTableBody>

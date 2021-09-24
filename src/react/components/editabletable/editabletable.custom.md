@@ -136,7 +136,7 @@ const ResponsiveColumnWidthsExample = () => {
 
   return (
     <div style={wrapperStyles} ref={observedElementRef}>
-      <XUIEditableTable columnWidths={columnWidths} minWidth="250px">
+      <XUIEditableTable ariaLabel="List of fruits" columnWidths={columnWidths} minWidth="250px">
         <XUIEditableTableBody>
           <XUIEditableTableRow>
             <XUIEditableTableCellReadOnly>Banana</XUIEditableTableCellReadOnly>

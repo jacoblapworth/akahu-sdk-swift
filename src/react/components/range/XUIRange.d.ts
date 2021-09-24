@@ -32,11 +32,15 @@ interface Props {
   /**
    * Boolean to hide/show input label.
    */
-  isLabelHidden?: React.ReactNode;
+  isLabelHidden?: boolean;
   /**
    * Input label.
    */
   label?: React.ReactNode;
+  /**
+   * Provide a specific label ID which will be used as the "labelleby" aria property
+   */
+  labelId?: string;
   /**
    * Element on the left of the `XUIRange` component.
    */

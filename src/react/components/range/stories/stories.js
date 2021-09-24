@@ -18,9 +18,12 @@ storiesWithKnobs.add('Playground', () => {
 
   return (
     <XUIRange
+      hintMessage={text('hintMessage', '')}
+      id={text('id', '')}
       isDisabled={boolean('isDisabled', false)}
       isInvalid={boolean('isInvalid', false)}
       label={text('label', 'Label for the range input')}
+      labelId={text('labelId', '')}
       leftElement={
         showLeftElement && (
           <XUIAvatar

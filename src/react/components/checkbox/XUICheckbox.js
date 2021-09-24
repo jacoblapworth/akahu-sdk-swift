@@ -117,7 +117,7 @@ const buildCheckbox = (qaHook, htmlClassName, svgSettings, calculatedSize, onAni
  */
 export default class XUICheckbox extends PureComponent {
   // User can manually provide an id, or we will generate one.
-  wrapperIds = generateIds(this.props.labelId);
+  wrapperIds = generateIds({ labelId: this.props.labelId });
 
   _input = React.createRef();
 

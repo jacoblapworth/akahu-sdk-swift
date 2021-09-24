@@ -50,7 +50,7 @@ const XUISwitch = props => {
   const labelRef = createRef();
 
   // User can manually provide an id, or we will generate one.
-  const wrapperIds = generateIds(labelId);
+  const wrapperIds = generateIds({ labelId });
 
   const _isControlled = typeof isChecked === 'boolean';
 

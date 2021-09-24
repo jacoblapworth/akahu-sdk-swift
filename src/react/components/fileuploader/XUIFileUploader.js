@@ -96,7 +96,7 @@ const XUIFileUploader = ({
       )
     : '';
 
-  const wrapperIds = generateIds(labelId);
+  const wrapperIds = generateIds({ labelId });
   const wrapperProps = {
     labelClassName,
     label,

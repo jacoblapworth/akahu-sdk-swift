@@ -88,7 +88,7 @@ const buildRadio = (qaHook, htmlClassName, svgSettings, calculatedSize) => {
 
 const XUIRadio = props => {
   // User can manually provide an id, or we will generate one.
-  const wrapperIds = generateIds(props.labelId);
+  const wrapperIds = generateIds({ labelId: props.labelId, id: props.id });
   const {
     children,
     className,

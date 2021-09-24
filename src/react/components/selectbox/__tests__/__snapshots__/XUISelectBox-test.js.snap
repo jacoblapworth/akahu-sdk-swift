@@ -11,7 +11,7 @@ exports[`<XUISelectBox /> should render the appropriate automation id's when a q
     <label
       className="xui-text-label xui-fieldlabel-layout"
       data-automationid="test-selectbox--label"
-      htmlFor="testThisSelect-control"
+      htmlFor="testThisSelect"
     >
       test
     </label>
@@ -30,7 +30,7 @@ exports[`<XUISelectBox /> should render the appropriate automation id's when a q
           className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon"
           data-automationid="test-selectbox--button"
           disabled={false}
-          id="testThisSelect-control"
+          id="testThisSelect"
           onClick={[Function]}
           onKeyDown={[Function]}
           onKeyUp={[Function]}
@@ -75,7 +75,7 @@ exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isD
     <label
       className="xui-text-label xui-fieldlabel-layout"
       data-automationid={null}
-      htmlFor="xui-testSelectBoxId-control"
+      htmlFor="xui-testSelectBoxId"
     >
       test
     </label>
@@ -94,7 +94,7 @@ exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isD
           className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon xui-button-is-disabled"
           data-automationid={null}
           disabled={true}
-          id="xui-testSelectBoxId-control"
+          id="xui-testSelectBoxId"
           onClick={[Function]}
           onKeyDown={null}
           onKeyUp={[Function]}

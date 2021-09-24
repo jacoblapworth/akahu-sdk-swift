@@ -35,7 +35,7 @@ const XUIControlGroup = props => {
 
   // Ensures the id is only generated once.
   const [uniqueIds] = useState(generateIds());
-  const wrapperIds = labelId ? generateIds(labelId) : uniqueIds;
+  const wrapperIds = labelId ? generateIds({ labelId }) : uniqueIds;
 
   const displayVertical =
     isLockedVertical || (swapAtBreakpoint && !isWidthAboveBreakpoint(swapAtBreakpoint));

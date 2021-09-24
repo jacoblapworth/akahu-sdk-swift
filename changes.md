@@ -46,6 +46,16 @@ We recommend running a bundle analyser after upgrading (and regularly in general
     - `rangeSelectionGroup` allows multiple groups of checkboxes to be nested under one `XUICheckboxRangeSelector`
   - `XUICheckboxGroup`, `XUIPicklist`, `XUIEditableTable`, and `XUITable` make use of `XUICheckboxRangeSelector` out of the box
 
+### Improvements to how IDs are built for form controls
+
+The following components have been updated to correctly create a set of accessible element IDs, when supplied with an `id`, a `labelId`, or both. These may cause updates to your snapshots and affect Cypress or Selenium tests.
+
+- `XUIRadio`: IDs passed through the `id` prop will be used as the base for label, hint, and validation element IDs. This previously generated a random base string.
+- `XUIRange`: IDs passed through the `id` prop will now be respected and rendered on the control, as well as being used as the base for the IDs on related elements.
+- `XUISelectbox` (also affecting `XUIPagination`): If passed an `id`, that ID will be applied to the control itself and used as the root of the related label element ID, rather than the other way around.
+- `XUITextInput` (and its consuming components): Only affected if both an `id` and `labelId` are being passed. Both will now be respected, rather than only the `id`.
+- `XUIToggleOption`: If passed an `id`, that ID will be applied to the control itself and used as the root of the related label element ID, rather than the other way around.
+
 ### Component props
 
 _Note. The codemod will resolve most prop differences automatically when run._
@@ -69,6 +79,10 @@ _Note. The codemod will resolve most prop differences automatically when run._
 - We have replaced all `/` division operators with `sass:math`'s `math.div()` function. `sass` 2.0 will be removing `/` and this change prevents potential future issues. _Note. This change is under the hood and shouldn't result in any changes required by users._
 
 - The following npm dependencies have had major updates:
+
   - `autosize`
   - `jest-axe`
   - `victory`
+
+- The public helper method `generateIds` from `helpers/ariaHelpers` now accepts an optional object with properties `labelId` and `id`, rather than an optional string as its argument. Default behaviour when passed no arguments has not changed. The shape of the returned object has not changed, but the internal logic has been updated to handle either a `labelId`, an `id`, or both at the same time.
+- The public helper method `generateIdsFromControlId` from `helpers/ariaHelpers` has been removed. Instead, pass the `id` of the control, to `generateIds` as described above.

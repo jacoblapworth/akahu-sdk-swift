@@ -7,7 +7,7 @@ import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import labelRequiredWarning from '../helpers/labelRequiredWarning';
 
 const XUIToggleOption = props => {
-  const wrapperIds = generateIds(props.id);
+  const wrapperIds = generateIds({ id: props.id });
   const {
     children,
     className,

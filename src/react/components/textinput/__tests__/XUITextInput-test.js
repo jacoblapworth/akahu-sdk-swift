@@ -181,6 +181,15 @@ describe('<XUITextInput>', () => {
 
       expect(wrapper).toMatchSnapshot();
     });
+
+    it('renders with both user-provided id and a labelId', () => {
+      const testId = 'anotherTestId';
+      const labelId = 'someLabelId';
+      const { container } = render(<XUITextInput inputProps={{ id: testId }} labelId={labelId} />);
+      const input = container.querySelector(`.xui-textinput--input`);
+      expect(input).toHaveAttribute('id', testId);
+      expect(input).toHaveAttribute('aria-labelledby', `${labelId}`);
+    });
   });
 
   describe('Validation and hints', () => {

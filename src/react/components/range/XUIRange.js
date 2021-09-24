@@ -33,7 +33,7 @@ const XUIRange = props => {
     validationMessage,
   } = props;
 
-  const wrapperIds = generateIds(labelId);
+  const wrapperIds = generateIds({ labelId, id });
 
   const labelRef = React.createRef();
 

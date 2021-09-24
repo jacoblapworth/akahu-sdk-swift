@@ -7,7 +7,7 @@ import combineRefs from '../helpers/combineRefs';
 import { inputBaseClass, inputSizeClasses, baseSizeClasses } from './private/constants';
 import { calculateMaxHeight } from './private/helpers';
 import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
-import generateIds, { generateIdsFromControlId, getAriaAttributes } from '../helpers/ariaHelpers';
+import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 import { sizeShift } from '../helpers/sizes';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import SizeContext from '../../contexts/SizeContext';
@@ -33,9 +33,7 @@ class XUITextInput extends PureComponent {
 
   getWrapperIds() {
     const { inputProps, labelId } = this.props;
-    return inputProps && inputProps.id
-      ? generateIdsFromControlId(inputProps.id)
-      : generateIds(labelId);
+    return generateIds({ labelId, id: inputProps?.id });
   }
 
   componentDidMount() {

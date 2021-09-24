@@ -36,7 +36,7 @@ export default class XUISelectBox extends Component {
 
   ddt = React.createRef();
 
-  wrapperIds = generateIds(this.selectId);
+  wrapperIds = generateIds({ id: this.selectId });
 
   isDropdownOpen = () => this.ddt.current?.isDropdownOpen();
 

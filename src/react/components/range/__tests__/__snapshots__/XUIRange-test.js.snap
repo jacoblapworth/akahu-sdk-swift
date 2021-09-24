@@ -7,7 +7,7 @@ exports[`Range All options selected 1`] = `
   <label
     className="xui-text-label xui-fieldlabel-layout"
     data-automationid="qaHook--label"
-    htmlFor="xui-testRangeId-control"
+    htmlFor="range1"
   >
     All options selected
   </label>
@@ -27,12 +27,12 @@ exports[`Range All options selected 1`] = `
       />
     </svg>
     <input
-      aria-describedby="xui-testRangeId-message"
+      aria-describedby="range1-message"
       aria-invalid={true}
       className="xui-rangeslider xui-rangeslider-thumb-xsmall xui-rangeslider-is-invalid inputClassName"
       defaultValue="20"
       disabled={true}
-      id="xui-testRangeId-control"
+      id="range1"
       max="80"
       min="16"
       step="4"
@@ -54,7 +54,7 @@ exports[`Range All options selected 1`] = `
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid"
     data-automationid="qaHook--message"
-    id="xui-testRangeId-message"
+    id="range1-message"
     role="status"
   >
     <svg
@@ -80,7 +80,7 @@ exports[`Range LeftElement and RightElement work 1`] = `
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
-    htmlFor="xui-testRangeId-control"
+    htmlFor="range1"
   >
     svgs work
   </label>
@@ -100,9 +100,9 @@ exports[`Range LeftElement and RightElement work 1`] = `
       />
     </svg>
     <input
-      aria-describedby="xui-testRangeId-message"
+      aria-describedby="range1-message"
       className="xui-rangeslider xui-rangeslider-thumb-medium"
-      id="xui-testRangeId-control"
+      id="range1"
       type="range"
     />
     <svg
@@ -120,7 +120,7 @@ exports[`Range LeftElement and RightElement work 1`] = `
   </div>
   <div
     className="xui-validation xui-validation-layout"
-    id="xui-testRangeId-message"
+    id="range1-message"
     role="status"
   >
     hintMessage
@@ -150,7 +150,7 @@ exports[`Range invalid 1`] = `
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
-    htmlFor="xui-testRangeId-control"
+    htmlFor="range1"
   >
     invalid
   </label>
@@ -158,10 +158,10 @@ exports[`Range invalid 1`] = `
     className="xui-rangeslider-container"
   >
     <input
-      aria-describedby="xui-testRangeId-message"
+      aria-describedby="range1-message"
       aria-invalid={true}
       className="xui-rangeslider xui-rangeslider-thumb-medium xui-rangeslider-is-invalid"
-      id="xui-testRangeId-control"
+      id="range1"
       max={80}
       min={16}
       type="range"
@@ -169,7 +169,7 @@ exports[`Range invalid 1`] = `
   </div>
   <div
     className="xui-validation xui-validation-layout xui-validation-is-invalid"
-    id="xui-testRangeId-message"
+    id="range1-message"
     role="status"
   >
     <svg
@@ -212,7 +212,7 @@ exports[`Range should be disabled 1`] = `
 >
   <label
     className="xui-text-label xui-fieldlabel-layout"
-    htmlFor="xui-testRangeId-control"
+    htmlFor="range1"
   >
     disabled
   </label>
@@ -222,7 +222,7 @@ exports[`Range should be disabled 1`] = `
     <input
       className="xui-rangeslider xui-rangeslider-thumb-medium"
       disabled={true}
-      id="xui-testRangeId-control"
+      id="range1"
       max={80}
       min={16}
       type="range"
@@ -230,7 +230,7 @@ exports[`Range should be disabled 1`] = `
   </div>
   <div
     className="xui-validation xui-validation-layout"
-    id="xui-testRangeId-message"
+    id="range1-message"
     role="status"
   />
 </div>

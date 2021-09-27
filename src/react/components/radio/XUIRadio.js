@@ -8,7 +8,7 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
-import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
+import labelRequiredError, { textChildOrLabelId } from '../helpers/labelRequiredError';
 import shouldRender from '../helpers/shouldRender';
 
 /**
@@ -157,7 +157,7 @@ const XUIRadio = props => {
   };
 
   useEffect(() => {
-    labelRequiredWarning(XUIRadio.name, textChildOrLabelId, [
+    labelRequiredError(XUIRadio.name, textChildOrLabelId, [
       labelRef.current?.innerText && !isLabelHidden,
       typeof children?.[0] === 'string',
       props.labelId,

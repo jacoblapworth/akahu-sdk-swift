@@ -86,3 +86,19 @@ _Note. The codemod will resolve most prop differences automatically when run._
 
 - The public helper method `generateIds` from `helpers/ariaHelpers` now accepts an optional object with properties `labelId` and `id`, rather than an optional string as its argument. Default behaviour when passed no arguments has not changed. The shape of the returned object has not changed, but the internal logic has been updated to handle either a `labelId`, an `id`, or both at the same time.
 - The public helper method `generateIdsFromControlId` from `helpers/ariaHelpers` has been removed. Instead, pass the `id` of the control, to `generateIds` as described above.
+
+### Accessibility
+
+- In XUI 18, we introduced console warnings which would be triggered if components did not receive a recommended label prop (for example, a `label`, an `ariaLabel` or a `labelId`).
+- In XUI 19, we have escalated these console warnings to console errors. This will require label props to be provided to all affected components under the following scenarios:
+  - `XUIEditableTable` and `XUIPagination` require an `ariaLabel`
+  - `XUIRange` requires a `label`
+  - `XUITable` requires a `caption`
+  - `XUIProgressCircular` and `XUIProgressLinear` require an `ariaLabel` or an `ariaLabelledBy`
+  - `XUIFileUploader` requires either a `label` or a `labelId`. It also requires an `uploadingIconAriaLabel` and an `errorIconAriaLabel`
+  - `XUITextInput` requires either a `label`, a `labelId`, a `placeholder`, or must include a `leftElement` or `rightElement` of `type='text'`
+  - `XUICheckbox`, `XUIRadio` and `XUISwitch` require either a child containing text, or a `labelId`
+  - `XUIToggleOption` requires a child containing text
+  - `XUIAutocompleter` and `XUIButton` require a `loadingAriaLabel` if `isLoading` is true
+  - `XUIBarChart` requires a `loadingAriaLabel` if `isLoading` is true, and a `paginationLabel` if `hasPagination` is true
+- You may encounter issues if you are using API data to populate these props, if you are rendering these components before the API data has been received. We recommend guarding these API calls, and deferring rendering a component until the required data has been received.

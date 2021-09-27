@@ -14,7 +14,7 @@ import {
 import { ns } from '../helpers/xuiClassNamespace';
 import noop from '../helpers/noop';
 import SizeContext from '../../contexts/SizeContext';
-import labelRequiredWarning, { loadingAriaLabelOnly } from '../helpers/labelRequiredWarning';
+import labelRequiredError, { loadingAriaLabelOnly } from '../helpers/labelRequiredError';
 
 /**
  * Returns true if the button is a borderless variant
@@ -60,7 +60,7 @@ export default class XUIButton extends React.PureComponent {
 
   componentDidUpdate(prevProps) {
     if (!prevProps.isLoading && this.props.isLoading) {
-      labelRequiredWarning(XUIButton.name, loadingAriaLabelOnly, [
+      labelRequiredError(XUIButton.name, loadingAriaLabelOnly, [
         this.props.isLoading && this.props.loadingAriaLabel,
       ]);
     }

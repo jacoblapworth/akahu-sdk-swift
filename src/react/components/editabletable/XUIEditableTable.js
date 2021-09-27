@@ -13,7 +13,7 @@ import XUIIcon from '../icon/XUIIcon';
 import generateIds from '../helpers/ariaHelpers';
 import combineRefs from '../helpers/combineRefs';
 import Element from '../helpers/polyfills/Element';
-import labelRequiredWarning, { ariaLabelOnly } from '../helpers/labelRequiredWarning';
+import labelRequiredError, { ariaLabelOnly } from '../helpers/labelRequiredError';
 
 const XUIEditableTable = React.forwardRef(
   (
@@ -59,7 +59,7 @@ const XUIEditableTable = React.forwardRef(
 
     useEffect(() => {
       // XUIEditableTable.name is undefined as this is a forwardRef component
-      labelRequiredWarning(
+      labelRequiredError(
         'XUIEditableTable',
         [...ariaLabelOnly, '`caption` provided to XUITable'],
         [ariaLabel],
@@ -142,7 +142,7 @@ XUIEditableTable.propTypes = {
    * A non-visible description of the table for accessibility purposes. Particularly useful
    * for scrollable tables, to help screenreaders understand the scrollable element.
    */
-  ariaLabel: PropTypes.string,
+  ariaLabel: PropTypes.string.isRequired,
 
   children: PropTypes.node,
   className: PropTypes.string,

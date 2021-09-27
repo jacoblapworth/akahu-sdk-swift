@@ -132,6 +132,12 @@ exports[`Range Simple case 1`] = `
 <div
   className=""
 >
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    htmlFor="xui-testRangeId-control"
+  >
+    Range
+  </label>
   <div
     className="xui-rangeslider-container"
   >

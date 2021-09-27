@@ -8,7 +8,7 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
-import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
+import labelRequiredError, { textChildOrLabelId } from '../helpers/labelRequiredError';
 import CheckboxRangeSelectorContext from './contexts/CheckboxRangeSelectorContext';
 import shouldRender from '../helpers/shouldRender';
 
@@ -132,7 +132,7 @@ export default class XUICheckbox extends PureComponent {
 
     const { children, labelId, isLabelHidden, rangeSelectionGroup } = this.props;
 
-    labelRequiredWarning(XUICheckbox.name, textChildOrLabelId, [
+    labelRequiredError(XUICheckbox.name, textChildOrLabelId, [
       this.labelRef.current?.innerText && !isLabelHidden,
       typeof children?.[0] === 'string',
       labelId,

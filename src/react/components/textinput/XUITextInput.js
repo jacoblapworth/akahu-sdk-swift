@@ -12,7 +12,7 @@ import { sizeShift } from '../helpers/sizes';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import SizeContext from '../../contexts/SizeContext';
 import DisabledStateContext from '../../contexts/DisabledStateContext';
-import labelRequiredWarning from '../helpers/labelRequiredWarning';
+import labelRequiredError from '../helpers/labelRequiredError';
 import { ns } from '../helpers/xuiClassNamespace';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
@@ -79,7 +79,7 @@ class XUITextInput extends PureComponent {
       });
     }
     const { placeholder, label, labelId, isLabelHidden } = this.props;
-    labelRequiredWarning(
+    labelRequiredError(
       XUITextInput.name,
       [
         'includes a label with text',

@@ -14,6 +14,7 @@ exports[`<XUIEditableTable /> composes the className and passed an id correctly 
     }
   >
     <table
+      aria-label="Editable table"
       className="xui-editabletable"
       id="test-id"
     >
@@ -38,6 +39,7 @@ exports[`<XUIEditableTable /> renders correctly 1`] = `
     }
   >
     <table
+      aria-label="Editable table"
       className="xui-editabletable"
       id="xui-editabletable-testGeneratedId"
     >
@@ -94,6 +96,7 @@ exports[`<XUIEditableTable /> validation message renders correctly when the tabl
     <table
       aria-describedby="xui-editabletable-testGeneratedId-message"
       aria-invalid={true}
+      aria-label="Editable table"
       className="xui-editabletable"
       id="xui-editabletable-testGeneratedId"
     >

@@ -4,19 +4,19 @@ import { CHART_HEIGHT, BAR_ACTIVE_COLOR } from './helpers/constants';
 import ChartScaffold from './customElements/ChartScaffold';
 import ChartLoader from './customElements/ChartLoader';
 import ChartEmpty from './customElements/ChartEmpty';
-import labelRequiredWarning, { loadingAriaLabelOnly } from '../helpers/labelRequiredWarning';
+import labelRequiredError, { loadingAriaLabelOnly } from '../helpers/labelRequiredError';
 
 const XUIBarChart = props => {
   const { barsData, isLoading } = props;
   const isEmpty = !barsData.length;
 
   useEffect(() => {
-    labelRequiredWarning(XUIBarChart.name, loadingAriaLabelOnly, [
+    labelRequiredError(XUIBarChart.name, loadingAriaLabelOnly, [
       !isLoading || props.loadingAriaLabel,
     ]);
   }, [isLoading, props.loadingAriaLabel]);
   useEffect(() => {
-    labelRequiredWarning(
+    labelRequiredError(
       XUIBarChart.name,
       ['paginationLabel when hasPagination'],
       [!props.hasPagination || props.paginationLabel],

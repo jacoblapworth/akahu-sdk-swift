@@ -8,7 +8,7 @@ import XUITableColumn from '../XUITableColumn';
 
 const XUITableWithData = React.forwardRef<
   XUITable,
-  Omit<React.ComponentProps<typeof XUITable>, 'children' | 'data'> & {
+  Omit<React.ComponentProps<typeof XUITable>, 'caption' | 'children' | 'data'> & {
     customBodyProps?: Array<React.ComponentProps<typeof XUITableColumn>['body']>;
     customHeadProps?: Array<React.ComponentProps<typeof XUITableColumn>['head']>;
     data?: React.ComponentProps<typeof XUITable>['data'];

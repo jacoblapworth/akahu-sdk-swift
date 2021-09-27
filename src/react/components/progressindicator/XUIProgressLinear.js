@@ -5,12 +5,16 @@ import { enrichLinearProps } from './helpers/enrichprops';
 import { NAME_SPACE } from './helpers/constants';
 import LinearTrack from './customElements/LinearTrack';
 import ProgressWrapper from './customElements/ProgressWrapper';
-import labelRequiredWarning, { ariaLabelOnly } from '../helpers/labelRequiredWarning';
+import labelRequiredError from '../helpers/labelRequiredError';
 
 const XUIProgressLinear = props => {
   useEffect(() => {
-    labelRequiredWarning(XUIProgressLinear.name, ariaLabelOnly, [props.ariaLabel]);
-  }, [props.ariaLabel]);
+    labelRequiredError(
+      XUIProgressLinear.name,
+      ['`ariaLabel` provided', '`ariaLabelledBy` provided'],
+      [props.ariaLabel, props.ariaLabelledBy],
+    );
+  }, [props.ariaLabel, props.ariaLabelledBy]);
 
   return (
     <ProgressWrapper {...enrichLinearProps(props)}>

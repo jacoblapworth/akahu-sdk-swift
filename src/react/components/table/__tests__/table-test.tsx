@@ -724,6 +724,28 @@ describe('XUITable', () => {
         expect(mockOnRowClick).toHaveBeenCalledTimes(1);
       });
 
+      test('row clicks are NOT triggered by use of the overflow menu', () => {
+        // Arrange
+        const mockOnRowClick = jest.fn();
+        render(
+          <XUITableWithData
+            createOverflowMenu={() => <div data-automationid="testOverflowId" />}
+            hasOverflowMenu
+            onRowClick={mockOnRowClick}
+            qaHook="testId"
+            shouldRowClick={() => true}
+          />,
+        );
+        const buttonEle = screen.getByTestId('testId-body-row-overflowmenu');
+
+        // Act
+        userEvent.click(buttonEle);
+        userEvent.click(buttonEle.querySelector('.xui-touchtarget'));
+
+        // Assert
+        expect(mockOnRowClick).toHaveBeenCalledTimes(0);
+      });
+
       test('clicking a row calls onRowClick with the row data', () => {
         // Arrange
         const mockOnRowClick = jest.fn();

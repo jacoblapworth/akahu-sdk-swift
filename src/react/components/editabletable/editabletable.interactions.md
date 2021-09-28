@@ -187,7 +187,7 @@ const EditableTableWithSortDemo = () => {
   }, [isSortAsc, activeSortKey]);
 
   return (
-    <XUIEditableTable>
+    <XUIEditableTable ariaLabel="List of fruits with colour and price per kg">
       <XUIEditableTableHead>
         <XUIEditableTableRow>
           {Object.keys(sortedRows[0])
@@ -215,6 +215,7 @@ const EditableTableWithSortDemo = () => {
                   defaultValue={String(defaultData[rowIndex][key])}
                   inlineAlignment="start"
                   key={key}
+                  label="input"
                   onChange={e => onInputChange(e.target.value, row.id, key)}
                 >
                   {row[key]}
@@ -284,6 +285,7 @@ const EditableTableWithSortDemo = () => {
 
   return (
     <XUIEditableTable
+      ariaLabel="List of fruits with colour and price per kg"
       dndDragCancelledMessage={startPosition =>
         `Movement cancelled. The item has returned to its starting position of ${startPosition}.`
       }
@@ -336,6 +338,7 @@ const EditableTableWithSortDemo = () => {
                   defaultValue={String(rows[rowIndex][key])}
                   inlineAlignment="start"
                   key={key}
+                  label="input"
                   onChange={e => onInputChange(e.target.value, row.id, key)}
                 >
                   {row[key]}

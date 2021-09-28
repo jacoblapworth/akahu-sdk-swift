@@ -12,7 +12,9 @@ import {
 } from '../../../editabletable';
 import Picklist from '../../../picklist';
 import { XUITableCell, XUITableColumn } from '../../../table';
+import preventDefault from '../../helpers/preventDefault';
 import { isKeyClick } from '../../helpers/reactKeyHandler';
+import { ns } from '../../helpers/xuiClassNamespace';
 import { tableName } from '../helpers/constants';
 import generateCellProps from '../helpers/generateCellProps';
 import { RowData } from '../XUITable';
@@ -158,6 +160,7 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
                   <XUIIconButton
                     ariaLabel={overflowMenuTitle || ''}
                     icon={overflowIcon}
+                    onClick={preventDefault}
                     qaHook={`${qaHook}-overflowmenu`}
                     title={overflowMenuTitle}
                   />
@@ -205,8 +208,10 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
     const target = event.target as HTMLElement | HTMLInputElement;
 
     const targetHasActionClassName = target.classList.contains(`${tableName}cell-action`);
+    const targetIsTouchTarget = target.classList.contains(`${ns}-touchtarget`);
     const interactiveInputTypes = ['a', 'checkbox', 'button'];
-    const targetTypeIsInteractive = 'type' in target && interactiveInputTypes.includes(target.type);
+    const targetTypeIsInteractive =
+      ('type' in target && interactiveInputTypes.includes(target.type)) || targetIsTouchTarget;
 
     const isTargetAction =
       targetHasActionClassName || targetTypeIsInteractive || event.defaultPrevented;

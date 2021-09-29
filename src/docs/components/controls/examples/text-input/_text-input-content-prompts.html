@@ -1,6 +1,9 @@
 <!-- Icon left -->
 <div class="xui-textinput xui-textinput-medium xui-margin">
-  <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+  <div
+    class="xui-textinput--sideelement xui-textinput--sideelement-icon"
+    onclick="document.getElementById('icon-example-1').focus()"
+  >
     <div class="xui-iconwrapper xui-iconwrapper-medium">
       <svg focusable="false" class="xui-icon" role="presentation">
         <use xlink:href="#xui-icon-url" />
@@ -14,10 +17,14 @@
     aria-label="URL"
     onfocus="this.parentElement.classList.toggle('xui-textinput-focus')"
     onblur="this.parentElement.classList.toggle('xui-textinput-focus')"
+    id="icon-example-1"
   />
 </div>
 <div class="xui-textinput xui-textinput-medium xui-margin">
-  <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+  <div
+    class="xui-textinput--sideelement xui-textinput--sideelement-icon"
+    onclick="document.getElementById('icon-example-2').focus()"
+  >
     <div class="xui-iconwrapper xui-iconwrapper-medium">
       <svg focusable="false" class="xui-icon" role="presentation">
         <use xlink:href="#xui-icon-search" />
@@ -31,10 +38,16 @@
     aria-label="Search"
     onfocus="this.parentElement.classList.toggle('xui-textinput-focus')"
     onblur="this.parentElement.classList.toggle('xui-textinput-focus')"
+    id="icon-example-2"
   />
 </div>
 <div class="xui-textinput xui-textinput-medium xui-margin">
-  <div class="xui-textinput--sideelement xui-textinput--sideelement-text">€</div>
+  <div
+    class="xui-textinput--sideelement xui-textinput--sideelement-text"
+    onclick="document.getElementById('icon-example-3').focus()"
+  >
+    €
+  </div>
   <input
     class="xui-textinput--input xui-padding-left-none"
     type="text"
@@ -42,6 +55,7 @@
     aria-label="Amount"
     onfocus="this.parentElement.classList.toggle('xui-textinput-focus')"
     onblur="this.parentElement.classList.toggle('xui-textinput-focus')"
+    id="icon-example-3"
   />
 </div>
 <div class="xui-textinput xui-textinput-medium xui-margin">
@@ -52,6 +66,7 @@
       xui-textinput--sideelement-has-background
       xui-textinput--sideelement-twitter
     "
+    onclick="document.getElementById('icon-example-4').focus()"
   >
     <div class="xui-iconwrapper xui-iconwrapper-medium">
       <svg focusable="false" class="xui-icon" role="presentation">
@@ -66,5 +81,6 @@
     aria-label="Twitter username"
     onfocus="this.parentElement.classList.toggle('xui-textinput-focus')"
     onblur="this.parentElement.classList.toggle('xui-textinput-focus')"
+    id="icon-example-4"
   />
 </div>

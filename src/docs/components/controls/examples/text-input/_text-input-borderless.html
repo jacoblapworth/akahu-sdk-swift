@@ -7,7 +7,10 @@
     xui-margin-top-large
   "
 >
-  <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+  <div
+    class="xui-textinput--sideelement xui-textinput--sideelement-icon"
+    onclick="document.getElementById('h').focus()"
+  >
     <div class="xui-iconwrapper xui-iconwrapper-medium">
       <svg focusable="false" class="xui-icon" role="presentation">
         <use xlink:href="#xui-icon-search" />
@@ -21,6 +24,7 @@
     aria-label="Search contacts"
     onfocus="this.parentElement.classList.toggle('xui-textinput-focus')"
     onblur="this.parentElement.classList.toggle('xui-textinput-focus')"
+    id="h"
   />
   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
     <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">

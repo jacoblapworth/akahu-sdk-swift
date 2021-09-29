@@ -63,6 +63,7 @@ class Example extends PureComponent {
                 id: 'copyUrlExampleInput'
               }}
               inputRef={i => (this.input = i)}
+              label="Invoice link"
               rightElement={
                 <XUITextInputSideElement type="button">
                   <XUIButton onClick={this.selectAndCopy} variant="main" size="small">

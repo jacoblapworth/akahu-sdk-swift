@@ -17,7 +17,6 @@ import { XUIPageHeader } from '../../../pageheader';
 import XUITooltip from '../../../tooltip';
 import ExampleToast from './components/ExampleToast';
 import Example from './components/Example';
-import ExampleNav from './components/ExampleNav';
 import XUIActions from '../../../actions';
 import XUIFixedFooterWIP from '../../../fixedfooter';
 import FullPageStoryWrapper from '../../helpers/FullPageStoryWrapper';
@@ -74,8 +73,7 @@ test.add(storyNames.layeringElements, () => {
   const isUsingPortal = boolean('isUsingPortal', true);
 
   return (
-    <FullPageStoryWrapper>
-      <ExampleNav />
+    <FullPageStoryWrapper hasNav navProps={{ navDDisOpen: true, searchIsOpen: true }}>
       {/* <div style={{ display: 'flex' }}> Simulates the Files header */}
       <XUIPageHeader
         actions={

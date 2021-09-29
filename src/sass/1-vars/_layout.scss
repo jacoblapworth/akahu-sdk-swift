@@ -116,7 +116,8 @@ $xui-z-index-nav: 3000;
 $xui-z-index-header: 2000;
 $xui-z-index-dropdown: 1000;
 $xui-z-index-contextualtop: 500;
-$xui-z-index-belownav: 100; // Navigation is not actually using 3000, as of Aug 2021, but instead 120. TODO: Remove when nav is updated.
+// Navigation has been updated to use 99999, but Global Search uses 100 (Sept 2021). TODO: Remove when global search is updated.
+$xui-z-index-belownav: 90;
 $xui-z-index-focus: 2;
 $xui-z-index-responsiveoverlay: 1;
 $xui-z-index-checkboxradio: 1;

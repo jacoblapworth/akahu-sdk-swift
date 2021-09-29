@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUICheckbox from '../../checkbox/XUICheckbox';
 import { sizeShift } from '../../helpers/sizes';
 import { pickitemClassName, itemTextClassName, itemBodyClassName } from './constants';
+import generateIds from '../../helpers/ariaHelpers';
 
 const NOOP = () => {};
 
@@ -58,6 +59,8 @@ const PickitemMultiselect = ({
     shouldTruncate && `${pickitemClassName}-text-truncated`,
   );
 
+  const labelId = useMemo(() => generateIds().label, []);
+
   return (
     <div
       className={itemBodyClassName}
@@ -77,6 +80,7 @@ const PickitemMultiselect = ({
         isChecked={isSelected}
         isDisabled={isDisabled}
         labelClassName={labelClasses}
+        labelId={labelId}
         onChange={NOOP}
         qaHook={qaHook && `${qaHook}--checkbox`}
         ref={checkboxRef}

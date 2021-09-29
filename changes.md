@@ -52,7 +52,6 @@ The following components have been updated to correctly create a set of accessib
 
 - `XUIRadio`: IDs passed through the `id` prop will be used as the base for label, hint, and validation element IDs. This previously generated a random base string.
 - `XUIRange`: IDs passed through the `id` prop will now be respected and rendered on the control, as well as being used as the base for the IDs on related elements.
-- `XUISelectbox` (also affecting `XUIPagination`): If passed an `id`, that ID will be applied to the control itself and used as the root of the related label element ID, rather than the other way around.
 - `XUITextInput` (and its consuming components): Only affected if both an `id` and `labelId` are being passed. Both will now be respected, rather than only the `id`.
 - `XUIToggleOption`: If passed an `id`, that ID will be applied to the control itself and used as the root of the related label element ID, rather than the other way around.
 

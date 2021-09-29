@@ -36,7 +36,10 @@ export default class XUISelectBox extends Component {
 
   ddt = React.createRef();
 
-  wrapperIds = generateIds({ id: this.selectId });
+  // This is an atypical use of generateIds, in which we are using the *dropdown* ID purely
+  // as a root ID from which to generate the control and message IDs. If we one day allow
+  // SelectBox to accept a labelId prop, this will need to be re-engineered.
+  wrapperIds = generateIds({ labelId: this.selectId });
 
   isDropdownOpen = () => this.ddt.current?.isDropdownOpen();
 

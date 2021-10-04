@@ -20,7 +20,6 @@ Object.keys(storyNames).forEach(name => {
   variations.push({
     storyKind: `${compositionKind}/${storyNames[name]}`,
     storyTitle: storyNames[name],
-    clickSelector: (name === 'layeringElements' && '#navMenu') || undefined,
   });
 });
 

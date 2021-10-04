@@ -12,7 +12,7 @@ import { logWarning } from '../../helpers/developmentConsole';
 export const baseClass = `${ns}-fileuploader`;
 
 export const formatBytes = (bytes, fileSizeUnits) => {
-  if (bytes === 0) return '0 Bytes';
+  if (bytes === 0) return `0 ${fileSizeUnits[0]}`;
 
   const k = 1024;
   const i = Math.floor(Math.log(bytes) / Math.log(k));

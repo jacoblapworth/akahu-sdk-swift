@@ -127,7 +127,7 @@ const CustomNavbar = ({
 
       <div
         className={`${baseClassName}--heading-dates`}
-        data-automationid={`${qaHook}--heading-dates`}
+        data-automationid={qaHook && `${qaHook}--heading-dates`}
       >
         {dir === 'rtl' ? yearSelector : monthSelector}
         {dir === 'rtl' ? monthSelector : yearSelector}

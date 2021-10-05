@@ -104,7 +104,7 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
               isGrouped
               isLabelHidden
               onChange={onCheckRow}
-              qaHook={`${qaHook}-checkbox`}
+              qaHook={qaHook && `${qaHook}-checkbox`}
             >
               {checkOneRowAriaLabel}
             </XUICheckbox>
@@ -161,7 +161,7 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
                     ariaLabel={overflowMenuTitle || ''}
                     icon={overflowIcon}
                     onClick={preventDefault}
-                    qaHook={`${qaHook}-overflowmenu`}
+                    qaHook={qaHook && `${qaHook}-overflowmenu`}
                     title={overflowMenuTitle}
                   />
                 }

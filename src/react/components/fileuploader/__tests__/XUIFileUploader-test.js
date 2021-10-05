@@ -1,5 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { nanoid } from 'nanoid';
+import { render, screen } from '@testing-library/react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
@@ -99,6 +101,22 @@ describe('<XUIFileUploader/>', () => {
     it('should render with single line', () => {
       const component = renderer.create(<WithFileListWrapper showFilesAsMultiline={false} />);
       expect(component).toMatchSnapshot();
+    });
+
+    test('should render the provided size unit when file size is 0', () => {
+      render(
+        <WithFileListWrapper
+          fileList={[
+            {
+              uid: nanoid(10),
+              status: 'done',
+              originalFile: { name: 'test1.jpg', type: 'image/jpeg', size: 0 },
+            },
+          ]}
+        />,
+      );
+
+      expect(screen.getByText('0 B')).toBeTruthy;
     });
 
     it('should render without icons', () => {

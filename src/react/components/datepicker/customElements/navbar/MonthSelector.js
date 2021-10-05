@@ -53,7 +53,7 @@ const MonthSelector = ({
         buttonSizeClasses[size],
         hasFocus && `${ns}-datepicker--heading-select-has-focus`,
       )}
-      data-automationid={`${qaHook}--monthselectorlabel`}
+      data-automationid={qaHook && `${qaHook}--monthselectorlabel`}
       htmlFor={id}
     >
       {months[currentMonth]}
@@ -66,7 +66,7 @@ const MonthSelector = ({
     visibleMonths.length === 1 ? null : (
       <select
         className={`${baseClassName}--heading-select ${baseClassName}--monthselect-layout`}
-        data-automationid={`${qaHook}--monthselector`}
+        data-automationid={qaHook && `${qaHook}--monthselector`}
         id={id}
         name="month"
         onBlur={setBlur}
@@ -78,7 +78,7 @@ const MonthSelector = ({
       >
         {visibleMonths.map(opt => (
           <option
-            data-automationid={`${qaHook}--monthoption-${opt.name}`}
+            data-automationid={qaHook && `${qaHook}--monthoption-${opt.name}`}
             key={opt.value}
             value={opt.value}
           >

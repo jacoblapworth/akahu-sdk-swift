@@ -50,7 +50,7 @@ const YearSelector = ({
         buttonSizeClasses[size],
         hasFocus && `${ns}-datepicker--heading-select-has-focus`,
       )}
-      data-automationid={`${qaHook}--yearselectorlabel`}
+      data-automationid={qaHook && `${qaHook}--yearselectorlabel`}
       htmlFor={id}
     >
       {currentYear}
@@ -63,7 +63,7 @@ const YearSelector = ({
     visibleYears.length === 1 ? null : (
       <select
         className={`${baseClassName}--heading-select ${baseClassName}--yearselect-layout`}
-        data-automationid={`${qaHook}--yearselector`}
+        data-automationid={qaHook && `${qaHook}--yearselector`}
         id={id}
         name="year"
         onBlur={setBlur}
@@ -74,7 +74,11 @@ const YearSelector = ({
         value={currentYear}
       >
         {visibleYears.map(year => (
-          <option data-automationid={`${qaHook}--yearoption-${year}`} key={year} value={year}>
+          <option
+            data-automationid={qaHook && `${qaHook}--yearoption-${year}`}
+            key={year}
+            value={year}
+          >
             {year}
           </option>
         ))}

@@ -63,7 +63,7 @@ class XUITableHead<RD extends RowData> extends React.PureComponent<Props<RD>> {
                   isIndeterminate={isSelectAllIndeterminate}
                   isLabelHidden
                   onChange={onCheckAllToggle}
-                  qaHook={`${qaHook}-checkbox`}
+                  qaHook={qaHook && `${qaHook}-checkbox`}
                 >
                   {checkAllRowsAriaLabel}
                 </XUICheckbox>

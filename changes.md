@@ -38,6 +38,8 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 - `XUITextInput` has been adjusted to make sure that clicking a non-interactive side element which is a icon, text, or avatar focuses the input. _Note. We have purposefully excluded the following side elements from this change: buttons, icon buttons and pills._
 
+- `XUITooltip` default behaviour has changed so that tips will be displayed onFocus in addition to onHover, for improved keyboard accessibility. This experience is still customisable via the `triggerOnFocus`, `triggerOnHover`, and `triggerOnClick` props.
+
 ### New components
 
 - `XUICheckboxRangeSelector` has been added to allow selecting multiple checkboxes at once while holding `Shift`

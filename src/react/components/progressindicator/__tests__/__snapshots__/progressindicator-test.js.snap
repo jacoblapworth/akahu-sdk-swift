@@ -2733,7 +2733,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Compon
         }
         triggerOnBlur={true}
         triggerOnClick={true}
-        triggerOnFocus={false}
+        triggerOnFocus={true}
         triggerOnHover={true}
         wrapperClassName="xui-progress--tooltip"
       >
@@ -2919,7 +2919,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Compon
             triggerDropdownGap={10}
             triggerOnBlur={true}
             triggerOnClick={true}
-            triggerOnFocus={false}
+            triggerOnFocus={true}
             triggerOnHover={true}
             viewportGutter={10}
             wrapperClassName="xui-progress--tooltip"
@@ -4141,7 +4141,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Compon
         }
         triggerOnBlur={true}
         triggerOnClick={true}
-        triggerOnFocus={false}
+        triggerOnFocus={true}
         triggerOnHover={true}
         wrapperClassName="xui-progress--tooltip"
       >
@@ -4255,7 +4255,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Compon
             triggerDropdownGap={10}
             triggerOnBlur={true}
             triggerOnClick={true}
-            triggerOnFocus={false}
+            triggerOnFocus={true}
             triggerOnHover={true}
             viewportGutter={10}
             wrapperClassName="xui-progress--tooltip"

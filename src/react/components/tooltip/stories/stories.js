@@ -47,7 +47,10 @@ const createTriggerLink = () => (
 const createTriggerIcon = () => <XUIIconButton ariaLabel="Info" icon={info} />;
 
 const createTriggerSpan = () => (
-  <span style={{ textDecoration: 'underline' }}>Beauty is everywhere</span>
+  // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+  <span style={{ textDecoration: 'underline' }} tabIndex="0">
+    Beauty is everywhere
+  </span>
 );
 
 const createParaWithInlineTrigger = props => (
@@ -66,7 +69,7 @@ const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => {
   const props = {
     triggerOnClick: boolean('triggerOnClick', false),
-    triggerOnFocus: boolean('triggerOnFocus', false),
+    triggerOnFocus: boolean('triggerOnFocus', true),
     triggerOnHover: boolean('triggerOnHover', true),
     preferredPosition: select('preferredPosition', positionOptions, 'right-center'),
     isDisabled: boolean('isDisabled', false),

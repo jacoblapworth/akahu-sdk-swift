@@ -248,7 +248,7 @@ describe('XUITooltip', () => {
       expect(spy).toHaveBeenCalledTimes(1);
     });
 
-    it('shows the tooltip on focus of the trigger, if triggerOnFocus is true', () => {
+    it('shows the tooltip on focus of the trigger, if triggerOnFocus is true (default)', () => {
       const onEventSpy = jest.fn();
       const { expected } = setup(
         { triggerOnHover: false, triggerOnFocus: true, onOpen: onEventSpy },
@@ -261,9 +261,9 @@ describe('XUITooltip', () => {
       expect(onEventSpy).toHaveBeenCalledTimes(1);
     });
 
-    it('does NOT display the tip on focus of the trigger, if triggerOnFocus is false (default)', () => {
+    it('does NOT display the tip on focus of the trigger, if triggerOnFocus is false', () => {
       const onEventSpy = jest.fn();
-      const { expected } = setup({ triggerOnHover: false, onOpen: onEventSpy }, mount);
+      const { expected } = setup({ triggerOnFocus: false, onOpen: onEventSpy }, mount);
 
       expected.find('.xui-tooltip a').simulate('focus');
       jest.advanceTimersByTime(1000);

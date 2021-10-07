@@ -101,7 +101,7 @@
     "@xero/babel-preset-xero": "2.2.0",
     "@xero/browserslist-autoprefixer": "3.0.0",
     "@xero/eslint-config-xero-react": "2.0.3",
-    "@xero/xuishift": "4.0.2",
+    "@xero/xuishift": "4.1.0",
     "array.prototype.find": "^2.1.1",
     "autoprefixer": "9.8.0",
     "babel-core": "7.0.0-bridge.0",

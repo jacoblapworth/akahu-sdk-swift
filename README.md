@@ -287,10 +287,10 @@ The codemod contains transforms for moving from the previous major version of XU
 
 How to run the codemod:
 
-1. Install jscodeshift
+1. Install jscodeshift (Note. you need `lodash` installed globally to run jscodeshift)
 
 ```bash
-npm i -g jscodeshift@~0.12.0
+npm i -g jscodeshift@~0.13.0
 ```
 
 2. Run the codemod

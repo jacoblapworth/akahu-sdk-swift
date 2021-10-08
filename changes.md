@@ -34,6 +34,8 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 ## XUI React components
 
+- `XUIDateRangeInput` default behaviour has changed to better accommodate multi-line validation and hint messages for individual inputs. All segments of the date range component will now vertically align to the top, rather than the bottom. This is still customisable via setting `isBottomAligned` on the `groupConfig` object.
+
 - `XUIRow` now uses flexbox by default. As part of this work the `standard` variant has been replaced with an explicit `float` variant. _Note. Codemod will resolve these changes automatically when run._
 
 - `XUITextInput` has been adjusted to make sure that clicking a non-interactive side element which is a icon, text, or avatar focuses the input. _Note. We have purposefully excluded the following side elements from this change: buttons, icon buttons and pills._

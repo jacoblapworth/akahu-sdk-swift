@@ -5,7 +5,7 @@ exports[`XUIDateRangeInput renders component with specified dates 1`] = `
   className="xui-daterangeinput"
 >
   <div
-    className="xui-controlgroup xui-controlgroup-horizontal xui-controlgroup-is-bottomaligned"
+    className="xui-controlgroup xui-controlgroup-horizontal"
     data-automationid="test"
     role="group"
     style={
@@ -155,7 +155,7 @@ exports[`XUIDateRangeInput renders component with specified dates 1`] = `
       </div>
     </div>
     <div
-      className="xui-daterangeinput--suggested xui-dropdown--toggledwrapper"
+      className="xui-daterangeinput--suggested xui-daterangeinput--suggested-withlabelspace xui-dropdown--toggledwrapper"
       data-automationid="test-daterangeinput-suggesteddates"
       data-ref="toggled-wrapper"
     >
@@ -193,7 +193,7 @@ exports[`XUIDateRangeInput renders default component 1`] = `
   className="xui-daterangeinput"
 >
   <div
-    className="xui-controlgroup xui-controlgroup-horizontal xui-controlgroup-is-bottomaligned"
+    className="xui-controlgroup xui-controlgroup-horizontal"
     role="group"
     style={
       Object {
@@ -336,7 +336,7 @@ exports[`XUIDateRangeInput renders default component 1`] = `
       </div>
     </div>
     <div
-      className="xui-daterangeinput--suggested xui-dropdown--toggledwrapper"
+      className="xui-daterangeinput--suggested xui-daterangeinput--suggested-withlabelspace xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
     >
       <button

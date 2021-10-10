@@ -63,15 +63,8 @@ class XUITextInput extends PureComponent {
     }
 
     if (focusOnMount) {
-      this.input && this.input.focus();
-
-      // Only highlight the value when the type supports setSelectionRange
-      if (
-        this.input &&
-        ['text', 'search', 'url', 'tel', 'password'].indexOf(this.input.type) > -1
-      ) {
-        this.input.setSelectionRange(this.input.value.length, this.input.value.length);
-      }
+      this.input?.focus();
+      this.input?.setSelectionRange?.(this.input.value.length, this.input.value.length);
     }
 
     if (characterCounter?.maxCharCount) {

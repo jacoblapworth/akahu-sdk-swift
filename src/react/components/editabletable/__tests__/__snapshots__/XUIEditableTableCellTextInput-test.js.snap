@@ -19,7 +19,9 @@ exports[`<XUIEditableTableCellTextInput /> renders correctly 1`] = `
     isValueReverseAligned={false}
     minRows={3}
     onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onMouseDown={[Function]}
     size="medium"
   />
 </XUIEditableTableCellControl>

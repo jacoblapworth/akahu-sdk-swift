@@ -225,6 +225,14 @@ Configured in `.styleguidist/` folder. Checkout our [.styleguidist/README.md](.s
 
 [react-styleguidist](https://react-styleguidist.js.org/) provides our component specific documenation including descriptions, interactive and editable component examples and API documenation. This is authored using markdown descriptions, short example code snippets, and automatic generation of PropType documentation using [react-docgen](https://www.npmjs.com/package/react-docgen).
 
+### Version flags
+
+The XUI Guide and the React Docs include information about which version components and features were introduced.
+
+These flags should be used for all new components, features, and classnames introduced in a minor release. All version flags should be removed for a major (breaking-changes) release.
+
+See [.kss/README.md](.kss/README.md) for use with the XUI Guide and [.styleguidist/README.md](.styleguidist/README.md) for use with the React Docs.
+
 ### Storybook
 
 Configured in `.storybook/` folder.

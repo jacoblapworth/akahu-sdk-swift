@@ -124,6 +124,7 @@ XUI has a few npm scripts. `npm start` should be enough for all development task
 | `npm run test -- -i`             | Runs the interactive variant of the test script which gives you additional test options including visual regression, code coverage and more.                                                                                                     |
 | `npm run review`                 | Runs React unit tests and visual regression tests and lints the React components, intended to be run before opening a pull request. This double-checks for visual regressions and ensures the TeamCity build will be successful.                 |
 | `npm run build`                  | Compiles the stylesheet, Builds the KSS docs, Styleguide and Storybook apps. Compiles tokens and creates the UMD bundle. Used for creating a release.                                                                                            |
+| `npm run docs:build`             | Runs `npm run build` and bundles the documentation sites with the version selector ready for deployment.                                                                                                                                         |
 | `npm run release`                | This script is reserved for running before we plan on doing a release on a local and before doing the release PR. Updates all versions of XUI in package(-lock).json, and a few other files where required to the new version we plan to release |
 
 ### Testing changes against another project

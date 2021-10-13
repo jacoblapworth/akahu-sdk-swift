@@ -6,7 +6,7 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIFileUploader from '../XUIFileUploader';
-import { defaultFileList, defaultProps } from '../private/helpers';
+import { acceptedFileList, defaultFileList, defaultProps } from '../private/helpers';
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
@@ -117,6 +117,11 @@ describe('<XUIFileUploader/>', () => {
       );
 
       expect(screen.getByText('0 B')).toBeTruthy;
+    });
+
+    it('should render with these icons when there are icons', () => {
+      const component = renderer.create(<WithFileListWrapper fileList={acceptedFileList} />);
+      expect(component).toMatchSnapshot();
     });
 
     it('should render without icons', () => {

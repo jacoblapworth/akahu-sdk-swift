@@ -9,6 +9,7 @@ import labelRequiredWarning from '../helpers/labelRequiredWarning';
 const XUIToggleOption = props => {
   const wrapperIds = generateIds(props.id);
   const {
+    ariaLabel,
     children,
     className,
     qaHook,
@@ -29,10 +30,10 @@ const XUIToggleOption = props => {
   useEffect(() => {
     labelRequiredWarning(
       XUIToggleOption.name,
-      ['includes a child with text'],
-      [labelRef.current?.innerText],
+      ['includes a child with text', '`ariaLabel` provided'],
+      [labelRef.current?.innerText, ariaLabel],
     );
-  }, [labelRef]);
+  }, [labelRef, ariaLabel]);
 
   return (
     <XUIControlWrapperInline
@@ -45,6 +46,7 @@ const XUIToggleOption = props => {
       wrapperIds={wrapperIds}
     >
       <input
+        aria-label={ariaLabel}
         checked={isChecked}
         className={`${baseClass}--input`}
         data-automationid={qaHook && `${qaHook}--input`}
@@ -56,7 +58,7 @@ const XUIToggleOption = props => {
         required={isRequired}
         type={typeMap[type]}
         value={value}
-        {...getAriaAttributesInline(wrapperIds, props)}
+        {...(!ariaLabel && getAriaAttributesInline(wrapperIds, props))}
       />
     </XUIControlWrapperInline>
   );
@@ -65,6 +67,12 @@ const XUIToggleOption = props => {
 export default XUIToggleOption;
 
 XUIToggleOption.propTypes = {
+  /**
+   * Accessibility label for the `<XUIToggleOption>`. This is required
+   * if the component does not contain a child with text.
+   * E.g. if the child is a `<XUIIcon>` without adjacent text.
+   */
+  ariaLabel: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
   id: PropTypes.string,

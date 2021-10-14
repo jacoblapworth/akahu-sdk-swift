@@ -101,7 +101,7 @@ _Note. The codemod will resolve most prop differences automatically when run._
   - `XUIFileUploader` requires either a `label` or a `labelId`. It also requires an `uploadingIconAriaLabel` and an `errorIconAriaLabel`
   - `XUITextInput` requires either a `label`, a `labelId`, a `placeholder`, or must include a `leftElement` or `rightElement` of `type='text'`
   - `XUICheckbox`, `XUIRadio` and `XUISwitch` require either a child containing text, or a `labelId`
-  - `XUIToggleOption` requires a child containing text
+  - `XUIToggleOption` requires a child containing text, or an `ariaLabel`
   - `XUIAutocompleter` and `XUIButton` require a `loadingAriaLabel` if `isLoading` is true
   - `XUIBarChart` requires a `loadingAriaLabel` if `isLoading` is true, and a `paginationLabel` if `hasPagination` is true
 - You may encounter issues if you are using API data to populate these props, if you are rendering these components before the API data has been received. We recommend guarding these API calls, and deferring rendering a component until the required data has been received.

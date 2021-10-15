@@ -30,7 +30,7 @@ const XUIToggleOption = props => {
     labelRequiredWarning(
       XUIToggleOption.name,
       ['includes a child with text'],
-      [labelRef.current?.innerText],
+      [labelRef.current?.textContent],
     );
   }, [labelRef]);
 

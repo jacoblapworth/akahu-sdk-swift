@@ -88,7 +88,7 @@ class XUITextInput extends PureComponent {
         "includes a sideElement of type='text'",
       ],
       [
-        this.labelRef.current?.innerText && !isLabelHidden,
+        this.labelRef.current?.textContent && !isLabelHidden,
         typeof label?.[0] === 'string',
         placeholder,
         labelId,

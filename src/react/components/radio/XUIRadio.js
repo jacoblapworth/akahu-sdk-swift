@@ -158,7 +158,7 @@ const XUIRadio = props => {
 
   useEffect(() => {
     labelRequiredError(XUIRadio.name, textChildOrLabelId, [
-      labelRef.current?.innerText && !isLabelHidden,
+      labelRef.current?.textContent && !isLabelHidden,
       typeof children?.[0] === 'string',
       props.labelId,
     ]);

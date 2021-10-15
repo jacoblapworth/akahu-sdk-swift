@@ -133,7 +133,7 @@ export default class XUICheckbox extends PureComponent {
     const { children, labelId, isLabelHidden, rangeSelectionGroup } = this.props;
 
     labelRequiredError(XUICheckbox.name, textChildOrLabelId, [
-      this.labelRef.current?.innerText && !isLabelHidden,
+      this.labelRef.current?.textContent && !isLabelHidden,
       typeof children?.[0] === 'string',
       labelId,
     ]);

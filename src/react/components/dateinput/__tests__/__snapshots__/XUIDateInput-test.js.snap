@@ -47,7 +47,7 @@ exports[`XUIDateInput inserts selected date value 1`] = `
                 width={12}
               >
                 <path
-                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm6-4h3v3H7V8z"
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
                   role="presentation"
                 />
               </svg>
@@ -121,7 +121,7 @@ exports[`XUIDateInput renders default component 1`] = `
                 width={12}
               >
                 <path
-                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm6-4h3v3H7V8z"
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
                   role="presentation"
                 />
               </svg>

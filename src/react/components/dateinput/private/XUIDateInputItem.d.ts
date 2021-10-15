@@ -23,6 +23,13 @@ interface Props {
   /** Class names to be added to the input field wrapper element */
   inputFieldClassName?: string;
 
+  /**
+   * Icon displayed to the left within the input.
+   *
+   * Defaults to date-start.
+   */
+  inputIcon?: XUIIconData;
+
   /** Input label */
   inputLabel: React.ReactNode;
 

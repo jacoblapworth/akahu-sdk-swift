@@ -1,6 +1,5 @@
 import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
-import dateIcon from '@xero/xui-icon/icons/date-end';
 import dateStartIcon from '@xero/xui-icon/icons/date-start';
 import { parseDate, parseDueDate, DateFormat } from '@xero/blind-date';
 import { nanoid } from 'nanoid';
@@ -240,6 +239,7 @@ class XUIDateInputItem extends Component {
       hintMessage,
       inputClassName,
       inputFieldClassName,
+      inputIcon,
       inputLabel,
       isDisabled,
       isInvalid,
@@ -293,7 +293,7 @@ class XUIDateInputItem extends Component {
           label={inputLabel}
           leftElement={
             <XUITextInputSideElement onClick={this.onIconFocus}>
-              <XUIIcon color="black" icon={dateIcon} isBoxed />
+              <XUIIcon color="black" icon={inputIcon || dateStartIcon} isBoxed />
             </XUITextInputSideElement>
           }
           onBlur={this.setDate}
@@ -412,6 +412,17 @@ XUIDateInputItem.propTypes = {
 
   /** Class names to be added to the input field wrapper element */
   inputFieldClassName: PropTypes.string,
+
+  /**
+   * Icon displayed to the left within the input.
+   *
+   * Defaults to date-start.
+   */
+  inputIcon: PropTypes.shape({
+    height: PropTypes.number,
+    path: PropTypes.string,
+    width: PropTypes.number,
+  }),
 
   /** Input label */
   inputLabel: PropTypes.node.isRequired,

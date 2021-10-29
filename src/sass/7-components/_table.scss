@@ -36,7 +36,18 @@
   // Left aligned sort button: Always create space for the sort icon.
   &-active,
   .#{$ns}-#{$variant}cell:not(.#{$ns}-#{$variant}cell-rightaligned) &:not(&-rightaligned) {
+    overflow: inherit;
     padding-right: $xui-s-standard;
+    text-overflow: inherit;
+    white-space: inherit;
+    > span {
+      max-width: 100%;
+      overflow: inherit;
+      text-overflow: inherit;
+    }
+  }
+  .#{$ns}-#{$variant}headingcell-leftaligned & > span {
+    float: left;
   }
 
   // Right aligned sort button: Only create space for the sort icon when the sort icon is visible.

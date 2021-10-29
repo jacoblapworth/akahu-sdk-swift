@@ -213,10 +213,12 @@ $xui-table-z-alert: 4;
   height: $xui-s-3xlarge;
   min-height: $xui-s-3xlarge;
   padding: 0;
-  white-space: nowrap;
   > span {
+    display: block;
+    overflow: inherit;
     padding: $xui-s-xsmall $xui-s-small;
-    white-space: nowrap;
+    text-overflow: inherit;
+    white-space: inherit;
   }
 }
 

@@ -1,0 +1,63 @@
+@import '../../src/sass/vars';
+@import './vars';
+
+// -----------------------------------------------------------------------------
+// Status Flags
+// -----------------------------------------------------------------------------
+
+.ds-flag {
+  background: $ds-flag-bg-color;
+  border-radius: $xui-radius;
+  display: inline-block;
+  color: $xui-color-white;
+  font-size: $xui-font-size-xsmall;
+  font-weight: bold;
+  letter-spacing: $xui-letter-spacing-loose;
+  text-transform: uppercase;
+  padding: $xui-s-2xsmall $xui-s-xsmall;
+  margin-right: 0.2em;
+  position: relative;
+  text-decoration: none;
+  top: -0.2em;
+  &:nth-child(n + 2) {
+    margin-left: 0.8em;
+  }
+  .ds-title--level-1 &,
+  .ds-title--level-2 &,
+  .ds-title--level-3 &,
+  .ds-title--level-4 & {
+    line-height: $xui-line-height-compact;
+  }
+  .ds-title--level-2 &,
+  .ds-title--level-3 & {
+    top: 0;
+  }
+  .ds-title--level-4 & {
+    top: 0.1em;
+  }
+  &:hover,
+  &:focus {
+    color: $xui-color-white;
+    text-decoration: underline;
+  }
+}
+
+.ds-status--sunsetting {
+  background: $xui-color-red;
+}
+
+.ds-status--wip {
+  background: $xui-color-orange;
+}
+
+.ds-status--updatescoming {
+  background: $xui-color-turquoise-dark;
+}
+
+.ds-status--new {
+  background: $xui-color-blue;
+}
+
+.ds-status--updated {
+  background: $xui-color-grape;
+}

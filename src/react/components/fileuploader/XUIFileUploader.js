@@ -120,7 +120,7 @@ const XUIFileUploader = ({
     labelRequiredWarning(
       XUIFileUploader.name,
       ['includes a label with text', 'labelId provided'],
-      [labelRef.current?.innerText && !isLabelHidden, typeof label?.[0] === 'string', labelId],
+      [labelRef.current?.textContent && !isLabelHidden, typeof label?.[0] === 'string', labelId],
     );
   }, [isLabelHidden, label, labelId, labelRef]);
   useEffect(() => {

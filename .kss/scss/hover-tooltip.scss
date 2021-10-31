@@ -1,3 +1,5 @@
+@import './vars.scss';
+
 .hover-tooltip {
   background: $ds-markup-bg-color;
   border-radius: $xui-radius;
@@ -21,6 +23,7 @@
   transition-timing-function: $xui-motion-curve-exit;
   transition-delay: $xui-motion-delay-long;
   width: max-content;
+  z-index: $xui-z-index-contextualtop;
 
   &-below {
     top: 90%;

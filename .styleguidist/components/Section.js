@@ -26,6 +26,7 @@ const Section = ({ section, depth }) => {
   } = useStyleGuideContext();
   const {
     name,
+    introduced,
     slug,
     filepath,
     content,
@@ -55,6 +56,7 @@ const Section = ({ section, depth }) => {
       description={description}
       pagePerSection={pagePerSection}
       name={name}
+      introduced={introduced}
       slug={slug.split('section-')[1]}
       filepath={filepath}
       content={contentJsx}

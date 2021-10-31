@@ -182,6 +182,11 @@ const variations = [
           },
           isTruncated: true,
         },
+        columnsProps: {
+          0: {
+            content: 'The quick brown fox jumps over the lazy dog',
+          },
+        },
       },
       {
         columns: 3,
@@ -197,6 +202,11 @@ const variations = [
           onCheckOneToggle: NOOP,
           hasOverflowMenu: true,
           createOverflowMenu: NOOP,
+        },
+        columnsProps: {
+          0: {
+            content: 'The quick brown fox jumps over the lazy dog',
+          },
         },
       },
     ],
@@ -260,20 +270,11 @@ const variations = [
             },
           },
         },
-      },
-      {
-        columns: 3,
-        styleOverrides: { maxWidth: '330px' },
-        tableProps: {
-          ...tableProps,
-          data: {
-            ...data,
-            1: {
-              hasWrapping: true,
-              content: 'The quick brown fox jumps over the lazy dog',
-            },
+        columnsProps: {
+          0: {
+            hasWrapping: true,
+            content: 'The quick brown fox jumps over the lazy dog',
           },
-          isTruncated: true,
         },
       },
       {
@@ -289,6 +290,33 @@ const variations = [
             },
           },
           isTruncated: true,
+        },
+        columnsProps: {
+          0: {
+            hasWrapping: true,
+            content: 'The quick brown fox jumps over the lazy dog',
+          },
+        },
+      },
+      {
+        columns: 3,
+        styleOverrides: { maxWidth: '330px' },
+        tableProps: {
+          ...tableProps,
+          data: {
+            ...data,
+            1: {
+              hasWrapping: true,
+              content: 'The quick brown fox jumps over the lazy dog',
+            },
+          },
+          isTruncated: true,
+        },
+        columnsProps: {
+          0: {
+            hasWrapping: true,
+            content: 'The quick brown fox jumps over the lazy dog',
+          },
         },
       },
       {
@@ -311,6 +339,12 @@ const variations = [
           hasOverflowMenu: true,
           createOverflowMenu: NOOP,
         },
+        columnsProps: {
+          0: {
+            hasWrapping: true,
+            content: 'The quick brown fox jumps over the lazy dog',
+          },
+        },
       },
       {
         columns: 3,
@@ -326,6 +360,12 @@ const variations = [
           },
           onRowClick: NOOP,
           shouldRowClick: () => true,
+        },
+        columnsProps: {
+          0: {
+            hasWrapping: true,
+            content: 'The quick brown fox jumps over the lazy dog',
+          },
         },
       },
     ],
@@ -347,6 +387,13 @@ const variations = [
           activeSortKey: 'content',
           isSortAsc: true,
           onSortChange: NOOP,
+          columnWidths: ['100px', 'auto', '80px'],
+        },
+        columnsProps: {
+          0: {
+            hasWrapping: true,
+            content: 'The quick brown fox jumps over the lazy dog',
+          },
         },
       },
       {
@@ -361,6 +408,11 @@ const variations = [
           activeSortKey: 'content',
           isSortAsc: false,
           onSortChange: NOOP,
+        },
+        columnsProps: {
+          0: {
+            content: 'The quick brown fox jumps over the lazy dog',
+          },
         },
       },
       {
@@ -381,6 +433,12 @@ const variations = [
               : (a, b) => a.tags.length < b.tags.length;
 
             return data.sort((a, b) => (comparison(a, b) ? 1 : -1));
+          },
+          isTruncated: true,
+        },
+        columnsProps: {
+          0: {
+            content: 'The quick brown fox jumps over the lazy dog',
           },
         },
       },

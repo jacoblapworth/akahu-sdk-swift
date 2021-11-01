@@ -2,7 +2,7 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 
 import XUIButton from '../../button/XUIButton';
-import { defaultFileList } from '../private/helpers';
+import { acceptedFileList, defaultFileList } from '../private/helpers';
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const storiesWithKnobsKindName = 'Components/XUIFileUploader';
@@ -50,6 +50,12 @@ const variations = [
     storyTitle: 'with single line fileList',
     showFilesAsMultiline: false,
     fileList,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with each accepted file type fileList',
+    showFilesAsMultiline: false,
+    fileList: acceptedFileList,
   },
   {
     storyKind: storiesWithVariationsKindName,

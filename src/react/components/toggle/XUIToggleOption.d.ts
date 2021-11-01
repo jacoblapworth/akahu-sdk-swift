@@ -3,6 +3,12 @@ import * as React from 'react';
 import { typeMap } from './private/constants';
 
 interface Props {
+  /**
+   * Accessibility label for the `<XUIToggleOption>`. This is required
+   * if the component does not contain a child with text.
+   * E.g. if the child is a `<XUIIcon>` without adjacent text.
+   */
+  ariaLabel?: string;
   children?: React.ReactNode;
   className?: string;
   id?: string;

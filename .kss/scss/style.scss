@@ -236,7 +236,7 @@ code {
     width: 100%;
   }
 
-  td:not(.xui-readonlytablecell) {
+  td:not(.xui-readonlytablecell, .xui-editabletablecell) {
     border: $xui-border-standard;
     padding: $xui-s-2xsmall $xui-s-xsmall;
   }

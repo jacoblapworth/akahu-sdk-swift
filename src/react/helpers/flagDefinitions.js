@@ -1,13 +1,11 @@
 module.exports = {
   sunsetting: {
     label: 'Sunsetting',
-    desc:
-      'This feature will be removed in the next major release. Not recommended for development.',
+    desc: 'This feature will be removed in the next major release. Not recommended for development.',
   },
   updatesComing: {
     label: 'Updates coming',
-    desc:
-      'Significant changes related to this feature are likely to be included in the next major release.',
+    desc: 'Significant changes related to this feature are likely to be included in the next major release.',
   },
   wip: {
     label: 'Work in progress',

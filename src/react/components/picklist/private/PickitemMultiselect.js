@@ -27,6 +27,7 @@ const PickitemMultiselect = ({
   isSelected,
   children,
   checkboxClassName,
+  checkboxRef,
   qaHook,
   primaryElement,
   secondaryElement,
@@ -73,6 +74,7 @@ const PickitemMultiselect = ({
       role="presentation"
     >
       <XUICheckbox
+        checkboxElementClassName={`${pickitemClassName}--input`}
         className={checkboxClasses}
         htmlClassName={`${pickitemClassName}--input`}
         isChecked={isSelected}
@@ -81,6 +83,7 @@ const PickitemMultiselect = ({
         labelId={labelId}
         onChange={NOOP}
         qaHook={qaHook && `${qaHook}--checkbox`}
+        ref={checkboxRef}
         size={sizeShift('medium', -1)}
         tabIndex={-1}
       >
@@ -100,6 +103,7 @@ const PickitemMultiselect = ({
 
 PickitemMultiselect.propTypes = {
   checkboxClassName: PropTypes.string,
+  checkboxRef: PropTypes.object,
   children: PropTypes.node,
   /** The disabled behaviour and styles are applied when this is true. */
   isDisabled: PropTypes.bool,

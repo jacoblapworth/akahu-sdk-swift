@@ -55,9 +55,8 @@ const FileList = ({
             hideRetryButton,
           } = file;
 
-          const roundedUploadProgressPercentage = parseUploadProgressPercentage(
-            uploadProgressPercentage,
-          );
+          const roundedUploadProgressPercentage =
+            parseUploadProgressPercentage(uploadProgressPercentage);
           const hasUploadProgressPercentage = roundedUploadProgressPercentage !== undefined;
 
           const progressProps = {
@@ -66,8 +65,6 @@ const FileList = ({
           };
 
           const { name, size, type } = originalFile;
-          const fileIcon = getFileTypeIcon(name, type);
-
           return (
             <li className={cn(fileItemBaseClass)} key={uid}>
               {
@@ -99,12 +96,7 @@ const FileList = ({
                     </span>
                   )) ||
                   (showIcon && (
-                    <XUIIcon
-                      className={iconClassName}
-                      color={fileIcon.color}
-                      icon={fileIcon.icon}
-                      isBoxed
-                    />
+                    <XUIIcon className={iconClassName} icon={getFileTypeIcon(name, type)} isBoxed />
                   ))
               }
               <div className={`${fileItemBaseClass}--maincontent`}>
@@ -128,7 +120,7 @@ const FileList = ({
                   <XUIButton
                     onClick={event => onRetry(file, fileList, event)}
                     size="small"
-                    variant="borderless-primary"
+                    variant="borderless-main"
                   >
                     {retryButtonText}
                   </XUIButton>
@@ -137,7 +129,7 @@ const FileList = ({
                   <XUIButton
                     onClick={event => handleCancel(file, event)}
                     size="small"
-                    variant="borderless-primary"
+                    variant="borderless-main"
                   >
                     {cancelButtonText}
                   </XUIButton>

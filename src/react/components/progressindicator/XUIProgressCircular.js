@@ -6,12 +6,16 @@ import { NAME_SPACE } from './helpers/constants';
 import CircularTrack from './customElements/CircularTrack';
 import CircularIcon from './customElements/CircularIcon';
 import ProgressWrapper from './customElements/ProgressWrapper';
-import labelRequiredWarning, { ariaLabelOnly } from '../helpers/labelRequiredWarning';
+import labelRequiredError from '../helpers/labelRequiredError';
 
 const XUIProgressCircular = props => {
   useEffect(() => {
-    labelRequiredWarning(XUIProgressCircular.name, ariaLabelOnly, [props.ariaLabel]);
-  }, [props.ariaLabel]);
+    labelRequiredError(
+      XUIProgressCircular.name,
+      ['`ariaLabel` provided', '`ariaLabelledBy` provided'],
+      [props.ariaLabel, props.ariaLabelledBy],
+    );
+  }, [props.ariaLabel, props.ariaLabelledBy]);
 
   return (
     <ProgressWrapper {...enrichCircularProps(props)}>

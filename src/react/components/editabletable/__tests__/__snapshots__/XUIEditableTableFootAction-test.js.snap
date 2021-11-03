@@ -15,7 +15,7 @@ exports[`<XUIEditableTableFootAction /> composes the className correctly 1`] = `
     size="small"
     tabIndex={0}
     type="button"
-    variant="borderless-primary"
+    variant="borderless-main"
   >
     test button
   </XUIButton>
@@ -37,7 +37,7 @@ exports[`<XUIEditableTableFootAction /> renders correctly 1`] = `
     size="small"
     tabIndex={0}
     type="button"
-    variant="borderless-primary"
+    variant="borderless-main"
   >
     test button
   </XUIButton>

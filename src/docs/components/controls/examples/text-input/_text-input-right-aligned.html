@@ -1,13 +1,18 @@
 <div class="xui-textinputwrapper">
-  <label class="xui-text-label xui-fieldlabel-layout" for="a">Amount</label>
+  <label class="xui-text-label xui-fieldlabel-layout" for="g">Amount</label>
   <div class="xui-textinput xui-textinput-medium">
-    <div class="xui-textinput--sideelement xui-textinput--sideelement-text">$</div>
+    <div
+      class="xui-textinput--sideelement xui-textinput--sideelement-text"
+      onclick="document.getElementById('g').focus()"
+    >
+      $
+    </div>
     <input
       type="text"
       class="xui-textinput--input xui-textinput--input-medium xui-text-align-right"
       placeholder="00.00"
       aria-invalid="false"
-      id="a"
+      id="g"
       onfocus="this.parentElement.classList.toggle('xui-textinput-focus')"
       onblur="this.parentElement.classList.toggle('xui-textinput-focus')"
     />

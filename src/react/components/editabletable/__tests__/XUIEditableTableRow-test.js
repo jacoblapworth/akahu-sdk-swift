@@ -65,7 +65,10 @@ describe('<XUIEditableTableRow />', () => {
     it('renders a remove button for rows in the body', () => {
       // Arrange
       const wrapper = mount(
-        <XUIEditableTable rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}>
+        <XUIEditableTable
+          ariaLabel="Editable table"
+          rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}
+        >
           <XUIEditableTableBody>
             <XUIEditableTableRow qaHook="test-row" />
           </XUIEditableTableBody>
@@ -79,7 +82,10 @@ describe('<XUIEditableTableRow />', () => {
     it('renders a blank table cell for rows in the head', () => {
       // Arrange
       const wrapper = mount(
-        <XUIEditableTable rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}>
+        <XUIEditableTable
+          ariaLabel="Editable table"
+          rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}
+        >
           <XUIEditableTableHead>
             <XUIEditableTableRow qaHook="test-row" />
           </XUIEditableTableHead>
@@ -94,7 +100,10 @@ describe('<XUIEditableTableRow />', () => {
       // Arrange
       const onRemoveMock = jest.fn();
       const wrapper = mount(
-        <XUIEditableTable rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}>
+        <XUIEditableTable
+          ariaLabel="Editable table"
+          rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}
+        >
           <XUIEditableTableBody>
             <XUIEditableTableRow onRemove={onRemoveMock} qaHook="test-row" />
           </XUIEditableTableBody>
@@ -110,7 +119,10 @@ describe('<XUIEditableTableRow />', () => {
 
     it('should disable the remove icon when `disableRowControls` prop is true', () => {
       const wrapper = mount(
-        <XUIEditableTable rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}>
+        <XUIEditableTable
+          ariaLabel="Editable table"
+          rowOptions={{ isRemovable: true, removeButtonAriaLabel: 'Remove row' }}
+        >
           <XUIEditableTableBody>
             <XUIEditableTableRow qaHook="test-row" disableRowControls />
           </XUIEditableTableBody>
@@ -129,7 +141,7 @@ describe('<XUIEditableTableRow />', () => {
     it('does not render a remove button for rows in the body', () => {
       // Arrange
       const wrapper = mount(
-        <XUIEditableTable rowOptions={{ isRemovable: false }}>
+        <XUIEditableTable ariaLabel="Editable table" rowOptions={{ isRemovable: false }}>
           <XUIEditableTableBody>
             <XUIEditableTableRow qaHook="test-row" />
           </XUIEditableTableBody>
@@ -143,7 +155,7 @@ describe('<XUIEditableTableRow />', () => {
     it('does not render a blank table cell for rows in the head', () => {
       // Arrange
       const wrapper = mount(
-        <XUIEditableTable rowOptions={{ isRemovable: false }}>
+        <XUIEditableTable ariaLabel="Editable table" rowOptions={{ isRemovable: false }}>
           <XUIEditableTableHead>
             <XUIEditableTableRow qaHook="test-row" />
           </XUIEditableTableHead>
@@ -160,6 +172,7 @@ describe('<XUIEditableTableRow />', () => {
       // Arrange
       const wrapper = mount(
         <XUIEditableTable
+          ariaLabel="Editable table"
           dndDragCancelledMessage={NOOP}
           dndDragOutsideMessage={NOOP}
           dndDragStartMessage={NOOP}
@@ -184,6 +197,7 @@ describe('<XUIEditableTableRow />', () => {
       // Arrange
       const wrapper = mount(
         <XUIEditableTable
+          ariaLabel="Editable table"
           dndDragCancelledMessage={NOOP}
           dndDragOutsideMessage={NOOP}
           dndDragStartMessage={NOOP}
@@ -284,6 +298,7 @@ describe('<XUIEditableTableRow />', () => {
     it('should disable the drag icon when `disableRowControls` prop is true', () => {
       const wrapper = mount(
         <XUIEditableTable
+          ariaLabel="Editable table"
           dndDragCancelledMessage={NOOP}
           dndDragOutsideMessage={NOOP}
           dndDragStartMessage={NOOP}
@@ -310,6 +325,7 @@ describe('<XUIEditableTableRow />', () => {
     it('disables dragging when `disableRowControls` prop is true', () => {
       const wrapper = mount(
         <XUIEditableTable
+          ariaLabel="Editable table"
           dndDragCancelledMessage={NOOP}
           dndDragOutsideMessage={NOOP}
           dndDragStartMessage={NOOP}
@@ -334,7 +350,7 @@ describe('<XUIEditableTableRow />', () => {
     it('does not render a drag button for rows in the body', () => {
       // Arrange
       const wrapper = mount(
-        <XUIEditableTable rowOptions={{ isDraggable: false }}>
+        <XUIEditableTable ariaLabel="Editable table" rowOptions={{ isDraggable: false }}>
           <XUIEditableTableBody>
             <XUIEditableTableRow qaHook="test-row" />
           </XUIEditableTableBody>
@@ -348,7 +364,7 @@ describe('<XUIEditableTableRow />', () => {
     it('does not render a blank table cell for rows in the head', () => {
       // Arrange
       const wrapper = mount(
-        <XUIEditableTable rowOptions={{ isDraggable: false }}>
+        <XUIEditableTable ariaLabel="Editable table" rowOptions={{ isDraggable: false }}>
           <XUIEditableTableHead>
             <XUIEditableTableRow qaHook="test-row" />
           </XUIEditableTableHead>

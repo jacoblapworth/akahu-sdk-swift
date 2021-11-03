@@ -77,7 +77,7 @@ const XUIDropdownHeader = ({
       onClick={onPrimaryButtonClick}
       qaHook={qaHook != null ? `${qaHook}--button-primary` : null}
       size="small"
-      variant="primary"
+      variant="main"
     >
       {primaryButtonContent}
     </XUIButton>

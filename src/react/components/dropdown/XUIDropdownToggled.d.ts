@@ -69,7 +69,7 @@ interface Props {
    * **Note:** *XUI design has also decided to keep a minimum width on the dropdown, so the dropdown
    * may not match the width of narrow triggers (setting this to `'min'` will not override this).*
    */
-  matchTriggerWidth?: boolean | true | false | 'min';
+  matchTriggerWidth?: true | false | 'min';
   /**
    * Setting a number here will force the maximum height of the dropdown to be the number provided
    * (in pixels) if the viewport is too big. When the viewport is smaller than this number, it still

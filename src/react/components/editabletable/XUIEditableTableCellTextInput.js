@@ -24,7 +24,6 @@ const XUIEditableTableCellTextInput = ({
   const textInputComponentRef = React.useRef();
   const [isFocused, setIsFocused] = React.useState();
   const [timeoutHandle, setTimeoutHandle] = React.useState(null);
-  const [isFocusingViaClick, setIsFocusingViaClick] = React.useState(false);
 
   /**
    * Records the focus state onBlur, before calling any user-supplied handlers.
@@ -35,7 +34,7 @@ const XUIEditableTableCellTextInput = ({
 
     clearTimeout(timeoutHandle);
 
-    onBlur?.(event);
+    onBlur && onBlur(event);
   };
 
   /**
@@ -46,20 +45,11 @@ const XUIEditableTableCellTextInput = ({
   const composedOnFocus = event => {
     setIsFocused(true);
 
-    onFocus?.(event);
-  };
+    const { target } = event;
+    // Timeout must be used to avoid a synchronisation issue with Safari
+    setTimeoutHandle(setTimeout(() => target.select(), 0));
 
-  const onMouseDown = () => {
-    setIsFocusingViaClick(!isFocused);
-  };
-
-  const onClick = event => {
-    if (isFocusingViaClick && getSelection().toString().length === 0) {
-      const { target } = event;
-      // Timeout must be used to avoid a synchronisation issue with Safari
-      setTimeoutHandle(setTimeout(() => target.select(), 0));
-    }
-    setIsFocusingViaClick(false);
+    onFocus && onFocus(event);
   };
 
   /**
@@ -94,9 +84,7 @@ const XUIEditableTableCellTextInput = ({
         isLabelHidden
         isValueReverseAligned={isValueReverseAligned || inlineAlignment === 'end'}
         onBlur={composedOnBlur}
-        onClick={onClick}
         onFocus={composedOnFocus}
-        onMouseDown={onMouseDown}
         ref={textInputComponentRef}
       />
     </XUIEditableTableCellControl>

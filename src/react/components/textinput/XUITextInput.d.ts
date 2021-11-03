@@ -24,7 +24,7 @@ type XUITextInputHTMLAttributes =
   | React.InputHTMLAttributes<HTMLInputElement>
   | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-interface Props {
+interface BaseProps {
   /**
    * Character counter props
    */
@@ -134,6 +134,10 @@ interface Props {
    */
   onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   /**
+   * Function to call when the input wrapper is clicked.
+   */
+  onClick?: React.MouseEventHandler<HTMLDivElement | HTMLLabelElement>;
+  /**
    * Function to call when the input is focused (does not include side elements).
    */
   onFocus?: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
@@ -173,6 +177,12 @@ interface Props {
    */
   value?: string;
 }
+
+type SpreadProps =
+  | React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+  | React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
+
+type Props = BaseProps & SpreadProps;
 
 export default class XUITextInput extends React.PureComponent<Props> {
   /**

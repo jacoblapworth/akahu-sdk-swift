@@ -33,17 +33,3 @@ MyComponent.defaultProps = {
 XUI SASS is being imported in the overwritten components/StyleGuide.js, which enables the current version of XUI to be rendered on the page by default/inlined etc.
 
 Component Demos are targeted with `xui-container`. `xui-body` is not currently globally applied.
-
-## Version introduced flags
-
-This flag is used for indicating which version of XUI a component or feature was introduced in. It will appear alongside the flags mentioned above with a link to the release notes of the specified version.
-
-The version flag should be used for all new components, features, and classnames introduced in a minor release. All version flags should be removed for a major (breaking-changes) release.
-
-To add a version flag to a section (e.g. Tables) add the `introduced` property to `sections.json`. This property should be added alongside the `name` and `content` properties for the section.
-
-All other headings can be extended to include a version flag by using the following format (where `x.x.x` is the XUI version number):
-
-```md
-## Heading | x.x.x
-```

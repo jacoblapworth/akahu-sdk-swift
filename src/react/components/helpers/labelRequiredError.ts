@@ -1,13 +1,13 @@
-import { logWarning } from './developmentConsole';
+import { logError } from './developmentConsole';
 
 /**
- * Method for conditionally warning the user that some prop(s) may be required from XUI 19 to be able to provide an aria label to the user
+ * Method for conditionally warning the user that some prop(s) are required from XUI 19 to be able to provide an aria label to the user
  *
  * @param {string} componentName - Name of the component
  * @param {string[]} conditions - Human readable strings for the conditions that must be met
  * @param {Array<string | boolean>} isLabelProvided - List of conditions that if true mean the label has already been provided
  */
-const labelRequiredWarning = (
+const labelRequiredError = (
   componentName: string,
   conditions: string[],
   isLabelProvided: Array<string | boolean>,
@@ -15,8 +15,8 @@ const labelRequiredWarning = (
   if (isLabelProvided.some(condition => condition)) {
     return;
   }
-  const message = `As of XUI 19, one of the the following will be required in order to meet WCAG accessibility guidelines: ${conditions}`;
-  logWarning({
+  const message = `One of the following is required in order to meet WCAG accessibility guidelines: ${conditions}`;
+  logError({
     componentName,
     message,
   });
@@ -27,4 +27,4 @@ const textChildOrLabelId = ['includes a child with text', 'labelId provided']; /
 const ariaLabelOnly = ['`ariaLabel` provided']; // Various controls where only an ARIA label is required
 const loadingAriaLabelOnly = ['loadingAriaLabel when isLoading'];
 
-export { ariaLabelOnly, labelRequiredWarning as default, loadingAriaLabelOnly, textChildOrLabelId };
+export { ariaLabelOnly, labelRequiredError as default, loadingAriaLabelOnly, textChildOrLabelId };

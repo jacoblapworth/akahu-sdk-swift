@@ -396,7 +396,7 @@ test.add(storyNames.formLayout, () => {
                   The results of the form are published as an object to the <XUITag>console</XUITag>{' '}
                   when you click this button <XUIIcon icon={arrow} rotation="270" />
                 </p>
-                <XUIButton onClick={this.logForm} variant="primary">
+                <XUIButton onClick={this.logForm} variant="main">
                   Submit
                 </XUIButton>
               </footer>

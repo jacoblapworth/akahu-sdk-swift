@@ -124,7 +124,6 @@ XUI has a few npm scripts. `npm start` should be enough for all development task
 | `npm run test -- -i`             | Runs the interactive variant of the test script which gives you additional test options including visual regression, code coverage and more.                                                                                                     |
 | `npm run review`                 | Runs React unit tests and visual regression tests and lints the React components, intended to be run before opening a pull request. This double-checks for visual regressions and ensures the TeamCity build will be successful.                 |
 | `npm run build`                  | Compiles the stylesheet, Builds the KSS docs, Styleguide and Storybook apps. Compiles tokens and creates the UMD bundle. Used for creating a release.                                                                                            |
-| `npm run docs:build`             | Runs `npm run build` and bundles the documentation sites with the version selector ready for deployment.                                                                                                                                         |
 | `npm run release`                | This script is reserved for running before we plan on doing a release on a local and before doing the release PR. Updates all versions of XUI in package(-lock).json, and a few other files where required to the new version we plan to release |
 
 ### Testing changes against another project
@@ -226,14 +225,6 @@ Configured in `.styleguidist/` folder. Checkout our [.styleguidist/README.md](.s
 
 [react-styleguidist](https://react-styleguidist.js.org/) provides our component specific documenation including descriptions, interactive and editable component examples and API documenation. This is authored using markdown descriptions, short example code snippets, and automatic generation of PropType documentation using [react-docgen](https://www.npmjs.com/package/react-docgen).
 
-### Version flags
-
-The XUI Guide and the React Docs include information about which version components and features were introduced.
-
-These flags should be used for all new components, features, and classnames introduced in a minor release. All version flags should be removed for a major (breaking-changes) release.
-
-See [.kss/README.md](.kss/README.md) for use with the XUI Guide and [.styleguidist/README.md](.styleguidist/README.md) for use with the React Docs.
-
 ### Storybook
 
 Configured in `.storybook/` folder.
@@ -296,28 +287,28 @@ The codemod contains transforms for moving from the previous major version of XU
 
 How to run the codemod:
 
-1. Install jscodeshift
+1. Install lodash globally ([jscodeshift currently requires this to be installed separately](https://github.com/facebook/jscodeshift/pull/455))
 
 ```bash
-npm i -g jscodeshift@~0.12.0
+npm i -g lodash
 ```
 
 2. Run the codemod
 
 ```bash
-jscodeshift -t node_modules/@xero/xui/codemod src/
+npx jscodeshift@~0.13.0 -t node_modules/@xero/xui/codemod src/
 ```
 
 3. If your imported components are not from @xero/xui/react/, you can pass an alternate base path.
 
 ```bash
-jscodeshift --importBasePath=@xero/xui/react-es6/ -t node_modules/@xero/xui/codemod src/
+npx jscodeshift@~0.13.0 --importBasePath=@xero/xui/react-es6/ -t node_modules/@xero/xui/codemod src/
 ```
 
 4. If you've already upgraded to the current major version and wish to run a supplemental codemod from a minor/patch
 
 ```bash
-jscodeshift -t node_modules/@xero/xui/codemod/<version> src/
+npx jscodeshift@~0.13.0 -t node_modules/@xero/xui/codemod/<version> src/
 ```
 
 ### Adjusting Codeshift to work for you
@@ -329,7 +320,7 @@ Depending on your setup the above commands may not work for you. Here are a coup
 Please switch out `/src` to your source folder's name
 
 ```bash
-jscodeshift -t node_modules/@xero/xui/codemod client/
+npx jscodeshift@~0.13.0 -t node_modules/@xero/xui/codemod client/
 ```
 
 #### 2. If your project uses TypeScript:
@@ -337,7 +328,7 @@ jscodeshift -t node_modules/@xero/xui/codemod client/
 By default, codeshift examines .js files with babel. You can use codeshift with TypeScript by adjusting the `--parser` and `--extensions` as follows:
 
 ```bash
-jscodeshift -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=tsx --extensions=ts,tsx
+npx jscodeshift@~0.13.0 -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=tsx --extensions=ts,tsx
 ```
 
 #### 3. If you are using Windows:
@@ -349,6 +340,9 @@ To format to 'LF', add the following flag in the jscodeshift command:
 ```bash
 --printOptions='{"lineTerminator":"\n"}'
 ```
+
+If you still have issues with files containing only line ending changes, try staging your files (`git add .`). This will allow git to convert files to the line endings it needs, without even needing to commit any files.
+If you want to change your line endings globally follow tips from this [comment](https://stackoverflow.com/a/67517481)
 
 ## Contributing to XUI
 

@@ -4,7 +4,7 @@ import cn from 'classnames';
 import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
 import { ns } from '../helpers/xuiClassNamespace';
 import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
-import labelRequiredWarning from '../helpers/labelRequiredWarning';
+import labelRequiredError from '../helpers/labelRequiredError';
 
 const baseClass = `${ns}-rangeslider`;
 
@@ -33,12 +33,12 @@ const XUIRange = props => {
     validationMessage,
   } = props;
 
-  const wrapperIds = generateIds(labelId);
+  const wrapperIds = generateIds({ labelId, id });
 
   const labelRef = React.createRef();
 
   useEffect(() => {
-    labelRequiredWarning(
+    labelRequiredError(
       XUIRange.name,
       ['includes a label with text', 'labelId provided'],
       [labelRef.current?.textContent && !isLabelHidden, typeof label?.[0] === 'string', labelId],

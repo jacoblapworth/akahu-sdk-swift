@@ -25,35 +25,12 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
   vertical-align: top;
 }
 
-@mixin xui-editabletable-overflow {
-  content: '';
-  display: block;
-  height: calc(
-    100% - #{var(--xui-editableoverflow--scrollbar-height)} - #{$xui-editabletable-overflow-border-adjustment}
-  );
-  pointer-events: none;
-  position: absolute;
-  top: 1px;
-  width: $xui-s-standard;
-  z-index: $xui-z-index-responsiveoverlay;
-}
-
 @mixin xui-editabletable-overflow-shadow-left {
-  @include xui-editabletable-overflow;
-  background: linear-gradient(
-    90deg,
-    rgba($xui-color-black, 0.2) 0%,
-    rgba($xui-color-black, 0) 100%
-  );
+  @include xui-table-overflow-shadow-left($xui-editabletable-overflow-border-adjustment, 1px);
 }
 
 @mixin xui-editabletable-overflow-shadow-right {
-  @include xui-editabletable-overflow;
-  background: linear-gradient(
-    270deg,
-    rgba($xui-color-black, 0.2) 0%,
-    rgba($xui-color-black, 0) 100%
-  );
+  @include xui-table-overflow-shadow-right($xui-editabletable-overflow-border-adjustment, 1px);
 }
 
 .#{$ns}-editabletablewrapper {
@@ -130,7 +107,7 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
   display: flex;
   font-size: $xui-font-size-xsmall;
   line-height: $xui-editabletable-invalid-icon-size;
-  padding-top: $xui-s-small / 2;
+  padding-top: $xui-s-small * 0.5;
   .#{$ns}-icon {
     height: $xui-editabletable-invalid-icon-size;
     margin-right: $xui-s-xsmall;

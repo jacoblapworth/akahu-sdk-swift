@@ -26,7 +26,6 @@ import XUIEditableTableBody from '../XUIEditableTableBody';
 import XUIActions from '../../../actions';
 import generateCell from './helpers';
 import ColumnHideSelect from './column-hide-select';
-import EditableTableCreatorRowExample from './creator-row';
 import { EditableTableUserTest } from './user-tests';
 import XUIEditableTableCellTextInput from '../XUIEditableTableCellTextInput';
 
@@ -245,8 +244,6 @@ storiesWithKnobs.add('Playground', () => {
     />
   );
 });
-
-storiesWithKnobs.add('Interactive creator row example', () => <EditableTableCreatorRowExample />);
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 

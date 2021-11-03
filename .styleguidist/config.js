@@ -98,14 +98,6 @@ const config = {
           'components/ReactComponentRenderer',
         ),
         'rsg-components/Section/Section': path.resolve(styleguidePath, 'components/Section'),
-        'rsg-components/Section/SectionRenderer': path.resolve(
-          styleguidePath,
-          'components/SectionRenderer',
-        ),
-        'rsg-components/SectionHeading/SectionHeadingRenderer': path.resolve(
-          styleguidePath,
-          'components/SectionHeadingRenderer',
-        ),
         'rsg-components/StyleGuide/StyleGuideRenderer': path.resolve(
           styleguidePath,
           'components/StyleGuide',

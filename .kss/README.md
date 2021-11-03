@@ -50,7 +50,6 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 - `introduction`
 - `tips`
 - `flags`
-- `introduced`
 - `related`
 - `storybook`
 - `image`
@@ -184,16 +183,6 @@ For representing a status of that section, there are several currently supported
 
 ```
 // Flags: new wip
-```
-
-#### Version introduced flags
-
-This flag is used for indicating which minor version of XUI a component or feature was introduced in. It will appear alongside the flags mentioned above with a link to the release notes of the specified version.
-
-The version flag should be used for all new components, features, and classnames introduced in a minor release. All version flags should be removed for a major (breaking-changes) release.
-
-```
-// Introduced: 19.1.0
 ```
 
 ### Related

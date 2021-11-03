@@ -6,6 +6,7 @@ exports[`<XUIDropdownFooter /> should render a picklist with context class when 
 >
   <ul
     className="xui-picklist xui-picklist-layout xui-picklist-medium xui-dropdown--footer--picklist"
+    onChange={[Function]}
   >
     <li
       aria-selected={null}

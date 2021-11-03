@@ -2,35 +2,22 @@ import { nanoid } from 'nanoid';
 
 /**
  * @public
- * Build the control, label, and message ids from a user-provided id, or from scratch
+ * Build the control, label, and message ids from user-provided id(s), or from scratch
  * This should first be triggered by initialising the control component. The output is
  * then passed to getAriaAttributes.
- * @param {string} labelId - Optional, consumer-provided string to use as the label ID
+ * @param {{labelId: string, id: string}} - Optional, consumer-provided string or strings to use as IDs
  * @returns {{label: string, message: string, control: string}}
  */
-export default function generateIds(labelId) {
-  const label = labelId || `xui-${nanoid(10)}`;
+export default function generateIds({ labelId, id } = {}) {
+  const wasIdPassed = Boolean(id || labelId);
+  // Use the id as the root, if both IDs are passed.
+  const rootId = id || labelId || `xui-${nanoid(10)}`;
   return {
-    label,
-    control: `${label}-control`,
-    message: `${label}-message`,
-  };
-}
-
-/**
- * @public
- * Build the control, label, and message ids from a user-provided id, or from scratch
- * This should first be triggered by initialising the control component. The output is
- * then passed to getAriaAttributes.
- * @param {string} controlId - Optional, consumer-provided string to use as the control ID
- * @returns {{label: string, message: string, control: string}}
- */
-export function generateIdsFromControlId(controlId) {
-  const control = controlId || `xui-${nanoid(10)}`;
-  return {
-    control,
-    label: `${control}-label`,
-    message: `${control}-message`,
+    // If both IDs are passed, we want to return the supplied value for each.
+    // If no IDs were passed, label ID defaults to no-suffix.
+    label: labelId || (!wasIdPassed && rootId) || `${rootId}-label`,
+    control: id || `${rootId}-control`,
+    message: `${rootId}-message`,
   };
 }
 

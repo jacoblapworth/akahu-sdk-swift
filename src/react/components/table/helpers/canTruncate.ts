@@ -26,11 +26,12 @@ const canTruncate = (
   }
   const actionWidth = 50;
   const minColumnWidth = 80;
+  const maxColumnWidth = 200;
   const { children: columns } = props;
   const totalColumns = React.Children.count(columns);
   const truncationArea = createTruncationArea(actionWidth, rootWidth, props);
   const oneTruncatedColumn = Math.floor(truncationArea / totalColumns);
-  const isTruncated = oneTruncatedColumn >= minColumnWidth;
+  const isTruncated = oneTruncatedColumn >= minColumnWidth && oneTruncatedColumn <= maxColumnWidth;
 
   return isTruncated;
 };

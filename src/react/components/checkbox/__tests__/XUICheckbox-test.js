@@ -4,7 +4,10 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 import star from '@xero/xui-icon/icons/star';
+import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axe, toHaveNoViolations } from 'jest-axe';
+
 import XUICheckbox from '../XUICheckbox';
 
 import div from './helpers/container';
@@ -17,7 +20,7 @@ const NOOP = () => {};
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testCheckboxId');
 
-describe('XUICheckbox', function () {
+describe('XUICheckbox', () => {
   let wrapper;
   let input;
   //<use /> tags
@@ -84,7 +87,7 @@ describe('XUICheckbox', function () {
     expect(visibleLabel).toMatchSnapshot();
   });
 
-  it('should render with validation message', function () {
+  it('should render with validation message', () => {
     const component = renderer.create(
       <XUICheckbox isInvalid validationMessage="Test validation" />,
     );
@@ -143,12 +146,38 @@ describe('XUICheckbox', function () {
   });
 
   it('should use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true', () => {
-    const wrapper = mount(<XUICheckbox onChange={NOOP} isReversed={true} />);
+    // Arrange
+    render(
+      <XUICheckbox onChange={NOOP} isReversed qaHook="testId">
+        Label
+      </XUICheckbox>,
+    );
 
-    expect(wrapper.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
+    // Assert
+    expect(screen.getByTestId('testId')).toHaveClass('xui-styledcheckboxradio-reversed');
   });
 
-  it('should have the correct name if one is provided', function () {
+  it('should not use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true and there is no label', () => {
+    // Arrange
+    render(<XUICheckbox onChange={NOOP} isReversed qaHook="testId" />);
+
+    // Assert
+    expect(screen.getByTestId('testId')).not.toHaveClass('xui-styledcheckboxradio-reversed');
+  });
+
+  it('should not use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true and the label is hidden', () => {
+    // Arrange
+    render(
+      <XUICheckbox onChange={NOOP} isLabelHidden isReversed qaHook="testId">
+        Label
+      </XUICheckbox>,
+    );
+
+    // Assert
+    expect(screen.getByTestId('testId')).not.toHaveClass('xui-styledcheckboxradio-reversed');
+  });
+
+  it('should have the correct name if one is provided', () => {
     const wrapper = mount(<XUICheckbox onChange={NOOP} name="Patrick" />);
 
     const node = wrapper.find('input');
@@ -196,7 +225,7 @@ describe('XUICheckbox', function () {
     expect(icon).toMatchSnapshot();
   });
 
-  it('should pass props to input node', function () {
+  it('should pass props to input node', () => {
     const component = mount(
       <XUICheckbox onChange={NOOP} value="2501" inputProps={{ autoComplete: 'on' }} />,
     );

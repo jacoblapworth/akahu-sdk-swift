@@ -1,4 +1,5 @@
 import clockIcon from '@xero/xui-icon/icons/clock';
+import { desktopPlus320 } from '../../../stories/helpers/viewports';
 import { dateInputSuggestedDates, dateRangeInputSuggestedDates } from './helpers/suggestedDates';
 
 const storiesWithKnobsKindName = 'Components/XUIDateInput';
@@ -242,8 +243,9 @@ const variations = [
       selectedDateDefaultValue: new Date(2000, 11, 15),
       inputLabel: 'Second Date',
       isInvalid: true,
-      validationMessage: 'Please correct your input',
+      validationMessage: 'Please correct your input as it seems to be invalid in some way',
     },
+    viewports: desktopPlus320,
   },
   {
     storyKind: storiesWithVariationsKindName,

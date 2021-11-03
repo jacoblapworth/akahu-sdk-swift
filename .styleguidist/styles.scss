@@ -1,7 +1,5 @@
 @import '../src/sass/_vars.scss';
 @import '../src/sass/_mixins.scss';
-@import '../.kss/scss/_flags.scss';
-@import '../.kss/scss/hover-tooltip.scss';
 
 #rsg-root {
   p a {
@@ -10,10 +8,6 @@
 
   main h1:not(.xui-isolationheader--title):not(.xui-pageheading--title) {
     margin-top: 3em;
-
-    + .xui-tooltip {
-      margin-bottom: $xui-s-2xsmall;
-    }
   }
 
   li code,

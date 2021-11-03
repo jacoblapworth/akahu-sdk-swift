@@ -9,6 +9,35 @@
   overflow-x: auto;
 }
 
+@mixin xui-table-overflow($border-adjustment, $top) {
+  content: '';
+  display: block;
+  height: calc(100% - #{var(--xui-editableoverflow--scrollbar-height)} - #{$border-adjustment});
+  pointer-events: none;
+  position: absolute;
+  top: $top;
+  width: $xui-s-standard;
+  z-index: $xui-z-index-responsiveoverlay;
+}
+
+@mixin xui-table-overflow-shadow-left($border-adjustment: 0px, $top: 0px) {
+  @include xui-table-overflow($border-adjustment, $top);
+  background: linear-gradient(
+    90deg,
+    rgba($xui-color-black, 0.2) 0%,
+    rgba($xui-color-black, 0) 100%
+  );
+}
+
+@mixin xui-table-overflow-shadow-right($border-adjustment: 0px, $top: 0px) {
+  @include xui-table-overflow($border-adjustment, $top);
+  background: linear-gradient(
+    270deg,
+    rgba($xui-color-black, 0.2) 0%,
+    rgba($xui-color-black, 0) 100%
+  );
+}
+
 // stylelint-disable-next-line a11y/media-prefers-reduced-motion
 @mixin xui-table-sortbutton($variant) {
   cursor: pointer;
@@ -36,18 +65,7 @@
   // Left aligned sort button: Always create space for the sort icon.
   &-active,
   .#{$ns}-#{$variant}cell:not(.#{$ns}-#{$variant}cell-rightaligned) &:not(&-rightaligned) {
-    overflow: inherit;
     padding-right: $xui-s-standard;
-    text-overflow: inherit;
-    white-space: inherit;
-    > span {
-      max-width: 100%;
-      overflow: inherit;
-      text-overflow: inherit;
-    }
-  }
-  .#{$ns}-#{$variant}headingcell-leftaligned & > span {
-    float: left;
   }
 
   // Right aligned sort button: Only create space for the sort icon when the sort icon is visible.

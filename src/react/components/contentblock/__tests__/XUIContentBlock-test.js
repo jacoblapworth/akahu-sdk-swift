@@ -47,7 +47,7 @@ describe('<XUI ContentBlock and ContentBlockItem/>', () => {
     const testActions = (
       <XUIActions
         primaryAction={
-          <XUIButton key="one" variant="primary" size="small">
+          <XUIButton key="one" variant="main" size="small">
             One
           </XUIButton>
         }
@@ -91,7 +91,7 @@ describe('<XUI ContentBlock and ContentBlockItem/>', () => {
     const testActions = (
       <XUIActions
         primaryAction={
-          <XUIButton key="one" variant="primary" size="small">
+          <XUIButton key="one" variant="main" size="small">
             One
           </XUIButton>
         }
@@ -135,7 +135,7 @@ describe('<XUI ContentBlock and ContentBlockItem/>', () => {
     const testActions = (
       <XUIActions
         primaryAction={
-          <XUIButton key="one" variant="primary" size="small">
+          <XUIButton key="one" variant="main" size="small">
             One
           </XUIButton>
         }
@@ -180,7 +180,7 @@ describe('<XUI ContentBlock and ContentBlockItem/>', () => {
     const testActions = (
       <XUIActions
         primaryAction={
-          <XUIButton key="one" variant="primary" size="small">
+          <XUIButton key="one" variant="main" size="small">
             One
           </XUIButton>
         }

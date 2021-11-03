@@ -20,6 +20,8 @@ async function build() {
   ]);
   await buildUmd();
   await buildServiceWorker();
+
+  process.exit();
 }
 
 module.exports = build;

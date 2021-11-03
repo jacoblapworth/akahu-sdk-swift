@@ -7,9 +7,9 @@
 @import '../vars';
 @import '../mixins';
 
-$input-text-vertical-padding-xsmall: ($xui-control-size-xsmall - $xui-s-standard) / 2 - 1px;
-$input-text-vertical-padding-small: ($xui-control-size-small - $xui-s-large) / 2 - 1px;
-$input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-s-xlarge) / 2 - 1px;
+$input-text-vertical-padding-xsmall: ($xui-control-size-xsmall - $xui-s-standard) * 0.5 - 1px;
+$input-text-vertical-padding-small: ($xui-control-size-small - $xui-s-large) * 0.5 - 1px;
+$input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-s-xlarge) * 0.5 - 1px;
 
 .#{$ns}-textinputwrapper {
   display: block;
@@ -93,6 +93,11 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-s-xlar
   &:not(.#{$ns}-textinput-cell) {
     @include xui-disabled-form-control;
     @include xui-disabled-form-control-state-borders;
+    .#{$ns}-textinput--sideelement-text,
+    .#{$ns}-textinput--sideelement-avatar,
+    .#{$ns}-avatar {
+      cursor: not-allowed;
+    }
   }
 
   .#{$ns}-textinput--input {
@@ -143,7 +148,6 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-s-xlar
 
 .#{$ns}-textinput--sideelement-text {
   @include xui-margin-vertical(0);
-  pointer-events: none;
 
   &:first-child {
     padding-left: $xui-s-standard;
@@ -157,7 +161,9 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-s-xlar
 }
 
 .#{$ns}-textinput--sideelement-avatar {
-  pointer-events: none;
+  .#{$ns}-avatar {
+    cursor: text;
+  }
 }
 
 .#{$ns}-textinput--sideelement-avatar,

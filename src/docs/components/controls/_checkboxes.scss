@@ -1,8 +1,8 @@
 // Checkbox
 //
-// Teaser: Select multiple items from a range of options
+// flags: updated
 //
-// flags: updatesComing
+// Teaser: Select multiple items from a range of options
 //
 // Introduction:
 // XUI provides a custom checkbox control for consistency across platforms and visual alignment with other form elements.
@@ -66,8 +66,6 @@
 // Styleguide: Components.Controls.Checkbox.3
 
 // Grouped checkboxes
-//
-// flags: updated
 //
 // To increase hit states and create visual similarity with other form elements, consider using a checkbox group.
 //
@@ -158,8 +156,6 @@
 // xui-styledcheckboxradio--checkbox: The html element that displays the checkmark, if not a custom icon.
 // xui-styledcheckboxradio--focus: Subcomponent for focus layer of an icon checkbox or radio
 // xui-styledcheckboxradio--main: Subcomponent for main layer of an icon checkbox or radio
-// xui-styledcheckboxradio--check: Subcomponent for checkmark layer of an icon checkbox or radio
-// xui-styledcheckboxradio--indeterminate: Subcomponent for indeterminate layer of an icon checkbox (not applicable to radios)
 // xui-styledcheckboxradio--label: Subcomponent for label text of a styled checkbox or radio
 // xui-styledcheckboxradio--message: Positions the message under the checkbox
 // xui-styledcheckboxradio-group-is-invalid: Changes the colour of the group to indicate it is invalid

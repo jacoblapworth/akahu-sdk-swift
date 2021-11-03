@@ -3,7 +3,6 @@
 @import '../../src/sass/vars';
 @import './mixins';
 @import './vars';
-@import './_flags';
 
 .ds-html {
   background: $ds-html-bg-color;
@@ -237,7 +236,7 @@ code {
     width: 100%;
   }
 
-  td:not(.xui-readonlytablecell) {
+  td:not(.xui-readonlytablecell, .xui-editabletablecell) {
     border: $xui-border-standard;
     padding: $xui-s-2xsmall $xui-s-xsmall;
   }
@@ -486,48 +485,21 @@ $kss-color-padding: #eeebff;
   &:first-of-type {
     border-top: 1px solid $ds-border-color;
   }
+}
 
-  .xui-text-cell {
-    padding: $xui-s-2xsmall 0 0;
-    @include xui-breakpoint-small-up {
-      padding: $xui-s-xsmall $xui-s-xsmall;
-    }
-
-    &:first-of-type {
-      padding-top: $xui-s-large;
-      white-space: nowrap;
-      width: 40%;
-      @include xui-breakpoint-small-up {
-        padding: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall 0;
-      }
-    }
-
-    &:last-of-type {
-      padding-bottom: $xui-s-large;
-      @include xui-breakpoint-small-up {
-        padding: $xui-s-xsmall 0 $xui-s-xsmall $xui-s-xsmall;
-      }
-    }
+.ds-classtable-classname {
+  padding: $xui-s-large 0 0 0;
+  white-space: nowrap;
+  width: 40%;
+  @include xui-breakpoint-small-up {
+    padding: $xui-s-xsmall $xui-s-xsmall $xui-s-xsmall 0;
   }
 }
 
-.ds-classtable-version {
+.ds-classtable-description {
+  padding: $xui-s-2xsmall 0 $xui-s-large;
   @include xui-breakpoint-small-up {
-    text-align: right;
-  }
-
-  .ds-flag {
-    background: $xui-color-white;
-    box-shadow: $xui-shadow-border-all;
-    color: $xui-text-primary-color;
-    line-height: $xui-line-height-compact;
-    margin-right: 0;
-    top: -0.1em;
-
-    &:hover,
-    &:focus {
-      color: $xui-text-primary-color;
-    }
+    padding: $xui-s-xsmall 0 $xui-s-xsmall $xui-s-xsmall;
   }
 }
 
@@ -1137,6 +1109,57 @@ $kss-color-padding: #eeebff;
       pointer-events: auto;
     }
   }
+}
+
+// -----------------------------------------------------------------------------
+// Status Flags
+// -----------------------------------------------------------------------------
+
+.ds-flag {
+  background: $ds-flag-bg-color;
+  border-radius: $xui-radius;
+  display: inline-block;
+  color: $xui-color-white;
+  font-size: $xui-font-size-xsmall;
+  font-weight: bold;
+  letter-spacing: $xui-letter-spacing-loose;
+  text-transform: uppercase;
+  padding: $xui-s-2xsmall $xui-s-xsmall;
+  margin-right: 0.2em;
+  position: relative;
+  text-decoration: none;
+  top: -0.2em;
+  &:nth-child(n + 2) {
+    margin-left: 0.8em;
+  }
+  .ds-title--level-1 & {
+    line-height: $xui-line-height-compact;
+  }
+  &:hover,
+  &:focus {
+    color: $xui-color-white;
+    text-decoration: underline;
+  }
+}
+
+.ds-status--sunsetting {
+  background: $xui-color-red;
+}
+
+.ds-status--wip {
+  background: $xui-color-orange;
+}
+
+.ds-status--updatescoming {
+  background: $xui-color-turquoise-dark;
+}
+
+.ds-status--new {
+  background: $xui-color-blue;
+}
+
+.ds-status--updated {
+  background: $xui-color-grape;
 }
 
 // -----------------------------------------------------------------------------

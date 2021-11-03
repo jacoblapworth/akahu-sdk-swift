@@ -143,23 +143,27 @@ class XUIStatefulPicklist extends Component {
    * @param {String} itemId id of the item
    */
   onClick(event, itemId) {
-    this.selectHighlighted(this.findItemById(itemId));
+    this.selectHighlighted(this.findItemById(itemId), event.isTrusted);
   }
 
   /**
-   * Fired when either the enter key or space bar is pressed and calls onclick of
-   * the menu item before closing the list.
+   * Fired when either the enter key or space bar is pressed and calls onclick of the menu item
+   * before closing the list.
    *
    * @public
    * @param {React.element} item to be selected
+   * @param {Boolean} isTrusted should be set to false when the event triggering the select is
+   * called programatically
    */
-  selectHighlighted(item) {
+  selectHighlighted(item, isTrusted = true) {
     const spl = this;
     const { value } = item.props;
 
-    spl.setState({
-      highlightedElement: item,
-    });
+    if (isTrusted) {
+      spl.setState({
+        highlightedElement: item,
+      });
+    }
 
     item.props.onSelect && item.props.onSelect(value, item);
     spl.props.onSelect && spl.props.onSelect(value, item);
@@ -310,6 +314,28 @@ class XUIStatefulPicklist extends Component {
             }
           } else {
             spl.selectHighlighted(spl.findItemById(el.props.id));
+
+            // Wait for the checkbox state to update before dispatching our custom onChange
+            setTimeout(() => {
+              const checkbox = getInstanceForChild(spl.idCache, el)?.checkboxRef.current?._input
+                .current;
+
+              if (!checkbox) {
+                return;
+              }
+
+              /**
+               * XUIStatefulPicklist doesn't trigger an onChange event when toggling the state of
+               * a checkbox with the keyboard. To work around this we fire a custom event that
+               * XUICheckboxRangeSelector can then listen for.
+               */
+              const customOnChange = new CustomEvent('xui-checkbox-onChange', {
+                bubbles: true,
+                detail: { isTrusted: true },
+                target: checkbox,
+              });
+              checkbox.dispatchEvent(customOnChange);
+            });
           }
         }
       } else if (isKeyArrow(event)) {

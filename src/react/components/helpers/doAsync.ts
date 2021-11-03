@@ -11,10 +11,11 @@
  * ```
  * @param {function} callback The function to call asynchronously
  */
-export default function doAsync<T>(callback: () => T): Promise<T> {
+export default function doAsync<T>(callback: () => T, useAnimationFrame = true): Promise<T> {
   /**
    * Using requestAnimationFrame instead of setTimeout allows us to ensure only one `doAsync` is
    * called each frame.
    */
-  return new Promise(resolve => requestAnimationFrame(() => resolve(callback())));
+  const asyncMethod = useAnimationFrame ? requestAnimationFrame : setTimeout;
+  return new Promise(resolve => asyncMethod(() => resolve(callback())));
 }

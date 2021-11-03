@@ -279,11 +279,9 @@ const TestScaffold = (
               <Cell
                 {...(tableProps.activeSortKey && !columnIndex && { sortKey: 'content' })}
                 className={hasHeaderClassName && 'xui-table-visualTesting-cell'}
-                hasWrapping={columnsProps && columnsProps[columnIndex]?.hasWrapping}
                 qaHook={cellHeadQaHook}
               >
-                {(columnsProps && columnsProps[columnIndex]?.content) ||
-                  `Header ${columnIndex + 1}`}
+                {`Header ${columnIndex + 1}`}
               </Cell>
             )
           }

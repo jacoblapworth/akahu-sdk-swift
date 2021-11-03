@@ -36,7 +36,10 @@ export default class XUISelectBox extends Component {
 
   ddt = React.createRef();
 
-  wrapperIds = generateIds(this.selectId);
+  // This is an atypical use of generateIds, in which we are using the *dropdown* ID purely
+  // as a root ID from which to generate the control and message IDs. If we one day allow
+  // SelectBox to accept a labelId prop, this will need to be re-engineered.
+  wrapperIds = generateIds({ labelId: this.selectId });
 
   isDropdownOpen = () => this.ddt.current?.isDropdownOpen();
 
@@ -261,7 +264,7 @@ XUISelectBox.propTypes = {
    * XUI design has also decided to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers (setting this to `'min'` will not override this).
    */
-  matchTriggerWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf([true, false, 'min'])]),
+  matchTriggerWidth: PropTypes.oneOf([true, false, 'min']),
 
   /** Optional callback to be executed when the trigger loses focus */
   onBlur: PropTypes.func,

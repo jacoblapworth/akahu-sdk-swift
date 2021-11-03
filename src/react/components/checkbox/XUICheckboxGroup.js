@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import { baseClass } from './constants';
 import XUICheckbox from './XUICheckbox';
+import XUICheckboxRangeSelector from './XUICheckboxRangeSelector';
 import XUIControlGroup from '../controlgroup/XUIControlGroup';
 
 /**
@@ -45,24 +46,26 @@ const XUICheckboxGroup = props => {
   );
 
   return (
-    <XUIControlGroup
-      groupClassName={groupClasses}
-      {...{
-        fieldClassName,
-        qaHook,
-        label,
-        labelId,
-        isInvalid,
-        isLockedVertical: true,
-        validationMessage,
-        hintMessage,
-        isFieldLayout,
-        labelClassName,
-        isLabelHidden,
-      }}
-    >
-      {childrenToRender}
-    </XUIControlGroup>
+    <XUICheckboxRangeSelector>
+      <XUIControlGroup
+        groupClassName={groupClasses}
+        {...{
+          fieldClassName,
+          qaHook,
+          label,
+          labelId,
+          isInvalid,
+          isLockedVertical: true,
+          validationMessage,
+          hintMessage,
+          isFieldLayout,
+          labelClassName,
+          isLabelHidden,
+        }}
+      >
+        {childrenToRender}
+      </XUIControlGroup>
+    </XUICheckboxRangeSelector>
   );
 };
 

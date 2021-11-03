@@ -29,7 +29,7 @@ interface BaseProps<RD extends RowData> {
    * for scrollable tables, to help screenreaders understand the scrollable element. This prop also
    * satisifies the 'ariaLabel' requirement for XUIEditableTable.
    */
-  caption?: string;
+  caption: string;
   /**
    * Describes the "all rows" checkbox functionality for accessibility. Required when `showHeader`
    * and `hasCheckbox` are set to true.
@@ -397,7 +397,7 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
 
   static propTypes = {
     activeSortKey: PropTypes.string,
-    caption: PropTypes.string,
+    caption: PropTypes.string.isRequired,
     checkAllRowsAriaLabel: PropTypes.node,
     checkedIds: PropTypes.object,
     checkOneRowAriaLabel: PropTypes.node,

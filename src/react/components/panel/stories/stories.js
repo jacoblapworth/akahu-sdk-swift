@@ -38,7 +38,7 @@ const buildActions = (props = {}) => (
   <XUIActions
     hasLayout={false}
     primaryAction={
-      <XUIButton className="xui-margin-left-xsmall" size="small" variant="primary">
+      <XUIButton className="xui-margin-left-xsmall" size="small" variant="main">
         {props.longContent ? 'ActionCompletion' : 'One'}
       </XUIButton>
     }

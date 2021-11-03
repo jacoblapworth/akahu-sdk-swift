@@ -28,44 +28,16 @@ const styles = ({ color, fontFamily, fontSize }) => ({
   heading6: {
     fontSize: fontSize.h6,
   },
-  wrapper: {
-    alignItems: 'flex-end',
-    display: 'flex',
-    flexDirection: 'row',
-  },
 });
 
-function HeadingRenderer({ classes, level, children, introduced, ...props }) {
+function HeadingRenderer({ classes, level, children, ...props }) {
   const Tag = `h${level}`;
   const headingClasses = cx(classes.heading, classes[`heading${level}`]);
 
-  let heading = children;
-  let versionIntroduced = introduced;
-
-  if (Array.isArray(children) && typeof children[0] === 'string') {
-    [heading, versionIntroduced] = children[0].split(' | ');
-  }
-
-  const headingURI = String(heading).trim().toLocaleLowerCase().replace(/\W/g, '-');
-
   return (
-    <div className={classes.wrapper}>
-      <Tag {...props} className={headingClasses}>
-        {heading}
-      </Tag>
-      {versionIntroduced && (
-        <a
-          aria-describedby={`${headingURI}-introduced`}
-          className="ds-flag ds-status--version"
-          href={`https://github.dev.xero.com/UXE/xui/releases/tag/${versionIntroduced}`}
-        >
-          {versionIntroduced}+
-          <span className="hover-tooltip hover-tooltip-below" id={`${headingURI}-introduced`}>
-            Introduced in XUI {versionIntroduced}
-          </span>
-        </a>
-      )}
-    </div>
+    <Tag {...props} className={headingClasses}>
+      {children}
+    </Tag>
   );
 }
 

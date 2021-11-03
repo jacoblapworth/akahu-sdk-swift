@@ -341,6 +341,9 @@ To format to 'LF', add the following flag in the jscodeshift command:
 --printOptions='{"lineTerminator":"\n"}'
 ```
 
+If you still have issues with files containing only line ending changes, try staging your files (`git add .`). This will allow git to convert files to the line endings it needs, without even needing to commit any files.
+If you want to change your line endings globally follow tips from this [comment](https://stackoverflow.com/a/67517481)
+
 ## Contributing to XUI
 
 We welcome contributions from anyone.

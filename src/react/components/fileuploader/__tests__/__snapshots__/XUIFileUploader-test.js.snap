@@ -47,6 +47,7 @@ exports[`<XUIFileUploader/> <FileList/> should render a custom filelist class 1`
         className="xui-fileuploader--fileitem--loading xui-fileuploader--fileitem--loading-indeterminate"
       >
         <div
+          aria-label="Uploading"
           aria-valuemax={4}
           aria-valuemin={0}
           aria-valuenow={1}
@@ -200,6 +201,7 @@ exports[`<XUIFileUploader/> <FileList/> should render a custom filelist class 1`
         className="xui-fileuploader--fileitem--icon"
       >
         <div
+          aria-label="Error"
           aria-valuemax={4}
           aria-valuemin={0}
           aria-valuenow={1}
@@ -335,6 +337,7 @@ exports[`<XUIFileUploader/> <FileList/> should render a custom filelist class 1`
         className="xui-fileuploader--fileitem--loading"
       >
         <div
+          aria-label="Uploading"
           aria-valuemax={100}
           aria-valuemin={0}
           aria-valuenow={50}
@@ -474,6 +477,7 @@ exports[`<XUIFileUploader/> <FileList/> should render basic example 1`] = `
         className="xui-fileuploader--fileitem--loading xui-fileuploader--fileitem--loading-indeterminate"
       >
         <div
+          aria-label="Uploading"
           aria-valuemax={4}
           aria-valuemin={0}
           aria-valuenow={1}
@@ -627,6 +631,7 @@ exports[`<XUIFileUploader/> <FileList/> should render basic example 1`] = `
         className="xui-fileuploader--fileitem--icon"
       >
         <div
+          aria-label="Error"
           aria-valuemax={4}
           aria-valuemin={0}
           aria-valuenow={1}
@@ -762,6 +767,7 @@ exports[`<XUIFileUploader/> <FileList/> should render basic example 1`] = `
         className="xui-fileuploader--fileitem--loading"
       >
         <div
+          aria-label="Uploading"
           aria-valuemax={100}
           aria-valuemin={0}
           aria-valuenow={50}
@@ -1006,6 +1012,7 @@ exports[`<XUIFileUploader/> <FileList/> should render with single line 1`] = `
         className="xui-fileuploader--fileitem--loading xui-fileuploader--fileitem--loading-indeterminate"
       >
         <div
+          aria-label="Uploading"
           aria-valuemax={4}
           aria-valuemin={0}
           aria-valuenow={1}
@@ -1149,6 +1156,7 @@ exports[`<XUIFileUploader/> <FileList/> should render with single line 1`] = `
         className="xui-fileuploader--fileitem--icon"
       >
         <div
+          aria-label="Error"
           aria-valuemax={4}
           aria-valuemin={0}
           aria-valuenow={1}
@@ -1284,6 +1292,7 @@ exports[`<XUIFileUploader/> <FileList/> should render with single line 1`] = `
         className="xui-fileuploader--fileitem--loading"
       >
         <div
+          aria-label="Uploading"
           aria-valuemax={100}
           aria-valuemin={0}
           aria-valuenow={50}
@@ -2970,6 +2979,7 @@ exports[`<XUIFileUploader/> <FileList/> should render without icons 1`] = `
         className="xui-fileuploader--fileitem--loading xui-fileuploader--fileitem--loading-indeterminate"
       >
         <div
+          aria-label="Uploading"
           aria-valuemax={4}
           aria-valuemin={0}
           aria-valuenow={1}
@@ -3107,6 +3117,7 @@ exports[`<XUIFileUploader/> <FileList/> should render without icons 1`] = `
         className="xui-fileuploader--fileitem--icon"
       >
         <div
+          aria-label="Error"
           aria-valuemax={4}
           aria-valuemin={0}
           aria-valuenow={1}
@@ -3242,6 +3253,7 @@ exports[`<XUIFileUploader/> <FileList/> should render without icons 1`] = `
         className="xui-fileuploader--fileitem--loading"
       >
         <div
+          aria-label="Uploading"
           aria-valuemax={100}
           aria-valuemin={0}
           aria-valuenow={50}
@@ -3381,6 +3393,7 @@ exports[`<XUIFileUploader/> <FileList/> should render without retry button 1`] =
         className="xui-fileuploader--fileitem--icon"
       >
         <div
+          aria-label="Error"
           aria-valuemax={4}
           aria-valuemin={0}
           aria-valuenow={1}

@@ -4,10 +4,10 @@ import cn from 'classnames';
 import { baseClass, typeMap } from './private/constants';
 import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
-import labelRequiredWarning from '../helpers/labelRequiredWarning';
+import labelRequiredError from '../helpers/labelRequiredError';
 
 const XUIToggleOption = props => {
-  const wrapperIds = generateIds(props.id);
+  const wrapperIds = generateIds({ id: props.id });
   const {
     ariaLabel,
     children,
@@ -28,7 +28,7 @@ const XUIToggleOption = props => {
   const labelRef = createRef();
 
   useEffect(() => {
-    labelRequiredWarning(
+    labelRequiredError(
       XUIToggleOption.name,
       ['includes a child with text', '`ariaLabel` provided'],
       [labelRef.current?.textContent, ariaLabel],

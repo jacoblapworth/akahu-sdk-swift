@@ -17,7 +17,7 @@ interface Props {
   /**
    * Determines what the purpose of this button is.
    */
-  variant?: 'create' | 'link' | 'negative' | 'primary' | 'standard' | 'unstyled';
+  variant?: 'create' | 'link' | 'negative' | 'main' | 'standard' | 'unstyled';
 }
 
 declare const XUISplitButtonGroup: React.FunctionComponent<Props>;

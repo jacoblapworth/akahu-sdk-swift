@@ -131,6 +131,9 @@ class XUIDateRangeInput extends Component {
     const selectedEndDate = selectedEndDateValue || this.state.selectedEndDate;
     const needsMessageSpace =
       startHintMessage || endHintMessage || startValidationMessage || endValidationMessage;
+    const isStartLabelVisible = startInputLabel && !isStartLabelHidden;
+    const isEndLabelVisible = endInputLabel && !isEndLabelHidden;
+    const needsLabelSpace = isStartLabelVisible || isEndLabelVisible;
     const isAnyDisabled = isStartDisabled || isEndDisabled || isGroupDisabled;
 
     const dateInputDropdown = suggestedDates && (
@@ -160,7 +163,6 @@ class XUIDateRangeInput extends Component {
           !suggestedDates && `${baseClass}--onlyinputs`,
         )}
         hintMessage={groupHintMessage}
-        isBottomAligned // This can be overridden via groupSpread
         isDisabled={isGroupDisabled}
         isInvalid={isGroupInvalid}
         isLabelHidden={isGroupLabelHidden}
@@ -180,6 +182,7 @@ class XUIDateRangeInput extends Component {
               !startHintMessage &&
               !startValidationMessage &&
               `${baseClass}--firstinput-withspace`,
+            needsLabelSpace && !isStartLabelVisible && `${baseClass}--firstinput-withlabelspace`,
           )}
           inputLabel={startInputLabel}
           isDisabled={isStartDisabled || isGroupDisabled}
@@ -213,6 +216,7 @@ class XUIDateRangeInput extends Component {
               !endHintMessage &&
               !endValidationMessage &&
               `${baseClass}--secondinput-withspace`,
+            needsLabelSpace && !isEndLabelVisible && `${baseClass}--secondinput-withlabelspace`,
           )}
           inputLabel={endInputLabel}
           isDisabled={isEndDisabled || isGroupDisabled}
@@ -238,6 +242,7 @@ class XUIDateRangeInput extends Component {
             className={cn(
               `${baseClass}--suggested`,
               needsMessageSpace && `${baseClass}--suggested-withspace`,
+              needsLabelSpace && `${baseClass}--suggested-withlabelspace`,
               isAnyDisabled && `${baseClass}--suggested-disabled`,
             )}
             closeOnSelect={closeOnSelect}

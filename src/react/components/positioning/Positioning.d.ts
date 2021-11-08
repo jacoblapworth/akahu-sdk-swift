@@ -13,17 +13,17 @@ interface Props {
    */
   isNotResponsive?: boolean;
   /**
+   * True when the component is rendered but not displayed.
+   */
+  isVisible?: boolean;
+  /**
    * Setting this to `true` makes the dropdown as wide as the trigger.
    *
    * Setting this to `false` will allow the dropdown's width to be set independent of the trigger width.
    *
    * Setting this to `'min'` will set the dropdown's `min-width` to be the trigger width.
    */
-  isTriggerWidthMatched?: boolean | true | false | 'min';
-  /**
-   * True when the component is rendered but not displayed.
-   */
-  isVisible?: boolean;
+  matchTriggerWidth?: true | false | 'min';
   /**
    * Setting a number here will force the maximum height of the child to be the number provided (in
    * pixels) if the viewport is too big. When the viewport is smaller than this number, it still

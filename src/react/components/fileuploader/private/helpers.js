@@ -112,11 +112,13 @@ export const defaultProps = {
   defaultErrorMessage: 'Failed to upload file',
   deleteLabel: 'Delete file',
   dropZoneMessage: 'Drag and drop file(s) or select manually',
+  errorIconAriaLabel: 'Error',
   fileList: [],
   // Usually the file won't be that large, but it's better to include all units
   fileSizeUnits: ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
   label: 'Label',
   retryButtonText: 'Retry',
+  uploadingIconAriaLabel: 'Uploading',
   uploadingMessage: 'Uploading...',
   onDelete: () => {},
   onFilesChange: () => {},

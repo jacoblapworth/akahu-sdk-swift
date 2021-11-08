@@ -4,7 +4,7 @@ interface Props {
    *
    * Recommended English value: *Pagination*
    */
-  ariaLabel?: string;
+  ariaLabel: string;
   className?: string;
   /**
    * The total number of data items

@@ -22,6 +22,7 @@ const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 const toggleOptions = [
   {
+    id: 'testIdHere',
     isChecked: true,
     name: 'tg1',
     value: 'toggle1',

@@ -366,6 +366,6 @@ XUITooltip.defaultProps = {
   preferredPosition: 'top',
   triggerOnBlur: true,
   triggerOnClick: false,
-  triggerOnFocus: false,
+  triggerOnFocus: true,
   triggerOnHover: true,
 };

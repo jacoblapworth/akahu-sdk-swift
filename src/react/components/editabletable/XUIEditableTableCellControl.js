@@ -8,7 +8,7 @@ import XUIEditableTableContext from './contexts/XUIEditableTableContext';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import DragDropDraggingContext from './private/DragAndDrop/contexts/DragDropDraggingContext';
 import XUIEditableTableCell from './XUIEditableTableCell';
-import generateIds, { generateIdsFromControlId, getAriaAttributes } from '../helpers/ariaHelpers';
+import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 import useResizeObserver from '../helpers/useResizeObserver';
 
 const baseName = `${tableVariantClassNames.editable}cell`;
@@ -30,9 +30,7 @@ const XUIEditableTableCellControl = ({
   const { draggedRowIndex } = React.useContext(DragDropDraggingContext);
 
   const showValidationMessage = isInvalid && validationMessage;
-  const wrapperIds = cellIds?.control
-    ? generateIdsFromControlId(cellIds?.control)
-    : generateIds(cellIds?.wrapper);
+  const wrapperIds = generateIds({ labelId: cellIds?.wrapper, id: cellIds?.control });
   const cellAttributes =
     showValidationMessage && getAriaAttributes(wrapperIds, { isInvalid, validationMessage });
 

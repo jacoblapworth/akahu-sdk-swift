@@ -153,7 +153,7 @@ class PositioningInline extends Positioning {
    */
   getStyles = () => {
     const { maxHeight, maxWidth, side, alignment } = this.state;
-    const { isTriggerWidthMatched, parentRef, isNotResponsive, isVisible } = this.props;
+    const { matchTriggerWidth, parentRef, isNotResponsive, isVisible } = this.props;
 
     const isMobile = isNarrowViewport() && !isNotResponsive;
     let width = null;
@@ -162,12 +162,12 @@ class PositioningInline extends Positioning {
 
     const canMatchTriggerWidth = !isMobile && parentRef != null && parentRef.firstChild != null;
 
-    if (isTriggerWidthMatched === true && canMatchTriggerWidth) {
+    if (matchTriggerWidth === true && canMatchTriggerWidth) {
       ({ width } = parentRef.firstChild.getBoundingClientRect());
       newMaxWidth = null;
     }
 
-    if (isTriggerWidthMatched === 'min' && canMatchTriggerWidth) {
+    if (matchTriggerWidth === 'min' && canMatchTriggerWidth) {
       minWidth = parentRef.firstChild.getBoundingClientRect().width;
     }
 
@@ -188,19 +188,14 @@ class PositioningInline extends Positioning {
       }
     }
 
-    const styles = {
+    return {
       maxHeight: isMobile ? null : maxHeight,
       width,
       marginLeft,
       marginRight,
       maxWidth: newMaxWidth,
+      minWidth,
     };
-
-    if (minWidth !== null) {
-      styles.minWidth = minWidth;
-    }
-
-    return styles;
   };
 
   render() {
@@ -233,18 +228,14 @@ PositioningInline.propTypes = {
   className: PropTypes.string,
   /** Force the desktop UI, even if the viewport is narrow enough for mobile. */
   isNotResponsive: PropTypes.bool,
+  /** true when the component is rendered but not displayed */
+  isVisible: PropTypes.bool,
   /**
    * Setting this to `true` makes the dropdown as wide as the trigger.
    * Setting this to `false` will allow the dropdown's width to be set independent of the trigger width.
    * Setting this to `'min'` will set the dropdown's `min-width` to be the trigger width.
    */
-  isTriggerWidthMatched: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.oneOf([true, false, 'min']),
-  ]),
-  /** true when the component is rendered but not displayed */
-  isVisible: PropTypes.bool,
-
+  matchTriggerWidth: PropTypes.oneOf([true, false, 'min']),
   /**
    * Setting a number here will force the maximum size of the child to be the number
    * provided (in pixels). When the viewport is smaller than this number, it still
@@ -281,7 +272,7 @@ PositioningInline.propTypes = {
 
 PositioningInline.defaultProps = {
   isNotResponsive: false,
-  isTriggerWidthMatched: false,
+  matchTriggerWidth: false,
   preferredPosition: 'bottom',
   shouldRestrictMaxHeight: true,
   triggerDropdownGap: 10,

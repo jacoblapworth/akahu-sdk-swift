@@ -67,12 +67,10 @@ const standardTabs = [
 
 const longTabs = [
   {
-    name:
-      'The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog',
+    name: 'The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog',
   },
   {
-    name:
-      'The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog',
+    name: 'The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog',
     description:
       'The quick brown fox jumped over the lazy dog, The quick brown fox jumped over the lazy dog',
     isComplete: true,

@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-const createTotalCharacterReducer = maxWidth => ({ totalWidth = 20, totalChars = 0 }, node) => {
-  const charWidth = node.getComputedTextLength();
-  const newWidth = totalWidth + charWidth;
+const createTotalCharacterReducer =
+  maxWidth =>
+  ({ totalWidth = 20, totalChars = 0 }, node) => {
+    const charWidth = node.getComputedTextLength();
+    const newWidth = totalWidth + charWidth;
 
-  return newWidth > maxWidth
-    ? { totalWidth, totalChars }
-    : { totalWidth: newWidth, totalChars: totalChars + 1 };
-};
+    return newWidth > maxWidth
+      ? { totalWidth, totalChars }
+      : { totalWidth: newWidth, totalChars: totalChars + 1 };
+  };
 
 class TruncatedText extends PureComponent {
   rootNode = React.createRef();

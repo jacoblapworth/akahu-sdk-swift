@@ -26,7 +26,7 @@ describe('<XUIControlWrapperInline>', () => {
   let settings, genIds, setIds;
   beforeEach(() => {
     genIds = generateIds();
-    setIds = generateIds('testSpecificLabel');
+    setIds = generateIds({ labelId: 'testSpecificLabel' });
     settings = {
       fieldClassName: undefined,
       labelId: undefined,

@@ -83,10 +83,6 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
   text-decoration: none; // In case pickitem body element is a link
   width: 100%;
 
-  // In the specific context of a dropdownfooter, pickitems should be blue.
-  .#{$ns}-dropdown--footer--picklist & {
-    color: $xui-action-primary-color;
-  }
   .#{$ns}-pickitem:not(.#{$ns}-pickitem-is-disabled) > & {
     &:hover,
     &:focus {

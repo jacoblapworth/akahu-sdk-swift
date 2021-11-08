@@ -33,7 +33,7 @@ const dropdownWithTrigger = (
       </XUIDropdown>
     }
     key="ddt"
-    trigger={<XUISplitButton aria-label="Other actions" key="split3" variant="primary" />}
+    trigger={<XUISplitButton aria-label="Other actions" key="split3" variant="main" />}
   />
 );
 

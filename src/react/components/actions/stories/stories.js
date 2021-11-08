@@ -21,7 +21,7 @@ import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
 const splitButtonExample = hasDropdown => (
-  <XUISplitButtonGroup variant="primary">
+  <XUISplitButtonGroup variant="main">
     <XUIButton>Split action</XUIButton>
     {hasDropdown ? (
       <XUIDropdownToggled
@@ -37,16 +37,16 @@ const splitButtonExample = hasDropdown => (
             </XUIPicklist>
           </XUIDropdown>
         }
-        trigger={<XUISecondaryButton aria-label="Other actions" key="split" variant="primary" />}
+        trigger={<XUISecondaryButton aria-label="Other actions" key="split" variant="main" />}
       />
     ) : (
-      <XUISecondaryButton aria-label="Other actions" key="split" variant="primary" />
+      <XUISecondaryButton aria-label="Other actions" key="split" variant="main" />
     )}
   </XUISplitButtonGroup>
 );
 
 const simpleButton = (
-  <XUIButton href="https://www.xero.com" variant="primary">
+  <XUIButton href="https://www.xero.com" variant="main">
     Xero
   </XUIButton>
 );

@@ -14,7 +14,7 @@ exports[`<PickitemMultiselect /> basic example 1`] = `
     >
       <input
         aria-labelledby="xui-testPickitemCheckboxId"
-        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small xui-pickitem--input"
         defaultChecked={false}
         disabled={false}
         onChange={[Function]}
@@ -60,7 +60,7 @@ exports[`<PickitemMultiselect /> is selected, adds truncation and custom classes
       <input
         aria-labelledby="xui-testPickitemCheckboxId"
         checked={true}
-        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+        className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small xui-pickitem--input"
         disabled={false}
         onChange={[Function]}
         required={false}

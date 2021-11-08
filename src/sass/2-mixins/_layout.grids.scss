@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use 'sass:meta';
 
 @import 'utilities';
@@ -19,7 +20,7 @@
 
 @mixin xui-column-width-generator($numberofcolumns, $columnpercentage, $gutter: 0) {
   $calculated-width: 100;
-  $single-column-width: 100 / $numberofcolumns;
+  $single-column-width: math.div(100, $numberofcolumns);
 
   $calculated-width: $single-column-width * $columnpercentage;
   $truncated-width: xui-truncate-number($calculated-width);
@@ -52,7 +53,7 @@
   }
   @for $i from $xui-layout-column-start through $xui-layout-columns {
     $suffix: '#{$i}-of-#{$xui-layout-columns}';
-    $width: decimal-floor(100% / 12 * $i, 2);
+    $width: decimal-floor(math.div(100%, 12) * $i, 2);
 
     @if ($padded == false) {
       @include xui-breakpoint-large-up {

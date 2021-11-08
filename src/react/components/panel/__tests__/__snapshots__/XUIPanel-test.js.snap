@@ -9,6 +9,7 @@ exports[`<XUI Panel and related components/> renders a panel with all the bells 
   >
     <ul
       className="xui-picklist xui-picklist-layout xui-picklist-medium"
+      onChange={[Function]}
     >
       <li
         aria-selected={null}

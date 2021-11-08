@@ -61,66 +61,65 @@ class StackedBar extends PureComponent {
     );
   };
 
-  createStackThunk = ({ ratio, barZeroBase, barLeft, barWidth, barStacks }) => (
-    barStack,
-    stackIndex,
-  ) => {
-    const {
-      isBarStacked,
-      onBarClick,
-      isToolTipHidden,
-      colorStacks,
-      colorActive,
-      activeBars,
-      index: barIndex,
-      datum: barData,
-    } = this.props;
-    const { id: barId } = barData;
-    const testIsActive = (activeBars[barId] || []).indexOf(stackIndex) >= 0;
-    const stackTop = createStackTop({
-      barZeroBase,
-      barStacks,
-      ratio,
-      stackIndex,
-    });
-    const stackHeight = createStackHeight(barStack * ratio);
-    const interactionParams = createInteractionParams(isBarStacked, {
-      ...barData,
-      barIndex,
-      stackIndex,
-    });
-    const clickProps = onBarClick && {
-      onClick: event => onBarClick(event, interactionParams),
-      style: { cursor: 'pointer' },
-    };
-    const toolTipProps = !isToolTipHidden && {
-      onMouseEnter: event => this.handleToolTipShow(event, interactionParams),
-      onMouseLeave: this.handleToolTipHide,
-    };
+  createStackThunk =
+    ({ ratio, barZeroBase, barLeft, barWidth, barStacks }) =>
+    (barStack, stackIndex) => {
+      const {
+        isBarStacked,
+        onBarClick,
+        isToolTipHidden,
+        colorStacks,
+        colorActive,
+        activeBars,
+        index: barIndex,
+        datum: barData,
+      } = this.props;
+      const { id: barId } = barData;
+      const testIsActive = (activeBars[barId] || []).indexOf(stackIndex) >= 0;
+      const stackTop = createStackTop({
+        barZeroBase,
+        barStacks,
+        ratio,
+        stackIndex,
+      });
+      const stackHeight = createStackHeight(barStack * ratio);
+      const interactionParams = createInteractionParams(isBarStacked, {
+        ...barData,
+        barIndex,
+        stackIndex,
+      });
+      const clickProps = onBarClick && {
+        onClick: event => onBarClick(event, interactionParams),
+        style: { cursor: 'pointer' },
+      };
+      const toolTipProps = !isToolTipHidden && {
+        onMouseEnter: event => this.handleToolTipShow(event, interactionParams),
+        onMouseLeave: this.handleToolTipHide,
+      };
 
-    return (
-      <Fragment key={stackIndex}>
-        <rect
-          {...{ ...clickProps, ...toolTipProps }}
-          fill={colorStacks[stackIndex]}
-          height={stackHeight}
-          width={barWidth}
-          x={barLeft}
-          y={stackTop}
-        />
-        {testIsActive && (
+      return (
+        <Fragment key={stackIndex}>
           <rect
-            fill={colorActive}
+            {...{ ...clickProps, ...toolTipProps }}
+            fill={colorStacks[stackIndex]}
             height={stackHeight}
-            style={{ pointerEvents: 'none' }}
             width={barWidth}
             x={barLeft}
             y={stackTop}
           />
-        )}
-      </Fragment>
-    );
-  };
+          {testIsActive && (
+            <rect
+              fill={colorActive}
+              height={stackHeight}
+              style={{ pointerEvents: 'none' }}
+              width={barWidth}
+              x={barLeft}
+              y={stackTop}
+            />
+          )}
+        </Fragment>
+      );
+    };
 
   render = () => {
     const {

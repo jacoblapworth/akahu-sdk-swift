@@ -30,8 +30,8 @@ import ExampleContainer from './docs/ExampleContainer';
 <div>
   <h3>Regular buttons</h3>
   <div className="xui-padding-small">
-    <XUIButton className="xui-margin-right-small" variant="primary">
-      Primary
+    <XUIButton className="xui-margin-right-small" variant="main">
+      Main
     </XUIButton>
     <XUIButton className="xui-margin-right-small" variant="create">
       Create
@@ -48,8 +48,8 @@ import ExampleContainer from './docs/ExampleContainer';
     <XUIButton className="xui-margin-right-small" variant="borderless-standard">
       Borderless standard
     </XUIButton>
-    <XUIButton className="xui-margin-right-small" variant="borderless-primary">
-      Borderless primary
+    <XUIButton className="xui-margin-right-small" variant="borderless-main">
+      Borderless main
     </XUIButton>
     <XUIButton className="xui-margin-right-small" variant="borderless-create">
       Borderless create
@@ -63,8 +63,8 @@ import ExampleContainer from './docs/ExampleContainer';
   </div>
   <h3>Inverted buttons</h3>
   <ExampleContainer className="xui-padding-xsmall" isInverted>
-    <XUIButton className="xui-margin-right-small" isInverted variant="primary">
-      Primary inverted
+    <XUIButton className="xui-margin-right-small" isInverted variant="main">
+      Main inverted
     </XUIButton>
     <XUIButton className="xui-margin-right-small" isInverted variant="create">
       Create inverted
@@ -115,12 +115,12 @@ import XUIButton from '@xero/xui/react/button';
 
 <div>
   <div className="xui-margin-bottom">
-    <XUIButton variant="primary" fullWidth="always">
+    <XUIButton variant="main" fullWidth="always">
       Full-width
     </XUIButton>
   </div>
   <div>
-    <XUIButton variant="primary" fullWidth="small-down">
+    <XUIButton variant="main" fullWidth="small-down">
       Full-width at small breakpoint
     </XUIButton>
   </div>
@@ -208,20 +208,15 @@ The `hasMinLoaderWidth` prop modifies the button by applying a 75px min width on
 import XUIButton from '@xero/xui/react/button';
 
 <div>
-  <XUIButton className="xui-margin-right-small" variant="primary" loadingAriaLabel="Loading">
+  <XUIButton className="xui-margin-right-small" variant="main" loadingAriaLabel="Loading">
+    Button with lots of text
+  </XUIButton>
+  <XUIButton className="xui-margin-right-small" variant="main" isLoading loadingAriaLabel="Loading">
     Button with lots of text
   </XUIButton>
   <XUIButton
     className="xui-margin-right-small"
-    variant="primary"
-    isLoading
-    loadingAriaLabel="Loading"
-  >
-    Button with lots of text
-  </XUIButton>
-  <XUIButton
-    className="xui-margin-right-small"
-    variant="primary"
+    variant="main"
     isLoading
     loadingAriaLabel="Loading"
     retainLayout={false}
@@ -241,13 +236,13 @@ import XUIButton from '@xero/xui/react/button';
   </XUIButton>
   <XUIButton
     className="xui-margin-right-small"
-    variant="primary"
+    variant="main"
     loadingAriaLabel="Loading"
     hasMinLoaderWidth
   >
     OK
   </XUIButton>
-  <XUIButton variant="primary" isLoading loadingAriaLabel="Loading" hasMinLoaderWidth>
+  <XUIButton variant="main" isLoading loadingAriaLabel="Loading" hasMinLoaderWidth>
     OK
   </XUIButton>
 </div>;

@@ -11,7 +11,7 @@ interface BaseProps {
    * A non-visible description of the table for accessibility purposes. Particularly useful
    * for scrollable tables, to help screenreaders understand the scrollable element.
    */
-  ariaLabel?: string;
+  ariaLabel: string;
   children?: React.ReactNode;
   className?: string;
   /**

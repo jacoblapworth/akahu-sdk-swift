@@ -19,7 +19,7 @@ expect.extend(toHaveNoViolations);
 describe('<XUIIsolationHeader>', () => {
   const actions = (
     <React.Fragment>
-      <XUIButton size="small" variant="primary">
+      <XUIButton size="small" variant="main">
         Primary
       </XUIButton>
       <XUIButton size="small" variant="standard">

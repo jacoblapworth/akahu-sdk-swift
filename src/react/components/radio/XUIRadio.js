@@ -8,7 +8,8 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
-import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
+import labelRequiredError, { textChildOrLabelId } from '../helpers/labelRequiredError';
+import shouldRender from '../helpers/shouldRender';
 
 /**
  * @function handleLabelClick - Prevent 2 click events bubbling. Since our input is
@@ -30,8 +31,8 @@ const onLabelClick = e => {
  * @param svgSettings - Object containing optional svg properties (classname, icon paths)
  *
  */
-const buildSvgRadio = (qaHook, { svgClassName, iconMain }) => {
-  const svgClasses = cn(`${ns}-icon`, svgClassName);
+const buildSvgRadio = (qaHook, { radioElementClassName, iconMain }) => {
+  const svgClasses = cn(`${ns}-icon`, radioElementClassName);
   return (
     <div className={`${ns}-iconwrapper`}>
       <svg
@@ -52,14 +53,14 @@ const buildSvgRadio = (qaHook, { svgClassName, iconMain }) => {
 /**
  * @function buildHtmlRadio - build the HTML version of the radio control
  * @param qaHook - Optional hook label
- * @param htmlClassName - Optional classname to add to html version of radio
+ * @param className - Optional classname to add to html version of radio
  * @param calculatedSize - String to specify the size of the radio
  *
  */
-const buildHtmlRadio = (qaHook, htmlClassName, calculatedSize) => {
+const buildHtmlRadio = (qaHook, className, calculatedSize) => {
   const htmlClasses = cn(
     `${baseClass}--radio`,
-    htmlClassName,
+    className,
     calculatedSize && `${baseClass}--radio-${calculatedSize}`,
   );
   return (
@@ -87,12 +88,11 @@ const buildRadio = (qaHook, htmlClassName, svgSettings, calculatedSize) => {
 
 const XUIRadio = props => {
   // User can manually provide an id, or we will generate one.
-  const wrapperIds = generateIds(props.labelId);
+  const wrapperIds = generateIds({ labelId: props.labelId, id: props.id });
   const {
     children,
     className,
     hintMessage,
-    htmlClassName,
     iconMain,
     id,
     inputProps: radioInputProps,
@@ -108,9 +108,9 @@ const XUIRadio = props => {
     name,
     onChange,
     qaHook,
+    radioElementClassName,
     role,
     size,
-    svgClassName,
     tabIndex,
     validationMessage,
     value,
@@ -123,7 +123,7 @@ const XUIRadio = props => {
 
   const classes = cn(
     baseClass,
-    isReversed && `${baseClass}-reversed`,
+    isReversed && shouldRender(children) && !isLabelHidden && `${baseClass}-reversed`,
     isDisabled && `${ns}-styledcheckboxradio-is-disabled`,
   );
 
@@ -152,12 +152,12 @@ const XUIRadio = props => {
     ...getAriaAttributesInline(wrapperIds, props),
   };
   const svgSettings = {
-    svgClassName,
     iconMain,
+    radioElementClassName,
   };
 
   useEffect(() => {
-    labelRequiredWarning(XUIRadio.name, textChildOrLabelId, [
+    labelRequiredError(XUIRadio.name, textChildOrLabelId, [
       labelRef.current?.textContent && !isLabelHidden,
       typeof children?.[0] === 'string',
       props.labelId,
@@ -198,12 +198,13 @@ const XUIRadio = props => {
           `${baseClass}--input`,
           inputProps.className,
           calculatedSize && `${baseClass}--input-${calculatedSize}`,
+          radioElementClassName,
         )}
         data-automationid={qaHook && `${qaHook}--input`}
         role={role}
         {...inputProps}
       />
-      {buildRadio(qaHook, htmlClassName, svgSettings, calculatedSize)}
+      {buildRadio(qaHook, radioElementClassName, svgSettings, calculatedSize)}
     </XUIControlWrapperInline>
   );
 };
@@ -217,9 +218,6 @@ XUIRadio.propTypes = {
   /** Hint message to show under the input */
   hintMessage: PropTypes.node,
 
-  /** Additional class names for the html input */
-  htmlClassName: PropTypes.string,
-
   /** The icon path to use for the radio */
   iconMain: PropTypes.shape({
     height: PropTypes.number.isRequired,
@@ -228,7 +226,6 @@ XUIRadio.propTypes = {
   }),
 
   id: PropTypes.string,
-
   /** Props to be spread onto the radio type of the input element itself */
   inputProps: PropTypes.object,
 
@@ -272,14 +269,14 @@ XUIRadio.propTypes = {
 
   qaHook: PropTypes.string,
 
+  /** Additional class names for the input and html/svg elements */
+  radioElementClassName: PropTypes.string,
+
   /** Role to be applied for screen readers */
   role: PropTypes.string,
 
   /** Size variant. Defaults to medium */
   size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
-
-  /** Additional class names on the svg element  */
-  svgClassName: PropTypes.string,
 
   /** The tabindex property to place on the radio input */
   tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

@@ -35,6 +35,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
         <div
           className="xui-textinput xui-textinput-medium"
           data-automationid="baseAC"
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"
@@ -95,6 +96,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
         <div
           className="xui-textinput xui-textinput-medium"
           data-automationid={null}
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"
@@ -155,6 +157,7 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
         <div
           className="xui-textinput xui-textinput-medium"
           data-automationid={null}
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"
@@ -223,6 +226,7 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
         <div
           className="xui-textinput xui-textinput-medium"
           data-automationid={null}
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"
@@ -283,6 +287,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
         <div
           className="xui-textinput xui-textinput-medium"
           data-automationid={null}
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"
@@ -343,6 +348,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
         <div
           className="xui-textinput xui-textinput-medium"
           data-automationid={null}
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"
@@ -403,6 +409,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
         <div
           className="xui-textinput xui-textinput-medium"
           data-automationid={null}
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"
@@ -464,6 +471,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
         <div
           className="xui-textinput xui-textinput-medium"
           data-automationid={null}
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"
@@ -526,6 +534,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
         <div
           className="xui-textinput xui-textinput-medium"
           data-automationid={null}
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"
@@ -588,6 +597,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
         <div
           className="xui-textinput xui-textinput-medium"
           data-automationid={null}
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"
@@ -649,6 +659,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
         <div
           className="xui-textinput xui-textinput-medium"
           data-automationid={null}
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"
@@ -709,6 +720,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
         <div
           className="xui-textinput xui-textinput-medium xui-textinput-is-disabled"
           data-automationid={null}
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"
@@ -770,6 +782,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
         <div
           className="xui-textinput xui-textinput-medium"
           data-automationid={null}
+          onClick={[Function]}
         >
           <input
             aria-autocomplete="list"

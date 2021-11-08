@@ -7,6 +7,7 @@ const config = {
   roots: ['<rootDir>/.plop/', '<rootDir>/src/react/components'],
   testRegex: '-test\\.((j|t)sx?)$',
   testResultsProcessor: 'jest-teamcity-reporter',
+  testRunner: 'jest-jasmine2',
   testEnvironment: 'jsdom',
   moduleDirectories: ['node_modules'],
   collectCoverageFrom: [

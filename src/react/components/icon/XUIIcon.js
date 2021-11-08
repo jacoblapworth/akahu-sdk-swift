@@ -12,18 +12,8 @@ import {
 } from './private/constants';
 
 const XUIIcon = React.forwardRef((props, ref) => {
-  const {
-    className,
-    qaHook,
-    size,
-    title,
-    description,
-    role,
-    rotation,
-    color,
-    icon,
-    isBoxed,
-  } = props;
+  const { className, qaHook, size, title, description, role, rotation, color, icon, isBoxed } =
+    props;
 
   const svgClasses = cn(
     baseClass,

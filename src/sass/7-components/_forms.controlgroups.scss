@@ -148,6 +148,10 @@
 .#{$ns}-controlgroup {
   display: grid;
 
+  &:not(.#{$ns}-controlgroup-is-bottomaligned) {
+    align-items: start;
+  }
+
   &-is-bottomaligned {
     align-items: end;
   }

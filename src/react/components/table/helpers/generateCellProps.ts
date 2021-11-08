@@ -22,6 +22,7 @@ function handleCellInteraction<RD extends RowData>(
 
 function generateCellProps<RD extends RowData>(
   cell: XUITableCell<RD>,
+  column: XUITableColumn<RD>,
   columnIndex: number,
   columns: Array<XUITableColumn<RD>>,
   isCellClickable: boolean,
@@ -37,6 +38,9 @@ function generateCellProps<RD extends RowData>(
     whiteSpace: isTruncated ? 'nowrap' : undefined,
   };
 
+  const isEndAligned = columnIndex === columns.length - 1 && !hasOverflowMenu ? 'end' : 'start';
+  const cellAlignment = column.props.inlineAlignment || isEndAligned;
+
   return {
     className: cn(
       cell.props.className,
@@ -44,10 +48,6 @@ function generateCellProps<RD extends RowData>(
       isCellClickable && `${tableName}cell-link`,
       `${tableName}cell`,
       hasCellPrecedence && `${tableName}cell-hasprecedence`,
-      columnIndex === columns.length - 1 &&
-        !hasOverflowMenu &&
-        columns[columnIndex].props.inlineAlignment !== 'start' &&
-        `${tableName}cell-rightaligned`,
       className,
     ),
     id: cell.props.id,
@@ -57,6 +57,7 @@ function generateCellProps<RD extends RowData>(
       rowData && isCellClickable && handleCellInteraction(event, rowData, cell.props.onCellClick),
     style: generatedStyle,
     tabIndex: isCellClickable ? 0 : undefined,
+    inlineAlignment: cellAlignment,
   };
 }
 

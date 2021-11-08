@@ -127,6 +127,71 @@ class Example extends PureComponent {
 <Example />;
 ```
 
+### Range selection
+
+Range selection allows users to select a range of checkboxes by holding the `Shift` key.
+
+XUI components that come with checkboxes such as checkbox groups, picklists, and tables
+have range selection built in.
+
+To add this behaviour to your own components you will need to wrap the group of checkboxes in a single
+`XUICheckboxRangeSelector`.
+
+Checkboxes can be excluded from range selection with the `excludeFromRangeSelection` prop. We recommend
+doing this for checkboxes that control other checkboxes (e.g. a checkbox that checks all other
+checkboxes).
+
+If you need more than one group of checkboxes nested under a single `XUICheckboxRangeSelector` you
+can specify the group a checkbox belongs to with the `rangeSelectionGroup` prop.
+
+```jsx harmony
+import XUICheckbox, { XUICheckboxRangeSelector } from '@xero/xui/react/checkbox';
+
+const Example = () => {
+  const [selectedItems, setSelectedItems] = React.useState([false, false, false]);
+
+  const toggleCheckbox = index => {
+    setSelectedItems(previousState => {
+      const newSelectedItems = [...previousState];
+      newSelectedItems[index] = !selectedItems[index];
+      return newSelectedItems;
+    });
+  };
+
+  const toggleAll = () => {
+    const newCheckedState = !selectedItems.every(item => item);
+
+    setSelectedItems([newCheckedState, newCheckedState, newCheckedState]);
+  };
+
+  return (
+    <XUICheckboxRangeSelector>
+      <XUICheckbox
+        excludeFromRangeSelection
+        isChecked={selectedItems.every(item => item)}
+        isIndeterminate={
+          !selectedItems.every(item => item) && selectedItems.filter(item => item).length > 0
+        }
+        onChange={toggleAll}
+      >
+        All
+      </XUICheckbox>
+      <XUICheckbox isChecked={selectedItems[0]} onChange={() => toggleCheckbox(0)}>
+        Item 1
+      </XUICheckbox>
+      <XUICheckbox isChecked={selectedItems[1]} onChange={() => toggleCheckbox(1)}>
+        Item 2
+      </XUICheckbox>
+      <XUICheckbox isChecked={selectedItems[2]} onChange={() => toggleCheckbox(2)}>
+        Item 3
+      </XUICheckbox>
+    </XUICheckboxRangeSelector>
+  );
+};
+
+<Example />;
+```
+
 ### Disabled
 
 ```jsx harmony

@@ -55,9 +55,8 @@ const FileList = ({
             hideRetryButton,
           } = file;
 
-          const roundedUploadProgressPercentage = parseUploadProgressPercentage(
-            uploadProgressPercentage,
-          );
+          const roundedUploadProgressPercentage =
+            parseUploadProgressPercentage(uploadProgressPercentage);
           const hasUploadProgressPercentage = roundedUploadProgressPercentage !== undefined;
 
           const progressProps = {
@@ -128,7 +127,7 @@ const FileList = ({
                   <XUIButton
                     onClick={event => onRetry(file, fileList, event)}
                     size="small"
-                    variant="borderless-primary"
+                    variant="borderless-main"
                   >
                     {retryButtonText}
                   </XUIButton>
@@ -137,7 +136,7 @@ const FileList = ({
                   <XUIButton
                     onClick={event => handleCancel(file, event)}
                     size="small"
-                    variant="borderless-primary"
+                    variant="borderless-main"
                   >
                     {cancelButtonText}
                   </XUIButton>

@@ -7,12 +7,13 @@ import combineRefs from '../helpers/combineRefs';
 import { inputBaseClass, inputSizeClasses, baseSizeClasses } from './private/constants';
 import { calculateMaxHeight } from './private/helpers';
 import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
-import generateIds, { generateIdsFromControlId, getAriaAttributes } from '../helpers/ariaHelpers';
+import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 import { sizeShift } from '../helpers/sizes';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import SizeContext from '../../contexts/SizeContext';
 import DisabledStateContext from '../../contexts/DisabledStateContext';
-import labelRequiredWarning from '../helpers/labelRequiredWarning';
+import labelRequiredError from '../helpers/labelRequiredError';
+import { ns } from '../helpers/xuiClassNamespace';
 
 // Deconstructs attributes from props to determine whether autoresizing should be enabled
 const shouldAutomaticallyResize = ({ isMultiline, rows }) =>
@@ -32,9 +33,7 @@ class XUITextInput extends PureComponent {
 
   getWrapperIds() {
     const { inputProps, labelId } = this.props;
-    return inputProps && inputProps.id
-      ? generateIdsFromControlId(inputProps.id)
-      : generateIds(labelId);
+    return generateIds({ labelId, id: inputProps?.id });
   }
 
   componentDidMount() {
@@ -73,7 +72,7 @@ class XUITextInput extends PureComponent {
       });
     }
     const { placeholder, label, labelId, isLabelHidden } = this.props;
-    labelRequiredWarning(
+    labelRequiredError(
       XUITextInput.name,
       [
         'includes a label with text',
@@ -124,6 +123,23 @@ class XUITextInput extends PureComponent {
       charCount: e.target.value?.length,
     });
     this.props.onChange && this.props.onChange(e);
+  };
+
+  onInnerWrapClick = e => {
+    if (
+      Array.from(e.target.classList).some(className =>
+        [
+          `${ns}-textinput--sideelement-text`,
+          `${ns}-avatar`,
+          `${ns}-textinput--sideelement-avatar`,
+          `${ns}-iconwrapper`,
+        ].includes(className),
+      )
+    ) {
+      this.input.focus();
+    }
+
+    this.props.onClick?.(e);
   };
 
   render() {
@@ -256,7 +272,12 @@ class XUITextInput extends PureComponent {
                   }}
                   ref={this.rootNode}
                 >
-                  <InnerWrapEl className={baseClasses} data-automationid={qaHook} {...otherProps}>
+                  <InnerWrapEl
+                    className={baseClasses}
+                    data-automationid={qaHook}
+                    onClick={this.onInnerWrapClick}
+                    {...otherProps}
+                  >
                     {leftElement}
                     <InputEl
                       {...inputProps}
@@ -372,6 +393,8 @@ XUITextInput.propTypes = {
   onBlur: PropTypes.func,
   /** Function to call when the input value is changed */
   onChange: PropTypes.func,
+  /** Function to call when the input wrapper is clicked */
+  onClick: PropTypes.func,
   /** Function to call when the input is focused (does not include side elements) */
   onFocus: PropTypes.func,
   /** Function to call on keydown inside the textinput */

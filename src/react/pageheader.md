@@ -77,7 +77,7 @@ const builtActions = (
   <XUIActions
     hasLayout={false}
     primaryAction={
-      <XUIButton key="one" variant="primary" size="small">
+      <XUIButton key="one" variant="main" size="small">
         Create
       </XUIButton>
     }
@@ -103,7 +103,7 @@ const builtActions = (
   <XUIActions
     hasLayout={false}
     primaryAction={
-      <XUIButton key="one" variant="primary" size="small">
+      <XUIButton key="one" variant="main" size="small">
         Create
       </XUIButton>
     }

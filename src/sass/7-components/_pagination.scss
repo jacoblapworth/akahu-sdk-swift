@@ -22,7 +22,7 @@
   color: $xui-text-muted-color;
   margin-right: $xui-s-standard;
   .#{$ns}-select-layout {
-    margin-left: $xui-s-2xsmall / 2;
+    margin-left: $xui-s-2xsmall * 0.5;
   }
 }
 

@@ -3,6 +3,7 @@
 exports[`< Picklist /> example of list settings overriding item-level settings 1`] = `
 <ul
   className="xui-picklist xui-picklist-layout xui-picklist-medium"
+  onChange={[Function]}
 >
   <li
     aria-selected={null}
@@ -31,6 +32,7 @@ exports[`< Picklist /> example of list settings overriding item-level settings 1
 exports[`< Picklist /> example taking settings from first child and giving to all 1`] = `
 <ul
   className="xui-picklist xui-picklist-layout xui-picklist-medium"
+  onChange={[Function]}
 >
   <li
     aria-selected={false}
@@ -51,7 +53,7 @@ exports[`< Picklist /> example taking settings from first child and giving to al
           <input
             aria-labelledby="xui-testPickitemCheckboxId"
             checked={false}
-            className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+            className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small xui-pickitem--input"
             disabled={false}
             onChange={[Function]}
             required={false}
@@ -99,7 +101,7 @@ exports[`< Picklist /> example taking settings from first child and giving to al
           <input
             aria-labelledby="xui-testPickitemCheckboxId"
             checked={false}
-            className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+            className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small xui-pickitem--input"
             disabled={false}
             onChange={[Function]}
             required={false}
@@ -136,6 +138,7 @@ exports[`< Picklist /> example with most compatible options 1`] = `
   className="xui-picklist xui-picklist-medium custom-picklist-class xui-picklist-horizontal"
   data-automationid="picklist-example"
   id="picklistId"
+  onChange={[Function]}
   role="presentation"
 >
   <li
@@ -165,6 +168,7 @@ exports[`< Picklist /> example with most compatible options 1`] = `
 exports[`< Picklist /> renders most basic example 1`] = `
 <ul
   className="xui-picklist xui-picklist-layout xui-picklist-medium"
+  onChange={[Function]}
 >
   <li
     aria-selected={null}

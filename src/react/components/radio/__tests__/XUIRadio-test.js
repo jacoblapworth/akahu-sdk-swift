@@ -1,4 +1,5 @@
 import React from 'react';
+import { render } from '@testing-library/react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
@@ -35,6 +36,21 @@ describe('XUIRadio', () => {
     const component = renderer.create(<XUIRadio onChange={NOOP}>Howdy, folks!</XUIRadio>);
 
     expect(component).toMatchSnapshot();
+  });
+
+  // id property
+  it('should have correctly associated id and label if id is provided', function () {
+    const testId = 'anotherTestId';
+    const { container } = render(
+      <XUIRadio onChange={NOOP} id={testId}>
+        Howdy, folks!
+      </XUIRadio>,
+    );
+    const input = container.querySelector(`.xui-styledcheckboxradio--input`);
+    const label = container.querySelector('.xui-styledcheckboxradio--label');
+    expect(input).toHaveAttribute('id', testId);
+    expect(input).toHaveAttribute('aria-labelledby', `${testId}-label`);
+    expect(label).toHaveAttribute('id', `${testId}-label`);
   });
 
   // className property (additional classes)
@@ -131,9 +147,29 @@ describe('XUIRadio', () => {
 
   // isReversed property
   it('should use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true', function () {
-    const component = mount(<XUIRadio onChange={NOOP} isReversed={true} />);
+    const component = mount(
+      <XUIRadio onChange={NOOP} isReversed>
+        Label
+      </XUIRadio>,
+    );
 
     expect(component.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeTruthy();
+  });
+
+  it('should not use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true and there is no label', function () {
+    const component = mount(<XUIRadio onChange={NOOP} isReversed />);
+
+    expect(component.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeFalsy();
+  });
+
+  it('should not use the xui-styledcheckboxradio-reverse class on the root node if isReversed is true and the label is hidden', function () {
+    const component = mount(
+      <XUIRadio onChange={NOOP} isLabelHidden isReversed>
+        Label
+      </XUIRadio>,
+    );
+
+    expect(component.find('label').hasClass('xui-styledcheckboxradio-reversed')).toBeFalsy();
   });
 
   // name property

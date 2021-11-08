@@ -17,7 +17,7 @@ const XUIBannerAction = ({ className, qaHook, onClick, href, isLink, children })
         onClick={onClick}
         qaHook={buttonQaHook}
         size="small"
-        variant="borderless-primary"
+        variant="borderless-main"
       >
         {children}
       </XUIButton>

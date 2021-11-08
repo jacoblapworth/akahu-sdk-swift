@@ -16,7 +16,7 @@ describe('<XUIPopoverFooter />', () => {
     // Arrange
     const wrapper = shallow(
       <XUIPopoverFooter
-        primaryAction={<XUIButton variant="primary">Primary action</XUIButton>}
+        primaryAction={<XUIButton variant="main">Primary action</XUIButton>}
         secondaryAction={<XUIButton>Secondary action</XUIButton>}
       />,
     );
@@ -29,7 +29,7 @@ describe('<XUIPopoverFooter />', () => {
     // Arrange
     const wrapper = shallow(
       <XUIPopoverFooter
-        primaryAction={<XUIButton variant="primary">Primary action</XUIButton>}
+        primaryAction={<XUIButton variant="main">Primary action</XUIButton>}
         secondaryAction={<XUIButton>Secondary action</XUIButton>}
       />,
     );
@@ -41,7 +41,7 @@ describe('<XUIPopoverFooter />', () => {
   it('sets isLinear to false on XUIActions when no secondary action is provided', () => {
     // Arrange
     const wrapper = shallow(
-      <XUIPopoverFooter primaryAction={<XUIButton variant="primary">Primary action</XUIButton>} />,
+      <XUIPopoverFooter primaryAction={<XUIButton variant="main">Primary action</XUIButton>} />,
     );
 
     // Assert
@@ -51,7 +51,7 @@ describe('<XUIPopoverFooter />', () => {
   it('should pass accessibility testing', async () => {
     const wrapper = mount(
       <XUIPopoverFooter
-        primaryAction={<XUIButton variant="primary">Primary action</XUIButton>}
+        primaryAction={<XUIButton variant="main">Primary action</XUIButton>}
         secondaryAction={<XUIButton>Secondary action</XUIButton>}
       />,
     );

@@ -5,10 +5,7 @@ import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 
 import XUIControlWrapper from '../XUIControlWrapper';
-import generateIds, {
-  generateIdsFromControlId,
-  getAriaAttributes,
-} from '../../helpers/ariaHelpers';
+import generateIds, { getAriaAttributes } from '../../helpers/ariaHelpers';
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testGeneratedId');
@@ -29,8 +26,8 @@ describe('<XUIControlWrapper>', () => {
   let settings, genIds, setIds, genIdsFromControl;
   beforeEach(() => {
     genIds = generateIds();
-    genIdsFromControl = generateIdsFromControlId('controlSpecificId');
-    setIds = generateIds('testSpecificLabel');
+    genIdsFromControl = generateIds({ id: 'controlSpecificId' });
+    setIds = generateIds({ labelId: 'testSpecificLabel' });
     settings = {
       fieldClassName: undefined,
       labelId: undefined,

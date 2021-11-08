@@ -7,12 +7,13 @@ import cn from 'classnames';
 import { tableVariantClassNames } from './private/constants';
 import EditableTableColGroup from './private/EditableTableColGroup';
 import EditableTableWrapper from './private/EditableTableWrapper';
+import XUICheckboxRangeSelector from '../checkbox/XUICheckboxRangeSelector';
 import conditionallyRequiredValidator from '../helpers/conditionallyRequiredValidator';
 import XUIIcon from '../icon/XUIIcon';
-import { generateIdsFromControlId } from '../helpers/ariaHelpers';
+import generateIds from '../helpers/ariaHelpers';
 import combineRefs from '../helpers/combineRefs';
 import Element from '../helpers/polyfills/Element';
-import labelRequiredWarning, { ariaLabelOnly } from '../helpers/labelRequiredWarning';
+import labelRequiredError, { ariaLabelOnly } from '../helpers/labelRequiredError';
 
 const XUIEditableTable = React.forwardRef(
   (
@@ -54,11 +55,11 @@ const XUIEditableTable = React.forwardRef(
     // Ensures the table id is only generated once, but changes if the prop changes.
     const [calculatedId, setId] = useState(id || `${tableVariantClassName}-${nanoid(10)}`);
 
-    const wrapperIds = generateIdsFromControlId(calculatedId);
+    const wrapperIds = generateIds({ id: calculatedId });
 
     useEffect(() => {
       // XUIEditableTable.name is undefined as this is a forwardRef component
-      labelRequiredWarning(
+      labelRequiredError(
         'XUIEditableTable',
         [...ariaLabelOnly, '`caption` provided to XUITable'],
         [ariaLabel],
@@ -66,7 +67,7 @@ const XUIEditableTable = React.forwardRef(
     }, [ariaLabel]);
 
     return (
-      <>
+      <XUICheckboxRangeSelector>
         {hiddenColumns && hiddenColumns.length > 0 && (
           <style>
             {hiddenColumns.map(
@@ -125,7 +126,7 @@ const XUIEditableTable = React.forwardRef(
             {validationMessage}
           </div>
         )}
-      </>
+      </XUICheckboxRangeSelector>
     );
   },
 );
@@ -141,7 +142,7 @@ XUIEditableTable.propTypes = {
    * A non-visible description of the table for accessibility purposes. Particularly useful
    * for scrollable tables, to help screenreaders understand the scrollable element.
    */
-  ariaLabel: PropTypes.string,
+  ariaLabel: PropTypes.string.isRequired,
 
   children: PropTypes.node,
   className: PropTypes.string,

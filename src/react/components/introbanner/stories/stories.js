@@ -83,13 +83,8 @@ storiesWithVariations.addDecorator(centered);
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
     const variationMinusStoryDetails = { ...variation };
-    const {
-      dismissButtonText,
-      hasFooter,
-      hasIllustration,
-      hasVideo,
-      headerTitle,
-    } = variationMinusStoryDetails;
+    const { dismissButtonText, hasFooter, hasIllustration, hasVideo, headerTitle } =
+      variationMinusStoryDetails;
 
     return (
       <XUIIntroBanner

@@ -141,7 +141,6 @@ class XUIDateInputItem extends Component {
 
   onIconFocus = () => {
     if (!this.props.isDisabled) {
-      this.inputRef?.current?.focus();
       this.ddtRef?.current?.openDropdown();
     }
   };
@@ -316,7 +315,6 @@ class XUIDateInputItem extends Component {
         className={`${ns}-dateinputitem-suggesteddates--footer`}
         pickItems={
           <XUIPickitem
-            className={`${ns}-dateinputitem-suggesteddates--footer--item`}
             id={this.suggestedDatesFooterId}
             leftElement={<XUIIcon color="black" icon={selectDateIcon || dateStartIcon} isBoxed />}
             onClick={this.showDatepickerPanel}

@@ -296,28 +296,28 @@ The codemod contains transforms for moving from the previous major version of XU
 
 How to run the codemod:
 
-1. Install jscodeshift
+1. Install lodash globally ([jscodeshift currently requires this to be installed separately](https://github.com/facebook/jscodeshift/pull/455))
 
 ```bash
-npm i -g jscodeshift@~0.12.0
+npm i -g lodash
 ```
 
 2. Run the codemod
 
 ```bash
-jscodeshift -t node_modules/@xero/xui/codemod src/
+npx jscodeshift@~0.13.0 -t node_modules/@xero/xui/codemod src/
 ```
 
 3. If your imported components are not from @xero/xui/react/, you can pass an alternate base path.
 
 ```bash
-jscodeshift --importBasePath=@xero/xui/react-es6/ -t node_modules/@xero/xui/codemod src/
+npx jscodeshift@~0.13.0 --importBasePath=@xero/xui/react-es6/ -t node_modules/@xero/xui/codemod src/
 ```
 
 4. If you've already upgraded to the current major version and wish to run a supplemental codemod from a minor/patch
 
 ```bash
-jscodeshift -t node_modules/@xero/xui/codemod/<version> src/
+npx jscodeshift@~0.13.0 -t node_modules/@xero/xui/codemod/<version> src/
 ```
 
 ### Adjusting Codeshift to work for you
@@ -329,7 +329,7 @@ Depending on your setup the above commands may not work for you. Here are a coup
 Please switch out `/src` to your source folder's name
 
 ```bash
-jscodeshift -t node_modules/@xero/xui/codemod client/
+npx jscodeshift@~0.13.0 -t node_modules/@xero/xui/codemod client/
 ```
 
 #### 2. If your project uses TypeScript:
@@ -337,7 +337,7 @@ jscodeshift -t node_modules/@xero/xui/codemod client/
 By default, codeshift examines .js files with babel. You can use codeshift with TypeScript by adjusting the `--parser` and `--extensions` as follows:
 
 ```bash
-jscodeshift -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=tsx --extensions=ts,tsx
+npx jscodeshift@~0.13.0 -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=tsx --extensions=ts,tsx
 ```
 
 #### 3. If you are using Windows:
@@ -349,6 +349,9 @@ To format to 'LF', add the following flag in the jscodeshift command:
 ```bash
 --printOptions='{"lineTerminator":"\n"}'
 ```
+
+If you still have issues with files containing only line ending changes, try staging your files (`git add .`). This will allow git to convert files to the line endings it needs, without even needing to commit any files.
+If you want to change your line endings globally follow tips from this [comment](https://stackoverflow.com/a/67517481)
 
 ## Contributing to XUI
 

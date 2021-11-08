@@ -1,5 +1,8 @@
 <div class="xui-textinput xui-textinput-medium xui-margin">
-  <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
+  <div
+    class="xui-textinput--sideelement xui-textinput--sideelement-icon"
+    onclick="document.getElementById('actions-example-1').focus()"
+  >
     <div class="xui-iconwrapper xui-iconwrapper-medium">
       <svg focusable="false" class="xui-icon" role="presentation">
         <use xlink:href="#xui-icon-search" />
@@ -13,6 +16,7 @@
     aria-label="Search"
     onfocus="this.parentElement.classList.toggle('xui-textinput-focus')"
     onblur="this.parentElement.classList.toggle('xui-textinput-focus')"
+    id="actions-example-1"
   />
   <div class="xui-textinput--sideelement xui-textinput--sideelement-icon">
     <button type="button" class="xui-button xui-button-icon" title="Clear" aria-label="Clear">

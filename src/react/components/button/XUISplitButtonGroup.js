@@ -25,7 +25,7 @@ XUISplitButtonGroup.propTypes = {
    */
   size: PropTypes.oneOf(Object.keys(sizeClassNames)),
   /**
-   * Determines the styling variation to apply: `standard`, `primary`, `create`, or `negative`.
+   * Determines the styling variation to apply: `standard`, `main`, `create`, or `negative`.
    */
   variant: PropTypes.oneOf(Object.keys(standardVariantClassNames)),
 };

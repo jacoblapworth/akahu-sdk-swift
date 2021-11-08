@@ -86,13 +86,13 @@ const variations = [
     storyTitle: 'as a Split Button Group',
     contentsKey: 'asSplitGroup',
     componentType: 'XUISplitButtonGroup',
-    variant: 'primary',
+    variant: 'main',
   },
   {
     storyKind: storiesWithVariationsKindName,
     storyTitle: 'as a Split Button Group with multi-line text',
     componentType: 'XUISplitButtonGroup',
-    variant: 'primary',
+    variant: 'main',
     contentsKey: 'asSplitGroupMulti',
   },
   {
@@ -109,7 +109,7 @@ const variations = [
     contentsKey: 'asSplitGroupDropdown',
     componentType: 'XUISplitButtonGroup',
     size: 'xsmall',
-    variant: 'primary',
+    variant: 'main',
   },
   {
     storyKind: storiesWithVariationsKindName,

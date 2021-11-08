@@ -26,6 +26,6 @@
 //
 // To use codemod with TypeScript components use the following command:
 //
-// `jscodeshift -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=tsx --extensions=ts,tsx`
+// `npx jscodeshift@~0.13.0 -t ./node_modules/@xero/xui/codemod/index.js src/ --parser=tsx --extensions=ts,tsx`
 //
 // Styleguide: Getting Started.TypeScript with XUI.3

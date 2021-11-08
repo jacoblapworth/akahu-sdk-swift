@@ -10,8 +10,10 @@ import { getPropsFromFirstChildOrList } from './private/helpers';
 import { userBreakpoints } from '../helpers/breakpoints';
 import XUINestedPicklistContainer from './XUINestedPicklistContainer';
 import XUISelectBoxOption from '../selectbox/XUISelectBoxOption';
+import XUICheckboxRangeSelector from '../checkbox/XUICheckboxRangeSelector';
 // eslint-disable-next-line import/no-cycle
 import TabDropdown from './private/TabDropdown';
+import combineRefs from '../helpers/combineRefs';
 
 /**
  * Presentational component used to display a selectable list of Pickitems.
@@ -111,23 +113,32 @@ export default class XUIPicklist extends Component {
     // Deferring the fix for this until we determine how to change the surface
     // of pickitems & picklists
     return (
-      <ul
-        {...ulProps}
-        className={cn(listClasses, className, isHorizontal && `${picklistClassName}-horizontal`)}
-        ref={this._area}
-      >
-        {!isHorizontal || !swapAtBreakpoint || this.state.normalPickitems ? (
-          newChildren
-        ) : (
-          <TabDropdown
-            className={className}
-            closeOnSelect={closeOnSelect}
-            dropdownList={newChildren}
-            size={listLevelProps.listSize}
-            ulProps={{ ...ulProps, className: listClasses }}
-          />
+      <XUICheckboxRangeSelector useCustomWrapper>
+        {(onChange, wrapperRef) => (
+          <ul
+            {...ulProps}
+            className={cn(
+              listClasses,
+              className,
+              isHorizontal && `${picklistClassName}-horizontal`,
+            )}
+            onChange={onChange}
+            ref={combineRefs(this._area, wrapperRef)}
+          >
+            {!isHorizontal || !swapAtBreakpoint || this.state.normalPickitems ? (
+              newChildren
+            ) : (
+              <TabDropdown
+                className={className}
+                closeOnSelect={closeOnSelect}
+                dropdownList={newChildren}
+                size={listLevelProps.listSize}
+                ulProps={{ ...ulProps, className: listClasses }}
+              />
+            )}
+          </ul>
         )}
-      </ul>
+      </XUICheckboxRangeSelector>
     );
     /* eslint-enable jsx-a11y/no-noninteractive-element-interactions */
   }

@@ -90,7 +90,7 @@ const PopoverWithTrigger = ({
             popover.
           </XUIPopoverBody>
           <XUIPopoverFooter
-            primaryAction={<XUIButton variant="primary">Primary</XUIButton>}
+            primaryAction={<XUIButton variant="main">Primary</XUIButton>}
             secondaryAction={<XUIButton>Secondary</XUIButton>}
           />
         </XUIPopover>

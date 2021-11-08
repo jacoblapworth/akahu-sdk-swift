@@ -33,7 +33,7 @@ const XUIEditableTableFootAction: React.FunctionComponent<Props> = ({
       onClick={onAdd}
       qaHook={qaHook && `${qaHook}--addbutton`}
       size="small"
-      variant="borderless-primary"
+      variant="borderless-main"
     >
       {addButtonContent}
     </XUIButton>

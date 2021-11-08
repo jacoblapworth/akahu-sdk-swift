@@ -23,12 +23,12 @@
   @include xui-text-small;
 
   min-height: $xui-control-size-small;
-  padding: #{($xui-control-size-small - $xui-s-large) / 2 - 1px} $xui-s-small;
+  padding: #{($xui-control-size-small - $xui-s-large) * 0.5 - 1px} $xui-s-small;
 }
 
 .#{$ns}-button-xsmall {
   @include xui-text-xsmall;
 
   min-height: $xui-control-size-xsmall;
-  padding: #{($xui-control-size-xsmall - $xui-s-standard) / 2 - 1px} $xui-s-xsmall;
+  padding: #{($xui-control-size-xsmall - $xui-s-standard) * 0.5 - 1px} $xui-s-xsmall;
 }

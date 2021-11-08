@@ -1,6 +1,7 @@
 import React from 'react';
-import Enzyme, { render, mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { nanoid } from 'nanoid';
@@ -19,6 +20,21 @@ describe('XUIToggleOption', function () {
       <XUIToggleOption onChange={() => {}}>Howdy, folks!</XUIToggleOption>,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  // id property
+  it('should have correctly associated id and label if id is provided', function () {
+    const testId = 'anotherTestId';
+    const { container } = render(
+      <XUIToggleOption onChange={() => {}} id={testId}>
+        Howdy, folks!
+      </XUIToggleOption>,
+    );
+    const input = container.querySelector(`.xui-toggle--input`);
+    const label = container.querySelector('.xui-toggle--label');
+    expect(input).toHaveAttribute('id', testId);
+    expect(input).toHaveAttribute('aria-labelledby', `${testId}-label`);
+    expect(label).toHaveAttribute('id', `${testId}-label`);
   });
 
   // className property (additional classes)

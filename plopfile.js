@@ -51,8 +51,7 @@ const generator = plop => {
       },
       {
         ...defaultAddActionConfig,
-        path:
-          './src/react/components/{{pathCase displayName}}/__tests__/{{xuiCase displayName}}-test.js',
+        path: './src/react/components/{{pathCase displayName}}/__tests__/{{xuiCase displayName}}-test.js',
         templateFile: '.plop/templates/unitTests.hbs',
       },
       {

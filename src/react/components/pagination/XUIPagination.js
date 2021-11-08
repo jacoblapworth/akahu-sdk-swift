@@ -8,7 +8,6 @@ import useContainerQuery from '../helpers/useContainerQuery';
 
 import { baseClass, defaultPerPageCountOptions } from './private/helpers';
 import checkRequiredProps from '../../helpers/checkRequiredProps';
-import labelRequiredWarning, { ariaLabelOnly } from '../helpers/labelRequiredWarning';
 
 const XUIPagination = ({
   ariaLabel,
@@ -73,10 +72,6 @@ const XUIPagination = ({
   const pageCount = Math.ceil(count / perPageCountNum);
   const currentPageNum = page || (currentPage > pageCount ? pageCount : currentPage);
 
-  useEffect(() => {
-    labelRequiredWarning(XUIPagination.name, ariaLabelOnly, [ariaLabel]);
-  }, [ariaLabel]);
-
   return (
     <nav
       aria-label={ariaLabel}
@@ -126,7 +121,7 @@ XUIPagination.propTypes = {
    * <br />
    * Recommended English value: *Pagination*
    */
-  ariaLabel: PropTypes.string,
+  ariaLabel: PropTypes.string.isRequired,
   className: PropTypes.string,
   /**
    * The total number of data items

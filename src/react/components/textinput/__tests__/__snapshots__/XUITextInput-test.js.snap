@@ -7,6 +7,7 @@ exports[`<XUITextInput> General Functionality should have a qahook on the input 
   <div
     className="xui-textinput xui-textinput-medium"
     data-automationid="input-test"
+    onClick={[Function]}
   >
     <input
       className="xui-textinput--input xui-textinput--input-medium"
@@ -31,6 +32,7 @@ exports[`<XUITextInput> Side elements should render side elements as labels when
   >
     <label
       className="xui-textinput xui-textinput-medium"
+      onClick={[Function]}
     >
       <div
         className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text"
@@ -55,6 +57,7 @@ exports[`<XUITextInput> Side elements should render side elements as labels when
   >
     <label
       className="xui-textinput xui-textinput-medium"
+      onClick={[Function]}
     >
       <input
         className="xui-textinput--input xui-textinput--input-medium"
@@ -79,6 +82,7 @@ exports[`<XUITextInput> Side elements should render side elements as labels when
   >
     <label
       className="xui-textinput xui-textinput-medium"
+      onClick={[Function]}
     >
       <div
         className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-text"
@@ -113,6 +117,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
   >
     <div
       className="xui-textinput xui-textinput-medium"
+      onClick={[Function]}
     >
       <div
         className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
@@ -152,6 +157,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
   >
     <div
       className="xui-textinput xui-textinput-medium"
+      onClick={[Function]}
     >
       <input
         className="xui-textinput--input xui-textinput--input-medium"
@@ -191,6 +197,7 @@ exports[`<XUITextInput> Side elements should render side elements correctly 1`] 
   >
     <div
       className="xui-textinput xui-textinput-medium"
+      onClick={[Function]}
     >
       <div
         className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
@@ -254,6 +261,7 @@ exports[`<XUITextInput> Text-only input forces resize visible class based on opt
 >
   <div
     className="xui-textinput xui-textinput-medium"
+    onClick={[Function]}
   >
     <textarea
       className="xui-textinput--input xui-textinput--input-medium xui-textinput--input-resize-vertical"
@@ -278,6 +286,7 @@ exports[`<XUITextInput> Text-only input has a qaHook 1`] = `
   <div
     className="xui-textinput xui-textinput-medium"
     data-automationid="givenQAHook"
+    onClick={[Function]}
   >
     <input
       className="xui-textinput--input xui-textinput--input-medium"
@@ -301,6 +310,7 @@ exports[`<XUITextInput> Text-only input has disabled styling 1`] = `
 >
   <div
     className="xui-textinput xui-textinput-medium xui-textinput-is-disabled"
+    onClick={[Function]}
   >
     <input
       className="xui-textinput--input xui-textinput--input-medium"
@@ -330,6 +340,7 @@ exports[`<XUITextInput> Text-only input includes custom classes on the correct n
   </label>
   <div
     className="custom-container-class xui-textinput xui-textinput-medium"
+    onClick={[Function]}
   >
     <input
       className="custom-input-class xui-textinput--input xui-textinput--input-medium"
@@ -352,6 +363,7 @@ exports[`<XUITextInput> Text-only input is input value reverse-aligned 1`] = `
 >
   <div
     className="xui-textinput xui-textinput-medium"
+    onClick={[Function]}
   >
     <input
       className="xui-textinput--input xui-textinput--input-medium xui-textinput--input-reverse-align"
@@ -374,6 +386,7 @@ exports[`<XUITextInput> Text-only input renders with a hidden label when one is 
 >
   <div
     className="xui-textinput xui-textinput-medium"
+    onClick={[Function]}
   >
     <input
       aria-label="test"
@@ -403,6 +416,7 @@ exports[`<XUITextInput> Text-only input renders with a label when one is provide
   </label>
   <div
     className="xui-textinput xui-textinput-medium"
+    onClick={[Function]}
   >
     <input
       className="xui-textinput--input xui-textinput--input-medium"
@@ -425,6 +439,7 @@ exports[`<XUITextInput> Text-only input sets the resize none class based on opti
 >
   <div
     className="xui-textinput xui-textinput-medium"
+    onClick={[Function]}
   >
     <textarea
       className="xui-textinput--input xui-textinput--input-medium xui-textinput--input-resize-none"
@@ -448,6 +463,7 @@ exports[`<XUITextInput> Validation and hints renders invalid textinputs with an 
 >
   <div
     className="xui-textinput xui-textinput-medium xui-textinput-is-invalid"
+    onClick={[Function]}
   >
     <input
       aria-describedby="newTest-message"
@@ -493,6 +509,7 @@ exports[`<XUITextInput> Validation and hints renders with a hint message if one 
 >
   <div
     className="xui-textinput xui-textinput-medium"
+    onClick={[Function]}
   >
     <input
       aria-describedby="newTest-message"

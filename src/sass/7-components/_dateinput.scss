@@ -12,11 +12,20 @@ $xui-dateinput-label-vertical-offset: 25px;
   .#{$ns}-textinput--input {
     width: 100%;
   }
+  &--suggested {
+    max-height: $xui-control-size-standard;
+  }
 
   &--firstinput-withspace,
   &--secondinput-withspace,
   &--suggested-withspace {
     margin-bottom: $xui-s-2xlarge + $xui-s-2xsmall; // Overall height of validation and hint messages
+  }
+
+  &--firstinput-withlabelspace,
+  &--secondinput-withlabelspace,
+  &--suggested-withlabelspace {
+    margin-top: $xui-dateinput-label-vertical-offset; // Overall height of labels
   }
 
   .#{$ns}-button-split {
@@ -37,11 +46,5 @@ $xui-dateinput-label-vertical-offset: 25px;
   .#{$ns}-text-label,
   .#{$ns}-textinput--sideelement-icon {
     cursor: not-allowed;
-  }
-}
-
-.#{$ns}-dateinputitem-suggesteddates--footer--item {
-  .#{$ns}-pickitem--text {
-    color: $xui-color-grey-1;
   }
 }

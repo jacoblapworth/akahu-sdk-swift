@@ -8,7 +8,7 @@
 
 ### Default tooltip
 
-The default tooltip is triggered on mouseover or as part of a touch-press event chain, and will appear centered above the trigger, if enough space is available. It is intended to contain short text, but will wrap, if necessary.
+The default tooltip is triggered on mouseover, focus, or as part of a touch-press event chain, and will appear centered above the trigger, if enough space is available. It is intended to contain short text, but will wrap, if necessary.
 
 **Note:** This component wraps the trigger component and the tooltip in an inline-block element for positioning purposes. It may be helpful to add `wrapperClassName` to apply styles that were directly affecting the trigger.
 
@@ -36,7 +36,7 @@ const triggerButton = <XUIButton>A button</XUIButton>;
 
 Min and max width of the tip, on-open and on-close hooks, the mix of triggering events, and preferred location of the tip are all available to be adjusted. The following is an example of a click-triggered tooltip. For focusable elements, `Enter` keyboard events will be treated as a click.
 
-Do not use `triggerOnClick` if your trigger has it's own explicit `onClick` or `onKeyDown` props, as those handlers will take precedent, and `XUITooltip` will not open on click or keydown. The default `triggerOnHover` behaviour is ideal for these cases, but the `onOpen` and `onClose` hooks are also available to handle events in a more custom way.
+Do not use `triggerOnClick` if your trigger has it's own explicit `onClick` or `onKeyDown` props, as those handlers will take precedent, and `XUITooltip` will not open on click or keydown. The default `triggerOnHover` and `triggerOnFocus` behaviour is ideal for these cases, but the `onOpen` and `onClose` hooks are also available to handle events in a more custom way.
 
 ```jsx harmony
 import XUIButton from '@xero/xui/react/button';

@@ -1,7 +1,7 @@
 export const rowVariants = {
   flex: 'flex',
   grid: 'grid',
-  standard: '',
+  float: 'float',
 };
 
 export const columnShortNames = {

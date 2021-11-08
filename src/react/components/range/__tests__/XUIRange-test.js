@@ -22,8 +22,7 @@ describe('Range', () => {
 
   // type range
   it('Simple case', () => {
-    const component = shallow(<XUIRange />);
-    const simpleRangeComponent = renderer.create(<XUIRange />);
+    const simpleRangeComponent = renderer.create(<XUIRange label="Range" />);
     expect(simpleRangeComponent).toMatchSnapshot();
   });
 
@@ -77,7 +76,7 @@ describe('Range', () => {
 
   it('should call the onClick callback on the range component', () => {
     const onClick = jest.fn();
-    const comp = mount(<XUIRange id="rangeComponent" onClick={onClick} />);
+    const comp = mount(<XUIRange id="rangeComponent" label="Range" onClick={onClick} />);
 
     comp.find('#rangeComponent').first().simulate('click');
     setTimeout(() => {

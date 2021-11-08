@@ -10,10 +10,10 @@ import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 
 // try setting `isDisabled={true}`, or change the variant, and see how both buttons are disabled
 
-<XUISplitButtonGroup variant="primary">
+<XUISplitButtonGroup variant="main">
   <XUIButton>Split action</XUIButton>
   <XUIDropdownToggled
-    trigger={<XUISecondaryButton variant="primary" key="split" aria-label="Other actions" />}
+    trigger={<XUISecondaryButton variant="main" key="split" aria-label="Other actions" />}
     dropdown={
       <XUIDropdown hasFixedWidth size="small">
         <XUIPicklist>

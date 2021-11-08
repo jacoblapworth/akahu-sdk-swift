@@ -8,7 +8,7 @@ import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
 import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 
 const XUIToggle = props => {
-  const wrapperIds = generateIds(props.labelId);
+  const wrapperIds = generateIds({ labelId: props.labelId });
 
   const toggleIsCheckbox = () => {
     const { children } = props;

@@ -6,7 +6,76 @@
 //
 // You can read more about XUI’s customer commitments in <a href="https://xero.atlassian.net/l/c/jmZ7pHNL">Confluence</a>.
 //
-// <div class="xui-editabletablewrapper"><div class="xui-editabletablewrapper--scrollcontainer"><table aria-label="List of supported XUI versions" class="xui-editabletable"><colgroup><col style="width: auto" /><col style="width: auto" /></colgroup><thead class="xui-editabletablehead"><tr class="xui-editabletablerow"><th class="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned" scope="col">Version</th><th class="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned" scope="col" >Date released</th><th class="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned pseudo-class-last-child" scope="col">Supported</th></tr></thead><tbody class="xui-editabletablebody"><tr class="xui-editabletablerow"><td class="xui-editabletablecell xui-editabletablecellreadonly">18.x</td><td class="xui-editabletablecell xui-editabletablecellreadonly">May 2021</td><td class="xui-editabletablecell xui-editabletablecellreadonly"><svg width="12" height="12" focusable="false" class="xui-icon xui-margin-left xui-icon-color-green" role="presentation" viewbox="0 0 12 12"><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z"></path></svg></td></tr><tr class="xui-editabletablerow"><td class="xui-editabletablecell xui-editabletablecellreadonly">17.x</td><td class="xui-editabletablecell xui-editabletablecellreadonly">October 2020</td><td class="xui-editabletablecell xui-editabletablecellreadonly"><svg width="12" height="12" focusable="false" class="xui-icon xui-margin-left xui-icon-color-green" role="presentation" viewbox="0 0 12 12"><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z"></path></svg></td></tr><tr class="xui-editabletablerow"><td class="xui-editabletablecell xui-editabletablecellreadonly">16.x</td><td class="xui-editabletablecell xui-editabletablecellreadonly">December 2019</td><td class="xui-editabletablecell xui-editabletablecellreadonly"><svg width="12" height="12" focusable="false" class="xui-icon xui-margin-left xui-icon-color-red" role="presentation" viewbox="0 0 12 12"><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"></path></svg></td></tr><tr class="xui-editabletablerow"><td class="xui-editabletablecell xui-editabletablecellreadonly"><16.x</td><td class="xui-editabletablecell xui-editabletablecellreadonly">...</td><td class="xui-editabletablecell xui-editabletablecellreadonly"><svg width="12" height="12" focusable="false" class="xui-icon xui-margin-left xui-icon-color-red" role="presentation" viewbox="0 0 12 12"><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"></path></svg></td></tr></tbody></table></div><div class="xui-editabletablewrapper--border"></div></div>
+// <div class="xui-editabletablewrapper">
+//   <div class="xui-editabletablewrapper--scrollcontainer">
+//     <table aria-label="List of supported XUI versions" class="xui-editabletable">
+//       <colgroup>
+//         <col style="width: auto" />
+//         <col style="width: auto" />
+//       </colgroup>
+//       <thead class="xui-editabletablehead">
+//         <tr class="xui-editabletablerow">
+//           <th class="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned" scope="col">
+//             Version
+//           </th>
+//           <th class="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned" scope="col">
+//             Date released
+//           </th>
+//           <th class="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned pseudo-class-last-child" scope="col">
+//             Supported
+//           </th>
+//         </tr>
+//       </thead>
+//       <tbody class="xui-editabletablebody">
+//         <tr class="xui-editabletablerow">
+//           <td class="xui-editabletablecell xui-editabletablecellreadonly">
+//             19.x
+//           </td>
+//           <td class="xui-editabletablecell xui-editabletablecellreadonly">
+//             November 2021
+//           </td>
+//           <td class="xui-editabletablecell xui-editabletablecellreadonly">
+//             <svg width="12" height="12" focusable="false" class="xui-icon xui-margin-left xui-icon-color-green" role="presentation" viewbox="0 0 12 12"><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z"></path></svg>
+//           </td>
+//         </tr>
+//         <tr class="xui-editabletablerow">
+//           <td class="xui-editabletablecell xui-editabletablecellreadonly">
+//             18.x
+//           </td>
+//           <td class="xui-editabletablecell xui-editabletablecellreadonly">
+//             May 2021
+//           </td>
+//           <td class="xui-editabletablecell xui-editabletablecellreadonly">
+//             <svg width="12" height="12" focusable="false" class="xui-icon xui-margin-left xui-icon-color-green" role="presentation" viewbox="0 0 12 12"><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z"></path></svg>
+//           </td>
+//         </tr>
+//         <tr class="xui-editabletablerow">
+//           <td class="xui-editabletablecell xui-editabletablecellreadonly">
+//             17.x
+//           </td>
+//           <td class="xui-editabletablecell xui-editabletablecellreadonly">
+//             October 2020
+//           </td>
+//           <td class="xui-editabletablecell xui-editabletablecellreadonly">
+//             <svg width="12" height="12" focusable="false" class="xui-icon xui-margin-left xui-icon-color-red" role="presentation" viewbox="0 0 12 12"><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"></path></svg>
+//           </td>
+//         </tr>
+//         <tr class="xui-editabletablerow">
+//           <td class="xui-editabletablecell xui-editabletablecellreadonly">
+//             &lt; 17.x
+//           </td>
+//           <td class="xui-editabletablecell xui-editabletablecellreadonly">
+//             ...
+//           </td>
+//           <td class="xui-editabletablecell xui-editabletablecellreadonly">
+//             <svg width="12" height="12" focusable="false" class="xui-icon xui-margin-left xui-icon-color-red" role="presentation" viewbox="0 0 12 12"><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"></path></svg>
+//           </td>
+//         </tr>
+//       </tbody>
+//     </table>
+//   </div>
+//   <div class="xui-editabletablewrapper--border"></div>
+// </div>
 //
 // Styleguide: Updates.1
 
@@ -50,6 +119,44 @@
 // You may find sections of the documentation that are marked with flags to highlight recent or upcoming changes, or other pertinent info. See the [full list of definitions](./section-getting-started.html#getting-started-5) for common flags.
 //
 // Styleguide: Updates.2.4
+
+// 19.0.0 Release update (November 2021)
+//
+// XUI 19 focuses on enhancing the accessibility of XUI components and includes improvements to `XUICheckbox`, `XUITable`, `XUIEditableTable`, `XUIDropdown`, `XUITextInput`, and `XUIRow`.
+//
+// As part of improving accessibility we updated id generation and provided better visibility by escalating warnings for components missing required label props.
+//
+// [Full release notes on Github](https://github.dev.xero.com/UXE/xui/releases/tag/19.0.0)
+//
+// View our [changes.md](https://github.dev.xero.com/UXE/xui/blob/19.0.0/changes.md) file for a comprehensive list of component changes.
+//
+// Styleguide: Updates.91
+
+// Enhancements
+//
+// **Component improvements**
+// * `XUICheckbox` now supports range-selection for groups of checkboxes (shift + click)
+// * Clicking on side elements for `XUITextInput` will now focus the input when appropriate
+// * `XUITable` has been given an overflow gradient to match `XUIEditableTable`
+//
+// **Accessibility improvements**
+// * Update ID generation for control elements to handle any combination of `id` and `labelId`
+// * Label-required warnings have been escalated to errors
+// * `XUITooltip` will now display when the trigger is focused by default
+//
+// **Dependencies**
+// * Update Sass and migrate to `math.div`
+//
+// Styleguide: Updates.91.1
+
+// Style changes
+//
+// * Fix disabled checkbox's hover styling
+// * Update text colour for dropdown footer pickitems
+// * `XUIToggleOption` now includes updated padding, horizontal and vertical, for both medium and small variants
+// * Use flexbox by default for XUIRow
+//
+// Styleguide: Updates.91.2
 
 // 18.0.0 Release update (May 2021)
 //

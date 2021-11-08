@@ -26,7 +26,7 @@ const FooterTest = () => {
           <XUIActions
             className="xui-padding-small"
             primaryAction={
-              <XUIButton size="small" variant="primary">
+              <XUIButton size="small" variant="main">
                 ActionCompletion
               </XUIButton>
             }

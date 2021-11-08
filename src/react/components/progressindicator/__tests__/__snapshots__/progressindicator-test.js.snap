@@ -2733,7 +2733,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Compon
         }
         triggerOnBlur={true}
         triggerOnClick={true}
-        triggerOnFocus={false}
+        triggerOnFocus={true}
         triggerOnHover={true}
         wrapperClassName="xui-progress--tooltip"
       >
@@ -2823,8 +2823,8 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Compon
             isDisabled={false}
             isHidden={true}
             isNotResponsive={false}
-            isTriggerWidthMatched={false}
             isVisible={true}
+            matchTriggerWidth={false}
             maxWidth={220}
             openDelay={500}
             parentRef={
@@ -2919,7 +2919,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Compon
             triggerDropdownGap={10}
             triggerOnBlur={true}
             triggerOnClick={true}
-            triggerOnFocus={false}
+            triggerOnFocus={true}
             triggerOnHover={true}
             viewportGutter={10}
             wrapperClassName="xui-progress--tooltip"
@@ -2944,6 +2944,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Compon
                     "marginRight": -220,
                     "maxHeight": null,
                     "maxWidth": null,
+                    "minWidth": null,
                     "width": null,
                   }
                 }
@@ -4140,7 +4141,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Compon
         }
         triggerOnBlur={true}
         triggerOnClick={true}
-        triggerOnFocus={false}
+        triggerOnFocus={true}
         triggerOnHover={true}
         wrapperClassName="xui-progress--tooltip"
       >
@@ -4197,8 +4198,8 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Compon
             isDisabled={false}
             isHidden={true}
             isNotResponsive={false}
-            isTriggerWidthMatched={false}
             isVisible={true}
+            matchTriggerWidth={false}
             maxWidth={220}
             openDelay={500}
             parentRef={
@@ -4254,7 +4255,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Compon
             triggerDropdownGap={10}
             triggerOnBlur={true}
             triggerOnClick={true}
-            triggerOnFocus={false}
+            triggerOnFocus={true}
             triggerOnHover={true}
             viewportGutter={10}
             wrapperClassName="xui-progress--tooltip"
@@ -4279,6 +4280,7 @@ exports[`<XUIProgressIndicator /> emulate stories should render scenario "Compon
                     "marginRight": -220,
                     "maxHeight": null,
                     "maxWidth": null,
+                    "minWidth": null,
                     "width": null,
                   }
                 }

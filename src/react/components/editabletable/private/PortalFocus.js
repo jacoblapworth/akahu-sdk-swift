@@ -5,11 +5,12 @@ import { Portal } from 'react-portal';
 import { tableVariantClassNames } from './constants';
 import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
 import usePrevious from '../../helpers/usePrevious';
+import useResizeObserver from '../../helpers/useResizeObserver';
 
 const tableName = tableVariantClassNames.editable;
 const baseName = `${tableName}--portalfocus`;
 
-const PortalFocus = ({ focusedCellRef, isFocused, scrollContainerRef }) => {
+const PortalFocus = ({ focusedCellContentRect, focusedCellRef, isFocused, scrollContainerRef }) => {
   const [showPortal, setShowPortal] = useState(undefined);
   const [portalStyle, setPortalStyle] = useState({});
   const [focusedCellCovered, setFocusedCellCovered] = useState(undefined);
@@ -91,15 +92,16 @@ const PortalFocus = ({ focusedCellRef, isFocused, scrollContainerRef }) => {
     const currentScrollContainerRef = scrollContainerRef?.current;
     return () => currentScrollContainerRef?.removeEventListener('scroll', getPortalPosition);
   }, [
+    focusedCellContentRect,
+    focusedCellContentRect?.clientHeight,
+    focusedCellContentRect?.clientWidth,
     focusedCellRef,
     hasPinnedFirstColumn,
     hasPinnedLastColumn,
-    focusedCellRef.current?.clientWidth,
-    isFocusedCellPinned,
     isFocused,
-    scrollContainerRef,
-    focusedCellRef.current?.clientHeight,
+    isFocusedCellPinned,
     preFocusedCellRefCurrent,
+    scrollContainerRef,
   ]);
 
   return showPortal ? (
@@ -121,6 +123,7 @@ const PortalFocus = ({ focusedCellRef, isFocused, scrollContainerRef }) => {
 };
 
 PortalFocus.propTypes = {
+  focusedCellContentRect: PropTypes.object,
   focusedCellRef: PropTypes.object,
   isFocused: PropTypes.bool,
   scrollContainerRef: PropTypes.object,

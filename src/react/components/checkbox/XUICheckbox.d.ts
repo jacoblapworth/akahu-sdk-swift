@@ -7,16 +7,24 @@ interface Props {
    * Whether this checkbox was generated as part of a rollover checkbox.
    */
   _isRollOver?: boolean;
+  /**
+   * Additional class names for the input and html/svg elements.
+   */
+  checkboxElementClassName?: string;
   children?: React.ReactNode;
   className?: string;
+  /**
+   * Allows individual checkboxes to be excluded from range-selection (e.g. "Select all"
+   * checkboxes).
+   *
+   * This prop only applies when the checkbox is part of a range-selection group (i.e. checkboxes in
+   * groups, tables, picklists, or wrapped in XUICheckboxRangeSelector).
+   */
+  excludeFromRangeSelection?: boolean;
   /**
    * Hint message to show under the input.
    */
   hintMessage?: React.ReactNode;
-  /**
-   * Additional class names for the html input.
-   */
-  htmlClassName?: string;
   /**
    * The icon path to use for the checkbox.
    */
@@ -83,13 +91,15 @@ interface Props {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   qaHook?: string;
   /**
+   * The range-selection (shift+click) group this checkbox belongs to. This is only needed if you
+   * have multiple groups of checkboxes that need to be wrapped in the same element (e.g. checkboxes
+   * in a table).
+   */
+  rangeSelectionGroup?: string;
+  /**
    * Size variant. Defaults to `medium`.
    */
   size?: 'medium' | 'small' | 'xsmall';
-  /**
-   * Additional class names on the svg element.
-   */
-  svgClassName?: string;
   /**
    * The `tab-index` property to place on the checkbox.
    */

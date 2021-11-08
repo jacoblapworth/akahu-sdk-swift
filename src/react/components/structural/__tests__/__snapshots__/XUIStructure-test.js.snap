@@ -9,7 +9,7 @@ exports[`<XUI Row and Column/> renders column with automation id when qaHook pro
 
 exports[`<XUI Row and Column/> renders row with automation id when qaHook prop is passed in 1`] = `
 <div
-  className="xui-row"
+  className="xui-row-flex"
   data-automationid="qaHook"
 />
 `;
@@ -24,7 +24,7 @@ exports[`<XUI Row and Column/> renders the base column with no extra settings pa
 
 exports[`<XUI Row and Column/> renders the base row with no extra settings passed 1`] = `
 <div
-  className="xui-row"
+  className="xui-row-flex"
 >
   Testing 💩
 </div>

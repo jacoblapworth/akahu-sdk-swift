@@ -40,16 +40,17 @@ const customWeekdayElement = <CustomWeekday />;
  */
 function getRangeModifiers(range, hoverDate, isDayDisabled) {
   return {
-    [`${ns}-datepicker--day-is-selected-middle ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]: day =>
-      !isDayDisabled(day) &&
-      isRangeComplete(range) &&
-      DateUtils.isDayBetween(day, range.from, range.to),
+    [`${ns}-datepicker--day-is-selected-middle ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]:
+      day =>
+        !isDayDisabled(day) &&
+        isRangeComplete(range) &&
+        DateUtils.isDayBetween(day, range.from, range.to),
 
-    [`${ns}-datepicker--day-is-selected-start ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]: day =>
-      !isDayDisabled(day) && isRangeComplete(range) && DateUtils.isSameDay(day, range.from),
+    [`${ns}-datepicker--day-is-selected-start ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]:
+      day => !isDayDisabled(day) && isRangeComplete(range) && DateUtils.isSameDay(day, range.from),
 
-    [`${ns}-datepicker--day-is-selected-end ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]: day =>
-      !isDayDisabled(day) && isRangeComplete(range) && DateUtils.isSameDay(day, range.to),
+    [`${ns}-datepicker--day-is-selected-end ${ns}-datepicker--day-is-in-range ${ns}-datepicker--day-is-in-selected-range`]:
+      day => !isDayDisabled(day) && isRangeComplete(range) && DateUtils.isSameDay(day, range.to),
 
     [`${ns}-datepicker--day-is-hovered-middle ${ns}-datepicker--day-is-in-range`]: day =>
       !isDayDisabled(day) &&

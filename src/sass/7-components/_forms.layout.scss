@@ -31,7 +31,7 @@ $xui-invalid-icon-size: 18px; // Override default icon view-box to remove unwant
   color: $xui-validation-invalid-color;
   display: flex;
   line-height: $xui-invalid-icon-size;
-  padding-top: $xui-s-small / 2;
+  padding-top: $xui-s-small * 0.5;
   .#{$ns}-icon {
     height: $xui-invalid-icon-size;
     margin-right: $xui-s-xsmall;

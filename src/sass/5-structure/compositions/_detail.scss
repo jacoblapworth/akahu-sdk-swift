@@ -2,6 +2,6 @@
 @import '../../mixins';
 
 .#{$ns}-composition-detail {
-  grid-template: 'detail' / minmax(0, 1fr);
   -ms-grid-columns: 1fr;
+  grid-template: 'detail' / minmax(0, 1fr);
 }

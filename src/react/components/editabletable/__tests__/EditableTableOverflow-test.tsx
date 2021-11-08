@@ -27,22 +27,22 @@ describe('EditableTableOverflow', () => {
 
   it('applies the right overflow when the table can be scrolled to the right', () => {
     // Arrange
-    const scrollContainerRef = ({
+    const scrollContainerRef = {
       current: {
         addEventListener: NOOP,
         removeEventListener: NOOP,
         clientWidth: 400,
         scrollLeft: 0,
       },
-    } as unknown) as React.RefObject<HTMLDivElement>;
-    const tableRef = ({
+    } as unknown as React.RefObject<HTMLDivElement>;
+    const tableRef = {
       current: {
         addEventListener: NOOP,
         removeEventListener: NOOP,
         clientWidth: 600,
         querySelector: NOOP,
       },
-    } as unknown) as React.RefObject<HTMLTableElement>;
+    } as unknown as React.RefObject<HTMLTableElement>;
 
     const wrapper = mount(
       <XUIEditableTableContext.Provider
@@ -58,22 +58,22 @@ describe('EditableTableOverflow', () => {
 
   it('applies the left overflow when the table can be scrolled to the left', () => {
     // Arrange
-    const scrollContainerRef = ({
+    const scrollContainerRef = {
       current: {
         addEventListener: NOOP,
         removeEventListener: NOOP,
         clientWidth: 400,
         scrollLeft: 1,
       },
-    } as unknown) as React.RefObject<HTMLDivElement>;
-    const tableRef = ({
+    } as unknown as React.RefObject<HTMLDivElement>;
+    const tableRef = {
       current: {
         addEventListener: NOOP,
         removeEventListener: NOOP,
         clientWidth: 600,
         querySelector: NOOP,
       },
-    } as unknown) as React.RefObject<HTMLTableElement>;
+    } as unknown as React.RefObject<HTMLTableElement>;
 
     const wrapper = mount(
       <XUIEditableTableContext.Provider
@@ -89,11 +89,11 @@ describe('EditableTableOverflow', () => {
 
   it('applies the footaction class', () => {
     // Arrange
-    const tableRef = ({
+    const tableRef = {
       current: {
         querySelector: className => className.includes('editabletablefoot--action'),
       },
-    } as unknown) as React.RefObject<HTMLTableElement>;
+    } as unknown as React.RefObject<HTMLTableElement>;
 
     const wrapper = mount(
       <XUIEditableTableContext.Provider value={{ dragAndDrop: {}, rowOptions: {}, tableRef }}>
@@ -111,20 +111,20 @@ describe('EditableTableOverflow', () => {
       addEventListener: NOOP,
       removeEventListener: NOOP,
     };
-    const scrollContainerRef = ({
+    const scrollContainerRef = {
       current: {
         ...currentRef,
         clientWidth: 400,
         scrollLeft: 1,
       },
-    } as unknown) as React.RefObject<HTMLDivElement>;
-    const tableRef = ({
+    } as unknown as React.RefObject<HTMLDivElement>;
+    const tableRef = {
       current: {
         ...currentRef,
         clientWidth: 600,
         querySelector: NOOP,
       },
-    } as unknown) as React.RefObject<HTMLTableElement>;
+    } as unknown as React.RefObject<HTMLTableElement>;
 
     const wrapper = mount(
       <XUIEditableTableContext.Provider
@@ -144,20 +144,20 @@ describe('EditableTableOverflow', () => {
       addEventListener: NOOP,
       removeEventListener: NOOP,
     };
-    const scrollContainerRef = ({
+    const scrollContainerRef = {
       current: {
         ...currentRef,
         clientWidth: 400,
         scrollLeft: 0,
       },
-    } as unknown) as React.RefObject<HTMLDivElement>;
-    const tableRef = ({
+    } as unknown as React.RefObject<HTMLDivElement>;
+    const tableRef = {
       current: {
         ...currentRef,
         clientWidth: 600,
         querySelector: NOOP,
       },
-    } as unknown) as React.RefObject<HTMLTableElement>;
+    } as unknown as React.RefObject<HTMLTableElement>;
 
     const wrapper = mount(
       <XUIEditableTableContext.Provider

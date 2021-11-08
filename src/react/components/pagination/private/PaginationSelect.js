@@ -9,7 +9,7 @@ import { numberFormat } from './helpers';
 const PaginationSelect = ({ buttonContent, currentOption, label, onSelect, options }) => (
   <XUISelectBox
     buttonContent={buttonContent}
-    buttonVariant="borderless-primary"
+    buttonVariant="borderless-main"
     fullWidth="never"
     isLabelHidden
     isTextTruncated={false}

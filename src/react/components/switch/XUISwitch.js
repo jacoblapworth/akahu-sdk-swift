@@ -7,7 +7,7 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
-import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
+import labelRequiredError, { textChildOrLabelId } from '../helpers/labelRequiredError';
 
 const baseClass = `${ns}-switch`;
 
@@ -50,7 +50,7 @@ const XUISwitch = props => {
   const labelRef = createRef();
 
   // User can manually provide an id, or we will generate one.
-  const wrapperIds = generateIds(labelId);
+  const wrapperIds = generateIds({ labelId });
 
   const _isControlled = typeof isChecked === 'boolean';
 
@@ -110,7 +110,7 @@ const XUISwitch = props => {
   };
 
   useEffect(() => {
-    labelRequiredWarning(XUISwitch.name, textChildOrLabelId, [
+    labelRequiredError(XUISwitch.name, textChildOrLabelId, [
       labelRef.current?.textContent && !isLabelHidden,
       typeof children?.[0] === 'string',
       labelId,

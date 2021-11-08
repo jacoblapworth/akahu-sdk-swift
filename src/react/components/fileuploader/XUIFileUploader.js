@@ -11,7 +11,7 @@ import FileList from './private/FileList';
 import { ns } from '../helpers/xuiClassNamespace';
 import { baseClass } from './private/helpers';
 import checkRequiredProps from '../../helpers/checkRequiredProps';
-import labelRequiredWarning from '../helpers/labelRequiredWarning';
+import labelRequiredError from '../helpers/labelRequiredError';
 
 const XUIFileUploader = ({
   acceptedFileExtensions,
@@ -96,7 +96,7 @@ const XUIFileUploader = ({
       )
     : '';
 
-  const wrapperIds = generateIds(labelId);
+  const wrapperIds = generateIds({ labelId });
   const wrapperProps = {
     labelClassName,
     label,
@@ -117,26 +117,12 @@ const XUIFileUploader = ({
   };
 
   useEffect(() => {
-    labelRequiredWarning(
+    labelRequiredError(
       XUIFileUploader.name,
       ['includes a label with text', 'labelId provided'],
       [labelRef.current?.textContent && !isLabelHidden, typeof label?.[0] === 'string', labelId],
     );
   }, [isLabelHidden, label, labelId, labelRef]);
-  useEffect(() => {
-    labelRequiredWarning(
-      XUIFileUploader.name,
-      ['`uploadingIconAriaLabel` provided'],
-      [uploadingIconAriaLabel],
-    );
-  }, [uploadingIconAriaLabel]);
-  useEffect(() => {
-    labelRequiredWarning(
-      XUIFileUploader.name,
-      ['`errorIconAriaLabel` provided'],
-      [errorIconAriaLabel],
-    );
-  }, [errorIconAriaLabel]);
 
   return (
     <div
@@ -227,7 +213,7 @@ XUIFileUploader.propTypes = {
   /**
    * Aria label for the error progress icon
    */
-  errorIconAriaLabel: PropTypes.string,
+  errorIconAriaLabel: PropTypes.string.isRequired,
   /**
    * Class names to be added to the div wrapping the select button/drop zone
    */
@@ -341,7 +327,7 @@ XUIFileUploader.propTypes = {
   /**
    * Aria label for the uploading progress icon
    */
-  uploadingIconAriaLabel: PropTypes.string,
+  uploadingIconAriaLabel: PropTypes.string.isRequired,
   /**
    * Message to display while the file is uploading. Required if the `showFilesAsMultiline` prop is set to `true`
    * <br />

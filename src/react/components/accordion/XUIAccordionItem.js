@@ -20,12 +20,8 @@ const XUIAccordionItem = ({
   secondaryHeading,
 }) => {
   const [id] = useState(nanoid(10));
-  const {
-    emptyStateComponent,
-    openAccordionItemId,
-    setOpenAccordionItem,
-    toggleLabel,
-  } = useContext(XUIAccordionContext);
+  const { emptyStateComponent, openAccordionItemId, setOpenAccordionItem, toggleLabel } =
+    useContext(XUIAccordionContext);
   const prevPropsIsOpen = usePrevious(propsIsOpen);
 
   // An `openAccordionItemId` needs to be provided when `propsIsOpen` is `true` so that the item can be closed.

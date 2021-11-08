@@ -151,13 +151,8 @@ export default class XUIDropdownToggled extends PureComponent {
    * @param {Object} prevState
    */
   componentDidUpdate(prevProps, prevState) {
-    const {
-      onCloseAnimationEnd,
-      disableScrollLocking,
-      repositionOnScroll,
-      onClose,
-      onOpen,
-    } = this.props;
+    const { onCloseAnimationEnd, disableScrollLocking, repositionOnScroll, onClose, onOpen } =
+      this.props;
     const { isClosing, isHidden, shouldUnlockScroll, isNarrowViewport } = this.state;
 
     // If an animation state has just changed, we need to fire the passed animation
@@ -597,7 +592,7 @@ export default class XUIDropdownToggled extends PureComponent {
       ref: this.positioning,
       leaveRoomForValidationMessage: Boolean(cellRef.current),
       parentRef: cellRef.current || this.wrapper.current,
-      isTriggerWidthMatched: matchTriggerWidth,
+      matchTriggerWidth,
       isDynamicWidth: this.isDynamicWidth,
     };
 
@@ -713,7 +708,7 @@ XUIDropdownToggled.propTypes = {
    * XUI design has also decided to keep a minimum width on the dropdown,
    * so dropdown may not match the width of narrow triggers (setting this to `'min'` will not override this).
    */
-  matchTriggerWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf([true, false, 'min'])]),
+  matchTriggerWidth: PropTypes.oneOf([true, false, 'min']),
 
   /**
    * Setting a number here will force the maximum height of the dropdown to be the number

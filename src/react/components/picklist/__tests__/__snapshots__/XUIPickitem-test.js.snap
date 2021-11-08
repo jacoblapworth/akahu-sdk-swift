@@ -40,7 +40,7 @@ exports[`<XUIPickitem /> renders a multiselect pickitem with truncation 1`] = `
         <input
           aria-labelledby="xui-testPickitemCheckboxId"
           checked={false}
-          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small xui-pickitem--input"
           disabled={false}
           onChange={[Function]}
           required={false}
@@ -200,7 +200,7 @@ exports[`<XUIPickitem /> renders a selected multiselect pickitem (overriding lef
         <input
           aria-labelledby="xui-testPickitemCheckboxId"
           checked={true}
-          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small xui-pickitem--input"
           disabled={false}
           onChange={[Function]}
           required={false}
@@ -251,7 +251,7 @@ exports[`<XUIPickitem /> renders a selected multiselect pickitem without selecte
         <input
           aria-labelledby="xui-testPickitemCheckboxId"
           checked={true}
-          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small"
+          className="xui-styledcheckboxradio--input xui-styledcheckboxradio--input-small xui-pickitem--input"
           disabled={false}
           onChange={[Function]}
           required={false}

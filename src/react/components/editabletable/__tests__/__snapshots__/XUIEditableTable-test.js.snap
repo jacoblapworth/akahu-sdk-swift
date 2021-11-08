@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIEditableTable /> composes the className and passed an id correctly 1`] = `
-<Fragment>
+<XUICheckboxRangeSelector>
   <EditableTableWrapper
     className="test-classname"
     columnWidths={Array []}
@@ -14,6 +14,7 @@ exports[`<XUIEditableTable /> composes the className and passed an id correctly 
     }
   >
     <table
+      aria-label="Editable table"
       className="xui-editabletable"
       id="test-id"
     >
@@ -22,11 +23,11 @@ exports[`<XUIEditableTable /> composes the className and passed an id correctly 
       />
     </table>
   </EditableTableWrapper>
-</Fragment>
+</XUICheckboxRangeSelector>
 `;
 
 exports[`<XUIEditableTable /> renders correctly 1`] = `
-<Fragment>
+<XUICheckboxRangeSelector>
   <EditableTableWrapper
     columnWidths={Array []}
     dndInstructions=""
@@ -38,6 +39,7 @@ exports[`<XUIEditableTable /> renders correctly 1`] = `
     }
   >
     <table
+      aria-label="Editable table"
       className="xui-editabletable"
       id="xui-editabletable-testGeneratedId"
     >
@@ -49,11 +51,11 @@ exports[`<XUIEditableTable /> renders correctly 1`] = `
       />
     </table>
   </EditableTableWrapper>
-</Fragment>
+</XUICheckboxRangeSelector>
 `;
 
 exports[`<XUIEditableTable /> renders the ariaLabel correctly 1`] = `
-<Fragment>
+<XUICheckboxRangeSelector>
   <EditableTableWrapper
     columnWidths={Array []}
     dndInstructions=""
@@ -74,11 +76,11 @@ exports[`<XUIEditableTable /> renders the ariaLabel correctly 1`] = `
       />
     </table>
   </EditableTableWrapper>
-</Fragment>
+</XUICheckboxRangeSelector>
 `;
 
 exports[`<XUIEditableTable /> validation message renders correctly when the table is invalid and there is a validation message 1`] = `
-<Fragment>
+<XUICheckboxRangeSelector>
   <EditableTableWrapper
     columnWidths={Array []}
     dndInstructions=""
@@ -94,6 +96,7 @@ exports[`<XUIEditableTable /> validation message renders correctly when the tabl
     <table
       aria-describedby="xui-editabletable-testGeneratedId-message"
       aria-invalid={true}
+      aria-label="Editable table"
       className="xui-editabletable"
       id="xui-editabletable-testGeneratedId"
     >
@@ -119,5 +122,5 @@ exports[`<XUIEditableTable /> validation message renders correctly when the tabl
     />
     Error message
   </div>
-</Fragment>
+</XUICheckboxRangeSelector>
 `;

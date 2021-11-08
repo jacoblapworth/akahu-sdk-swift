@@ -16,6 +16,8 @@ import shouldRender from '../helpers/shouldRender';
  * @extends {PureComponent}
  */
 export default class XUIPickitem extends PureComponent {
+  checkboxRef = React.createRef();
+
   render() {
     const pickItem = this;
     const {
@@ -132,6 +134,7 @@ export default class XUIPickitem extends PureComponent {
             ...pickitemBodyProps,
             ...listeners,
           }}
+          checkboxRef={this.checkboxRef}
           className={cn(
             leftElement && `${itemBodyClassName}-has-leftelement`,
             rightElement && `${itemBodyClassName}-has-rightelement`,

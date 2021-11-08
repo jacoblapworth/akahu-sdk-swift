@@ -8,7 +8,9 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlWrapperInline from '../controlwrapper/XUIControlWrapperInline';
 import generateIds, { getAriaAttributesInline } from '../helpers/ariaHelpers';
 import XUITouchTarget from '../touchtarget/XUITouchTarget';
-import labelRequiredWarning, { textChildOrLabelId } from '../helpers/labelRequiredWarning';
+import labelRequiredError, { textChildOrLabelId } from '../helpers/labelRequiredError';
+import CheckboxRangeSelectorContext from './contexts/CheckboxRangeSelectorContext';
+import shouldRender from '../helpers/shouldRender';
 
 /**
  * @function setIndeterminate - Set the indeterminate DOM property of the given checkbox instance
@@ -42,8 +44,8 @@ const onLabelClick = e => {
  * @param svgSettings - Object containing optional svg properties (classname, icon paths)
  *
  */
-const buildSvgCheckbox = (qaHook, { svgClassName, iconMain }) => {
-  const svgClasses = cn(`${ns}-icon`, svgClassName);
+const buildSvgCheckbox = (qaHook, { checkboxElementClassName, iconMain }) => {
+  const svgClasses = cn(`${ns}-icon`, checkboxElementClassName);
   const createPathWithClass = className => (
     <path className={className} d={iconMain.path} role="presentation" />
   );
@@ -67,15 +69,15 @@ const buildSvgCheckbox = (qaHook, { svgClassName, iconMain }) => {
 /**
  * @function buildHtmlCheckbox - build the HTML version of the checkbox control
  * @param qaHook - Optional hook label
- * @param htmlClassName - Optional classname to add to html version of checkbox
+ * @param className - Optional classname to add to html version of checkbox
  * @param calculatedSize - String to specify the size of the checkbox
  * @param onAnimationEnd - Callback for onAnimationEnd
  *
  */
-const buildHtmlCheckbox = (qaHook, htmlClassName, calculatedSize, onAnimationEnd) => {
+const buildHtmlCheckbox = (qaHook, className, calculatedSize, onAnimationEnd) => {
   const htmlClasses = cn(
     `${baseClass}--checkbox`,
-    htmlClassName,
+    className,
     calculatedSize && `${baseClass}--checkbox-${calculatedSize}`,
   );
   return (
@@ -115,7 +117,7 @@ const buildCheckbox = (qaHook, htmlClassName, svgSettings, calculatedSize, onAni
  */
 export default class XUICheckbox extends PureComponent {
   // User can manually provide an id, or we will generate one.
-  wrapperIds = generateIds(this.props.labelId);
+  wrapperIds = generateIds({ labelId: this.props.labelId });
 
   _input = React.createRef();
 
@@ -128,13 +130,23 @@ export default class XUICheckbox extends PureComponent {
   componentDidMount() {
     setIndeterminate(this);
 
-    const { children, labelId, isLabelHidden } = this.props;
+    const { children, labelId, isLabelHidden, rangeSelectionGroup } = this.props;
 
-    labelRequiredWarning(XUICheckbox.name, textChildOrLabelId, [
+    labelRequiredError(XUICheckbox.name, textChildOrLabelId, [
       this.labelRef.current?.textContent && !isLabelHidden,
       typeof children?.[0] === 'string',
       labelId,
     ]);
+
+    if (!this.props.excludeFromRangeSelection) {
+      this.context?.addCheckboxToRange?.(this._input, rangeSelectionGroup);
+    }
+  }
+
+  componentWillUnmount() {
+    if (!this.props.excludeFromRangeSelection) {
+      this.context?.removeCheckboxFromRange?.(this._input, this.props.rangeSelectionGroup);
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -145,6 +157,24 @@ export default class XUICheckbox extends PureComponent {
       this.setShouldAnimate(true);
     }
     setIndeterminate(this);
+
+    // Add the checkbox to range-selection if `excludeFromRangeSelection` is set to false
+    if (prevProps.excludeFromRangeSelection && !this.props.excludeFromRangeSelection) {
+      this.context?.addCheckboxToRange?.(this._input, this.props.rangeSelectionGroup);
+    }
+
+    // Remove the checkbox from range-selection if `excludeFromRangeSelection` is set to true
+    if (!prevProps.excludeFromRangeSelection && this.props.excludeFromRangeSelection) {
+      this.context?.removeCheckboxFromRange?.(this._input, prevProps.rangeSelectionGroup);
+    }
+
+    // Move the checkbox to the correct range-selection group when `rangeSelectionGroup` is changed
+    if (prevProps.rangeSelectionGroup !== this.props.rangeSelectionGroup) {
+      if (!prevProps.excludeFromRangeSelection && !this.props.excludeFromRangeSelection) {
+        this.context?.removeCheckboxFromRange?.(this._input, prevProps.rangeSelectionGroup);
+        this.context?.addCheckboxToRange?.(this._input, this.props.rangeSelectionGroup);
+      }
+    }
   }
 
   setShouldAnimate = state => {
@@ -163,29 +193,28 @@ export default class XUICheckbox extends PureComponent {
 
   render() {
     const {
-      tabIndex,
+      checkboxElementClassName,
       children,
       className,
-      qaHook,
+      hintMessage,
       iconMain,
-      isDefaultChecked,
       isChecked,
+      isDefaultChecked,
       isDisabled,
+      isGrouped,
       isIndeterminate,
+      isInvalid,
+      isLabelHidden,
       isRequired,
       isReversed,
-      isLabelHidden,
+      labelClassName,
       name,
       onChange,
-      value,
-      svgClassName,
-      labelClassName,
-      htmlClassName,
-      isGrouped,
-      isInvalid,
-      validationMessage,
-      hintMessage,
+      qaHook,
       size,
+      tabIndex,
+      validationMessage,
+      value,
       _isRollOver,
       inputProps: checkboxInputProps,
     } = this.props;
@@ -197,7 +226,7 @@ export default class XUICheckbox extends PureComponent {
       baseClass,
       _isRollOver && `${baseClass}-is-rollover`,
       isDisabled && `${baseClass}-is-disabled`,
-      isReversed && `${baseClass}-reversed`,
+      isReversed && shouldRender(children) && !isLabelHidden && `${baseClass}-reversed`,
     );
 
     const wrapperClasses = cn(
@@ -224,7 +253,7 @@ export default class XUICheckbox extends PureComponent {
       ...getAriaAttributesInline(this.wrapperIds, this.props),
     };
     const svgSettings = {
-      svgClassName,
+      checkboxElementClassName,
       iconMain,
     };
 
@@ -267,12 +296,16 @@ export default class XUICheckbox extends PureComponent {
             `${baseClass}--input`,
             inputProps.className,
             calculatedSize && `${baseClass}--input-${calculatedSize}`,
+            checkboxElementClassName,
           )}
           data-automationid={qaHook && `${qaHook}--input`}
         />
         {buildCheckbox(
           qaHook,
-          cn(htmlClassName, !this.state.shouldAnimate && `${baseClass}--checkbox-is-animationdone`),
+          cn(
+            checkboxElementClassName,
+            !this.state.shouldAnimate && `${baseClass}--checkbox-is-animationdone`,
+          ),
           svgSettings,
           calculatedSize,
           // Remove the animation class when animation end
@@ -283,6 +316,8 @@ export default class XUICheckbox extends PureComponent {
   }
 }
 
+XUICheckbox.contextType = CheckboxRangeSelectorContext;
+
 XUICheckbox.propTypes = {
   /**
    * Whether this checkbox was generated as part of a rollover checkbox
@@ -290,14 +325,23 @@ XUICheckbox.propTypes = {
    */
   _isRollOver: PropTypes.bool,
 
+  /** Additional class names for the input and html/svg elements */
+  checkboxElementClassName: PropTypes.string,
+
   children: PropTypes.node,
   className: PropTypes.string,
 
+  /**
+   * Allows individual checkboxes to be excluded from range-selection (e.g. "Select all"
+   * checkboxes).
+   *
+   * This prop only applies when the checkbox is part of a range-selection group (i.e. checkboxes in
+   * groups, tables, picklists, or wrapped in XUICheckboxRangeSelector).
+   */
+  excludeFromRangeSelection: PropTypes.bool,
+
   /** Hint message to show under the input */
   hintMessage: PropTypes.node,
-
-  /** Additional class names for the html input */
-  htmlClassName: PropTypes.string,
 
   /** The icon path to use for the checkbox */
   iconMain: PropTypes.shape({
@@ -356,11 +400,15 @@ XUICheckbox.propTypes = {
 
   qaHook: PropTypes.string,
 
+  /**
+   * The range-selection (shift+click) group this checkbox belongs to. This is only needed if you
+   * have multiple groups of checkboxes that need to be wrapped in the same element (e.g. checkboxes
+   * in a table).
+   */
+  rangeSelectionGroup: PropTypes.string,
+
   /** Size variant. Defaults to medium */
   size: PropTypes.oneOf(['medium', 'small', 'xsmall']),
-
-  /** Additional class names on the svg element  */
-  svgClassName: PropTypes.string,
 
   /** The tab-index property to place on the checkbox */
   tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

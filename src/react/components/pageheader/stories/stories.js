@@ -64,7 +64,7 @@ const buildActions = ({ longContent, ...props } = {}) => (
   <XUIActions
     hasLayout={false}
     primaryAction={
-      <XUIButton size="small" variant="primary">
+      <XUIButton size="small" variant="main">
         {longContent ? 'ActionCompletion' : 'One'}
       </XUIButton>
     }

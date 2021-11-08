@@ -50,7 +50,7 @@ const footerActions = (
   <XUIActions
     isLinear
     primaryAction={
-      <XUIButton key="one" variant="primary" size="small">
+      <XUIButton key="one" variant="main" size="small">
         Continue
       </XUIButton>
     }

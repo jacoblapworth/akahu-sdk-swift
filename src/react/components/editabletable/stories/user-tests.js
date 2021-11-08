@@ -209,7 +209,7 @@ class EditableTableUserTest extends React.Component {
               isLoading={this.state.isSubmitting}
               loadingLabel="Submitting"
               onClick={this.submitData}
-              variant="primary"
+              variant="main"
             >
               {this.state.recentSuccess ? 'Thanks' : 'Submit'}
             </XUIButton>

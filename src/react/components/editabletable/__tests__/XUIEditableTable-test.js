@@ -19,7 +19,7 @@ nanoid.mockImplementation(() => mockedNanoid);
 describe('<XUIEditableTable />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
-      <XUIEditableTable>
+      <XUIEditableTable ariaLabel="Editable table">
         <div>XUIEditableTable</div>
       </XUIEditableTable>,
     );
@@ -27,7 +27,9 @@ describe('<XUIEditableTable />', () => {
   });
 
   it('composes the className and passed an id correctly', () => {
-    const wrapper = shallow(<XUIEditableTable className="test-classname" id="test-id" />);
+    const wrapper = shallow(
+      <XUIEditableTable ariaLabel="Editable table" className="test-classname" id="test-id" />,
+    );
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
@@ -37,12 +39,12 @@ describe('<XUIEditableTable />', () => {
   });
 
   it('renders a style element, when hiddenColumns are passed', () => {
-    const wrapper = mount(<XUIEditableTable hiddenColumns={[1]} />);
+    const wrapper = mount(<XUIEditableTable ariaLabel="Editable table" hiddenColumns={[1]} />);
     expect(wrapper.find('style')).toHaveLength(1);
   });
 
   it('renders rules to hide the proper columns, when hiddenColumns are passed', () => {
-    const wrapper = mount(<XUIEditableTable hiddenColumns={[1, 2]} />);
+    const wrapper = mount(<XUIEditableTable ariaLabel="Editable table" hiddenColumns={[1, 2]} />);
     expect(wrapper.text()).toContain(
       `#${tableName}-${mockedNanoid} .${tableName}row > *:nth-child(2):not(.${tableName}--emptystate-cell) { display: none; }`,
     );
@@ -52,31 +54,37 @@ describe('<XUIEditableTable />', () => {
   });
 
   it('should pass accessibility testing', async () => {
-    const wrapper = mount(<XUIEditableTable />);
+    const wrapper = mount(<XUIEditableTable ariaLabel="Editable table" />);
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
   });
 
   describe('validation message', () => {
     it('renders correctly when the table is invalid and there is a validation message', () => {
-      const wrapper = shallow(<XUIEditableTable isInvalid validationMessage="Error message" />);
+      const wrapper = shallow(
+        <XUIEditableTable ariaLabel="Editable table" isInvalid validationMessage="Error message" />,
+      );
       expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('renders when the table is invalid and there is a validation message', () => {
-      const wrapper = mount(<XUIEditableTable isInvalid validationMessage="Error message" />);
+      const wrapper = mount(
+        <XUIEditableTable ariaLabel="Editable table" isInvalid validationMessage="Error message" />,
+      );
 
       expect(wrapper.text()).toContain('Error message');
     });
 
     it('does not render if there is no validation message', () => {
-      const wrapper = mount(<XUIEditableTable isInvalid />);
+      const wrapper = mount(<XUIEditableTable ariaLabel="Editable table" isInvalid />);
 
       expect(wrapper.find('.xui-editabletable--validation')).toHaveLength(0);
     });
 
     it('does not mount if the table is valid', () => {
-      const wrapper = mount(<XUIEditableTable validationMessage="Error message" />);
+      const wrapper = mount(
+        <XUIEditableTable ariaLabel="Editable table" validationMessage="Error message" />,
+      );
 
       expect(wrapper.text()).not.toContain('Error message');
     });
@@ -84,13 +92,13 @@ describe('<XUIEditableTable />', () => {
 
   describe('pinned columns', () => {
     it('renders the pinned first column when hasPinnedFirstColumn is passed', () => {
-      const wrapper = shallow(<XUIEditableTable hasPinnedFirstColumn />);
+      const wrapper = shallow(<XUIEditableTable ariaLabel="Editable table" hasPinnedFirstColumn />);
 
       expect(wrapper.find('.xui-editabletable-pinfirst')).toHaveLength(1);
     });
 
     it('renders the pinned last column when hasPinnedLastColumn is passed', () => {
-      const wrapper = shallow(<XUIEditableTable hasPinnedLastColumn />);
+      const wrapper = shallow(<XUIEditableTable ariaLabel="Editable table" hasPinnedLastColumn />);
 
       expect(wrapper.find('.xui-editabletable-pinlast')).toHaveLength(1);
     });

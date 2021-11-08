@@ -38,7 +38,7 @@ export const iconSizeClassNames = {
  */
 export const standardVariantClassNames = {
   standard: `${baseClassName}-standard`,
-  primary: `${baseClassName}-main`,
+  main: `${baseClassName}-main`,
   create: `${baseClassName}-create`,
   negative: `${baseClassName}-negative`,
 };
@@ -58,7 +58,7 @@ export const iconVariantClassNames = {
  */
 export const borderlessVariantClassNames = {
   'borderless-standard': `${baseClassName}-borderless-standard`,
-  'borderless-primary': `${baseClassName}-borderless-main`,
+  'borderless-main': `${baseClassName}-borderless-main`,
   'borderless-create': `${baseClassName}-borderless-create`,
   'borderless-negative': `${baseClassName}-borderless-negative`,
   'borderless-inverted': `${baseClassName}-borderless-inverted`,

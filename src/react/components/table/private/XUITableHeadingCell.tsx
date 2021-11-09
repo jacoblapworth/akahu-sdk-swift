@@ -21,6 +21,7 @@ class XUITableHeadingCell<RD extends RowData> extends React.PureComponent<Props<
       <XUIEditableTableHeadingCell
         isSortActive={activeSortKey === head.props.sortKey}
         isSortAsc={isSortAsc}
+        // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
         onSortChange={head.props.sortKey ? () => onSortChange?.(head.props.sortKey!) : undefined}
         {...generatedCellProps}
       >

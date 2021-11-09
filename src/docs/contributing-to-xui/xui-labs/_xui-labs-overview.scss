@@ -65,6 +65,16 @@
 //
 // Styleguide: Contributing to XUI.XUI Labs.XUI Labs Overview.1.1
 
+// Understanding XUI Labs component versioning
+//
+// We use [Semantic Versioning](https://semver.org/) (Semver) to version components in XUI Labs, just like we do to version the XUI Library. Unlike in XUI, where the whole library is versioned together, components in XUI Labs are versioned independently of each other. This allows for more flexibility for both contributors and consumers.
+//
+// A XUI Labs component can be considered stable and ready for consumption when the version is `1.0.0` or above. From there, any further changes will be reflected by increases in the version number.
+//
+// See ['Versioning your XUI Labs component'](./section-contributing-to-xui-xui-labs-contributing.html#contributing-to-xui-xui-labs-contributing-5) for specific details on how and when to version a component.
+//
+// Styleguide: Contributing to XUI.XUI Labs.XUI Labs Overview.1.2
+
 // When to use XUI Labs
 //
 // Below is a decision tree you can use to determine whether your situation requires creating, using or contributing to a XUI Labs component.

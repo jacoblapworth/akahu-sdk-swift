@@ -101,6 +101,18 @@
                   </a>
                 {{/renderFlags}}
               {{/if}}
+              {{#if introduced}}
+                <a
+                  aria-describedby="{{referenceURI}}-introduced"
+                  class="ds-flag"
+                  href="https://github.dev.xero.com/UXE/xui/releases/tag/{{introduced}}"
+                >
+                  {{introduced}}+
+                  <span class="hover-tooltip hover-tooltip-below" id="{{referenceURI}}-introduced">
+                    Introduced in XUI {{introduced}}
+                  </span>
+                </a>
+              {{/if}}
             </h{{depth}}>
           {{/if}}
 
@@ -255,7 +267,21 @@
               {{#renderClasses classes}}
                 <tr class="ds-classtable-row">
                   <td class="xui-text-cell ds-classtable-classname"><code>{{classes.name}}</code></td>
-                  <td class="xui-text-cell ds-classtable-description">{{classes.value}}</td>
+                  <td class="xui-text-cell ds-classtable-description" {{#unless classes.version}}colspan="2"{{/unless}}>{{classes.value}}</td>
+                  {{#if classes.version}}
+                    <td class="xui-text-cell ds-classtable-version">
+                      <a
+                        aria-describedby="{{referenceURI}}-introduced"
+                        class="ds-flag"
+                        href="https://github.dev.xero.com/UXE/xui/releases/tag/{{classes.version}}"
+                      >
+                        {{classes.version}}+
+                        <span class="hover-tooltip hover-tooltip-below" id="{{referenceURI}}-introduced">
+                          Introduced in XUI {{classes.version}}
+                        </span>
+                      </a>
+                    </td>
+                  {{/if}}
                 </tr>
               {{/renderClasses}}
             </tbody>

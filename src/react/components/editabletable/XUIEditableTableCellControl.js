@@ -23,7 +23,7 @@ const XUIEditableTableCellControl = ({
   validationMessage,
   ...spreadProps
 }) => {
-  const { observedElementRef } = useResizeObserver();
+  const { observedElementRef, contentRect: observedElementContentRect } = useResizeObserver();
 
   const controlBaseName = `${baseName}-control`;
   const { scrollContainerRef } = React.useContext(XUIEditableTableContext);
@@ -68,6 +68,7 @@ const XUIEditableTableCellControl = ({
           )}
           {isFocused && typeof draggedRowIndex !== 'number' && (
             <PortalFocus
+              focusedCellContentRect={observedElementContentRect}
               focusedCellRef={observedElementRef}
               isFocused={isFocused}
               scrollContainerRef={scrollContainerRef}

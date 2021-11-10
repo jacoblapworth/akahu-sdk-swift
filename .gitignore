@@ -38,3 +38,6 @@ src/sass/tmp
 
 # NPM debug logs
 npm-debug.log.*
+
+# IntelliJ (TeamCity Kotlin)
+**/.idea

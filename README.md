@@ -273,6 +273,10 @@ You can now add breakpoints that will be triggered by the Chrome window that ope
    - Check docs branch has been updated in github
    - Check docs have been released on the website https://xui.xero.com/[your-new-version]/
 
+### Releasing XUI documentation changes
+
+XUI's documentation is automatically updated with every XUI release, but it can also be released independently when needed. Refer to the [XUI docs pipeline documentation](./.teamcity/README.md#manual-releases) for more information.
+
 ### Alpha/beta releases
 
 All releases from `breaking-changes` should also supply an up-to-date list of all changes since the last major release.

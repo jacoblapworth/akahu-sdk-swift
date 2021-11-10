@@ -1,46 +1,23 @@
-import '../helpers/xuiGlobalChecks';
-
+import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
-import * as PropTypes from 'prop-types';
-import * as React from 'react';
+
+import '../helpers/xuiGlobalChecks';
+import { baseClass, variants, sizes } from './private/constants';
 
 import XUITooltip from '../tooltip/XUITooltip';
-import { baseClass, sizes, variants } from './private/constants';
 
-interface Props {
-  children?: React.ReactNode;
-  className?: string;
-  /**
-   * @ignore
-   * Dev / debug prop to show the tooltip initially on mount instead of based on a user event.
-   */
-  debugShowToolTip?: boolean;
-  /**
-   * Id for tooltip.
-   */
-  id?: string;
-  qaHook?: string;
-  /**
-   * Size of tag to render.
-   */
-  size?: keyof typeof sizes;
-  /**
-   * Type of tag to render.
-   */
-  variant?: keyof typeof variants;
-}
-
-function tagTextOverflows(domElement: HTMLInputElement | null) {
+function tagTextOverflows(domElement) {
   return domElement && domElement.clientWidth < domElement.scrollWidth;
 }
 
-const XUITag = ({ children, className, debugShowToolTip, id, qaHook, size, variant }: Props) => {
-  const [tooltipIsAttached, setTooltipIsAttached] = React.useState(false);
+const XUITag = ({ children, className, debugShowToolTip, id, qaHook, size, variant }) => {
+  const [tooltipIsAttached, setTooltipIsAttached] = useState(false);
 
-  const _tooltip = React.useRef<XUITooltip>(null);
-  const _tag = React.useRef<HTMLInputElement>(null);
+  const _tooltip = useRef();
+  const _tag = useRef();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (tooltipIsAttached === false && tagTextOverflows(_tag.current)) {
       setTooltipIsAttached(true);
     }
@@ -75,13 +52,13 @@ const XUITag = ({ children, className, debugShowToolTip, id, qaHook, size, varia
   }
 
   return (
-    <span className={cn(baseClass, className, variant && variants[variant], size && sizes[size])}>
+    <span className={cn(baseClass, className, variants[variant], sizes[size])}>
       {componentNode}
     </span>
   );
 };
 
-export { XUITag as default, sizes, variants };
+export { XUITag as default, variants, sizes };
 
 XUITag.propTypes = {
   children: PropTypes.node,

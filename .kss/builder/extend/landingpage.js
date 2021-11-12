@@ -61,12 +61,13 @@ module.exports = function (handlebars) {
 	handlebars.registerPartial('columns', columnListPartial);
 
 	const landingpagePartial = `
-		{{#ifStyleguide "Components"}}
-			{{> columns }}
-		{{else}}
-			{{> card }}
-		{{/ifStyleguide}}
-
+		<div class="xui-margin-top-5xlarge">
+			{{#ifStyleguide "Components"}}
+				{{> columns }}
+			{{else}}
+				{{> card }}
+			{{/ifStyleguide}}
+		</div>
 		`
 	handlebars.registerPartial('landingpage', landingpagePartial);
 }

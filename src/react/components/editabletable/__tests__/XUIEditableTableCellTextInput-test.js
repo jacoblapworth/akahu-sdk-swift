@@ -4,6 +4,8 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
 import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
+import { render, fireEvent, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import XUITextInput from '../../textinput/XUITextInput';
 import XUIEditableTableCell from '../XUIEditableTableCell';
@@ -40,7 +42,7 @@ describe('<XUIEditableTableCellTextInput />', () => {
     beforeEach(() => {
       jest.useFakeTimers();
     });
-    it('selects the whole input when focused', () => {
+    it('selects the whole input when clicked', () => {
       // Arrange
       const wrapper = mount(
         <table>
@@ -56,12 +58,73 @@ describe('<XUIEditableTableCellTextInput />', () => {
       const inputSpy = jest.spyOn(wrapper.find('input').instance(), 'select');
 
       // Act
-      wrapper.find('textarea').simulate('focus');
-      wrapper.find('input').simulate('focus');
+      wrapper.find('textarea').simulate('mousedown').simulate('click');
+      wrapper.find('input').simulate('mousedown').simulate('click');
       jest.runAllTimers();
       // Assert
       expect(textareaSpy).toBeCalledTimes(1);
       expect(inputSpy).toBeCalledTimes(1);
+    });
+
+    it('does not select text if clicking a cell when it is already focused', () => {
+      const onFocusMock = jest.fn();
+
+      render(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellTextInput
+                onChange={() => {}}
+                onFocus={onFocusMock}
+                value="input value"
+              />
+            </tr>
+          </tbody>
+        </table>,
+      );
+      userEvent.tab();
+      userEvent.click(screen.getByDisplayValue('input value'));
+      jest.runAllTimers();
+
+      const onFocusArguments = onFocusMock.mock.calls[0];
+      const focusTarget = onFocusArguments[0].target;
+      const selectedText = focusTarget.value.substring(
+        focusTarget.selectionStart,
+        focusTarget.selectionEnd,
+      );
+
+      // Assert
+      expect(selectedText).toBe('');
+    });
+
+    it('does not override a partial selection', () => {
+      const onFocusMock = jest.fn();
+
+      render(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellTextInput
+                onChange={() => {}}
+                onFocus={onFocusMock}
+                value="input value"
+              />
+            </tr>
+          </tbody>
+        </table>,
+      );
+
+      const inputEl = screen.getByDisplayValue('input value');
+
+      fireEvent.mouseDown(inputEl);
+
+      // simulate setting selection as part of mousedown
+      inputEl.selectionStart = 0;
+      inputEl.selectionEnd = 2;
+
+      fireEvent.mouseUp(inputEl);
+      fireEvent.click(inputEl);
+      expect(inputEl.value.substring(inputEl.selectionStart, inputEl.selectionEnd)).toBe('in');
     });
 
     it('lets XUIEditableTableCellControl know when the input is focused', () => {
@@ -154,7 +217,7 @@ describe('<XUIEditableTableCellTextInput />', () => {
       );
     });
 
-    it('input text is selected before the onFocus prop is called', () => {
+    it('selects input text before the onFocus prop is called', () => {
       // Arrange
       const onFocusMock = jest.fn();
       const inputValue = 'Highlight Highlight Highlight';
@@ -173,7 +236,7 @@ describe('<XUIEditableTableCellTextInput />', () => {
       );
 
       // Act
-      wrapper.find('input').simulate('focus');
+      wrapper.find('input').simulate('mousedown').simulate('click').simulate('focus');
       jest.runAllTimers();
       const onFocusArguments = onFocusMock.mock.calls[0];
       const focusTarget = onFocusArguments[0].target;

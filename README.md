@@ -124,6 +124,7 @@ XUI has a few npm scripts. `npm start` should be enough for all development task
 | `npm run test -- -i`             | Runs the interactive variant of the test script which gives you additional test options including visual regression, code coverage and more.                                                                                                     |
 | `npm run review`                 | Runs React unit tests and visual regression tests and lints the React components, intended to be run before opening a pull request. This double-checks for visual regressions and ensures the TeamCity build will be successful.                 |
 | `npm run build`                  | Compiles the stylesheet, Builds the KSS docs, Styleguide and Storybook apps. Compiles tokens and creates the UMD bundle. Used for creating a release.                                                                                            |
+| `npm run docs:build`             | Runs `npm run build` and bundles the documentation sites with the version selector ready for deployment.                                                                                                                                         |
 | `npm run release`                | This script is reserved for running before we plan on doing a release on a local and before doing the release PR. Updates all versions of XUI in package(-lock).json, and a few other files where required to the new version we plan to release |
 
 ### Testing changes against another project
@@ -225,6 +226,14 @@ Configured in `.styleguidist/` folder. Checkout our [.styleguidist/README.md](.s
 
 [react-styleguidist](https://react-styleguidist.js.org/) provides our component specific documenation including descriptions, interactive and editable component examples and API documenation. This is authored using markdown descriptions, short example code snippets, and automatic generation of PropType documentation using [react-docgen](https://www.npmjs.com/package/react-docgen).
 
+### Version flags
+
+The XUI Guide and the React Docs include information about which version components and features were introduced.
+
+These flags should be used for all new components, features, and classnames introduced in a minor release. All version flags should be removed for a major (breaking-changes) release.
+
+See [.kss/README.md](.kss/README.md) for use with the XUI Guide and [.styleguidist/README.md](.styleguidist/README.md) for use with the React Docs.
+
 ### Storybook
 
 Configured in `.storybook/` folder.
@@ -263,6 +272,10 @@ You can now add breakpoints that will be triggered by the Chrome window that ope
    - Check you can install expected XUI version into test app, or your own app.
    - Check docs branch has been updated in github
    - Check docs have been released on the website https://xui.xero.com/[your-new-version]/
+
+### Releasing XUI documentation changes
+
+XUI's documentation is automatically updated with every XUI release, but it can also be released independently when needed. Refer to the [XUI docs pipeline documentation](./.teamcity/README.md#manual-releases) for more information.
 
 ### Alpha/beta releases
 

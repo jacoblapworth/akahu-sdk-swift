@@ -34,6 +34,10 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 ## XUI React components
 
+- `XUIDateInput` default visual appearance has changed to show the `date-start` icon next to the input. This can be changed using the new `inputIcon` prop.
+
+- `XUIDateRangeInput` default visual appearance has changed to show the `date-start` icon next to the first input, and the `date-end` icon next to the second input.
+
 - `XUIDateRangeInput` default behaviour has changed to better accommodate multi-line validation and hint messages for individual inputs. All segments of the date range component will now vertically align to the top, rather than the bottom. This is still customisable via setting `isBottomAligned` on the `groupConfig` object.
 
 - `XUIRow` now uses flexbox by default. As part of this work the `standard` variant has been replaced with an explicit `float` variant. _Note. Codemod will resolve these changes automatically when run._
@@ -76,6 +80,8 @@ _Note. The codemod will resolve most prop differences automatically when run._
 - `XUIDropdownToggled`, `XUIAutocompleter`, `XUIAutocompleterSecondarySearch`, `XUIEditableTableCellAutocompleter`, `XUISelectBox` and `XUIEditableTableCellSelectBox`
   - `matchTriggerWidth` has been converted from a `boolean` into an `enum` of `true | false | 'min'`
   - By setting `matchTriggerWidth` to `'min'`, dropdowns can now have a `min-width` which matches the trigger's width, while also being able to expand to fit longer content
+- `XUIDateInput`
+  - Now han an `inputIcon` prop to allow the icon displayed next to the input to be changed
 
 ## Other changes
 

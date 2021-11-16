@@ -20,6 +20,11 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'with custom input icon',
+    inputIcon: clockIcon,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'With suggested dates',
     selectedDateDefaultValue: new Date(2021, 0, 1),
     suggestedDates: dateInputSuggestedDates,

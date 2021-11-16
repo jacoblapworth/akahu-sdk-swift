@@ -17,6 +17,13 @@ interface Props {
   /** Hint message to display below input */
   hintMessage?: React.ReactNode;
 
+  /**
+   * Icon displayed to the left within the input.
+   *
+   * Defaults to date-start.
+   */
+  inputIcon?: XUIIconData;
+
   /** Input label */
   inputLabel: React.ReactNode;
 

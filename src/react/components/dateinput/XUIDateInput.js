@@ -26,6 +26,7 @@ class XUIDateInput extends React.Component {
       suggestedDates,
       displayedMonth,
       hintMessage,
+      inputIcon,
       inputLabel,
       isDisabled,
       isDueDate,
@@ -57,6 +58,7 @@ class XUIDateInput extends React.Component {
           closeOnSelect={closeOnSelect}
           displayedMonth={displayedMonth}
           hintMessage={hintMessage}
+          inputIcon={inputIcon}
           inputLabel={inputLabel}
           isDisabled={isDisabled}
           isDueDate={isDueDate}
@@ -99,6 +101,17 @@ XUIDateInput.propTypes = {
 
   /** Hint message to display below input */
   hintMessage: PropTypes.node,
+
+  /**
+   * Icon displayed to the left within the input.
+   *
+   * Defaults to date-start.
+   */
+  inputIcon: PropTypes.shape({
+    height: PropTypes.number,
+    path: PropTypes.string,
+    width: PropTypes.number,
+  }),
 
   /** Input label */
   inputLabel: PropTypes.node.isRequired,

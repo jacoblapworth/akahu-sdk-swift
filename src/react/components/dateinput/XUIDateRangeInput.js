@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import dateEndIcon from '@xero/xui-icon/icons/date-end';
 import { ns } from '../helpers/xuiClassNamespace';
 
 import { XUIDropdown, XUIDropdownToggled } from '../../dropdown';
@@ -218,6 +219,7 @@ class XUIDateRangeInput extends Component {
               `${baseClass}--secondinput-withspace`,
             needsLabelSpace && !isEndLabelVisible && `${baseClass}--secondinput-withlabelspace`,
           )}
+          inputIcon={dateEndIcon}
           inputLabel={endInputLabel}
           isDisabled={isEndDisabled || isGroupDisabled}
           isInvalid={isEndInvalid || isGroupInvalid}

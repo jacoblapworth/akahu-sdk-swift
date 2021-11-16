@@ -1,7 +1,3 @@
-const classMap = {
-  'xui-styledcheckboxradio--indeterminate': '',
-  'xui-styledcheckboxradio--check': '',
-  'xui-row': 'xui-row-float',
-};
+const classMap = {};
 
 module.exports = classMap;

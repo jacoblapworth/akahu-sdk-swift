@@ -65,6 +65,8 @@ const FileList = ({
           };
 
           const { name, size, type } = originalFile;
+          const fileIcon = getFileTypeIcon(name, type);
+
           return (
             <li className={cn(fileItemBaseClass)} key={uid}>
               {
@@ -96,7 +98,12 @@ const FileList = ({
                     </span>
                   )) ||
                   (showIcon && (
-                    <XUIIcon className={iconClassName} icon={getFileTypeIcon(name, type)} isBoxed />
+                    <XUIIcon
+                      className={iconClassName}
+                      color={fileIcon.color}
+                      icon={fileIcon.icon}
+                      isBoxed
+                    />
                   ))
               }
               <div className={`${fileItemBaseClass}--maincontent`}>

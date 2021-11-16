@@ -62,15 +62,8 @@ class XUITextInput extends PureComponent {
     }
 
     if (focusOnMount) {
-      this.input && this.input.focus();
-
-      // Only highlight the value when the type supports setSelectionRange
-      if (
-        this.input &&
-        ['text', 'search', 'url', 'tel', 'password'].indexOf(this.input.type) > -1
-      ) {
-        this.input.setSelectionRange(this.input.value.length, this.input.value.length);
-      }
+      this.input?.focus();
+      this.input?.setSelectionRange?.(this.input.value.length, this.input.value.length);
     }
 
     if (characterCounter?.maxCharCount) {
@@ -88,7 +81,7 @@ class XUITextInput extends PureComponent {
         "includes a sideElement of type='text'",
       ],
       [
-        this.labelRef.current?.innerText && !isLabelHidden,
+        this.labelRef.current?.textContent && !isLabelHidden,
         typeof label?.[0] === 'string',
         placeholder,
         labelId,

@@ -111,7 +111,7 @@ const XUISwitch = props => {
 
   useEffect(() => {
     labelRequiredError(XUISwitch.name, textChildOrLabelId, [
-      labelRef.current?.innerText && !isLabelHidden,
+      labelRef.current?.textContent && !isLabelHidden,
       typeof children?.[0] === 'string',
       labelId,
     ]);

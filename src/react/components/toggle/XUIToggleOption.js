@@ -31,7 +31,7 @@ const XUIToggleOption = props => {
     labelRequiredError(
       XUIToggleOption.name,
       ['includes a child with text', '`ariaLabel` provided'],
-      [labelRef.current?.innerText, ariaLabel],
+      [labelRef.current?.textContent, ariaLabel],
     );
   }, [labelRef, ariaLabel]);
 

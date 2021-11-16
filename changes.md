@@ -106,6 +106,7 @@ _Note. The codemod will resolve most prop differences automatically when run._
   - `XUIProgressCircular` and `XUIProgressLinear` require an `ariaLabel` or an `ariaLabelledBy`
   - `XUIFileUploader` requires either a `label` or a `labelId`. It also requires an `uploadingIconAriaLabel` and an `errorIconAriaLabel`
   - `XUITextInput` requires either a `label`, a `labelId`, a `placeholder`, or must include a `leftElement` or `rightElement` of `type='text'`
+    - This also applies to consuming components, e.g. `XUIEditableTableCellTextInput`
   - `XUICheckbox`, `XUIRadio` and `XUISwitch` require either a child containing text, or a `labelId`
   - `XUIToggleOption` requires a child containing text, or an `ariaLabel`
   - `XUIAutocompleter` and `XUIButton` require a `loadingAriaLabel` if `isLoading` is true

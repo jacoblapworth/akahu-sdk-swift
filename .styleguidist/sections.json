@@ -206,7 +206,7 @@
           {
             "name": "Tag",
             "content": "../src/react/tag.md",
-            "components": "../src/react/components/tag/XUITag.js"
+            "components": "../src/react/components/tag/XUITag.tsx"
           }
         ]
       },

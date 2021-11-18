@@ -1,5 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { screen } from '@testing-library/dom';
 import Enzyme, { mount } from 'enzyme';
 import { nanoid } from 'nanoid';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
@@ -139,5 +141,59 @@ describe('XUIDateInputItem', () => {
     const wrapper = mount(createComponent({ inputLabel: 'default label' }));
     const results = await axe(wrapper.html());
     expect(results).toHaveNoViolations();
+  });
+
+  test('when a user selects a date then clears the input and presses enter, the selected date should be null', () => {
+    // Arrange
+    const dateInputRef = React.createRef();
+    const onSelectDateCallback = jest.fn();
+    render(
+      <XUIDateInputItem
+        inputLabel="Date"
+        locale="en-NZ"
+        nextButtonAriaLabel="Next month"
+        onSelectDate={onSelectDateCallback}
+        prevButtonAriaLabel="Previous month"
+        ref={dateInputRef}
+        qaHook={'dateinputitem'}
+      />,
+    );
+
+    const inputNode = screen.getByTestId('dateinputitem-dateinputitem--input--input');
+
+    // Act
+    userEvent.type(inputNode, 'Jan 1, 2001{enter}');
+    expect(inputNode.value).toBe('Jan 1, 2001');
+    userEvent.type(inputNode, '{del}{enter}');
+
+    // Assert
+    expect(inputNode.value).toBe('');
+  });
+
+  test('when a user selects a date then clears the input and presses enter, the user provided `onSelectDate` prop callback should be fired', () => {
+    // Arrange
+    const dateInputRef = React.createRef();
+    const onSelectDateCallback = jest.fn();
+    render(
+      <XUIDateInputItem
+        inputLabel="Date"
+        locale="en-NZ"
+        nextButtonAriaLabel="Next month"
+        onSelectDate={onSelectDateCallback}
+        prevButtonAriaLabel="Previous month"
+        ref={dateInputRef}
+        qaHook={'dateinputitem'}
+      />,
+    );
+
+    const inputNode = screen.getByTestId('dateinputitem-dateinputitem--input--input');
+
+    // Act
+    userEvent.type(inputNode, 'Jan 1, 2001{enter}');
+    expect(inputNode.value).toBe('Jan 1, 2001');
+    userEvent.type(inputNode, '{del}{enter}');
+
+    // Assert
+    expect(onSelectDateCallback).toBeCalled();
   });
 });

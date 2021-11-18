@@ -791,3 +791,41 @@ const ExampleDateInput = () => {
 
 <ExampleDateInput />;
 ```
+
+Empty inputs by default are considered as valid inputs. However you can use `isInvalid` to change this behaviour:
+
+```jsx
+import { useState } from 'react';
+import XUIDateInput from '@xero/xui/react/dateinput';
+
+const ExampleDateInput = () => {
+  const [selectedDate, setSelectedDate] = useState();
+  const [isInvalidState, setIsInvalidState] = useState(false);
+  const [validationMessage, setValidationMessage] = useState('You must enter a date');
+
+  const onSelectDate = newDate => {
+    if (newDate === null) {
+      setIsInvalidState(true);
+    } else {
+      setIsInvalidState(false);
+    }
+    setSelectedDate(newDate);
+  };
+
+  return (
+    <XUIDateInput
+      displayedMonth={new Date(2021, 0)}
+      inputLabel="Date input requiring an input"
+      locale="en"
+      nextButtonAriaLabel="Next month"
+      onSelectDate={onSelectDate}
+      prevButtonAriaLabel="Previous month"
+      selectedDateValue={selectedDate}
+      isInvalid={isInvalidState}
+      validationMessage={validationMessage}
+    />
+  );
+};
+
+<ExampleDateInput />;
+```

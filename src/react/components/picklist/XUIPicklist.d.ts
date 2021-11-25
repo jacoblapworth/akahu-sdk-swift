@@ -3,6 +3,11 @@ import * as React from 'react';
 import { userBreakpoints } from '../helpers/breakpoints';
 
 interface Props {
+  /**
+   * Specify an ARIA label for the picklist.
+   * Recommended if the picklist is being used within a dropdown.
+   */
+  ariaLabel?: string;
   children?: React.ReactNode;
   className?: string;
   /**

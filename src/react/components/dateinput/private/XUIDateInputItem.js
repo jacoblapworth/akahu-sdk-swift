@@ -168,7 +168,14 @@ class XUIDateInputItem extends Component {
   };
 
   setDate = () => {
-    if (!this.state.inputValue) return;
+    if (!this.state.inputValue) {
+      /**
+       * When the user clears the input the date is saved as `null`
+       * This has been set up separately to specifically segregate empty input behaviour
+       */
+      this.state.inputValue === '' && this.onSelectDate(null, true);
+      return;
+    }
 
     const { isDueDate, minDate, maxDate, onValidationFailed } = this.props;
     const base = new Date();

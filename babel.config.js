@@ -42,6 +42,7 @@ const babelConfig = {
             corejs: '3',
             targets: {
               browsers,
+              node: 10,
             },
           },
         ],

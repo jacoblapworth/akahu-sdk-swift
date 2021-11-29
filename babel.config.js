@@ -18,6 +18,7 @@ const productionConfig = {
             corejs: '3',
             targets: {
               browsers,
+              node: 10,
             },
           },
     ],
@@ -30,7 +31,21 @@ const babelConfig = {
   sourceType: 'unambiguous',
   env: {
     development: {
-      presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            useBuiltIns: 'usage',
+            corejs: '3',
+            targets: {
+              browsers,
+              node: 10,
+            },
+          },
+        ],
+        '@babel/preset-react',
+        '@babel/preset-typescript',
+      ],
     },
     production: productionConfig,
     test: {
@@ -42,6 +57,7 @@ const babelConfig = {
             corejs: '3',
             targets: {
               browsers,
+              node: 10,
             },
           },
         ],

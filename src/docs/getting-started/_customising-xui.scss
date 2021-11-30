@@ -1,0 +1,119 @@
+// Customising XUI
+//
+// Teaser: Understand when and how you can customise XUI
+//
+// Teaser-image: fundamentals/customising-xui-image.svg
+//
+// Introduction:
+// Designing a product at Xero means using XUI. Although XUI can help you solve many problems, there are still gaps. This page will help you understand where there is flexibility in the design system, and how we can evolve XUI together.
+//
+// Weight: 1.035
+//
+// Flags: New
+//
+// Image: fundamentals-images/customising-xui-image.svg
+//
+// Image-caption: XUI is owned by everyone and we can evolve it together.
+//
+// Styleguide: Getting Started.Customising XUI
+
+// Visual language and functional problems
+//
+// The visual language is a common thread across all products and experiences at Xero. It's the foundation of our design system and is defined by the [Fundamentals](./section-fundamentals.html).
+//
+// Be as specific as possible when describing gaps in XUI. This helps identify the root problem and understand the best way to solve it.
+//
+// A lot of the time, we can find functional solutions to problems — these are solutions that use existing components and rely on the existing visual language. Occasionally we'll find that the current visual language doesn't create a good experience, but we should always try to explore functional solutions first.
+//
+// Try to only solve one of these problems at a time.
+//
+// Styleguide: Getting Started.Customising XUI.1
+
+// What do I do when XUI isn’t meeting my needs?
+//
+// Sometimes we might encounter a problem, where XUI doesn’t have a solution, or the solution doesn’t provide a good experience for users. You know your customers the best, and you might have specific needs that XUI and it’s visual language doesn’t accommodate. The XUI team wants to work with you to help understand where you’re feeling limited, so that we can evolve the design system and visual language together.
+//
+// Below is a process for finding answers and working with the XUI team to solve your problem or gap:
+//
+// exampleClass: ds-example-nomarkuplink ds-example-transparent ds-example-flush ds-example-wide
+//
+// Markup: ./examples/_customising-xui-figma-tree.html
+//
+// Styleguide: Getting Started.Customising XUI.2
+
+// 1. Find if anyone has a similar problem. Is this a new gap or problem?
+//
+// Identify whether this is a new gap or problem with the design system.
+// Existing gaps and problems are documented in Design History Rationales (DHRs). You can find Slack working groups where others are working on the same problem.
+//
+// **Places to look for solutions and documented gaps:**
+// * [XUI Guide](./)\
+// Formalised guidance for fundamentals, components, and patterns
+// * [XUI Labs](section-contributing-to-xui-xui-labs-xui-labs-overview.html)\
+// Community contributed components
+// * XUI working groups and [Design History Rationales (DHRs)](https://xero.atlassian.net/l/c/n2b53fAu)\
+// Dedicated Slack channels and docs to collaborate on shared problems
+//
+// If you can’t find any similar problems, skip to [step 3](#getting-started-customising-xui-2-3)
+//
+// Styleguide: Getting Started.Customising XUI.2.1
+
+// 2. Explore using the suggested solution
+//
+// If you find similar problems to yours, explore using the suggested workarounds and solutions. Apply what you have learned and test/validate with your customers.
+//
+// If you don’t have confidence that it solves your problem, continue to [step 3](#getting-started-customising-xui-2-3)
+//
+// Styleguide: Getting Started.Customising XUI.2.2
+
+// 3. Share your problem with the XUI team
+//
+// Reach out on our Slack channels to organise a catchup:
+// * [#xui-design](https://xero.slack.com/archives/C56RA62Q5)
+// * [#xui-development](https://xero.slack.com/archives/C565NP1A5)
+//
+// **What does the XUI team need to be able to understand your customer problem?**
+// * Context of the customer flow. What happens before and after this?
+// * Try a version using just XUI, so we understand where XUI is not working
+//     * Deconstruct your design down to its functional intent and build it back up using [components](section-components.html) and the [fundamentals](section-fundamentals.html) from XUI
+//     * See the [“Cards” case study](https://xero.atlassian.net/l/c/vd4EyRFf) of this approach
+//
+// If you’d like to know more about how we approach your support questions, you can see our process [here](https://www.figma.com/file/IrwZCmdqAWXn213oPVFrKt/XUI-Support-team-process-%5BCommunity%5D?node-id=0%3A1).
+//
+// Styleguide: Getting Started.Customising XUI.2.3
+
+// 4. Are there other ways to solve your problem that don’t alter the fundamentals?
+//
+// Is this a functional, or visual language problem? Try to use functional ways to solve the problem, before exploring changes to the visual language.
+// We'll work with you to try and find functional ways to solve your problem. There may be other ways that you can explore that don’t rely on changing the visual language.
+//
+// Can you adjust an existing component?
+// Are you designing a new component?
+// Will you need to add new styles / change the fundamentals?
+//
+// You might be able to design a new component that still uses the fundamentals.
+//
+// Styleguide: Getting Started.Customising XUI.2.4
+
+// Contributing to fundamentals and the visual language
+//
+// Image: fundamentals-images/visual-language-image.svg
+//
+// Xero’s visual language is a common thread through all experiences a customer has. XUI’s fundamentals play a key role in making that experience cohesive within the product.
+//
+// This means that a lot of consideration needs to go into any changes to these. We know that there are gaps and there are common complaints with the current fundamentals. Some examples of these include density of the interface, typographic hierarchy, and a lack of brand presence.
+//
+// We are documenting these problems so that we can explore solutions to these through changes to the fundamentals that can be applied cohesively across all of Xero. We’ve started to document these in Design History Rationale (DHRs) on Confluence, you can see a list [here](https://xero.atlassian.net/l/c/hoXMcJow).
+//
+// Please contribute to these DHRs with any context you have. Show why these are a problem for your customers, include examples and any exploration.
+//
+// Styleguide: Getting Started.Customising XUI.3
+
+// Related links
+//
+// Related:
+// * [Fundamentals](./section-fundamentals.html)
+// * [Design History Rational (DHRs)](https://xero.atlassian.net/l/c/n2b53fAu)
+// * [Visual Language DHRs](https://xero.atlassian.net/l/c/hoXMcJow)
+//
+// Styleguide: Getting Started.Customising XUI.99

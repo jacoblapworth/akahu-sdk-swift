@@ -122,36 +122,20 @@
             </div>
           {{/if}}
 
+          {{! Disable table of contents for the following sections }}
           {{#if @first}}
-            {{#ifStyleguide "Components.CollectingInput.Forms"}}
+            {{#ifStyleguide "Compositions" "Components.CollectingInput.Forms" "Components.DisplayingData.EditableTable" "Contributing to XUI.XUI Labs.XUI Labs Overview" "Contributing to XUI.XUI Labs.Contributing" "Fundamentals"}}
               {{! noop }}
-            {{else}} {{#ifStyleguide "Components.DisplayingData.EditableTable"}}
-              {{! noop }}
-              {{else}} {{#ifStyleguide "Contributing to XUI.XUI Labs.XUI Labs Overview"}}
-                {{! noop }}
-                {{else}} {{#ifStyleguide "Contributing to XUI.XUI Labs.Contributing"}}
-                  {{! noop }}
-                  {{else}}
-                    <ul>
-                      {{#each  @root.sections}} {{#ifDepth 2}}
-                        <li>
-                          <a href="#{{referenceURI}}">
-                            {{header}}
-                          </a>
-                        </li>
-                      {{/ifDepth}} {{/each}}
-                    </ul>
-                    {{#ifStyleguide "Getting Started"}}
-                      {{! noop }}
-                    {{else}} {{#ifStyleguide "Contributing to XUI"}}
-                      {{! noop }}
-                      {{else}}
-                        {{> landingpage }}
-                      {{/ifStyleguide}}
-                    {{/ifStyleguide}}
-                  {{/ifStyleguide}}
-                {{/ifStyleguide}}
-              {{/ifStyleguide}}
+            {{else}}
+              <ul>
+                {{#each  @root.sections}} {{#ifDepth 2}}
+                  <li>
+                    <a href="#{{referenceURI}}">
+                      {{header}}
+                    </a>
+                  </li>
+                {{/ifDepth}} {{/each}}
+              </ul>
             {{/ifStyleguide}}
           {{/if}}
 
@@ -397,8 +381,19 @@
 
     {{/wrapSection}}
     {{/each}}
-
+    
+    {{#each sections}}
+      {{#if @first}}
+        {{! Don't show the landing page tiles for the following sections: }}
+        {{#ifStyleguide "Components.CollectingInput.Forms" "Components.DisplayingData.EditableTable" "Contributing to XUI.XUI Labs.XUI Labs Overview" "Contributing to XUI.XUI Labs.Contributing" "Getting Started" "Contributing to XUI"}}
+          {{! noop }}
+        {{else}}
+          {{> landingpage }}
+        {{/ifStyleguide}}
+      {{/if}}
+    {{/each}}
     {{/if}}
+    
   </div>
 </article>
 

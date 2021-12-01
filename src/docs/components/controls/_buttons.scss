@@ -10,22 +10,40 @@
 //
 // Introduction: Use buttons for the most important actions on a page.
 //
+//
 // Styleguide: Components.Controls.Button
+
+// When to use
+//
+// - To highlight an action a user needs to take to continue or complete a task
+//
+// Styleguide: Components.Controls.Button.1
+
+// When not to use
+//
+// - Don’t use for elements that have an href – instead use a [link](./section-fundamentals-typography.html#fundamentals-typography-40)
+//
+// Styleguide: Components.Controls.Button.2
 
 // Best practice
 //
 // Tips:
-// Do: In most circumstances, the 'main' and 'standard' button variants will suffice
+// Do: In most circumstances, use the 'main' and 'standard' button variants
 // Do: Make sure the button text clearly describes what will happen when a user selects the button
 // Do: Use the 'small' button variant in toolbars
-// Do: Use anchor tags when an href is present
-// Do: Use button tags in all other circumstances
+// Do: Use anchor tags when an href is present – use button tags in all other circumstances
 // Warning: Avoid using non-standard controls like divs for buttons
 // Warning: Use the green 'create' and red 'negative' colour variants sparingly
-// Dont: In general, avoid using unstyled buttons
+// Dont: Avoid using unstyled buttons
 // Info: For guidance on where to place buttons (or actions) on a page, see [Page-level actions guidance](./section-patterns-page-level-actions.html)
 //
-// Styleguide: Components.Controls.Button.1
+// Styleguide: Components.Controls.Button.3
+
+// Features of a button
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Controls.Button.4
 
 // Reset default styling
 //
@@ -38,7 +56,7 @@
 //
 // Markup: ./examples/button/_button-unstyled.html
 //
-// Styleguide: Components.Controls.Button.2
+// Styleguide: Components.Controls.Button.4.1
 
 // Style variants
 //
@@ -59,7 +77,7 @@
 //
 // Markup: ./examples/button/_button-variants.html
 //
-// Styleguide: Components.Controls.Button.3
+// Styleguide: Components.Controls.Button.4.2
 
 // Borderless
 //
@@ -76,7 +94,7 @@
 //
 // Markup: ./examples/button/_button-variants-borderless.html
 //
-// Styleguide: Components.Controls.Button.3.1
+// Styleguide: Components.Controls.Button.4.2.1
 
 // Using colour
 //
@@ -84,31 +102,9 @@
 //
 // For example, don’t depend on the colour red to communicate that an action is destructive – explain the action in the button text as well.
 //
-// Styleguide: Components.Controls.Button.3.2
+// Styleguide: Components.Controls.Button.4.2.2
 
-// Size variants
-//
-// Buttons have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
-//
-// Tips:
-// Do: Use 'medium' variant by default
-// Do: Use 'small' and 'xsmall' variants when nested inside other elements (except for icon-button which should use the same size variant as its parent)
-// Warning: Be cautious when using 'xsmall' variant, as it has reduced legibility and touch target
-// Dont: Don’t mix and match size variants inline with each other
-//
-// Definitions:
-// Size variant: **Height**: **Class**
-// medium: 40px: `xui-button-medium`
-// small: 32px: `xui-button-small`
-// xsmall: 24px: `xui-button-xsmall`
-//
-// exampleClass: ds-example-transparent ds-example-flush
-//
-// Markup: ./examples/button/_button-sizes.html
-//
-// Styleguide: Components.Controls.Button.4
-
-// Full width
+// Full width buttons
 //
 // To force a button to occupy the entire width of its parent at all times, apply the following utility class.
 //
@@ -119,7 +115,7 @@
 //
 // Markup: ./examples/button/_button-full-width.html
 //
-// Styleguide: Components.Controls.Button.5
+// Styleguide: Components.Controls.Button.4.3
 
 // Full width for mobile
 //
@@ -132,7 +128,7 @@
 //
 // Markup: ./examples/button/_button-full-width-mobile.html
 //
-// Styleguide: Components.Controls.Button.5.1
+// Styleguide: Components.Controls.Button.4.3.1
 
 // Icon buttons
 //
@@ -155,11 +151,11 @@
 //
 // Markup: ./examples/button/_button-icon.html
 //
-// Styleguide: Components.Controls.Button.6
+// Styleguide: Components.Controls.Button.4.4
 
 // Icon button size variants
 //
-// Icon buttons require their own classes to be applied to use size variants. Follow the same [size variants as regular buttons](./section-components-controls-button.html#components-controls-button-4).
+// Icon buttons require their own classes to be applied to use size variants. Follow the same [size variants as regular buttons](./section-components-controls-button.html#components-controls-button-16.
 //
 //**Note:** Icon buttons nested inside controls should use the same size variant as the control.
 //
@@ -171,7 +167,7 @@
 //
 // Markup: ./examples/button/_button-icon-sizes.html
 //
-// Styleguide: Components.Controls.Button.6.1
+// Styleguide: Components.Controls.Button.4.4.1
 
 // Inverted buttons
 //
@@ -186,7 +182,7 @@
 //
 // Markup: ./examples/button/_button-inverted.html
 //
-// Styleguide: Components.Controls.Button.7
+// Styleguide: Components.Controls.Button.4.5
 
 // Disabled buttons
 //
@@ -200,7 +196,7 @@
 //
 // Markup: ./examples/button/_button-disabled.html
 //
-// Styleguide: Components.Controls.Button.8
+// Styleguide: Components.Controls.Button.4.6
 
 // Icons in buttons
 //
@@ -226,7 +222,7 @@
 //
 // Markup: ./examples/button/_button-content-icons.html
 //
-// Styleguide: Components.Controls.Button.9
+// Styleguide: Components.Controls.Button.4.7
 
 // Dropdowns
 //
@@ -241,23 +237,9 @@
 //
 // Markup: ./examples/button/_button-dropdown-trigger.html
 //
-// Styleguide: Components.Controls.Button.10
+// Styleguide: Components.Controls.Button.4.8
 
-// Grouped buttons
-//
-// To group a series of similar actions in a more compact space, apply the following classes.
-//
-// ExampleClass: ds-example-flush ds-example-transparent
-//
-// Classes:
-// xui-buttongroup: Container for a button group
-// xui-button-grouped: Modifier for a grouped button
-//
-// Markup: ./examples/button/_button-grouped.html
-//
-// Styleguide: Components.Controls.Button.11
-
-// Split button
+// Split buttons
 //
 // flags: updated
 //
@@ -276,7 +258,21 @@
 //
 // Markup: ./examples/button/_button-split.html
 //
-// Styleguide: Components.Controls.Button.12
+// Styleguide: Components.Controls.Button.4.9
+
+// Grouped buttons
+//
+// To group a series of similar actions in a more compact space, apply the following classes.
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Classes:
+// xui-buttongroup: Container for a button group
+// xui-button-grouped: Modifier for a grouped button
+//
+// Markup: ./examples/button/_button-grouped.html
+//
+// Styleguide: Components.Controls.Button.4.10
 
 // Layout
 //
@@ -290,7 +286,7 @@
 //
 // Markup: ./examples/button/_button-layout.html
 //
-// Styleguide: Components.Controls.Button.13
+// Styleguide: Components.Controls.Button.4.11
 
 // Linear flow
 //
@@ -301,7 +297,29 @@
 //
 // Markup: ./examples/button/_button-linear.html
 //
-// Styleguide: Components.Controls.Button.13.1
+// Styleguide: Components.Controls.Button.4.11.1
+
+// Size variants
+//
+// Buttons have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2)
+//
+// Tips:
+// Do: Use 'medium' variant by default
+// Do: Use 'small' and 'xsmall' variants when nested inside other elements (except for icon-button which should use the same size variant as its parent)
+// Warning: Be cautious when using 'xsmall' variant, as it has reduced legibility and touch target
+// Dont: Don’t mix and match size variants inline with each other
+//
+// Definitions:
+// Size variant: **Height**: **Class**
+// medium: 40px: `xui-button-medium`
+// small: 32px: `xui-button-small`
+// xsmall: 24px: `xui-button-xsmall`
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/button/_button-sizes.html
+//
+// Styleguide: Components.Controls.Button.5
 
 // Accessibility
 //
@@ -316,7 +334,7 @@
 //
 // For instructions on making icon buttons accessible, see [icon buttons](./section-components-controls-button.html#components-controls-button-6).
 //
-// Styleguide: Components.Controls.Button.14
+// Styleguide: Components.Controls.Button.6
 
 // Content guidelines
 //
@@ -325,7 +343,7 @@
 // Do: Avoid using unnecessary words such as a, an, the (e.g: use **Add task** not **Add a task**)
 // Do: Use sentence case (capitalise first word and proper nouns)
 //
-//  Styleguide: Components.Controls.Button.15
+//  Styleguide: Components.Controls.Button.7
 
 // Use the format: verb + noun
 //
@@ -336,7 +354,7 @@
 // Post pay run | Post
 // Add client | New client
 //
-// Styleguide: Components.Controls.Button.15.1
+// Styleguide: Components.Controls.Button.7.1
 
 // Clearly explain what will happen next
 //
@@ -348,7 +366,7 @@
 // Start trial | Let’s go!
 // Approve leave | Accept
 //
-// Styleguide: Components.Controls.Button.15.2
+// Styleguide: Components.Controls.Button.7.2
 
 // Commonly used buttons
 //
@@ -361,7 +379,7 @@
 // Back  | Previous
 // Next | Next step
 //
-// Styleguide: Components.Controls.Button.15.3
+// Styleguide: Components.Controls.Button.7.3
 
 // Using ‘you’ or ‘your’
 //
@@ -371,7 +389,7 @@
 // See your spending | See my spending
 // See spending | See my spending
 //
-// Styleguide: Components.Controls.Button.15.4
+// Styleguide: Components.Controls.Button.7.4
 
 // Class list
 //
@@ -413,7 +431,7 @@
 // xui-button-icon-xsmall: Modifier for a xsmall icon button
 // xui-touchtarget: Invisible touch target element inside an icon button
 //
-// Styleguide: Components.Controls.Button.50
+// Styleguide: Components.Controls.Button.8
 
 // Related links
 //

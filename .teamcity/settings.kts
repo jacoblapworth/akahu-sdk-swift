@@ -1,5 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import buildTypes.BuildDocs
+import buildTypes.PRBuild
+import buildTypes.VisRegTest
 import com.xero.teamcityhelpers.build.report.Report
 import com.xero.teamcityhelpers.buildtype.trigger.addSnapshotDependencies
 import com.xero.teamcityhelpers.deploy.s3.DeployToS3
@@ -59,6 +61,8 @@ project {
   }
 
   val buildDocs = BuildDocs()
+  val prBuild = PRBuild()
+  val visRegTest = VisRegTest()
 
   val deployToStaging = DeployToS3(buildDocs, "staging") {
     name = "Staging – Deploy XUI docs"
@@ -89,6 +93,9 @@ project {
 //    }
 //    addSnapshotDependencies(arrayOf(deployToStaging))
 //  }
+
+  buildType(prBuild)
+  buildType(visRegTest)
 
   buildType(buildDocs)
   buildType(deployToStaging)

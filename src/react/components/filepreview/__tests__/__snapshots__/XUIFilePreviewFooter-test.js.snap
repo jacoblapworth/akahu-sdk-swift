@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUI XUIFilePreviewFooter/> renders a passed qaHook as an automationId 1`] = `
+<DocumentFragment>
+  <footer
+    class="xui-filepreviewfooter"
+    data-automationid="test-filepreviewfooter"
+  >
+    <div />
+  </footer>
+</DocumentFragment>
+`;
+
+exports[`<XUI XUIFilePreviewFooter/> renders alternate wrapping element, if provided 1`] = `
+<DocumentFragment>
+  <section
+    class="xui-filepreviewfooter"
+  >
+    <div />
+  </section>
+</DocumentFragment>
+`;
+
+exports[`<XUI XUIFilePreviewFooter/> renders any additional classes provided through the className prop 1`] = `
+<DocumentFragment>
+  <footer
+    class="filepreviewfooter-class xui-filepreviewfooter"
+  >
+    <div />
+  </footer>
+</DocumentFragment>
+`;
+
+exports[`<XUI XUIFilePreviewFooter/> renders basic example correctly 1`] = `
+<DocumentFragment>
+  <footer
+    class="xui-filepreviewfooter"
+  >
+    <div />
+  </footer>
+</DocumentFragment>
+`;

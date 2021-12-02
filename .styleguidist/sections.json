@@ -96,6 +96,16 @@
             "components": "../src/react/components/fileuploader/XUIFileUploader.js"
           },
           {
+            "name": "File Preview",
+            "content": "../src/react/filepreview.md",
+            "introduced": "19.2.0",
+            "components": [
+              "../src/react/components/filepreview/XUIFilePreview.js",
+              "../src/react/components/filepreview/XUIFilePreviewHeader.js",
+              "../src/react/components/filepreview/XUIFilePreviewFooter.js"
+            ]
+          },
+          {
             "name": "Radio",
             "content": "../src/react/radio.md",
             "sections": [

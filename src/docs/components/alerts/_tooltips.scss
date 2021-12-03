@@ -2,8 +2,7 @@
 //
 // Teaser: To provide clarification for ambiguous actions or non-interactive elements.
 //
-// Introduction: A tooltip is a small amount of non-essential information that appears when tapping, hovering, or tabbing over a page element. <br /> <br />
-// Tooltips can be placed in-line with a page element or are used to clarify the action of an icon button.
+// Introduction: A tooltip holds a small amount of non-essential information that appears when tapping, hovering, or tabbing over a page element.
 //
 // Components: Tooltip
 //
@@ -11,17 +10,31 @@
 //
 // Styleguide: Components.Alerts.Tooltip
 
+// When to use
+//
+// Tips:
+// - To give additional information in-line with a page element  that helps a user understand what’s being asked of them 
+// - To display text that lives in an element's ‘title tag’ (icon buttons, truncated items)
+//
+// Styleguide: Components.Alerts.Tooltip.1
+
+// When not to use
+//
+// Tips:
+// - Don’t use for validation and error messaging 
+// - Don’t use for information that’s essential for a user to complete a task – instead put it in a [hint message](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-9)
+// - Don’t use when a heading, link, button, bold text is needed – instead use a [popover](./section-components-alerts-popover.html)
+//
+// Styleguide: Components.Alerts.Tooltip.2
+
 // Best practice
 //
 // Tips:
-// Do: Use tooltips to display text that would live in an element's ‘title’ tag (icon buttons, truncated items)
 // Do: Use a dedicated icon button to trigger supportive text in a tooltip
-// Warning: If using styles directly affecting the trigger or its classes, these may need to be duplicated on the wrapping `.xui-tooltip` DOM element (e.g. fixed/absolute positioning, or some flexbox styling)
-// Don't: Don't use for validation and error messaging
+// Warning: If using styles directly affecting the trigger or its classes, these may need to be duplicated on the wrapping .xui-tooltip DOM element (e.g. fixed/absolute positioning or some flexbox styling)
 // Don't: Don't include information that's crucial to a workflow
-// Don't: Don't use headings, links, buttons, bold text, or content other than text. To include any of these, consider a [popover](./section-components-alerts-popover.html)
 //
-// Styleguide: Components.Alerts.Tooltip.1
+// Styleguide: Components.Alerts.Tooltip.3
 
 // Anatomy
 //
@@ -39,7 +52,13 @@
 //
 // Markup: ./examples/tooltip/_tooltip.html
 //
-// Styleguide: Components.Alerts.Tooltip.2
+// Styleguide: Components.Alerts.Tooltip.4
+
+// Features of a tooltip
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Alerts.Tooltip.5
 
 // Positioning
 //
@@ -57,7 +76,7 @@
 //
 // Markup: ./examples/tooltip/_tooltip-positioning.html
 //
-// Styleguide: Components.Alerts.Tooltip.3
+// Styleguide: Components.Alerts.Tooltip.5.1
 
 // Content guidelines
 //
@@ -70,7 +89,7 @@
 // Don't: Don’t use a full stop for a single sentence
 // Don't: Don’t use bold
 //
-// Styleguide: Components.Alerts.Tooltip.4
+// Styleguide: Components.Alerts.Tooltip.6
 
 // Icon button tooltips
 //
@@ -80,7 +99,7 @@
 // Insert rows | Rows
 // Delete column | Delete
 //
-// Styleguide: Components.Alerts.Tooltip.4.1
+// Styleguide: Components.Alerts.Tooltip.6.1
 
 // Supportive text in tooltips
 //
@@ -92,9 +111,9 @@
 // The 11-digit number that’s issued by the ATO | Passwords should be at least 12 characters long and include 1 uppercase character, 1 number, and 1 special character
 // Email address will be used to send e-invoices to your customer | Email address must be the email linked to your Xero account
 //
-// Styleguide: Components.Alerts.Tooltip.4.2
+// Styleguide: Components.Alerts.Tooltip.6.2
 
-// Related links
+// Related components
 //
 // Related:
 // * [Banner](./section-components-alerts-banner.html)

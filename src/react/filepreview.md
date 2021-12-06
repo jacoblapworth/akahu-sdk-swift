@@ -1,5 +1,5 @@
 <div class="xui-margin-vertical">
-	<a href="../section-components-displayingdata-file-preview.html" isDocLink>File Preview in the XUI documentation</a>
+	<a href="../section-components-displayingdata-filepreview.html" isDocLink>File Preview in the XUI documentation</a>
 </div>
 
 XUIFilePreview will fill its wrapping container with a header, footer, and body area to display a file preview. XUIFilePreviewHeader has an API very similar to XUIIsolationHeader, and XUIFilePreviewFooter can be populated with the recommended preview controls. We've shown a responsive toolbar that stows some preview control buttons behind an overflow menu at narrow widths.

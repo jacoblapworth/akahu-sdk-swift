@@ -108,7 +108,7 @@ $isolationheader-text-spacing: ($xui-navigation-height - $xui-s-xlarge) * 0.5;
   @include xui-padding($xui-s-large);
   align-items: center;
   display: flex;
-  height: calc(100% - (2 * $xui-navigation-height));
+  height: calc(100% - (2 * #{$xui-navigation-height}));
   justify-content: center;
   overflow: auto;
 }

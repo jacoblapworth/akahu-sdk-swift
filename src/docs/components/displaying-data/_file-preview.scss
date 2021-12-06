@@ -19,10 +19,126 @@
 // File previews are used to preview and/or transcribe data from a file. Consider which of these best suits a user’s needs before deciding on placement.
 //
 // Tips:
-// Do: When a large area to preview a file is required (for example: only viewing an image of a product item)
-// Do: When there is a need to transcribe data from a file (for example: from a receipt)
+// Do: To view an uploaded file (for example: only viewing an image of a product item)
+// Do: To transcribe data from an uploaded file (for example: from a receipt)
 //
 // Styleguide: Components.DisplayingData.FilePreview.1
+
+// Best Practice
+//
+// Tips:
+// Do: A file should always have a header, body, and footer
+// Do: Include the recommended [preview control buttons](#components-displayingdata-filepreview-3-5-1), unless your specific research findings indicate the need to adapt the functionality
+// Warning: Avoid putting file previews in a modal as it’s hard to view in detail and covers the content of the page. Instead, consider using an isolated full page layout (similar to using an [isolation header](./section-components-navigation-isolation-header.html))
+// Don't: Don’t remove access to preview control buttons based on viewport size
+//
+// Styleguide: Components.DisplayingData.FilePreview.2
+
+// Anatomy
+//
+// The file preview consists of 3 visual sections: the header, body, and footer, and is composed of a XUIFilePreview component that accepts XUIFilePreviewHeader and XUIFilePreviewFooter as props.
+//
+// Content of the XUIFilePreview component will be displayed as the body. It can be connected to the [Files API](https://kotahi.xero.dev/catalogue/rnM9B5f6mXkCXsMuKUMvZM/readme) (or any other API), but you’ll need to build this functionality and any UI controls that are required.
+//
+// Styleguide: Components.DisplayingData.FilePreview.3
+
+// Layout
+//
+// Image: file-preview-images/preview-layouts.png
+//
+// Tips:
+// Do: File previews can be used within a side container, split composition, or in an isolated full page layout
+//
+// Styleguide: Components.DisplayingData.FilePreview.3.1
+
+// Example
+//
+// ExampleClass: ds-example-wide
+//
+// Markup: ./examples/file-preview/_file-preview.html
+//
+// Tips:
+// Do: Use an isolated full page layout when transcribing data isn’t required and a user needs a larger area to preview a file
+//
+// Styleguide: Components.DisplayingData.FilePreview.3.2
+
+// Header
+//
+// The API for XUIFilePreviewHeader is similar to the [isolation header](./section-components-navigation-isolation-header.html) and [page header](./section-components-navigation-page-header.html). It accepts a `navigationButton` for controlling the display of the preview, a `title` and `secondary` for giving context around the file being shown, as well as `actions` for any actions relating to the file. Additionally, implementers can choose to set the `headerTag` and `headingLevel` for finer control over HTML semantics and accessibility.
+//
+// Styleguide: Components.DisplayingData.FilePreview.3.3
+
+// Body
+//
+// The body contains the preview of the uploaded file on a grey background with 20px of padding. The content of the body is determined by the implementation.
+//
+// Styleguide: Components.DisplayingData.FilePreview.3.4
+
+// Empty state
+//
+// Display when no preview of the file type is available.
+//
+// Tips:
+// Do: Use with a [file type icon](./section-fundamentals-icons.html#fundamentals-icons-8) if there’s no preview of the uploaded file type (for example: CSV)
+// Info: Learn more about [empty states in Storybook](/xui-labs/?path=/docs/components-xlabsemptystate--playground)
+//
+// Styleguide: Components.DisplayingData.FilePreview.3.4.1
+
+// Footer
+//
+// The footer’s recommended preview control buttons include fit to page, zoom in and out, rotate left and right.
+//
+// Controls that affect the file content being previewed should be displayed inside a XUIFilePreviewFooter component.
+//
+// Styleguide: Components.DisplayingData.FilePreview.3.5
+
+// Preview control buttons
+//
+// Tips:
+// Do: Maintain clear groupings of similar controls (for example: zoom and rotate groups)
+// Do: If the browser uses native controls for PDF file types, remove the preview control buttons but keep pagination
+//
+// Styleguide: Components.DisplayingData.FilePreview.3.5.1
+
+// Features of a file preview
+//
+// Styleguide: Components.DisplayingData.FilePreview.4
+
+// Responsive
+//
+// At a smaller viewport, controls can be moved into an overflow menu to ensure they’re always available.
+//
+// ExampleClass: ds-example-wide ds-example-nomarkuplink
+//
+// Markup: ./examples/file-preview/_file-preview-narrow.html
+//
+//
+// Styleguide: Components.DisplayingData.FilePreview.4.1
+
+// Accessibility
+//
+// Tips:
+// Do: Ensure adequate ARIA labels are used to describe the control functionality
+// Don't: Don’t rely on gestures as the only way to complete a task on any viewport
+//
+// Styleguide: Components.DisplayingData.FilePreview.5
+
+// Class list
+//
+// Classes:
+// xui-filepreview: Container that wraps the entire component
+// xui-filepreviewheader: Container for the header bar
+// xui-filepreviewheader--leftcontent: Contains and positions content at the left of the header
+// xui-filepreviewheader--controlcontent: Contains the navigation button
+// xui-filepreviewheader--titlewrapper: Contains the title and secondary content
+// xui-filepreviewheader--title: Contains the main title
+// xui-filepreviewheader--secondarytitle: Contains the secondary title
+// xui-filepreviewheader--rightcontent: Contains and positions actions
+// xui-filepreviewheader--actions: Contains the actions
+// xui-filepreview--body: Container for the file being displayed
+// xui-filepreviewfooter: Container for the footer bar
+//
+// Styleguide: Components.DisplayingData.FilePreview.50
 
 // Related links
 //
@@ -30,7 +146,6 @@
 // * [Page header](./section-components-navigation-page-header.html)
 // * [Isolation header](./section-components-navigation-isolation-header.html)
 // * [Fixed Footer](./section-components-navigation-fixedfooter.html)
-// * [Split composition](./section-compositions-split.html)
 // * [Button](./section-components-controls-button.html)
 //
 // Styleguide: Components.DisplayingData.FilePreview.99

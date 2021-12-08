@@ -3,6 +3,7 @@ package buildTypes
 import com.xero.teamcityhelpers.buildtype.addPullRequestSupport
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
 class VisRegTest : BuildType({
   id("PrBuildVisualRegressions")
@@ -12,7 +13,16 @@ class VisRegTest : BuildType({
   allowExternalStatus = true
   artifactRules = ".visual-testing => .visual-testing"
 
-  addPullRequestSupport()
+  addPullRequestSupport {
+    triggers.items.clear()
+    triggers {
+      vcs {
+        perCheckinTriggering = false
+        groupCheckinsByCommitter = false
+        branchFilter = "+:*"
+      }
+    }
+  }
 
   params {
     param("git.repo.name", "xui")

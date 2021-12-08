@@ -5,13 +5,38 @@
 // Teaser: Choose a single item from a range of options
 //
 // Introduction:
-// XUI provides a custom radio control for consistency across platforms and visual alignment with other form elements.
+// A radio allows a user to make a single choice from a group of options.
 //
 // Components: Radio
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.l0k4hwtao0jy
 //
 // Styleguide: Components.Controls.Radio
+
+//When to use
+//
+// - For when only 1 option can be selected from a group or list
+// - For when an explicit choice is required
+//
+// Styleguide: Components.Controls.Radio.1
+
+// When not to use
+//
+// - Don’t use if more than 1 option can be chosen from a group or list – instead use a [checkbox](./section-components-controls-checkbox.html)
+//
+// Styleguide: Components.Controls.Radio.2
+
+// Best practice
+//
+// Tips:
+// Do: The selected item should be more visually prominent than unselected items
+// Do: Always include 2 or more options
+// Do: Options should be clearly different so the choice between them is obvious
+// Do: List options in a logical order
+// Warning: Consider giving the user a way to clear a selection
+// Warning: Consider providing a ‘none’ option
+//
+// Styleguide: Components.Controls.Radio.3
 
 // Anatomy
 //
@@ -30,29 +55,15 @@
 //
 // Markup: ./examples/radio/_radio.html
 //
-// Styleguide: Components.Controls.Radio.1
+// Styleguide: Components.Controls.Radio.4
 
-// Size variants
+// Features of a radio
 //
-// Radios have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2). Add a class with the size variant modifier to the the `--input`, `--radio` and `--label` subcomponents.
+// Explore the different features that can be applied to this component.
 //
-// Tips:
-// Do: Use the 'medium' size variant when not nesting Radio
-// Do: Use the 'small' size variant inside Radio groups
-// Warning: Be cautious when using 'small' or 'xsmall' variants as they have reduced legibility
-// Don't: Don’t use a combination of size variants within a single form
-//
-// Definitions:
-// Size variant:	**Height**: **Class**
-// medium: 24px: <code>-medium</code>
-// small: 20px: <code>-small</code>
-// xsmall: 16px: <code>-xsmall</code>
-//
-// Markup: ./examples/radio/_radio-sizes.html
-//
-// Styleguide: Components.Controls.Radio.2
+// Styleguide: Components.Controls.Radio.5
 
-// Disabling
+// Disabled
 //
 // Tips:
 // Do: When disabling, disable the entire group
@@ -68,7 +79,7 @@
 //
 // Markup: ./examples/radio/_radio-disabling.html
 //
-// Styleguide: Components.Controls.Radio.3
+// Styleguide: Components.Controls.Radio.5.1
 
 // Grouped radios
 //
@@ -79,7 +90,7 @@
 //
 // Markup: ./examples/radio/_radio-grouped.html
 //
-// Styleguide: Components.Controls.Radio.4
+// Styleguide: Components.Controls.Radio.5.2
 
 // Multiline radio
 //
@@ -87,7 +98,7 @@
 //
 // Markup: ./examples/radio/_radio-multiline.html
 //
-// Styleguide: Components.Controls.Radio.4.1
+// Styleguide: Components.Controls.Radio.5.2.1
 
 // Order
 //
@@ -95,7 +106,7 @@
 //
 // Markup: ./examples/radio/_radio-order.html
 //
-// Styleguide: Components.Controls.Radio.5
+// Styleguide: Components.Controls.Radio.5.3
 
 // Validation and hint messages
 //
@@ -120,7 +131,43 @@
 //
 // Markup: ./examples/radio/_radio-validation.html
 //
+// Styleguide: Components.Controls.Radio.5.4
+
+// Size variants
+//
+// Radios have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2). Add a class with the size variant modifier to the the `--input`, `--radio` and `--label` subcomponents.
+//
+// Tips:
+// Do: Use the 'medium' size variant when not nesting Radio
+// Do: Use the 'small' size variant inside Radio groups
+// Warning: Be cautious when using 'small' or 'xsmall' variants as they have reduced legibility
+// Don't: Don’t use a combination of size variants within a single form
+//
+// Definitions:
+// Size variant:	**Height**: **Class**
+// medium: 24px: <code>-medium</code>
+// small: 20px: <code>-small</code>
+// xsmall: 16px: <code>-xsmall</code>
+//
+// Markup: ./examples/radio/_radio-sizes.html
+//
 // Styleguide: Components.Controls.Radio.6
+
+// Content guidelines
+//
+// Tips:
+// Do: Labels should be succinct and scannable
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Don't: Don’t use punctuation such as full stops or semicolons after options
+//
+// Styleguide: Components.Controls.Radio.7
+
+// Example
+//
+// ExampleContentTable:
+// How many employees do you have? | How many employees do you have working for you at the moment?
+//
+// Styleguide: Components.Controls.Radio.7.1
 
 // Class list
 //
@@ -151,7 +198,7 @@
 //
 // Styleguide: Components.Controls.Radio.50
 
-// Related links
+// Related components
 //
 // Related:
 // * [Checkbox](./section-components-controls-checkbox.html)

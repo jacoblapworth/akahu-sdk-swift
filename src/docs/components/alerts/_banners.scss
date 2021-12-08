@@ -10,20 +10,30 @@
 //
 // Styleguide: Components.Alerts.Banner
 
+// When to use
+//
+// - To show error or validation information when [inline validation](section-components-collectinginput-forms.html#components-collectinginput-forms-4-12) isn’t possible
+// - To display important information above the main content
+//
+// Styleguide: Components.Alerts.Banner.1
+
+// When not to use
+//
+// - Don’t use to confirm user actions – instead use a [toast](section-components-alerts-toast.html)
+//
+// Styleguide: Components.Alerts.Banner.2
+
 // Best practice
 //
 // Tips:
-// Do: Use when inline validation isn’t possible
-// Do: Display above the main content
+// Do: Use no more than 2 actions
 // Do: Text should have a single theme or message
-// Do: Use clear, descriptive text and don’t only rely on sentiment (colour) to communicate the message type
-// Warning: Use thoughtfully and sparingly and only for the most important information
-// Warning: Avoid using more than one banner per page. People often miss or ignore banners (banner blindness) and overuse makes this problem worse
-// Warning: Avoid using to confirm user actions – [toasts](./section-components-alerts-toast.html) can be used instead
-// Warning: Avoid hiding automatically – [toasts](./section-components-alerts-toast.html) can be used instead
-// Warning: Avoid displaying more than 2 actions, excluding the close button
+// Do: Use clear, descriptive text and don’t only rely on sentiment (colour) to communicate the type of message
+// Do: Use sparingly and only for the most important information
+// Dont: Avoid using more than 1 banner per page. People often miss or ignore banners (banner blindness) and overuse makes this problem worse
+// Dont: Avoid hiding automatically – instead use a [toast](section-components-alerts-toast.html)
 //
-// Styleguide: Components.Alerts.Banner.1
+// Styleguide: Components.Alerts.Banner.3
 
 // Anatomy
 //
@@ -40,7 +50,13 @@
 //
 // Markup: ./examples/banner/_banner.html
 //
-// Styleguide: Components.Alerts.Banner.2
+// Styleguide: Components.Alerts.Banner.4
+
+// Features of a banner
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Alerts.Banner.5
 
 // Sentiment
 //
@@ -49,14 +65,14 @@
 // Tips:
 // Do: Use clear, descriptive text alongside colour sentiment so the banner is also meaningful to users who use screen readers or have colour blindness
 //
-// Styleguide: Components.Alerts.Banner.3
+// Styleguide: Components.Alerts.Banner.5.1
 
 // Examples of banner content
 //
 // ExampleContentTable:
 // Data can't be loaded as there's a problem with your internet connection. Check your connection and try again. | Internet connection
 //
-// Styleguide: Components.Alerts.Banner.3.1
+// Styleguide: Components.Alerts.Banner.5.1.1
 
 // Positive sentiment
 //
@@ -69,7 +85,7 @@
 //
 // Markup: ./examples/banner/_banner-sentiment-positive.html
 //
-// Styleguide: Components.Alerts.Banner.3.2
+// Styleguide: Components.Alerts.Banner.5.1.2
 
 // Negative sentiment
 //
@@ -82,7 +98,7 @@
 //
 // Markup: ./examples/banner/_banner-sentiment-negative.html
 //
-// Styleguide: Components.Alerts.Banner.3.3
+// Styleguide: Components.Alerts.Banner.5.1.3
 
 // Neutral sentiment
 //
@@ -96,17 +112,16 @@
 //
 // Markup: ./examples/banner/_banner-sentiment-neutral.html
 //
-// Styleguide: Components.Alerts.Banner.3.4
+// Styleguide: Components.Alerts.Banner.5.1.4
 
 // Animation
-//
 //
 // To draw attention to banners on entry, animate them by adding the following modifier to `xui-banner`.
 //
 // Classes:
 // -animated: Animates vertical position
 //
-// Styleguide: Components.Alerts.Banner.4
+// Styleguide: Components.Alerts.Banner.5.2
 
 // Accessibility
 //
@@ -116,7 +131,7 @@
 //
 // When using sentiment, the text must be clear and descriptive for users who use screen readers or have colour blindness.
 //
-// Styleguide: Components.Alerts.Banner.5
+// Styleguide: Components.Alerts.Banner.6
 
 // Content guidelines
 //
@@ -128,15 +143,19 @@
 // Do: For single sentences, don’t use a full stop
 // Don't: Avoid repeating or rehashing the heading text in the body copy
 //
-// Related:
-// Here’s how to write for the following areas of a banner component:
-// * [Buttons](./section-components-controls-button.html#components-controls-button-18)
-// * [Headings](//xui.xero.com/product-language-guide/components/examples-of-product-writing/#headings)
-// * [Links](//xui.xero.com/product-language-guide/components/writing-style/#links)
-//
-// Styleguide: Components.Alerts.Banner.6
+// Styleguide: Components.Alerts.Banner.7
 
-// Related links
+// TopDescription: Also see guidance for writing:
+//
+//
+//
+// - [Buttons](./section-components-controls-button.html#components-controls-button-7)
+// - [Headings](//xui.xero.com/product-language-guide/components/examples-of-product-writing/#headings)
+// - [Links](//xui.xero.com/product-language-guide/components/writing-style/#links)
+//
+// Styleguide: Components.Alerts.Banner.7.1
+
+// Related components
 //
 // Related:
 // * [Content block](./section-components-displayingdata-contentblock.html)

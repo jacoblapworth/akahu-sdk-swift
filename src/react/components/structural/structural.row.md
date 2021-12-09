@@ -11,7 +11,7 @@ const rowStyle = { backgroundColor: '#028DDE' };
 const colStyle = { backgroundColor: 'RGBA(255,255,255,0.5)' };
 
 <div>
-  <XUIRow variant={'flex'} style={rowStyle} className="xui-padding-small xui-margin-bottom-large">
+  <XUIRow variant="flex" style={rowStyle} className="xui-padding-small xui-margin-bottom-large">
     <XUIColumn gridColumns="third" className="xui-padding-small" style={colStyle}>
       4 / 12 columns
     </XUIColumn>
@@ -22,7 +22,7 @@ const colStyle = { backgroundColor: 'RGBA(255,255,255,0.5)' };
       4 / 12 columns
     </XUIColumn>
   </XUIRow>
-  <XUIRow variant={'grid'} style={rowStyle} className="xui-padding-small xui-margin-bottom-large">
+  <XUIRow variant="grid" style={rowStyle} className="xui-padding-small xui-margin-bottom-large">
     <XUIColumn gridColumns="third" className="xui-padding-small" style={colStyle}>
       4 / 12 columns
     </XUIColumn>
@@ -33,7 +33,7 @@ const colStyle = { backgroundColor: 'RGBA(255,255,255,0.5)' };
       4 / 12 columns
     </XUIColumn>
   </XUIRow>
-  <XUIRow variant={'float'} style={rowStyle} className="xui-padding-small">
+  <XUIRow variant="float" style={rowStyle} className="xui-padding-small">
     <XUIColumn gridColumns="third" className="xui-padding-small" style={colStyle}>
       4 / 12 columns
     </XUIColumn>

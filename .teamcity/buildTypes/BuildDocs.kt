@@ -4,7 +4,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.BuildType
 
-class BuildDocs : BuildType({
+object BuildDocs : BuildType({
   name = "Build XUI docs"
   publishArtifacts = PublishMode.SUCCESSFUL
   artifactRules = "+:dist/docs => dist/docs"

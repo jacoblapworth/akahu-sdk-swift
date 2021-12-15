@@ -5,7 +5,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
-class VisRegTest : BuildType({
+object VisRegTest : BuildType({
   id("PrBuildVisualRegressions")
   name = "Visual regression tests"
   description = "Run visual regression tests and deploy report to AWS for code review and approval"

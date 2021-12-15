@@ -4,7 +4,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
-class PRBuild : BuildType({
+object PRBuild : BuildType({
   name = "PR build + lint + test"
   description = "Build XUI and deploy to AWS for code review and approval"
 

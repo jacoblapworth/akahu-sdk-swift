@@ -4,30 +4,39 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.xjlje033gg4k
 //
-// Introduction: An isolation header serves as an alternate header for a page or series of sub-pages that exclude
-// the global navigation in order to create a more focused experience.
+// Introduction: An isolation header is an alternate header for a page – or series of sub-pages – that excludes the global navigation for a more focused experience.
 //
 // Teaser: Show in place of the global header when you want to encourage focus and have more control of the workflow
 //
 // Styleguide: Components.Navigation.Isolation header
 
-// Best practice
+// When to use
 //
-// Tips:
-// Do: Use for setup flows
-// Do: Use in combination with stepper for flows that are only ever completed once
-// Do: Use for pages the information architecture doesn’t support
-// Do: Use instead of a modal when content is complex or multi-stepped
-// Warning: Avoid using when features from other areas of Xero are also required
-// Warning: Avoid using the back arrow icon to close an isolation mode
-// Dont: Don’t use isolation headers in combination with the global navigation
-// Dont: Don’t nest pages within isolation modes
+// - For setup flows
+// - When content is complex or multi-stepped
+// - For pages that can’t be navigated to via the navigation header
 //
 // Styleguide: Components.Navigation.Isolation header.1
 
+// When not to use
+//
+// - Don’t use if content is simple and the flow only has 1 or 2 steps – instead use a [modal](./section-components-collectinginput-modals.html)
+//
+// Styleguide: Components.Navigation.Isolation header.2
+
+// Best practice
+//
+// Tips:
+// Do: For flows a user only completes once, use with a [stepper](./section-components-navigation-stepper.html#components-navigation-stepper)
+// Warning: Avoid using the back arrow icon to close/exit out of isolation mode
+// Dont: Don’t use isolation headers in combination with the global navigation
+// Dont: Don’t nest pages within isolation modes
+//
+// Styleguide: Components.Navigation.Isolation header.3
+
 // Anatomy
 //
-// To create an isolation header, use the following classes
+// To create an isolation header, use the following classes:
 //
 // Classes:
 // xui-isolationheader: Base class
@@ -38,17 +47,13 @@
 //
 // Markup: ./examples/isolation-header/_isolation-header.html
 //
-// Styleguide: Components.Navigation.Isolation header.2
-
-// Layout
-//
-// Styleguide: Components.Navigation.Isolation header.3
+// Styleguide: Components.Navigation.Isolation header.4
 
 // Title content
 //
 // Tips:
 // Do: Always include a title
-// Do: Use additional left aligned content to describe or label your page content
+// Do: Use additional left-aligned content to describe or label your page content
 // Warning: Avoid using a back icon as an indicator to close isolation mode
 //
 // Classes:
@@ -62,13 +67,14 @@
 //
 // Markup: ./examples/isolation-header/_isolation-header-layout.html
 //
-// Styleguide: Components.Navigation.Isolation header.3.1
+// Styleguide: Components.Navigation.Isolation header.4.1
 
 // Actions
 //
 // Tips:
 // Do: Functions connected to the primary flow of the page should be displayed in the isolation header
 // Warning: Avoid using an overflow menu without a primary action surfaced
+// Info: For guidance on where to place actions on a page, see [page-level actions guidance](./section-patterns-page-level-actions.html)
 //
 // Classes:
 // xui-isolationheader--rightcontent: Elements that appear to the right of any title content when at full width, including actions
@@ -76,7 +82,7 @@
 //
 // Markup: ./examples/isolation-header/_isolation-header-actions.html
 //
-// Styleguide: Components.Navigation.Isolation header.3.2
+// Styleguide: Components.Navigation.Isolation header.4.2
 
 // Fixing position
 //
@@ -87,13 +93,19 @@
 // Classes:
 // xui-isolationheader-fixed: Fixes position of the isolation header to the top of the page
 //
-// Styleguide: Components.Navigation.Isolation header.3.3
+// Styleguide: Components.Navigation.Isolation header.4.3
+
+// Features of an isolation header
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Navigation.Isolation header.5
 
 // Navigation
 //
-// Styleguide: Components.Navigation.Isolation header.4
+// Styleguide: Components.Navigation.Isolation header.5.1
 
-// Implementation Details
+// Implementation
 //
 // While XUI provides the UI for the isolation header, its specific functionality must be implemented by the
 // page that uses it. This is because the desired behaviour is not limited to the isolation header component,
@@ -125,7 +137,7 @@
 // These query parameters will allow a page to link to another page in isolation mode and specify the intended behaviour.
 // However, it is up to the page using isolation mode to read these query parameters and implement the behaviours.
 //
-// Styleguide: Components.Navigation.Isolation header.4.1
+// Styleguide: Components.Navigation.Isolation header.5.1.1
 
 // Tooltip
 //
@@ -134,7 +146,7 @@
 //
 // Markup: ./examples/isolation-header/_isolation-header-tooltip.html
 //
-// Styleguide: Components.Navigation.Isolation header.4.2
+// Styleguide: Components.Navigation.Isolation header.5.1.2
 
 // Stepper
 //
@@ -143,20 +155,31 @@
 //
 // Markup: ./examples/isolation-header/_isolation-header-stepper.html
 //
-// Styleguide: Components.Navigation.Isolation header.4.3
+// Styleguide: Components.Navigation.Isolation header.5.1.3
 
 // Accessibility
 //
 // The isolation header should use a `<header>` element with `role="banner"` applied.
-// See [ARIA guidelines for the banner role](https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/landmarks/banner.html).
+// See [ARIA guidelines for the banner role](https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/landmarks/banner.html)
 //
-// Styleguide: Components.Navigation.Isolation header.5
+// Styleguide: Components.Navigation.Isolation header.6
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: The title of an isolation header should describe the page it represents
+// Do: Use sentence case (capitalise first word and proper nouns)
+//
+// Related: Also see guidance for writing:
+// - [Buttons](./section-components-controls-button.html#components-controls-button-7)
+// - [Titles](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#titles)
+//
+// Styleguide: Components.Navigation.Isolation header.7
+
+// Related components
 //
 // Related:
 // * [Page header](./section-components-navigation-page-header.html)
-// * [Page-level actions](./section-patterns-page-level-actions.html)
 // * [Stepper](./section-components-navigation-stepper.html)
 //
 // Styleguide: Components.Navigation.Isolation header.99

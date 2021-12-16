@@ -504,6 +504,16 @@
             ]
           },
           {
+            "name": "File Preview",
+            "content": "../src/react/filepreview.md",
+            "introduced": "19.2.0",
+            "components": [
+              "../src/react/components/filepreview/XUIFilePreview.js",
+              "../src/react/components/filepreview/XUIFilePreviewHeader.js",
+              "../src/react/components/filepreview/XUIFilePreviewFooter.js"
+            ]
+          },
+          {
             "name": "Overview Block",
             "content": "../src/react/overviewblock.md",
             "components": "../src/react/components/overviewblock/XUIOverview*.js"

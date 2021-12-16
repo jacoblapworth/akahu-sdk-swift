@@ -123,7 +123,7 @@ const EditableCreatorRowDemo = () => {
         <XUIEditableTableCellTextInput
           label="input"
           onKeyUp={event => newRowHandler(event, 'fruit')}
-          placeholder={'Add item'}
+          placeholder="Add item"
         />
         <XUIEditableTableCellTextInput
           label="input"

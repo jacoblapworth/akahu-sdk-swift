@@ -6,36 +6,20 @@
 //
 // Teaser: A grid of rows and columns used to display interactive and static data.
 //
-// Introduction: Editable tables are used to display interactive or a combination of interactive and static data in a way that's easy to scan, organise, and manipulate. For displaying solely static data, consider using XUI's [table component](section-components-displayingdata-table.html).
-//
-// * [Best practice](#components-displayingdata-editabletable-2)
-// * [Anatomy](#components-displayingdata-editabletable-3)
-// * [Anatomy - Header](#components-displayingdata-editabletable-3-1)
-// * [Anatomy - Columns](#components-displayingdata-editabletable-3-2)
-// * [Anatomy - Rows](#components-displayingdata-editabletable-3-3)
-// * [Anatomy - Cells + cell components](#components-displayingdata-editabletable-3-4)
-// * [Disabling](#components-displayingdata-editabletable-4)
-// * [Validation](#components-displayingdata-editabletable-5)
-// * [Adding and removing rows](#components-displayingdata-editabletable-6)
-// * [Sorting data](#components-displayingdata-editabletable-7)
-// * [Responsive treatment](#components-displayingdata-editabletable-8)
-// * [Accessibility](#components-displayingdata-editabletable-9)
-// * [Future editable table features](#components-displayingdata-editabletable-10)
-//
-// Note:
-// *Some of the functionality in the examples below are missing due to them being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
-//
-// Markup: ./examples/editable-table/_editable-table-anatomy.html
-//
-// ExampleClass: ds-example-transparent ds-example-flush
+// Introduction: Editable tables are used to display interactive or a combination of interactive and static data so it’s easy to scan, organise, and manipulate.
 //
 // Styleguide: Components.DisplayingData.EditableTable
 
-// Best practice
+// When to use
 //
-// Tables are a useful way of displaying large sets of data in a way that is easily digestible for the reader. Tables organise information into rows and columns, helping to tell a story about the data points' relationships to one another.
+// - For displaying interactive or a combination of interactive and static data
+// - For organising large sets of data into rows and columns
 //
-// It's worth noting that many of the features included in the editable table component rely on the [React component](./react/#editable-table) implementation, so the examples in the guidance below may not accurately represent the end user experience.
+//  Styleguide: Components.DisplayingData.EditableTable.1
+
+// When not to use
+//
+// - Don’t use to display solely static data – instead consider a [table](./section-components-displayingdata-table.html)
 //
 // Styleguide: Components.DisplayingData.EditableTable.2
 
@@ -199,7 +183,7 @@
 // ExampleClass: ds-example-transparent ds-example-flush
 //
 // Note:
-// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+// Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
 //
 // Markup: ./examples/editable-table/_editable-table-cell-textinput.html
 //
@@ -221,7 +205,7 @@
 // ExampleClass: ds-example-transparent ds-example-flush
 //
 // Note:
-// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+// Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
 //
 // Markup: ./examples/editable-table/_editable-table-cell-selectbox.html
 //
@@ -246,7 +230,7 @@
 // ExampleClass: ds-example-transparent ds-example-flush
 //
 // Note:
-// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+// Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
 //
 // Markup: ./examples/editable-table/_editable-table-cell-autocompleter.html
 //
@@ -274,7 +258,7 @@
 // ExampleClass: ds-example-transparent ds-example-flush
 //
 // Note:
-// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+// Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
 //
 // Markup: ./examples/editable-table/_editable-table-cell-secondarysearch.html
 //
@@ -319,7 +303,15 @@
 //
 // Styleguide: Components.DisplayingData.EditableTable.3.4.7
 
-// Disabling
+// Features of an editable table
+//
+// Explore the different features that can be applied to this component.
+//
+// Many of these features rely on the [React component](./react/#editable-table) implementation, so the examples below may not accurately represent the end user experience.
+//
+// Styleguide: Components.DisplayingData.EditableTable.4
+
+// Disabled
 //
 // Cells in the editable table component can be "disabled" using the available properties or classes. Disabling disallows user interaction of the content inside a cell. Disabling content gives an impression to the user that the content can somehow be enabled again in the future. If content cannot ever be interacted with, consider using a [read-only cell](#components-displayingdata-editabletable-3-4-1) instead.
 //
@@ -337,7 +329,7 @@
 //
 // Markup: ./examples/editable-table/_editable-table-disabling.html
 //
-// Styleguide: Components.DisplayingData.EditableTable.4
+// Styleguide: Components.DisplayingData.EditableTable.4.1
 
 // Validation
 //
@@ -354,17 +346,17 @@
 // xui-editabletablewrapper--border-is-invalid: Applies red table border
 //
 // Note:
-// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+// Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
 //
 // ExampleClass: ds-example-transparent ds-example-flush
 //
 // Markup: ./examples/editable-table/_editable-table-validation.html
 //
-// Styleguide: Components.DisplayingData.EditableTable.5
+// Styleguide: Components.DisplayingData.EditableTable.4.2
 
 // Adding and removing rows
 //
-// Styleguide: Components.DisplayingData.EditableTable.6
+// Styleguide: Components.DisplayingData.EditableTable.4.3
 
 // Adding new rows - manual
 //
@@ -383,11 +375,11 @@
 // Warning: For tables with a large number of line items, consider displaying the "add row" action outside of the table, to allow for a more accessible experience without requiring the user to scroll down a great deal
 //
 // Note:
-// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+// Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
 //
 // Markup: ./examples/editable-table/_editable-table-addrow-manual.html
 //
-// Styleguide: Components.DisplayingData.EditableTable.6.1
+// Styleguide: Components.DisplayingData.EditableTable.4.3.1
 
 // Adding new rows - automatic
 //
@@ -400,11 +392,11 @@
 // Do: Follow the [interactive example in our React documentation](./react/#editable-table) to provide a consistent experience for automatically generating new rows as the user enters in data
 //
 // Note:
-// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+// Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
 //
 // Markup: ./examples/editable-table/_editable-table-addrow-automatic.html
 //
-// Styleguide: Components.DisplayingData.EditableTable.6.2
+// Styleguide: Components.DisplayingData.EditableTable.4.3.2
 
 // Removing rows
 //
@@ -416,11 +408,11 @@
 //
 // Markup: ./examples/editable-table/_editable-table-removerow.html
 //
-// Styleguide: Components.DisplayingData.EditableTable.6.3
+// Styleguide: Components.DisplayingData.EditableTable.4.3.3
 
 // Sorting data
 //
-// Styleguide: Components.DisplayingData.EditableTable.7
+// Styleguide: Components.DisplayingData.EditableTable.4.4
 
 // Drag and drop (reordering rows)
 //
@@ -438,15 +430,15 @@
 // Markup: ./examples/editable-table/_editable-table-draganddrop.html
 //
 // Note:
-// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+// Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
 //
-// Styleguide: Components.DisplayingData.EditableTable.7.1
+// Styleguide: Components.DisplayingData.EditableTable.4.4.1
 
 // Sorting rows by columns
 //
-// *The editable table component supports sorting rows by columns. Visit the <a href="./react/#editable-table">React documentation</a> for an example. *
+// The editable table component supports sorting rows by columns. Visit the <a href="./react/#editable-table">React documentation</a> for an example.
 //
-// Styleguide: Components.DisplayingData.EditableTable.7.2
+// Styleguide: Components.DisplayingData.EditableTable.4.4.2
 
 // Responsive treatment
 //
@@ -470,36 +462,13 @@
 // Markup: ./examples/editable-table/_editable-table-responsive.html
 //
 // Note:
-// *Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.
+// Some of the functionality in the example below is missing due to it being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#editable-table">React documentation</a>.//
 //
-// Styleguide: Components.DisplayingData.EditableTable.8
-
-// Accessibility
-//
-// Editable Table is designed to leverage the best of HTML tables, for accessibility purposes. However, product teams can help support optimal access for users in a few additional ways.
-//
-// Styleguide: Components.DisplayingData.EditableTable.9
-
-// Information architecture
-//
-// Each table heading should have a `scope` attribute that specifies whether it pertains to a column, group of columns, row, or group of rows. “Col” is the default value, when using the `XUIEditableTableHeadingCell` React component.
-//
-// Additionally, tables can receive an ARIA label, which helps provide more context to assistive technology, such as screen readers. A “caption” element is equally accessible, but will display on the page, unless styled not to do so.
-//
-// Styleguide: Components.DisplayingData.EditableTable.9.1
-
-// Keyboard experience
-//
-// The editable table uses standard HTML table keyboard navigation, rather than a “grid” interaction. For the interactive elements within an editable table, this means they can be focused with tab navigation typical to other forms.
-//
-// Tips:
-// Do: Ensure users cannot get trapped within a table cell, row, or container when relying on keyboard for navigation
-//
-// Styleguide: Components.DisplayingData.EditableTable.9.2
+// Styleguide: Components.DisplayingData.EditableTable.4.5
 
 // Future editable table features
 //
-// *We have identified a few additional features to be investigated and potentially added to the editable table component in the future. If you have any questions about these or other features, please contact the XUI team.*
+// We have identified a few additional features to be investigated and potentially added to the editable table component in the future. If you have any questions about these or other features, please contact the XUI team.
 //
 // Definitions:
 // Column sorting via header action:               Likely to follow existing XUI pattern/precendent
@@ -510,9 +479,46 @@
 // Table style variations:                         Needs design & development investigation. Specifically desired for static presentational table data
 // Information/display density:                    Needs design & development investigation. Relies on some wider density pattern work
 //
-// Styleguide: Components.DisplayingData.EditableTable.10
+// Styleguide: Components.DisplayingData.EditableTable.4.6
 
-// Related links
+// Accessibility
+//
+// Editable Table is designed to leverage the best of HTML tables, for accessibility purposes. However, product teams can help support optimal access for users in a few additional ways.
+//
+// Styleguide: Components.DisplayingData.EditableTable.5
+
+// Information architecture
+//
+// Each table heading should have a `scope` attribute that specifies whether it pertains to a column, group of columns, row, or group of rows. “Col” is the default value, when using the `XUIEditableTableHeadingCell` React component.
+//
+// Additionally, tables can receive an ARIA label, which helps provide more context to assistive technology, such as screen readers. A “caption” element is equally accessible, but will display on the page, unless styled not to do so.
+//
+// Styleguide: Components.DisplayingData.EditableTable.5.1
+
+// Keyboard experience
+//
+// The editable table uses standard HTML table keyboard navigation, rather than a “grid” interaction. For the interactive elements within an editable table, this means they can be focused with tab navigation typical to other forms.
+//
+// Tips:
+// Do: Ensure users cannot get trapped within a table cell, row, or container when relying on keyboard for navigation
+//
+// Styleguide: Components.DisplayingData.EditableTable.5.2
+
+// Content guidelines
+//
+// Tips:
+// Do: Headers should be short and succinct (1–3 words)
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Do: Write header rows as statements rather than questions or instructions
+//
+// Related: Also see guidance for writing:
+// * [Buttons](./section-components-controls-button.html#components-controls-button-7)
+// * [Currency](https://xui.xero.com/product-language-guide/components/writing-style/#currency)
+// * [Validation messages](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-12)
+//
+// Styleguide: Components.DisplayingData.EditableTable.6
+
+// Related components
 //
 // Related:
 // * [Table](./section-components-displayingdata-table.html)

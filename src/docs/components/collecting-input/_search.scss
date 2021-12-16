@@ -2,7 +2,7 @@
 //
 // Teaser: Refine a long list of options.
 //
-// Introduction: Refining a long list of options within within a dropdown.
+// Introduction: Search helps users filter through information by entering a keyword or phrase into a text field.
 //
 // Components: Dropdown
 //
@@ -10,14 +10,23 @@
 //
 // Styleguide: Components.CollectingInput.Search
 
+// When to use
+//
+// - To help a user quickly find information within a list of options
+//
+// Styleguide: Components.CollectingInput.Search.1
+
 // Best practice
 //
 // Tips:
-// Do: Show a clear button when a value has been entered to enable quick resetting
-// Warning: Make sure to allow space for the software keyboard at narrow viewports
-// Warning: Always include a header at narrow viewports to enable dismissing the dropdown
+// Do: Add the magnifying glass ‘search’ icon to indicate a search field
+// Do: Make sure a ‘clear’ icon button appears when a user starts typing into the search field
+// Do: Always include a header at narrow viewports so the dropdown can be dismissed
+// Do: Filter results in real time as a user types
+// Do: Highlight the matching part of the search query in the results
+// Warning: Allow space for the software keyboard on mobile
 //
-// Styleguide: Components.CollectingInput.Search.1
+// Styleguide: Components.CollectingInput.Search.2
 
 // Anatomy
 //
@@ -32,13 +41,13 @@
 // xui-dropdown-fullheight: Apply to dropdown to make room for the software keyboard
 // xui-dropdown-hide-small-up: Apply to a dropdown sub-element such as the header or actions to hide above 600px
 //
-// Styleguide: Components.CollectingInput.Search.2
+// Styleguide: Components.CollectingInput.Search.3
 
 // Standard
 //
 // Markup: ./examples/search/_search.html
 //
-// Styleguide: Components.CollectingInput.Search.2.1
+// Styleguide: Components.CollectingInput.Search.3.1
 
 // Create new
 //
@@ -47,7 +56,7 @@
 //
 // Markup: ./examples/search/_search-create-new.html
 //
-// Styleguide: Components.CollectingInput.Search.2.2
+// Styleguide: Components.CollectingInput.Search.3.2
 
 // Empty state
 //
@@ -56,9 +65,25 @@
 //
 // Markup: ./examples/search/_search-empty.html
 //
-// Styleguide: Components.CollectingInput.Search.2.3
+// Styleguide: Components.CollectingInput.Search.3.3
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Be short and succinct
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Don't: Don’t use the word ‘we’ in results copy as it implies people are involved behind the scenes
+//
+// Styleguide: Components.CollectingInput.Search.4
+
+// Example
+//
+// ExampleContentTable:
+// No contacts match <term> | We couldn’t find any contacts matching <term>
+//
+// Styleguide: Components.CollectingInput.Search.4.1
+
+// Related components
 //
 // Related:
 // * [Loader](./section-components-identifiers-loader.html)

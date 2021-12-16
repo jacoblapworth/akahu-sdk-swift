@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUI XUIFilePreviewHeader/> renders a passed qaHook as an automationId 1`] = `
+<DocumentFragment>
+  <header
+    class="xui-filepreviewheader xui-filepreviewheader-medium-up"
+    data-automationid="test-filepreviewheader"
+  >
+    <div
+      class="xui-filepreviewheader--leftcontent"
+    >
+      <div
+        class="xui-filepreviewheader--titlewrapper"
+      >
+        <h2
+          class="xui-filepreviewheader--title"
+          data-automationid="test-filepreviewheader--title"
+        >
+          test title
+        </h2>
+      </div>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`<XUI XUIFilePreviewHeader/> renders alternate wrapping element, if provided 1`] = `
+<DocumentFragment>
+  <article
+    class="xui-filepreviewheader xui-filepreviewheader-medium-up"
+  >
+    <div
+      class="xui-filepreviewheader--leftcontent"
+    >
+      <div
+        class="xui-filepreviewheader--titlewrapper"
+      >
+        <h2
+          class="xui-filepreviewheader--title"
+        >
+          test title
+        </h2>
+      </div>
+    </div>
+  </article>
+</DocumentFragment>
+`;
+
+exports[`<XUI XUIFilePreviewHeader/> renders any additional classes provided through the className prop 1`] = `
+<DocumentFragment>
+  <header
+    class="filepreviewheader-class xui-filepreviewheader xui-filepreviewheader-medium-up"
+  >
+    <div
+      class="xui-filepreviewheader--leftcontent"
+    >
+      <div
+        class="xui-filepreviewheader--titlewrapper"
+      >
+        <h2
+          class="xui-filepreviewheader--title"
+        >
+          test title
+        </h2>
+      </div>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`<XUI XUIFilePreviewHeader/> renders basic example correctly 1`] = `
+<DocumentFragment>
+  <header
+    class="xui-filepreviewheader xui-filepreviewheader-medium-up"
+  >
+    <div
+      class="xui-filepreviewheader--leftcontent"
+    >
+      <div
+        class="xui-filepreviewheader--titlewrapper"
+      >
+        <h2
+          class="xui-filepreviewheader--title"
+        >
+          test title
+        </h2>
+      </div>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`<XUI XUIFilePreviewHeader/> renders with all content supplied 1`] = `
+<DocumentFragment>
+  <header
+    class="xui-filepreviewheader xui-filepreviewheader-medium-up"
+  >
+    <div
+      class="xui-filepreviewheader--leftcontent"
+    >
+      <div
+        class="xui-filepreviewheader--controlcontent"
+      >
+        <button
+          aria-label="close"
+          class="xui-button xui-button-icon-medium xui-button-icon"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            class="xui-icon"
+            focusable="false"
+            height="12"
+            viewBox="0 0 12 12"
+            width="12"
+          >
+            <path
+              d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z"
+              role="presentation"
+            />
+          </svg>
+          <div
+            class="xui-touchtarget"
+          />
+        </button>
+      </div>
+      <div
+        class="xui-filepreviewheader--titlewrapper"
+      >
+        <h3
+          class="xui-filepreviewheader--title"
+        >
+          Required title
+        </h3>
+        <div
+          class="xui-filepreviewheader--secondarytitle"
+        >
+          Secondary title
+        </div>
+      </div>
+    </div>
+    <a>
+      link
+    </a>
+    <div
+      class="xui-filepreviewheader--rightcontent"
+    >
+      <div
+        class="xui-filepreviewheader--actions"
+      >
+        <button
+          class="xui-button xui-button-borderless-main xui-button-small"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            class="xui-icon"
+            focusable="false"
+            height="12"
+            viewBox="0 0 10 12"
+            width="10"
+          >
+            <path
+              d="M4 5V0h2v5h2L5 8 2 5h2zm-4 6h10v1H0v-1z"
+              role="presentation"
+            />
+          </svg>
+          Download
+        </button>
+      </div>
+    </div>
+  </header>
+</DocumentFragment>
+`;

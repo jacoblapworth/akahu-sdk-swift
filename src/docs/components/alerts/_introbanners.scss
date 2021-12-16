@@ -6,7 +6,7 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.mtlq4y3yfzg5
 //
-// Introduction: An intro banner provides onboarding information about a product that’s being used for the first time. It provides a space to teach users about what a product does and how they can use the features available.
+// Introduction: An intro banner provides a space to teach users about what a product does and how they can use the features available.
 //
 // Markup: ./examples/introbanner/_intro-banner-anatomy.html
 //
@@ -14,18 +14,34 @@
 //
 // Styleguide: Components.Alerts.IntroBanner
 
+// When to use
+//
+// - To introduce a product for the first time and provide more information about it
+//
+// Styleguide: Components.Alerts.IntroBanner.1
+
+// When not to use
+//
+// - Don’t use to introduce new features or validate user actions – instead use a [banner](./section-components-alerts-banner.html)
+// - Don’t use to market or upsell a product or features
+//
+// Styleguide: Components.Alerts.IntroBanner.2
+
 // Best practice
 //
 // Tips:
-// Do: Focus content on introducing a product and providing access to more information about it
 // Do: Always place beneath the [page header](./section-components-navigation-page-header.html) or [isolation header](./section-components-navigation-isolation-header.html) at 100% width of the viewport
 // Do: Only display 1 intro banner per page
 // Do: Always include a heading, body content, and a dismiss button
 // Do: Only provide an illustration to support the content, not to add decoration
-// Don't: Don’t use to introduce new features or validate user actions; instead use a [banner](./section-components-alerts-banner.html)
-// Don't: Don’t use to market or upsell a product or features
 //
-// Styleguide: Components.Alerts.IntroBanner.1
+// Styleguide: Components.Alerts.IntroBanner.3
+
+// Features of an intro banner
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Alerts.IntroBanner.4
 
 // Illustrations
 //
@@ -40,7 +56,7 @@
 //
 // Markup: ./examples/introbanner/_intro-banner-illustration.html
 //
-// Styleguide: Components.Alerts.IntroBanner.2
+// Styleguide: Components.Alerts.IntroBanner.4.1
 
 // Videos
 //
@@ -60,7 +76,7 @@
 //
 // Markup: ./examples/introbanner/_intro-banner-video.html
 //
-// Styleguide: Components.Alerts.IntroBanner.3
+// Styleguide: Components.Alerts.IntroBanner.4.2
 
 // Dismiss button
 //
@@ -71,7 +87,7 @@
 // Do: Label button as ‘Hide’ if it’s connected to the ‘Getting started’ switch, to convey that the intro banner can be revealed later
 // Do: Label button as ‘Close’ if it’s not connected to the ‘Getting started’ switch
 //
-// Styleguide: Components.Alerts.IntroBanner.4
+// Styleguide: Components.Alerts.IntroBanner.4.3
 
 // Call to action buttons
 //
@@ -87,7 +103,7 @@
 // Info: [Page-level actions](./section-patterns-page-level-actions.html)
 // Info: [Button content guidelines](//docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.n0x4g065o3eg)
 //
-// Styleguide: Components.Alerts.IntroBanner.5
+// Styleguide: Components.Alerts.IntroBanner.4.4
 
 // Responsive
 //
@@ -101,7 +117,7 @@
 //
 // Markup: ./examples/introbanner/_intro-banner-responsive.html
 //
-// Styleguide: Components.Alerts.IntroBanner.6
+// Styleguide: Components.Alerts.IntroBanner.4.5
 
 // Content guidelines
 //
@@ -117,9 +133,9 @@
 // Don't: Avoid repeating the heading text inside the body content
 // Don't: Avoid marketing or upselling the product – use the [relevant tone](//xui.xero.com/product-language-guide/components/tone/) for product content
 //
-// Styleguide: Components.Alerts.IntroBanner.7
+// Styleguide: Components.Alerts.IntroBanner.5
 
-// Using HTML and CSS only
+// Class list
 //
 // For building a component without React, following these HTML classes will provide the appropriate styling. However, there is some functionality reliant on javascript that will not be available through this method of building.
 //
@@ -137,9 +153,9 @@
 // xui-introbanner--body: Container for body content
 // xui-introbanner--footer: Container for footer content
 //
-// Styleguide: Components.Alerts.IntroBanner.8
+// Styleguide: Components.Alerts.IntroBanner.6
 
-// Related links
+// Related components
 //
 // Related:
 // * [Global navigation](./section-components-navigation-global-navigation.html)

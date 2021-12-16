@@ -163,7 +163,7 @@
 // Do: Provide an additional group-level label to date range inputs
 // Do: Display individual labels or a group-level label to date range input groups
 // Warning: Use caution when only displaying a group-level label as individual labels are clearer and more explicit
-// Info: [Datepicker accessibility guidelines](./section-components-collectinginput-datepicker.html#components-collectinginput-datepicker-8)
+// Info: [Datepicker accessibility guidelines](./section-components-collectinginput-datepicker.html#components-collectinginput-datepicker-6)
 //
 // Markup: ./examples/dateinput/_date-input-accessibility.html
 //
@@ -177,7 +177,7 @@
 //
 // Styleguide: Components.CollectingInput.DateInput.6
 
-// Using HTML and CSS only
+// Class list
 //
 // For building a component without React, following these HTML classes will provide the appropriate styling. However, there is some functionality reliant on javascript that will not be available through this method of building.
 //
@@ -192,13 +192,11 @@
 //
 // Styleguide: Components.CollectingInput.DateInput.7
 
-// Related links
+// Related components
 //
 // Related:
 // * [Datepicker](./section-components-collectinginput-datepicker.html)
 // * [Dropdown](./section-components-collectinginput-dropdowns.html)
 // * [Text input](./section-components-controls-textinput.html)
-// * [Time and date formatting](//xui.xero.com/product-language-guide/components/writing-style/#dates)
-// * [Xero date-shortcuts library](https://github.dev.xero.com/XeroJS/date-shortcuts)
 //
 // Styleguide: Components.CollectingInput.DateInput.99

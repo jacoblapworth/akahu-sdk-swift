@@ -21,7 +21,8 @@
     "image",
     "image-caption",
     "language",
-    "examplecontenttable"
+    "examplecontenttable",
+    "visualexample"
   ],
   "destination": "./dist/docs",
   "css": ["./kss-assets/xui.css", "./style.css"],

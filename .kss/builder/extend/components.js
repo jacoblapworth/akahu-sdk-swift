@@ -13,7 +13,8 @@ function renderComponents(variables, block) {
 		var name = component.trim();
 		var componentData = {
 			name: name,
-			url: './react/#' + name.toLowerCase()
+			url: `./react/#${name.toLowerCase()}`,
+			storybookUrl: `./storybook/?path=/story/components-xui${name.replace(/-/g, '').toLowerCase()}--playground`,
 		}
 		newBlock += block.fn(componentData);
 	});

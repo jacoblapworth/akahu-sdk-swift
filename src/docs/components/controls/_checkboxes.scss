@@ -2,16 +2,38 @@
 //
 // flags: updated
 //
-// Teaser: Select multiple items from a range of options
+// Teaser: Choose multiple items from a range of options
 //
 // Introduction:
-// XUI provides a custom checkbox control for consistency across platforms and visual alignment with other form elements.
+// Checkboxes allow users to select 1 or more options from a list of related choices.
 //
 // Components: Checkbox
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.dks626qxkzat
 //
 // Styleguide: Components.Controls.Checkbox
+
+// When to use
+//
+// - Use when 1 or more options can be selected from a list
+// - Use a single checkbox when a user needs to confirm, acknowledge, or agree to something
+//
+// Styleguide: Components.Controls.Checkbox.1
+
+// When not to use
+//
+// - Don’t use if only 1 option can be chosen by a user – instead use a [radio](./section-components-controls-radio.html)
+// - Don’t use for on or off actions – instead use a [switch](./section-components-controls-switch.html)
+//
+// Styleguide: Components.Controls.Checkbox.2
+
+// Best practice
+//
+// Tips:
+// Do: Make sure checkboxes are clearly labelled
+// Do: List options in a logical order (alphabetical, chronological, order of importance, etc.)
+//
+// Styleguide: Components.Controls.Checkbox.3
 
 // Anatomy
 //
@@ -30,29 +52,15 @@
 //
 // Markup: ./examples/checkbox/_checkbox.html
 //
-// Styleguide: Components.Controls.Checkbox.1
+// Styleguide: Components.Controls.Checkbox.4
 
-// Size variants
+// Features of a checkbox
 //
-// Checkboxes have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2). Add a class with the size variant modifier to the the `--input`, `--checkbox` and `--label` subcomponents.
+// Explore the different features that can be applied to this component.
 //
-// Tips:
-// Do: Use the 'medium' size variant when not nesting Checkbox
-// Do: Use the 'small' size variant inside Checkbox groups
-// Warning: Be cautious when using 'small' or 'xsmall' variants, as they have reduced legibility
-// Don't: Don’t use a combination of size variants within a single form
-//
-// Definitions:
-// Size variant:	**Height**: **Modifier**
-// medium: 24px: <code>-medium</code>
-// small: 20px: <code>-small</code>
-// xsmall: 16px: <code>-xsmall</code>
-//
-// Markup: ./examples/checkbox/_checkbox-sizes.html
-//
-// Styleguide: Components.Controls.Checkbox.2
+// Styleguide: Components.Controls.Checkbox.5
 
-// Disabling
+// Disabled
 //
 // To disable a checkbox, add the following class and add the `disabled` attribute.
 //
@@ -63,18 +71,18 @@
 //
 // Markup: ./examples/checkbox/_checkbox-disabling.html
 //
-// Styleguide: Components.Controls.Checkbox.3
+// Styleguide: Components.Controls.Checkbox.5.1
 
 // Grouped checkboxes
 //
 // To increase hit states and create visual similarity with other form elements, consider using a checkbox group.
 //
 // Tips:
-// Do: Use the small size variant inside Checkbox groups
+// Do: Use the small size variant inside checkbox groups
 //
 // Markup: ./examples/checkbox/_checkbox-grouped.html
 //
-// Styleguide: Components.Controls.Checkbox.4
+// Styleguide: Components.Controls.Checkbox.5.2
 
 // Single checkbox
 //
@@ -82,7 +90,7 @@
 //
 // Markup: ./examples/checkbox/_checkbox-single.html
 //
-// Styleguide: Components.Controls.Checkbox.4.1
+// Styleguide: Components.Controls.Checkbox.5.2.1
 
 // Multiline checkbox
 //
@@ -90,7 +98,7 @@
 //
 // Markup: ./examples/checkbox/_checkbox-multiline.html
 //
-// Styleguide: Components.Controls.Checkbox.4.2
+// Styleguide: Components.Controls.Checkbox.5.2.2
 
 // Order
 //
@@ -98,14 +106,14 @@
 //
 // Markup: ./examples/checkbox/_checkbox-order.html
 //
-// Styleguide: Components.Controls.Checkbox.5
+// Styleguide: Components.Controls.Checkbox.5.3
 
 // Indeterminate
 //
 // To indicate only a subset of children are selected, use the `:indeterminate` attribute.
 // However, this state is not exposed via HTML, and needs to be set via Javascript.
 //
-// Styleguide: Components.Controls.Checkbox.6
+// Styleguide: Components.Controls.Checkbox.5.4
 
 // Custom icons
 //
@@ -119,7 +127,7 @@
 //
 // Markup: ./examples/checkbox/_checkbox-custom-icon.html
 //
-// Styleguide: Components.Controls.Checkbox.7
+// Styleguide: Components.Controls.Checkbox.5.5
 
 // Validation and hint messages
 //
@@ -144,7 +152,48 @@
 //
 // Markup: ./examples/checkbox/_checkbox-validation.html
 //
-// Styleguide: Components.Controls.Checkbox.8
+// Styleguide: Components.Controls.Checkbox.5.6
+
+// Size variants
+//
+// Checkboxes have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2). Add a class with the size variant modifier to the the `--input`, `--checkbox` and `--label` subcomponents.
+//
+// Tips:
+// Do: Use the 'medium' size variant when not nesting checkbox
+// Do: Use the 'small' size variant inside checkbox groups
+// Warning: Be cautious when using 'small' or 'xsmall' variants, as they have reduced legibility
+// Don't: Don’t use a combination of size variants within a single form
+//
+// Definitions:
+// Size variant:	**Height**: **Modifier**
+// medium: 24px: <code>-medium</code>
+// small: 20px: <code>-small</code>
+// xsmall: 16px: <code>-xsmall</code>
+//
+// Markup: ./examples/checkbox/_checkbox-sizes.html
+//
+// Styleguide: Components.Controls.Checkbox.6
+
+// Content guidelines
+//
+// Tips:
+// Do: Be short and succinct
+// Do: Use a description to clearly explain what’ll happen when a user makes a selection
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Do: Use the first person ‘I’ if the checkbox requires a user is asked to agree to terms, or make a declaration
+// Warning: Make sure labels for settings are neutral and don’t not imply a selection
+// Don't: Don’t use punctuation
+// Don't: Don’t rely on a tooltip to explain a checkbox
+//
+// Styleguide: Components.Controls.Checkbox.7
+
+// Examples
+//
+// ExampleContentTable:
+// Include link to an online invoice | Online Invoice.
+// I agree to the Terms of Service | You agree to the Terms of Service
+//
+// Styleguide: Components.Controls.Checkbox.7.1
 
 // Class list
 //
@@ -173,9 +222,9 @@
 // xui-controlgroup: Sets some styles common to groups of inputs
 // xui-controlgroup-vertical: Sets some styles common to vertically stacked groups of inputs
 //
-// Styleguide: Components.Controls.Checkbox.50
+// Styleguide: Components.Controls.Checkbox.9
 
-// Related links
+// Related components
 //
 // Related:
 // * [Form](./section-components-collectinginput-forms.html)

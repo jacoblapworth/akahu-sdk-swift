@@ -65,3 +65,10 @@
 .ds-example-nomarkuplink + .ds-example-links .ds-example-markuplink {
   display: none;
 }
+
+.ds-example-visual-example-container {
+  display: flex;
+  justify-content: center;
+  padding: 48px 0 48px 0;
+  background-color: #f2f3f4;
+}

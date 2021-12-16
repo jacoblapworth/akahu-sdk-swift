@@ -84,7 +84,7 @@ class Example extends PureComponent {
 
 ### Confirmation modal
 
-Modals are often used for user confirmation. A footer for adding actions can be added using `XUIModalFooter`. It's also recommended to use the [actions layout](../section-components-controls-button.html#components-controls-button-12) to display buttons as this provides standard padding and responsive behaviour.
+Modals are often used for user confirmation. A footer for adding actions can be added using `XUIModalFooter`. It's also recommended to use the [actions layout](../section-components-controls-button.html#components-controls-button-15) to display buttons as this provides standard padding and responsive behaviour.
 
 ```jsx harmony
 import { PureComponent } from 'react';

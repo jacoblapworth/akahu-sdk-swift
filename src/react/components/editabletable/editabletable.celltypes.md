@@ -114,9 +114,9 @@ const data = [{ fruit: 'Orange', colour: 'Orange', price: 3.99 }];
     {data.map((row, index) => (
       <XUIEditableTableRow key={index}>
         <XUIEditableTableCellSelectBox
-          buttonContent={'Select fruit'}
+          buttonContent="Select fruit"
           id={`${index}_a`}
-          label={'Select fruit'}
+          label="Select fruit"
           onChange={noop}
         >
           <XUISelectBoxOption id={`${index}_a1`} key="a1" value="Orange">
@@ -130,9 +130,9 @@ const data = [{ fruit: 'Orange', colour: 'Orange', price: 3.99 }];
           </XUISelectBoxOption>
         </XUIEditableTableCellSelectBox>
         <XUIEditableTableCellSelectBox
-          buttonContent={'Select colour'}
+          buttonContent="Select colour"
           id={`${index}_b`}
-          label={'Select colour'}
+          label="Select colour"
           onChange={noop}
         >
           <XUISelectBoxOption id={`${index}_b1`} key="b1" value="Yellow">
@@ -146,9 +146,9 @@ const data = [{ fruit: 'Orange', colour: 'Orange', price: 3.99 }];
           </XUISelectBoxOption>
         </XUIEditableTableCellSelectBox>
         <XUIEditableTableCellSelectBox
-          buttonContent={'Select price / kg'}
+          buttonContent="Select price / kg"
           id={`${index}_c`}
-          label={'Select price / kg'}
+          label="Select price / kg"
           onChange={noop}
         >
           <XUISelectBoxOption id={`${index}_c1`} key="c1" value="2.99">

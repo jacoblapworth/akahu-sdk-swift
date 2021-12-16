@@ -1,6 +1,6 @@
 // Datepicker
 //
-// Introduction: A responsive calendar to handle date selection.
+// Introduction: Datepickers allow users to select a date or a range of dates from a calendar.
 //
 // Teaser: A responsive calendar to handle date selection.
 //
@@ -9,6 +9,18 @@
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.t1j258a1knyn
 //
 // Styleguide: Components.CollectingInput.Datepicker
+
+// When to use
+//
+// - When a user needs to add a single date or a start and end date
+//
+// Styleguide: Components.CollectingInput.Datepicker.1
+
+// When not to use
+//
+// - Don’t use if you’d like the option of typing a date – instead use a [date input](./section-components-collectinginput-dateinput.html)
+//
+// Styleguide: Components.CollectingInput.Datepicker.2
 
 // Anatomy
 //
@@ -29,7 +41,13 @@
 //
 // Markup: ./examples/datepicker/_datepicker.html
 //
-// Styleguide: Components.CollectingInput.Datepicker.1
+// Styleguide: Components.CollectingInput.Datepicker.3
+
+// Features of a datepicker
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.CollectingInput.Datepicker.4
 
 // Months and years
 //
@@ -49,7 +67,7 @@
 // Labels: `xui-datepicker--heading-label`
 // Button caret: `xui-datepicker--heading-label-icon`
 //
-// Styleguide: Components.CollectingInput.Datepicker.2
+// Styleguide: Components.CollectingInput.Datepicker.4.1
 
 // Icon buttons
 //
@@ -61,14 +79,7 @@
 // Next: `xui-datepicker--nextbutton`
 // Disabled: `xui-datepicker--button-is-disabled`
 //
-// Styleguide: Components.CollectingInput.Datepicker.3
-
-// Sizes
-//
-// By default, datepickers span the full width of their containing element.
-// To set your own width, nest the datepicker within another component, such as a <a href="section-components-collectinginput-dropdowns.html">dropdown</a>, or apply your own value.
-//
-// Styleguide: Components.CollectingInput.Datepicker.4
+// Styleguide: Components.CollectingInput.Datepicker.4.2
 
 // Single dates
 //
@@ -80,7 +91,7 @@
 // -is-today: Indicator for the current day
 // -is-othermonth: A date outside the visible month
 //
-// Styleguide: Components.CollectingInput.Datepicker.5
+// Styleguide: Components.CollectingInput.Datepicker.4.3
 
 // Date ranges
 //
@@ -96,7 +107,14 @@
 // -is-selected-hovered-start: Selected and hovered date at the start of a range during selection
 // -is-selected-hovered-end: Selected and hovered date at the end of a range during selection
 //
-// Styleguide: Components.CollectingInput.Datepicker.6
+// Styleguide: Components.CollectingInput.Datepicker.4.4
+
+// Size variants
+//
+// By default, datepickers span the full width of their containing element.
+// To set your own width, nest the datepicker within another component, such as a <a href="section-components-collectinginput-dropdowns.html">dropdown</a>, or apply your own value.
+//
+// Styleguide: Components.CollectingInput.Datepicker.5
 
 // Accessibility
 //
@@ -104,11 +122,23 @@
 // This may involve the use of the `tabindex` and `aria-activedescendant` attributes, which also require each active cell to have an `id`.
 // An accessible example of a datepicker can be found on the [Open Ajax Alliance](http://www.oaa-accessibility.org/examplep/datepicker1/).
 //
-// Styleguide: Components.CollectingInput.Datepicker.8
+// Styleguide: Components.CollectingInput.Datepicker.6
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Do: Spell out months
+//
+// Related:
+// Also see guidance for writing [labels](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-2)
+//
+// Styleguide: Components.CollectingInput.Datepicker.7
+
+// Related components
 //
 // Related:
 // * [Dropdown](./section-components-collectinginput-dropdowns.html)
+// * [Date input](./section-components-collectinginput-dropdowns.htmlsection-components-collectinginput-dateinput.html)
 //
 // Styleguide: Components.CollectingInput.Datepicker.99

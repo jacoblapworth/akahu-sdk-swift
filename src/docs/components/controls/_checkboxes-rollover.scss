@@ -1,21 +1,15 @@
 // Rollover checkbox
 //
-// Teaser: An interactive component between a checkbox and nominated inactive state.
-//
-// Introduction: Rollover checkboxes are concealed by default in favour of more visual elements like avatars, icons or thumbnails, but reveal bulk actions when interacted with.
-//
 // Components: Rollovercheckbox
 //
-// Styleguide: Components.Controls.Checkbox.11
-
-// Best practice
+// Rollover checkboxes are concealed by default in favour of more visual elements like avatars, icons, or thumbnails, but reveal bulk actions when interacted with.
 //
 // Tips:
 // Do: Use when horizontal space is limited and bulk select is not a primary interaction
 // Warning: Take care to use the entire row to trigger visibility of the checkbox, not the element in isolation
 // Warning: Avoid using in tables which are optimised for bulk actions, use an always-visible variant instead
 //
-// Styleguide: Components.Controls.Checkbox.11.1
+// Styleguide: Components.Controls.Checkbox.5.7
 
 // Anatomy
 //
@@ -29,4 +23,4 @@
 //
 // Markup: ./examples/checkbox/_checkbox-rollover.html
 //
-// Styleguide: Components.Controls.Checkbox.11.2
+// Styleguide: Components.Controls.Checkbox.5.7.1

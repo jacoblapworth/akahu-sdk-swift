@@ -2,7 +2,7 @@
 //
 // Teaser: Used to compare, contrast and sort large amounts of data.
 //
-// Introduction: Tables are used to compare, contrast, and sort large amounts of data. They are often used as an advanced alternative view to a content block.
+// Introduction: Tables are useful for comparing, contrasting, and sorting static data.
 //
 // Components: Tables
 //
@@ -10,10 +10,32 @@
 //
 // Styleguide: Components.DisplayingData.Table
 
+// When to use
+//
+// - To compare, contrast, and sort static data
+//
+// Styleguide: Components.DisplayingData.Table.1
+
+// When not to use
+//
+// - Don’t use if you have interactive or a combination of interactive and static data  – instead use an [editable table](./section-components-displayingdata-editabletable.html)
+// - Don't use if your content is not tabular – instead use a [content block](./section-components-displayingdata-contentblock.html)
+//
+// Styleguide: Components.DisplayingData.Table.2
+
+// Best practice
+//
+// Tips:
+// Do: Prioritise column order left to right
+// Warning: Avoid using too many columns as it increases a user’s cognitive load
+//
+// Styleguide: Components.DisplayingData.Table.3
+
 // Anatomy
 //
 // Tables can be broken into various semantic chunks *(Caption, Head, Body, Row and Cell)* each with their own set of class permutations that can compose a broad set of layout compositions.
-// We recommend using the **XUI React** Table component to easily create layout compositions and more advanced table functionality.
+//
+// We recommend using the `XUITable` React component to easily create layout compositions and more advanced table functionality.
 //
 // Classes:
 // xui-readonlytable-hasborder: Applies the border around the table
@@ -21,7 +43,13 @@
 // xui-readonlytablerow: Apply to each row, including headers
 // xui-readonlytablecell: Apply to each individual cell, including headers
 //
-// Styleguide: Components.DisplayingData.Table.1
+// Styleguide: Components.DisplayingData.Table.4
+
+// Features of a table
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.DisplayingData.Table.5
 
 // Headers
 //
@@ -34,7 +62,7 @@
 // xui-readonlytablecell: Apply to each individual cell in the header
 // xui-readonlytableheadingcell: Apply to each individual cell in the header
 //
-// Styleguide: Components.DisplayingData.Table.2
+// Styleguide: Components.DisplayingData.Table.5.1
 
 // Standard
 //
@@ -44,7 +72,7 @@
 //
 // Markup: ./examples/table/_table.html
 //
-// Styleguide: Components.DisplayingData.Table.2.1
+// Styleguide: Components.DisplayingData.Table.5.1.1
 
 // Sortable ascending
 //
@@ -54,7 +82,7 @@
 //
 // Markup: ./examples/table/_table-sortable.html
 //
-// Styleguide: Components.DisplayingData.Table.2.2
+// Styleguide: Components.DisplayingData.Table.5.1.2
 
 // Body
 //
@@ -66,7 +94,7 @@
 // xui-readonlytablecell: Apply to each individual cell, including headers
 // xui-readonlytablecell-layout: Apply to each individual cell, not including headers
 //
-// Styleguide: Components.DisplayingData.Table.3
+// Styleguide: Components.DisplayingData.Table.5.2
 
 // Standard
 //
@@ -75,7 +103,7 @@
 //
 // Markup: ./examples/table/_table-body.html
 //
-// Styleguide: Components.DisplayingData.Table.3.1
+// Styleguide: Components.DisplayingData.Table.5.2.1
 
 // With actions
 //
@@ -94,7 +122,7 @@
 //
 // Markup: ./examples/table/_table-actions.html
 //
-// Styleguide: Components.DisplayingData.Table.3.2
+// Styleguide: Components.DisplayingData.Table.5.2.2
 
 // With avatar
 //
@@ -105,7 +133,7 @@
 //
 // Markup: ./examples/table/_table-avatars.html
 //
-// Styleguide: Components.DisplayingData.Table.3.3
+// Styleguide: Components.DisplayingData.Table.5.2.3
 
 // Handling overflow
 //
@@ -126,16 +154,16 @@
 //
 // Markup: ./examples/table/_table-overflow.html
 //
-// Styleguide: Components.DisplayingData.Table.4
+// Styleguide: Components.DisplayingData.Table.5.3
 
 // Links
 //
-// Target individual table rows or cells *(but not both)*.
+// Target individual table rows or cells, but not both.
 //
 // Classes:
 // xui-readonlytablerow-link: Applies visual feedback on row interaction
 //
-// Styleguide: Components.DisplayingData.Table.5
+// Styleguide: Components.DisplayingData.Table.5.4
 
 // Single destination
 //
@@ -144,7 +172,7 @@
 //
 // Markup: ./examples/table/_table-link-single.html
 //
-// Styleguide: Components.DisplayingData.Table.5.1
+// Styleguide: Components.DisplayingData.Table.5.4.1
 
 // Multiple destinations
 //
@@ -157,7 +185,7 @@
 //
 // Markup: ./examples/table/_table-link-multiple.html
 //
-// Styleguide: Components.DisplayingData.Table.5.2
+// Styleguide: Components.DisplayingData.Table.5.4.2
 
 // Alignment
 //
@@ -173,7 +201,7 @@
 //
 // Markup: ./examples/table/_table-alignment.html
 //
-// Styleguide: Components.DisplayingData.Table.6
+// Styleguide: Components.DisplayingData.Table.5.5
 
 // Showing and hiding columns
 //
@@ -191,9 +219,20 @@
 // Do: Use the `hiddenColumns` property when the dataset is large but consistently structured, and users may wish to hide and show content repeatedly
 // Do: All other cases should conditionally render hidden columns. For example, when you plan to save the user’s preferences for future page loads, and columns may not need to be rendered at all
 //
-// Styleguide: Components.DisplayingData.Table.7
+// Styleguide: Components.DisplayingData.Table.5.6
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Headers should be short and succinct (1–3 words)
+// Do: Write header rows as statements rather than questions or instructions
+// Do: Use sentence case (capitalise first word and proper nouns)
+//
+// Related: Also see guidance for writing [currency](https://xui.xero.com/product-language-guide/components/writing-style/#currency)
+//
+// Styleguide: Components.DisplayingData.Table.6
+
+// Related components
 //
 // Related:
 // * [Avatar](./section-components-identifiers-avatar.html)

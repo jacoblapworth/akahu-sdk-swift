@@ -6,22 +6,38 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.i0mg8rwa59ob
 //
-// Introduction: Popovers are used to highlight features or provide supportive information without affecting the underlying page layout
+// Introduction: Popovers draw attention to new features or provide supporting information without affecting the layout of a page.
 //
 // Styleguide: Components.Alerts.Popover
+
+// When to use
+//
+// - To provide a user with additional information without having to add it to the page
+// - As part of onboarding to highlight or introduce new features on a page
+//
+// Styleguide: Components.Alerts.Popover.1
+
+// When not to use
+//
+// - Don’t use popovers for information that’s crucial to a workflow – instead use a [hint message](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-9)
+// - Don’t use to display title/meta information  – instead use a [tooltip](./section-components-alerts-tooltip.html)
+// - Don’t use to communicate error messages
+//
+// Styleguide: Components.Alerts.Popover.2
 
 // Best practice
 //
 // Tips:
-// Do: Use popovers for supplemental content
-// Do: Ensure content inside a popover relates to its parent trigger
-// Dont: Don’t use popovers for information that is crucial to a workflow
+// Do: Content inside a popover must relate to its parent trigger
+// Warning: Titles, subtitles, links, and action buttons are optional
 //
-// Styleguide: Components.Alerts.Popover.1
+// Styleguide: Components.Alerts.Popover.3
 
 // Anatomy
 //
-// The popover consists of 3 parts, the header, body and footer. The popover’s header is used to display a title, subtitle, and close button. The popover body contains the main content of the popover. The popover footer is used to house additional actions.
+// A popover consists of 3 parts: the header, body, and footer.
+//
+// A popover’s header is used to display a title, subtitle, and close button, The body contains the main content and the footer houses actions.
 //
 // Classes:
 // xui-popover: Base popover class
@@ -36,7 +52,7 @@
 //
 // Markup: ./examples/popover/_popover-anatomy.html
 //
-// Styleguide: Components.Alerts.Popover.2
+// Styleguide: Components.Alerts.Popover.4
 
 // Positioning
 //
@@ -45,8 +61,8 @@
 // The React popover component automatically positions the arrow to be centred on its trigger as well as makes sure the popover never renders outside of the viewport. To specify a position for the arrow element in HTML/CSS, you can provide a `xui-popover-arrow*` modifier.
 //
 // Tips:
-// Do: Position the popover in a way that complements other elements on the page
-// Don't: Don’t position the popover such that it covers related content
+// Do: Position the popover so it complements other elements on the page
+// Do: Make sure the popover doesn’t cover related content
 //
 // Classes:
 // -topleft: Modifier for a top-left arrow
@@ -62,33 +78,23 @@
 // -leftcenter: Modifier for a left-center arrow
 // -leftbottom: Modifier for a left-bottom arrow
 //
-// Styleguide: Components.Alerts.Popover.3
+// Styleguide: Components.Alerts.Popover.4.1
 
-// Size variants
+// Features of a popover
 //
-// Popovers have 3 predefined size variants to cater for different amounts of content displayed inside the component.
+// Explore the different features that can be applied to this component.
 //
-// Tips:
-// Do: Use size variant that is appropriate for the content inside the popover
-//
-// Definitions:
-// Small: 200px wide: `xui-popover-small`
-// Medium: 300px wide: `xui-popover-medium`
-// Large: 400px wide: `xui-popover-large`
-//
-// Markup: ./examples/popover/_popover-size-variants.html
-//
-// Styleguide: Components.Alerts.Popover.4
+// Styleguide: Components.Alerts.Popover.5
 
 // Onboarding popover
 //
-// A common use case for popovers is to be surfaced as a part of an onboarding process for introducing users to features on a page. Popovers can also be used to walk users through multiple steps. Eg. A setup flow.
+// A common use case for popovers is to be surfaced as a part of an onboarding process for introducing users to features on a page. Popovers can also be used to walk users through multiple steps (for example: a setup flow).
 //
 // Tips:
 // Do: Use an onboarding popover to introduce a user to features or workflows
 // Do: Display the number of steps as a subtitle in the header when using multiple popovers as part of a stepped process
 //
-// Styleguide: Components.Alerts.Popover.5
+// Styleguide: Components.Alerts.Popover.5.1
 
 // Summoning and dismissing
 //
@@ -109,16 +115,18 @@
 //
 // Markup: ./examples/popover/_popover-onboarding.html
 //
-// Styleguide: Components.Alerts.Popover.5.1
+// Styleguide: Components.Alerts.Popover.5.1.1
 
 // Supporting information popover
 //
-// Another use case for popovers is to provide supportive information to elements on the page without having an impact on the underlying visual layout. Different to a [tooltip](./section-components-alerts-tooltip.html), popovers can contain more rich content such as links and actions. Tooltips are to be used to display title/meta information.
+// Another use case for popovers is to provide supportive information to elements on the page without having an impact on the underlying visual layout.
+//
+// Different to a [tooltip](./section-components-alerts-tooltip.html), which display title/meta information, popovers can contain richer content such as links and actions.
 //
 // Tips:
 // Do: Use a supporting information popover to provide contextual details without impacting the page layout
 //
-// Styleguide: Components.Alerts.Popover.6
+// Styleguide: Components.Alerts.Popover.5.2
 
 // Summoning and dismissing
 //
@@ -136,7 +144,7 @@
 //
 // Markup: ./examples/popover/_popover-supporting-information.html
 //
-// Styleguide: Components.Alerts.Popover.6.1
+// Styleguide: Components.Alerts.Popover.5.2.1
 
 // Responsive behaviour
 //
@@ -149,7 +157,23 @@
 //
 // Markup: ./examples/popover/_popover-responsive.html
 //
-// Styleguide: Components.Alerts.Popover.7
+// Styleguide: Components.Alerts.Popover.5.3
+
+// Size variants
+//
+// Popovers have 3 predefined size variants to cater for different amounts of content displayed inside the component.
+//
+// Tips:
+// Do: Use size variant that is appropriate for the content inside the popover
+//
+// Definitions:
+// Small: 200px wide: `xui-popover-small`
+// Medium: 300px wide: `xui-popover-medium`
+// Large: 400px wide: `xui-popover-large`
+//
+// Markup: ./examples/popover/_popover-size-variants.html
+//
+// Styleguide: Components.Alerts.Popover.6
 
 // Accessibility
 //
@@ -161,7 +185,34 @@
 //
 // Styleguide: Components.Alerts.Popover.8
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Be concise: 1–3 sentences or a maximum of 3 lines
+// Do: Body copy should be actionable – start sentences with a verb to state the action
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Warning: Be cautious of asking a question in the heading as it can increase cognitive load
+// Warning: Avoid starting body copy with 'you can'
+// Don't: Text in the popover mustn’t be essential to completing a task
+// Don't: Don’t use a full stop in headings, single sentences, or links
+// Don't: The text in the UI shouldn’t be used as a heading. If a popover points to an element, a heading may not be needed.
+//
+// Related: Also see guidance for writing:
+// * [Headings](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#headings)
+// * [Links](https://xui.xero.com/product-language-guide/components/writing-style/#links)
+//
+// Styleguide: Components.Alerts.Popover.80
+
+// Examples
+//
+// ExampleContentTable:
+// Add employee bank details | Bank account and account name are required for direct payments
+// Upgrade to a ‘Standard plan’ at any time to send more than 20 invoices | You can upgrade to a ‘Standard plan’ at any time to send more than 20 invoices
+// Save time by using a template | Are you tired of asking the same questions?
+//
+// Styleguide: Components.Alerts.Popover.80.1
+
+// Related components
 //
 // Related:
 // * [Banner](./section-components-alerts-banner.html)

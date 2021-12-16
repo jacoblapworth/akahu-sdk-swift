@@ -2,13 +2,19 @@
 //
 // Teaser: A list of actions, filters or tabs.
 //
-// Introduction: Picklists are used to group a list of pickitem actions, filters or tabs. Picklists are usually contained inside a panel or a dropdown.
+// Introduction: Picklists group together pickitem actions, filters, and tabs. Picklists are usually contained inside a panel or a dropdown.
 //
 // Components: Picklist
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.41heitrj0iir
 //
 // Styleguide: Components.DisplayingData.Picklist
+
+// When to use
+//
+// - To group a list of pickitem actions, filters, or tabs
+//
+// Styleguide: Components.DisplayingData.Picklist.1
 
 // Anatomy
 //
@@ -28,11 +34,17 @@
 //
 // Markup: ./examples/picklist/_picklist.html
 //
-// Styleguide: Components.DisplayingData.Picklist.1
+// Styleguide: Components.DisplayingData.Picklist.2
+
+// Features of a picklist
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.DisplayingData.Picklist.3
 
 // Pickitem states
 //
-// To adjust the state of a pickitem, apply the following modifiers.
+// To adjust the state of a pickitem, apply the following modifiers:
 //
 // Classes:
 // xui-pickitem-is-selected: Selected pickitem
@@ -41,7 +53,7 @@
 //
 // Markup: ./examples/picklist/_picklist-item-states.html
 //
-// Styleguide: Components.DisplayingData.Picklist.2
+// Styleguide: Components.DisplayingData.Picklist.3.1
 
 // Text styling
 //
@@ -51,18 +63,20 @@
 //
 // Markup: ./examples/picklist/_picklist-text-styling.html
 //
-// Styleguide: Components.DisplayingData.Picklist.3
+// Styleguide: Components.DisplayingData.Picklist.3.2
 
 // Side elements
 //
-// A side element is a generalised term for visual and interactive content that is pinned to the left- or right-hand side of a container. Below are prescribed elements that you can use inside the `xui-pickitem--sideelement` wrapper class. Side elements can be aligned left or right, depending on whether they are placed before or after the `xui-pickitem--text` container.
+// A side element is a generalised term for visual and interactive content that is pinned to the left- or right-hand side of a container.
+//
+// Below are prescribed elements that you can use inside the `xui-pickitem--sideelement` wrapper class. Side elements can be aligned left or right, depending on whether they are placed before or after the `xui-pickitem--text` container.
 //
 // Classes:
 // xui-pickitem--sideelement: Side element wrapper class
 // xui-pickitem--body-has-leftelement: Apply to pickitem when a left element is present
 // xui-pickitem--body-has-rightelement: Apply to pickitem when a right element is present
 //
-// Styleguide: Components.DisplayingData.Picklist.4
+// Styleguide: Components.DisplayingData.Picklist.3.3
 
 // Icons
 //
@@ -71,7 +85,7 @@
 //
 // Markup: ./examples/picklist/_picklist-icons.html
 //
-// Styleguide: Components.DisplayingData.Picklist.4.1
+// Styleguide: Components.DisplayingData.Picklist.3.3.1
 
 // Avatars
 //
@@ -80,7 +94,7 @@
 //
 // Markup: ./examples/picklist/_picklist-avatars.html
 //
-// Styleguide: Components.DisplayingData.Picklist.4.2
+// Styleguide: Components.DisplayingData.Picklist.3.3.2
 
 // Truncating
 //
@@ -97,7 +111,7 @@
 //
 // Markup: ./examples/picklist/_picklist-truncating.html
 //
-// Styleguide: Components.DisplayingData.Picklist.5
+// Styleguide: Components.DisplayingData.Picklist.3.4
 
 // Headers and dividers
 //
@@ -108,7 +122,7 @@
 //
 // Markup: ./examples/picklist/_picklist-headers-and-dividers.html
 //
-// Styleguide: Components.DisplayingData.Picklist.6
+// Styleguide: Components.DisplayingData.Picklist.3.5
 
 // Multiselect picklist
 //
@@ -124,7 +138,7 @@
 //
 // Markup: ./examples/picklist/_picklist-multi-select.html
 //
-// Styleguide: Components.DisplayingData.Picklist.7
+// Styleguide: Components.DisplayingData.Picklist.3.6
 
 // Multiline pickitems
 //
@@ -136,11 +150,11 @@
 //
 // Markup: ./examples/picklist/_picklist-multiline-items.html
 //
-// Styleguide: Components.DisplayingData.Picklist.8
+// Styleguide: Components.DisplayingData.Picklist.3.7
 
 // Expanding picklists
 //
-// To hide and show a list of sub-menu pickitems, apply the following classes.
+// To hide and show a list of sub-menu pickitems, apply the following classes:
 //
 // Classes:
 // xui-picklist--nestedcontainer: Apply to expanding pickitem
@@ -149,7 +163,7 @@
 // xui-submenu: Container for a group of nested pickitems
 // xui-submenu-layout: Recommended layout modifier for a group of pickitems
 //
-// Styleguide: Components.DisplayingData.Picklist.9
+// Styleguide: Components.DisplayingData.Picklist.3.8
 
 // Standard
 //
@@ -157,7 +171,7 @@
 //
 // Markup: ./examples/picklist/_picklist-expanding.html
 //
-// Styleguide: Components.DisplayingData.Picklist.9.1
+// Styleguide: Components.DisplayingData.Picklist.3.8.1
 
 // Split
 //
@@ -168,7 +182,7 @@
 //
 // Markup: ./examples/picklist/_picklist-split.html
 //
-// Styleguide: Components.DisplayingData.Picklist.9.2
+// Styleguide: Components.DisplayingData.Picklist.3.8.2
 
 // Horizontal picklists
 //
@@ -182,7 +196,7 @@
 //
 // Markup: ./examples/picklist/_picklist-horizontal.html
 //
-// Styleguide: Components.DisplayingData.Picklist.10
+// Styleguide: Components.DisplayingData.Picklist.3.9
 
 // Accessibility
 //
@@ -199,9 +213,28 @@
 //
 // For selected pickitems, make sure to apply the `aria-selected` attribute.
 //
-// Styleguide: Components.DisplayingData.Picklist.11
+// Styleguide: Components.DisplayingData.Picklist.4
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Be short and succinct
+// Do: The list title should explain the kind of choice the user is making
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Don't: Don’t use colons after the list title
+// Don't: Don’t use commas or semicolons at the end of each item
+//
+// Styleguide: Components.DisplayingData.Picklist.5
+
+// Examples
+//
+// ExampleContentTable:
+// Select an account | Pick one
+// Leave type | Leave type:
+//
+// Styleguide: Components.DisplayingData.Picklist.5.1
+
+// Related components
 //
 // Related:
 // * [Avatar](./section-components-identifiers-avatar.html)

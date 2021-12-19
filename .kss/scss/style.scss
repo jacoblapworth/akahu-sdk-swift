@@ -7,6 +7,11 @@
 
 .ds-html {
   background: $ds-html-bg-color;
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion) {
+    scroll-behavior: auto;
+  }
 }
 
 .ds-body {
@@ -1164,6 +1169,89 @@ $kss-color-padding: #eeebff;
   .xui-dropdown--body {
     overflow-y: auto;
   }
+}
+
+// -----------------------------------------------------------------------------
+// Styles for the extra nav of headers on a given page
+// -----------------------------------------------------------------------------
+
+.ds-article--default {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ds-nav-sticky-wrapper {
+  position: relative;
+  display: none;
+  margin-right: -50px;
+
+  @include xui-breakpoint-xlarge-up {
+    display: block;
+  }
+
+  @include xui-breakpoint-2xlarge-up {
+    margin-right: 0;
+  }
+}
+
+.ds-nav-sticky {
+  position: sticky;
+  // 12vh - page padding, 92px h1 height based on em, 19px 'intro' margin, 16px universal constant
+  top: calc(12vh + 92px + 19px + 16px);
+  width: 220px;
+  padding-left: 60px;
+  font-size: 13px;
+  overflow-y: auto;
+  max-height: calc(100vh - (12vh + 92px + 19px + 16px));
+
+  @include xui-breakpoint-2xlarge-up {
+    width: 340px;
+    padding-left: 160px;
+  }
+}
+
+.ds-nav-sticky--list {
+  list-style: none;
+  margin: 10px 0;
+  padding-left: 0;
+  line-height: $xui-line-height-standard;
+}
+
+.ds-nav-sticky--list--highlighted {
+  font-weight: bold;
+}
+
+.ds-nav-sticky--mobile,
+.ds-page-nav {
+  display: none;
+
+  @media screen and (max-width: ($xui-breakpoint-xlarge - 1px)) {
+    display: block;
+  }
+}
+
+.ds-select-styled {
+  select {
+    color: $xui-color-blue;
+    font-weight: bold;
+    transition-duration: 0.1s;
+    transition-property: color, background, box-shadow;
+    transition-timing-function: ease;
+  }
+
+  &:hover select,
+  &:focus select {
+    background-color: $xui-button-standard-hover-bg-color;
+    color: $xui-button-standard-hover-color;
+  }
+
+  .xui-select--caret {
+    color: $xui-color-blue;
+  }
+}
+
+.opt-3 {
+  padding-left: 18px;
 }
 
 @import './cards';

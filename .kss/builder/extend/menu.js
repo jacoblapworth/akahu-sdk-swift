@@ -43,11 +43,11 @@ module.exports = function (handlebars) {
 		{{/each}}
 	`);
 
-	handlebars.registerPartial('jumpto', `
+	handlebars.registerPartial('onthispage', `
 	{{#ifSections @root.sections}}
-		<nav class="xui-select xui-dropdown-fixed-medium ds-page-nav">
+		<nav class="xui-select xui-dropdown-fixed-medium ds-page-nav ds-select-styled">
 			<select id="ds-nav-section" class="xui-select--control" aria-label="Select a section">
-				<option value="-1" disabled selected>Jump to...</option>
+				<option value="-1" disabled selected>On this page</option>
 				{{#each  @root.sections}} {{#ifDepth 2 }}
 				<option value="{{referenceURI}}">
 					{{header}}

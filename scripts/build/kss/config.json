@@ -31,6 +31,7 @@
     "./kss-assets/prettify.js",
     "./kss-assets/kss-script.js",
     "./kss-assets/search.js",
+    "./kss-assets/nav-headings.js",
     "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js",
     "https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.0.1/lunr.min.js",
     "https://cdn.polyfill.io/v2/polyfill.js?features=Promise,fetch",

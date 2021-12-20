@@ -1,8 +1,8 @@
 /**
  * Bootstrap a few runtime KSS things
  *
- * This script initalises Pretty print
- * This script initalises the Jump to nav menu
+ * This script initialises Pretty print
+ * This script initialises the Jump to nav menu
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   buildSearch();
+  initHeadingNav();
 
 });
 

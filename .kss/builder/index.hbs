@@ -49,18 +49,20 @@
 <div class="ds-page-header">
   {{> breadcrumbs }}
   {{#each sections}}
-    {{#if @first}}
-      {{#hasChildren}}
+    {{#ifParentPage "Components"}}
+      {{#if @first}}
+        {{#hasChildren}}
+      {{else}}
+        {{> onthispage }}
+        {{/hasChildren}}
+      {{/if}}
     {{else}}
-      {{> jumpto }}
-      {{/hasChildren}}
-    {{/if}}
+      {{! noop }}
+    {{/ifParentPage}}
   {{/each}}
 </div>
 {{/unless}}
-<article role="main" class="ds-main">
-
-
+<article role="main" class="ds-main ds-article--default">
 
   <div class="ds-section-wrap">
 
@@ -146,19 +148,25 @@
               {{/renderComponents}}
             {{/if}}
 
-            {{#ifStyleguide "Compositions" "Components.CollectingInput.Forms" "Components.DisplayingData.EditableTable" "Contributing to XUI.XUI Labs.XUI Labs Overview" "Contributing to XUI.XUI Labs.Contributing" "Fundamentals"}}
+            {{#ifParentPage "Components"}}
               {{! noop }}
             {{else}}
-              <ul>
-                {{#each  @root.sections}} {{#ifDepth 2}}
-                  <li>
-                    <a href="#{{referenceURI}}">
-                      {{header}}
-                    </a>
-                  </li>
-                {{/ifDepth}} {{/each}}
-              </ul>
-            {{/ifStyleguide}}
+              {{#ifStyleguide "Compositions" "Components.CollectingInput.Forms" "Components.DisplayingData.EditableTable" "Contributing to XUI.XUI Labs.XUI Labs Overview" "Contributing to XUI.XUI Labs.Contributing" "Fundamentals"}}
+                {{! noop }}
+              {{else}}
+                <div>
+                  <ul>
+                    {{#each  @root.sections}} {{#ifDepth 2}}
+                      <li>
+                        <a href="#{{referenceURI}}">
+                          {{header}}
+                        </a>
+                      </li>
+                    {{/ifDepth}} {{/each}}
+                  </ul>
+                </div>
+              {{/ifStyleguide}}
+            {{/ifParentPage}}
           {{/if}}
 
           {{#ifStyleguide "Fundamentals.Icons.1" }}
@@ -383,7 +391,7 @@
 
     {{/wrapSection}}
     {{/each}}
-    
+
     {{#each sections}}
       {{#if @first}}
         {{! Don't show the landing page tiles for the following sections: }}
@@ -395,8 +403,44 @@
       {{/if}}
     {{/each}}
     {{/if}}
-    
+
   </div>
+  {{#each sections}}
+    {{#if @first}}
+      {{#ifParentPage "Components"}}
+        <div class="ds-nav-sticky-wrapper">
+          <div class="ds-nav-sticky">
+            <span style="margin-bottom: 13px">On this page</span>
+            <ul class="ds-nav-sticky--list">
+              {{#each  @root.sections}}
+                  {{#ifDepth 2}}
+                    <li class="opt-{{this.depth}}">
+                      <a href="#{{referenceURI}}" id="otp-{{referenceURI}}">
+                        {{header}}
+                      </a>
+                    </li>
+                  {{/ifDepth}}
+                  {{#ifDepth 3}}
+                    {{#ifParentSection "Features of" @root.sections}}
+                      <li class="opt-{{this.depth}}">
+                        <a href="#{{referenceURI}}" id="otp-{{referenceURI}}">
+                          {{header}}
+                        </a>
+                      </li>
+                    {{else}}
+                      {{! noop }}
+                    {{/ifParentSection}}
+                  {{/ifDepth}}
+
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      {{else}}
+        {{! noop }}
+      {{/ifParentPage}}
+    {{/if}}
+  {{/each}}
 </article>
 
 <nav>

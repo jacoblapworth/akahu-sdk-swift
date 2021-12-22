@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import { logWarning } from '../helpers/developmentConsole';
 import doAsync from '../helpers/doAsync';
+import isRunningInJest from '../helpers/isRunningInJest';
 import sortRefsByDOMOrder from '../helpers/sortRefsByDOMOrder';
 import CheckboxRangeSelectorContext from './contexts/CheckboxRangeSelectorContext';
 
@@ -117,7 +118,7 @@ const XUICheckboxRangeSelector: React.FunctionComponent<Props> = ({
      * `isTrusted` is false in Jest even when it should be true so we skip this check when running
      * in Jest.
      */
-    if (!isTrustedEvent && process.env.JEST_WORKER_ID === undefined) {
+    if (!isTrustedEvent && !isRunningInJest()) {
       return;
     }
 

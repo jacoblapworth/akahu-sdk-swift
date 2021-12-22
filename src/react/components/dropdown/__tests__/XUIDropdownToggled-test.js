@@ -46,7 +46,6 @@ const testDropdown = (props = {}) => {
     <XUIDropdownToggled
       className="testClass"
       dropdown={props.dropdown || getDropdown()}
-      forceDesktop
       onClose={() => (closeCalled = true)}
       onOpen={() => (openCalled = true)}
       trigger={getTrigger()}

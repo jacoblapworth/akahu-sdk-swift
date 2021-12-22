@@ -25,7 +25,7 @@ expect.extend(toHaveNoViolations);
 describe('XUIAutocompleter', () => {
   const item1 = <XUIPickitem id="item1">Item 1</XUIPickitem>;
   const createComponent = props => (
-    <XUIAutocompleter dropdownSize="medium" forceDesktop {...props}>
+    <XUIAutocompleter dropdownSize="medium" {...props}>
       <XUIPicklist>
         {item1}
         <XUIPickitem id="item2">Item 2</XUIPickitem>

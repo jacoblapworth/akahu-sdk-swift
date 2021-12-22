@@ -21,6 +21,7 @@ import DropdownContext from './contexts/DropdownContext';
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
+import isRunningInJest from '../helpers/isRunningInJest';
 
 /**
  * If the given DOM node isn't on screen, scroll it into view.
@@ -154,6 +155,11 @@ export default class XUIDropdownToggled extends PureComponent {
     const { onCloseAnimationEnd, disableScrollLocking, repositionOnScroll, onClose, onOpen } =
       this.props;
     const { isClosing, isHidden, shouldUnlockScroll, isNarrowViewport } = this.state;
+
+    // Call onAnimationEnd for Jest because it is not called automatically
+    if (isRunningInJest() && this.state.isClosing) {
+      this.onCloseAnimationEnd();
+    }
 
     // If an animation state has just changed, we need to fire the passed animation
     // end callback

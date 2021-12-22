@@ -10,6 +10,12 @@ interface Props {
    */
   _skipFocusOnOpen?: boolean;
   /**
+   * Internal function that allows `XUIDropdownToggled` to wrap the dropdown with the
+   * `PortalFocusHelper` component in order to control focus of a portalled dropdown.
+   * @ignore
+   */
+  _wrappingElement?: (children: React.ReactNode) => void;
+  /**
    * Will cause the dropdown to animate when closing.
    */
   animateClosed?: boolean;
@@ -92,6 +98,7 @@ interface Props {
   qaHook?: string;
   /**
    * Whether focus should be restricted to the dropdown while it's open.
+   * Setting `useNewFocusBehaviour` to true in `XUIDropdownToggled` will override this prop and set it to `false`
    */
   restrictFocus?: boolean;
   /**

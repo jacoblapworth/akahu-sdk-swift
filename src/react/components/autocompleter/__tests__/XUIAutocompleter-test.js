@@ -5,6 +5,7 @@ import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAutocompleter from '../XUIAutocompleter';
+import XUIButton from '../../button/XUIButton';
 import XUIPill from '../../pill/XUIPill';
 import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIPickitem from '../../picklist/XUIPickitem';
@@ -606,5 +607,177 @@ describe('XUIAutocompleter', () => {
     // Assert
     expect(onOpenMock).toHaveBeenCalledTimes(2);
     expect(onCloseMock).toHaveBeenCalledTimes(1);
+  });
+
+  describe('New focus behaviour', () => {
+    describe('without a footer', () => {
+      test('pressing the down arrow from the input trigger opens the dropdown, and leaves focus on the input', () => {
+        // Arrange
+        render(
+          createComponent({
+            onSearch: () => {},
+            qaHook: 'autocompleter',
+            useNewFocusBehaviour: true,
+          }),
+        );
+
+        // Act
+        const input = screen.getByTestId('autocompleter--input');
+        userEvent.type(input, '{arrowDown}');
+
+        // Assert
+        expect(screen.queryByTestId('autocompleter--list')).toBeInTheDocument();
+        expect(screen.getByTestId('autocompleter--input')).toHaveFocus();
+      });
+
+      test('tabbing from an open autocompleter closes the dropdown and focuses the next element', () => {
+        // Arrange
+        render(
+          <>
+            {createComponent({
+              onSearch: () => {},
+              qaHook: 'autocompleter',
+              useNewFocusBehaviour: true,
+            })}
+            <XUIButton qaHook="nextElement">Next Element</XUIButton>
+          </>,
+        );
+
+        // Act
+        const input = screen.getByTestId('autocompleter--input');
+        userEvent.type(input, '{arrowDown}');
+        userEvent.tab();
+
+        // Assert
+        expect(screen.getByTestId('nextElement')).toHaveFocus();
+        expect(screen.queryByTestId('autocompleter--list')).not.toBeInTheDocument();
+      });
+
+      test('shift tabbing from an open autocompleter closes the dropdown and focuses the previous element', () => {
+        // Arrange
+        render(
+          <>
+            <XUIButton qaHook="previousElement">Previous Element</XUIButton>
+            {createComponent({
+              onSearch: () => {},
+              qaHook: 'autocompleter',
+              useNewFocusBehaviour: true,
+            })}
+          </>,
+        );
+
+        // Act
+        const input = screen.getByTestId('autocompleter--input');
+        userEvent.type(input, '{arrowDown}');
+        userEvent.tab({ shift: true });
+
+        // // Assert
+        expect(screen.getByTestId('previousElement')).toHaveFocus();
+        expect(screen.queryByTestId('autocompleter--list')).not.toBeInTheDocument();
+      });
+    });
+
+    describe('with a footer', () => {
+      const footerComponent = (
+        <XUIDropdownFooter
+          pickItems={
+            <XUIPickitem id="footer" qaHook="autocompleterFooter">
+              Footer
+            </XUIPickitem>
+          }
+        />
+      );
+
+      test('pressing the down arrow from the input trigger opens the dropdown, and leaves focus on the input', () => {
+        // Arrange
+        render(
+          createComponent({
+            closeOnTab: false,
+            footer: footerComponent,
+            onSearch: () => {},
+            qaHook: 'autocompleter',
+            useNewFocusBehaviour: true,
+          }),
+        );
+
+        // Act
+        const input = screen.getByTestId('autocompleter--input');
+        userEvent.type(input, '{arrowDown}');
+
+        // Assert
+        expect(screen.queryByTestId('autocompleter--list')).toBeInTheDocument();
+        expect(screen.getByTestId('autocompleter--input')).toHaveFocus();
+      });
+
+      test('tabbing from an open autocompleter focuses the dropdown footer', () => {
+        // Arrange
+        render(
+          createComponent({
+            closeOnTab: false,
+            footer: footerComponent,
+            onSearch: () => {},
+            qaHook: 'autocompleter',
+            useNewFocusBehaviour: true,
+          }),
+        );
+
+        // Act
+        const input = screen.getByTestId('autocompleter--input');
+        userEvent.type(input, '{arrowDown}');
+        userEvent.tab();
+
+        // Assert
+        expect(screen.getByTestId('autocompleterFooter--body')).toHaveFocus();
+      });
+
+      test('tabbing from an autocompleter footer closes the dropdown and focuses the next element', () => {
+        // Arrange
+        render(
+          <>
+            {createComponent({
+              closeOnTab: false,
+              footer: footerComponent,
+              onSearch: () => {},
+              qaHook: 'autocompleter',
+              useNewFocusBehaviour: true,
+            })}
+            <XUIButton qaHook="nextElement">Next Element</XUIButton>
+          </>,
+        );
+
+        // Act
+        const input = screen.getByTestId('autocompleter--input');
+        userEvent.type(input, '{arrowDown}');
+        userEvent.tab();
+        userEvent.tab();
+
+        // Assert
+        expect(screen.getByTestId('nextElement')).toHaveFocus();
+        expect(screen.queryByTestId('autocompleter--list')).not.toBeInTheDocument();
+      });
+
+      test('shift tabbing from an autocompleter footer closes the dropdown and focuses the trigger', () => {
+        // Arrange
+        render(
+          createComponent({
+            closeOnTab: false,
+            footer: footerComponent,
+            onSearch: () => {},
+            qaHook: 'autocompleter',
+            useNewFocusBehaviour: true,
+          }),
+        );
+
+        // Act
+        const input = screen.getByTestId('autocompleter--input');
+        userEvent.type(input, '{arrowDown}');
+        userEvent.tab();
+        userEvent.tab({ shift: true });
+
+        // Assert
+        expect(screen.getByTestId('autocompleter--input')).toHaveFocus();
+        expect(screen.queryByTestId('dropdown')).not.toBeInTheDocument();
+      });
+    });
   });
 });

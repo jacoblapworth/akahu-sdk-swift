@@ -1,6 +1,6 @@
 import getFocusableDescendants, {
   focusableDescendantsSelector,
-} from '../../../helpers/getFocusableDescendants';
+} from '../../getFocusableDescendants';
 
 /**
  * Ponyfill for

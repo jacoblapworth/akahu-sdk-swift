@@ -48,6 +48,9 @@ exports[`<XUIPopover /> renders without crashing 1`] = `
                   <div
                     tabindex="0"
                   />
+                  <div
+                    tabindex="0"
+                  />
                 </div>
               </div>
             </div>
@@ -94,6 +97,10 @@ exports[`<XUIPopover /> renders without crashing 1`] = `
                   tabIndex={0}
                 />
                 <div />
+                <div
+                  onFocus={[Function]}
+                  tabIndex={0}
+                />
                 <div
                   onFocus={[Function]}
                   tabIndex={0}

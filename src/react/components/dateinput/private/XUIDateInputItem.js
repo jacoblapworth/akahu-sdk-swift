@@ -325,6 +325,7 @@ class XUIDateInputItem extends Component {
             id={this.suggestedDatesFooterId}
             leftElement={<XUIIcon color="black" icon={selectDateIcon || dateStartIcon} isBoxed />}
             onClick={this.showDatepickerPanel}
+            qaHook={qaHook && `${qaHook}-dateinputitem-suggesteddates--footer`}
           >
             {selectDateLabel}
           </XUIPickitem>
@@ -393,6 +394,7 @@ class XUIDateInputItem extends Component {
         restrictedToViewPort={false}
         trigger={trigger}
         triggerClickAction="none"
+        useNewFocusBehaviour
       />
     );
   }

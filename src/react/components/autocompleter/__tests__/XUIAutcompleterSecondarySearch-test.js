@@ -5,11 +5,16 @@ import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAutocompleterSecondarySearch from '../XUIAutocompleterSecondarySearch';
+import XUIDropdownFooter from '../../dropdown/XUIDropdownFooter';
+import XUIButton from '../../button/XUIButton';
 import XUILoader from '../../loader/XUILoader';
 import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIPickitem from '../../picklist/XUIPickitem';
 import Pill from '../../pill/XUIPill';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import wait from '../../../helpers/wait';
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'xui-testDropdownId');
@@ -148,5 +153,194 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
     const component = mount(createComponent());
     const results = await axe(component.html());
     expect(results).toHaveNoViolations();
+  });
+
+  describe('New focus behaviour', () => {
+    describe('without a footer', () => {
+      test('pressing enter from the trigger opens the dropdown and focuses the input inside the dropdown', async () => {
+        // Arrange
+        render(
+          createComponent({
+            qaHook: 'autocompleterSS',
+            trigger: <XUIButton qaHook="trigger">Trigger</XUIButton>,
+            useNewFocusBehaviour: true,
+          }),
+        );
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+
+        // Assert
+        expect(screen.queryByTestId('autocompleterSS--list')).toBeInTheDocument();
+        expect(screen.getByTestId('autocompleterSS--input--input')).toHaveFocus();
+      });
+
+      test('tabbing from an open autocompleter secondary search closes the dropdown and focuses the next element', async () => {
+        // Arrange
+        render(
+          <>
+            {createComponent({
+              qaHook: 'autocompleterSS',
+              trigger: <XUIButton qaHook="trigger">Trigger</XUIButton>,
+              useNewFocusBehaviour: true,
+            })}
+            <XUIButton qaHook="nextElement">Next Element</XUIButton>
+          </>,
+        );
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+        userEvent.tab();
+
+        // Assert
+        expect(screen.getByTestId('nextElement')).toHaveFocus();
+        // @TODO XUI-2882 Un-comment this line
+        // expect(screen.queryByTestId('autocompleterSS--list')).not.toBeInTheDocument();
+      });
+
+      test('shift tabbing from an open autocompleter secondary search closes the dropdown and focuses the trigger', async () => {
+        // Arrange
+        render(
+          createComponent({
+            trigger: <XUIButton qaHook="trigger">Trigger</XUIButton>,
+            qaHook: 'autocompleterSS',
+            useNewFocusBehaviour: true,
+          }),
+        );
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+        userEvent.tab({ shift: true });
+
+        // // Assert
+        expect(screen.getByTestId('trigger')).toHaveFocus();
+        // @TODO XUI-2882 Un-comment this line
+        // expect(screen.queryByTestId('autocompleterSS--list')).not.toBeInTheDocument();
+      });
+    });
+
+    describe('with a footer', () => {
+      const footerComponent = (
+        <XUIDropdownFooter
+          pickItems={
+            <XUIPickitem id="footer" qaHook="autocompleterSSFooter">
+              Footer
+            </XUIPickitem>
+          }
+        />
+      );
+
+      test('pressing enter from the trigger opens the dropdown and focuses the input inside the dropdown', async () => {
+        // Arrange
+        render(
+          createComponent({
+            footer: footerComponent,
+            qaHook: 'autocompleterSS',
+            trigger: <XUIButton qaHook="trigger">Trigger</XUIButton>,
+            useNewFocusBehaviour: true,
+          }),
+        );
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+
+        // Assert
+        expect(screen.queryByTestId('autocompleterSS--list')).toBeInTheDocument();
+        expect(screen.getByTestId('autocompleterSS--input--input')).toHaveFocus();
+      });
+
+      test('tabbing from an open autocompleter secondary search focuses the dropdown footer', async () => {
+        // Arrange
+        render(
+          createComponent({
+            footer: footerComponent,
+            qaHook: 'autocompleterSS',
+            trigger: <XUIButton qaHook="trigger">Trigger</XUIButton>,
+            useNewFocusBehaviour: true,
+          }),
+        );
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+        userEvent.tab();
+
+        // Assert
+        expect(screen.getByTestId('autocompleterSSFooter--body')).toHaveFocus();
+      });
+
+      test('tabbing from an autocompleter secondary search footer closes the dropdown and focuses the next element', async () => {
+        // Arrange
+        render(
+          <>
+            {createComponent({
+              footer: footerComponent,
+              qaHook: 'autocompleterSS',
+              trigger: <XUIButton qaHook="trigger">Trigger</XUIButton>,
+              useNewFocusBehaviour: true,
+            })}
+            <XUIButton qaHook="nextElement">Next Element</XUIButton>
+          </>,
+        );
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+        userEvent.tab();
+        userEvent.tab();
+
+        // Assert
+        expect(screen.getByTestId('nextElement')).toHaveFocus();
+        // @TODO XUI-2882 Un-comment this line
+        // expect(screen.queryByTestId('autocompleterSS--list')).not.toBeInTheDocument();
+      });
+
+      test('shift tabbing from an autocompleter secondary search footer focuses the input inside the dropdown', async () => {
+        // Arrange
+        render(
+          createComponent({
+            footer: footerComponent,
+            qaHook: 'autocompleterSS',
+            trigger: <XUIButton qaHook="trigger">Trigger</XUIButton>,
+            useNewFocusBehaviour: true,
+          }),
+        );
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+        userEvent.tab();
+        userEvent.tab({ shift: true });
+
+        // Assert
+        expect(screen.getByTestId('autocompleterSS--input--input')).toHaveFocus();
+      });
+
+      test('shift tabbing from an open autocompleter secondary search closes the dropdown and focuses the input trigger', async () => {
+        // Arrange
+        render(
+          createComponent({
+            footer: footerComponent,
+            qaHook: 'autocompleterSS',
+            trigger: <XUIButton qaHook="trigger">Trigger</XUIButton>,
+            useNewFocusBehaviour: true,
+          }),
+        );
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+        userEvent.tab({ shift: true });
+
+        // Assert
+        expect(screen.getByTestId('trigger')).toHaveFocus();
+        // @TODO XUI-2882 Un-comment this line
+        // expect(screen.queryByTestId('autocompleterSS--list')).not.toBeInTheDocument();
+      });
+    });
   });
 });

@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import getFocusableDescendants, {
-  focusableDescendantsSelector,
-} from '../../helpers/getFocusableDescendants';
-import { eventKeyValues, isKeyShiftTab } from '../../helpers/reactKeyHandler';
+import getFocusableDescendants, { focusableDescendantsSelector } from '../getFocusableDescendants';
+import { eventKeyValues, isKeyShiftTab } from '../reactKeyHandler';
 import getFocusableElement from './helpers/getFocusableElement';
-import Element from '../../helpers/polyfills/Element';
+import Element from '../polyfills/Element';
 
 export default class PortalFocusHelper extends React.Component {
   wrapperRef = React.createRef();
@@ -46,14 +44,21 @@ export default class PortalFocusHelper extends React.Component {
           // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
           tabIndex={0}
         />
+        <div
+          onFocus={() => {
+            this.focusOnTheLastElementOnThePage();
+          }}
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+          tabIndex={0}
+        />
       </>
     );
   }
 
   focusPortalKeyDownHandler = event => {
-    const { focusPortalRef, onReturnFocus } = this.props;
+    const { focusPortalRef, onReturnFocus, triggerElementRef } = this.props;
 
-    const focusableElement = getFocusableElement(focusPortalRef.current);
+    const focusableElement = triggerElementRef || getFocusableElement(focusPortalRef.current);
 
     const nextFocusableElement = this.findNextFocusableElement(focusableElement);
 
@@ -120,6 +125,22 @@ export default class PortalFocusHelper extends React.Component {
     firstElementOnThePage.focus();
   };
 
+  focusOnTheLastElementOnThePage = () => {
+    const focusableElements = document.querySelectorAll(focusableDescendantsSelector);
+    const focusableElementsArray = Object.values(focusableElements);
+
+    const dropdown = this.wrapperRef.current.parentElement;
+    const dropdownFocusableElements = dropdown.querySelectorAll(focusableDescendantsSelector);
+    const dropdownFocusableElementsArray = Object.values(dropdownFocusableElements);
+
+    const elements = focusableElementsArray.filter(
+      element => !dropdownFocusableElementsArray.includes(element),
+    );
+
+    const lastElementOnThePage = elements[elements.length - 1];
+    lastElementOnThePage.focus();
+  };
+
   /**
    * Returns the focus to the page.
    *
@@ -127,9 +148,9 @@ export default class PortalFocusHelper extends React.Component {
    * `this.props.focusPortalRef` or the focusable element that follows it.
    */
   returnFocus = shouldFocusOnNextElement => {
-    const { focusPortalRef, onReturnFocus } = this.props;
+    const { focusPortalRef, onReturnFocus, triggerElementRef } = this.props;
 
-    const focusableElement = getFocusableElement(focusPortalRef.current);
+    const focusableElement = triggerElementRef || getFocusableElement(focusPortalRef.current);
 
     if (!focusableElement) {
       // eslint-disable-next-line no-console
@@ -186,4 +207,10 @@ PortalFocusHelper.propTypes = {
    * page.
    */
   onReturnFocus: PropTypes.func,
+  /**
+   * This prop allows dropdowns with more complex triggers (e.g. `XUIAutocompleter`,
+   * where the trigger component contains multiple focusable elements) to specify which
+   * element should be used to calculate the correct navigtion behaviour inside `PortalFocusHelper`.
+   */
+  triggerElementRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
 };

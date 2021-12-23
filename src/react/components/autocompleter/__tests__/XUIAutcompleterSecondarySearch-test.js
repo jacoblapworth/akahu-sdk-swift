@@ -196,8 +196,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 
         // Assert
         expect(screen.getByTestId('nextElement')).toHaveFocus();
-        // @TODO XUI-2882 Un-comment this line
-        // expect(screen.queryByTestId('autocompleterSS--list')).not.toBeInTheDocument();
+        expect(screen.queryByTestId('autocompleterSS--list')).not.toBeInTheDocument();
       });
 
       test('shift tabbing from an open autocompleter secondary search closes the dropdown and focuses the trigger', async () => {
@@ -217,8 +216,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 
         // // Assert
         expect(screen.getByTestId('trigger')).toHaveFocus();
-        // @TODO XUI-2882 Un-comment this line
-        // expect(screen.queryByTestId('autocompleterSS--list')).not.toBeInTheDocument();
+        expect(screen.queryByTestId('autocompleterSS--list')).not.toBeInTheDocument();
       });
     });
 
@@ -295,8 +293,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 
         // Assert
         expect(screen.getByTestId('nextElement')).toHaveFocus();
-        // @TODO XUI-2882 Un-comment this line
-        // expect(screen.queryByTestId('autocompleterSS--list')).not.toBeInTheDocument();
+        expect(screen.queryByTestId('autocompleterSS--list')).not.toBeInTheDocument();
       });
 
       test('shift tabbing from an autocompleter secondary search footer focuses the input inside the dropdown', async () => {
@@ -338,8 +335,7 @@ describe('<XUIAutoCompleterSecondarySearch />', () => {
 
         // Assert
         expect(screen.getByTestId('trigger')).toHaveFocus();
-        // @TODO XUI-2882 Un-comment this line
-        // expect(screen.queryByTestId('autocompleterSS--list')).not.toBeInTheDocument();
+        expect(screen.queryByTestId('autocompleterSS--list')).not.toBeInTheDocument();
       });
     });
   });

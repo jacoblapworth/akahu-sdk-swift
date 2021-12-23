@@ -89,10 +89,9 @@ describe('XUIDateRangeInput', () => {
 
       // Assert
       expect(screen.getByTestId('nextElement')).toHaveFocus();
-      // @TODO XUI-2882 Un-comment this line
-      // expect(
-      //   screen.queryByTestId('test-daterangeinput-suggesteddates--positioning'),
-      // ).not.toBeInTheDocument();
+      expect(
+        screen.queryByTestId('test-daterangeinput-suggesteddates--positioning'),
+      ).not.toBeInTheDocument();
     });
 
     test('shift tabbing from an open dropdown closes the dropdown and focuses the trigger', async () => {
@@ -106,10 +105,9 @@ describe('XUIDateRangeInput', () => {
 
       // Assert
       expect(screen.getByTestId('test-daterangeinput-suggesteddates-trigger')).toHaveFocus();
-      // @TODO XUI-2882 Un-comment this line
-      // expect(
-      //   screen.queryByTestId('test-daterangeinput-suggesteddates--positioning'),
-      // ).not.toBeInTheDocument();
+      expect(
+        screen.queryByTestId('test-daterangeinput-suggesteddates--positioning'),
+      ).not.toBeInTheDocument();
     });
   });
 

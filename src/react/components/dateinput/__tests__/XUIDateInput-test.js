@@ -217,10 +217,9 @@ describe('XUIDateInput', () => {
 
       // Assert
       expect(screen.getByTestId('nextElement')).toHaveFocus();
-      // @TODO XUI-2882 Un-comment this line
-      // expect(
-      //   screen.queryByTestId('test-dateinput-dateinputitem-datepicker'),
-      // ).not.toBeInTheDocument();
+      expect(
+        screen.queryByTestId('test-dateinput-dateinputitem-datepicker'),
+      ).not.toBeInTheDocument();
     });
 
     test('shift tabbing from the dropdown footer closes the dropdown and focuses the input', () => {
@@ -245,8 +244,9 @@ describe('XUIDateInput', () => {
 
       // Assert
       expect(screen.getByTestId('test-dateinput-dateinputitem--input--input')).toHaveFocus();
-      // @TODO XUI-2882 Un-comment this line
-      // expect(screen.queryByTestId('test-dateinput-dateinputitem-datepicker')).not.toBeInTheDocument();
+      expect(
+        screen.queryByTestId('test-dateinput-dateinputitem-datepicker'),
+      ).not.toBeInTheDocument();
     });
   });
 });

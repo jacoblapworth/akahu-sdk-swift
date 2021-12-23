@@ -170,83 +170,158 @@ describe('XUIDateInput', () => {
     expect(results).toHaveNoViolations();
   });
 
-  describe('New focus behaviour for XUIDateInput with suggested dates', () => {
-    test('focusing the trigger opens the dropdown, and leaves focus on the input', () => {
-      // Arrange
-      render(createComponent({ qaHook: 'test', suggestedDates: dateInputSuggestedDates }));
-
-      // Act
-      userEvent.click(screen.getByTestId('test-dateinput-dateinputitem--input--input'));
-
-      // Assert
-      expect(screen.queryByTestId('test-dateinput-dateinputitem-datepicker')).toBeInTheDocument();
-      expect(screen.getByTestId('test-dateinput-dateinputitem--input--input')).toHaveFocus();
+  describe('Focus behaviour for XUIDateInput', () => {
+    afterEach(() => {
+      document.body.innerHTML = '';
     });
 
-    test('tabbing from an open dropdown focuses the dropdown footer', () => {
-      // Arrange
-      render(createComponent({ qaHook: 'test', suggestedDates: dateInputSuggestedDates }));
+    describe('Without suggested dates', () => {
+      test('focusing the trigger opens the datepicker, and leaves focus on the input', () => {
+        // Arrange
+        render(createComponent({ qaHook: 'test' }));
 
-      // Act
-      const input = screen.getByTestId('test-dateinput-dateinputitem--input--input');
-      // @TODO XUI-2898 Remove the line below once this ticket has been completed
-      userEvent.type(input, '{arrowDown}');
-      userEvent.tab();
+        // Act
+        userEvent.click(screen.getByTestId('test-dateinput-dateinputitem--input--input'));
 
-      // Assert
-      expect(
-        screen.getByTestId('test-dateinput-dateinputitem-suggesteddates--footer--body'),
-      ).toHaveFocus();
+        // Assert
+        expect(screen.queryByTestId('test-dateinput-dateinputitem-datepicker')).toBeInTheDocument();
+        expect(screen.getByTestId('test-dateinput-dateinputitem--input--input')).toHaveFocus();
+      });
+
+      test('tabbing from an open datepicker closes the dropdown focuses the next element', () => {
+        // Arrange
+        render(
+          <>
+            {createComponent({ qaHook: 'test' })}
+            <XUIButton qaHook="nextElement">Next Element</XUIButton>
+          </>,
+        );
+
+        // XUIDateInput renders the datepicker in a `XUINestedDropdown`
+        // The visibility of the non-visible panel is controlled by a CSS class which sets 'display:none'
+        // The test file only has access to the class name, not the CSS
+        // So we are adding this here to prevent the hidden panel from showing up in the DOM
+        const styleElement = document.createElement('style');
+        styleElement.innerHTML = `.xui-dropdown-nested-is-hidden {display: none;}`;
+        document.body.appendChild(styleElement);
+
+        // Act
+        const input = screen.getByTestId('test-dateinput-dateinputitem--input--input');
+        userEvent.type(input, '{arrowDown}');
+        userEvent.tab();
+
+        // Assert
+        expect(screen.getByTestId('nextElement')).toHaveFocus();
+        expect(
+          screen.queryByTestId('test-dateinput-dateinputitem-datepicker'),
+        ).not.toBeInTheDocument();
+      });
+
+      test('shift tabbing through the datepicker closes the dropdown and focuses the input', () => {
+        // Arrange
+        render(createComponent({ qaHook: 'test' }));
+
+        // Act
+        const input = screen.getByTestId('test-dateinput-dateinputitem--input--input');
+        userEvent.click(input);
+        userEvent.type(input, '{arrowDown}');
+        userEvent.tab();
+
+        // We shift tab 5 times here as focus is initially placed on a date in the datepicker dropdown
+        // These shift tabs navigate us back to the first focusable element in the dropdown, and then
+        // back to the input
+        userEvent.tab({ shift: true });
+        userEvent.tab({ shift: true });
+        userEvent.tab({ shift: true });
+        userEvent.tab({ shift: true });
+        userEvent.tab({ shift: true });
+
+        // Assert
+        expect(screen.getByTestId('test-dateinput-dateinputitem--input--input')).toHaveFocus();
+        expect(
+          screen.queryByTestId('test-dateinput-dateinputitem-datepicker'),
+        ).not.toBeInTheDocument();
+      });
     });
 
-    test('tabbing from the dropdown footer closes the dropdown and focuses the next element', () => {
-      // Arrange
-      render(
-        <>
-          {createComponent({ qaHook: 'test', suggestedDates: dateInputSuggestedDates })}
-          <XUIButton qaHook="nextElement">Next Element</XUIButton>
-        </>,
-      );
+    describe('With suggested dates', () => {
+      test('focusing the trigger opens the dropdown, and leaves focus on the input', () => {
+        // Arrange
+        render(createComponent({ qaHook: 'test', suggestedDates: dateInputSuggestedDates }));
 
-      // Act
-      const input = screen.getByTestId('test-dateinput-dateinputitem--input--input');
-      // @TODO XUI-2898 Remove the line below once this ticket has been completed
-      userEvent.type(input, '{arrowDown}');
-      userEvent.tab();
-      userEvent.tab();
+        // Act
+        userEvent.click(screen.getByTestId('test-dateinput-dateinputitem--input--input'));
 
-      // Assert
-      expect(screen.getByTestId('nextElement')).toHaveFocus();
-      expect(
-        screen.queryByTestId('test-dateinput-dateinputitem-datepicker'),
-      ).not.toBeInTheDocument();
-    });
+        // Assert
+        expect(screen.queryByTestId('test-dateinput-dateinputitem-datepicker')).toBeInTheDocument();
+        expect(screen.getByTestId('test-dateinput-dateinputitem--input--input')).toHaveFocus();
+      });
 
-    test('shift tabbing from the dropdown footer closes the dropdown and focuses the input', () => {
-      // Arrange
-      render(createComponent({ qaHook: 'test', suggestedDates: dateInputSuggestedDates }));
+      test('tabbing from an open dropdown focuses the dropdown footer', () => {
+        // Arrange
+        render(createComponent({ qaHook: 'test', suggestedDates: dateInputSuggestedDates }));
 
-      // XUIDateInput renders the suggested dates dropdown and datepicker in a `XUINestedDropdown`
-      // The visibility of the non-visible panel is controlled by a CSS class which sets 'display:none'
-      // The test file only has access to the class name, not the CSS
-      // So we are adding this here to prevent the hidden panel from showing up in the DOM
-      const styleElement = document.createElement('style');
-      styleElement.innerHTML = `.xui-dropdown-nested-is-hidden {display: none;}`;
-      document.body.appendChild(styleElement);
+        // Act
+        const input = screen.getByTestId('test-dateinput-dateinputitem--input--input');
+        // @TODO XUI-2898 Remove the line below once this ticket has been completed
+        userEvent.type(input, '{arrowDown}');
+        userEvent.tab();
 
-      // Act
-      const input = screen.getByTestId('test-dateinput-dateinputitem--input--input');
-      userEvent.click(input);
-      // @TODO XUI-2898 Remove the line below once this ticket has been completed
-      userEvent.type(input, '{arrowDown}');
-      userEvent.tab();
-      userEvent.tab({ shift: true });
+        // Assert
+        expect(
+          screen.getByTestId('test-dateinput-dateinputitem-suggesteddates--footer--body'),
+        ).toHaveFocus();
+      });
 
-      // Assert
-      expect(screen.getByTestId('test-dateinput-dateinputitem--input--input')).toHaveFocus();
-      expect(
-        screen.queryByTestId('test-dateinput-dateinputitem-datepicker'),
-      ).not.toBeInTheDocument();
+      test('tabbing from the dropdown footer closes the dropdown and focuses the next element', () => {
+        // Arrange
+        render(
+          <>
+            {createComponent({ qaHook: 'test', suggestedDates: dateInputSuggestedDates })}
+            <XUIButton qaHook="nextElement">Next Element</XUIButton>
+          </>,
+        );
+
+        // Act
+        const input = screen.getByTestId('test-dateinput-dateinputitem--input--input');
+        // @TODO XUI-2898 Remove the line below once this ticket has been completed
+        userEvent.type(input, '{arrowDown}');
+        userEvent.tab();
+        userEvent.tab();
+
+        // Assert
+        expect(screen.getByTestId('nextElement')).toHaveFocus();
+        expect(
+          screen.queryByTestId('test-dateinput-dateinputitem-datepicker'),
+        ).not.toBeInTheDocument();
+      });
+
+      test('shift tabbing from the dropdown footer closes the dropdown and focuses the input', () => {
+        // Arrange
+        render(createComponent({ qaHook: 'test', suggestedDates: dateInputSuggestedDates }));
+
+        // XUIDateInput renders the suggested dates dropdown and datepicker in a `XUINestedDropdown`
+        // The visibility of the non-visible panel is controlled by a CSS class which sets 'display:none'
+        // The test file only has access to the class name, not the CSS
+        // So we are adding this here to prevent the hidden panel from showing up in the DOM
+        const styleElement = document.createElement('style');
+        styleElement.innerHTML = `.xui-dropdown-nested-is-hidden {display: none;}`;
+        document.body.appendChild(styleElement);
+
+        // Act
+        const input = screen.getByTestId('test-dateinput-dateinputitem--input--input');
+        userEvent.click(input);
+        // @TODO XUI-2898 Remove the line below once this ticket has been completed
+        userEvent.type(input, '{arrowDown}');
+        userEvent.tab();
+        userEvent.tab({ shift: true });
+
+        // Assert
+        expect(screen.getByTestId('test-dateinput-dateinputitem--input--input')).toHaveFocus();
+        expect(
+          screen.queryByTestId('test-dateinput-dateinputitem-datepicker'),
+        ).not.toBeInTheDocument();
+      });
     });
   });
 });

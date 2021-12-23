@@ -131,17 +131,43 @@ $ds-section-space: calc(6rem + 2vh);
 
 .ds-title--level-3,
 .ds-description h3 {
-  padding-top: calc(4rem + 2vh);
+  font-size: $xui-font-size-xlarge;
   margin-top: 0;
-  font-size: $xui-font-size-large;
+  padding-top: calc(4rem + 2vh);
 }
 
-// use 4th level blocks as callouts
-.kss-section--depth-4 {
-  padding: 20px;
-  border: 1px solid $ds-border-color;
+.ds-title--level-4,
+.ds-description h4 {
+  font-size: $xui-font-size-large;
+  margin-top: 0;
+  padding-top: calc(4rem + 2vh);
+}
+
+.ds-title--level-5,
+.ds-description h5 {
+  font-size: $xui-font-size-medium;
+}
+
+.kss-section--callout {
   border-radius: $xui-radius;
+  border: 1px solid $ds-border-color;
   margin-top: 20px;
+  padding: 20px;
+
+  .ds-title--level-2,
+  .ds-description h2,
+  .ds-title--level-3,
+  .ds-description h3,
+  .ds-title--level-4,
+  .ds-description h4,
+  .ds-title--level-5,
+  .ds-description h5 {
+    padding-top: 0;
+  }
+
+  .ds-anchor-hash {
+    margin: 4px 0 0 4px;
+  }
 }
 
 *[class^='ds-title'] + *[class^='ds-title'] {
@@ -151,10 +177,6 @@ $ds-section-space: calc(6rem + 2vh);
 *[class^='ds-title']:first-child,
 .ds-h0:first-child {
   margin-top: 0;
-}
-
-.ds-title--level-4 .ds-anchor-hash {
-  margin: 4px 0 0 4px;
 }
 
 // Page anchors

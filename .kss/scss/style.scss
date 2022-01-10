@@ -5,6 +5,9 @@
 @import './vars';
 @import './_flags';
 
+$ds-min-h1-size: 30px;
+$ds-min-h2-size: 24px;
+
 .ds-html {
   background: $ds-html-bg-color;
   scroll-behavior: smooth;
@@ -112,21 +115,29 @@ $ds-section-space: calc(6rem + 2vh);
 }
 
 .ds-title--level-1 {
-  font-size: calc(1.6em + 1.5vw);
+  font-size: #{"max(calc(1.6em + 1.5vw), "$ds-min-h1-size")"};
   letter-spacing: -0.006em;
   line-height: 1.15;
   // Add padding to accommodate react link
   padding-right: 10rem;
+
   @include xui-breakpoint-small-down {
     padding-right: 3rem;
+  }
+  @media screen and (max-width: $xui-breakpoint-medium) {
+    font-size: $ds-min-h1-size;
   }
 }
 
 .ds-title--level-2,
 .ds-description h2 {
-  font-size: calc(1.2em + 0.4vw);
+  font-size: #{"max(calc(1.2em + 0.4vw), "$ds-min-h2-size")"};
   padding-top: $ds-section-space;
   letter-spacing: -0.006em;
+
+  @media screen and (max-width: $xui-breakpoint-medium) {
+    font-size: $ds-min-h2-size;
+  }
 }
 
 .ds-title--level-3,

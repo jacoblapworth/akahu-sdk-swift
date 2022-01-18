@@ -1,73 +1,90 @@
 <div style="max-width: 400px">
   <div class="xui-margin-bottom-xlarge">
-    <div class="xui-daterangeinput xui-daterangeinput--onlyinputs">
-      <div
-        class="xui-controlgroup xui-controlgroup-horizontal xui-controlgroup-is-bottomaligned"
-        role="group"
-        style="grid-template-columns: 1fr 1fr"
+    <div
+      aria-label="Travel dates"
+      class="xui-controlgroup xui-controlgroup-horizontal xui-daterangeinput"
+      role="group"
+      style="grid-template-columns: 1fr 1fr 40px"
+    >
+      <label class="xui-text-label xui-fieldlabel-layout" for="2a-control" id="2a"
+        >Start date</label
       >
-        <div role="presentation" class="xui-dropdown--toggledwrapper" data-ref="toggled-wrapper">
-          <div class="xui-dateinputitem" aria-haspopup="listbox">
-            <div class="xui-daterangeinput--firstinput xui-textinputwrapper" role="presentation">
-              <label class="xui-text-label xui-fieldlabel-layout" for="2a-control"
-                >Start date</label
-              >
+      <div class="xui-dateinputitem xui-daterangeinput--firstinput">
+        <div class="xui-dropdown--toggledwrapper" data-ref="toggled-wrapper">
+          <div class="xui-textinputwrapper" role="presentation">
+            <div
+              class="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+              autocomplete="off"
+              aria-haspopup="listbox"
+              aria-controls="2a-dropdown"
+            >
               <div
-                class="xui-dateinputitem--input xui-textinput xui-textinput-medium"
-                autocomplete="off"
+                class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
               >
-                <div
-                  class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
-                >
-                  <div class="xui-iconwrapper xui-iconwrapper-medium">
-                    <svg focusable="false" class="xui-icon" role="presentation">
-                      <use xlink:href="#xui-icon-date-start"></use>
-                    </svg>
-                  </div>
+                <div class="xui-iconwrapper xui-iconwrapper-medium">
+                  <svg focusable="false" class="xui-icon" role="presentation">
+                    <use xlink:href="#xui-icon-date-start"></use>
+                  </svg>
                 </div>
-                <input
-                  class="xui-textinput--input xui-textinput--input-medium"
-                  id="2a-control"
-                  value="12 Apr 2021"
-                  aria-invalid="false"
-                />
               </div>
+              <input
+                id="2a-control"
+                class="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+                aria-labelledby="2a"
+                value="12 Apr 2021"
+              />
             </div>
           </div>
         </div>
-        <div role="presentation" class="xui-dropdown--toggledwrapper" data-ref="toggled-wrapper">
-          <div class="xui-dateinputitem" aria-haspopup="listbox">
-            <div class="xui-daterangeinput--secondinput xui-textinputwrapper" role="presentation">
-              <label class="xui-text-label xui-fieldlabel-layout" for="2b-control">End date</label>
+      </div>
+      <label class="xui-text-label xui-fieldlabel-layout" for="2b-control" id="0e">End date</label>
+      <div class="xui-dateinputitem xui-daterangeinput--secondinput">
+        <div class="xui-dropdown--toggledwrapper" data-ref="toggled-wrapper">
+          <div class="xui-textinputwrapper" role="presentation">
+            <div
+              class="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+              autocomplete="off"
+              aria-haspopup="listbox"
+            >
               <div
-                class="xui-dateinputitem--input xui-textinput xui-textinput-medium"
-                autocomplete="off"
+                class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
               >
-                <div
-                  class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
-                >
-                  <div class="xui-iconwrapper xui-iconwrapper-medium">
-                    <svg focusable="false" class="xui-icon" role="presentation">
-                      <use xlink:href="#xui-icon-date-end"></use>
-                    </svg>
-                  </div>
+                <div class="xui-iconwrapper xui-iconwrapper-medium">
+                  <svg focusable="false" class="xui-icon" role="presentation">
+                    <use xlink:href="#xui-icon-date-end"></use>
+                  </svg>
                 </div>
-                <input
-                  class="xui-textinput--input xui-textinput--input-medium"
-                  id="2b-control"
-                  value="12 May 2021"
-                  aria-invalid="false"
-                />
               </div>
+              <input
+                id="2b-control"
+                class="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+                aria-labelledby="2b"
+                value="12 May 2021"
+              />
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="xui-daterangeinput--suggested xui-dropdown--toggledwrapper"
+        data-ref="toggled-wrapper"
+      >
+        <button
+          aria-haspopup="listbox"
+          class="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped"
+          tabindex="0"
+          type="button"
+        >
+          <svg focusable="false" class="xui-icon" role="presentation">
+            <use xlink:href="#xui-icon-caret"></use>
+          </svg>
+        </button>
       </div>
     </div>
     <div
       class="xui-dropdown-layout xui-dropdown-fixed-medium xui-dropdown-fullheight xui-dropdown-input-layout-match xui-dropdown-is-open"
       data-automationid="qatest-dateinput-dateinputitem-dropdown"
-      id="dd0c66e3-2fc7-4aaa-bf71-fc36eacaff9b"
+      id="2a-dropdown"
       style="top: 4px"
     >
       <div
@@ -895,90 +912,91 @@
     </div>
   </div>
   <div>
-    <div class="xui-daterangeinput">
-      <div
-        class="xui-controlgroup xui-controlgroup-horizontal xui-controlgroup-is-bottomaligned"
-        role="group"
-        style="grid-template-columns: 1fr 1fr 40px"
+    <div
+      aria-label="Travel dates"
+      class="xui-controlgroup xui-controlgroup-horizontal xui-daterangeinput"
+      role="group"
+      style="grid-template-columns: 1fr 1fr 40px"
+    >
+      <label class="xui-text-label xui-fieldlabel-layout" for="2b-control" id="2c"
+        >Start date</label
       >
-        <div role="presentation" class="xui-dropdown--toggledwrapper" data-ref="toggled-wrapper">
-          <div class="xui-dateinputitem" aria-haspopup="listbox">
-            <div class="xui-daterangeinput--firstinput xui-textinputwrapper" role="presentation">
-              <label class="xui-text-label xui-fieldlabel-layout" for="2c-control"
-                >Start date</label
-              >
+      <div class="xui-dateinputitem xui-daterangeinput--firstinput">
+        <div class="xui-dropdown--toggledwrapper" data-ref="toggled-wrapper">
+          <div class="xui-textinputwrapper" role="presentation">
+            <div
+              class="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+              autocomplete="off"
+              aria-haspopup="listbox"
+            >
               <div
-                class="xui-dateinputitem--input xui-textinput xui-textinput-medium"
-                autocomplete="off"
+                class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
               >
-                <div
-                  class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
-                >
-                  <div class="xui-iconwrapper xui-iconwrapper-medium">
-                    <svg focusable="false" class="xui-icon" role="presentation">
-                      <use xlink:href="#xui-icon-date-start"></use>
-                    </svg>
-                  </div>
+                <div class="xui-iconwrapper xui-iconwrapper-medium">
+                  <svg focusable="false" class="xui-icon" role="presentation">
+                    <use xlink:href="#xui-icon-date-start"></use>
+                  </svg>
                 </div>
-                <input
-                  class="xui-textinput--input xui-textinput--input-medium"
-                  id="2c-control"
-                  value="12 Apr 2021"
-                />
               </div>
+              <input
+                id="2c-control"
+                class="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+                aria-labelledby="2c"
+                value="12 Apr 2021"
+              />
             </div>
           </div>
         </div>
-        <div role="presentation" class="xui-dropdown--toggledwrapper" data-ref="toggled-wrapper">
-          <div class="xui-dateinputitem" aria-haspopup="listbox">
-            <div class="xui-daterangeinput--secondinput xui-textinputwrapper" role="presentation">
-              <label class="xui-text-label xui-fieldlabel-layout" for="2d-control">End date</label>
+      </div>
+      <label class="xui-text-label xui-fieldlabel-layout" for="0e-control" id="2d">End date</label>
+      <div class="xui-dateinputitem xui-daterangeinput--secondinput">
+        <div class="xui-dropdown--toggledwrapper" data-ref="toggled-wrapper">
+          <div class="xui-textinputwrapper" role="presentation">
+            <div
+              class="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+              autocomplete="off"
+              aria-haspopup="listbox"
+              aria-controls="2d-dropdown"
+            >
               <div
-                class="xui-dateinputitem--input xui-textinput xui-textinput-medium"
-                autocomplete="off"
+                class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
               >
-                <div
-                  class="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
-                >
-                  <div class="xui-iconwrapper xui-iconwrapper-medium">
-                    <svg focusable="false" class="xui-icon" role="presentation">
-                      <use xlink:href="#xui-icon-date-end"></use>
-                    </svg>
-                  </div>
+                <div class="xui-iconwrapper xui-iconwrapper-medium">
+                  <svg focusable="false" class="xui-icon" role="presentation">
+                    <use xlink:href="#xui-icon-date-end"></use>
+                  </svg>
                 </div>
-                <input
-                  class="xui-textinput--input xui-textinput--input-medium"
-                  id="2d-control"
-                  value="12 May 2021"
-                />
               </div>
+              <input
+                id="2d-control"
+                class="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+                aria-labelledby="2d"
+                value="12 May 2021"
+              />
             </div>
           </div>
         </div>
-        <div
-          role="presentation"
-          class="xui-daterangeinput--suggested xui-dropdown--toggledwrapper"
-          data-ref="toggled-wrapper"
+      </div>
+      <div
+        class="xui-daterangeinput--suggested xui-dropdown--toggledwrapper"
+        data-ref="toggled-wrapper"
+      >
+        <button
+          aria-haspopup="listbox"
+          class="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped"
+          tabindex="0"
+          type="button"
         >
-          <button
-            aria-haspopup="listbox"
-            class="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped xui-button-has-icon"
-            tabindex="0"
-            type="button"
-          >
-            <div class="xui-button--caret xui-iconwrapper xui-iconwrapper-medium">
-              <svg focusable="false" class="xui-icon" role="presentation">
-                <use xlink:href="#xui-icon-caret"></use>
-              </svg>
-            </div>
-          </button>
-        </div>
+          <svg focusable="false" class="xui-icon" role="presentation">
+            <use xlink:href="#xui-icon-caret"></use>
+          </svg>
+        </button>
       </div>
     </div>
     <div
       class="xui-dropdown-layout xui-dropdown-fixed-small xui-dropdown-fullheight xui-dropdown-input-layout-match xui-dropdown-is-open"
       data-automationid="qatest-dateinput-dateinputitem-dropdown"
-      id="dd0c66e3-2fc7-4aaa-bf71-fc36eacaff9b"
+      id="2d-dropdown"
       style="top: 4px; right: -200px"
     >
       <div

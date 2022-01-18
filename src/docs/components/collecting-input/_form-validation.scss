@@ -10,8 +10,7 @@
 //
 // Add `xui-textinput-is-invalid`, or similar `-is-invalid` classname to controls to display their error state.
 // * For text input groups, if the problem is with a group, as a whole, add the class to all nested inputs
-// * For switches, adding `xui-switch-group-is-invalid` to the group wrapper will set the validity state for all children and messages
-// * For checkboxes and radios, adding `xui-styledcheckboxradio-group-is-invalid` serves the same purpose
+// * For switches, checkboxes, and radios, adding `xui-controlgroup-is-invalid` to the group wrapper will set the validity state for all children and messages
 //
 // Always include a colour change, descriptive message, and an icon to show where the error is. This way it’s still meaningful to people who can’t recognise colour.
 //

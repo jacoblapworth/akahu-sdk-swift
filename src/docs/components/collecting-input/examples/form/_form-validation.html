@@ -1,19 +1,14 @@
-<div class="xui-field-layout">
-  <label class="xui-text-label xui-fieldlabel-layout" for="phone1">Phone number</label>
-  <input
-    type="text"
-    class="xui-textinput xui-textinput--input xui-textinput-is-invalid"
-    aria-label="Text input"
-  />
-  <div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status">
-    <svg class="xui-icon" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-      <path
-        d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
-        role="presentation"
-      ></path>
-    </svg>
-    Phone number must be at least 9 digits
-  </div>
+<label class="xui-text-label xui-fieldlabel-layout" for="phone1">Phone number</label>
+<input
+  type="text"
+  class="xui-textinput xui-textinput--input xui-textinput-is-invalid"
+  aria-label="Text input"
+/>
+<div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status">
+  <svg focusable="false" class="xui-icon" role="presentation">
+    <use xlink:href="#xui-icon-invalid"></use>
+  </svg>
+  Phone number must be at least 9 digits
 </div>
 <div class="xui-textinputwrapper xui-field-layout">
   <label class="xui-text-label xui-fieldlabel-layout" for="textarea-1">Description</label>
@@ -27,48 +22,47 @@
       rows="2"
     ></textarea>
   </div>
-  <div
-    class="xui-validation xui-validation-layout xui-validation-is-invalid"
-    role="status"
-    id="textarea-1-message"
-  >
-    <svg class="xui-icon" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-      <path
-        d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
-        role="presentation"
-      ></path>
-    </svg>
-    Enter a description
-  </div>
 </div>
-<div class="xui-field-layout">
+<div
+  class="xui-validation xui-validation-layout xui-validation-is-invalid"
+  role="status"
+  id="textarea-1-message"
+>
+  <svg focusable="false" class="xui-icon" role="presentation">
+    <use xlink:href="#xui-icon-invalid"></use>
+  </svg>
+  Enter a description
+</div>
+<div>
   <label id="name-label" class="xui-text-label xui-fieldlabel-layout">Title and full name</label>
-  <div class="xui-textinputgroup">
+  <div
+    aria-labelledby="name-label"
+    class="xui-controlgroup xui-controlgroup-horizontal xui-field-layout"
+    style="grid-template-columns: 16% 1fr 1fr"
+    role="group"
+  >
     <input
-      class="xui-textinput xui-textinput--input xui-column-2-of-12 xui-textinput-is-invalid"
+      class="xui-textinput xui-textinput--input xui-textinput-is-invalid"
       placeholder="Dr"
       name="title"
-      aria-labelledby="name-label"
+      aria-label="Title"
     />
     <input
-      class="xui-textinput xui-textinput--input xui-column-5-of-12 xui-textinput-is-invalid"
+      class="xui-textinput xui-textinput--input xui-textinput-is-invalid"
       placeholder="Sue"
       name="given-name"
-      aria-labelledby="name-label"
+      aria-label="Given name"
     />
     <input
-      class="xui-textinput xui-textinput--input xui-column-5-of-12 xui-textinput-is-invalid"
+      class="xui-textinput xui-textinput--input xui-textinput-is-invalid"
       placeholder="Storm"
       name="surname"
-      aria-labelledby="name-label"
+      aria-label="Surname"
     />
   </div>
   <div class="xui-validation xui-validation-layout xui-validation-is-invalid" role="status">
-    <svg class="xui-icon" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-      <path
-        d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
-        role="presentation"
-      ></path>
+    <svg focusable="false" class="xui-icon" role="presentation">
+      <use xlink:href="#xui-icon-invalid"></use>
     </svg>
     Enter a title and full name
   </div>
@@ -121,79 +115,65 @@
         role="status"
         id="autocompleter-message"
       >
-        <svg class="xui-icon" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-          <path
-            d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
-            role="presentation"
-          ></path>
+        <svg focusable="false" class="xui-icon" role="presentation">
+          <use xlink:href="#xui-icon-invalid"></use>
         </svg>
         Enter a saved contact
       </div>
     </div>
   </div>
 </div>
-<div class="xui-field-layout">
+<div class="xui-field-layout xui-select xui-select-layout xui-select-is-invalid">
   <label class="xui-text-label xui-fieldlabel-layout" for="selectbox1-control">Due date</label>
-  <div class="xui-select-layout xui-select-is-invalid">
-    <div role="presentation" data-ref="toggled-wrapper">
-      <button
-        aria-haspopup="listbox"
-        class="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon"
-        tabindex="0"
-        type="button"
-      >
-        <span class="xui-select--content xui-select--content-truncated">
-          <span class="xui-u-flex">
-            <svg
-              focusable="false"
-              class="xui-icon xui-margin-right-xsmall"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M6.416 13H1c-1 0-1-1-1-1V2s0-1 1-1h1V0h2v1h4V0h2v1h1c1 0 1 1 1 1v4.1a5.002 5.002 0 0 1-1 9.9 5.001 5.001 0 0 1-4.584-3zM6.1 12A5 5 0 0 1 11 6V4H1v8h5.1zm4.9 3a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-6h1v2h2v1h-3V9z"
-                role="presentation"
-              ></path>
-            </svg>
-            Select a date
-          </span>
-        </span>
-        <div class="xui-button--caret">
+
+  <div class="xui-dropdown--toggledwrapper" role="presentation" data-ref="toggled-wrapper">
+    <button
+      aria-haspopup="listbox"
+      class="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon"
+      tabindex="0"
+      type="button"
+    >
+      <span class="xui-select--content xui-select--content-truncated">
+        <span class="xui-u-flex">
           <svg
             focusable="false"
-            class="xui-icon"
-            width="10"
-            height="5"
-            viewBox="0 0 10 5"
-            role="presentation"
+            class="xui-icon xui-margin-right-xsmall"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
           >
-            <title>Toggle list</title>
-            <path d="M0 0l5 5 5-5z"></path>
+            <path
+              d="M6.416 13H1c-1 0-1-1-1-1V2s0-1 1-1h1V0h2v1h4V0h2v1h1c1 0 1 1 1 1v4.1a5.002 5.002 0 0 1-1 9.9 5.001 5.001 0 0 1-4.584-3zM6.1 12A5 5 0 0 1 11 6V4H1v8h5.1zm4.9 3a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-1-6h1v2h2v1h-3V9z"
+              role="presentation"
+            ></path>
           </svg>
-        </div>
-      </button>
-    </div>
+          Select a date
+        </span>
+      </span>
+      <div class="xui-button--caret">
+        <svg focusable="false" class="xui-icon" role="presentation">
+          <title>Toggle list</title>
+          <use xlink:href="#xui-icon-caret" />
+        </svg>
+      </div>
+    </button>
   </div>
   <div
     class="xui-validation xui-validation-layout xui-validation-is-invalid"
     role="status"
     id="selectbox1-message"
   >
-    <svg class="xui-icon" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-      <path
-        d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
-        role="presentation"
-      ></path>
+    <svg focusable="false" class="xui-icon" role="presentation">
+      <use xlink:href="#xui-icon-invalid"></use>
     </svg>
     Select a due date
   </div>
 </div>
 <div class="xui-row-grid">
-  <div class="xui-column-4-of-12 xui-field-layout">
+  <div class="xui-column-4-of-12">
     <span class="xui-text-label xui-fieldlabel-layout" id="radio-group1">Dogs</span>
     <div
-      class="xui-styledcheckboxradio-group xui-styledcheckboxradio-group-is-invalid"
+      class="xui-controlgroup xui-controlgroup-vertical xui-styledcheckboxradio-group xui-controlgroup-is-invalid xui-field-layout"
       role="radiogroup"
       aria-invalid="true"
       aria-labelledby="radio-group1"
@@ -262,22 +242,20 @@
       role="status"
       id="radio-group1-message"
     >
-      <svg class="xui-icon" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-        <path
-          d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
-          role="presentation"
-        ></path>
+      <svg focusable="false" class="xui-icon" role="presentation">
+        <use xlink:href="#xui-icon-invalid"></use>
       </svg>
       Select one dog
     </div>
   </div>
-  <div class="xui-column-4-of-12 xui-field-layout">
+  <div class="xui-column-4-of-12">
     <span class="xui-text-label xui-fieldlabel-layout" id="checkbox-group1">Birds</span>
     <div
-      class="xui-styledcheckboxradio-group xui-styledcheckboxradio-group-is-invalid"
+      class="xui-controlgroup xui-controlgroup-vertical xui-styledcheckboxradio-group xui-controlgroup-is-invalid xui-field-layout"
       aria-invalid="true"
       aria-labelledby="checkbox-group1"
       aria-describedby="checkbox-group1-message"
+      role="group"
     >
       <label class="xui-styledcheckboxradio" role="presentation">
         <input
@@ -337,22 +315,20 @@
       role="status"
       id="checkbox-group1-message"
     >
-      <svg class="xui-icon" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-        <path
-          d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
-          role="presentation"
-        ></path>
+      <svg focusable="false" class="xui-icon" role="presentation">
+        <use xlink:href="#xui-icon-invalid"></use>
       </svg>
       Select at least one bird
     </div>
   </div>
-  <div class="xui-column-4-of-12 xui-field-layout">
+  <div class="xui-column-4-of-12">
     <span class="xui-text-label xui-fieldlabel-layout" id="switch-group1">Preferences</span>
     <div
-      class="xui-switch-group xui-switch-group-is-invalid"
+      class="xui-controlgroup xui-controlgroup-vertical xui-switch-group xui-controlgroup-is-invalid xui-field-layout"
       aria-invalid="true"
       aria-labelledby="switch-group1"
       aria-describedby="switch-group1-message"
+      role="group"
     >
       <label class="xui-switch xui-switch-medium xui-switch-reversed" role="presentation">
         <input
@@ -406,21 +382,18 @@
       role="status"
       id="switch-group1-message"
     >
-      <svg class="xui-icon" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-        <path
-          d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
-          role="presentation"
-        ></path>
+      <svg focusable="false" class="xui-icon" role="presentation">
+        <use xlink:href="#xui-icon-invalid"></use>
       </svg>
       Select at least one preference
     </div>
   </div>
 </div>
-<div class="xui-u-fullwidth xui-field-layout">
+<div class="xui-u-fullwidth">
   <span class="xui-text-label xui-fieldlabel-layout" id="toggle1">Payment day</span>
   <div
     role="group"
-    class="xui-toggle xui-toggle-is-invalid xui-toggle-fullwidth-layout xui-toggle-medium"
+    class="xui-toggle xui-toggle-is-invalid xui-toggle-fullwidth-layout xui-toggle-medium xui-field-layout"
     aria-invalid="true"
     aria-labelledby="toggle1"
     aria-describedby="toggle1-message"
@@ -462,20 +435,17 @@
     role="status"
     id="toggle1-message"
   >
-    <svg class="xui-icon" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-      <path
-        d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
-        role="presentation"
-      ></path>
+    <svg focusable="false" class="xui-icon" role="presentation">
+      <use xlink:href="#xui-icon-invalid"></use>
     </svg>
     Select a day
   </div>
 </div>
-<div class="xui-field-layout" role="presentation">
+<div role="presentation">
   <label class="xui-text-label xui-fieldlabel-layout" for="range1-control"
     >Rate your experience</label
   >
-  <div class="xui-rangeslider-container">
+  <div class="xui-rangeslider-container xui-field-layout">
     <input
       id="range1-control"
       class="xui-rangeslider xui-rangeslider-thumb-medium xui-rangeslider-is-invalid"
@@ -490,11 +460,8 @@
     role="status"
     id="range1-message"
   >
-    <svg class="xui-icon" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-      <path
-        d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
-        role="presentation"
-      ></path>
+    <svg focusable="false" class="xui-icon" role="presentation">
+      <use xlink:href="#xui-icon-invalid"></use>
     </svg>
     Enter a valid rating
   </div>

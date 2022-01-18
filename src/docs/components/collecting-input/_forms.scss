@@ -60,10 +60,11 @@
 
 // Grouping within forms
 //
-// In a few situations, multiple fields can be grouped under a single label.
-// This is likely when one field (probably a select) modifies another, or the combination of both fields is closely connected and is a common convention.
+// flags: updated
 //
-// exampleClass: ds-example-narrow
+// In a few situations, multiple fields can be grouped under a single label.
+// This is likely when one field (probably a select) modifies another, or the combination of both fields is closely connected and is a common convention. To build more complex groups of controls, ensure that labels, validation/hint messages, and controls are all sibling elements.
+// See the [React documentation](./react/#control-group) for how to use `XUIControlGroup`.
 //
 // Markup: ./examples/form/_form-horizontal.html
 //
@@ -93,9 +94,8 @@
 // xui-controlgroup-vertical: Modifier to indicate vertically grouped inputs
 // xui-text-label: A label describing grouped controls, usually checkboxes, radios, or switches.
 // xui-switch-group: Container for multiple switch controls. Sibling of `xui-text-label` and `xui-validation`.
-// xui-switch-group-is-invalid: Apply to a switch group to set validity styles
 // xui-styledcheckboxradio-group: Container for multiple checkbox or radio controls. Sibling of `xui-text-label` and `xui-validation`.
-// xui-styledcheckboxradio-group-is-invalid: Apply to a checkbox or radio group to set validity styles
+// xui-controlgroup-is-invalid: Apply to a checkbox, radio, or switch group to set validity styles
 //
 // Styleguide: Components.CollectingInput.Forms.50
 

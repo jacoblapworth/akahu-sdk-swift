@@ -100,6 +100,14 @@
 //
 // Styleguide: Components.Controls.Checkbox.5.2.2
 
+// Horizontal group
+//
+// Checkbox groups can be oriented horizontally.
+//
+// Markup: ./examples/checkbox/_checkbox-grouped-horizontal.html
+//
+// Styleguide: Components.Controls.Checkbox.5.2.3
+
 // Order
 //
 // By default, checkboxes precede the text of the label. This can be reversed by adding `xui-styledcheckboxradio-reversed` to the wrapping element.
@@ -139,13 +147,13 @@
 //
 // For accessibility purposes, add an "invalid" icon at the left of the validation message.
 //
-// If a group of radio buttons is invalid, add `xui-styledcheckboxradio-group-is-invalid` to the group.
+// If a group of radio buttons is invalid, add `xui-controlgroup-is-invalid` to the group.
 //
 // Classes:
 // xui-styledcheckboxradiowrapper: Wrapper for the field and validation message
 // xui-styledcheckboxradio: Wrapper for the checkbox and label
 // xui-styledcheckboxradio--message: Positions the message under the checkbox
-// xui-styledcheckboxradio-group-is-invalid: Changes the colour of the group to indicate it is invalid
+// xui-controlgroup-is-invalid: Changes the colour of the group to indicate it is invalid
 // xui-validation-is-invalid: Applies error validation style and "invalid" icon to text element
 //
 // ExampleClass: ds-example-transparent
@@ -207,7 +215,7 @@
 // xui-styledcheckboxradio--main: Subcomponent for main layer of an icon checkbox or radio
 // xui-styledcheckboxradio--label: Subcomponent for label text of a styled checkbox or radio
 // xui-styledcheckboxradio--message: Positions the message under the checkbox
-// xui-styledcheckboxradio-group-is-invalid: Changes the colour of the group to indicate it is invalid
+// xui-controlgroup-is-invalid: Changes the colour of the group to indicate it is invalid
 // xui-validation-is-invalid: Changes the colour of the text to indicate it is invalid
 // xui-styledcheckboxradio--input-medium: Sets the input size to medium
 // xui-styledcheckboxradio--checkbox-medium: Sets the checkbox size to medium
@@ -221,6 +229,7 @@
 // xui-touchtarget: Invisible touch target element inside a checkbox
 // xui-controlgroup: Sets some styles common to groups of inputs
 // xui-controlgroup-vertical: Sets some styles common to vertically stacked groups of inputs
+// xui-controlgroup-horizontal: Sets some styles common to horizontally oriented groups of inputs. It is recommended that you manage the widths of controls with CSS grid styles.
 //
 // Styleguide: Components.Controls.Checkbox.9
 

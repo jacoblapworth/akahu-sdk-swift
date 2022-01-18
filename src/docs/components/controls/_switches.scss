@@ -61,6 +61,7 @@
 // xui-switch-group: Add to wrapper
 // xui-controlgroup: Sets some styles common to groups of inputs. Add to wrapper.
 // xui-controlgroup-vertical: Sets some styles common to vertically stacked groups of inputs. Add to wrapper.
+// xui-controlgroup-horizontal: Sets some styles common to horizontally oriented groups of inputs. It is recommended that you manage the widths of controls with CSS grid styles.
 //
 // Markup: ./examples/switch/_switch-grouped.html
 //
@@ -81,6 +82,14 @@
 // Markup: ./examples/switch/_switch-multiline.html
 //
 // Styleguide: Components.Controls.Switch.4.2
+
+// Horizontal group
+//
+// Switch groups can be oriented horizontally.
+//
+// Markup: ./examples/switch/_switch-grouped-horizontal.html
+//
+// Styleguide: Components.Controls.Switch.4.3
 
 // Order
 //
@@ -107,13 +116,13 @@
 //
 // For accessibility purposes, add an "invalid" icon at the left of the validation message.
 //
-// If a group of switches is invalid, add `xui-switch-group-is-invalid` to the group.
+// If a group of switches is invalid, add `xui-controlgroup-is-invalid` to the group.
 //
 // Classes:
 // xui-switchwrapper: Wrapper for the field and validation message
 // xui-switch: Wrapper for the switch and label
 // xui-switch--message: Positions the message under the switch
-// xui-switch-group-is-invalid: Changes the colour of the group to indicate it is invalid
+// xui-controlgroup-is-invalid: Changes the colour of the group to indicate it is invalid
 // xui-validation-is-invalid: Applies error validation style and "invalid" icon to text element
 //
 // ExampleClass: ds-example-transparent

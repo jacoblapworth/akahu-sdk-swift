@@ -1,56 +1,77 @@
-<div class="xui-field-layout">
-  <label for="horizontaldemofield1" class="xui-text-label xui-fieldlabel-layout"
-    >Total amount</label
-  >
-  <div class="xui-textinputgroup">
-    <div class="xui-select xui-column-4-of-12">
-      <select class="xui-select--control" aria-label="Currency">
-        <option>NZD</option>
-        <option>AUD</option>
-        <option>CAD</option>
-        <option>USD</option>
-      </select>
-      <div class="xui-select--caret">
-        <svg
-          focusable="false"
-          class="xui-icon xui-icon-color-black-muted xui-select--caret"
-          role="presentation"
-        >
-          <use xlink:href="#xui-icon-caret" />
-        </svg>
-      </div>
+<span id="horizontaldemolabel1" class="xui-text-label xui-fieldlabel-layout">Total amount</span>
+<div
+  class="xui-controlgroup xui-controlgroup-horizontal xui-field-layout"
+  style="grid-template-columns: auto 1fr"
+  aria-labelledby="horizontaldemolabel1"
+  role="group"
+>
+  <div class="xui-select">
+    <select class="xui-select--control" aria-label="Currency">
+      <option>NZD</option>
+      <option>AUD</option>
+      <option>CAD</option>
+      <option>USD</option>
+    </select>
+    <div class="xui-select--caret">
+      <svg
+        focusable="false"
+        class="xui-icon xui-icon-color-black-muted xui-select--caret"
+        role="presentation"
+      >
+        <use xlink:href="#xui-icon-caret" />
+      </svg>
     </div>
-    <div class="xui-column-8-of-12 xui-textinputwrapper">
-      <input class="xui-textinput xui-textinput--input" id="horizontaldemofield1" />
-    </div>
+  </div>
+  <div class="xui-textinputwrapper">
+    <input
+      class="xui-textinput xui-textinput--input"
+      id="horizontaldemofield1"
+      aria-label="Amount"
+    />
   </div>
 </div>
-<div class="xui-field-layout">
-  <label for="horizontaldemofield2" class="xui-text-label xui-fieldlabel-layout">Your name</label>
-  <div class="xui-textinputgroup" id="horizontaldemofield2">
-    <input
-      class="xui-column-4-of-12 xui-textinput xui-textinput--input"
-      placeholder="First"
-      aria-label="First name"
-    />
-    <input
-      class="xui-column-4-of-12 xui-textinput xui-textinput--input xui-textinput-is-invalid"
-      placeholder="Middle"
-      aria-label="Middle name"
-    />
-    <input
-      class="xui-column-4-of-12 xui-textinput xui-textinput--input"
-      placeholder="Last"
-      aria-label="Last name"
-    />
-  </div>
-  <div class="xui-validation xui-validation-layout xui-validation-is-invalid">
-    <svg class="xui-icon" focusable="false" height="16" viewBox="0 0 16 16" width="16">
-      <path
-        d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
-        role="presentation"
-      ></path>
+<span id="horizontaldemolabel2" class="xui-text-label xui-fieldlabel-layout">Your name</span>
+<div
+  class="xui-controlgroup xui-controlgroup-horizontal xui-field-layout"
+  aria-labelledby="horizontaldemolabel2"
+  style="grid-template-columns: repeat(3, minmax(33%, 1fr))"
+  role="group"
+  aria-describedby="group2-message"
+>
+  <input class="xui-textinput xui-textinput--input" placeholder="First" aria-label="First name" />
+  <input
+    class="xui-textinput xui-textinput--input xui-textinput-is-invalid"
+    placeholder="Middle"
+    aria-label="Middle name"
+  />
+  <input class="xui-textinput xui-textinput--input" placeholder="Last" aria-label="Last name" />
+</div>
+<div class="xui-validation xui-validation-layout xui-validation-is-invalid" id="group2-message">
+  <svg focusable="false" class="xui-icon" role="presentation">
+    <use xlink:href="#xui-icon-invalid"></use>
+  </svg>
+  Middle name is required to verify your identity
+</div>
+<div
+  class="xui-controlgroup xui-controlgroup-horizontal"
+  aria-label="Your name"
+  style="grid-template-columns: repeat(3, minmax(33%, 1fr))"
+  role="group"
+>
+  <label class="xui-text-label xui-fieldlabel-layout" for="name1-control">First</label>
+  <input class="xui-textinput xui-textinput--input" id="name1-control" />
+  <label class="xui-text-label xui-fieldlabel-layout" for="name2-control">Middle</label>
+  <input
+    aria-describedby="name2-message"
+    class="xui-textinput xui-textinput--input xui-textinput-is-invalid"
+    id="name2-control"
+  />
+  <div class="xui-validation xui-validation-layout xui-validation-is-invalid" id="name2-message">
+    <svg focusable="false" class="xui-icon" role="presentation">
+      <use xlink:href="#xui-icon-invalid"></use>
     </svg>
     Middle name is required to verify your identity
   </div>
+  <label class="xui-text-label xui-fieldlabel-layout" for="name3-control">Last</label>
+  <input class="xui-textinput xui-textinput--input" id="name3-control" />
 </div>

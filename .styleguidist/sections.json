@@ -156,6 +156,11 @@
             "name": "Toggle",
             "content": "../src/react/toggle.md",
             "components": "../src/react/components/toggle/XUIToggle*.js"
+          },
+          {
+            "name": "Control Group",
+            "content": "../src/react/controlgroup.md",
+            "components": "../src/react/components/controlgroup/XUIControlGroup.js"
           }
         ]
       },

@@ -20,9 +20,10 @@ import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 
 import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
-const splitButtonExample = hasDropdown => (
-  <XUISplitButtonGroup variant="main">
-    <XUIButton>Split action</XUIButton>
+// eslint-disable-next-line import/prefer-default-export
+export const splitButtonExample = (hasDropdown, props) => (
+  <XUISplitButtonGroup variant="main" {...props}>
+    <XUIButton key="a">Split action</XUIButton>
     {hasDropdown ? (
       <XUIDropdownToggled
         dropdown={
@@ -37,10 +38,23 @@ const splitButtonExample = hasDropdown => (
             </XUIPicklist>
           </XUIDropdown>
         }
-        trigger={<XUISecondaryButton aria-label="Other actions" key="split" variant="main" />}
+        key="b"
+        trigger={
+          <XUISecondaryButton
+            aria-label="Other actions"
+            isDisabled={props?.isDisabled}
+            key="split"
+            variant="main"
+          />
+        }
       />
     ) : (
-      <XUISecondaryButton aria-label="Other actions" key="split" variant="main" />
+      <XUISecondaryButton
+        aria-label="Other actions"
+        isDisabled={props?.isDisabled}
+        key="split"
+        variant="main"
+      />
     )}
   </XUISplitButtonGroup>
 );

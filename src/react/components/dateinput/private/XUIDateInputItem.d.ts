@@ -42,6 +42,9 @@ interface Props {
   /** Whether the current input value is invalid */
   isInvalid?: boolean;
 
+  /** Whether the individual input label is hidden */
+  isLabelHidden?: boolean;
+
   /** The locale of the calendar. */
   locale: string;
 

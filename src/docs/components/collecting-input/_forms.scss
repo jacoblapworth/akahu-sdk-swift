@@ -88,9 +88,10 @@
 // xui-validation: Used to style text below inputs (to clarify format or provide supporting info)
 // xui-validation-layout: Recommended layout for text below inputs
 // xui-validation-is-invalid: Modifier for text below inputs that are in an error state
-// xui-textinputgroup: Container for the inputs you wish to join. It’s recommended that you use the `xui-column-*-of-*` classes to give each input a certain percentage of the width.
-// xui-verticaltextinputgroup: Wrapper class to go around a set of vertically grouped inputs
-// xui-text-label: A label describing grouped controls, usually checkboxes, radios, or switches
+// xui-controlgroup: Container for the inputs you wish to join.
+// xui-controlgroup-horizontal: Modifier to indicate horizontally grouped inputs. It is recommended that you manage the widths of controls with CSS grid styles.
+// xui-controlgroup-vertical: Modifier to indicate vertically grouped inputs
+// xui-text-label: A label describing grouped controls, usually checkboxes, radios, or switches.
 // xui-switch-group: Container for multiple switch controls. Sibling of `xui-text-label` and `xui-validation`.
 // xui-switch-group-is-invalid: Apply to a switch group to set validity styles
 // xui-styledcheckboxradio-group: Container for multiple checkbox or radio controls. Sibling of `xui-text-label` and `xui-validation`.

@@ -2,129 +2,110 @@
 
 exports[`<XUISelectBox /> should render the appropriate automation id's when a qaHook is provided 1`] = `
 <div
-  className="xui-selectwrapper"
-  data-automationid="test-selectbox"
+  className="xui-select xui-select-layout"
 >
-  <div
-    className=""
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    data-automationid="test-selectbox--label"
+    htmlFor="testThisSelect-control"
   >
-    <label
-      className="xui-text-label xui-fieldlabel-layout"
-      data-automationid="test-selectbox--label"
-      htmlFor="testThisSelect-control"
+    test
+  </label>
+  <div
+    className="xui-dropdown--toggledwrapper"
+    data-automationid="test-selectbox--dropdowntoggled"
+    data-ref="toggled-wrapper"
+  >
+    <button
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon"
+      data-automationid="test-selectbox--button"
+      disabled={false}
+      id="testThisSelect-control"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      tabIndex={0}
+      type="button"
     >
-      test
-    </label>
-    <div
-      className="xui-select xui-select-layout"
-      data-automationid="test-selectbox--inputgroup"
-    >
-      <div
-        className="xui-dropdown--toggledwrapper"
-        data-automationid="test-selectbox--dropdowntoggled"
-        data-ref="toggled-wrapper"
+      <span
+        className="xui-select--content xui-select--content-truncated"
       >
-        <button
-          aria-activedescendant={null}
-          aria-haspopup="listbox"
-          className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon"
-          data-automationid="test-selectbox--button"
-          disabled={false}
-          id="testThisSelect-control"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          tabIndex={0}
-          type="button"
+        test
+      </span>
+      <div
+        className="xui-button--caret xui-select--caret"
+      >
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={5}
+          viewBox="0 0 10 5"
+          width={10}
         >
-          <span
-            className="xui-select--content xui-select--content-truncated"
-          >
-            test
-          </span>
-          <div
-            className="xui-button--caret xui-select--caret"
-          >
-            <svg
-              className="xui-icon"
-              focusable="false"
-              height={5}
-              viewBox="0 0 10 5"
-              width={10}
-            >
-              <path
-                d="M0 0l5 5 5-5z"
-                role="presentation"
-              />
-            </svg>
-          </div>
-        </button>
+          <path
+            d="M0 0l5 5 5-5z"
+            role="presentation"
+          />
+        </svg>
       </div>
-    </div>
+    </button>
   </div>
 </div>
 `;
 
 exports[`<XUISelectBox /> should render the trigger in a disabled state if \`isDisabled\` is set 1`] = `
 <div
-  className="xui-selectwrapper"
+  className="xui-select xui-select-layout"
 >
-  <div
-    className=""
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    data-automationid={null}
+    htmlFor="xui-testSelectBoxId-control"
   >
-    <label
-      className="xui-text-label xui-fieldlabel-layout"
+    test
+  </label>
+  <div
+    className="xui-dropdown--toggledwrapper"
+    data-automationid={null}
+    data-ref="toggled-wrapper"
+  >
+    <button
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon xui-button-is-disabled"
       data-automationid={null}
-      htmlFor="xui-testSelectBoxId-control"
+      disabled={true}
+      id="xui-testSelectBoxId-control"
+      onClick={[Function]}
+      onKeyDown={null}
+      onKeyUp={[Function]}
+      tabIndex={-1}
+      type="button"
     >
-      test
-    </label>
-    <div
-      className="xui-select xui-select-layout"
-      data-automationid={null}
-    >
-      <div
-        className="xui-dropdown--toggledwrapper"
-        data-automationid={null}
-        data-ref="toggled-wrapper"
+      <span
+        className="xui-select--content xui-select--content-truncated"
       >
-        <button
-          aria-activedescendant={null}
-          aria-haspopup="listbox"
-          className="xui-button xui-select--button xui-select--button-no-variant xui-button-standard xui-button-medium xui-button-fullwidth xui-button-has-icon xui-button-is-disabled"
-          data-automationid={null}
-          disabled={true}
-          id="xui-testSelectBoxId-control"
-          onClick={[Function]}
-          onKeyDown={null}
-          onKeyUp={[Function]}
-          tabIndex={-1}
-          type="button"
+        test
+      </span>
+      <div
+        className="xui-button--caret xui-select--caret"
+      >
+        <svg
+          className="xui-icon"
+          focusable="false"
+          height={5}
+          viewBox="0 0 10 5"
+          width={10}
         >
-          <span
-            className="xui-select--content xui-select--content-truncated"
-          >
-            test
-          </span>
-          <div
-            className="xui-button--caret xui-select--caret"
-          >
-            <svg
-              className="xui-icon"
-              focusable="false"
-              height={5}
-              viewBox="0 0 10 5"
-              width={10}
-            >
-              <path
-                d="M0 0l5 5 5-5z"
-                role="presentation"
-              />
-            </svg>
-          </div>
-        </button>
+          <path
+            d="M0 0l5 5 5-5z"
+            role="presentation"
+          />
+        </svg>
       </div>
-    </div>
+    </button>
   </div>
 </div>
 `;

@@ -141,7 +141,9 @@ $xui-switch-label-padding: $xui-s-xsmall;
   }
 
   .#{$ns}-switch {
+    align-items: start;
     display: flex;
+    height: 100%;
     padding: $xui-switch-label-padding * 0.5; // Border padding
   }
 
@@ -152,6 +154,12 @@ $xui-switch-label-padding: $xui-s-xsmall;
   &.#{$ns}-controlgroup-horizontal .#{$ns}-switchwrapper:nth-last-of-type(n + 2),
   &.#{$ns}-controlgroup-horizontal .#{$ns}-switch:nth-last-of-type(n + 2) {
     border-right: $xui-border-control;
+  }
+
+  &.#{$ns}-controlgroup-is-invalid,
+  &.#{$ns}-controlgroup-is-invalid .#{$ns}-switchwrapper:nth-last-of-type(n + 2),
+  &.#{$ns}-controlgroup-is-invalid .#{$ns}-switch:nth-last-of-type(n + 2) {
+    border-color: $xui-validation-invalid-color;
   }
 
   .#{$ns}-switch:not(.#{$ns}-switch-reversed) {
@@ -171,10 +179,4 @@ $xui-switch-label-padding: $xui-s-xsmall;
     flex-shrink: 0;
     margin: $xui-switch-label-padding * 0.5;
   }
-}
-
-.#{$ns}-controlgroup.#{$ns}-switch-group-is-invalid,
-.#{$ns}-controlgroup.#{$ns}-switch-group-is-invalid .#{$ns}-switchwrapper:nth-last-of-type(n + 2),
-.#{$ns}-controlgroup.#{$ns}-switch-group-is-invalid .#{$ns}-switch:nth-last-of-type(n + 2) {
-  border-color: $xui-validation-invalid-color;
 }

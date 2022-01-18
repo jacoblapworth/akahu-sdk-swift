@@ -43,11 +43,48 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'is grouped',
+    viewports: desktopPlus320,
+    isGroup: true,
+    groupProps: {
+      label: 'Switch Group',
+      hintMessage: 'I am a hint',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'is grouped horizontal',
+    isGroup: true,
+    viewports: desktopPlus320,
+    groupProps: {
+      isLockedVertical: false,
+      swapAtBreakpoint: 'small',
+      label: 'Group of switches',
+      hintMessage: 'This is a hint message',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'is grouped horizontal and invalid',
+    isGroup: true,
+    viewports: desktopPlus320,
+    groupProps: {
+      isLockedVertical: false,
+      swapAtBreakpoint: 'small',
+      label: 'Group of switches',
+      hintMessage: 'hello',
+      isInvalid: true,
+      validationMessage: 'whoops',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'is grouped and reversed',
     isGroup: true,
     groupProps: {
       label: 'Group of switches',
       hintMessage: 'This is a hint message',
+      isReversed: true,
     },
   },
   {
@@ -59,6 +96,7 @@ const variations = [
       hintMessage: 'hello',
       isInvalid: true,
       validationMessage: 'whoops',
+      isReversed: true,
     },
   },
   {

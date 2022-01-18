@@ -2,368 +2,360 @@
 
 exports[`XUIDateRangeInput renders component with specified dates 1`] = `
 <div
-  className="xui-daterangeinput"
->
-  <div
-    className="xui-controlgroup xui-controlgroup-horizontal"
-    data-automationid="test"
-    role="group"
-    style={
-      Object {
-        "gridTemplateColumns": "1fr 1fr 40px",
-      }
+  className="xui-controlgroup xui-controlgroup-horizontal xui-daterangeinput"
+  data-automationid="test"
+  role="group"
+  style={
+    Object {
+      "gridTemplateColumns": "1fr 1fr 40px",
     }
+  }
+>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    data-automationid="test-daterangeinput-firstinput--label"
+    htmlFor="xui-testDateinputId-control"
+    id="xui-testDateinputId"
+  >
+    Start date
+  </label>
+  <div
+    className="xui-dateinputitem xui-daterangeinput--firstinput"
   >
     <div
       className="xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
     >
       <div
-        aria-activedescendant={null}
-        aria-haspopup="listbox"
-        className="xui-dateinputitem"
-        onClick={[Function]}
+        className="xui-textinputwrapper"
         onKeyDown={[Function]}
-        onKeyUp={[Function]}
+        role="presentation"
       >
         <div
-          className="xui-daterangeinput--firstinput xui-textinputwrapper"
-          onKeyDown={[Function]}
-          role="presentation"
+          aria-activedescendant={null}
+          aria-haspopup="listbox"
+          autoComplete="off"
+          className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+          data-automationid="test-daterangeinput-firstinput-dateinputitem--input"
+          onClick={[Function]}
+          onKeyUp={[Function]}
         >
-          <label
-            className="xui-text-label xui-fieldlabel-layout"
-            data-automationid="test-daterangeinput-firstinput-dateinputitem--input--label"
-            htmlFor="xui-testDateinputId-control"
-          >
-            Start date
-          </label>
           <div
-            autoComplete="off"
-            className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
-            data-automationid="test-daterangeinput-firstinput-dateinputitem--input"
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
             onClick={[Function]}
           >
             <div
-              className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
-              onClick={[Function]}
+              className="xui-iconwrapper xui-iconwrapper-medium"
             >
-              <div
-                className="xui-iconwrapper xui-iconwrapper-medium"
+              <svg
+                className="xui-icon xui-icon-color-black"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
               >
-                <svg
-                  className="xui-icon xui-icon-color-black"
-                  focusable="false"
-                  height={13}
-                  viewBox="0 0 12 13"
-                  width={12}
-                >
-                  <path
-                    d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
-                    role="presentation"
-                  />
-                </svg>
-              </div>
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
+                  role="presentation"
+                />
+              </svg>
             </div>
-            <input
-              aria-invalid={null}
-              className="xui-textinput--input xui-textinput--input-medium"
-              data-automationid="test-daterangeinput-firstinput-dateinputitem--input--input"
-              id="xui-testDateinputId-control"
-              onBlurCapture={[Function]}
-              onChange={[Function]}
-              onFocusCapture={[Function]}
-              style={
-                Object {
-                  "maxHeight": undefined,
-                }
-              }
-              value="5 Jun 1999"
-            />
           </div>
+          <input
+            aria-invalid={null}
+            aria-labelledby="xui-testDateinputId"
+            className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+            data-automationid="test-daterangeinput-firstinput-dateinputitem--input--input"
+            id="xui-testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
+            }
+            value="5 Jun 1999"
+          />
         </div>
       </div>
     </div>
+  </div>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    data-automationid="test-daterangeinput-secondinput--label"
+    htmlFor="xui-testDateinputId-control"
+    id="xui-testDateinputId"
+  >
+    End date
+  </label>
+  <div
+    className="xui-dateinputitem xui-daterangeinput--secondinput"
+  >
     <div
       className="xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
     >
       <div
-        aria-activedescendant={null}
-        aria-haspopup="listbox"
-        className="xui-dateinputitem"
-        onClick={[Function]}
+        className="xui-textinputwrapper"
         onKeyDown={[Function]}
-        onKeyUp={[Function]}
+        role="presentation"
       >
         <div
-          className="xui-daterangeinput--secondinput xui-textinputwrapper"
-          onKeyDown={[Function]}
-          role="presentation"
+          aria-activedescendant={null}
+          aria-haspopup="listbox"
+          autoComplete="off"
+          className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+          data-automationid="test-daterangeinput-secondinput-dateinputitem--input"
+          onClick={[Function]}
+          onKeyUp={[Function]}
         >
-          <label
-            className="xui-text-label xui-fieldlabel-layout"
-            data-automationid="test-daterangeinput-secondinput-dateinputitem--input--label"
-            htmlFor="xui-testDateinputId-control"
-          >
-            End date
-          </label>
           <div
-            autoComplete="off"
-            className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
-            data-automationid="test-daterangeinput-secondinput-dateinputitem--input"
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
             onClick={[Function]}
           >
             <div
-              className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
-              onClick={[Function]}
+              className="xui-iconwrapper xui-iconwrapper-medium"
             >
-              <div
-                className="xui-iconwrapper xui-iconwrapper-medium"
+              <svg
+                className="xui-icon xui-icon-color-black"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
               >
-                <svg
-                  className="xui-icon xui-icon-color-black"
-                  focusable="false"
-                  height={13}
-                  viewBox="0 0 12 13"
-                  width={12}
-                >
-                  <path
-                    d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm6-4h3v3H7V8z"
-                    role="presentation"
-                  />
-                </svg>
-              </div>
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm6-4h3v3H7V8z"
+                  role="presentation"
+                />
+              </svg>
             </div>
-            <input
-              aria-invalid={null}
-              className="xui-textinput--input xui-textinput--input-medium"
-              data-automationid="test-daterangeinput-secondinput-dateinputitem--input--input"
-              id="xui-testDateinputId-control"
-              onBlurCapture={[Function]}
-              onChange={[Function]}
-              onFocusCapture={[Function]}
-              style={
-                Object {
-                  "maxHeight": undefined,
-                }
-              }
-              value="15 Dec 1999"
-            />
           </div>
+          <input
+            aria-invalid={null}
+            aria-labelledby="xui-testDateinputId"
+            className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+            data-automationid="test-daterangeinput-secondinput-dateinputitem--input--input"
+            id="xui-testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
+            }
+            value="15 Dec 1999"
+          />
         </div>
       </div>
     </div>
-    <div
-      className="xui-daterangeinput--suggested xui-daterangeinput--suggested-withlabelspace xui-dropdown--toggledwrapper"
-      data-automationid="test-daterangeinput-suggesteddates"
-      data-ref="toggled-wrapper"
+  </div>
+  <div
+    className="xui-daterangeinput--suggested xui-dropdown--toggledwrapper"
+    data-automationid="test-daterangeinput-suggesteddates"
+    data-ref="toggled-wrapper"
+  >
+    <button
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      className="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped"
+      disabled={false}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      tabIndex={0}
+      type="button"
     >
-      <button
-        aria-activedescendant={null}
-        aria-haspopup="listbox"
-        className="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped"
-        disabled={false}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        tabIndex={0}
-        type="button"
+      <svg
+        className="xui-icon"
+        focusable="false"
+        height={5}
+        viewBox="0 0 10 5"
+        width={10}
       >
-        <svg
-          className="xui-icon"
-          focusable="false"
-          height={5}
-          viewBox="0 0 10 5"
-          width={10}
-        >
-          <path
-            d="M0 0l5 5 5-5z"
-            role="presentation"
-          />
-        </svg>
-      </button>
-    </div>
+        <path
+          d="M0 0l5 5 5-5z"
+          role="presentation"
+        />
+      </svg>
+    </button>
   </div>
 </div>
 `;
 
 exports[`XUIDateRangeInput renders default component 1`] = `
 <div
-  className="xui-daterangeinput"
->
-  <div
-    className="xui-controlgroup xui-controlgroup-horizontal"
-    role="group"
-    style={
-      Object {
-        "gridTemplateColumns": "1fr 1fr 40px",
-      }
+  className="xui-controlgroup xui-controlgroup-horizontal xui-daterangeinput"
+  role="group"
+  style={
+    Object {
+      "gridTemplateColumns": "1fr 1fr 40px",
     }
+  }
+>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    htmlFor="xui-testDateinputId-control"
+    id="xui-testDateinputId"
+  >
+    Start date
+  </label>
+  <div
+    className="xui-dateinputitem xui-daterangeinput--firstinput"
   >
     <div
       className="xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
     >
       <div
-        aria-activedescendant={null}
-        aria-haspopup="listbox"
-        className="xui-dateinputitem"
-        onClick={[Function]}
+        className="xui-textinputwrapper"
         onKeyDown={[Function]}
-        onKeyUp={[Function]}
+        role="presentation"
       >
         <div
-          className="xui-daterangeinput--firstinput xui-textinputwrapper"
-          onKeyDown={[Function]}
-          role="presentation"
+          aria-activedescendant={null}
+          aria-haspopup="listbox"
+          autoComplete="off"
+          className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+          onClick={[Function]}
+          onKeyUp={[Function]}
         >
-          <label
-            className="xui-text-label xui-fieldlabel-layout"
-            htmlFor="xui-testDateinputId-control"
-          >
-            Start date
-          </label>
           <div
-            autoComplete="off"
-            className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
             onClick={[Function]}
           >
             <div
-              className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
-              onClick={[Function]}
+              className="xui-iconwrapper xui-iconwrapper-medium"
             >
-              <div
-                className="xui-iconwrapper xui-iconwrapper-medium"
+              <svg
+                className="xui-icon xui-icon-color-black"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
               >
-                <svg
-                  className="xui-icon xui-icon-color-black"
-                  focusable="false"
-                  height={13}
-                  viewBox="0 0 12 13"
-                  width={12}
-                >
-                  <path
-                    d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
-                    role="presentation"
-                  />
-                </svg>
-              </div>
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
+                  role="presentation"
+                />
+              </svg>
             </div>
-            <input
-              aria-invalid={null}
-              className="xui-textinput--input xui-textinput--input-medium"
-              id="xui-testDateinputId-control"
-              onBlurCapture={[Function]}
-              onChange={[Function]}
-              onFocusCapture={[Function]}
-              style={
-                Object {
-                  "maxHeight": undefined,
-                }
-              }
-              value=""
-            />
           </div>
+          <input
+            aria-invalid={null}
+            aria-labelledby="xui-testDateinputId"
+            className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+            id="xui-testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
+            }
+            value=""
+          />
         </div>
       </div>
     </div>
+  </div>
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    htmlFor="xui-testDateinputId-control"
+    id="xui-testDateinputId"
+  >
+    End date
+  </label>
+  <div
+    className="xui-dateinputitem xui-daterangeinput--secondinput"
+  >
     <div
       className="xui-dropdown--toggledwrapper"
       data-ref="toggled-wrapper"
     >
       <div
-        aria-activedescendant={null}
-        aria-haspopup="listbox"
-        className="xui-dateinputitem"
-        onClick={[Function]}
+        className="xui-textinputwrapper"
         onKeyDown={[Function]}
-        onKeyUp={[Function]}
+        role="presentation"
       >
         <div
-          className="xui-daterangeinput--secondinput xui-textinputwrapper"
-          onKeyDown={[Function]}
-          role="presentation"
+          aria-activedescendant={null}
+          aria-haspopup="listbox"
+          autoComplete="off"
+          className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+          onClick={[Function]}
+          onKeyUp={[Function]}
         >
-          <label
-            className="xui-text-label xui-fieldlabel-layout"
-            htmlFor="xui-testDateinputId-control"
-          >
-            End date
-          </label>
           <div
-            autoComplete="off"
-            className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
             onClick={[Function]}
           >
             <div
-              className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
-              onClick={[Function]}
+              className="xui-iconwrapper xui-iconwrapper-medium"
             >
-              <div
-                className="xui-iconwrapper xui-iconwrapper-medium"
+              <svg
+                className="xui-icon xui-icon-color-black"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
               >
-                <svg
-                  className="xui-icon xui-icon-color-black"
-                  focusable="false"
-                  height={13}
-                  viewBox="0 0 12 13"
-                  width={12}
-                >
-                  <path
-                    d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm6-4h3v3H7V8z"
-                    role="presentation"
-                  />
-                </svg>
-              </div>
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm6-4h3v3H7V8z"
+                  role="presentation"
+                />
+              </svg>
             </div>
-            <input
-              aria-invalid={null}
-              className="xui-textinput--input xui-textinput--input-medium"
-              id="xui-testDateinputId-control"
-              onBlurCapture={[Function]}
-              onChange={[Function]}
-              onFocusCapture={[Function]}
-              style={
-                Object {
-                  "maxHeight": undefined,
-                }
-              }
-              value=""
-            />
           </div>
+          <input
+            aria-invalid={null}
+            aria-labelledby="xui-testDateinputId"
+            className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+            id="xui-testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
+            }
+            value=""
+          />
         </div>
       </div>
     </div>
-    <div
-      className="xui-daterangeinput--suggested xui-daterangeinput--suggested-withlabelspace xui-dropdown--toggledwrapper"
-      data-ref="toggled-wrapper"
+  </div>
+  <div
+    className="xui-daterangeinput--suggested xui-dropdown--toggledwrapper"
+    data-ref="toggled-wrapper"
+  >
+    <button
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      className="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped"
+      disabled={false}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      tabIndex={0}
+      type="button"
     >
-      <button
-        aria-activedescendant={null}
-        aria-haspopup="listbox"
-        className="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped"
-        disabled={false}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        tabIndex={0}
-        type="button"
+      <svg
+        className="xui-icon"
+        focusable="false"
+        height={5}
+        viewBox="0 0 10 5"
+        width={10}
       >
-        <svg
-          className="xui-icon"
-          focusable="false"
-          height={5}
-          viewBox="0 0 10 5"
-          width={10}
-        >
-          <path
-            d="M0 0l5 5 5-5z"
-            role="presentation"
-          />
-        </svg>
-      </button>
-    </div>
+        <path
+          d="M0 0l5 5 5-5z"
+          role="presentation"
+        />
+      </svg>
+    </button>
   </div>
 </div>
 `;

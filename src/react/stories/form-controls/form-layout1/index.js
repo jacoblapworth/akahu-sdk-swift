@@ -12,6 +12,7 @@ import XUIPicklist, { XUIPickitem } from '../../../picklist';
 import XUIButton from '../../../button';
 import XUITextInput from '../../../textinput';
 import XUICheckbox, { XUICheckboxGroup } from '../../../checkbox';
+import XUIControlGroup from '../../../controlgroup';
 import XUIRadio, { XUIRadioGroup } from '../../../radio';
 import XUISwitch from '../../../switch';
 import XUIToggle, { XUIToggleOption } from '../../../toggle';
@@ -26,7 +27,6 @@ import FullPageStoryWrapper from '../../helpers/FullPageStoryWrapper';
 
 // Private modules
 import Form from '../helpers/form';
-import XUIControlGroup from '../../../components/controlgroup/XUIControlGroup';
 import LayoutSelect from './select-box';
 import PanelSection from './panel-section';
 
@@ -206,7 +206,12 @@ test.add(storyNames.formLayout, () => {
                   validationMessage="Well, it's not right is it"
                 />
 
-                <XUIControlGroup isFieldLayout label="Your name">
+                <XUIControlGroup
+                  isFieldLayout
+                  isInvalid
+                  label="Your name"
+                  validationMessage="Please enter your full name"
+                >
                   <XUITextInput
                     inputProps={{ name: inputMap.nameFirst, id: inputMap.nameFirst }}
                     isLabelHidden

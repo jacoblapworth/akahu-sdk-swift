@@ -1,5 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<XUIControlWrapper> renders a flat HTML structure, when inside a group context 1`] = `
+Array [
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    htmlFor="xui-testGeneratedId-control"
+    id="xui-testGeneratedId"
+  >
+    Small input label
+  </label>,
+  <div
+    className="xui-field-layout xui-has-message"
+  >
+    <input
+      aria-describedby="xui-testGeneratedId-message"
+      aria-invalid={false}
+      id="xui-testGeneratedId-control"
+      type="text"
+    />
+  </div>,
+  <div
+    className="xui-validation xui-validation-layout"
+    id="xui-testGeneratedId-message"
+    role="status"
+  >
+    I will give you a clue
+  </div>,
+]
+`;
+
 exports[`<XUIControlWrapper> renders a hidden label, invalid, and an error message 1`] = `
 <div
   className="xui-field-layout"

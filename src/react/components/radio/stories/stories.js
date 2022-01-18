@@ -46,17 +46,25 @@ variations.forEach(variation => {
 
     if (isGroup) {
       return (
-        <XUIRadioGroup {...groupProps}>
-          <XUIRadio isDefaultChecked key="r0-1" name="rg0">
-            Medium radio label goes here
-          </XUIRadio>
-          <XUIRadio key="r0-2" name="rg0">
-            Longish radio label goes here, but this one really goes on and on and on and on
-          </XUIRadio>
-          <XUIRadio key="r0-3" name="rg0">
-            <span>Third</span>
-          </XUIRadio>
-        </XUIRadioGroup>
+        <div
+          style={
+            (groupProps?.isLockedVertical !== false && { maxWidth: '600px' }) || {
+              width: 'calc(100vw - 10px)',
+            }
+          }
+        >
+          <XUIRadioGroup {...groupProps}>
+            <XUIRadio isDefaultChecked key="r0-1" name="rg0">
+              Medium radio label goes here
+            </XUIRadio>
+            <XUIRadio key="r0-2" name="rg0">
+              Longish radio label goes here, but this one really goes on and on and on and on
+            </XUIRadio>
+            <XUIRadio key="r0-3" name="rg0">
+              <span>Third</span>
+            </XUIRadio>
+          </XUIRadioGroup>
+        </div>
       );
     }
     if (isSeries) {

@@ -6,6 +6,7 @@ import { baseClass } from './constants';
 import XUICheckbox from './XUICheckbox';
 import XUICheckboxRangeSelector from './XUICheckboxRangeSelector';
 import XUIControlGroup from '../controlgroup/XUIControlGroup';
+import defaultBreakpoints from '../helpers/breakpoints';
 
 /**
  * Presentational component that outputs the container necessary to implement
@@ -19,23 +20,20 @@ const XUICheckboxGroup = props => {
   const {
     children,
     className,
+    columnWidths,
     fieldClassName,
     hintMessage,
     isFieldLayout,
     isInvalid,
     isLabelHidden,
+    isLockedVertical,
     label,
     labelClassName,
     labelId,
     qaHook,
+    swapAtBreakpoint,
     validationMessage,
   } = props;
-
-  const groupClasses = cn(
-    className,
-    `${baseClass}-group`,
-    isInvalid && `${baseClass}-group-is-invalid`,
-  );
 
   const childrenToRender = React.Children.map(children, child =>
     child.type === XUICheckbox
@@ -46,26 +44,29 @@ const XUICheckboxGroup = props => {
   );
 
   return (
-    <XUICheckboxRangeSelector>
-      <XUIControlGroup
-        groupClassName={groupClasses}
-        {...{
-          fieldClassName,
-          qaHook,
-          label,
-          labelId,
-          isInvalid,
-          isLockedVertical: true,
-          validationMessage,
-          hintMessage,
-          isFieldLayout,
-          labelClassName,
-          isLabelHidden,
-        }}
-      >
-        {childrenToRender}
-      </XUIControlGroup>
-    </XUICheckboxRangeSelector>
+    <div className={fieldClassName}>
+      <XUICheckboxRangeSelector>
+        <XUIControlGroup
+          fieldClassName={cn(className, `${baseClass}-group`)}
+          {...{
+            columnWidths,
+            qaHook,
+            label,
+            labelId,
+            isInvalid,
+            isLockedVertical,
+            validationMessage,
+            hintMessage,
+            isFieldLayout,
+            labelClassName,
+            isLabelHidden,
+            swapAtBreakpoint,
+          }}
+        >
+          {childrenToRender}
+        </XUIControlGroup>
+      </XUICheckboxRangeSelector>
+    </div>
   );
 };
 
@@ -75,6 +76,8 @@ XUICheckboxGroup.propTypes = {
   children: PropTypes.node,
   /** Class names to be added to bordered grouping element */
   className: PropTypes.string,
+  /** Column widths, expressed a CSS grid-template-columns string */
+  columnWidths: PropTypes.string,
   /** Class names to be added to the field wrapper element */
   fieldClassName: PropTypes.string,
   /** Hint message to show under the input */
@@ -85,6 +88,8 @@ XUICheckboxGroup.propTypes = {
   isInvalid: PropTypes.bool,
   /** Whether to hide the label and apply it as an ARIA label instead. Defaults to visible. */
   isLabelHidden: PropTypes.bool,
+  /** Whether the group is permanently grouped as a column, rather than a row. Defaults to true. */
+  isLockedVertical: PropTypes.bool,
   /** Label to show above the checkbox group, or for accessibility when the checkbox group label is hidden. Highly recommended */
   label: PropTypes.node,
   /** Class names to add to the label text element */
@@ -93,10 +98,16 @@ XUICheckboxGroup.propTypes = {
   labelId: PropTypes.string,
   /** String to be used as a data-automationid on the group and (with suffixes) on related elements */
   qaHook: PropTypes.string,
+  /**
+   * Defines the swap breakpoint (container width) between horizontal (single-row) group and vertical (single-column) group.
+   * Supported breakpoints are `small` (600px), `medium` (800px), `large` (1000px), and `xlarge` (1200px).
+   */
+  swapAtBreakpoint: PropTypes.oneOf([...Object.keys(defaultBreakpoints)]),
   /** Validation message to show under the input if `isInvalid` is true */
   validationMessage: PropTypes.node,
 };
 
 XUICheckboxGroup.defaultProps = {
   isFieldLayout: false,
+  isLockedVertical: true,
 };

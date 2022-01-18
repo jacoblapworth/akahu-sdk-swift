@@ -66,7 +66,7 @@ export const getAriaAttributesInline = (ids, props) => {
  * @param {Object} ids - generated ids from ./helpers, including label and message ids
  * @param {Object} props - props of the parent control component
  * @param {Boolean} isGroup - Whether or not this label is for a group of controls
- * @returns {{aria-invalid: boolean, aria-label: string, aria-labelledby: string, aria-describedby: string}}
+ * @returns {{aria-invalid: boolean, aria-label: string, aria-labelledby: string, aria-describedby: string, id: string}}
  */
 export const getAriaAttributes = (ids, props, groupedSetting = {}) => {
   const { isGroup } = groupedSetting;

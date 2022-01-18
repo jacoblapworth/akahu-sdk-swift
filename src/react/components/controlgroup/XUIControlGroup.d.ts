@@ -27,11 +27,6 @@ interface Props {
    */
   hintMessage?: React.ReactNode;
   /**
-   * Whether to align grouped items to the bottom, rather than the top. This is useful when labels across grouped inputs
-   * are varying line lengths, but NOT good when validation and hint messages may vary in line-lengths between inputs.
-   */
-  isBottomAligned?: boolean;
-  /**
    * Whether to use the field layout classes. Defaults to false
    */
   isFieldLayout?: boolean;

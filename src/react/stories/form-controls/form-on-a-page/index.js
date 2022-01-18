@@ -87,30 +87,25 @@ const testFormOnAPage = () => {
             </XUIColumn>
 
             {/* Major section */}
-            <XUIControlGroup
-              fieldClassName="xui-column-6-of-12"
-              isLockedVertical
-              label="A set of checkboxes"
-            >
-              <XUICheckbox isDefaultChecked={false}>Unchecked</XUICheckbox>
-              <XUICheckbox isDefaultChecked>Checked</XUICheckbox>
-              <XUICheckbox isIndeterminate>Indeterminate</XUICheckbox>
-            </XUIControlGroup>
-            <XUIControlGroup
-              fieldClassName="xui-column-6-of-12"
-              isLockedVertical
-              label="A set of radios"
-            >
-              <XUIRadio isDefaultChecked={false}>Unchecked</XUIRadio>
-              <XUIRadio isDefaultChecked>Checked</XUIRadio>
-              <XUIRadio isDefaultChecked={false} isDisabled>
-                Unchecked
-              </XUIRadio>
-              <XUIRadio isDefaultChecked isDisabled>
-                Checked
-              </XUIRadio>
-            </XUIControlGroup>
-
+            <XUIColumn gridColumns="half">
+              <XUIControlGroup isLockedVertical label="A set of checkboxes">
+                <XUICheckbox isDefaultChecked={false}>Unchecked</XUICheckbox>
+                <XUICheckbox isDefaultChecked>Checked</XUICheckbox>
+                <XUICheckbox isIndeterminate>Indeterminate</XUICheckbox>
+              </XUIControlGroup>
+            </XUIColumn>
+            <XUIColumn gridColumns="half">
+              <XUIControlGroup isLockedVertical label="A set of radios">
+                <XUIRadio isDefaultChecked={false}>Unchecked</XUIRadio>
+                <XUIRadio isDefaultChecked>Checked</XUIRadio>
+                <XUIRadio isDefaultChecked={false} isDisabled>
+                  Unchecked
+                </XUIRadio>
+                <XUIRadio isDefaultChecked isDisabled>
+                  Checked
+                </XUIRadio>
+              </XUIControlGroup>
+            </XUIColumn>
             {/* Major section */}
             <XUIColumn gridColumns="half">
               <XUICheckboxGroup isLockedVertical label="Grouped checkboxes">

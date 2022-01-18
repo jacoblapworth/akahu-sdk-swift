@@ -90,9 +90,7 @@ export default class XUISelectBox extends Component {
           );
 
           const containerClassNames = cn(
-            `${selectBaseClass}wrapper`,
             _useCellStyling && `${selectBaseClass}-cell`,
-            !_useCellStyling && isInvalid && `${selectBaseClass}wrapper-is-invalid`,
             containerClassName,
           );
 
@@ -133,43 +131,37 @@ export default class XUISelectBox extends Component {
           );
 
           return (
-            <div className={containerClassNames} data-automationid={qaHook}>
-              <XUIControlWrapper
-                isFieldLayout={isFieldLayout}
-                qaHook={setQaHook(qaHook, '')} // label suffix is handled within controlwrapper
-                wrapperIds={this.wrapperIds}
-                {...{
-                  isLabelHidden,
-                  label,
-                  isInvalid,
-                  validationMessage,
-                  hintMessage,
-                  labelClassName,
-                }}
-              >
-                <div
-                  className={inputGroupClassNames}
-                  data-automationid={setQaHook(qaHook, qaHooks.inputGroup)}
-                >
-                  {React.Children.count(children) === 0 ? (
-                    trigger
-                  ) : (
-                    <XUIDropdownToggled
-                      closeOnSelect={closeAfterSelection}
-                      dropdown={dropdown}
-                      forceDesktop={forceDesktop}
-                      isBlock
-                      isHidden={!isOpen}
-                      matchTriggerWidth={matchTriggerWidth}
-                      onClose={onDropdownHide}
-                      qaHook={setQaHook(qaHook, qaHooks.dropdownToggled)}
-                      ref={selectBox.ddt}
-                      trigger={trigger}
-                    />
-                  )}
-                </div>
-              </XUIControlWrapper>
-            </div>
+            <XUIControlWrapper
+              fieldClassName={cn(containerClassNames, inputGroupClassNames)}
+              isFieldLayout={isFieldLayout}
+              qaHook={setQaHook(qaHook, '')} // label suffix is handled within controlwrapper
+              wrapperIds={this.wrapperIds}
+              {...{
+                isLabelHidden,
+                label,
+                isInvalid,
+                validationMessage,
+                hintMessage,
+                labelClassName,
+              }}
+            >
+              {React.Children.count(children) === 0 ? (
+                trigger
+              ) : (
+                <XUIDropdownToggled
+                  closeOnSelect={closeAfterSelection}
+                  dropdown={dropdown}
+                  forceDesktop={forceDesktop}
+                  isBlock
+                  isHidden={!isOpen}
+                  matchTriggerWidth={matchTriggerWidth}
+                  onClose={onDropdownHide}
+                  qaHook={setQaHook(qaHook, qaHooks.dropdownToggled)}
+                  ref={selectBox.ddt}
+                  trigger={trigger}
+                />
+              )}
+            </XUIControlWrapper>
           );
         }}
       </EditableTableCellContext.Consumer>

@@ -15,7 +15,9 @@
   }
 
   .#{$ns}-styledcheckboxradio {
+    align-items: start;
     display: flex;
+    height: 100%;
     padding: $xui-s-xsmall - 1px; // 1px to make up for border width
 
     &.#{$ns}-styledcheckboxradio-reversed {
@@ -55,10 +57,9 @@
     border-right: $xui-border-control;
   }
 
-  &.#{$ns}-controlgroup.#{$ns}-styledcheckboxradio-group-is-invalid,
-  &.#{$ns}-controlgroup.#{$ns}-styledcheckboxradio-group-is-invalid
-    .#{$ns}-styledcheckboxradiowrapper,
-  &.#{$ns}-controlgroup.#{$ns}-styledcheckboxradio-group-is-invalid .#{$ns}-styledcheckboxradio {
+  &.#{$ns}-controlgroup-is-invalid,
+  &.#{$ns}-controlgroup-is-invalid .#{$ns}-styledcheckboxradiowrapper:nth-last-of-type(n + 2),
+  &.#{$ns}-controlgroup-is-invalid .#{$ns}-styledcheckboxradio:nth-last-of-type(n + 2) {
     border-color: $xui-validation-invalid-color;
   }
 }

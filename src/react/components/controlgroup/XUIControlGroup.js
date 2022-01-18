@@ -8,6 +8,7 @@ import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
 import generateIds, { getAriaAttributes } from '../helpers/ariaHelpers';
 import useContainerQuery from '../helpers/useContainerQuery';
 import defaultBreakpoints from '../helpers/breakpoints';
+import GroupContext from '../../contexts/GroupContext';
 
 const baseClass = `${ns}-controlgroup`;
 
@@ -19,7 +20,6 @@ const XUIControlGroup = props => {
     fieldClassName,
     groupClassName,
     hintMessage,
-    isBottomAligned,
     isFieldLayout,
     isInvalid,
     isLabelHidden,
@@ -39,47 +39,48 @@ const XUIControlGroup = props => {
 
   const displayVertical =
     isLockedVertical || (swapAtBreakpoint && !isWidthAboveBreakpoint(swapAtBreakpoint));
-  const groupClasses = cn(
+  const fieldClasses = cn(
     baseClass,
     displayVertical ? `${baseClass}-vertical` : `${baseClass}-horizontal`,
-    isBottomAligned && `${baseClass}-is-bottomaligned`,
     isInvalid && `${baseClass}-is-invalid`,
-    groupClassName,
+    fieldClassName,
   );
 
+  const wrapperProps = {
+    'data-automationid': qaHook,
+    ref: observedElementRef,
+    role: ariaRole,
+    style: {
+      gridTemplateColumns:
+        !displayVertical &&
+        (columnWidths ||
+          (children &&
+            `repeat(${children.length}, minmax(${Math.floor(100 / children.length)}%, 1fr))`)),
+    },
+    ...getAriaAttributes(wrapperIds, props, { isGroup: true }),
+  };
+
   return (
-    <XUIControlWrapper
-      fieldClassName={fieldClassName}
-      isGroup
-      wrapperIds={wrapperIds}
-      {...{
-        qaHook,
-        label,
-        isInvalid,
-        validationMessage,
-        hintMessage,
-        isFieldLayout,
-        labelClassName,
-        isLabelHidden,
-      }}
-    >
-      <div
-        className={groupClasses}
-        data-automationid={qaHook}
-        ref={observedElementRef}
-        role={ariaRole}
-        style={{
-          gridTemplateColumns:
-            !displayVertical &&
-            (columnWidths ||
-              (children &&
-                `repeat(${children.length}, minmax(${Math.floor(100 / children.length)}%, 1fr))`)),
+    <GroupContext.Provider value={{ useFlatElementStructure: true }}>
+      <XUIControlWrapper
+        fieldClassName={fieldClasses}
+        isGroup
+        wrapperIds={wrapperIds}
+        {...{
+          qaHook,
+          label,
+          isInvalid,
+          validationMessage,
+          hintMessage,
+          isFieldLayout,
+          labelClassName,
+          isLabelHidden,
+          wrapperProps,
         }}
-        {...getAriaAttributes(wrapperIds, props, { isGroup: true })}
       >
         {children}
-      </div>
-    </XUIControlWrapper>
+      </XUIControlWrapper>
+    </GroupContext.Provider>
   );
 };
 
@@ -96,8 +97,6 @@ XUIControlGroup.propTypes = {
   groupClassName: PropTypes.string,
   /** Hint message to show under the group */
   hintMessage: PropTypes.node,
-  /** Whether to align grouped items to the bottom, rather than the top. This is useful when labels across grouped inputs are varying line lengths, but NOT good when validation and hint messages may vary in line-lengths between inputs. */
-  isBottomAligned: PropTypes.bool,
   /** Whether to use the field layout classes. Defaults to false. */
   isFieldLayout: PropTypes.bool,
   /** Whether the current control group is invalid, as a whole */

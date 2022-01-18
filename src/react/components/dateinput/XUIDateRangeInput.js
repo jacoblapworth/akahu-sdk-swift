@@ -158,11 +158,7 @@ class XUIDateRangeInput extends Component {
     return (
       <XUIControlGroup
         columnWidths={`1fr 1fr ${!suggestedDates ? '' : '40px'}`}
-        fieldClassName={cn(
-          `${baseClass}`,
-          className,
-          !suggestedDates && `${baseClass}--onlyinputs`,
-        )}
+        fieldClassName={cn(`${baseClass}`, className)}
         hintMessage={groupHintMessage}
         isDisabled={isGroupDisabled}
         isInvalid={isGroupInvalid}
@@ -177,14 +173,7 @@ class XUIDateRangeInput extends Component {
           closeOnSelect={closeOnSelect}
           displayedMonth={displayedStartMonth}
           hintMessage={startHintMessage}
-          inputFieldClassName={cn(
-            `${baseClass}--firstinput`,
-            needsMessageSpace &&
-              !startHintMessage &&
-              !startValidationMessage &&
-              `${baseClass}--firstinput-withspace`,
-            needsLabelSpace && !isStartLabelVisible && `${baseClass}--firstinput-withlabelspace`,
-          )}
+          inputFieldClassName={`${baseClass}--firstinput`}
           inputLabel={startInputLabel}
           isDisabled={isStartDisabled || isGroupDisabled}
           isInvalid={isStartInvalid || isGroupInvalid}
@@ -211,14 +200,7 @@ class XUIDateRangeInput extends Component {
           displayedMonth={displayedEndMonth}
           exposeInputRef={el => (this.endInputRef.current = el)}
           hintMessage={endHintMessage}
-          inputFieldClassName={cn(
-            `${baseClass}--secondinput`,
-            needsMessageSpace &&
-              !endHintMessage &&
-              !endValidationMessage &&
-              `${baseClass}--secondinput-withspace`,
-            needsLabelSpace && !isEndLabelVisible && `${baseClass}--secondinput-withlabelspace`,
-          )}
+          inputFieldClassName={`${baseClass}--secondinput`}
           inputIcon={dateEndIcon}
           inputLabel={endInputLabel}
           isDisabled={isEndDisabled || isGroupDisabled}
@@ -243,8 +225,6 @@ class XUIDateRangeInput extends Component {
           <XUIDropdownToggled
             className={cn(
               `${baseClass}--suggested`,
-              needsMessageSpace && `${baseClass}--suggested-withspace`,
-              needsLabelSpace && `${baseClass}--suggested-withlabelspace`,
               isAnyDisabled && `${baseClass}--suggested-disabled`,
             )}
             closeOnSelect={closeOnSelect}

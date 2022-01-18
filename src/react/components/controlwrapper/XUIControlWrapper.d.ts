@@ -21,7 +21,7 @@ interface Props {
    */
   isFieldLayout?: boolean;
   /**
-   * Whether this will be used to wrap multple controls with their own labels.
+   * Whether this will be used to wrap multiple controls with their own labels.
    */
   isGroup?: boolean;
   /**

@@ -47,7 +47,13 @@ variations.forEach(variation => {
 
     if (isGroup) {
       return (
-        <div style={{ maxWidth: '600px' }}>
+        <div
+          style={
+            (groupProps?.isLockedVertical !== false && { maxWidth: '600px' }) || {
+              width: 'calc(100vw - 10px)',
+            }
+          }
+        >
           <XUICheckboxGroup {...groupProps}>
             <XUICheckbox isDefaultChecked isReversed={isReversed}>
               Kakapo

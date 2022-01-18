@@ -16,9 +16,15 @@ $xui-invalid-icon-size: 18px; // Override default icon view-box to remove unwant
 
 .#{$ns}-field-layout {
   margin-bottom: $xui-s-2xlarge;
-
+  // When validation is wrapped into the field-layout...
   .#{$ns}-validation {
     margin-bottom: -($xui-s-standard + $xui-s-xsmall); // Validation line-height (px value) + padding
+  }
+
+  // When validation follows field-layout
+  & + .#{$ns}-validation {
+    margin-bottom: $xui-s-xsmall;
+    margin-top: -$xui-s-2xlarge; // Pop these up into the reserved space
   }
 }
 

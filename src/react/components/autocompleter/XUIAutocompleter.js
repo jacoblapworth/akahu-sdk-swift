@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import debounce from 'lodash.debounce';
-import { nanoid } from 'nanoid';
+
+import XUIControlWrapper from '../controlwrapper/XUIControlWrapper';
 import XUIPicklist from '../picklist/XUIPicklist';
 import XUILoader from '../loader/XUILoader';
 import XUIDropdown from '../dropdown/XUIDropdown';
@@ -10,6 +11,7 @@ import XUIDropdownToggled from '../dropdown/XUIDropdownToggled';
 import XUITextInput from '../textinput/XUITextInput';
 import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
+import generateIds from '../helpers/ariaHelpers';
 import { eventKeyValues, isKeyClick } from '../helpers/reactKeyHandler';
 import { observe, unobserve } from '../helpers/resizeObserver';
 import labelRequiredError, { loadingAriaLabelOnly } from '../helpers/labelRequiredError';
@@ -286,7 +288,7 @@ export default class XUIAutocompleter extends PureComponent {
   renderPills = () => {
     const { disableWrapPills, pills } = this.props;
     return disableWrapPills ? (
-      <div className={`${ns}-autocompleter--pills-nopillwrap`} ref={this.noWrapPillContainer}>
+      <div className={`${baseClass}--pills-nopillwrap`} ref={this.noWrapPillContainer}>
         {pills}
       </div>
     ) : (
@@ -304,12 +306,7 @@ export default class XUIAutocompleter extends PureComponent {
     }
   };
 
-  // We explicitly need to tie the label to the input element in HTML for autocompleter,
-  // so we'll ensure there is an ID with which to do so.
-  generatedInputId =
-    this.props.inputId ||
-    (this.props.inputProps && this.props.inputProps.id) ||
-    `xui-${nanoid(10)}`;
+  wrapperIds = generateIds({ id: this.props.inputId || this.props?.inputProps?.id });
 
   render() {
     const {
@@ -365,10 +362,11 @@ export default class XUIAutocompleter extends PureComponent {
     const textInputLeftElement = hasPills ? this.renderPills() : leftElement;
 
     const containerClassNames = cn(inputContainerClassName, {
-      [`${ns}-autocompleter--trigger-pillwrap`]: hasPills && !disableWrapPills,
+      [`${baseClass}--trigger-pillwrap`]: hasPills && !disableWrapPills,
     });
 
-    const inputClassNames = cn(inputClassName, `${ns}-autocompleter--textinput`);
+    const inputClassNames = cn(inputClassName, `${baseClass}--textinput`);
+    const hasVisibleLabel = inputLabel && !isInputLabelHidden;
 
     const trigger = (
       <div className={triggerClassName} onFocus={this.onTriggerFocus} ref={this.tg} tabIndex={-1}>
@@ -378,12 +376,11 @@ export default class XUIAutocompleter extends PureComponent {
         <XUITextInput
           _useCellStyling={_useCellStyling}
           containerClassName={containerClassNames}
-          hintMessage={hintMessage}
           inputClassName={inputClassNames}
           inputProps={{
             ...inputProps,
             maxLength,
-            id: this.generatedInputId,
+            id: this.wrapperIds.control,
             role: 'textbox',
             'aria-multiline': false,
             'aria-autocomplete': 'list',
@@ -394,10 +391,9 @@ export default class XUIAutocompleter extends PureComponent {
           }}
           inputRef={this.inputNode}
           isDisabled={isDisabled}
-          isFieldLayout={isFieldLayout}
           isInvalid={isInvalid}
-          isLabelHidden={isInputLabelHidden}
-          label={inputLabel}
+          isLabelHidden
+          label={isInputLabelHidden && inputLabel}
           leftElement={textInputLeftElement}
           onChange={this.debouncedOnChange}
           onFocus={this.onInputFocus}
@@ -406,7 +402,6 @@ export default class XUIAutocompleter extends PureComponent {
           qaHook={inputQaHook}
           rightElement={rightElement}
           size="medium"
-          validationMessage={validationMessage}
           value={value || ''}
         />
       </div>
@@ -439,13 +434,26 @@ export default class XUIAutocompleter extends PureComponent {
     const classNames = cn(className, baseClass, focused && `${baseClass}--trigger-focus`);
 
     return (
-      <div
-        className={classNames}
-        data-automationid={containerQaHook}
-        id={id}
-        onBlur={this.onBlur}
-        onFocus={this.onFocus}
-        ref={this.rootNode}
+      <XUIControlWrapper
+        fieldClassName={classNames}
+        isLabelHidden={isInputLabelHidden}
+        label={(hasVisibleLabel && inputLabel) || null}
+        labelRef={this.labelRef}
+        wrapperIds={this.wrapperIds}
+        {...{
+          qaHook,
+          hintMessage,
+          validationMessage,
+          isFieldLayout,
+          isInvalid,
+        }}
+        wrapperProps={{
+          'data-automationid': containerQaHook,
+          id,
+          onBlur: this.onBlur,
+          onFocus: this.onFocus,
+          ref: this.rootNode,
+        }}
       >
         <XUIDropdownToggled
           ariaRole="combobox"
@@ -464,7 +472,7 @@ export default class XUIAutocompleter extends PureComponent {
           trigger={trigger}
           triggerClickAction="none"
         />
-      </div>
+      </XUIControlWrapper>
     );
   }
 }

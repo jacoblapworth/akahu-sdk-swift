@@ -1,9 +1,10 @@
 import React from 'react';
-import Enzyme, { mount, shallow } from 'enzyme';
+import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 
+import GroupContext from '../../../contexts/GroupContext';
 import XUIControlWrapper from '../XUIControlWrapper';
 import generateIds, { getAriaAttributes } from '../../helpers/ariaHelpers';
 
@@ -77,5 +78,19 @@ describe('<XUIControlWrapper>', () => {
 
     const wrapper = setup(settings);
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders a flat HTML structure, when inside a group context', () => {
+    settings.wrapperIds = genIds;
+    settings.label = 'Small input label';
+    settings.hintMessage = 'I will give you a clue';
+    const contextualWrapper = renderer.create(
+      <GroupContext.Provider value={{ useFlatElementStructure: true }}>
+        <XUIControlWrapper {...settings}>
+          <input type="text" {...getAriaAttributes(settings.wrapperIds, settings)} />
+        </XUIControlWrapper>
+      </GroupContext.Provider>,
+    );
+    expect(contextualWrapper).toMatchSnapshot();
   });
 });

@@ -2,32 +2,30 @@
 
 exports[`XUIDateInputItem inserts selected date value 1`] = `
 <div
-  className="xui-dropdown--toggledwrapper"
-  data-ref="toggled-wrapper"
+  className="xui-dateinputitem"
 >
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    htmlFor="xui-testDateinputId-control"
+  >
+    Date
+  </label>
   <div
-    aria-activedescendant={null}
-    aria-haspopup="listbox"
-    className="xui-dateinputitem"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
+    className="xui-dropdown--toggledwrapper"
+    data-ref="toggled-wrapper"
   >
     <div
       className="xui-textinputwrapper"
       onKeyDown={[Function]}
       role="presentation"
     >
-      <label
-        className="xui-text-label xui-fieldlabel-layout"
-        htmlFor="xui-testDateinputId-control"
-      >
-        Date
-      </label>
       <div
+        aria-activedescendant={null}
+        aria-haspopup="listbox"
         autoComplete="off"
         className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
         onClick={[Function]}
+        onKeyUp={[Function]}
       >
         <div
           className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
@@ -52,7 +50,8 @@ exports[`XUIDateInputItem inserts selected date value 1`] = `
         </div>
         <input
           aria-invalid={null}
-          className="xui-textinput--input xui-textinput--input-medium"
+          aria-labelledby="xui-testDateinputId"
+          className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
           id="xui-testDateinputId-control"
           onBlurCapture={[Function]}
           onChange={[Function]}
@@ -72,32 +71,30 @@ exports[`XUIDateInputItem inserts selected date value 1`] = `
 
 exports[`XUIDateInputItem renders disabled 1`] = `
 <div
-  className="xui-dropdown--toggledwrapper"
-  data-ref="toggled-wrapper"
+  className="xui-dateinputitem"
 >
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    htmlFor="xui-testDateinputId-control"
+  >
+    Date
+  </label>
   <div
-    aria-activedescendant={null}
-    aria-haspopup="listbox"
-    className="xui-dateinputitem xui-dateinputitem-is-disabled"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
+    className="xui-dropdown--toggledwrapper"
+    data-ref="toggled-wrapper"
   >
     <div
       className="xui-textinputwrapper"
       onKeyDown={[Function]}
       role="presentation"
     >
-      <label
-        className="xui-text-label xui-fieldlabel-layout"
-        htmlFor="xui-testDateinputId-control"
-      >
-        Date
-      </label>
       <div
+        aria-activedescendant={null}
+        aria-haspopup="listbox"
         autoComplete="off"
         className="xui-dateinputitem--input xui-textinput xui-textinput-medium xui-textinput-is-disabled"
         onClick={[Function]}
+        onKeyUp={[Function]}
       >
         <div
           className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
@@ -122,7 +119,8 @@ exports[`XUIDateInputItem renders disabled 1`] = `
         </div>
         <input
           aria-invalid={null}
-          className="xui-textinput--input xui-textinput--input-medium"
+          aria-labelledby="xui-testDateinputId"
+          className="xui-dateinputitem--input xui-dateinputitem-is-disabled xui-textinput--input xui-textinput--input-medium"
           disabled={true}
           id="xui-testDateinputId-control"
           onBlurCapture={[Function]}
@@ -143,32 +141,30 @@ exports[`XUIDateInputItem renders disabled 1`] = `
 
 exports[`XUIDateInputItem renders with a hint 1`] = `
 <div
-  className="xui-dropdown--toggledwrapper"
-  data-ref="toggled-wrapper"
+  className="xui-dateinputitem"
 >
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    htmlFor="xui-testDateinputId-control"
+  >
+    Date
+  </label>
   <div
-    aria-activedescendant={null}
-    aria-haspopup="listbox"
-    className="xui-dateinputitem"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
+    className="xui-dropdown--toggledwrapper"
+    data-ref="toggled-wrapper"
   >
     <div
       className="xui-textinputwrapper"
       onKeyDown={[Function]}
       role="presentation"
     >
-      <label
-        className="xui-text-label xui-fieldlabel-layout"
-        htmlFor="xui-testDateinputId-control"
-      >
-        Date
-      </label>
       <div
+        aria-activedescendant={null}
+        aria-haspopup="listbox"
         autoComplete="off"
         className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
         onClick={[Function]}
+        onKeyUp={[Function]}
       >
         <div
           className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
@@ -192,9 +188,9 @@ exports[`XUIDateInputItem renders with a hint 1`] = `
           </div>
         </div>
         <input
-          aria-describedby="xui-testDateinputId-message"
           aria-invalid={null}
-          className="xui-textinput--input xui-textinput--input-medium"
+          aria-labelledby="xui-testDateinputId"
+          className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
           id="xui-testDateinputId-control"
           onBlurCapture={[Function]}
           onChange={[Function]}
@@ -207,46 +203,44 @@ exports[`XUIDateInputItem renders with a hint 1`] = `
           value="15 Dec 2020"
         />
       </div>
-      <div
-        className="xui-validation xui-validation-layout"
-        id="xui-testDateinputId-message"
-        role="status"
-      >
-        hint message
-      </div>
     </div>
+  </div>
+  <div
+    className="xui-validation xui-validation-layout"
+    id="xui-testDateinputId-message"
+    role="status"
+  >
+    hint message
   </div>
 </div>
 `;
 
 exports[`XUIDateInputItem renders with the provided label 1`] = `
 <div
-  className="xui-dropdown--toggledwrapper"
-  data-ref="toggled-wrapper"
+  className="xui-dateinputitem"
 >
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    htmlFor="xui-testDateinputId-control"
+  >
+    Select date
+  </label>
   <div
-    aria-activedescendant={null}
-    aria-haspopup="listbox"
-    className="xui-dateinputitem"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
+    className="xui-dropdown--toggledwrapper"
+    data-ref="toggled-wrapper"
   >
     <div
       className="xui-textinputwrapper"
       onKeyDown={[Function]}
       role="presentation"
     >
-      <label
-        className="xui-text-label xui-fieldlabel-layout"
-        htmlFor="xui-testDateinputId-control"
-      >
-        Select date
-      </label>
       <div
+        aria-activedescendant={null}
+        aria-haspopup="listbox"
         autoComplete="off"
         className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
         onClick={[Function]}
+        onKeyUp={[Function]}
       >
         <div
           className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
@@ -271,7 +265,8 @@ exports[`XUIDateInputItem renders with the provided label 1`] = `
         </div>
         <input
           aria-invalid={null}
-          className="xui-textinput--input xui-textinput--input-medium"
+          aria-labelledby="xui-testDateinputId"
+          className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
           id="xui-testDateinputId-control"
           onBlurCapture={[Function]}
           onChange={[Function]}
@@ -291,32 +286,30 @@ exports[`XUIDateInputItem renders with the provided label 1`] = `
 
 exports[`XUIDateInputItem renders with validation message 1`] = `
 <div
-  className="xui-dropdown--toggledwrapper"
-  data-ref="toggled-wrapper"
+  className="xui-dateinputitem"
 >
+  <label
+    className="xui-text-label xui-fieldlabel-layout"
+    htmlFor="xui-testDateinputId-control"
+  >
+    Date
+  </label>
   <div
-    aria-activedescendant={null}
-    aria-haspopup="listbox"
-    className="xui-dateinputitem"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
+    className="xui-dropdown--toggledwrapper"
+    data-ref="toggled-wrapper"
   >
     <div
       className="xui-textinputwrapper xui-textinputwrapper-is-invalid"
       onKeyDown={[Function]}
       role="presentation"
     >
-      <label
-        className="xui-text-label xui-fieldlabel-layout"
-        htmlFor="xui-testDateinputId-control"
-      >
-        Date
-      </label>
       <div
+        aria-activedescendant={null}
+        aria-haspopup="listbox"
         autoComplete="off"
         className="xui-dateinputitem--input xui-textinput xui-textinput-medium xui-textinput-is-invalid"
         onClick={[Function]}
+        onKeyUp={[Function]}
       >
         <div
           className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
@@ -340,9 +333,9 @@ exports[`XUIDateInputItem renders with validation message 1`] = `
           </div>
         </div>
         <input
-          aria-describedby="xui-testDateinputId-message"
           aria-invalid={true}
-          className="xui-textinput--input xui-textinput--input-medium"
+          aria-labelledby="xui-testDateinputId"
+          className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
           id="xui-testDateinputId-control"
           onBlurCapture={[Function]}
           onChange={[Function]}
@@ -355,26 +348,26 @@ exports[`XUIDateInputItem renders with validation message 1`] = `
           value="15 Dec 2020"
         />
       </div>
-      <div
-        className="xui-validation xui-validation-layout xui-validation-is-invalid"
-        id="xui-testDateinputId-message"
-        role="status"
-      >
-        <svg
-          className="xui-icon"
-          focusable="false"
-          height={16}
-          viewBox="0 0 16 16"
-          width={16}
-        >
-          <path
-            d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
-            role="presentation"
-          />
-        </svg>
-        validation message
-      </div>
     </div>
+  </div>
+  <div
+    className="xui-validation xui-validation-layout xui-validation-is-invalid"
+    id="xui-testDateinputId-message"
+    role="status"
+  >
+    <svg
+      className="xui-icon"
+      focusable="false"
+      height={16}
+      viewBox="0 0 16 16"
+      width={16}
+    >
+      <path
+        d="M8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 Z M7,4 L7,9 L9,9 L9,4 L7,4 Z M7,10 L7,12 L9,12 L9,10 L7,10 Z"
+        role="presentation"
+      />
+    </svg>
+    validation message
   </div>
 </div>
 `;

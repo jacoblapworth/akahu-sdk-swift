@@ -53,35 +53,34 @@ class XUIDateInput extends React.Component {
     const selectedDate = selectedDateValue || this.state.selectedDate;
 
     return (
-      <div className={cn(`${ns}-dateinput`, className)} data-automationid={qaHook}>
-        <XUIDateInputItem
-          closeOnSelect={closeOnSelect}
-          displayedMonth={displayedMonth}
-          hintMessage={hintMessage}
-          inputIcon={inputIcon}
-          inputLabel={inputLabel}
-          isDisabled={isDisabled}
-          isDueDate={isDueDate}
-          isInvalid={isInvalid}
-          locale={locale}
-          maxDate={maxDate}
-          minDate={minDate}
-          nextButtonAriaLabel={nextButtonAriaLabel}
-          onInputChange={onInputChange}
-          onSelectDate={this.onSelectDate}
-          onValidationFailed={onValidationFailed}
-          prevButtonAriaLabel={prevButtonAriaLabel}
-          qaHook={qaHook && `${qaHook}-dateinput`}
-          selectDateIcon={selectDateIcon}
-          selectDateLabel={selectDateLabel}
-          selectedDate={selectedDate}
-          size={size}
-          suggestedDates={suggestedDates}
-          triggerClassName={triggerClassName}
-          validationMessage={validationMessage}
-          {...spreadProps}
-        />
-      </div>
+      <XUIDateInputItem
+        closeOnSelect={closeOnSelect}
+        displayedMonth={displayedMonth}
+        hintMessage={hintMessage}
+        inputFieldClassName={cn(className, `${ns}-dateinput`)}
+        inputIcon={inputIcon}
+        inputLabel={inputLabel}
+        isDisabled={isDisabled}
+        isDueDate={isDueDate}
+        isInvalid={isInvalid}
+        locale={locale}
+        maxDate={maxDate}
+        minDate={minDate}
+        nextButtonAriaLabel={nextButtonAriaLabel}
+        onInputChange={onInputChange}
+        onSelectDate={this.onSelectDate}
+        onValidationFailed={onValidationFailed}
+        prevButtonAriaLabel={prevButtonAriaLabel}
+        qaHook={qaHook && `${qaHook}-dateinput`}
+        selectDateIcon={selectDateIcon}
+        selectDateLabel={selectDateLabel}
+        selectedDate={selectedDate}
+        size={size}
+        suggestedDates={suggestedDates}
+        triggerClassName={triggerClassName}
+        validationMessage={validationMessage}
+        {...spreadProps}
+      />
     );
   }
 }

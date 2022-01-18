@@ -97,14 +97,20 @@ variations.forEach(variation => {
     delete variationMinusStoryDetails.items;
     delete variationMinusStoryDetails.storyKind;
     delete variationMinusStoryDetails.storyTitle;
-    const display = variationMinusStoryDetails.fullWidth === 'never' ? 'flex' : '';
+    const isLimitedWidth = variationMinusStoryDetails.fullWidth === 'never';
 
     return (
-      <div style={{ maxWidth: '600px', display }}>
+      <div
+        className={isLimitedWidth && `xui-margin-horizontal-auto`}
+        style={{
+          maxWidth: '600px',
+          width: isLimitedWidth && 'auto',
+        }}
+      >
         <XUISelectBox
           {...variationMinusStoryDetails}
           caretTitle="Toggle list"
-          containerClassName={`xui-margin-horizontal-auto ${variation.containerClassName}`}
+          containerClassName={variation.containerClassName}
           label={variation.storyTitle}
         >
           {createItems({ items })}

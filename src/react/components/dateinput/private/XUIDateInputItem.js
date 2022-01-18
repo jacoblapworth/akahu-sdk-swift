@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid';
 import cn from 'classnames';
 import { ns } from '../../helpers/xuiClassNamespace';
 
+import XUIControlWrapper from '../../controlwrapper/XUIControlWrapper';
 import {
   XUIDropdownFooter,
   XUIDropdownPanel,
@@ -19,6 +20,7 @@ import { baseSizeClasses } from '../../textinput/private/constants';
 import XUIIcon from '../../icon/XUIIcon';
 import formatSelectedDateToString from './helpers/formatSelectedDateToString';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
+import generateIds from '../../helpers/ariaHelpers';
 import { isDayOutsideRange } from '../../datepicker/helpers/utils';
 
 /**
@@ -54,6 +56,8 @@ class XUIDateInputItem extends Component {
   suggestedDatesId = nanoid();
 
   suggestedDatesFooterId = nanoid();
+
+  wrapperIds = generateIds();
 
   componentDidMount() {
     this.setState({
@@ -250,6 +254,7 @@ class XUIDateInputItem extends Component {
       inputLabel,
       isDisabled,
       isInvalid,
+      isLabelHidden,
       isDueDate, // Destructured so as not to spread.
       locale,
       maxDate,
@@ -271,49 +276,47 @@ class XUIDateInputItem extends Component {
     } = this.props;
     const { activePanel, selectedSuggestedDate, inputValue } = this.state;
     const isDateInvalid = isInvalid || this.state.isDateInvalid;
+    const hasVisibleLabel = inputLabel && !isLabelHidden;
 
     /** Trigger where users focus to select date or type in a date shortcut */
     const trigger = (
-      <div
-        className={cn(
-          `${ns}-dateinputitem`,
+      <XUITextInput
+        autoComplete="off"
+        containerClassName={`${ns}-dateinputitem--input`}
+        inputClassName={cn(
+          `${ns}-dateinputitem--input`,
+          inputClassName,
           triggerClassName,
           isDisabled && `${ns}-dateinputitem-is-disabled`,
         )}
-        ref={this.triggerRef}
-      >
-        <XUITextInput
-          autoComplete="off"
-          containerClassName={`${ns}-dateinputitem--input`}
-          fieldClassName={inputFieldClassName}
-          hintMessage={hintMessage}
-          inputClassName={inputClassName}
-          inputRef={el => {
-            if (exposeInputRef) {
-              exposeInputRef(el);
-            }
-
-            this.inputRef.current = el;
-          }}
-          isDisabled={isDisabled}
-          isInvalid={isDateInvalid}
-          label={inputLabel}
-          leftElement={
-            <XUITextInputSideElement onClick={this.onIconFocus}>
-              <XUIIcon color="black" icon={inputIcon || dateStartIcon} isBoxed />
-            </XUITextInputSideElement>
+        inputProps={{ id: this.wrapperIds.control }}
+        inputRef={el => {
+          if (exposeInputRef) {
+            exposeInputRef(el);
           }
-          onBlur={this.setDate}
-          onChange={this.onInputChange}
-          onClick={this.handleInitialFocus}
-          onKeyDown={this.onInputKeyDown}
-          qaHook={qaHook && `${qaHook}-dateinputitem--input`}
-          size={size}
-          validationMessage={validationMessage}
-          value={formatSelectedDateToString(selectedDate, inputValue, locale)}
-          {...spreadProps}
-        />
-      </div>
+
+          this.inputRef.current = el;
+        }}
+        isDisabled={isDisabled}
+        isInvalid={isDateInvalid}
+        isLabelHidden={isLabelHidden}
+        label={(isLabelHidden && inputLabel) || null}
+        labelId={(hasVisibleLabel && this.wrapperIds.label) || null}
+        leftElement={
+          <XUITextInputSideElement onClick={this.onIconFocus}>
+            <XUIIcon color="black" icon={inputIcon || dateStartIcon} isBoxed />
+          </XUITextInputSideElement>
+        }
+        onBlur={this.setDate}
+        onChange={this.onInputChange}
+        onClick={this.handleInitialFocus}
+        onKeyDown={this.onInputKeyDown}
+        qaHook={qaHook && `${qaHook}-dateinputitem--input`}
+        ref={this.triggerRef}
+        size={size}
+        value={formatSelectedDateToString(selectedDate, inputValue, locale)}
+        {...spreadProps}
+      />
     );
 
     /** Dropdown footer: */
@@ -384,16 +387,30 @@ class XUIDateInputItem extends Component {
     );
 
     return (
-      <XUIDropdownToggled
-        closeOnSelect={closeOnSelect}
-        closeOnTab={false}
-        dropdown={dateInputDropdown}
-        onClose={this.onDropdownClose}
-        ref={this.ddtRef}
-        restrictedToViewPort={false}
-        trigger={trigger}
-        triggerClickAction="none"
-      />
+      <XUIControlWrapper
+        fieldClassName={cn(`${ns}-dateinputitem`, inputFieldClassName)}
+        isInvalid={isDateInvalid}
+        label={(hasVisibleLabel && inputLabel) || null}
+        labelRef={this.labelRef}
+        wrapperIds={this.wrapperIds}
+        {...{
+          qaHook,
+          hintMessage,
+          validationMessage,
+        }}
+        ref={this.rootNode}
+      >
+        <XUIDropdownToggled
+          closeOnSelect={closeOnSelect}
+          closeOnTab={false}
+          dropdown={dateInputDropdown}
+          onClose={this.onDropdownClose}
+          ref={this.ddtRef}
+          restrictedToViewPort={false}
+          trigger={trigger}
+          triggerClickAction="none"
+        />
+      </XUIControlWrapper>
     );
   }
 }
@@ -442,6 +459,9 @@ XUIDateInputItem.propTypes = {
 
   /** Whether the current input value is invalid */
   isInvalid: PropTypes.bool,
+
+  /** Whether the individual input label is hidden */
+  isLabelHidden: PropTypes.bool,
 
   /** The locale of the calendar and the input. Use specific locale for english because `en` defaults to `en-US`. */
   locale: PropTypes.string.isRequired,

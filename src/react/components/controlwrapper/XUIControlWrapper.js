@@ -5,6 +5,7 @@ import cn from 'classnames';
 import { ns } from '../helpers/xuiClassNamespace';
 import LabelElement from './private/LabelElement';
 import MessageElement from './private/MessageElement';
+import GroupContext from '../../contexts/GroupContext';
 
 const XUIControlWrapper = React.forwardRef(
   (
@@ -25,33 +26,13 @@ const XUIControlWrapper = React.forwardRef(
       qaHook,
       validationMessage,
       wrapperIds,
+      wrapperProps,
     },
     ref,
   ) => {
     const rootClasses = cn(fieldClassName, isFieldLayout && `${ns}-field-layout`);
-
-    return (
-      /* eslint-disable jsx-a11y/no-static-element-interactions */
-      <div
-        className={rootClasses}
-        onClick={onClick}
-        onKeyDown={onKeyDown}
-        ref={ref}
-        role={(onClick || onKeyDown) && 'presentation'}
-      >
-        <LabelElement
-          {...{
-            characterCounter,
-            label,
-            labelClassName,
-            labelRef,
-            isLabelHidden,
-            qaHook,
-            wrapperIds,
-            isGroup,
-          }}
-        />
-        {children}
+    const messageEle =
+      ((hintMessage || validationMessage) && (
         <MessageElement
           {...{
             isInvalid,
@@ -61,7 +42,55 @@ const XUIControlWrapper = React.forwardRef(
             wrapperIds,
           }}
         />
-      </div>
+      )) ||
+      undefined;
+
+    return (
+      /* eslint-disable jsx-a11y/no-static-element-interactions */
+      <GroupContext.Consumer>
+        {({ useFlatElementStructure }) => {
+          const labelEle = (
+            <LabelElement
+              isGroup={isGroup}
+              {...{
+                characterCounter,
+                label,
+                labelClassName,
+                labelRef,
+                isLabelHidden,
+                qaHook,
+                useFlatElementStructure,
+                wrapperIds,
+              }}
+            />
+          );
+
+          // For single controls: render label, message, and input as siblings wrapped in a div.
+          // For grouped controls: wrap the input only, then render all three elements as
+          // top-level siblings (for grid layout).
+          return (
+            <>
+              {useFlatElementStructure && labelEle}
+              <div
+                className={cn(
+                  rootClasses,
+                  messageEle && useFlatElementStructure && `${ns}-has-message`,
+                )}
+                onClick={onClick}
+                onKeyDown={onKeyDown}
+                ref={ref}
+                role={(onClick || onKeyDown) && 'presentation'}
+                {...wrapperProps}
+              >
+                {!useFlatElementStructure && labelEle}
+                {children}
+                {!useFlatElementStructure && messageEle}
+              </div>
+              {useFlatElementStructure && messageEle}
+            </>
+          );
+        }}
+      </GroupContext.Consumer>
       /* eslint-enable */
     );
   },
@@ -84,7 +113,9 @@ XUIControlWrapper.propTypes = {
   /** Whether to use the field layout classes */
   isFieldLayout: PropTypes.bool,
 
-  /** Whether this will be used to wrap multiple controls with their own labels */
+  /**
+   * Whether this will be used to wrap multiple controls with their own labels
+   */
   isGroup: PropTypes.bool,
 
   /** Whether the current input value is invalid */
@@ -124,6 +155,8 @@ XUIControlWrapper.propTypes = {
     label: PropTypes.string,
     message: PropTypes.string,
   }).isRequired,
+  /** Stuff to spread on the div wrapping the control itself */
+  wrapperProps: PropTypes.object,
 };
 
 XUIControlWrapper.defaultProps = {

@@ -14,15 +14,15 @@
 
 // Top-level containers, only
 @mixin xui-controlgroup-containers-toplevel($ordinal: '') {
-  .#{$ns}-textinput#{$ordinal},
+  .#{$ns}-autocompleter#{$ordinal},
   .#{$ns}-button#{$ordinal},
   .#{$ns}-buttongroup#{$ordinal},
-  .#{$ns}-select#{$ordinal},
-  .#{$ns}-selectwrapper#{$ordinal},
-  .#{$ns}-textinputwrapper#{$ordinal},
-  .#{$ns}-autocompleter#{$ordinal},
+  .#{$ns}-dateinputitem#{$ordinal},
+  .#{$ns}-daterangeinput--suggested#{$ordinal},
   .#{$ns}-dropdown--toggledwrapper#{$ordinal},
-  .#{$ns}-dateinput#{$ordinal} {
+  .#{$ns}-select#{$ordinal},
+  .#{$ns}-textinput#{$ordinal},
+  .#{$ns}-textinputwrapper#{$ordinal} {
     @content;
   }
 }
@@ -30,18 +30,19 @@
 // Specific bordered elements with top-level containers
 @mixin xui-controlgroup-bordered-toplevel($ordinal: '') {
   // Specific bordered elements with top-level containers
-  .#{$ns}-textinput#{$ordinal},
   .#{$ns}-button#{$ordinal},
   .#{$ns}-buttongroup#{$ordinal},
   .#{$ns}-select#{$ordinal} .#{$ns}-select--control,
-  .#{$ns}-selectwrapper#{$ordinal} .#{$ns}-select--button {
+  .#{$ns}-select#{$ordinal} .#{$ns}-select--button,
+  .#{$ns}-textinput#{$ordinal} {
     @content;
   }
   // Top-level elements that may contain textinputs or buttons
-  .#{$ns}-textinputwrapper#{$ordinal},
   .#{$ns}-autocompleter#{$ordinal},
+  .#{$ns}-dateinputitem#{$ordinal},
+  .#{$ns}-daterangeinput--suggested#{$ordinal},
   .#{$ns}-dropdown--toggledwrapper#{$ordinal},
-  .#{$ns}-dateinput#{$ordinal} {
+  .#{$ns}-textinputwrapper#{$ordinal} {
     .#{$ns}-textinput,
     .#{$ns}-button {
       @content;
@@ -67,6 +68,14 @@
   }
 }
 
+.#{$ns}-controlgroup {
+  .#{$ns}-text-label {
+    padding-right: $xui-s-small;
+  }
+
+  @include xui-clearfix;
+}
+
 .#{$ns}-controlgroup > {
   // Square borders, by default
   @include xui-controlgroup-bordered-all {
@@ -75,8 +84,45 @@
 }
 
 .#{$ns}-controlgroup-horizontal {
-  .#{$ns}-textinput--input {
-    width: inherit;
+  display: grid;
+  /**
+    grid-auto-flow, combined with the grid-row properties for labels, controls, and messages, ensures that labels and messages
+    are in the correct column with their associated control, rather than slotting into the leftmost empty grid space.
+  */
+  grid-auto-flow: column;
+  grid-row: 1 / 4;
+
+  // Width and height shenanigans to get everything stretching to the proper size,
+  // and type-able controls to align to top, when stretched.
+  .#{$ns}-textinput {
+    width: auto;
+  }
+  @include xui-controlgroup-containers-toplevel {
+    height: 100%;
+    > .#{$ns}-dropdown--toggledwrapper,
+    .#{$ns}-dropdown--toggledwrapper > *,
+    .#{$ns}-select--control {
+      height: inherit;
+    }
+  }
+  .#{$ns}-textinputwrapper,
+  .#{$ns}-dateinputitem,
+  .#{$ns}-autocompleter {
+    .#{$ns}-textinput {
+      align-items: flex-start;
+    }
+  }
+
+  // Inline controls have not been entirely unwrapped, and we want to mimic the layout of their
+  // *Group counterparts that include a background and borders
+  &:not(.#{$ns}-styledcheckboxradio-group) .#{$ns}-styledcheckboxradiowrapper,
+  &:not(.#{$ns}-switch-group) .#{$ns}-switchwrapper {
+    &:nth-child(n + 2) {
+      padding-left: $xui-s-small;
+    }
+    .#{$ns}-validation {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -87,26 +133,88 @@
     margin-left: -1px;
   }
 
-  // round left borders for the first item
+  // round left borders for the first control (which may follow a label)
   @include xui-controlgroup-bordered-all(':first-child') {
     border-bottom-left-radius: $xui-radius;
     border-top-left-radius: $xui-radius;
   }
+  .#{$ns}-text-label:first-child + {
+    @include xui-controlgroup-bordered-all {
+      border-bottom-left-radius: $xui-radius;
+      border-top-left-radius: $xui-radius;
+    }
+    // Also cancel negative margin for control containers in the first column
+    @include xui-controlgroup-containers-toplevel {
+      margin-left: 0px;
+    }
+  }
 
-  // round right borders for the last item
+  // round right borders for the last control (which may precede a message)
   @include xui-controlgroup-bordered-all(':last-child') {
     border-bottom-right-radius: $xui-radius;
     border-top-right-radius: $xui-radius;
   }
+  .#{$ns}-has-message:nth-last-child(2) {
+    @include xui-controlgroup-bordered-all {
+      border-bottom-right-radius: $xui-radius;
+      border-top-right-radius: $xui-radius;
+    }
+  }
 
-  .#{$ns}-textinput {
-    width: auto;
+  // Top row: labels, align to bottom
+  .#{$ns}-text-label {
+    align-self: end;
+    grid-row: 1 / 2;
+  }
+
+  // Second (middle) row: controls, stretch to fill
+  @include xui-controlgroup-containers-toplevel {
+    align-self: stretch;
+    grid-row: 2 / 3;
+  }
+
+  // Third row: hint and validation messages, align to top
+  .#{$ns}-validation {
+    align-self: start;
+    grid-row: 3 / 4;
+
+    // Override vertical margins, when horizontally grouped.
+    margin-bottom: $xui-s-small;
+    margin-top: 0;
+  }
+
+  // Override vertical margins, when horizontally grouped.
+  .#{$ns}-field-layout {
+    @include xui-margin-vertical(0);
+  }
+
+  .#{$ns}-fieldlabel-layout {
+    padding-top: $xui-s-2xsmall;
   }
 }
 
 .#{$ns}-controlgroup-vertical {
-  // Allows the columns to shrink below their content-width, if necessary.
-  grid-template-columns: minmax(0, 1fr);
+  // Grid would be fine for vertical, except it prevents margins from collapsing, so switch to flex.
+  display: flex;
+  flex-direction: column;
+
+  // Inline controls have not been entirely unwrapped, and we want to mimic the layout of their
+  // *Group counterparts that include a background and borders
+  &:not(.#{$ns}-styledcheckboxradio-group) .#{$ns}-styledcheckboxradiowrapper,
+  &:not(.#{$ns}-switch-group) .#{$ns}-switchwrapper {
+    &:nth-child(n + 2) {
+      padding-top: $xui-s-small;
+    }
+    &:first-child {
+      padding-top: $xui-s-xsmall;
+    }
+    &:last-child {
+      padding-bottom: $xui-s-xsmall;
+    }
+    .#{$ns}-validation {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .#{$ns}-controlgroup-vertical > {
@@ -126,6 +234,21 @@
     border-top-right-radius: $xui-radius;
   }
 
+  // Controls that immediately follow a label or message should have rounded top corners, as well
+  .#{$ns}-text-label +,
+  .#{$ns}-validation + {
+    @include xui-controlgroup-bordered-toplevel {
+      border-top-left-radius: $xui-radius;
+      border-top-right-radius: $xui-radius;
+    }
+    @include xui-controlgroup-grandchild-order-matters('', ':first-child') {
+      border-top-left-radius: $xui-radius;
+    }
+    @include xui-controlgroup-grandchild-order-matters('', ':last-child') {
+      border-top-right-radius: $xui-radius;
+    }
+  }
+
   // round bottom corners for the last top-level child
   @include xui-controlgroup-bordered-all(':last-child') {
     border-bottom-right-radius: $xui-radius;
@@ -136,29 +259,22 @@
   @include xui-controlgroup-grandchild-order-matters(':last-child', ':first-child') {
     border-bottom-left-radius: $xui-radius;
   }
-}
-
-.#{$ns}-controlgroup-vertical .#{$ns}-text-label + {
-  .#{$ns}-textinput,
-  .#{$ns}-select .#{$ns}-select--button {
-    border-radius: $xui-radius !important;
+  @include xui-controlgroup-bordered-toplevel('.#{$ns}-has-message') {
+    border-bottom-left-radius: $xui-radius;
+    border-bottom-right-radius: $xui-radius;
   }
-}
-
-.#{$ns}-controlgroup {
-  display: grid;
-
-  &:not(.#{$ns}-controlgroup-is-bottomaligned) {
-    align-items: start;
+  @include xui-controlgroup-grandchild-order-matters('.#{$ns}-has-message', ':first-child') {
+    border-bottom-left-radius: $xui-radius;
   }
-
-  &-is-bottomaligned {
-    align-items: end;
+  @include xui-controlgroup-grandchild-order-matters('.#{$ns}-has-message', ':last-child') {
+    border-bottom-right-radius: $xui-radius;
   }
+  // There's no way for us to know if a control is immediately followed by the label of the next control
+  // in which case we would also round the bottom corners. Alas. This has been noted as an acceptable edge case.
 
-  .#{$ns}-text-label {
-    padding-right: $xui-s-small;
+  @include xui-controlgroup-containers-toplevel(':not(.#{$ns}-has-message)') {
+    & + .#{$ns}-text-label {
+      margin-top: $xui-s-2xlarge;
+    }
   }
-
-  @include xui-clearfix;
 }

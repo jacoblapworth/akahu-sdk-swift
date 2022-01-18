@@ -132,6 +132,28 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'horizontal group',
+    isGroup: true,
+    viewports: desktopPlus320,
+    groupProps: {
+      isLockedVertical: false,
+      swapAtBreakpoint: 'small',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'horizontal group invalid',
+    isGroup: true,
+    viewports: desktopPlus320,
+    groupProps: {
+      isLockedVertical: false,
+      swapAtBreakpoint: 'small',
+      isInvalid: true,
+      validationMessage: 'whoops',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'grouped',
     isGroup: true,
     groupProps: {

@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import { ns } from '../helpers/xuiClassNamespace';
 import XUIControlGroup from '../controlgroup/XUIControlGroup';
+import defaultBreakpoints from '../helpers/breakpoints';
 
 const baseClass = `${ns}-switch`;
 
@@ -19,43 +20,43 @@ const XUISwitchGroup = props => {
   const {
     className,
     children,
+    columnWidths,
     fieldClassName,
     hintMessage,
     isFieldLayout,
     isInvalid,
     isLabelHidden,
+    isLockedVertical,
     label,
     labelClassName,
     labelId,
     qaHook,
+    swapAtBreakpoint,
     validationMessage,
   } = props;
 
-  const groupClasses = cn(
-    className,
-    `${baseClass}-group`,
-    isInvalid && `${baseClass}-group-is-invalid`,
-  );
-
   return (
-    <XUIControlGroup
-      groupClassName={groupClasses}
-      {...{
-        fieldClassName,
-        qaHook,
-        label,
-        labelId,
-        isInvalid,
-        isLockedVertical: true,
-        validationMessage,
-        hintMessage,
-        isFieldLayout,
-        labelClassName,
-        isLabelHidden,
-      }}
-    >
-      {children}
-    </XUIControlGroup>
+    <div className={fieldClassName}>
+      <XUIControlGroup
+        fieldClassName={cn(className, `${baseClass}-group`)}
+        {...{
+          columnWidths,
+          qaHook,
+          label,
+          labelId,
+          isInvalid,
+          isLockedVertical,
+          validationMessage,
+          hintMessage,
+          isFieldLayout,
+          labelClassName,
+          isLabelHidden,
+          swapAtBreakpoint,
+        }}
+      >
+        {children}
+      </XUIControlGroup>
+    </div>
   );
 };
 
@@ -65,6 +66,8 @@ XUISwitchGroup.propTypes = {
   children: PropTypes.node,
   /** Class names to be added to bordered grouping element */
   className: PropTypes.string,
+  /** Column widths, expressed a CSS grid-template-columns string */
+  columnWidths: PropTypes.string,
   /** Class names to be added to the field wrapper element */
   fieldClassName: PropTypes.string,
   /** Hint message to show under the input */
@@ -75,6 +78,8 @@ XUISwitchGroup.propTypes = {
   isInvalid: PropTypes.bool,
   /** Whether to hide the label and apply it as an ARIA label instead. Defaults to visible */
   isLabelHidden: PropTypes.bool,
+  /** Whether the group is permanently grouped as a column, rather than a row. Defaults to true. */
+  isLockedVertical: PropTypes.bool,
   /** Label to show above the switch group, or for accessibility when the switch group label is hidden. Highly recommended */
   label: PropTypes.node,
   /** Class names to add to the label text element */
@@ -82,10 +87,16 @@ XUISwitchGroup.propTypes = {
   /** Provide a specific label ID which will be used as the "labelleby" aria property */
   labelId: PropTypes.string,
   qaHook: PropTypes.string,
+  /**
+   * Defines the swap breakpoint (container width) between horizontal (single-row) group and vertical (single-column) group.
+   * Supported breakpoints are `small` (600px), `medium` (800px), `large` (1000px), and `xlarge` (1200px).
+   */
+  swapAtBreakpoint: PropTypes.oneOf([...Object.keys(defaultBreakpoints)]),
   /** Validation message to show under the input if `isInvalid` is true */
   validationMessage: PropTypes.node,
 };
 
 XUISwitchGroup.defaultProps = {
   isFieldLayout: false,
+  isLockedVertical: true,
 };

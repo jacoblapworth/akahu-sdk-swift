@@ -37,18 +37,24 @@ variations.forEach(variation => {
     variationMinusStoryDetails.onChange = NOOP;
     if (isGroup) {
       return (
-        <div style={{ maxWidth: '600px' }}>
+        <div
+          style={
+            (groupProps?.isLockedVertical !== false && { maxWidth: '600px' }) || {
+              width: 'calc(100vw - 10px)',
+            }
+          }
+        >
           <XUISwitchGroup {...groupProps}>
-            <XUISwitch isDefaultChecked isReversed onChange={NOOP}>
+            <XUISwitch isDefaultChecked isReversed={groupProps?.isReversed} onChange={NOOP}>
               One option you might try
             </XUISwitch>
-            <XUISwitch isDisabled isReversed onChange={NOOP}>
+            <XUISwitch isDisabled isReversed={groupProps?.isReversed} onChange={NOOP}>
               Another that is not an option
             </XUISwitch>
-            <XUISwitch isReversed onChange={NOOP}>
+            <XUISwitch isReversed={groupProps?.isReversed} onChange={NOOP}>
               Third option
             </XUISwitch>
-            <XUISwitch isChecked isReversed onChange={NOOP}>
+            <XUISwitch isChecked isReversed={groupProps?.isReversed} onChange={NOOP}>
               Yet another switch option, but this one is a good deal longer and may potentially wrap
               to a new line
             </XUISwitch>

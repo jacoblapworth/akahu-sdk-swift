@@ -73,6 +73,28 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'is Horizontal Group',
+    viewports: desktopPlus320,
+    isGroup: true,
+    groupProps: {
+      isLockedVertical: false,
+      swapAtBreakpoint: 'small',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'is Horizontal Group Invalid',
+    isGroup: true,
+    viewports: desktopPlus320,
+    groupProps: {
+      isLockedVertical: false,
+      isInvalid: true,
+      validationMessage: 'Whoa there',
+      swapAtBreakpoint: 'small',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'is Radio Group',
     viewports: desktopPlus320,
     isGroup: true,

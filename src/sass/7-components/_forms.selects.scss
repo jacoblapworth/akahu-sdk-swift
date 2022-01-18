@@ -46,6 +46,10 @@
     color: $xui-control-disabled-color;
   }
 
+  .#{$ns}-select-is-invalid &:not(:focus) {
+    // Should be higher than others, except focused items
+    z-index: $xui-z-index-focus - 1;
+  }
   .#{$ns}-select-is-invalid &,
   .#{$ns}-select-is-invalid &:hover {
     border-color: $xui-validation-invalid-color;
@@ -54,6 +58,9 @@
   .#{$ns}-select-cell .#{$ns}-select-is-invalid &,
   .#{$ns}-select-cell .#{$ns}-select-is-invalid &:hover {
     border-color: transparent;
+  }
+  &:focus {
+    z-index: $xui-z-index-focus;
   }
 }
 

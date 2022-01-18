@@ -16,18 +16,6 @@ $xui-dateinput-label-vertical-offset: 25px;
     max-height: $xui-control-size-standard;
   }
 
-  &--firstinput-withspace,
-  &--secondinput-withspace,
-  &--suggested-withspace {
-    margin-bottom: $xui-s-2xlarge + $xui-s-2xsmall; // Overall height of validation and hint messages
-  }
-
-  &--firstinput-withlabelspace,
-  &--secondinput-withlabelspace,
-  &--suggested-withlabelspace {
-    margin-top: $xui-dateinput-label-vertical-offset; // Overall height of labels
-  }
-
   .#{$ns}-button-split {
     color: $xui-color-grey-3;
   }

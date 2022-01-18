@@ -183,9 +183,11 @@ class DetailedListExample extends Component {
       isInvalid,
       validationMessage,
       hintMessage,
+      isFieldLayout,
       isInputLabelHidden,
       inputId,
       inputProps,
+      matchTriggerWidth,
     } = example.props;
 
     const footer = (
@@ -216,10 +218,12 @@ class DetailedListExample extends Component {
         inputLabel={this.props.inputLabel || 'Sample Autocompleter'}
         inputProps={inputProps}
         isDisabled={isDisabled}
+        isFieldLayout={isFieldLayout}
         isInputLabelHidden={isInputLabelHidden === undefined ? true : isInputLabelHidden}
         isInvalid={isInvalid}
         isLoading={isLoading}
         loadingAriaLabel="Loading"
+        matchTriggerWidth={matchTriggerWidth}
         onBackspacePill={this.deleteLastPerson}
         onClose={() => this.onClose()}
         onSearch={example.onSearchChangeHandler}

@@ -31,6 +31,8 @@ import overflow from '@xero/xui-icon/icons/overflow';
 import cross from '@xero/xui-icon/icons/cross';
 import importIcon from '@xero/xui-icon/icons/import';
 
+import { defaultCreatePagingContent } from './components/pagination/private/helpers';
+
 const ExampleFooter = () => {
   const { isWidthAboveBreakpoint, observedElementRef } = useContainerQuery({
     fitsEntireControlBar: 450
@@ -45,6 +47,7 @@ const ExampleFooter = () => {
       showPerPageCountSelect={false}
       ariaLabel="Pagination"
       createPagingContent={(page, pageCount) => ({
+        enhanced: `Page ${page} of ${pageCount}`,
         simple: `${page} of ${pageCount}`
       })}
       nextPageLabel="Next Page"

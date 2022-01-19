@@ -23,8 +23,10 @@ exports[`XUIDateRangeInput renders component with specified dates 1`] = `
         aria-haspopup="listbox"
         className="xui-dateinputitem"
         onClick={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
+        tabIndex="-1"
       >
         <div
           className="xui-daterangeinput--firstinput xui-textinputwrapper"
@@ -93,8 +95,10 @@ exports[`XUIDateRangeInput renders component with specified dates 1`] = `
         aria-haspopup="listbox"
         className="xui-dateinputitem"
         onClick={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
+        tabIndex="-1"
       >
         <div
           className="xui-daterangeinput--secondinput xui-textinputwrapper"
@@ -211,8 +215,10 @@ exports[`XUIDateRangeInput renders default component 1`] = `
         aria-haspopup="listbox"
         className="xui-dateinputitem"
         onClick={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
+        tabIndex="-1"
       >
         <div
           className="xui-daterangeinput--firstinput xui-textinputwrapper"
@@ -278,8 +284,10 @@ exports[`XUIDateRangeInput renders default component 1`] = `
         aria-haspopup="listbox"
         className="xui-dateinputitem"
         onClick={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
+        tabIndex="-1"
       >
         <div
           className="xui-daterangeinput--secondinput xui-textinputwrapper"

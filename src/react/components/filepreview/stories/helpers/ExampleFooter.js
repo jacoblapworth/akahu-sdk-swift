@@ -31,13 +31,24 @@ const defaultPaginationProps = {
   previousPageLabel: 'Previous Page',
 };
 
+const pagination = (
+  <XUIPagination
+    count={3}
+    perPageCount={1}
+    perPageCountOptions={[1]}
+    showCount={false}
+    showPerPageCountSelect={false}
+    {...defaultPaginationProps}
+  />
+);
+
 const ExampleFooter = () => {
   const { isWidthAboveBreakpoint, observedElementRef } = useContainerQuery({
     fitsEntireControlBar: 450,
   });
 
   return (
-    <XUIFilePreviewFooter ref={observedElementRef}>
+    <XUIFilePreviewFooter pagination={pagination} ref={observedElementRef}>
       {isWidthAboveBreakpoint('fitsEntireControlBar') && (
         <XUIIconButton ariaLabel="Expand" icon={expand} onClick={() => {}} />
       )}
@@ -57,14 +68,6 @@ const ExampleFooter = () => {
           />
         </>
       )}
-      <XUIPagination
-        count={3}
-        perPageCount={1}
-        perPageCountOptions={[1]}
-        showCount={false}
-        showPerPageCountSelect={false}
-        {...defaultPaginationProps}
-      />
       {!isWidthAboveBreakpoint('fitsEntireControlBar') && (
         <XUIDropdownToggled
           dropdown={

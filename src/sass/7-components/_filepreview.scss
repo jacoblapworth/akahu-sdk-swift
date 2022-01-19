@@ -119,7 +119,6 @@ $isolationheader-text-spacing: ($xui-navigation-height - $xui-s-xlarge) * 0.5;
   bottom: 0;
   box-shadow: $xui-shadow-depth-overlap-bottom;
   display: flex;
-  justify-content: center;
   left: 0;
   min-height: $xui-navigation-height;
   position: sticky;
@@ -129,6 +128,19 @@ $isolationheader-text-spacing: ($xui-navigation-height - $xui-s-xlarge) * 0.5;
   .#{$ns}-button-icon:nth-child(n + 2),
   .#{$ns}-dropdown--toggledwrapper:nth-child(n + 2) {
     margin-left: $xui-s-small;
+  }
+
+  &--controls {
+    @include xui-padding-left($xui-s-standard);
+    display: flex;
+    flex: 0 1 auto;
+  }
+
+  &--pagination {
+    @include xui-padding-right($xui-s-standard);
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-end;
   }
 
   .#{$ns}-pagination {

@@ -2,7 +2,9 @@
 	<a href="../section-components-displayingdata-filepreview.html" isDocLink>File Preview in the XUI documentation</a>
 </div>
 
-XUIFilePreview will fill its wrapping container with a header, footer, and body area to display a file preview. XUIFilePreviewHeader has an API very similar to XUIIsolationHeader, and XUIFilePreviewFooter can be populated with the recommended preview controls. We've shown a responsive toolbar that stows some preview control buttons behind an overflow menu at narrow widths.
+XUIFilePreview will fill its wrapping container with a header, footer, and body area to display a file preview. XUIFilePreviewHeader has an API very similar to XUIIsolationHeader, and XUIFilePreviewFooter can be populated with the recommended preview controls. We've shown a responsive toolbar that stows some preview control buttons (aligned to the left) behind an overflow menu at narrow widths, alongside a pagination component (aligned to the right).
+
+Pagination contols should be provided through the `pagination` prop. This enables pagination components to always be aligned to the right, which enables consistency while navigating between different file types (which may have different controls).
 
 ## Examples
 
@@ -34,8 +36,26 @@ const ExampleFooter = () => {
     fitsEntireControlBar: 450
   });
 
+  const pagination = (
+    <XUIPagination
+      count={3}
+      perPageCount={1}
+      perPageCountOptions={[1]}
+      showCount={false}
+      showPerPageCountSelect={false}
+      ariaLabel="Pagination"
+      createPagingContent={(page, pageCount) => ({
+        simple: `${page} of ${pageCount}`
+      })}
+      nextPageLabel="Next Page"
+      pageSelectLabel="Select a page"
+      perPageCountSelectLabel="Select a per page count"
+      previousPageLabel="Previous Page"
+    />
+  );
+
   return (
-    <XUIFilePreviewFooter ref={observedElementRef}>
+    <XUIFilePreviewFooter pagination={pagination} ref={observedElementRef}>
       {isWidthAboveBreakpoint('fitsEntireControlBar') && (
         <XUIIconButton ariaLabel="Expand" icon={expand} onClick={() => {}} />
       )}
@@ -55,21 +75,6 @@ const ExampleFooter = () => {
           />
         </>
       )}
-      <XUIPagination
-        count={3}
-        perPageCount={1}
-        perPageCountOptions={[1]}
-        showCount={false}
-        showPerPageCountSelect={false}
-        ariaLabel="Pagination"
-        createPagingContent={(page, pageCount) => ({
-          simple: `${page} of ${pageCount}`
-        })}
-        nextPageLabel="Next Page"
-        pageSelectLabel="Select a page"
-        perPageCountSelectLabel="Select a per page count"
-        previousPageLabel="Previous Page"
-      />
       {!isWidthAboveBreakpoint('fitsEntireControlBar') && (
         <XUIDropdownToggled
           dropdown={

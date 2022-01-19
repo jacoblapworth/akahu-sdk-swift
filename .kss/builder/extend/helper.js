@@ -142,9 +142,14 @@ module.exports = function(handlebars) {
    *   }
    * {{/wrapSection}}
    */
-  handlebars.registerHelper('wrapSection', function (sectionId, body) {
-    const depth = this.depth,
-      isLast = body.data.last;
+  handlebars.registerHelper('wrapSection', function (sectionId, sections, body) {
+    const depth = this.depth;
+    const isLast = body.data.last;
+
+    const featuresOf = sections.find(section => section.header.includes("Features of"));
+    const featuresOfReference = featuresOf && featuresOf.reference;
+    const isSectionUnderFeaturesOf = featuresOfReference && this.reference.includes(featuresOfReference);
+    const isCallout = isSectionUnderFeaturesOf ? depth === 5 : depth === 4;
 
     var openSection = ``,
       closeSection = ``;
@@ -156,7 +161,7 @@ module.exports = function(handlebars) {
       openSection += `<section id=${sectionId} class="kss-section--depth-${depth}">`;
 
     } else {
-      openSection = `<div id=${sectionId} class="kss-section--depth-${depth}">`;
+      openSection = `<div id=${sectionId} class="kss-section--depth-${depth} ${isCallout ? "kss-section--callout": ""}">`;
       closeSection = `</div>`;
     }
 

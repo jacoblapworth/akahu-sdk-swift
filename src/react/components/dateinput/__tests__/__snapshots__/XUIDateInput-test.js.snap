@@ -13,8 +13,10 @@ exports[`XUIDateInput inserts selected date value 1`] = `
       aria-haspopup="listbox"
       className="xui-dateinputitem"
       onClick={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex="-1"
     >
       <div
         className="xui-textinputwrapper"
@@ -87,8 +89,10 @@ exports[`XUIDateInput renders default component 1`] = `
       aria-haspopup="listbox"
       className="xui-dateinputitem"
       onClick={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
+      tabIndex="-1"
     >
       <div
         className="xui-textinputwrapper"

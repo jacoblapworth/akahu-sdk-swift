@@ -238,6 +238,11 @@ class XUIDateInputItem extends Component {
     this.onSelectDate(suggestedDate.getDate());
   };
 
+  onTriggerFocus = () => {
+    // When the trigger wrapper is programmatically focused the inner TextInput is focused
+    this.inputRef?.current?.focus();
+  };
+
   render() {
     const {
       closeOnSelect,
@@ -280,7 +285,9 @@ class XUIDateInputItem extends Component {
           triggerClassName,
           isDisabled && `${ns}-dateinputitem-is-disabled`,
         )}
+        onFocus={this.onTriggerFocus}
         ref={this.triggerRef}
+        tabIndex="-1"
       >
         <XUITextInput
           autoComplete="off"

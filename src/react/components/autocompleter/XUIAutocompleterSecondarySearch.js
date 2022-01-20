@@ -168,6 +168,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
       isBlock,
       forceDesktop,
       onKeyDown,
+      useNewFocusBehaviour,
     } = this.props;
     const { value } = this.state;
 
@@ -202,6 +203,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
           }
           onChange={this.debouncedOnChange}
           placeholder={placeholder}
+          qaHook={useNewFocusBehaviour && qaHook && `${qaHook}--input`}
           value={value || ''}
         />
       </div>
@@ -224,7 +226,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
         onSelect={onOptionSelect}
         qaHook={listQaHook}
         ref={this.dropdown}
-        restrictFocus={restrictFocus}
+        restrictFocus={useNewFocusBehaviour ? false : restrictFocus}
         shouldManageInitialHighlight={false}
         size={dropdownSize}
       >
@@ -251,6 +253,7 @@ export default class XUIAutocompleterSecondarySearch extends PureComponent {
           onOpen={this.onOpen}
           ref={this.ddt}
           trigger={trigger}
+          useNewFocusBehaviour={useNewFocusBehaviour}
         />
       </div>
     );
@@ -364,7 +367,9 @@ XUIAutocompleterSecondarySearch.propTypes = {
 
   qaHook: PropTypes.string,
 
-  /** Whether focus should be restricted to the dropdown while it's open. */
+  /** Whether focus should be restricted to the dropdown while it's open.
+   * This is set to false if `useNewFocusBehaviour` is true.
+   */
   restrictFocus: PropTypes.bool,
 
   /** If you want to throttle the input's onChange handler, put the throttle interval here */
@@ -375,6 +380,10 @@ XUIAutocompleterSecondarySearch.propTypes = {
 
   /** Will be passed directly down to the `XUIDropdownToggled` component as the main trigger. */
   trigger: PropTypes.element.isRequired,
+
+  /** Whether or not to use the new focus behaviour - which treats dropdown navigation
+   * like a `combobox` role. Defaults to `false`. */
+  useNewFocusBehaviour: PropTypes.bool,
 };
 
 XUIAutocompleterSecondarySearch.defaultProps = {

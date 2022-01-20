@@ -59,6 +59,19 @@ The following components have been updated to correctly create a set of accessib
 - `XUITextInput` (and its consuming components): Only affected if both an `id` and `labelId` are being passed. Both will now be respected, rather than only the `id`.
 - `XUIToggleOption`: If passed an `id`, that ID will be applied to the control itself and used as the root of the related label element ID, rather than the other way around.
 
+### Updated focus/tab navigation for dropdowns
+
+The ability to use new focus/navigation behaviour for dropdown components has been added. This new behaviour fixes a number of navigation bugs in these components, and shifts them to behave as more of a `combobox` role, rather than a `modal` role. This behaviour is currently feature flagged, and can be accessed by setting `useNewFocusBehaviour` to `true` in the relevant components. In XUI 20, the default behaviour for these components will be updated to this new focus/navigation behaviour.
+
+The following components will have this new behaviour available as an opt-in from XUI `19.2.0` onwards:
+
+- `XUISelectBox` and `XUISelectBoxOption`, `XUIAutocompleter` and `XUIAutocompleterSecondarySearch`: by setting `useNewFocusBehaviour` to true
+- `XUIDropdownToggled` and `XUISplitButtonGroup`, with either `XUIDropdown` or `XUINestedDropdown` as the dropdown: by setting `useNewFocusBehaviour` to true on `XUIDropdownToggled`
+
+The following components will ALWAYS have this behaviour from XUI `19.2.0` onwards:
+
+- `XUIDateInputItem`, `XUIDateRangeInput` and overflow dropdowns in `XUITable`
+
 ### Component props
 
 _Note. The codemod will resolve most prop differences automatically when run._

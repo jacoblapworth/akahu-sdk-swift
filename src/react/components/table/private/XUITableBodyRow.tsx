@@ -151,7 +151,7 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
               <XUIDropdownToggled
                 className={`${tableName}--overflowmenu-body`}
                 dropdown={
-                  <XUIDropDown>
+                  <XUIDropDown restrictFocus={false}>
                     <Picklist>{overflowMenu}</Picklist>
                   </XUIDropDown>
                 }
@@ -165,6 +165,7 @@ class XUITableBodyRow<RD extends RowData = RowData> extends React.PureComponent<
                     title={overflowMenuTitle}
                   />
                 }
+                useNewFocusBehaviour
               />
             </XUIEditableTableCell>
           ) : (

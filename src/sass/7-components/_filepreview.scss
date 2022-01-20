@@ -1,0 +1,155 @@
+@import '../vars';
+@import '../mixins';
+
+$isolationheader-control-spacing: ($xui-navigation-height - $xui-control-size-standard) * 0.5;
+$isolationheader-text-spacing: ($xui-navigation-height - $xui-s-xlarge) * 0.5;
+
+.#{$ns}-filepreview {
+  background-color: $xui-body-bg-color;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.#{$ns}-filepreviewheader {
+  align-items: stretch;
+  background-color: $xui-pageheading-bg-color;
+  box-shadow: $xui-shadow-border-bottom;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  min-height: $xui-navigation-height;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: $xui-z-index-belownav;
+  &-medium-up {
+    flex-flow: unset;
+    flex-wrap: nowrap;
+  }
+  &--leftcontent {
+    @include xui-margin-left($xui-s-standard);
+    @include xui-margin-right($xui-s-2xsmall);
+    @include xui-padding-vertical(0);
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    justify-content: center;
+    // Removing the margins from the parent in the width calculation
+    max-width: calc(100% - #{$xui-s-standard + $xui-s-2xsmall});
+  }
+  &--controlcontent {
+    @include xui-padding-vertical($isolationheader-control-spacing);
+    align-items: flex-start;
+    display: flex;
+    .#{$ns}-button {
+      @include xui-margin-right($xui-s-small);
+    }
+  }
+  &--titlewrapper {
+    @include xui-margin-right($xui-s-xsmall);
+    @include xui-padding-vertical($isolationheader-text-spacing);
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .#{$ns}-filepreviewheader--title,
+    .#{$ns}-filepreviewheader--secondarytitle {
+      word-break: break-word;
+    }
+    .#{$ns}-filepreviewheader--title {
+      flex-grow: 0;
+    }
+  }
+  &--title {
+    @include xui-padding-right($xui-s-small);
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    font-size: $xui-font-size-large;
+    font-weight: bold;
+    line-height: $xui-line-height-standard;
+    margin: 0;
+  }
+  &--secondarytitle {
+    @include xui-padding-right($xui-s-small);
+    font-size: $xui-font-size-large;
+  }
+
+  &--rightcontent {
+    @include xui-padding-bottom($isolationheader-control-spacing);
+    align-content: flex-start;
+    align-self: flex-end;
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: row wrap-reverse;
+    justify-content: flex-end;
+    max-width: 100%;
+  }
+
+  &--actions {
+    @include xui-margin-right($xui-s-standard);
+    align-items: center; /* Required for button height not to stretch */
+    display: flex;
+    flex: 1 1 auto;
+    flex-grow: 0;
+    justify-content: flex-end;
+    // Line up medium icon buttons with small button buttons without magic numbers
+    min-height: $xui-control-size-standard;
+    > .#{$ns}-button:nth-child(n + 2),
+    .#{$ns}-actions .#{$ns}-actions--primary:nth-child(n + 2) {
+      @include xui-margin-left($xui-s-small);
+    }
+  }
+}
+
+.#{$ns}-filepreview--body {
+  @include xui-padding($xui-s-large);
+  align-items: center;
+  display: flex;
+  height: calc(100% - (2 * #{$xui-navigation-height}));
+  justify-content: center;
+  overflow: auto;
+}
+
+.#{$ns}-filepreviewfooter {
+  align-items: center;
+  background-color: $xui-panel-bg-color;
+  bottom: 0;
+  box-shadow: $xui-shadow-depth-overlap-bottom;
+  display: flex;
+  left: 0;
+  min-height: $xui-navigation-height;
+  position: sticky;
+  right: 0;
+  width: 100%;
+
+  .#{$ns}-button-icon:nth-child(n + 2),
+  .#{$ns}-dropdown--toggledwrapper:nth-child(n + 2) {
+    margin-left: $xui-s-small;
+  }
+
+  &--controls {
+    @include xui-padding-left($xui-s-standard);
+    display: flex;
+    flex: 0 1 auto;
+  }
+
+  &--pagination {
+    @include xui-padding-right($xui-s-standard);
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+  }
+
+  .#{$ns}-pagination {
+    padding-right: 0;
+    &:nth-child(n + 2) {
+      padding-left: $xui-s-large;
+    }
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}

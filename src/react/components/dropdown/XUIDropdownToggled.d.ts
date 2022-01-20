@@ -4,6 +4,13 @@ import { dropdownPositionOptions } from './private/constants';
 
 interface Props {
   /**
+   * This internal prop allows dropdowns with more complex triggers (e.g. `XUIAutocompleter`,
+   * where the trigger component contains multiple focusable elements) to specify which
+   * element should be used to calculate the correct navigtion behaviour inside `PortalFocusHelper`.
+   * @ignore
+   */
+  _triggerElementRef?: React.RefObject<HTMLElement>;
+  /**
    * The "aria-haspopup" value.
    *
    * Defaults to `listbox`.
@@ -127,6 +134,11 @@ interface Props {
    * **Note:** *This setting is only for non-legacy display.*
    */
   triggerDropdownGap?: number;
+  /**
+   * Whether or not to use the new focus behaviour - which treats dropdown navigation
+   * like a `combobox` role. Defaults to `false`.
+   */
+  useNewFocusBehaviour?: boolean;
 }
 
 export default class XUIDropdownToggled extends React.PureComponent<Props> {

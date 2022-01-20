@@ -4,7 +4,13 @@ import { nanoid } from 'nanoid';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import renderer from 'react-test-renderer';
 import { axe, toHaveNoViolations } from 'jest-axe';
+import XUIButton from '../../button/XUIButton';
 import XUIDateRangeInput from '../XUIDateRangeInput';
+import wait from '../../../helpers/wait';
+
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { screen } from '@testing-library/dom';
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testDateinputId');
@@ -52,6 +58,58 @@ describe('XUIDateRangeInput', () => {
       }}
     />
   );
+
+  describe('New focus behaviour for XUIDateRangeInput with suggested dates', () => {
+    test('pressing enter from the trigger opens the dropdown', () => {
+      // Arrange
+      render(createComponent({ suggestedDates: dateRangeInputSuggestedDates }));
+
+      // Act
+      userEvent.click(screen.getByTestId('test-daterangeinput-suggesteddates-trigger'));
+
+      // Assert
+      expect(
+        screen.queryByTestId('test-daterangeinput-suggesteddates--positioning'),
+      ).toBeInTheDocument();
+    });
+
+    test('tabbing from an open dropdown closes the dropdown and focuses the next element', async () => {
+      // Arrange
+      render(
+        <>
+          {createComponent({ suggestedDates: dateRangeInputSuggestedDates })}
+          <XUIButton qaHook="nextElement">Next Element</XUIButton>
+        </>,
+      );
+
+      // Act
+      userEvent.click(screen.getByTestId('test-daterangeinput-suggesteddates-trigger'));
+      await wait(100);
+      userEvent.tab();
+
+      // Assert
+      expect(screen.getByTestId('nextElement')).toHaveFocus();
+      expect(
+        screen.queryByTestId('test-daterangeinput-suggesteddates--positioning'),
+      ).not.toBeInTheDocument();
+    });
+
+    test('shift tabbing from an open dropdown closes the dropdown and focuses the trigger', async () => {
+      //Arrange
+      render(createComponent({ suggestedDates: dateRangeInputSuggestedDates }));
+
+      // Act
+      userEvent.click(screen.getByTestId('test-daterangeinput-suggesteddates-trigger'));
+      await wait(100);
+      userEvent.tab({ shift: true });
+
+      // Assert
+      expect(screen.getByTestId('test-daterangeinput-suggesteddates-trigger')).toHaveFocus();
+      expect(
+        screen.queryByTestId('test-daterangeinput-suggesteddates--positioning'),
+      ).not.toBeInTheDocument();
+    });
+  });
 
   it('renders default component', () => {
     const inputEl = renderer.create(

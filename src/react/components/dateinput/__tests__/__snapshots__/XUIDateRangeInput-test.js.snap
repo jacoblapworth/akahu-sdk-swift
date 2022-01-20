@@ -167,6 +167,7 @@ exports[`XUIDateRangeInput renders component with specified dates 1`] = `
         aria-activedescendant={null}
         aria-haspopup="listbox"
         className="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped"
+        data-automationid="test-daterangeinput-suggesteddates-trigger"
         disabled={false}
         onClick={[Function]}
         onKeyDown={[Function]}

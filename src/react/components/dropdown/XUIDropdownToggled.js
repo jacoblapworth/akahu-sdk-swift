@@ -17,10 +17,13 @@ import combineRefs from '../helpers/combineRefs';
 import { isKeySpacebar, eventKeyValues } from '../helpers/reactKeyHandler';
 import { baseClass, dropdownPositionOptions } from './private/constants';
 import DropdownContext from './contexts/DropdownContext';
+import PortalFocusHelper from '../helpers/PortalFocusHelper/PortalFocusHelper';
 
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
+import isRunningInJest from '../helpers/isRunningInJest';
+import getTriggerElementRef from '../helpers/getTriggerElementRef';
 
 /**
  * If the given DOM node isn't on screen, scroll it into view.
@@ -155,6 +158,11 @@ export default class XUIDropdownToggled extends PureComponent {
       this.props;
     const { isClosing, isHidden, shouldUnlockScroll, isNarrowViewport } = this.state;
 
+    // Call onAnimationEnd for Jest because it is not called automatically
+    if (isRunningInJest() && this.state.isClosing) {
+      this.onCloseAnimationEnd();
+    }
+
     // If an animation state has just changed, we need to fire the passed animation
     // end callback
     if (!isClosing && prevState.isClosing && onCloseAnimationEnd != null) {
@@ -196,8 +204,10 @@ export default class XUIDropdownToggled extends PureComponent {
     if (isHidden !== prevState.isHidden) {
       // Just closed
       if (isHidden) {
-        const { firstChild: trigger } = this.wrapper.current;
-        focusTrigger(this.trigger.current, trigger);
+        if (!this.props.useNewFocusBehaviour) {
+          const { firstChild: trigger } = this.wrapper.current;
+          focusTrigger(this.trigger.current, trigger);
+        }
 
         // Remove window event listeners for performance gains.
         removeEventListeners(this);
@@ -258,11 +268,16 @@ export default class XUIDropdownToggled extends PureComponent {
    *
    * @public
    */
-  closeDropdown = () => {
+  closeDropdown = shouldFocusTrigger => {
     this.setState(({ isHidden }) => ({
       isHidden: isHidden || !shouldAnimate(this),
       isClosing: !isHidden && shouldAnimate(this),
     }));
+
+    if (shouldFocusTrigger) {
+      const { firstChild: trigger } = this.wrapper.current;
+      focusTrigger(this.trigger.current, trigger);
+    }
   };
 
   /**
@@ -302,18 +317,20 @@ export default class XUIDropdownToggled extends PureComponent {
   };
 
   /**
-   * Will close the dropdown if the esc key is pressed within the dropdown.
+   * Will close the dropdown if the esc, enter, space or tab key is pressed within the dropdown.
    *
    * @param {KeyboardEvent} event key down event object
    */
   onDropdownKeyDown = event => {
     if (
       !this.state.isHidden &&
-      (event.key === eventKeyValues.escape || event.key === eventKeyValues.tab)
+      (event.key === eventKeyValues.escape ||
+        (event.key === eventKeyValues.tab &&
+          this.props.closeOnTab &&
+          !this.props.useNewFocusBehaviour))
     ) {
-      if (event.key !== 'Tab' || this.props.closeOnTab) {
-        this.closeDropdown();
-      }
+      const shouldFocusTrigger = event.key === eventKeyValues.escape;
+      this.closeDropdown(shouldFocusTrigger);
     }
   };
 
@@ -432,7 +449,7 @@ export default class XUIDropdownToggled extends PureComponent {
     });
 
     if (this.props.closeOnSelect) {
-      this.closeDropdown();
+      this.closeDropdown(true);
     }
   };
 
@@ -537,6 +554,10 @@ export default class XUIDropdownToggled extends PureComponent {
     handler(event);
   };
 
+  onReturnFocus = event => {
+    this.closeDropdown();
+  };
+
   render() {
     const {
       className,
@@ -566,6 +587,8 @@ export default class XUIDropdownToggled extends PureComponent {
       'aria-controls': (!isHidden && this.dropdownId) || undefined,
     });
 
+    const focusPortalRef = this.props.useNewFocusBehaviour && getTriggerElementRef(this.trigger);
+
     const clonedDropdown = React.cloneElement(dropdown, {
       isHidden,
       id: this.dropdownId,
@@ -580,6 +603,20 @@ export default class XUIDropdownToggled extends PureComponent {
       onOpenAnimationEnd: compose(dropdown.onOpenAnimationEnd, this.onOpenAnimationEnd),
       onKeyDown: compose(dropdown.props.onKeyDown, this.onDropdownKeyDown),
       className: dropdown.props.className,
+      restrictFocus: this.props.useNewFocusBehaviour ? false : dropdown.props.restrictFocus,
+      _wrappingElement: children =>
+        this.props.useNewFocusBehaviour &&
+        (this.props.isLegacyDisplay || (this.state.isNarrowViewport && !forceDesktop)) ? (
+          <PortalFocusHelper
+            focusPortalRef={focusPortalRef}
+            onReturnFocus={this.onReturnFocus}
+            triggerElementRef={this.props._triggerElementRef}
+          >
+            {children}
+          </PortalFocusHelper>
+        ) : (
+          children
+        ),
     });
 
     const commonPositioningProps = {
@@ -659,6 +696,14 @@ export default class XUIDropdownToggled extends PureComponent {
 XUIDropdownToggled.contextType = EditableTableCellContext;
 
 XUIDropdownToggled.propTypes = {
+  /**
+   * This internal prop allows dropdowns with more complex triggers (e.g. `XUIAutocompleter`,
+   * where the trigger component contains multiple focusable elements) to specify which
+   * element should be used to calculate the correct navigtion behaviour inside `PortalFocusHelper`.
+   * @ignore
+   */
+  _triggerElementRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+
   /**
    * The "aria-haspopup" value. NOT just a boolean. Defaults to 'listbox' https://www.w3.org/TR/wai-aria-1.1/#aria-haspopup
    */
@@ -756,6 +801,11 @@ XUIDropdownToggled.propTypes = {
    * Defaults to 6.
    */
   triggerDropdownGap: PropTypes.number,
+
+  /** Whether or not to use the new focus behaviour - which treats dropdown navigation
+   * like a `combobox` role. Defaults to `false`.
+   */
+  useNewFocusBehaviour: PropTypes.bool,
 };
 
 XUIDropdownToggled.defaultProps = {
@@ -773,4 +823,5 @@ XUIDropdownToggled.defaultProps = {
   restrictToViewPort: true,
   triggerClickAction: 'toggle',
   triggerDropdownGap: 6,
+  useNewFocusBehaviour: false,
 };

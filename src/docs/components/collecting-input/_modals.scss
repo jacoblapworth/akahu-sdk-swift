@@ -6,45 +6,43 @@
 //
 // Teaser: Add layers of information or interaction
 //
-// Introduction: Modals are used to provide additional functionality not available on the base page, and provide intermediary steps between larger flows.
+// Introduction: Modals overlay the main UI and provide additional functionality and actions to the user.
 //
 // Styleguide: Components.CollectingInput.Modals
+
+// When to use
+//
+// - To give additional functionality not available on the page
+// - To display actions a user must complete to progress in their task
+// - To ask for a decision to be made (and explain what this decision involves)
+// - To give the user critical information they need to act on
+// - To provide intermediary steps between larger flows
+// - When a decision requires attention and focus
+// - When the flow is still related to the background page
+//
+// Styleguide: Components.CollectingInput.Modals.1
+
+// When not to use
+//
+// - Don’t use to confirm an action – instead, action something immediately and provide an undo option via a [toast](./section-components-alerts-toast.html)
+// - Don’t use for experiences that don't require the background page context (for example, navigated to from multiple locations) – instead use an [isolation header](./section-components-navigation-isolation-header.html)
+// - Don't use for complex experiences that could benefit from more focus – instead use an [isolation header](./section-components-navigation-isolation-header.html)
+//
+// Styleguide: Components.CollectingInput.Modals.2
 
 // Best practice
 //
 // Tips:
-// Do: Select a modal size that reflects the complexity of the content.
-// Warning: Where possible, avoid using modals to confirm user actions. Instead, action them immediately, and provide an undo option via a toast.
-// Warning: Avoid ambiguous words like `OK` or `Yes` for footer actions. Be specific.
-//
-// Styleguide: Components.CollectingInput.Modals.1
-
-// Masks
-//
-// Modals are positioned inside a semi-transparent mask that prevents the user from clicking background elements while the modal is open.
-// Masks are hidden by default, and require an additional modifier to be visible.
-//
-// Classes:
-// xui-mask: Mask for a modal, hidden by default
-// xui-mask-is-active:  Add to show the mask
-//
-// Styleguide: Components.CollectingInput.Modals.2
-
-// Layout
-//
-// By default, modals are absolutely centered within their mask.
-// If however, their content is taller than the height of the viewport, they pin to the top, and the entire mask is scrollable.
-//
-// Classes:
-// xui-modal: Container for a modal
-// xui-modal-layout: Recommended layout for a modal
+// Do: Select a modal size that reflects the complexity of the content
+// Do: In most cases, use a heading, body copy, and at least 1 button
+// Do: Use the same verb in the heading and button text to reinforce the action
+// Don't: Avoid ambiguous words like `OK` or `Yes` for footer actions, unless no immediate action is required
 //
 // Styleguide: Components.CollectingInput.Modals.3
 
 // Anatomy
 //
-// A standard modal is comprised of three sections.
-// The header must contain a title and a close button, the body contains the main content and the footer may contain up to three buttons, one of which must be a primary button.
+// A standard modal has 3 sections: header, body, footer.
 //
 // Classes:
 // xui-modal--header | Container for the modal body
@@ -60,6 +58,8 @@
 
 // Header
 //
+// A header must have a heading and a close button. Headings need to communicate the purpose or intention of the modal.
+//
 // Classes:
 // xui-modal--header: Container for header content
 // xui-modal--heading: Title within the header
@@ -69,6 +69,8 @@
 
 // Body
 //
+// The body contains the main content or message the user needs to know.
+//
 // Classes:
 // xui-modal--body: Container for body content
 //
@@ -76,7 +78,9 @@
 
 // Footer
 //
-// In order to be able to alter button layout across the board in the future, please use the following system.
+// The footer can have up to 2 buttons. One of them must be a primary button.
+//
+// To lay the buttons out correctly, use the following classes:
 //
 // Classes:
 // xui-modal--footer: Container for footer content
@@ -87,9 +91,68 @@
 //
 // Styleguide: Components.CollectingInput.Modals.4.3
 
+// Layout
+//
+// By default, modals are centered within their mask. However, if their content is taller than the height of the viewport, they pin to the top and the entire mask is scrollable.
+//
+// Classes:
+// xui-modal: Container for a modal
+// xui-modal-layout: Recommended layout for a modal
+//
+// Styleguide: Components.CollectingInput.Modals.4.4
+
+// Masks
+//
+// Modals are positioned inside a semi-transparent mask that prevents the user from clicking background elements while the modal is open.
+//
+// Masks are hidden by default, and require an additional modifier to be visible.
+//
+// Classes:
+// xui-mask: Mask for a modal, hidden by default
+// xui-mask-is-active:  Add to show the mask
+//
+// Styleguide: Components.CollectingInput.Modals.4.5
+
+// Features of modal
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.CollectingInput.Modals.5
+
+// Closing a modal
+//
+// Modals can be closed by either selecting the close button, selecting a button in the modal footer, or pressing ESC while the modal is open.
+// Selecting the mask should not close the modal, as accidental clicks may lose any changes made within the modal.
+//
+// Styleguide: Components.CollectingInput.Modals.5.1
+
+// Handling overflow
+//
+// When dealing with modal content taller than the viewport height, the default behavior is to scroll the entire mask.
+// However, if necessary, we also support applying a max-height on `xui-modal--body`, to provide inner scroll.
+//
+// In both cases, always disable scroll on the background `body` when the mask is active, to prevent double scroll bars.
+//
+// Classes:
+// xui-u-overflow-hidden: Apply to body to temporarily disable scroll
+// xui-modal--body-layout: Apply to modal body to set a max height of 45vh
+//
+// Styleguide: Components.CollectingInput.Modals.5.2
+
+// Keyboard focus
+//
+// When a modal is opened, keyboard focus should be moved to the first focusable control within the modal.
+// For example, this could the first form element or a button in the footer.
+//
+// The concealed page content must also be temporarily disabled and should not be accessible via the keyboard while the modal is open.
+//
+// Styleguide: Components.CollectingInput.Modals.5.3
+
 // Size variants
 //
-// Modifiers can be applied to xui-modal to adjust its width. This set of widths provide the ability to ensure the most appropriate visual hierarchy. A good rule of thumb is that modals shouldn't be a great deal wider than their height.
+// Modifiers can be applied to xui-modal to adjust its width. This set of widths provide the ability to ensure the most appropriate visual hierarchy.
+//
+// A good rule of thumb is that modals shouldn't be a great deal wider than their height.
 // Take note that at narrow viewports, a max-width of 100% overrides any class you may have selected.
 //
 // Definitions:
@@ -99,38 +162,11 @@
 // xLarge: 800px wide: `xui-modal-width-xlarge`
 // Full screen: 100vh height, 100vw width: `xui-modal-fullscreen`
 //
-// ExampleClass: ds-example-flush ds-example-transparent ds-example-wide
+// ExampleClass: ds-example-flush ds-example-transparent ds-example-wide-with-nav
 //
 // Markup: ./examples/modal/_modal-sizes.html
 //
-// Styleguide: Components.CollectingInput.Modals.5
-
-// Closing a modal
-//
-// Modals can be closed by either selecting the close button, selecting a button in the modal footer, or pressing ESC while the modal is open.
-// Selecting the mask should not close the modal, as accidental clicks may lose any changes made within the modal.
-//
 // Styleguide: Components.CollectingInput.Modals.6
-
-// Handling overflow
-//
-// When dealing with modal content taller than the viewport height, the default behavior is to scroll the entire mask.
-// However, if necessary, we also support applying a max-height on `xui-modal--body`, to provide inner scroll.
-// In both cases, always disable scroll on the background `body` when the mask is active, to prevent double scroll bars.
-//
-// Classes:
-// xui-u-overflow-hidden: Apply to body to temporarily disable scroll
-// xui-modal--body-layout: Apply to modal body to set a max height of 45vh
-//
-// Styleguide: Components.CollectingInput.Modals.7
-
-// Keyboard focus
-//
-// When a modal is opened, keyboard focus should be moved to the first focusable control within the modal.
-// For example, this could the first form element or a button in the footer.
-// The concealed page content must also be temporarily disabled and should not be accessible via the keyboard while the modal is open.
-//
-// Styleguide: Components.CollectingInput.Modals.8
 
 // Accessibility
 //
@@ -140,16 +176,34 @@
 //
 // In addition, when opening a modal, apply the `aria-hidden` attribute to any siblings of the modal that should not be interactive when the modal is open.
 // This attribute indicates to assistive technology that background content is not for interaction, at that time.
+//
 // Take care not to apply the attribute to any ancestors of the modal, and be sure to remove them, when the modal closes.
 //
-// Styleguide: Components.CollectingInput.Modals.9
+// Styleguide: Components.CollectingInput.Modals.7
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Be short and succinct
+// Do: Focus on only 1 clear message or action
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Don't: Don’t use a full stop in headings, single sentences, or links
+//
+// Related:
+// Also see guidance for writing:
+// - [Headings](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#headings)
+// - [Links](https://xui.xero.com/product-language-guide/components/writing-style/#links)
+// - [Buttons](./section-components-controls-button.html#components-controls-button-15)
+//
+// Styleguide: Components.CollectingInput.Modals.50
+
+// Related components
 //
 // Related:
 // * [Banner](./section-components-alerts-banner.html)
 // * [Panel](./section-components-displayingdata-panel.html)
 // * [Popover](./section-components-alerts-popover.html)
+// * [Isolation header](./section-components-navigation-isolation-header.html)
 // * [Toast](./section-components-alerts-toast.html)
 //
 // Styleguide: Components.CollectingInput.Modals.99

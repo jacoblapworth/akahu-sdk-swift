@@ -142,9 +142,14 @@ module.exports = function(handlebars) {
    *   }
    * {{/wrapSection}}
    */
-  handlebars.registerHelper('wrapSection', function (sectionId, body) {
-    const depth = this.depth,
-      isLast = body.data.last;
+  handlebars.registerHelper('wrapSection', function (sectionId, sections, body) {
+    const depth = this.depth;
+    const isLast = body.data.last;
+
+    const featuresOf = sections.find(section => section.header.includes("Features of"));
+    const featuresOfReference = featuresOf && featuresOf.reference;
+    const isSectionUnderFeaturesOf = featuresOfReference && this.reference.includes(featuresOfReference);
+    const isCallout = isSectionUnderFeaturesOf ? depth === 5 : depth === 4;
 
     var openSection = ``,
       closeSection = ``;
@@ -156,7 +161,7 @@ module.exports = function(handlebars) {
       openSection += `<section id=${sectionId} class="kss-section--depth-${depth}">`;
 
     } else {
-      openSection = `<div id=${sectionId} class="kss-section--depth-${depth}">`;
+      openSection = `<div id=${sectionId} class="kss-section--depth-${depth} ${isCallout ? "kss-section--callout": ""}">`;
       closeSection = `</div>`;
     }
 
@@ -183,4 +188,58 @@ module.exports = function(handlebars) {
     const matchesStyleguide = (styleguides.indexOf(this.reference) !== -1);
     return (matchesStyleguide) ? options.fn(this) : options.inverse(this);
   });
+
+  /**
+   * Test against styleguide parent(s) and evaluate if current is its child. Excludes parent page.
+   *
+   * e.g.
+   * {{#ifParentPage "Styleguide parent1" "Styleguide parent2"}}
+   *   WILL EXECUTE THIS
+   * {{else}} [optional]
+   *   EXECUTE THIS IF NOT A MATCHING REFERENCE
+   * {{/ifParentPage}}
+   */
+  handlebars.registerHelper('ifParentPage', function() {
+    const styleguides = Array.from(arguments);
+    const options = styleguides.splice(-1)[0];
+    const referenceList = this.reference.split('.');
+
+    // Match the root but exclude its page.
+    const matchesStyleguide = styleguides.includes(referenceList[0]) && referenceList.length > 1;
+    return matchesStyleguide ? options.fn(this) : options.inverse(this);
+  });
+
+  /**
+   * Apply to sub-sections of a given section. Pass only one string for a parent section (can be only the beginning) and a list of all sections.
+   * Used for custom navigation for "Features of ...".
+   *
+   * e.g.
+   * {{#ifParentSection "Features of" @root.sections}}
+   *   WILL EXECUTE THIS
+   * {{else}} [optional]
+   *   EXECUTE THIS IF NOT A MATCHING REFERENCE
+   * {{/ifParentSection}}
+   */
+  handlebars.registerHelper('ifParentSection', function(titlePartial, sections) {
+    const styleguides = Array.from(arguments);
+    const options = styleguides.splice(-1)[0];
+
+    let targetSection;
+    let matchesStyleguide = false;
+
+    // Find a section that has a header starting with a string passed in `titlePartial`.
+    sections.forEach(element => {
+      // Match only the beginning of the title because every "Features of..." has a different title.
+      if (element.header.indexOf(titlePartial) === 0) {
+        targetSection = element.reference;
+      }
+    });
+
+    // If a given page has a header containing `titlePartial` and this section is its sub-section.
+    // Match only the beginning of the reference to target more sub-sections.
+    matchesStyleguide = targetSection && this.reference.indexOf(targetSection) === 0;
+
+    return matchesStyleguide ? options.fn(this) : options.inverse(this);
+  });
+
 };

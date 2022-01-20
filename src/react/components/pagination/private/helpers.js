@@ -13,7 +13,15 @@ export const defaultCreateCountContent = (from, to, count) => ({
   simple: `Total items: ${numberFormat(count)}`, // $xui-breakpoint-medium-down
 });
 
-export const defaultCreatePagingContent = (page, pageCount) => ({
-  enhanced: `Page ${numberFormat(page)} of ${numberFormat(pageCount)}`, // $xui-breakpoint-small-down
-  simple: `${numberFormat(page)} of ${numberFormat(pageCount)}`, // $xui-breakpoint-small-up
-});
+export const defaultCreatePagingContent = (page, pageCount) => {
+  /* eslint-disable no-template-curly-in-string */
+  console.log(
+    'Please make sure you add a `defaultCreatePagingContent` prop with both simple and enhanced versions, eg.',
+    '(page, pageCount) => ({ enhanced: `Page ${page} of ${pageCount}`, simple: `${page} of ${pageCount}`, })',
+  );
+
+  return {
+    enhanced: `Page ${numberFormat(page)} of ${numberFormat(pageCount)}`,
+    simple: `${numberFormat(page)} of ${numberFormat(pageCount)}`, // $xui-breakpoint-small-up
+  };
+};

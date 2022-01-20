@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<XUI FilePreview/> renders a passed qaHook as an automationId 1`] = `
+<DocumentFragment>
+  <div
+    class="xui-filepreview"
+    data-automationid="test-preview"
+  >
+    <div
+      class="xui-filepreview--body"
+      data-automationid="test-preview-body}"
+    >
+      <div />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<XUI FilePreview/> renders any additional classes provided through the className prop 1`] = `
+<DocumentFragment>
+  <div
+    class="xui-filepreview filepreview-class"
+  >
+    <div
+      class="xui-filepreview--body"
+    >
+      <div />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<XUI FilePreview/> renders basic example correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="xui-filepreview"
+  >
+    <div
+      class="xui-filepreview--body"
+    >
+      <div />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<XUI FilePreview/> renders passed header and footer nodes 1`] = `
+<DocumentFragment>
+  <div
+    class="xui-filepreview"
+  >
+    <header />
+    <div
+      class="xui-filepreview--body"
+    >
+      <div />
+    </div>
+    <footer />
+  </div>
+</DocumentFragment>
+`;

@@ -6,28 +6,42 @@
 //
 // Teaser: Visual confirmation of user actions or system events.
 //
-// Introduction: Toasts are used for visual confirmation of user actions or system events.
+// Introduction: Toasts are used to visually confirm a user action or system event.
 //
 // Styleguide: Components.Alerts.Toast
 
-// Best Practice
+// When to use
 //
-// Tips:
-// Do: Use a toast as a way to confirm user actions
-// Do: Use a toast to surface timely actions related to the current context
-// Dont: Don't use toasts for highlighting form errors, use inline validation instead
+// - To confirm user actions
+// - To surface timely actions related to the current context
 //
 // Styleguide: Components.Alerts.Toast.1
 
+// When not to use
+//
+// - Don’t use to highlight form errors – instead use [inline validation](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-13)
+//
+// Styleguide: Components.Alerts.Toast.2
+
+// Best practice
+//
+// Tips:
+// Do: Display at the bottom left-hand corner of the page
+// Do: Should relate to the action just performed
+// Do: Keep content brief and to the point
+//
+// Styleguide: Components.Alerts.Toast.3
+
 // Anatomy
 //
-// To create a toast, apply the following classes.
-// Note that layout is conditional of the presence of the close button, so this must come first in the markup.
+// Layout of a toast is conditional on the presence of the close button, so this must come first in the markup.
 //
 // Tips:
 // Do: Always include a description
 // Do: Always include a close button
 // Warning: Avoid long or complex descriptions
+//
+// To create a toast, apply the following classes:
 //
 // Classes:
 // xui-toast: Container for a toast
@@ -37,17 +51,22 @@
 //
 // Markup: ./examples/toast/_toast.html
 //
-// Styleguide: Components.Alerts.Toast.2
+// Styleguide: Components.Alerts.Toast.4
 
 // Layout
 //
-// To display toasts in the bottom left corner of the viewport, wrap them in the following class.
-// Using this class will ensure consistent positioning if this changes in the future.
+// To display toasts in the bottom-left corner of the viewport, wrap them in the following class:
 //
 // Classes:
 // xui-toastwrapper: Apply to toast parent
 //
-// Styleguide: Components.Alerts.Toast.3
+// Styleguide: Components.Alerts.Toast.4.1
+
+// Features of a toast
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Alerts.Toast.5
 
 // Actions
 //
@@ -60,7 +79,7 @@
 //
 // Markup: ./examples/toast/_toast-actions.html
 //
-// Styleguide: Components.Alerts.Toast.4
+// Styleguide: Components.Alerts.Toast.5.1
 
 // Wrapping
 //
@@ -70,7 +89,7 @@
 //
 // Markup: ./examples/toast/_toast-wrapping.html
 //
-// Styleguide: Components.Alerts.Toast.5
+// Styleguide: Components.Alerts.Toast.5.2
 
 // Sentiment
 //
@@ -89,7 +108,7 @@
 //
 // Markup: ./examples/toast/_toast-sentiment.html
 //
-// Styleguide: Components.Alerts.Toast.6
+// Styleguide: Components.Alerts.Toast.5.3
 
 // Hiding and showing
 //
@@ -110,7 +129,25 @@
 //
 // For more guidance on how to use toasts, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
 //
-// Styleguide: Components.Alerts.Toast.7
+// Styleguide: Components.Alerts.Toast.5.4
+
+// Content guidelines
+//
+// Tips:
+// Do: Be short and succinct
+// Do: If the message is a single sentence, don’t put a full stop
+// Do: Use contractions for a conversational tone (for example: didn’t, couldn’t, can’t)
+// Dont: Don’t put full stops at the end of a link
+//
+// Styleguide: Components.Alerts.Toast.6
+
+// Examples
+//
+// ExampleContentTable:
+// Invoice sent | Your invoice INV-9087 has been sent to Fleur’s Flowers.
+// Contact didn't save | Contact did not save.
+//
+// Styleguide: Components.Alerts.Toast.6.1
 
 // Accessibility
 //

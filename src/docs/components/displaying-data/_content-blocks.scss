@@ -45,7 +45,7 @@
 // Warning: Only show the most pertinent information, reserve all else for a detailed child page
 // Dont: Don't display text links inside of content blocks, use an overflow menu to surface links instead
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/content-block/_content-block.html
 //
@@ -65,7 +65,7 @@
 // Warning: Avoid showing bulk select controls on content blocks by default, unless it is a primary use case
 // Warning: Only show resulting bulk actions on select
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/content-block/_content-block-checkboxes.html
 //
@@ -77,7 +77,7 @@
 // Do: When users or businesses are the primary data involved, include avatars to add personality
 // Warning: When bulk select actions are required but avatars are present, make sure to surface them on hover and long press of the entire row
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/content-block/_content-block-avatars.html
 //
@@ -95,7 +95,7 @@
 // Tips:
 // Do: Include an overflow menu to surface any related actions that can be performed on the row
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/content-block/_content-block-overflow.html
 //
@@ -110,7 +110,7 @@
 // Classes:
 // xui-contentblockitem--pinnedvalue: Styles text to pin to the top-right of the content block item
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/content-block/_content-block-pinned.html
 //
@@ -127,7 +127,7 @@
 // xui-actions-layout: Styles margins for action
 // xui-contentblockitem--actions: Styles content block action specifically
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/content-block/_content-block-actions.html
 //
@@ -142,7 +142,7 @@
 // Do: Append tags to the start of your right content
 // Dont: Don't place tags before or in-between headings or descriptions
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/content-block/_content-block-tags.html
 //
@@ -165,7 +165,7 @@
 // Do: Use section headers to avoid duplicating row content
 // Do: Display an overflow menu for the ability to perform group actions
 //
-// ExampleClass: ds-example-flush ds-example-wide ds-example-transparent
+// ExampleClass: ds-example-flush ds-example-wide-with-nav ds-example-transparent
 //
 // Markup: ./examples/content-block/_content-block-header.html
 //
@@ -177,7 +177,7 @@
 // Do: Use numerical values to indicate how many items are within a group
 // Warning: Avoid displaying a number for when there is only one item in a group
 //
-// ExampleClass: ds-example-flush ds-example-wide ds-example-transparent
+// ExampleClass: ds-example-flush ds-example-wide-with-nav ds-example-transparent
 //
 // Markup: ./examples/content-block/_content-block-header-numerical.html
 //
@@ -188,7 +188,7 @@
 // Tips:
 // Do: Use pinned values to calculate total numerical amounts contained within that group
 //
-// ExampleClass: ds-example-flush ds-example-wide ds-example-transparent
+// ExampleClass: ds-example-flush ds-example-wide-with-nav ds-example-transparent
 //
 // Markup: ./examples/content-block/_content-block-header-pinned.html
 //
@@ -200,7 +200,7 @@
 // Do: If bulk select is enabled on content block items, always show the checkbox in the header
 // Do: The checkbox in the header selects and unselects an entire group with each subsequent selection
 //
-// ExampleClass: ds-example-flush ds-example-wide ds-example-transparent
+// ExampleClass: ds-example-flush ds-example-wide-with-nav ds-example-transparent
 //
 // Markup: ./examples/content-block/_content-block-header-bulk-select.html
 //
@@ -211,7 +211,7 @@
 // Tips:
 // Do: Display an avatar when all items in a group relate to a single user or business
 //
-// ExampleClass: ds-example-flush ds-example-wide ds-example-transparent
+// ExampleClass: ds-example-flush ds-example-wide-with-nav ds-example-transparent
 //
 // Markup: ./examples/content-block/_content-block-header-avatar.html
 //

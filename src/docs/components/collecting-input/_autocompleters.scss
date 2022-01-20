@@ -1,5 +1,7 @@
 // Autocompleter
 //
+// Flags: updatesComing
+//
 // Teaser: Apply multiple options via a single text input.
 //
 // Introduction: To search and apply options via a single text input, use an autocompleter.
@@ -62,7 +64,7 @@
 
 // Single-select
 //
-// To indicate a single selection has been made in an autocompleter, use [text input side elements](section-components-controls-textinput.html#components-controls-textinput-5) to display a left element, such as an avatar (if applicable), and a right icon button element to enable clearing the selection.
+// To indicate a single selection has been made in an autocompleter, use [text input side elements](section-components-controls-textinput.html#components-controls-textinput-3-6) to display a left element, such as an avatar (if applicable), and a right icon button element to enable clearing the selection.
 //
 // Tips:
 // Do: Use text input side elements to indicate a single selection

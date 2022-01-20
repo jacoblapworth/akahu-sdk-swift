@@ -6,25 +6,37 @@
 //
 // Teaser: A vertically expandable list that hides and reveals additional content.
 //
-// Introduction: Accordions are used to display a vertically expandable & collapsible list that reveals and hides additional content.
+// Introduction: Accordions are an expandable and collapsible vertical list used to hide and reveal content.
 //
 // Styleguide: Components.DisplayingData.Accordion
+
+// When to use
+//
+// - To organise small pieces of additional related information
+// - For nesting child-items inside of parent-level content
+//
+// Styleguide: Components.DisplayingData.Accordion.1
+
+// When not to use
+//
+// - Don’t use when information is essential for a user to complete a task
+// - Don’t use to hide crucial information that requires action immediately
+//
+// Styleguide: Components.DisplayingData.Accordion.2
 
 // Best practice
 //
 // Tips:
-// Do: Use for nesting child-items inside of parent-level content
-// Do: Use to display small pieces of additional information
-// Do: Always display arrow icon inside accordion trigger
-// Do: Display either one or multiple accordions in a vertical list
-// Warning: Avoid displaying dense information in accordion content
-// Don't: Don’t nest accordions inside each other.
+// Do: Display as a vertical list
+// Do: Always display an arrow icon inside an accordion trigger
+// Do: Content should be clear and concise – avoid dense blocks of information
+// Don't: Don’t nest accordions inside each other
 //
-// Styleguide: Components.DisplayingData.Accordion.1
+// Styleguide: Components.DisplayingData.Accordion.3
 
 // Anatomy
 //
-// Styleguide: Components.DisplayingData.Accordion.2
+// Styleguide: Components.DisplayingData.Accordion.4
 
 // Closed
 //
@@ -34,7 +46,7 @@
 //
 // Markup: ./examples/accordion/_accordion-closed.html
 //
-// Styleguide: Components.DisplayingData.Accordion.2.1
+// Styleguide: Components.DisplayingData.Accordion.4.1
 
 // Open
 //
@@ -46,9 +58,15 @@
 //
 // Markup: ./examples/accordion/_accordion-open.html
 //
-// Styleguide: Components.DisplayingData.Accordion.2.2
+// Styleguide: Components.DisplayingData.Accordion.4.2
 
-// Accordion trigger layout
+// Features of an Accordion
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.DisplayingData.Accordion.5
+
+// Trigger layout
 //
 // The accordion trigger has a similar layout to a Content block, however, there is an arrow icon on the left side of the trigger which indicates to the user that the container can expanded and collapsed.
 //
@@ -66,21 +84,21 @@
 // xui-accordiontrigger--maincontent: Wrapper to define layout of elements between the left and right content
 // xui-accordiontrigger--rightcontent: Wrapper to set the desired layout on right aligned items
 //
-// Styleguide: Components.DisplayingData.Accordion.3
+// Styleguide: Components.DisplayingData.Accordion.5.1
 
 // Left content
 //
 // Markup: ./examples/accordion/_accordion-left-content.html
 //
-// Styleguide: Components.DisplayingData.Accordion.3.1
+// Styleguide: Components.DisplayingData.Accordion.5.1.1
 
 // Right content
 //
 // Markup: ./examples/accordion/_accordion-right-content.html
 //
-// Styleguide: Components.DisplayingData.Accordion.3.2
+// Styleguide: Components.DisplayingData.Accordion.5.1.2
 
-// Accordion content layout
+// Content layout
 //
 // The accordion content container is designed specifically to house Content blocks, however, anything can be injected inside the empty container.
 //
@@ -89,19 +107,19 @@
 // Do: Display small pieces of additional information
 // Warning: Avoid displaying dense information in accordion content
 //
-// Styleguide: Components.DisplayingData.Accordion.4
+// Styleguide: Components.DisplayingData.Accordion.5.2
 
 // Plain text
 //
 // Markup: ./examples/accordion/_accordion-plain-text.html
 //
-// Styleguide: Components.DisplayingData.Accordion.4.1
+// Styleguide: Components.DisplayingData.Accordion.5.2.1
 
 // Content block items
 //
 // Markup: ./examples/accordion/_accordion-contentblock.html
 //
-// Styleguide: Components.DisplayingData.Accordion.4.2
+// Styleguide: Components.DisplayingData.Accordion.5.2.2
 
 // Loading
 //
@@ -110,7 +128,7 @@
 //
 // Markup: ./examples/accordion/_accordion-loading.html
 //
-// Styleguide: Components.DisplayingData.Accordion.4.3
+// Styleguide: Components.DisplayingData.Accordion.5.2.3
 
 // Empty
 //
@@ -119,9 +137,22 @@
 //
 // Markup: ./examples/accordion/_accordion-empty.html
 //
-// Styleguide: Components.DisplayingData.Accordion.4.4
+// Styleguide: Components.DisplayingData.Accordion.5.2.4
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Be short and succinct
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Do: Write in plain language and either avoid or explain jargon
+// Do: All title rows should follow the same content structure. This makes the content scannable in its unexpanded form (for example: all sentences start with a verb, are all questions)
+//
+// Related:
+// Also see guidance for writing [buttons](.section-components-controls-button.html#components-controls-button-15)
+//
+// Styleguide: Components.DisplayingData.Accordion.6
+
+// Related components
 //
 // Related:
 // * [Content block](./section-components-displayingdata-contentblock.html)

@@ -333,6 +333,7 @@ export default class XUIDatePicker extends PureComponent {
         renderDay={this.renderDay}
         selectedDays={selectedDays}
         showOutsideDays={showDaysInOtherMonths}
+        tabIndex="-1"
         toMonth={maxDate}
         weekdayElement={customWeekdayElement}
         weekdaysLong={weekdaysLong}

@@ -52,6 +52,7 @@ export default class XUISelectBoxOption extends PureComponent {
         }}
         className={optionClassName}
         isMultiselect={showCheckboxes}
+        pickitemBodyProps={{ tabIndex: '-1' }}
       >
         {contents}
       </XUIPickitem>

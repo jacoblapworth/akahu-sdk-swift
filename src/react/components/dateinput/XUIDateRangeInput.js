@@ -57,6 +57,16 @@ class XUIDateRangeInput extends Component {
     this.onSelectStartDate(selectedStartDate);
     this.endDateComponentRef?.current.onSelectDate(selectedEndDate);
     this.onSelectEndDate(selectedEndDate);
+
+    /**
+     * The following line ensures that when the suggestedDateRange dropdown closes the correct trigger is focused
+     * Without this, the above code results in the endDate trigger being focused instead.
+     * @TODO [XUI-2895](https://xero.atlassian.net/browse/XUI-2895) We should look at refactoring the above code block
+     * and DateInputItem to not focus input and leave that to Dropdown.
+     */
+    const suggestedDateRangeTrigger =
+      this.secondaryButtonDdtRef?.current.wrapper.current.firstChild;
+    suggestedDateRangeTrigger.focus();
   };
 
   render() {
@@ -137,7 +147,7 @@ class XUIDateRangeInput extends Component {
     const isAnyDisabled = isStartDisabled || isEndDisabled || isGroupDisabled;
 
     const dateInputDropdown = suggestedDates && (
-      <XUIDropdown className={`${baseClass}--suggesteddatesdropdown`}>
+      <XUIDropdown className={`${baseClass}--suggesteddatesdropdown`} restrictFocus={false}>
         <XUIPicklist>
           {suggestedDates.map(({ id, text, description }) => (
             <XUIPickitem
@@ -255,10 +265,12 @@ class XUIDateRangeInput extends Component {
               <XUISecondaryButton
                 isDisabled={isAnyDisabled}
                 onClick={() => this.secondaryButtonDdtRef.current.openDropdown()}
+                qaHook={qaHook && `${qaHook}-daterangeinput-suggesteddates-trigger`}
                 size={size}
               />
             }
             triggerClickAction="none"
+            useNewFocusBehaviour
           />
         )}
       </XUIControlGroup>

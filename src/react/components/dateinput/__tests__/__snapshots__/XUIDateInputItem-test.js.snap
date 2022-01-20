@@ -10,8 +10,10 @@ exports[`XUIDateInputItem inserts selected date value 1`] = `
     aria-haspopup="listbox"
     className="xui-dateinputitem"
     onClick={[Function]}
+    onFocus={[Function]}
     onKeyDown={[Function]}
     onKeyUp={[Function]}
+    tabIndex="-1"
   >
     <div
       className="xui-textinputwrapper"
@@ -80,8 +82,10 @@ exports[`XUIDateInputItem renders disabled 1`] = `
     aria-haspopup="listbox"
     className="xui-dateinputitem xui-dateinputitem-is-disabled"
     onClick={[Function]}
+    onFocus={[Function]}
     onKeyDown={[Function]}
     onKeyUp={[Function]}
+    tabIndex="-1"
   >
     <div
       className="xui-textinputwrapper"
@@ -151,8 +155,10 @@ exports[`XUIDateInputItem renders with a hint 1`] = `
     aria-haspopup="listbox"
     className="xui-dateinputitem"
     onClick={[Function]}
+    onFocus={[Function]}
     onKeyDown={[Function]}
     onKeyUp={[Function]}
+    tabIndex="-1"
   >
     <div
       className="xui-textinputwrapper"
@@ -229,8 +235,10 @@ exports[`XUIDateInputItem renders with the provided label 1`] = `
     aria-haspopup="listbox"
     className="xui-dateinputitem"
     onClick={[Function]}
+    onFocus={[Function]}
     onKeyDown={[Function]}
     onKeyUp={[Function]}
+    tabIndex="-1"
   >
     <div
       className="xui-textinputwrapper"
@@ -299,8 +307,10 @@ exports[`XUIDateInputItem renders with validation message 1`] = `
     aria-haspopup="listbox"
     className="xui-dateinputitem"
     onClick={[Function]}
+    onFocus={[Function]}
     onKeyDown={[Function]}
     onKeyUp={[Function]}
+    tabIndex="-1"
   >
     <div
       className="xui-textinputwrapper xui-textinputwrapper-is-invalid"

@@ -62,6 +62,27 @@
   }
 }
 
+.ds-example-wide-with-nav {
+  @include xui-breakpoint-large-up {
+    @include embiggen;
+  }
+
+  @include xui-breakpoint-xlarge-up {
+    max-width: 53vw;
+  }
+
+  @media screen and (min-width: 1300px) {
+    max-width: 55vw;
+  }
+}
+
 .ds-example-nomarkuplink + .ds-example-links .ds-example-markuplink {
   display: none;
+}
+
+.ds-example-visual-example-container {
+  display: flex;
+  justify-content: center;
+  padding: 48px 0 48px 0;
+  background-color: #f2f3f4;
 }

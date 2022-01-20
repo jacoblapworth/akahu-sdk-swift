@@ -202,6 +202,11 @@ interface Props {
    */
   triggerClassName?: string;
   /**
+   * Whether or not to use the new focus behaviour - which treats dropdown navigation
+   * like a `combobox` role. Defaults to `false`.
+   * */
+  useNewFocusBehaviour?: boolean;
+  /**
    * Validation message to show under the input if `isInvalid` is true.
    */
   validationMessage?: React.ReactNode;

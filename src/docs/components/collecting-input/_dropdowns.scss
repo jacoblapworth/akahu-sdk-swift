@@ -4,6 +4,8 @@
 
 // Dropdown
 //
+// Flags: updatesComing
+//
 // Components: Dropdown
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.dszy23b5puhq
@@ -12,21 +14,33 @@
 // Used to reveal additional actions not present on the parent page.
 //
 // Introduction:
-// A dropdown displays an expandable list of simple options or actions for a user to select.
-// To group complex options into separate sections, use a [nested dropdown](#components-collectinginput-dropdowns-20).
+// A dropdown displays an expandable list of options or actions for a user to select.
+//
+// VisualExample: ./components/collecting-input/examples/dropdown/_dropdown-visual-example.html
 //
 // Styleguide: Components.CollectingInput.Dropdowns
 
-// Best Practice
+// When to use
+//
+// * Simple options: use a dropdown to filter or sort content and save screen space (for example: forms, modals, popovers, or datepickers)
+// * Complex options: use a [nested dropdown](#components-collectinginput-dropdowns-11-6) to group complex options into separate sections
+//
+// Styleguide: Components.CollectingInput.Dropdowns.7
+
+// When not to use
+//
+// * Don’t use dropdowns when there are only two options – instead use a [radio](section-components-controls-radio.html)
+//
+// Styleguide: Components.CollectingInput.Dropdowns.8
+
+// Best practice
 //
 // Tips:
-// Do: Use dropdowns to filter or sort content and save screen space (for example: forms, modals, popovers, or datepickers)
 // Do: Keep selection options as simple as possible
 // Do: Make sure the dropdown is dismissed and actions are applied when a selection is made
 // Do: If a user can select multiple items at once, display an ‘Apply’ button in a dropdown header to apply selection and dismiss dropdown
 // Warning: Display ‘None’ as one of the options if needed
-// Don't: Don’t use dropdowns when there are only two options – use a [radio](section-components-controls-radio.html) button instead
-// Don't: Don't leave the dropdown field blank – choose a logical default placeholder or use **Select + {label/heading}**
+// Don't: Don't leave the dropdown field blank – choose a logical default placeholder or use Select + {label/heading} (for example: Select a bank account)
 //
 // Styleguide: Components.CollectingInput.Dropdowns.9
 
@@ -46,6 +60,12 @@
 //
 // Styleguide: Components.CollectingInput.Dropdowns.10
 
+// Features of a dropdown
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.CollectingInput.Dropdowns.11
+
 // Showing and hiding
 //
 // Dropdowns are hidden by default.
@@ -56,7 +76,7 @@
 // xui-dropdown-is-opening: Animates dropdown into view at narrow viewports
 // xui-dropdown-is-closing: Animates dropdown out of view at narrow viewports
 //
-// Styleguide: Components.CollectingInput.Dropdowns.11
+// Styleguide: Components.CollectingInput.Dropdowns.11.1
 
 // Width
 //
@@ -66,7 +86,7 @@
 // Definitions:
 // Default: 140px min-width: No class needed
 //
-// Styleguide: Components.CollectingInput.Dropdowns.12
+// Styleguide: Components.CollectingInput.Dropdowns.11.2
 
 // Max width
 //
@@ -82,7 +102,7 @@
 // medium: 300px max-width: `xui-dropdown-medium`
 // large: 400px max-width: `xui-dropdown-large`
 //
-// Styleguide: Components.CollectingInput.Dropdowns.12.1
+// Styleguide: Components.CollectingInput.Dropdowns.11.2.1
 
 // Fixed width
 //
@@ -97,7 +117,7 @@
 // Fixed medium: 300px width: `xui-dropdown-fixed-medium`
 // Fixed large: 400px width: `xui-dropdown-fixed-large`
 //
-// Styleguide: Components.CollectingInput.Dropdowns.12.2
+// Styleguide: Components.CollectingInput.Dropdowns.11.2.2
 
 // Auto width
 //
@@ -107,13 +127,13 @@
 //
 // If using React, an additional property is available that detects the width of the trigger and applies this to the dropdown.
 //
-// Styleguide: Components.CollectingInput.Dropdowns.12.3
+// Styleguide: Components.CollectingInput.Dropdowns.11.2.3
 
 // Positioning
 //
 // By default, dropdowns are positioned to the left and just below their trigger.
 //
-// Styleguide: Components.CollectingInput.Dropdowns.14
+// Styleguide: Components.CollectingInput.Dropdowns.11.3
 
 // Custom positioning
 //
@@ -129,7 +149,7 @@
 // xui-dropdown-positionabove: Force up
 // xui-dropdown-positionunder: Force below
 //
-// Styleguide: Components.CollectingInput.Dropdowns.14.1
+// Styleguide: Components.CollectingInput.Dropdowns.11.3.1
 
 // Auto positioning
 //
@@ -137,7 +157,7 @@
 //
 // If using React, positioning is handled automatically, and dropdowns are placed depending on where the most space is available when triggered.
 //
-// Styleguide: Components.CollectingInput.Dropdowns.14.2
+// Styleguide: Components.CollectingInput.Dropdowns.11.3.2
 
 // Height
 //
@@ -148,7 +168,7 @@
 // Definitions:
 // Default: 80vh max-height: No class needed
 //
-// Styleguide: Components.CollectingInput.Dropdowns.15
+// Styleguide: Components.CollectingInput.Dropdowns.11.4
 
 // Full height
 //
@@ -161,7 +181,7 @@
 // Classes:
 // xui-dropdown-fullheight: Apply to dropdown
 //
-// Styleguide: Components.CollectingInput.Dropdowns.15.1
+// Styleguide: Components.CollectingInput.Dropdowns.11.4.1
 
 // Max height
 //
@@ -169,7 +189,7 @@
 //
 // If using the [`XUIDropdown`](./react/#dropdown) React component, a `maxHeight` property can be added to define a custom max-height on the dropdown. Content scrolls internally if it exceeds this height.
 //
-// Styleguide: Components.CollectingInput.Dropdowns.15.2
+// Styleguide: Components.CollectingInput.Dropdowns.11.4.2
 
 // Auto height
 //
@@ -178,7 +198,7 @@
 // If using the [`XUIDropdown`](./react/#dropdown) React component, dropdown height is automatically calculated based on the remaining space above or below the trigger.
 // Content scrolls internally if it exceeds this height.
 //
-// Styleguide: Components.CollectingInput.Dropdowns.15.3
+// Styleguide: Components.CollectingInput.Dropdowns.11.4.3
 
 // Headers and footers
 //
@@ -195,7 +215,43 @@
 //
 // Markup: ./examples/dropdown/_dropdown-header-and-footer.html
 //
-// Styleguide: Components.CollectingInput.Dropdowns.16
+// Styleguide: Components.CollectingInput.Dropdowns.11.5
+
+// Nested dropdowns
+//
+// Use nested dropdowns to group complex options into separate sections.
+//
+// Tips:
+// Do: Use nested dropdowns to navigate between categories and multi-step selections
+// Do: Include a back button on children so selections can be applied across multiple categories at once
+// Do: Nest a datepicker to show a custom date or date-range option
+// Warning: Always include a header at narrow viewports so a dropdown can be dismissed
+//
+// Styleguide: Components.CollectingInput.Dropdowns.11.6
+
+// Anatomy
+//
+// To create a nested dropdown, use the following classes.
+//
+// Classes:
+// xui-dropdown--panel: Container for each section
+// xui-dropdown-nested-is-hidden: Add to toggle section visibility
+// xui-dropdown-fullheight: Apply to dropdown to enable consistent header position
+// xui-dropdown-hide-small-up: Apply to a dropdown sub-element such as the header or actions to hide above 600px
+//
+// Styleguide: Components.CollectingInput.Dropdowns.11.6.1
+
+// Parent
+//
+// Markup: ./examples/dropdown/_dropdown-nested-parent.html
+//
+// Styleguide: Components.CollectingInput.Dropdowns.11.6.2
+
+// Child
+//
+// Markup: ./examples/dropdown/_dropdown-nested-child.html
+//
+// Styleguide: Components.CollectingInput.Dropdowns.11.6.3
 
 // Accessibility
 //
@@ -246,7 +302,7 @@
 //
 // Styleguide: Components.CollectingInput.Dropdowns.31.4
 
-// Related links
+// Related components
 //
 // Related:
 // * [Autocompleter](./section-components-collectinginput-autocompleter.html)

@@ -9,8 +9,6 @@ import renderer from 'react-test-renderer';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIDateInputItem from '../private/XUIDateInputItem';
 
-const { renderIntoDocument } = require('react-dom/test-utils');
-
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testDateinputId');
 
@@ -195,5 +193,48 @@ describe('XUIDateInputItem', () => {
 
     // Assert
     expect(onSelectDateCallback).toBeCalled();
+  });
+
+  describe('When a user presses "esc" inside the dateinput dropdown', () => {
+    const dateInputRef = React.createRef();
+
+    const dateInputItem = props => (
+      <XUIDateInputItem
+        {...props}
+        inputLabel="Date"
+        locale="en-NZ"
+        nextButtonAriaLabel="Next month"
+        prevButtonAriaLabel="Previous month"
+        ref={dateInputRef}
+        qaHook="dateinputitem"
+      />
+    );
+    test('The dropdown closes without submitting', () => {
+      // Arrange
+      const onInputChangeCallback = jest.fn();
+      render(dateInputItem({ onInputChange: onInputChangeCallback }));
+
+      // Act
+      const inputNode = screen.getByTestId('dateinputitem-dateinputitem--input--input');
+      userEvent.type(inputNode, '{arrowDown}{esc}');
+
+      // Assert
+      expect(onInputChangeCallback).not.toBeCalled();
+      expect(
+        screen.queryByTestId('dateinputitem-dateinputitem-datepicker'),
+      ).not.toBeInTheDocument();
+    });
+
+    test('Focus is returned to the input', () => {
+      // Arrange
+      render(dateInputItem());
+
+      // Act
+      const inputNode = screen.getByTestId('dateinputitem-dateinputitem--input--input');
+      userEvent.type(inputNode, '{arrowDown}{esc}');
+
+      // Assert
+      expect(screen.getByTestId('dateinputitem-dateinputitem--input--input')).toHaveFocus();
+    });
   });
 });

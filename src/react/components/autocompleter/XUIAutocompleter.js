@@ -15,6 +15,7 @@ import generateIds from '../helpers/ariaHelpers';
 import { eventKeyValues, isKeyClick } from '../helpers/reactKeyHandler';
 import { observe, unobserve } from '../helpers/resizeObserver';
 import labelRequiredError, { loadingAriaLabelOnly } from '../helpers/labelRequiredError';
+import getFocusableDescendants from '../helpers/getFocusableDescendants';
 
 const baseClass = `${ns}-autocompleter`;
 
@@ -198,7 +199,11 @@ export default class XUIAutocompleter extends PureComponent {
        * When a user presses tab, the focus is moved to the dropdown panel.
        * This lets the browser handle the tabbing of events so that the footer gets focused.
        */
-      if (this.props.footer && event.key === eventKeyValues.tab) {
+      if (
+        this.props.footer &&
+        event.key === eventKeyValues.tab &&
+        !this.props.useNewFocusBehaviour
+      ) {
         this.dropdown.current.panel.current.focus();
       }
 
@@ -245,7 +250,7 @@ export default class XUIAutocompleter extends PureComponent {
   };
 
   onFocus = event => {
-    if (!this.state.focused && event.target.type !== 'button') {
+    if (!this.state.focused && event.target.type !== 'button' && !this.props.useNewFocusBehaviour) {
       this.focusInput();
       this.setState({
         focused: true,
@@ -346,6 +351,7 @@ export default class XUIAutocompleter extends PureComponent {
       validationMessage,
       hintMessage,
       isLegacyDisplay,
+      useNewFocusBehaviour,
     } = this.props;
     const { value, focused, inputWidth } = this.state;
     let inputQaHook = null;
@@ -419,6 +425,7 @@ export default class XUIAutocompleter extends PureComponent {
         onSelect={onOptionSelect}
         qaHook={listQaHook}
         ref={this.dropdown}
+        restrictFocus={!useNewFocusBehaviour}
         size={dropdownSize}
       >
         {isLoading ? (
@@ -456,6 +463,7 @@ export default class XUIAutocompleter extends PureComponent {
         }}
       >
         <XUIDropdownToggled
+          _triggerElementRef={this.inputNode.current}
           ariaRole="combobox"
           closeOnSelect={closeOnSelect}
           closeOnTab={closeOnTab}
@@ -471,6 +479,7 @@ export default class XUIAutocompleter extends PureComponent {
           ref={this.ddt}
           trigger={trigger}
           triggerClickAction="none"
+          useNewFocusBehaviour={useNewFocusBehaviour}
         />
       </XUIControlWrapper>
     );
@@ -636,6 +645,10 @@ XUIAutocompleter.propTypes = {
 
   /** CSS class(es) to go on the trigger element which contains the input and pills */
   triggerClassName: PropTypes.string,
+
+  /** Whether or not to use the new focus behaviour - which treats dropdown navigation
+   * like a `combobox` role. Defaults to `false`. */
+  useNewFocusBehaviour: PropTypes.bool,
 
   /** Validation message to show under the input if `isInvalid` is true */
   validationMessage: PropTypes.node,

@@ -32,6 +32,15 @@ describe('<XUI XUIFilePreviewFooter/>', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
+  test('renders with a pagination prop, if provided', () => {
+    const { asFragment } = render(
+      createComponent({
+        pagination: <div />,
+      }),
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   test('should pass accessibility testing', async () => {
     const { container } = render(createComponent());
     const results = await axe(container);

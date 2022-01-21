@@ -6,14 +6,15 @@ import { ns } from '../helpers/xuiClassNamespace';
 const baseClass = `${ns}-filepreviewfooter`;
 
 const XUIFilePreviewFooter = React.forwardRef(
-  ({ children, className, footerTag, qaHook, ...spreadProps }, ref) => {
+  ({ children, className, footerTag, pagination, qaHook, ...spreadProps }, ref) => {
     const classes = cn(className, baseClass);
 
     const FooterElem = footerTag;
 
     return (
       <FooterElem className={classes} data-automationid={qaHook} ref={ref} {...spreadProps}>
-        {children}
+        <div className={`${baseClass}--controls`}>{children}</div>
+        {pagination && <div className={`${baseClass}--pagination`}>{pagination}</div>}
       </FooterElem>
     );
   },
@@ -34,6 +35,10 @@ XUIFilePreviewFooter.propTypes = {
    * Tag type for the filepreviewfooter element. Defaults to 'footer'
    */
   footerTag: PropTypes.string,
+  /**
+   * Pagination component to be passed to the file preview footer.
+   */
+  pagination: PropTypes.node,
   qaHook: PropTypes.string,
 };
 

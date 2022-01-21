@@ -9,11 +9,18 @@ import { ns } from '../helpers/xuiClassNamespace';
 import XUIIcon from '../icon/XUIIcon';
 
 export default class XUISplitButton extends PureComponent {
+  rootNode = React.createRef();
+
   render() {
     const { className, ...spreadProps } = this.props;
     spreadProps.children = null;
     return (
-      <XUIButton {...spreadProps} className={cn(`${ns}-button-split`, className)} isGrouped>
+      <XUIButton
+        {...spreadProps}
+        className={cn(`${ns}-button-split`, className)}
+        isGrouped
+        ref={this.rootNode}
+      >
         <XUIIcon icon={caret} />
       </XUIButton>
     );

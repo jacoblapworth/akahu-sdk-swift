@@ -191,6 +191,8 @@
 
 // Select box cells
 //
+// Flags: updatesComing
+//
 // Select box cells are used to trigger a dropdown that contains a list of options. These options can be selected, which can then be represented by replacing the text content inside the cell container (this has to be hooked up manually upon implementation of the select box cell for your particular data). Select box cells house a variant of XUI’s [select box component](section-components-controls-select.html).
 //
 // Classes:
@@ -212,6 +214,8 @@
 // Styleguide: Components.DisplayingData.EditableTable.3.4.3
 
 // Autocompleter cells
+//
+// Flags: updatesComing
 //
 // Autocompleter cells are used to search and select items from a list in a dropdown. These lists could contain any number of items as the search functionality refines the list when characters are entered into the cell. Autocompleter cells house a variant of XUI’s [autocompleter component](section-components-collectinginput-autocompleter.html).
 //
@@ -237,6 +241,8 @@
 // Styleguide: Components.DisplayingData.EditableTable.3.4.4
 
 // Autocompleter secondary search cells
+//
+// Flags: updatesComing
 //
 // Autocompleter secondary search cells are used to trigger a dropdown that contains a search field and a list of options.
 //

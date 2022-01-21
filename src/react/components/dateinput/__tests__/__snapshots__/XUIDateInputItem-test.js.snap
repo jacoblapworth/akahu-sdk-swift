@@ -15,54 +15,62 @@ exports[`XUIDateInputItem inserts selected date value 1`] = `
     data-ref="toggled-wrapper"
   >
     <div
-      className="xui-textinputwrapper"
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      className="xui-dateinputitem"
+      onClick={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
-      role="presentation"
+      onKeyUp={[Function]}
+      tabIndex="-1"
     >
       <div
-        aria-activedescendant={null}
-        aria-haspopup="listbox"
-        autoComplete="off"
-        className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
-        onClick={[Function]}
-        onKeyUp={[Function]}
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+        role="presentation"
       >
         <div
-          className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+          autoComplete="off"
+          className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
           onClick={[Function]}
         >
           <div
-            className="xui-iconwrapper xui-iconwrapper-medium"
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+            onClick={[Function]}
           >
-            <svg
-              className="xui-icon xui-icon-color-black"
-              focusable="false"
-              height={13}
-              viewBox="0 0 12 13"
-              width={12}
+            <div
+              className="xui-iconwrapper xui-iconwrapper-medium"
             >
-              <path
-                d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
-                role="presentation"
-              />
-            </svg>
+              <svg
+                className="xui-icon xui-icon-color-black"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
+              >
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
-        <input
-          aria-invalid={null}
-          aria-labelledby="xui-testDateinputId"
-          className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
-          id="xui-testDateinputId-control"
-          onBlurCapture={[Function]}
-          onChange={[Function]}
-          onFocusCapture={[Function]}
-          style={
-            Object {
-              "maxHeight": undefined,
+          <input
+            aria-invalid={null}
+            aria-labelledby="xui-testDateinputId"
+            className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+            id="xui-testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
             }
-          }
-          value="15 Dec 2020"
-        />
+            value="15 Dec 2020"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -84,55 +92,63 @@ exports[`XUIDateInputItem renders disabled 1`] = `
     data-ref="toggled-wrapper"
   >
     <div
-      className="xui-textinputwrapper"
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      className="xui-dateinputitem xui-dateinputitem-is-disabled"
+      onClick={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
-      role="presentation"
+      onKeyUp={[Function]}
+      tabIndex="-1"
     >
       <div
-        aria-activedescendant={null}
-        aria-haspopup="listbox"
-        autoComplete="off"
-        className="xui-dateinputitem--input xui-textinput xui-textinput-medium xui-textinput-is-disabled"
-        onClick={[Function]}
-        onKeyUp={[Function]}
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+        role="presentation"
       >
         <div
-          className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+          autoComplete="off"
+          className="xui-dateinputitem--input xui-textinput xui-textinput-medium xui-textinput-is-disabled"
           onClick={[Function]}
         >
           <div
-            className="xui-iconwrapper xui-iconwrapper-medium"
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+            onClick={[Function]}
           >
-            <svg
-              className="xui-icon xui-icon-color-black"
-              focusable="false"
-              height={13}
-              viewBox="0 0 12 13"
-              width={12}
+            <div
+              className="xui-iconwrapper xui-iconwrapper-medium"
             >
-              <path
-                d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
-                role="presentation"
-              />
-            </svg>
+              <svg
+                className="xui-icon xui-icon-color-black"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
+              >
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
-        <input
-          aria-invalid={null}
-          aria-labelledby="xui-testDateinputId"
-          className="xui-dateinputitem--input xui-dateinputitem-is-disabled xui-textinput--input xui-textinput--input-medium"
-          disabled={true}
-          id="xui-testDateinputId-control"
-          onBlurCapture={[Function]}
-          onChange={[Function]}
-          onFocusCapture={[Function]}
-          style={
-            Object {
-              "maxHeight": undefined,
+          <input
+            aria-invalid={null}
+            aria-labelledby="xui-testDateinputId"
+            className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+            disabled={true}
+            id="xui-testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
             }
-          }
-          value="15 Dec 2020"
-        />
+            value="15 Dec 2020"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -154,54 +170,62 @@ exports[`XUIDateInputItem renders with a hint 1`] = `
     data-ref="toggled-wrapper"
   >
     <div
-      className="xui-textinputwrapper"
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      className="xui-dateinputitem"
+      onClick={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
-      role="presentation"
+      onKeyUp={[Function]}
+      tabIndex="-1"
     >
       <div
-        aria-activedescendant={null}
-        aria-haspopup="listbox"
-        autoComplete="off"
-        className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
-        onClick={[Function]}
-        onKeyUp={[Function]}
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+        role="presentation"
       >
         <div
-          className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+          autoComplete="off"
+          className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
           onClick={[Function]}
         >
           <div
-            className="xui-iconwrapper xui-iconwrapper-medium"
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+            onClick={[Function]}
           >
-            <svg
-              className="xui-icon xui-icon-color-black"
-              focusable="false"
-              height={13}
-              viewBox="0 0 12 13"
-              width={12}
+            <div
+              className="xui-iconwrapper xui-iconwrapper-medium"
             >
-              <path
-                d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
-                role="presentation"
-              />
-            </svg>
+              <svg
+                className="xui-icon xui-icon-color-black"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
+              >
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
-        <input
-          aria-invalid={null}
-          aria-labelledby="xui-testDateinputId"
-          className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
-          id="xui-testDateinputId-control"
-          onBlurCapture={[Function]}
-          onChange={[Function]}
-          onFocusCapture={[Function]}
-          style={
-            Object {
-              "maxHeight": undefined,
+          <input
+            aria-invalid={null}
+            aria-labelledby="xui-testDateinputId"
+            className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+            id="xui-testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
             }
-          }
-          value="15 Dec 2020"
-        />
+            value="15 Dec 2020"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -230,54 +254,62 @@ exports[`XUIDateInputItem renders with the provided label 1`] = `
     data-ref="toggled-wrapper"
   >
     <div
-      className="xui-textinputwrapper"
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      className="xui-dateinputitem"
+      onClick={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
-      role="presentation"
+      onKeyUp={[Function]}
+      tabIndex="-1"
     >
       <div
-        aria-activedescendant={null}
-        aria-haspopup="listbox"
-        autoComplete="off"
-        className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
-        onClick={[Function]}
-        onKeyUp={[Function]}
+        className="xui-textinputwrapper"
+        onKeyDown={[Function]}
+        role="presentation"
       >
         <div
-          className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+          autoComplete="off"
+          className="xui-dateinputitem--input xui-textinput xui-textinput-medium"
           onClick={[Function]}
         >
           <div
-            className="xui-iconwrapper xui-iconwrapper-medium"
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+            onClick={[Function]}
           >
-            <svg
-              className="xui-icon xui-icon-color-black"
-              focusable="false"
-              height={13}
-              viewBox="0 0 12 13"
-              width={12}
+            <div
+              className="xui-iconwrapper xui-iconwrapper-medium"
             >
-              <path
-                d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
-                role="presentation"
-              />
-            </svg>
+              <svg
+                className="xui-icon xui-icon-color-black"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
+              >
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
-        <input
-          aria-invalid={null}
-          aria-labelledby="xui-testDateinputId"
-          className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
-          id="xui-testDateinputId-control"
-          onBlurCapture={[Function]}
-          onChange={[Function]}
-          onFocusCapture={[Function]}
-          style={
-            Object {
-              "maxHeight": undefined,
+          <input
+            aria-invalid={null}
+            aria-labelledby="xui-testDateinputId"
+            className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+            id="xui-testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
             }
-          }
-          value="15 Dec 2020"
-        />
+            value="15 Dec 2020"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -299,54 +331,62 @@ exports[`XUIDateInputItem renders with validation message 1`] = `
     data-ref="toggled-wrapper"
   >
     <div
-      className="xui-textinputwrapper xui-textinputwrapper-is-invalid"
+      aria-activedescendant={null}
+      aria-haspopup="listbox"
+      className="xui-dateinputitem"
+      onClick={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
-      role="presentation"
+      onKeyUp={[Function]}
+      tabIndex="-1"
     >
       <div
-        aria-activedescendant={null}
-        aria-haspopup="listbox"
-        autoComplete="off"
-        className="xui-dateinputitem--input xui-textinput xui-textinput-medium xui-textinput-is-invalid"
-        onClick={[Function]}
-        onKeyUp={[Function]}
+        className="xui-textinputwrapper xui-textinputwrapper-is-invalid"
+        onKeyDown={[Function]}
+        role="presentation"
       >
         <div
-          className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+          autoComplete="off"
+          className="xui-dateinputitem--input xui-textinput xui-textinput-medium xui-textinput-is-invalid"
           onClick={[Function]}
         >
           <div
-            className="xui-iconwrapper xui-iconwrapper-medium"
+            className="xui-textinput--sideelement xui-textinput--sideelement-align-top xui-textinput--sideelement-icon"
+            onClick={[Function]}
           >
-            <svg
-              className="xui-icon xui-icon-color-black"
-              focusable="false"
-              height={13}
-              viewBox="0 0 12 13"
-              width={12}
+            <div
+              className="xui-iconwrapper xui-iconwrapper-medium"
             >
-              <path
-                d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
-                role="presentation"
-              />
-            </svg>
+              <svg
+                className="xui-icon xui-icon-color-black"
+                focusable="false"
+                height={13}
+                viewBox="0 0 12 13"
+                width={12}
+              >
+                <path
+                  d="M10 1V0H8v1H4V0H2v1H1C.5 1 0 1.5.01 2L0 12c0 .5.5 1 1 1h10c.5 0 1-.5 1-1V2c0-.5-.5-1-1-1h-1zM1 12V4h10v8H1zm1-7h3v3H2V5z"
+                  role="presentation"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
-        <input
-          aria-invalid={true}
-          aria-labelledby="xui-testDateinputId"
-          className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
-          id="xui-testDateinputId-control"
-          onBlurCapture={[Function]}
-          onChange={[Function]}
-          onFocusCapture={[Function]}
-          style={
-            Object {
-              "maxHeight": undefined,
+          <input
+            aria-invalid={true}
+            aria-labelledby="xui-testDateinputId"
+            className="xui-dateinputitem--input xui-textinput--input xui-textinput--input-medium"
+            id="xui-testDateinputId-control"
+            onBlurCapture={[Function]}
+            onChange={[Function]}
+            onFocusCapture={[Function]}
+            style={
+              Object {
+                "maxHeight": undefined,
+              }
             }
-          }
-          value="15 Dec 2020"
-        />
+            value="15 Dec 2020"
+          />
+        </div>
       </div>
     </div>
   </div>

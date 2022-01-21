@@ -4,9 +4,10 @@ import React from 'react';
 
 import IdContext from './contexts/IdContext';
 import { baseClassName, sizeClassNames } from './private/constants';
-import getFocusableElement from './private/helpers/getFocusableElement';
-import PortalFocusHelper from './private/PortalFocusHelper';
+import getFocusableElement from '../helpers/PortalFocusHelper/helpers/getFocusableElement';
+import PortalFocusHelper from '../helpers/PortalFocusHelper/PortalFocusHelper';
 import Positioning from './private/Positioning';
+import getTriggerElementRef from '../helpers/getTriggerElementRef';
 
 const BORDER_SHADOW_SIZE = 1;
 const ARROW_SIZE = 8 + BORDER_SHADOW_SIZE;
@@ -39,7 +40,7 @@ export default class XUIPopover extends React.Component {
 
     const bodyId = `${id}-body`;
 
-    const triggerRef = this.getTriggerRef();
+    const triggerRef = getTriggerElementRef(this.props.triggerRef);
 
     return (
       <>
@@ -97,7 +98,7 @@ export default class XUIPopover extends React.Component {
 
   handleClickOutside = event => {
     const { onClickOutside } = this.props;
-    const triggerRef = this.getTriggerRef();
+    const triggerRef = getTriggerElementRef(this.props.triggerRef);
 
     if (
       event.target &&
@@ -111,7 +112,7 @@ export default class XUIPopover extends React.Component {
   };
 
   focusOnTheTrigger = () => {
-    const triggerRef = this.getTriggerRef();
+    const triggerRef = getTriggerElementRef(this.props.triggerRef);
 
     if (!triggerRef.current) {
       return;
@@ -136,32 +137,6 @@ export default class XUIPopover extends React.Component {
 
     return titleId;
   };
-
-  getTriggerRef = () => ({
-    _triggerRef: this.props.triggerRef,
-    get current() {
-      if (!this._triggerRef.current) {
-        return null;
-      }
-
-      if (this._triggerRef.current instanceof HTMLElement) {
-        return this._triggerRef.current;
-      }
-      if (!this._triggerRef.current.rootNode) {
-        return null;
-      }
-
-      if (this._triggerRef.current.rootNode instanceof HTMLElement) {
-        return this._triggerRef.current.rootNode;
-      }
-
-      if (this._triggerRef.current.rootNode.current instanceof HTMLElement) {
-        return this._triggerRef.current.rootNode.current;
-      }
-
-      return null;
-    },
-  });
 }
 
 XUIPopover.propTypes = {

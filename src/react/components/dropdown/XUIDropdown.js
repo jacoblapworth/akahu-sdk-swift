@@ -249,6 +249,7 @@ export default class XUIDropdown extends PureComponent {
       bodyClassName,
       shouldManageInitialHighlight,
       ariaRole,
+      _wrappingElement,
     } = this.props;
 
     const dropdownClasses = cn(className, header && `${ns}-dropdown-fullheight`);
@@ -269,25 +270,27 @@ export default class XUIDropdown extends PureComponent {
         size={size}
         style={style}
       >
-        <XUIDropdownPanel
-          bodyClassName={bodyClassName}
-          footer={footer}
-          forceStatefulPicklist={forceStatefulPicklist}
-          header={header}
-          ignoreKeyboardEvents={ignoreKeyboardEvents}
-          onHighlightChange={this.onHighlightChange}
-          onKeyDown={this.keyDownHandler}
-          onScroll={onScroll}
-          onSelect={onSelect}
-          qaHook={qaHook}
-          ref={this.panel}
-          shouldManageInitialHighlight={shouldManageInitialHighlight}
-          style={{
-            maxHeight: style && style.maxHeight,
-          }}
-        >
-          {children}
-        </XUIDropdownPanel>
+        {_wrappingElement(
+          <XUIDropdownPanel
+            bodyClassName={bodyClassName}
+            footer={footer}
+            forceStatefulPicklist={forceStatefulPicklist}
+            header={header}
+            ignoreKeyboardEvents={ignoreKeyboardEvents}
+            onHighlightChange={this.onHighlightChange}
+            onKeyDown={this.keyDownHandler}
+            onScroll={onScroll}
+            onSelect={onSelect}
+            qaHook={qaHook}
+            ref={this.panel}
+            shouldManageInitialHighlight={shouldManageInitialHighlight}
+            style={{
+              maxHeight: style && style.maxHeight,
+            }}
+          >
+            {children}
+          </XUIDropdownPanel>,
+        )}
       </XUIDropdownLayout>
     );
   }
@@ -298,6 +301,12 @@ XUIDropdown.propTypes = {
    * @ignore
    */
   _skipFocusOnOpen: PropTypes.bool,
+
+  /** Internal function that allows `XUIDropdownToggled` to wrap the dropdown with the
+   * `PortalFocusHelper` component in order to control focus of a portalled dropdown.
+   * @ignore
+   */
+  _wrappingElement: PropTypes.func,
 
   /** Will cause the dropdown to animate when closing. */
   animateClosed: PropTypes.bool,
@@ -364,7 +373,9 @@ XUIDropdown.propTypes = {
 
   qaHook: PropTypes.string,
 
-  /** Whether focus should be restricted to the dropdown while it's open. */
+  /** Whether focus should be restricted to the dropdown while it's open.
+   * Setting `useNewFocusBehaviour` to true in `XUIDropdownToggled` will override this prop and set it to `false`
+   */
   restrictFocus: PropTypes.bool,
 
   /** Whether the stateful picklist manages highlighting of list elements. */
@@ -379,6 +390,7 @@ XUIDropdown.propTypes = {
 };
 
 XUIDropdown.defaultProps = {
+  _wrappingElement: children => children,
   forceDesktop: false,
   forceStatefulPicklist: false,
   hasFixedWidth: false,

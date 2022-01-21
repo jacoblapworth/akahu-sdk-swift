@@ -241,6 +241,11 @@ class XUIDateInputItem extends Component {
     this.onSelectDate(suggestedDate.getDate());
   };
 
+  onTriggerFocus = () => {
+    // When the trigger wrapper is programmatically focused the inner TextInput is focused
+    this.inputRef?.current?.focus();
+  };
+
   render() {
     const {
       closeOnSelect,
@@ -280,43 +285,48 @@ class XUIDateInputItem extends Component {
 
     /** Trigger where users focus to select date or type in a date shortcut */
     const trigger = (
-      <XUITextInput
-        autoComplete="off"
-        containerClassName={`${ns}-dateinputitem--input`}
-        inputClassName={cn(
-          `${ns}-dateinputitem--input`,
-          inputClassName,
+      <div
+        className={cn(
+          `${ns}-dateinputitem`,
           triggerClassName,
           isDisabled && `${ns}-dateinputitem-is-disabled`,
         )}
-        inputProps={{ id: this.wrapperIds.control }}
-        inputRef={el => {
-          if (exposeInputRef) {
-            exposeInputRef(el);
-          }
-
-          this.inputRef.current = el;
-        }}
-        isDisabled={isDisabled}
-        isInvalid={isDateInvalid}
-        isLabelHidden={isLabelHidden}
-        label={(isLabelHidden && inputLabel) || null}
-        labelId={(hasVisibleLabel && this.wrapperIds.label) || null}
-        leftElement={
-          <XUITextInputSideElement onClick={this.onIconFocus}>
-            <XUIIcon color="black" icon={inputIcon || dateStartIcon} isBoxed />
-          </XUITextInputSideElement>
-        }
-        onBlur={this.setDate}
-        onChange={this.onInputChange}
-        onClick={this.handleInitialFocus}
-        onKeyDown={this.onInputKeyDown}
-        qaHook={qaHook && `${qaHook}-dateinputitem--input`}
+        onFocus={this.onTriggerFocus}
         ref={this.triggerRef}
-        size={size}
-        value={formatSelectedDateToString(selectedDate, inputValue, locale)}
-        {...spreadProps}
-      />
+        tabIndex="-1"
+      >
+        <XUITextInput
+          autoComplete="off"
+          containerClassName={`${ns}-dateinputitem--input`}
+          inputClassName={cn(`${ns}-dateinputitem--input`, inputClassName)}
+          inputProps={{ id: this.wrapperIds.control }}
+          inputRef={el => {
+            if (exposeInputRef) {
+              exposeInputRef(el);
+            }
+
+            this.inputRef.current = el;
+          }}
+          isDisabled={isDisabled}
+          isInvalid={isDateInvalid}
+          isLabelHidden={isLabelHidden}
+          label={(isLabelHidden && inputLabel) || null}
+          labelId={(hasVisibleLabel && this.wrapperIds.label) || null}
+          leftElement={
+            <XUITextInputSideElement onClick={this.onIconFocus}>
+              <XUIIcon color="black" icon={inputIcon || dateStartIcon} isBoxed />
+            </XUITextInputSideElement>
+          }
+          onBlur={this.setDate}
+          onChange={this.onInputChange}
+          onClick={this.handleInitialFocus}
+          onKeyDown={this.onInputKeyDown}
+          qaHook={qaHook && `${qaHook}-dateinputitem--input`}
+          size={size}
+          value={formatSelectedDateToString(selectedDate, inputValue, locale)}
+          {...spreadProps}
+        />
+      </div>
     );
 
     /** Dropdown footer: */
@@ -328,6 +338,7 @@ class XUIDateInputItem extends Component {
             id={this.suggestedDatesFooterId}
             leftElement={<XUIIcon color="black" icon={selectDateIcon || dateStartIcon} isBoxed />}
             onClick={this.showDatepickerPanel}
+            qaHook={qaHook && `${qaHook}-dateinputitem-suggesteddates--footer`}
           >
             {selectDateLabel}
           </XUIPickitem>
@@ -409,6 +420,7 @@ class XUIDateInputItem extends Component {
           restrictedToViewPort={false}
           trigger={trigger}
           triggerClickAction="none"
+          useNewFocusBehaviour
         />
       </XUIControlWrapper>
     );

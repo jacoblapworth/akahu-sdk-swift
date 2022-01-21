@@ -59,7 +59,7 @@
 // Do: Keep primary title concise to create a clear reading experience and avoid uncomfortably tall page header at small viewports
 // Do: For user-generated content, encourage users to create short titles
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/page-header/_page-header-primary-title.html
 //
@@ -75,7 +75,7 @@
 // Don't: Don’t provide a secondary title without a primary title
 // Don't: Don’t add a secondary title if it doesn’t provide additional page context
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/page-header/_page-header-secondary-title.html
 //
@@ -89,7 +89,7 @@
 // Do: Use supplementary text for information that’s relevant to the whole page
 // Don't: Don’t use supplementary text for page title content
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/page-header/_page-header-supplementary-text.html
 //
@@ -105,7 +105,7 @@
 // Don't: Avoid displaying more than 1 tag, as tags are generally used to represent a group of mutually exclusive states
 // Info: [Tag component guide](./section-components-identifiers-tag.html)
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/page-header/_page-header-tags.html
 //
@@ -123,7 +123,7 @@
 // Don't: Don’t include actions that only affect a part of the page
 // Don't: Don't include actions that require users to first consider all page content
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/page-header/_page-header-actions.html
 //
@@ -140,7 +140,7 @@
 // Don't: Avoid nesting pages more than 3 levels deep
 // Info: [Breadcrumb trail component guide](./section-components-navigation-breadcrumb-trail.html)
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/page-header/_page-header-breadcrumb-trail.html
 //
@@ -155,7 +155,7 @@
 // Do: Consider using the compact tab variant when there are many tabs or text content is exceptionally long
 // Info: [Tabs component guide](./section-components-navigation-tabs.html)
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/page-header/_page-header-tabs.html
 //
@@ -171,7 +171,7 @@
 // Do: Consider moving buttons to fall under an overflow [icon button](./section-components-controls-button.html#components-controls-button-6) at smaller breakpoints
 // Don't: Don’t remove pertinent page header details or functionality on small viewport widths
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Markup: ./examples/page-header/_page-header-responsive.html
 //
@@ -196,7 +196,7 @@
 //
 // For building a component without React, following these HTML classes will provide the appropriate styling. However, there is some functionality reliant on javascript that will not be available through this method of building, such as reformatting components based on container queries.
 //
-// ExampleClass: ds-example-wide
+// ExampleClass: ds-example-wide-with-nav
 //
 // Classes:
 // xui-pageheading: Page heading container

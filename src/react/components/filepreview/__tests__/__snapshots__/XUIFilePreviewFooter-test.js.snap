@@ -6,7 +6,11 @@ exports[`<XUI XUIFilePreviewFooter/> renders a passed qaHook as an automationId 
     class="xui-filepreviewfooter"
     data-automationid="test-filepreviewfooter"
   >
-    <div />
+    <div
+      class="xui-filepreviewfooter--controls"
+    >
+      <div />
+    </div>
   </footer>
 </DocumentFragment>
 `;
@@ -16,7 +20,11 @@ exports[`<XUI XUIFilePreviewFooter/> renders alternate wrapping element, if prov
   <section
     class="xui-filepreviewfooter"
   >
-    <div />
+    <div
+      class="xui-filepreviewfooter--controls"
+    >
+      <div />
+    </div>
   </section>
 </DocumentFragment>
 `;
@@ -26,7 +34,11 @@ exports[`<XUI XUIFilePreviewFooter/> renders any additional classes provided thr
   <footer
     class="filepreviewfooter-class xui-filepreviewfooter"
   >
-    <div />
+    <div
+      class="xui-filepreviewfooter--controls"
+    >
+      <div />
+    </div>
   </footer>
 </DocumentFragment>
 `;
@@ -36,7 +48,30 @@ exports[`<XUI XUIFilePreviewFooter/> renders basic example correctly 1`] = `
   <footer
     class="xui-filepreviewfooter"
   >
-    <div />
+    <div
+      class="xui-filepreviewfooter--controls"
+    >
+      <div />
+    </div>
+  </footer>
+</DocumentFragment>
+`;
+
+exports[`<XUI XUIFilePreviewFooter/> renders with a pagination prop, if provided 1`] = `
+<DocumentFragment>
+  <footer
+    class="xui-filepreviewfooter"
+  >
+    <div
+      class="xui-filepreviewfooter--controls"
+    >
+      <div />
+    </div>
+    <div
+      class="xui-filepreviewfooter--pagination"
+    >
+      <div />
+    </div>
   </footer>
 </DocumentFragment>
 `;

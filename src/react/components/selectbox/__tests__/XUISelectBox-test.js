@@ -27,7 +27,6 @@ describe('<XUISelectBox />', function () {
         buttonClassName="blah"
         buttonContent={options[0]}
         caretTitle="Toggle list"
-        forceDesktop
         label="Test Select Box"
         name="Test"
         value={options[0]}
@@ -76,7 +75,6 @@ describe('<XUISelectBox />', function () {
         buttonClassName="blah"
         buttonContent="test"
         caretTitle="Toggle list"
-        forceDesktop
         isOpen={false}
         label="Does not have children"
         name="Test"
@@ -94,7 +92,6 @@ describe('<XUISelectBox />', function () {
         buttonClassName="blah"
         buttonContent="test"
         caretTitle="Toggle list"
-        forceDesktop
         isDisabled
         isOpen={false}
         label="test"
@@ -130,7 +127,6 @@ describe('<XUISelectBox />', function () {
       <XUISelectBox
         buttonContent="test"
         caretTitle="Toggle list"
-        forceDesktop
         id="testThisSelect"
         label="test"
         qaHook="test-selectbox"
@@ -151,13 +147,7 @@ describe('<XUISelectBox />', function () {
 
   it('should render the trigger in a disabled state if `isDisabled` is set', () => {
     const select = renderer.create(
-      <XUISelectBox
-        buttonContent="test"
-        caretTitle="Toggle list"
-        forceDesktop
-        isDisabled
-        label="test"
-      >
+      <XUISelectBox buttonContent="test" caretTitle="Toggle list" isDisabled label="test">
         <XUISelectBoxOption id="1" label="test" value="A sample option">
           A sample option
         </XUISelectBoxOption>

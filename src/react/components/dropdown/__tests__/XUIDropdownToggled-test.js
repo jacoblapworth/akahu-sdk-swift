@@ -5,11 +5,18 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 import XUIDropdown from '../XUIDropdown';
+import XUIDropdownFooter from '../XUIDropdownFooter';
 import XUIDropdownToggled from '../XUIDropdownToggled';
 import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIPickitem from '../../picklist/XUIPickitem';
 import XUIModal from '../../modal/XUIModal';
+import XUIButton from '../../button/XUIButton';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
+import wait from '../../../helpers/wait';
+
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { screen } from '@testing-library/dom';
 
 const testId = 'testDropdownId';
 jest.mock('nanoid');
@@ -46,7 +53,6 @@ const testDropdown = (props = {}) => {
     <XUIDropdownToggled
       className="testClass"
       dropdown={props.dropdown || getDropdown()}
-      forceDesktop
       onClose={() => (closeCalled = true)}
       onOpen={() => (openCalled = true)}
       trigger={getTrigger()}
@@ -56,6 +62,179 @@ const testDropdown = (props = {}) => {
 };
 
 describe('<XUIDropdownToggled />', () => {
+  describe('New focus behaviour', () => {
+    describe('without a footer', () => {
+      const trigger = <XUIButton qaHook="trigger">Trigger</XUIButton>;
+
+      const testDropdown = (
+        <XUIDropdown restrictFocus={false} qaHook="dropdown">
+          <XUIPicklist>
+            <XUIPickitem id="1">Im the whole shabang</XUIPickitem>
+            <XUIPickitem id="2">Earnings from Busking</XUIPickitem>
+            <XUIPickitem id="3">Costs</XUIPickitem>
+            <XUIPickitem id="4">Unnecessary Costs</XUIPickitem>
+            <XUIPickitem id="5">Absolutely Necessary Costs</XUIPickitem>
+          </XUIPicklist>
+        </XUIDropdown>
+      );
+
+      const TestDropDownToggled = () => {
+        return (
+          <XUIDropdownToggled
+            dropdown={testDropdown}
+            forceDesktop
+            qaHook="dropdownToggled"
+            trigger={trigger}
+            useNewFocusBehaviour
+          />
+        );
+      };
+
+      test('pressing enter from the trigger opens and focuses the dropdown', async () => {
+        // Arrange
+        render(<TestDropDownToggled />);
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+
+        // Assert
+        expect(screen.getByTestId('dropdown')).toHaveFocus();
+      });
+
+      test('tabbing from a dropdown closes the dropdown and focuses the next element', async () => {
+        // Arrange
+        render(
+          <>
+            <TestDropDownToggled />
+            <XUIButton qaHook="nextElement">Next Element</XUIButton>
+          </>,
+        );
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+        userEvent.tab();
+
+        // Assert
+        expect(screen.getByTestId('nextElement')).toHaveFocus();
+        expect(screen.queryByTestId('dropdown')).not.toBeInTheDocument();
+      });
+
+      test('shift tabbing from a dropdown closes the dropdown and focuses the trigger', async () => {
+        // Arrange
+        render(<TestDropDownToggled />);
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+        userEvent.tab({ shift: true });
+
+        // Assert
+        expect(screen.getByTestId('trigger')).toHaveFocus();
+        expect(screen.queryByTestId('dropdown')).not.toBeInTheDocument();
+      });
+    });
+
+    describe('with a footer', () => {
+      const trigger = <XUIButton qaHook="trigger">Trigger</XUIButton>;
+
+      const footer = (
+        <XUIDropdownFooter
+          pickItems={
+            <XUIPickitem id="footerAction" qaHook="dropdownFooter">
+              Add New Fruit
+            </XUIPickitem>
+          }
+        />
+      );
+
+      const testDropdown = (
+        <XUIDropdown footer={footer} restrictFocus={false} qaHook="dropdown">
+          <XUIPicklist>
+            <XUIPickitem id="1">Im the whole shabang</XUIPickitem>
+            <XUIPickitem id="2">Earnings from Busking</XUIPickitem>
+            <XUIPickitem id="3">Costs</XUIPickitem>
+            <XUIPickitem id="4">Unnecessary Costs</XUIPickitem>
+            <XUIPickitem id="5">Absolutely Necessary Costs</XUIPickitem>
+          </XUIPicklist>
+        </XUIDropdown>
+      );
+
+      const TestDropDownToggledWithFooter = () => {
+        return (
+          <XUIDropdownToggled
+            useNewFocusBehaviour
+            dropdown={testDropdown}
+            forceDesktop
+            trigger={trigger}
+            qaHook="dropdownToggled"
+          />
+        );
+      };
+
+      test('pressing enter from the trigger opens and focuses the dropdown', async () => {
+        // Arrange
+        render(<TestDropDownToggledWithFooter />);
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+
+        // Assert
+        expect(screen.getByTestId('dropdown')).toHaveFocus();
+      });
+
+      test('tabbing from a dropdown focuses the dropdown footer', async () => {
+        // Arrange
+        render(<TestDropDownToggledWithFooter />);
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+        userEvent.tab();
+
+        // Assert
+        expect(screen.getByTestId('dropdownFooter--body')).toHaveFocus();
+      });
+
+      test('tabbing from a dropdown footer closes the dropdown and focuses the next element', async () => {
+        // Arrange
+        render(
+          <>
+            <TestDropDownToggledWithFooter />
+            <XUIButton qaHook="nextElement">Next Element</XUIButton>
+          </>,
+        );
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+        userEvent.tab();
+        userEvent.tab();
+
+        // Assert
+        expect(screen.getByTestId('nextElement')).toHaveFocus();
+        expect(screen.queryByTestId('dropdown')).not.toBeInTheDocument();
+      });
+
+      test('shift tabbing from a dropdown footer closes the dropdown and focuses the trigger', async () => {
+        // Arrange
+        render(<TestDropDownToggledWithFooter />);
+
+        // Act
+        userEvent.click(screen.getByTestId('trigger'));
+        await wait(100);
+        userEvent.tab();
+        userEvent.tab({ shift: true });
+
+        // Assert
+        expect(screen.getByTestId('trigger')).toHaveFocus();
+        expect(screen.queryByTestId('dropdown')).not.toBeInTheDocument();
+      });
+    });
+  });
+
   beforeEach(() => {
     openCalled = false;
     closeCalled = false;

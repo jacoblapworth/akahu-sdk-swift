@@ -1,5 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
@@ -91,7 +90,7 @@ describe('<PortalFocusHelper />', () => {
       );
 
       // Act
-      wrapper.find('div').last().simulate('focus');
+      wrapper.find('div').at(3).simulate('focus');
 
       // Assert
       expect(document.activeElement).toBe(expectedFocusRef.current);

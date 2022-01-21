@@ -10,6 +10,12 @@ interface Props {
    */
   _skipFocusOnOpen?: boolean;
   /**
+   * Internal function that allows `XUIDropdownToggled` to wrap the dropdown with the
+   * `PortalFocusHelper` component in order to control focus of a portalled dropdown.
+   * @ignore
+   */
+  _wrappingElement?: (children: React.ReactNode) => void;
+  /**
    * Will add the closing animation class.
    */
   animateClosed?: boolean;

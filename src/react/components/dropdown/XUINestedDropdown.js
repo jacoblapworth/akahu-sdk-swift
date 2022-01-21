@@ -35,6 +35,7 @@ export default class XUINestedDropdown extends XUIDropdown {
       children,
       qaHook,
       style,
+      _wrappingElement,
       onSelect,
       currentPanelId,
       hasFixedWidth,
@@ -89,7 +90,7 @@ export default class XUINestedDropdown extends XUIDropdown {
         size={size}
         style={style}
       >
-        {childrenToRender}
+        {_wrappingElement(childrenToRender)}
       </XUIDropdownLayout>
     );
   }
@@ -100,6 +101,12 @@ XUINestedDropdown.propTypes = {
    * @ignore
    */
   _skipFocusOnOpen: PropTypes.bool,
+
+  /** Internal function that allows `XUIDropdownToggled` to wrap the dropdown with the
+   * `PortalFocusHelper` component in order to control focus of a portalled dropdown.
+   * @ignore
+   */
+  _wrappingElement: PropTypes.func,
 
   /** Will add the closing animation class */
   animateClosed: PropTypes.bool,
@@ -161,6 +168,7 @@ XUINestedDropdown.propTypes = {
 };
 
 XUINestedDropdown.defaultProps = {
+  _wrappingElement: children => children,
   animateClosed: false,
   animateOpen: false,
   forceDesktop: false,

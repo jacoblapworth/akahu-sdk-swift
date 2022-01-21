@@ -5,8 +5,16 @@
 @import './vars';
 @import './_flags';
 
+$ds-min-h1-size: 30px;
+$ds-min-h2-size: 24px;
+
 .ds-html {
   background: $ds-html-bg-color;
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion) {
+    scroll-behavior: auto;
+  }
 }
 
 .ds-body {
@@ -107,36 +115,70 @@ $ds-section-space: calc(6rem + 2vh);
 }
 
 .ds-title--level-1 {
-  font-size: calc(1.6em + 1.5vw);
+  font-size: #{"max(calc(1.6em + 1.5vw), "$ds-min-h1-size")"};
   letter-spacing: -0.006em;
   line-height: 1.15;
   // Add padding to accommodate react link
   padding-right: 10rem;
+
   @include xui-breakpoint-small-down {
     padding-right: 3rem;
+  }
+  @media screen and (max-width: $xui-breakpoint-medium) {
+    font-size: $ds-min-h1-size;
   }
 }
 
 .ds-title--level-2,
 .ds-description h2 {
-  font-size: calc(1.2em + 0.4vw);
+  font-size: #{"max(calc(1.2em + 0.4vw), "$ds-min-h2-size")"};
   padding-top: $ds-section-space;
   letter-spacing: -0.006em;
+
+  @media screen and (max-width: $xui-breakpoint-medium) {
+    font-size: $ds-min-h2-size;
+  }
 }
 
 .ds-title--level-3,
 .ds-description h3 {
-  padding-top: calc(4rem + 2vh);
+  font-size: $xui-font-size-xlarge;
   margin-top: 0;
-  font-size: $xui-font-size-large;
+  padding-top: calc(4rem + 2vh);
 }
 
-// use 4th level blocks as callouts
-.kss-section--depth-4 {
-  padding: 20px;
-  border: 1px solid $ds-border-color;
+.ds-title--level-4,
+.ds-description h4 {
+  font-size: $xui-font-size-large;
+  margin-top: 0;
+  padding-top: calc(4rem + 2vh);
+}
+
+.ds-title--level-5,
+.ds-description h5 {
+  font-size: $xui-font-size-medium;
+}
+
+.kss-section--callout {
   border-radius: $xui-radius;
+  border: 1px solid $ds-border-color;
   margin-top: 20px;
+  padding: 20px;
+
+  .ds-title--level-2,
+  .ds-description h2,
+  .ds-title--level-3,
+  .ds-description h3,
+  .ds-title--level-4,
+  .ds-description h4,
+  .ds-title--level-5,
+  .ds-description h5 {
+    padding-top: 0;
+  }
+
+  .ds-anchor-hash {
+    margin: 4px 0 0 4px;
+  }
 }
 
 *[class^='ds-title'] + *[class^='ds-title'] {
@@ -146,10 +188,6 @@ $ds-section-space: calc(6rem + 2vh);
 *[class^='ds-title']:first-child,
 .ds-h0:first-child {
   margin-top: 0;
-}
-
-.ds-title--level-4 .ds-anchor-hash {
-  margin: 4px 0 0 4px;
 }
 
 // Page anchors
@@ -1164,6 +1202,89 @@ $kss-color-padding: #eeebff;
   .xui-dropdown--body {
     overflow-y: auto;
   }
+}
+
+// -----------------------------------------------------------------------------
+// Styles for the extra nav of headers on a given page
+// -----------------------------------------------------------------------------
+
+.ds-article--default {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ds-nav-sticky-wrapper {
+  position: relative;
+  display: none;
+  margin-right: -50px;
+
+  @include xui-breakpoint-xlarge-up {
+    display: block;
+  }
+
+  @include xui-breakpoint-2xlarge-up {
+    margin-right: 0;
+  }
+}
+
+.ds-nav-sticky {
+  position: sticky;
+  // 12vh - page padding, 92px h1 height based on em, 19px 'intro' margin, 16px universal constant
+  top: calc(12vh + 92px + 19px + 16px);
+  width: 220px;
+  padding-left: 60px;
+  font-size: 13px;
+  overflow-y: auto;
+  max-height: calc(100vh - (12vh + 92px + 19px + 16px));
+
+  @include xui-breakpoint-2xlarge-up {
+    width: 340px;
+    padding-left: 160px;
+  }
+}
+
+.ds-nav-sticky--list {
+  list-style: none;
+  margin: 10px 0;
+  padding-left: 0;
+  line-height: $xui-line-height-standard;
+}
+
+.ds-nav-sticky--list--highlighted {
+  font-weight: bold;
+}
+
+.ds-nav-sticky--mobile,
+.ds-page-nav {
+  display: none;
+
+  @media screen and (max-width: ($xui-breakpoint-xlarge - 1px)) {
+    display: block;
+  }
+}
+
+.ds-select-styled {
+  select {
+    color: $xui-color-blue;
+    font-weight: bold;
+    transition-duration: 0.1s;
+    transition-property: color, background, box-shadow;
+    transition-timing-function: ease;
+  }
+
+  &:hover select,
+  &:focus select {
+    background-color: $xui-button-standard-hover-bg-color;
+    color: $xui-button-standard-hover-color;
+  }
+
+  .xui-select--caret {
+    color: $xui-color-blue;
+  }
+}
+
+.opt-3 {
+  padding-left: 18px;
 }
 
 @import './cards';

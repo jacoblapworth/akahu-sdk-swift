@@ -549,6 +549,7 @@ const ExampleDateInput = () => {
       prevButtonAriaLabel="Previous month"
       suggestedDates={dateInputSuggestedDates}
       selectedDateValue={selectedDate}
+      selectDateLabel="Select date"
     />
   );
 };

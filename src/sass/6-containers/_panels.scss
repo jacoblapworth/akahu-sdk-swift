@@ -57,6 +57,7 @@
 // -----------------------------------------------------------------------------
 
 .#{$ns}-panel--footer {
+  align-items: center;
   border-top: $xui-border-standard;
   display: flex;
   min-height: $xui-navigation-height;

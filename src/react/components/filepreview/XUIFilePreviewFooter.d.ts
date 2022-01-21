@@ -13,6 +13,10 @@ interface BaseProps {
    * Tag type for the filepreviewfooter element. Defaults to 'footer'
    */
   footerTag?: string;
+  /**
+   * Pagination component to be passed to the file preview footer.
+   */
+  pagination?: React.ReactNode;
   qaHook?: string;
 }
 

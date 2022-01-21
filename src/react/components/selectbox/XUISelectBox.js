@@ -79,6 +79,7 @@ export default class XUISelectBox extends Component {
             qaHook,
             restrictFocus,
             size,
+            useNewFocusBehaviour,
             validationMessage,
           } = this.props;
 
@@ -124,7 +125,7 @@ export default class XUISelectBox extends Component {
               id={selectBox.selectId}
               onSelect={onSelect}
               qaHook={setQaHook(qaHook, qaHooks.dropdown)}
-              restrictFocus={restrictFocus}
+              restrictFocus={useNewFocusBehaviour ? false : restrictFocus}
             >
               <XUIPicklist>{children}</XUIPicklist>
             </XUIDropdown>
@@ -159,6 +160,7 @@ export default class XUISelectBox extends Component {
                   qaHook={setQaHook(qaHook, qaHooks.dropdownToggled)}
                   ref={selectBox.ddt}
                   trigger={trigger}
+                  useNewFocusBehaviour={useNewFocusBehaviour}
                 />
               )}
             </XUIControlWrapper>
@@ -273,7 +275,9 @@ XUISelectBox.propTypes = {
   /** for adding automation ID to component as well as input and button sub-components */
   qaHook: PropTypes.string,
 
-  /** Whether focus should be restricted to the dropdown while it's open. */
+  /** Whether focus should be restricted to the dropdown while it's open.
+   * This is set to false if `useNewFocusBehaviour` is true.
+   */
   restrictFocus: PropTypes.bool,
 
   /**
@@ -282,6 +286,11 @@ XUISelectBox.propTypes = {
    * If `XUISelectBoxOption` does not have a size set, it will inherit the size from `XUISelectBox`.
    */
   size: PropTypes.oneOf(sizes),
+
+  /** Whether or not to use the new focus behaviour - which treats dropdown navigation
+   * like a `combobox` role. Defaults to `false`.
+   */
+  useNewFocusBehaviour: PropTypes.bool,
 
   /** Validation message to show under the input if `isInvalid` is true */
   validationMessage: PropTypes.node,

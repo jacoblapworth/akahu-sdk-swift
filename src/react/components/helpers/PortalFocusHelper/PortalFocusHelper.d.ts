@@ -14,6 +14,12 @@ interface Props {
    * page.
    */
   onReturnFocus?: () => void;
+  /**
+   * This prop allows dropdowns with more complex triggers (e.g. `XUIAutocompleter`,
+   * where the trigger component contains multiple focusable elements) to specify which
+   * element should be used to calculate the correct navigtion behaviour inside `PortalFocusHelper`.
+   */
+  triggerElementRef: React.RefObject<HTMLElement>;
 }
 
 export default class PortalFocusHelper extends React.Component<Props> {}

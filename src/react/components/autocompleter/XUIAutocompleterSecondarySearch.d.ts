@@ -131,6 +131,7 @@ interface Props {
   qaHook?: string;
   /**
    * Whether focus should be restricted to the dropdown while it's open.
+   * This is set to false if `useNewFocusBehaviour` is true.
    */
   restrictFocus?: boolean;
   /**
@@ -145,6 +146,11 @@ interface Props {
    * Will be passed directly down to the `XUIDropdownToggled` component as the main trigger.
    */
   trigger: React.ReactElement;
+  /**
+   * Whether or not to use the new focus behaviour - which treats dropdown navigation
+   * like a `combobox` role. Defaults to `false`.
+   * */
+  useNewFocusBehaviour?: boolean;
 }
 
 export default class XUIAutocompleterSecondarySearch extends React.PureComponent<Props> {

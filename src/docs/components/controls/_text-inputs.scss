@@ -1,4 +1,4 @@
-// Text Input
+// Text input
 //
 // flags: updated
 //
@@ -8,14 +8,30 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.pcgu22htm7cm
 //
+// Introduction: A text input is a field where users can write or edit text
+//
 // Styleguide: Components.Controls.TextInput
 
-// Usage
+// When to use
 //
-// Currently the `xui-textinput` CSS classes are highly optimised for usage with the `XUITextInput` React component. At this stage we're evaluating whether to create
-// a more simplified CSS class solution for direct usage by consumers.
+// - Whenever a user needs to add text in the UI
 //
 // Styleguide: Components.Controls.TextInput.1
+
+// Best practice
+//
+// Tips:
+// Do: Always add a label above the input
+// Warning: [Placeholder text](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-6) should be used with caution
+// Dont: Don’t place instructive text in the input – instead use a [hint message](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-9)
+//
+// Styleguide: Components.Controls.TextInput.2
+
+// Features of a text input
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Controls.TextInput.3
 
 // Standard inputs
 //
@@ -27,7 +43,7 @@
 //
 // Markup: ./examples/text-input/_text-input.html
 //
-// Styleguide: Components.Controls.TextInput.2
+// Styleguide: Components.Controls.TextInput.3.1
 
 // Textarea
 //
@@ -42,7 +58,161 @@
 //
 // Markup: ./examples/text-input/_text-input-textarea.html
 //
-// Styleguide: Components.Controls.TextInput.3
+// Styleguide: Components.Controls.TextInput.3.2
+
+// Borderless text inputs
+//
+// Add `xui-input-borderless` to remove border from input and `xui-textinput-borderless-solid` to add grey tint.
+//
+// Tips:
+// Do: Use for isolated secondary elements where a standard inputs are too prominent
+// Warning: Full range of elements like selects are not yet supported
+// Dont: Avoid using for linear forms or where validation is required
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/text-input/_text-input-borderless.html
+//
+// Styleguide: Components.Controls.TextInput.3.3
+
+// Transparent text inputs
+//
+// Add `xui-input-borderless` and `xui-input-borderless-transparent` for inputs which only have a background on focus.
+//
+// Tips:
+// Warning: Only use where it’s clear that it’s still a field and what it’s for
+// Do: Include an icon and placeholder
+// Do: Ensure the input has an aria-label
+// Dont: Avoid using if validation is required
+//
+// exampleClass: ds-example-flush
+//
+// Markup: ./examples/text-input/_text-input-transparent.html
+//
+// Styleguide: Components.Controls.TextInput.3.4
+
+// Inverted inputs
+//
+// Both transparent and solid inputs can be used on dark backgrounds by adding `xui-inputwrapper-borderless-inverted`. Make sure your background color is dark enough!
+//
+// exampleClass: ds-example-dark
+//
+// Markup: ./examples/text-input/_text-input-inverted.html
+//
+// Styleguide: Components.Controls.TextInput.3.5
+
+// Nesting
+//
+// Text inputs can have elements nested inside of them using side elements. It is important that the appropriate size variants of these elements are used within each Text input size variant.
+//
+// Tips:
+// Do: Nest small elements inside medium sized Text inputs and xsmall elements inside small Text inputs
+// Do: Nest icon buttons using the same size variant as the parent Text input
+// Dont: Don't nest an element using the same size variant as its parent (with the exception of icon-buttons)
+//
+// Definitions:
+// Size variant: **Elements available to nest**
+// medium: Avatar, Button, Icon, Pill, Text
+// small: Avatar, Button, Icon, Pill, Text
+// xsmall: Avatar, Icon, Text
+//
+// Markup: ./examples/text-input/_text-input-nesting.html
+//
+// Styleguide: Components.Controls.TextInput.3.6
+
+// Right-aligned content
+//
+// Adding the `xui-text-align-right` class to an ``<input>`` will align the text within the input to the right. This is particularly useful for aiding scannability of currency and figures.
+//
+// Tips:
+// Do: Right align text within stacked inputs that hold numerical content
+// Do: Leave the field label left aligned
+// Do: Right align text-inputs if they are stacked, have right-aligned text and are different widths from one another
+// Warning: Avoid using wide text-inputs with right aligned content, because the field's label and any left content (e.g icon) will be far away from right aligned text
+// Warning: Avoid mixing and matching inputs with left and right aligned text, especially if they are stacked
+// Dont: Don't use some inputs with actions to the right and some without, when they are stacked and each have right aligned text
+//
+// exampleClass: ds-example-narrow
+//
+// Markup: ./examples/text-input/_text-input-right-aligned.html
+//
+// Styleguide: Components.Controls.TextInput.3.7
+
+// Character limit
+//
+// You can limit the maximum characters allowed on text inputs using the character counter.
+//
+// The counter can be:
+// * initially hidden if it’s unlikely a user will exceed the character limit
+// * visible to show a user the character limit before they start typing (e.g. notes section)
+//
+// Tips:
+// Do: Use a clear validation message to reiterate the maximum character limit when it’s exceeded
+// Do: Only make the character counter visible when the user approaches the limit, reducing the complexity
+// Warning: If unsure of the space needed, choose the highest number of characters for the limit
+// Dont: Don’t set a character limit without clear and valid reasons (e.g. preventing excessive input of characters)
+//
+// Styleguide: Components.Controls.TextInput.3.8
+
+// Soft-limit vs hard-limit
+//
+// Use a soft-limit for text inputs. It allows users to go beyond the character limit, but informs them through the character counter and a validation message. This prevents user errors, such as incomplete copy-pasting or exceeding the limit during typing without looking at the screen.
+//
+// The problem with hard-limits (e.g. HTML input attribute: `maxlength`) is users can’t enter any characters that exceed the limit, so it’s not possible to validate and alert users of an input error. We don’t recommend using them.
+//
+// Styleguide: Components.Controls.TextInput.3.8.1
+
+// Visibility of character counters
+//
+// Character limits don't always have to be visible. The use of a character counter should be minimised because unnecessary use of them can distract users with visual noise.
+//
+//
+// Styleguide: Components.Controls.TextInput.3.8.2
+
+// Visible when invalid
+//
+// If a maximum character limit is used to prevent excessive input of characters, and the user is unlikely to exceed the limit, display the character count only when the limit is exceeded or close to being exceeded.
+//
+// Markup: ./examples/text-input/_text-input-character-limit-on-invalid.html
+//
+// Styleguide: Components.Controls.TextInput.3.8.2.1
+
+// Always visible
+//
+// If the number of characters entered by a user is likely to exceed the character limit, always show the character counter so they know the character limit in advance.
+//
+// Markup: ./examples/text-input/_text-input-character-limit-always.html
+//
+// Styleguide: Components.Controls.TextInput.3.8.2.2
+
+// Adding icons
+//
+//
+// Styleguide: Components.Controls.TextInput.3.9
+
+// Content prompts
+//
+// Tips:
+// Do: Add to the left only
+// Do: Use either XUI icon or text
+// Do: Can be used instead of a label if content easily understood
+// Warning: Ensure the input has an aria-label if not including a label
+//
+// exampleclass: ds-example-narrow
+//
+// Markup: ./examples/text-input/_text-input-content-prompts.html
+//
+// Styleguide: Components.Controls.TextInput.3.9.1
+
+// Indicating actions
+//
+// Icons on the **right** are used to indicate actions. These can be either the main input behaviour (eg. a caret for a dropdown) or supplementary actions like clearing or picking a date.
+//
+// exampleclass: ds-example-narrow
+//
+// Markup: ./examples/text-input/_text-input-actions.html
+//
+// Styleguide: Components.Controls.TextInput.3.9.2
 
 // Size variants
 //
@@ -66,163 +236,9 @@
 //
 // Styleguide: Components.Controls.TextInput.4
 
-// Nesting
-//
-// Text inputs can have elements nested inside of them using side elements. It is important that the appropriate size variants of these elements are used within each Text input size variant.
-//
-// Tips:
-// Do: Nest small elements inside medium sized Text inputs and xsmall elements inside small Text inputs
-// Do: Nest icon buttons using the same size variant as the parent Text input
-// Dont: Don't nest an element using the same size variant as its parent (with the exception of icon-buttons)
-//
-// Definitions:
-// Size variant: **Elements available to nest**
-// medium: Avatar, Button, Icon, Pill, Text
-// small: Avatar, Button, Icon, Pill, Text
-// xsmall: Avatar, Icon, Text
-//
-// Markup: ./examples/text-input/_text-input-nesting.html
-//
-// Styleguide: Components.Controls.TextInput.5
-
-// Right-aligned content
-//
-// Adding the `xui-text-align-right` class to an ``<input>`` will align the text within the input to the right. This is particularly useful for aiding scannability of currency and figures.
-//
-// Tips:
-// Do: Right align text within stacked inputs that hold numerical content
-// Do: Leave the field label left aligned
-// Do: Right align text-inputs if they are stacked, have right-aligned text and are different widths from one another
-// Warning: Avoid using wide text-inputs with right aligned content, because the field's label and any left content (e.g icon) will be far away from right aligned text
-// Warning: Avoid mixing and matching inputs with left and right aligned text, especially if they are stacked
-// Dont: Don't use some inputs with actions to the right and some without, when they are stacked and each have right aligned text
-//
-// exampleClass: ds-example-narrow
-//
-// Markup: ./examples/text-input/_text-input-right-aligned.html
-//
-// Styleguide: Components.Controls.TextInput.6
-
-// Character limit
-//
-// You can limit the maximum characters allowed on text inputs using the character counter.
-//
-// The counter can be:
-// * initially hidden if it’s unlikely a user will exceed the character limit
-// * visible to show a user the character limit before they start typing (e.g. notes section)
-//
-// Tips:
-// Do: Use a clear validation message to reiterate the maximum character limit when it’s exceeded
-// Do: Only make the character counter visible when the user approaches the limit, reducing the complexity
-// Warning: If unsure of the space needed, choose the highest number of characters for the limit
-// Dont: Don’t set a character limit without clear and valid reasons (e.g. preventing excessive input of characters)
-//
-// Styleguide: Components.Controls.TextInput.7
-
-// Soft-limit vs hard-limit
-//
-// Use a soft-limit for text inputs. It allows users to go beyond the character limit, but informs them through the character counter and a validation message. This prevents user errors, such as incomplete copy-pasting or exceeding the limit during typing without looking at the screen.
-//
-// The problem with hard-limits (e.g. HTML input attribute: `maxlength`) is users can’t enter any characters that exceed the limit, so it’s not possible to validate and alert users of an input error. We don’t recommend using them.
-//
-// Styleguide: Components.Controls.TextInput.7.1
-
-// Visibility of character counters
-//
-// Character limits don't always have to be visible. The use of a character counter should be minimised because unnecessary use of them can distract users with visual noise.
-//
-//
-// Styleguide: Components.Controls.TextInput.7.2
-
-// Visible when invalid
-//
-// If a maximum character limit is used to prevent excessive input of characters, and the user is unlikely to exceed the limit, display the character count only when the limit is exceeded or close to being exceeded.
-//
-// Markup: ./examples/text-input/_text-input-character-limit-on-invalid.html
-//
-// Styleguide: Components.Controls.TextInput.7.2.1
-
-// Always visible
-//
-// If the number of characters entered by a user is likely to exceed the character limit, always show the character counter so they know the character limit in advance.
-//
-// Markup: ./examples/text-input/_text-input-character-limit-always.html
-//
-// Styleguide: Components.Controls.TextInput.7.2.2
-
-// Borderless text inputs
-//
-// Add `xui-input-borderless` to remove border from input and `xui-textinput-borderless-solid` to add grey tint.
-//
-// Tips:
-// Do: Use for isolated secondary elements where a standard inputs are too prominent
-// Warning: Full range of elements like selects are not yet supported
-// Dont: Avoid using for linear forms or where validation is required
-//
-// exampleClass: ds-example-transparent ds-example-flush
-//
-// Markup: ./examples/text-input/_text-input-borderless.html
-//
-// Styleguide: Components.Controls.TextInput.8
-
-// Transparent text inputs
-//
-// Add `xui-input-borderless` and `xui-input-borderless-transparent` for inputs which only have a background on focus.
-//
-// Tips:
-// Warning: Only use where it’s clear that it’s still a field and what it’s for
-// Do: Include an icon and placeholder
-// Do: Ensure the input has an aria-label
-// Dont: Avoid using if validation is required
-//
-// exampleClass: ds-example-flush
-//
-// Markup: ./examples/text-input/_text-input-transparent.html
-//
-// Styleguide: Components.Controls.TextInput.9
-
-// Inverted inputs
-//
-// Both transparent and solid inputs can be used on dark backgrounds by adding `xui-inputwrapper-borderless-inverted`. Make sure your background color is dark enough!
-//
-// exampleClass: ds-example-dark
-//
-// Markup: ./examples/text-input/_text-input-inverted.html
-//
-// Styleguide: Components.Controls.TextInput.10
-
-// Adding icons
-//
-//
-// Styleguide: Components.Controls.TextInput.11
-
-// Content prompts
-//
-// Tips:
-// Do: Add to the left only
-// Do: Use either XUI icon or text
-// Do: Can be used instead of a label if content easily understood
-// Warning: Ensure the input has an aria-label if not including a label
-//
-// exampleclass: ds-example-narrow
-//
-// Markup: ./examples/text-input/_text-input-content-prompts.html
-//
-// Styleguide: Components.Controls.TextInput.11.1
-
-// Indicating actions
-//
-// Icons on the **right** are used to indicate actions. These can be either the main input behaviour (eg. a caret for a dropdown) or supplementary actions like clearing or picking a date.
-//
-// exampleclass: ds-example-narrow
-//
-// Markup: ./examples/text-input/_text-input-actions.html
-//
-// Styleguide: Components.Controls.TextInput.11.2
-
 // Accessibility
 //
-// Styleguide: Components.Controls.TextInput.12.0
+// Styleguide: Components.Controls.TextInput.5
 
 // Focus state
 //
@@ -236,9 +252,28 @@
 //
 // Markup: ./examples/text-input/_text-input-focus-accessibility.html
 //
-// Styleguide: Components.Controls.TextInput.12.1
+// Styleguide: Components.Controls.TextInput.5.1
+
+// Content guidelines
+//
+// Tips:
+// Do: Be short and succinct
+// Do: Avoid using unnecessary words such as a, an, the (for example: use 'Add task' not 'Add a task')
+// Do: Use sentence case (capitalise first word and proper nouns)
+//
+// Also see guidance for writing:
+// Related:
+// - [Labels](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#labels)
+// - [Placeholder text](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-6)
+// - [Hint message](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-9)
+// - [Validation error message](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-12)
+// - [Optional/required fields](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-19)
+//
+//  Styleguide: Components.Controls.TextInput.6
 
 // Class list
+//
+// Currently the `xui-textinput` CSS classes are highly optimised for usage with the `XUITextInput` React component.
 //
 // Classes:
 // xui-textinput: Should be applied to the top-level element, whether that is the input or the wrapping div
@@ -265,9 +300,9 @@
 // xui-textinput--input-small: Sets textinput size to small
 // xui-textinput--input-xsmall: Sets textinput size to xsmall
 //
-// Styleguide: Components.Controls.TextInput.13
+// Styleguide: Components.Controls.TextInput.7
 
-// Related links
+// Related components
 //
 // Related:
 // * [Autocompleter](./section-components-collectinginput-autocompleter.html)

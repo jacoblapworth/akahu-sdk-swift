@@ -128,6 +128,7 @@ interface Props {
   qaHook?: string;
   /**
    * Whether focus should be restricted to the dropdown while it's open.
+   * This is set to false if `useNewFocusBehaviour` is true.
    */
   restrictFocus?: boolean;
   /**
@@ -136,6 +137,11 @@ interface Props {
    * If `XUISelectBoxOption` does not have a size set, it will inherit the size from `XUISelectBox`.
    */
   size?: typeof sizes[number];
+  /**
+   * Whether or not to use the new focus behaviour - which treats dropdown navigation
+   * like a `combobox` role. Defaults to `false`.
+   */
+  useNewFocusBehaviour?: boolean;
   /**
    * Validation message to show under the input if `isInvalid` is `true`.
    */

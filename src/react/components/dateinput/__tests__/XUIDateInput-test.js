@@ -164,6 +164,50 @@ describe('XUIDateInput', () => {
     expect(wrapper.find('input').instance().value).toBe(`${day} ${month} ${year}`);
   });
 
+  test('Parses dates correctly for the en-US locale', () => {
+    // Arrange
+    const onSelectDate = jest.fn();
+    render(
+      <XUIDateInput
+        inputLabel="Date"
+        locale="en-US"
+        nextButtonAriaLabel="Next month"
+        onSelectDate={onSelectDate}
+        prevButtonAriaLabel="Previous month"
+      ></XUIDateInput>,
+    );
+
+    const inputNode = screen.getByLabelText('Date');
+
+    // Act
+    userEvent.type(inputNode, '01/12/2022{enter}');
+
+    // Assert
+    expect(inputNode.value).toBe('Jan 12, 2022');
+  });
+
+  test('Parses dates correctly for the en-NZ locale', () => {
+    // Arrange
+    const onSelectDate = jest.fn();
+    render(
+      <XUIDateInput
+        inputLabel="Date"
+        locale="en-NZ"
+        nextButtonAriaLabel="Next month"
+        onSelectDate={onSelectDate}
+        prevButtonAriaLabel="Previous month"
+      ></XUIDateInput>,
+    );
+
+    const inputNode = screen.getByLabelText('Date');
+
+    // Act
+    userEvent.type(inputNode, '01/12/2022{enter}');
+
+    // Assert
+    expect(inputNode.value).toBe('1 Dec 2022');
+  });
+
   it('should pass accessibility testing', async () => {
     const wrapper = mount(createComponent({ inputLabel: 'default label' }));
     const results = await axe(wrapper.html());

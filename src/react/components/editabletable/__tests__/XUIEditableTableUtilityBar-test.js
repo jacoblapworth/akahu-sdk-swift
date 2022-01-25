@@ -4,19 +4,19 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import EditableTableUtilityBar from '../private/EditableTableUtilityBar';
+import XUIEditableTableUtilityBar from '../XUIEditableTableUtilityBar';
 
 Enzyme.configure({ adapter: new Adapter() });
 expect.extend(toHaveNoViolations);
 
-describe('<EditableTableUtilityBar />', () => {
+describe('<XUIEditableTableUtilityBar />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<EditableTableUtilityBar />);
+    const wrapper = shallow(<XUIEditableTableUtilityBar />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('composes the className correctly', () => {
-    const wrapper = shallow(<EditableTableUtilityBar className="test-classname" />);
+    const wrapper = shallow(<XUIEditableTableUtilityBar className="test-classname" />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
@@ -24,7 +24,7 @@ describe('<EditableTableUtilityBar />', () => {
     const wrapper = mount(
       <table>
         <tfoot>
-          <EditableTableUtilityBar />
+          <XUIEditableTableUtilityBar />
         </tfoot>
       </table>,
     );

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<XUIEditableTableFootAction /> composes the className correctly 1`] = `
-<EditableTableUtilityBar
+<XUIEditableTableUtilityBar
   className="xui-editabletablefoot--action test-classname"
 >
   <XUIButton
@@ -19,11 +19,11 @@ exports[`<XUIEditableTableFootAction /> composes the className correctly 1`] = `
   >
     test button
   </XUIButton>
-</EditableTableUtilityBar>
+</XUIEditableTableUtilityBar>
 `;
 
 exports[`<XUIEditableTableFootAction /> renders correctly 1`] = `
-<EditableTableUtilityBar
+<XUIEditableTableUtilityBar
   className="xui-editabletablefoot--action"
 >
   <XUIButton
@@ -41,5 +41,5 @@ exports[`<XUIEditableTableFootAction /> renders correctly 1`] = `
   >
     test button
   </XUIButton>
-</EditableTableUtilityBar>
+</XUIEditableTableUtilityBar>
 `;

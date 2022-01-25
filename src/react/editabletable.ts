@@ -13,6 +13,7 @@ import XUIEditableTableFootAction from './components/editabletable/XUIEditableTa
 import XUIEditableTableHead from './components/editabletable/XUIEditableTableHead';
 import XUIEditableTableHeadingCell from './components/editabletable/XUIEditableTableHeadingCell';
 import XUIEditableTableRow from './components/editabletable/XUIEditableTableRow';
+import XUIEditableTableUtilityBar from './components/editabletable/XUIEditableTableUtilityBar';
 
 export {
   XUIEditableTable as default,
@@ -31,4 +32,5 @@ export {
   XUIEditableTableHead,
   XUIEditableTableHeadingCell,
   XUIEditableTableRow,
+  XUIEditableTableUtilityBar,
 };

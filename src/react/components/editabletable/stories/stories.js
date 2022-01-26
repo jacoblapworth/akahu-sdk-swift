@@ -20,6 +20,7 @@ import {
   XUIEditableTableRow,
   XUIEditableTableCellReadOnly,
   XUIEditableTableFoot,
+  XUIEditableTableFootActions,
   XUIEditableTableFootAction,
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
@@ -177,10 +178,12 @@ class EditableTablePlayground extends React.Component {
                 </XUIEditableTableRow>
               )}
               {showAddRowButton && (
-                <XUIEditableTableFootAction
-                  addButtonContent="Add new row"
-                  onAdd={() => console.log('Add new row')}
-                />
+                <XUIEditableTableFootActions>
+                  <XUIEditableTableFootAction
+                    buttonContent="Add new row"
+                    onClick={() => console.log('Add new row')}
+                  />
+                </XUIEditableTableFootActions>
               )}
             </XUIEditableTableFoot>
           )}
@@ -394,10 +397,12 @@ const EditableTableStoryWrapper = ({
             </XUIEditableTableRow>
           )}
           {showAddRowButton && (
-            <XUIEditableTableFootAction
-              addButtonContent="Add new row"
-              onAdd={() => console.log('Add new row')}
-            />
+            <XUIEditableTableFootActions>
+              <XUIEditableTableFootAction
+                buttonContent="Add new row"
+                onClick={() => console.log('Add new row')}
+              />
+            </XUIEditableTableFootActions>
           )}
         </XUIEditableTableFoot>
       )}

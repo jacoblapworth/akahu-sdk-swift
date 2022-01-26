@@ -1,45 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<XUIEditableTableFootAction /> composes the className correctly 1`] = `
-<XUIEditableTableUtilityBar
-  className="xui-editabletablefoot--action test-classname"
->
-  <XUIButton
-    fullWidth="never"
-    isDisabled={false}
-    isExternalLink={false}
-    isGrouped={false}
-    isLink={false}
-    isLoading={false}
-    retainLayout={true}
-    size="small"
-    tabIndex={0}
-    type="button"
-    variant="borderless-main"
-  >
-    test button
-  </XUIButton>
-</XUIEditableTableUtilityBar>
-`;
-
 exports[`<XUIEditableTableFootAction /> renders correctly 1`] = `
-<XUIEditableTableUtilityBar
-  className="xui-editabletablefoot--action"
+<XUIButton
+  fullWidth="never"
+  isDisabled={false}
+  isExternalLink={false}
+  isGrouped={false}
+  isLink={false}
+  isLoading={false}
+  retainLayout={true}
+  size="small"
+  tabIndex={0}
+  type="button"
+  variant="borderless-main"
 >
-  <XUIButton
-    fullWidth="never"
-    isDisabled={false}
-    isExternalLink={false}
-    isGrouped={false}
-    isLink={false}
-    isLoading={false}
-    retainLayout={true}
-    size="small"
-    tabIndex={0}
-    type="button"
-    variant="borderless-main"
-  >
-    test button
-  </XUIButton>
-</XUIEditableTableUtilityBar>
+  test button
+</XUIButton>
 `;

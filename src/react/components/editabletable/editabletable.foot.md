@@ -4,7 +4,7 @@
 
 #### Footer Action
 
-For a table-affecting action like adding a row, use `XUIEditableTableFootAction` nested within `XUIEditableTableFoot`.
+For a table-affecting action like adding a row, use `XUIEditableTableFootAction` buttons inside a `XUIEditableTableFootActions` row, nested within `XUIEditableTableFoot` table footer.
 
 ```jsx harmony
 import {
@@ -15,6 +15,7 @@ import {
   XUIEditableTableHeadingCell,
   XUIEditableTableFoot,
   XUIEditableTableFootAction,
+  XUIEditableTableFootActions,
   XUIEditableTableRow
 } from '@xero/xui/react/editabletable';
 
@@ -36,7 +37,9 @@ const addNewRow = () => console.log('Add row');
     </XUIEditableTableRow>
   </XUIEditableTableBody>
   <XUIEditableTableFoot>
-    <XUIEditableTableFootAction addButtonContent="Add new row" onAdd={addNewRow} />
+    <XUIEditableTableFootActions>
+      <XUIEditableTableFootAction buttonContent="Add new row" onClick={addNewRow} />
+    </XUIEditableTableFootActions>
   </XUIEditableTableFoot>
 </XUIEditableTable>;
 ```

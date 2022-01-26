@@ -10,6 +10,7 @@ import XUIEditableTableCellSelectBox from './components/editabletable/XUIEditabl
 import XUIEditableTableCellTextInput from './components/editabletable/XUIEditableTableCellTextInput';
 import XUIEditableTableFoot from './components/editabletable/XUIEditableTableFoot';
 import XUIEditableTableFootAction from './components/editabletable/XUIEditableTableFootAction';
+import XUIEditableTableFootActions from './components/editabletable/XUIEditableTableFootActions';
 import XUIEditableTableHead from './components/editabletable/XUIEditableTableHead';
 import XUIEditableTableHeadingCell from './components/editabletable/XUIEditableTableHeadingCell';
 import XUIEditableTableRow from './components/editabletable/XUIEditableTableRow';
@@ -29,6 +30,7 @@ export {
   XUIEditableTableCellTextInput,
   XUIEditableTableFoot,
   XUIEditableTableFootAction,
+  XUIEditableTableFootActions,
   XUIEditableTableHead,
   XUIEditableTableHeadingCell,
   XUIEditableTableRow,

@@ -1,5 +1,21 @@
 const stringReplace = require('@xero/xuishift/transforms/stringReplace');
 module.exports = {
+  editabletable: [
+    {
+      name: 'XUIEditableTableFootAction',
+      props: [
+        {
+          name: 'addButtonContent',
+          newName: 'buttonContent',
+        },
+        {
+          name: 'onAdd',
+          newName: 'onClick',
+        },
+      ],
+    },
+  ],
+
   // Example usage to copy
   // button: [
   //   {

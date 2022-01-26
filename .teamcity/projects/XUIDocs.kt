@@ -30,8 +30,8 @@ object XUIDocs:  Project({
     param("deployment.user", "xui_docs_deployer")
   }
 
-  val deployToStaging = DeployToS3(BuildDocs, "staging") {
-    name = "Staging – Deploy XUI docs"
+  val deployToTest = DeployToS3(BuildDocs, "Test") {
+    name = "Test – Deploy XUI docs"
     artifactRules = "+:dist/docs => xui-docs-build-%build.counter%.tgz"
     manualDeploy = true
     params {
@@ -47,31 +47,41 @@ object XUIDocs:  Project({
       param("aws.s3.destination.folder", "") // destination folder relative to the root
     }
     addSnapshotDependencies(arrayOf(BuildDocs))
-    addFinishBuildTrigger(XUIArtifacts.buildTypes[1]) {
+    // This is a dependency upon deployXUITest to automatically trigger the docs deployment
+    addFinishBuildTrigger(XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUITest") }) {
       successfulOnly = true
     }
   }
 
-//  val deployToProd = DeployToS3(npmBuild,"production") {
-//    manualDeploy = true
-//    params {
-//      param("aws.region", "")
-//      param("aws.account_id", "")
-//      param("aws.role_name", "")
-//      param("aws.s3.bucket.name", "")
-//      param("aws.s3.destination.folder", "product-directory/%component.deployment_environment%/%deployment.version%")
-//      param("aws.s3.cp.parameters", "--cache-control max-age=300 --metadata-directive REPLACE")
-//    }
-//    addSnapshotDependencies(arrayOf(deployToStaging))
-//  }
+  val deployToProd = DeployToS3(BuildDocs, "Prod") {
+    name = "Prod – Deploy XUI docs"
+    artifactRules = "+:dist/docs => xui-docs-build-%build.counter%.tgz"
+    manualDeploy = true
+    params {
+      param("component.deployment_environment", "prod")
 
-  buildType(BuildDocs)
-  buildType(deployToStaging)
-//  buildType(deployToProd)
+      param("release.artifact.rules", "+:%component.dist_folder% => %component.dist_folder%")
 
-  val documentStable = Report(BuildDocs, deployToStaging) {
-    name = "Staging – Report deployment status"
+      param("aws.region", "us-east-1")
+      param("aws.account_id", "510694909772")
+      param("aws.role_name", "xui-shipto-docs")
+      param("aws.s3.bucket.name", "xero-xui")
+      param("aws.s3.destination.folder", "")
+    }
+    addSnapshotDependencies(arrayOf(BuildDocs))
+    // This is a dependency upon deployXUIProd to automatically trigger the docs deployment
+    addFinishBuildTrigger(XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUIProd") }) {
+      successfulOnly = true
+    }
   }
 
-  buildType(documentStable)
+  buildType(BuildDocs)
+  buildType(deployToTest)
+  buildType(deployToProd)
+
+  val documentStableTest = Report(BuildDocs, deployToTest)
+  val documentStableProd = Report(BuildDocs, deployToProd)
+
+  buildType(documentStableTest)
+  buildType(documentStableProd)
 })

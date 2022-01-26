@@ -42,30 +42,32 @@ object XUIArtifacts: Project({
     }
   }
 
-//  val deployXUIProd = DeployXUI(buildXUI, "Prod") {
-//    id("DeployXUIProd")
-//
-//    params {
-//      param("aws.s3.account_id", "966283773129")
-//      param("aws.s3.role_name", "xui-code-build-role-prod")
-//      param("aws.s3.bucket.name", "xero-edge")
-//      param("artifactory.repo", "npm-dev")
-//      param("aws.region", "us-east-1")
-//    }
-//  }
+  val deployXUIProd = DeployXUI(buildXUI, "Prod") {
+    id("DeployXUIProd")
+    params {
+      param("aws.s3.account_id", "966283773129")
+      param("aws.s3.role_name", "xui-shipto-style")
+      param("aws.s3.bucket.name", "xero-edge")
+      param("aws.region", "us-east-1")
+      param("artifactory.repo", "npm-dev")
+    }
+  }
 
-  val documentStable = Report(buildXUI, deployXUITest)
+  val documentStableTest = Report(buildXUI, deployXUITest)
+  val documentStableProd = Report(buildXUI, deployXUIProd)
 
   buildType(buildXUI)
   buildType(deployXUITest)
-//  buildType(deployXUIProd)
-  buildType(documentStable)
+  buildType(deployXUIProd)
+  buildType(documentStableTest)
+  buildType(documentStableProd)
 
   buildTypesOrder = listOf(
     buildXUI,
     deployXUITest,
-//    deployXUIProd,
-    documentStable
+    deployXUIProd,
+    documentStableTest,
+    documentStableProd
   )
 
   buildType(PRBuild)

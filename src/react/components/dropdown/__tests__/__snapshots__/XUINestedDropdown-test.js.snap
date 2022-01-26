@@ -13,10 +13,12 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -84,10 +86,12 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -167,10 +171,12 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -238,10 +244,12 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -321,10 +329,12 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -392,10 +402,12 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -475,10 +487,12 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -546,10 +560,12 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -629,10 +645,12 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -700,10 +718,12 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -783,10 +803,12 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -854,10 +876,12 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -937,10 +961,12 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -1008,10 +1034,12 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -1093,10 +1121,12 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -1164,10 +1194,12 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -1247,10 +1279,12 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -1318,10 +1352,12 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -1401,10 +1437,12 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -1472,10 +1510,12 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -1555,10 +1595,12 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -1626,10 +1668,12 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -1709,10 +1753,12 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-panelone"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,
@@ -1780,10 +1826,12 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
     className=""
   >
     <div
+      aria-activedescendant={null}
       aria-hidden={false}
       className="xui-dropdown--panel"
       data-automationid="nestedDropdown-paneltwo"
       onKeyDown={[Function]}
+      role="group"
       style={
         Object {
           "maxHeight": undefined,

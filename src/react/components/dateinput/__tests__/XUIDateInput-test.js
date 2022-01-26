@@ -7,9 +7,8 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIButton from '../../button/XUIButton';
 import XUIDateInput from '../XUIDateInput';
 
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { screen } from '@testing-library/dom';
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testDateinputId');

@@ -12,10 +12,12 @@ exports[`forceStatefulPicklist prop renders a automation id when a qaHook is pas
     data-automationid="dropdown-test--layout--mask"
   />
   <div
+    aria-activedescendant={null}
     aria-hidden={false}
     className="xui-dropdown--panel"
     data-automationid="dropdown-test"
     onKeyDown={[Function]}
+    role="group"
     style={
       Object {
         "maxHeight": undefined,
@@ -92,10 +94,12 @@ exports[`forceStatefulPicklist prop renders qaHooks on inner components when sta
     data-automationid="dropdown-test--layout--mask"
   />
   <div
+    aria-activedescendant={null}
     aria-hidden={false}
     className="xui-dropdown--panel"
     data-automationid="dropdown-test"
     onKeyDown={[Function]}
+    role="group"
     style={
       Object {
         "maxHeight": undefined,

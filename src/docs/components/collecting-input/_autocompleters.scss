@@ -1,10 +1,8 @@
 // Autocompleter
 //
-// Flags: updatesComing
-//
 // Teaser: Apply multiple options via a single text input.
 //
-// Introduction: To search and apply options via a single text input, use an autocompleter.
+// Introduction: An autocompleter filters a list of selectable options when a user starts typing into the text input.
 //
 // Components: Autocompleter
 //
@@ -12,26 +10,33 @@
 //
 // Styleguide: Components.CollectingInput.Autocompleter
 
-// Best practice
+// When to use
 //
-// Tips:
-// Do: Options are refined as the user types
-// Do: Match dropdown width to the width of their associated autocompleter trigger
-// Warning: Avoid automatically showing dropdowns on focus, unless promoting recent or suggested items
+// - To help a user quickly find an option from within a large list
 //
 // Styleguide: Components.CollectingInput.Autocompleter.1
 
+// Best practice
+//
+// Tips:
+// Do: Make sure options are refined as the user types
+// Do: Use clear labels above the text input
+// Do: Match dropdown width to the width of their associated autocompleter trigger
+// Warning: Avoid automatically showing dropdowns on focus, unless promoting recent or suggested options
+//
+// Styleguide: Components.CollectingInput.Autocompleter.2
+
 // Anatomy
 //
-// To create an autocompleter, several classes are required.
-// However, if you are using React, this is all managed for you.
-// Consequently, the examples shown below are static, and don't illustrate the recommended interactive behaviour.
-// For more information, visit the [React Documentation](./react/#autocompleter).
+// To create an autocompleter, several classes are required. However, if you're using React, this is all managed for you.
+//
+// Consequently, the examples shown below are static and don't illustrate the recommended interactive behaviour.
+// For more information, visit the [React documentation](./react/#autocompleter)
 //
 // Classes:
 // xui-autocompleter: Wraps the entire autocompleter
 //
-// Styleguide: Components.CollectingInput.Autocompleter.2
+// Styleguide: Components.CollectingInput.Autocompleter.3
 
 // Trigger
 //
@@ -43,7 +48,7 @@
 // xui-autocompleter--trigger: Apply to autocompleter container for recommended layout
 // xui-autocompleter--trigger-focus: Apply to trigger programatically when child input is in focus
 //
-// Styleguide: Components.CollectingInput.Autocompleter.2.1
+// Styleguide: Components.CollectingInput.Autocompleter.3.1
 
 // Input
 //
@@ -54,13 +59,19 @@
 // xui-textinput--input: Apply to the actual input
 // xui-autocompleter--textinput: Apply to actual input for recommended layout
 //
-// Styleguide: Components.CollectingInput.Autocompleter.2.2
+// Styleguide: Components.CollectingInput.Autocompleter.3.2
 
 // Standard layout
 //
 // Markup: ./examples/autocompleter/_autocompleter.html
 //
-// Styleguide: Components.CollectingInput.Autocompleter.2.3
+// Styleguide: Components.CollectingInput.Autocompleter.3.3
+
+// Features of an autocompleter
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.CollectingInput.Autocompleter.4
 
 // Single-select
 //
@@ -72,7 +83,7 @@
 //
 // Markup: ./examples/autocompleter/_autocompleter-single-select.html
 //
-// Styleguide: Components.CollectingInput.Autocompleter.3
+// Styleguide: Components.CollectingInput.Autocompleter.4.1
 
 // Multi-select
 //
@@ -88,7 +99,7 @@
 //
 // Markup: ./examples/autocompleter/_autocompleter-multi-select.html
 //
-// Styleguide: Components.CollectingInput.Autocompleter.4
+// Styleguide: Components.CollectingInput.Autocompleter.4.2
 
 // Wrapping
 //
@@ -105,7 +116,7 @@
 //
 // Markup: ./examples/autocompleter/_autocompleter-wrapping.html
 //
-// Styleguide: Components.CollectingInput.Autocompleter.4.1
+// Styleguide: Components.CollectingInput.Autocompleter.4.2.1
 
 // Contained
 //
@@ -120,7 +131,7 @@
 //
 // Markup: ./examples/autocompleter/_autocompleter-contained.html
 //
-// Styleguide: Components.CollectingInput.Autocompleter.4.2
+// Styleguide: Components.CollectingInput.Autocompleter.4.2.2
 
 // Secondary search autocompleter
 //
@@ -132,9 +143,9 @@
 //
 // Markup: ./examples/autocompleter/_autocompleter-secondary.html
 //
-// Styleguide: Components.CollectingInput.Autocompleter.5
+// Styleguide: Components.CollectingInput.Autocompleter.4.3
 
-// Disabling
+// Disabled
 //
 // To indicate an autocompleter is disabled, add the following modifier.
 // Additionally, make sure to apply the `disabled` attribute to the input to prevent keyboard interaction.
@@ -144,9 +155,19 @@
 //
 // Markup: ./examples/autocompleter/_autocompleter-disabling.html
 //
-// Styleguide: Components.CollectingInput.Autocompleter.6
+// Styleguide: Components.CollectingInput.Autocompleter.4.4
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Be short and succinct
+// Do: Use sentence case (capitalise first word and proper nouns)
+//
+// Related: Also see guidance for writing [labels](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#labels)
+//
+// Styleguide: Components.CollectingInput.Autocompleter.5
+
+// Related components
 //
 // Related:
 // * [Dropdown](./section-components-collectinginput-dropdowns.html)

@@ -56,7 +56,7 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
                 role="option"
@@ -129,7 +129,7 @@ exports[`<XUINestedDropdown /> should add the animation close class when the ani
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
                 role="option"
@@ -214,7 +214,7 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
                 role="option"
@@ -287,7 +287,7 @@ exports[`<XUINestedDropdown /> should add the animation open class when the anim
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
                 role="option"
@@ -372,7 +372,7 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
                 role="option"
@@ -445,7 +445,7 @@ exports[`<XUINestedDropdown /> should allow for a footer to be rendered to the c
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
                 role="option"
@@ -530,7 +530,7 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
                 role="option"
@@ -603,7 +603,7 @@ exports[`<XUINestedDropdown /> should allow the consumer to change the size 1`] 
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
                 role="option"
@@ -688,7 +688,7 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
                 role="option"
@@ -761,7 +761,7 @@ exports[`<XUINestedDropdown /> should be a size large by default 1`] = `
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
                 role="option"
@@ -846,7 +846,7 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
                 role="option"
@@ -919,7 +919,7 @@ exports[`<XUINestedDropdown /> should render a passed id instead of automaticall
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
                 role="option"
@@ -1004,7 +1004,7 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
                 role="option"
@@ -1077,7 +1077,7 @@ exports[`<XUINestedDropdown /> should render additional classes when passed in t
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
                 role="option"
@@ -1164,7 +1164,7 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
                 role="option"
@@ -1237,7 +1237,7 @@ exports[`<XUINestedDropdown /> should render an automationid when a qaHook is pa
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
                 role="option"
@@ -1322,7 +1322,7 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
                 role="option"
@@ -1395,7 +1395,7 @@ exports[`<XUINestedDropdown /> should render hidden if the isHidden prop is set 
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
                 role="option"
@@ -1480,7 +1480,7 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
                 role="option"
@@ -1553,7 +1553,7 @@ exports[`<XUINestedDropdown /> should render visible if the isHidden prop is set
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
                 role="option"
@@ -1638,7 +1638,7 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
                 role="option"
@@ -1711,7 +1711,7 @@ exports[`<XUINestedDropdown /> shouldn't add the animation close class when anim
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
                 role="option"
@@ -1796,7 +1796,7 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option1"
                 role="option"
@@ -1869,7 +1869,7 @@ exports[`<XUINestedDropdown /> shouldn't add the animation open class when anima
               role="listbox"
             >
               <li
-                aria-selected={null}
+                aria-selected={false}
                 className="xui-pickitem xui-pickitem-medium"
                 id="option2"
                 role="option"

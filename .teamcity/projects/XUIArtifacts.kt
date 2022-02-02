@@ -56,17 +56,20 @@ object XUIArtifacts: Project({
   val documentStableTest = Report(buildXUI, deployXUITest)
   val documentStableProd = Report(buildXUI, deployXUIProd)
 
+  deployXUIProd.requirements.items.removeIf { it.value == "%aws.region%" }
+  documentStableProd.requirements.items.removeIf { it.value == "%aws.region%" }
+
   buildType(buildXUI)
   buildType(deployXUITest)
-  buildType(deployXUIProd)
   buildType(documentStableTest)
+  buildType(deployXUIProd)
   buildType(documentStableProd)
 
   buildTypesOrder = listOf(
     buildXUI,
     deployXUITest,
-    deployXUIProd,
     documentStableTest,
+    deployXUIProd,
     documentStableProd
   )
 

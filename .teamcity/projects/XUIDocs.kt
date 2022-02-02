@@ -75,12 +75,15 @@ object XUIDocs:  Project({
     }
   }
 
+  val documentStableTest = Report(BuildDocs, deployToTest)
+  val documentStableProd = Report(BuildDocs, deployToProd)
+
+  deployToProd.requirements.items.removeIf { it.value == "%aws.region%" }
+  documentStableProd.requirements.items.removeIf { it.value == "%aws.region%" }
+
   buildType(BuildDocs)
   buildType(deployToTest)
   buildType(deployToProd)
-
-  val documentStableTest = Report(BuildDocs, deployToTest)
-  val documentStableProd = Report(BuildDocs, deployToProd)
 
   buildType(documentStableTest)
   buildType(documentStableProd)

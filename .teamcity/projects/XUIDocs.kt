@@ -3,8 +3,9 @@ package projects
 import buildTypes.BuildDocs
 import com.xero.teamcityhelpers.build.report.Report
 import com.xero.teamcityhelpers.buildtype.trigger.addSnapshotDependencies
-import com.xero.teamcityhelpers.buildtype.trigger.addFinishBuildTrigger
 import com.xero.teamcityhelpers.deploy.s3.DeployToS3
+import helpers.addXUIBuildTriggers
+import helpers.removeAgentRegionRequirement
 import jetbrains.buildServer.configs.kotlin.v2019_2.Project
 
 object XUIDocs:  Project({
@@ -35,7 +36,7 @@ object XUIDocs:  Project({
     artifactRules = "+:dist/docs => xui-docs-build-%build.counter%.tgz"
     manualDeploy = true
     params {
-      param("component.deployment_environment", "staging")
+      param("component.deployment_environment", "Test")
 
       param("release.artifact.rules", "+:%component.dist_folder% => %component.dist_folder%")
 
@@ -48,7 +49,7 @@ object XUIDocs:  Project({
     }
     addSnapshotDependencies(arrayOf(BuildDocs))
     // This is a dependency upon deployXUITest to automatically trigger the docs deployment
-    addFinishBuildTrigger(XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUITest") }) {
+    addXUIBuildTriggers(XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUITest") }) {
       successfulOnly = true
     }
   }
@@ -58,7 +59,7 @@ object XUIDocs:  Project({
     artifactRules = "+:dist/docs => xui-docs-build-%build.counter%.tgz"
     manualDeploy = true
     params {
-      param("component.deployment_environment", "prod")
+      param("component.deployment_environment", "Prod")
 
       param("release.artifact.rules", "+:%component.dist_folder% => %component.dist_folder%")
 
@@ -70,16 +71,20 @@ object XUIDocs:  Project({
     }
     addSnapshotDependencies(arrayOf(BuildDocs))
     // This is a dependency upon deployXUIProd to automatically trigger the docs deployment
-    addFinishBuildTrigger(XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUIProd") }) {
+    addXUIBuildTriggers(XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUIProd") }) {
       successfulOnly = true
     }
   }
 
-  val documentStableTest = Report(BuildDocs, deployToTest)
-  val documentStableProd = Report(BuildDocs, deployToProd)
+  val documentStableTest = Report(BuildDocs, deployToTest) {
+    addXUIBuildTriggers(deployToTest)
+  }
+  val documentStableProd = Report(BuildDocs, deployToProd) {
+    addXUIBuildTriggers(deployToProd)
+  }
 
-  deployToProd.requirements.items.removeIf { it.value == "%aws.region%" }
-  documentStableProd.requirements.items.removeIf { it.value == "%aws.region%" }
+  removeAgentRegionRequirement(deployToProd)
+  removeAgentRegionRequirement(documentStableProd)
 
   buildType(BuildDocs)
   buildType(deployToTest)

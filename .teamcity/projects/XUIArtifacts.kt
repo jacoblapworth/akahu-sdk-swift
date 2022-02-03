@@ -9,6 +9,8 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.Project
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.ScriptBuildStep
 import com.xero.teamcityhelpers.build.report.Report
 import com.xero.teamcityhelpers.project.addCoverageReport
+import helpers.addXUIBuildTriggers
+import helpers.removeAgentRegionRequirement
 
 object XUIArtifacts: Project({
   name = "XUI Artifacts"
@@ -53,11 +55,15 @@ object XUIArtifacts: Project({
     }
   }
 
-  val documentStableTest = Report(buildXUI, deployXUITest)
-  val documentStableProd = Report(buildXUI, deployXUIProd)
+  val documentStableTest = Report(buildXUI, deployXUITest) {
+    addXUIBuildTriggers(deployXUITest)
+  }
+  val documentStableProd = Report(buildXUI, deployXUIProd) {
+    addXUIBuildTriggers(deployXUIProd)
+  }
 
-  deployXUIProd.requirements.items.removeIf { it.value == "%aws.region%" }
-  documentStableProd.requirements.items.removeIf { it.value == "%aws.region%" }
+  removeAgentRegionRequirement(deployXUIProd)
+  removeAgentRegionRequirement(documentStableProd)
 
   buildType(buildXUI)
   buildType(deployXUITest)

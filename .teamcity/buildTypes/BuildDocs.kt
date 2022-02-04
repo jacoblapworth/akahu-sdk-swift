@@ -50,7 +50,7 @@ object BuildDocs : BuildType({
     }
     script {
       name = "Build XUI docs"
-      scriptContent = "npm run docs:build"
+      scriptContent = "npm run docs:build -- --verbose"
     }
   }
 })

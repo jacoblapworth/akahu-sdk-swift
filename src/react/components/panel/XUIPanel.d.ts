@@ -24,7 +24,9 @@ interface BaseProps {
   tagName?: string;
 }
 
-type Props = BaseProps & React.HTMLAttributes<HTMLElement>;
+type SpreadProps = React.HTMLAttributes<HTMLElement>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 declare const XUIPanel: React.FunctionComponent<Props>;
 export default XUIPanel;

@@ -5,6 +5,7 @@ const fs = require('fs');
 const open = require('open');
 const path = require('path');
 const { argv } = require('yargs');
+const copyTokens = require('./../build/sass/copyTokens');
 
 const {
   logScriptRunOutput,
@@ -20,6 +21,7 @@ const md5FileHash = require('./helpers/md5FileHash');
 async function runVisualRegresionTestsInDocker() {
   logTaskTitle(__filename);
 
+  await copyTokens();
   await babelVisualRegression();
 
   // TODO: Investigate if it's possible to run storybook as a module

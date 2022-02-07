@@ -41,3 +41,6 @@ npm-debug.log.*
 
 # IntelliJ (TeamCity Kotlin)
 **/.idea
+
+#Tokens
+/src/sass/tokens/*

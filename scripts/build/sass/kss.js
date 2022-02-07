@@ -7,6 +7,7 @@ const {
   taskRunnerReturns: { succeed, fail },
 } = require('../../helpers');
 const cleanCSS = require('../../clean/css');
+const copyTokens = require('./copyTokens');
 
 const files = [
   {
@@ -22,6 +23,7 @@ const createFolders = [path.resolve(rootDirectory, 'dist', 'docs')];
 module.exports = clean => {
   return taskRunner(async taskSpinner => {
     try {
+      await copyTokens();
       if (clean) {
         await cleanCSS();
       }

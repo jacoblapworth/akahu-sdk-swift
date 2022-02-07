@@ -7,8 +7,12 @@ const buildKss = require('./kss.js');
 const buildTokens = require('./postcss/tokens');
 const buildUmd = require('./umd_webpack.js');
 const buildServiceWorker = require('./serviceworker');
+const copyTokens = require('./sass/copyTokens');
+const clearTokens = require('./sass/clearTokens');
 
 async function build() {
+  await clearTokens();
+  await copyTokens();
   await Promise.all([sassKss(), xuiCss()]);
   await Promise.all([
     buildStyleguide(),

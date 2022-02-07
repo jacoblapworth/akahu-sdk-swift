@@ -1,4 +1,5 @@
 @use 'sass:color' as *;
+@import '../tokens/colors';
 
 /**
  * This source is pre-parsed and looks similar to KSS but is not the same.
@@ -11,11 +12,11 @@
 // Styleguide: Fundamentals.Colors
 
 // @tokenparserstartignore
-$xui-color-black: #000a1e;
-$xui-color-white: #fff;
-$xui-color-blue: #0078c8;
-$xui-color-red: #dc3246;
-$xui-color-green: #00823c;
+$xui-color-black: $xui-token-color-black;
+$xui-color-white: $xui-token-color-white;
+$xui-color-blue: $xui-token-color-blue;
+$xui-color-red: $xui-token-color-red;
+$xui-color-green: $xui-token-color-green;
 // @tokenparserendignore
 
 // @section Neutrals
@@ -23,21 +24,21 @@ $xui-color-green: #00823c;
 // @type color
 //
 // Grey 1 : Primary text
-$xui-color-grey-1: $xui-color-black;
+$xui-color-grey-1: $xui-token-color-grey-1;
 // Grey 2 : Secondary text
-$xui-color-grey-2: mix($xui-color-grey-1, $xui-color-white, 75%);
+$xui-color-grey-2: $xui-token-color-grey-2;
 // Grey 3 : Tertiary text
-$xui-color-grey-3: mix($xui-color-grey-1, $xui-color-white, 65%);
+$xui-color-grey-3: $xui-token-color-grey-3;
 // Grey 4
-$xui-color-grey-4: mix($xui-color-grey-1, $xui-color-white, 50%);
+$xui-color-grey-4: $xui-token-color-grey-4;
 // Grey 5
-$xui-color-grey-5: mix($xui-color-grey-1, $xui-color-white, 35%);
+$xui-color-grey-5: $xui-token-color-grey-5;
 // Grey 6
-$xui-color-grey-6: mix($xui-color-grey-1, $xui-color-white, 20%);
+$xui-color-grey-6: $xui-token-color-grey-6;
 // Grey 7
-$xui-color-grey-7: mix($xui-color-grey-1, $xui-color-white, 10%);
+$xui-color-grey-7: $xui-token-color-grey-7;
 // Grey 8
-$xui-color-grey-8: mix($xui-color-grey-1, $xui-color-white, 5%);
+$xui-color-grey-8: $xui-token-color-grey-8;
 // White
 $xui-color-white: $xui-color-white;
 
@@ -56,119 +57,119 @@ $xui-action-positive-color: $xui-color-green;
 // @type transparent-color
 //
 // Grey alpha 1
-$xui-color-grey-alpha-1: rgba($xui-color-grey-1, 1);
+$xui-color-grey-alpha-1: $xui-token-color-grey-alpha-1;
 // Grey alpha 2
-$xui-color-grey-alpha-2: rgba($xui-color-grey-1, 0.75);
+$xui-color-grey-alpha-2: $xui-token-color-grey-alpha-2;
 // Grey alpha 3
-$xui-color-grey-alpha-3: rgba($xui-color-grey-1, 0.65);
+$xui-color-grey-alpha-3: $xui-token-color-grey-alpha-3;
 // Grey alpha 4
-$xui-color-grey-alpha-4: rgba($xui-color-grey-1, 0.5);
+$xui-color-grey-alpha-4: $xui-token-color-grey-alpha-4;
 // Grey alpha 5
-$xui-color-grey-alpha-5: rgba($xui-color-grey-1, 0.35);
+$xui-color-grey-alpha-5: $xui-token-color-grey-alpha-5;
 // Grey alpha 6
-$xui-color-grey-alpha-6: rgba($xui-color-grey-1, 0.2);
+$xui-color-grey-alpha-6: $xui-token-color-grey-alpha-6;
 // Grey alpha 7
-$xui-color-grey-alpha-7: rgba($xui-color-grey-1, 0.1);
+$xui-color-grey-alpha-7: $xui-token-color-grey-alpha-7;
 // Grey alpha 8
-$xui-color-grey-alpha-8: rgba($xui-color-grey-1, 0.05);
+$xui-color-grey-alpha-8: $xui-token-color-grey-alpha-8;
 
 // @section Transparent whites
 // @description Use transparent whites to create interfaces on strongly colored backgrounds. Be careful to ensure primary and secondary text has sufficent contrast.
 // @type transparent-color
 //
 // White alpha 2
-$xui-color-white-alpha-2: rgba($xui-color-white, 0.75);
+$xui-color-white-alpha-2: $xui-token-color-white-alpha-2;
 // White alpha 3
-$xui-color-white-alpha-3: rgba($xui-color-white, 0.65);
+$xui-color-white-alpha-3: $xui-token-color-white-alpha-3;
 // White alpha 4
-$xui-color-white-alpha-4: rgba($xui-color-white, 0.5);
+$xui-color-white-alpha-4: $xui-token-color-white-alpha-4;
 // White alpha 5
-$xui-color-white-alpha-5: rgba($xui-color-white, 0.35);
+$xui-color-white-alpha-5: $xui-token-color-white-alpha-5;
 // White alpha 6
-$xui-color-white-alpha-6: rgba($xui-color-white, 0.2);
+$xui-color-white-alpha-6: $xui-token-color-white-alpha-6;
 // White alpha 7
-$xui-color-white-alpha-7: rgba($xui-color-white, 0.1);
+$xui-color-white-alpha-7: $xui-token-color-white-alpha-7;
 // White alpha 8
-$xui-color-white-alpha-8: rgba($xui-color-white, 0.05);
+$xui-color-white-alpha-8: $xui-token-color-white-alpha-8;
 
 // @section Brights
 // @description Use the brights to sprinkle <strong>occasional</strong> pings of color into Xero applications – they're great for charts or to create moments of punch. If you need to indicate status try a <a href="./section-components-identifiers-tag.html">standard tag</a> instead. For lighter and darker variants use the modifiers `-xlight`, `-light`, `-dark`, and `-xdark`.
 // @type brights
 //
 $xui-color-red: $xui-color-red; // This is needed to add the color into the docs color grid
-$xui-color-red-xlight: mix($xui-color-white, $xui-color-red, 65%);
-$xui-color-red-light: mix($xui-color-white, $xui-color-red, 50%);
-$xui-color-red-dark: mix(#000, $xui-color-red, 50%);
-$xui-color-red-xdark: mix(#000, $xui-color-red, 65%);
+$xui-color-red-xlight: $xui-token-color-red-xlight;
+$xui-color-red-light: $xui-token-color-red-light;
+$xui-color-red-dark: $xui-token-color-red-dark;
+$xui-color-red-xdark: $xui-token-color-red-xdark;
 
-$xui-color-orange: #fa8200;
-$xui-color-orange-xlight: mix($xui-color-white, $xui-color-orange, 65%);
-$xui-color-orange-light: mix($xui-color-white, $xui-color-orange, 50%);
-$xui-color-orange-dark: mix(#000, $xui-color-orange, 50%);
-$xui-color-orange-xdark: mix(#000, $xui-color-orange, 65%);
+$xui-color-orange: $xui-token-color-orange;
+$xui-color-orange-xlight: $xui-token-color-orange-xlight;
+$xui-color-orange-light: $xui-token-color-orange-light;
+$xui-color-orange-dark: $xui-token-color-orange-dark;
+$xui-color-orange-xdark: $xui-token-color-orange-xdark;
 
-$xui-color-yellow: #faaa00;
-$xui-color-yellow-xlight: mix($xui-color-white, $xui-color-yellow, 65%);
-$xui-color-yellow-light: mix($xui-color-white, $xui-color-yellow, 50%);
-$xui-color-yellow-dark: mix(#000, $xui-color-yellow, 50%);
-$xui-color-yellow-xdark: mix(#000, $xui-color-yellow, 65%);
+$xui-color-yellow: $xui-token-color-yellow;
+$xui-color-yellow-xlight: $xui-token-color-yellow-xlight;
+$xui-color-yellow-light: $xui-token-color-yellow-light;
+$xui-color-yellow-dark: $xui-token-color-yellow-dark;
+$xui-color-yellow-xdark: $xui-token-color-yellow-xdark;
 
 $xui-color-green: $xui-color-green; // This is needed to add the color into the docs color grid
-$xui-color-green-xlight: mix($xui-color-white, $xui-color-green, 65%);
-$xui-color-green-light: mix($xui-color-white, $xui-color-green, 50%);
-$xui-color-green-dark: mix(#000, $xui-color-green, 50%);
-$xui-color-green-xdark: mix(#000, $xui-color-green, 65%);
+$xui-color-green-xlight: $xui-token-color-green-xlight;
+$xui-color-green-light: $xui-token-color-green-light;
+$xui-color-green-dark: $xui-token-color-green-dark;
+$xui-color-green-xdark: $xui-token-color-green-xdark;
 
-$xui-color-mint: #50dcaa;
-$xui-color-mint-xlight: mix($xui-color-white, $xui-color-mint, 65%);
-$xui-color-mint-light: mix($xui-color-white, $xui-color-mint, 50%);
-$xui-color-mint-dark: mix(#000, $xui-color-mint, 50%);
-$xui-color-mint-xdark: mix(#000, $xui-color-mint, 65%);
+$xui-color-mint: $xui-token-color-mint;
+$xui-color-mint-xlight: $xui-token-color-mint-xlight;
+$xui-color-mint-light: $xui-token-color-mint-light;
+$xui-color-mint-dark: $xui-token-color-mint-dark;
+$xui-color-mint-xdark: $xui-token-color-mint-xdark;
 
-$xui-color-turquoise: #3cdcfa;
-$xui-color-turquoise-xlight: mix($xui-color-white, $xui-color-turquoise, 65%);
-$xui-color-turquoise-light: mix($xui-color-white, $xui-color-turquoise, 50%);
-$xui-color-turquoise-dark: mix(#000, $xui-color-turquoise, 50%);
-$xui-color-turquoise-xdark: mix(#000, $xui-color-turquoise, 65%);
+$xui-color-turquoise: $xui-token-color-turquoise;
+$xui-color-turquoise-xlight: $xui-token-color-turquoise-xlight;
+$xui-color-turquoise-light: $xui-token-color-turquoise-light;
+$xui-color-turquoise-dark: $xui-token-color-turquoise-dark;
+$xui-color-turquoise-xdark: $xui-token-color-turquoise-xdark;
 
 $xui-color-blue: $xui-color-blue; // This is needed to add the color into the docs color grid
-$xui-color-blue-xlight: mix($xui-color-white, $xui-color-blue, 65%);
-$xui-color-blue-light: mix($xui-color-white, $xui-color-blue, 50%);
-$xui-color-blue-dark: mix(#000, $xui-color-blue, 50%);
-$xui-color-blue-xdark: mix(#000, $xui-color-blue, 65%);
+$xui-color-blue-xlight: $xui-token-color-blue-xlight;
+$xui-color-blue-light: $xui-token-color-blue-light;
+$xui-color-blue-dark: $xui-token-color-blue-dark;
+$xui-color-blue-xdark: $xui-token-color-blue-xdark;
 
-$xui-color-violet: #5a5ae6;
-$xui-color-violet-xlight: mix($xui-color-white, $xui-color-violet, 65%);
-$xui-color-violet-light: mix($xui-color-white, $xui-color-violet, 50%);
-$xui-color-violet-dark: mix(#000, $xui-color-violet, 50%);
-$xui-color-violet-xdark: mix(#000, $xui-color-violet, 65%);
+$xui-color-violet: $xui-token-color-violet;
+$xui-color-violet-xlight: $xui-token-color-violet-xlight;
+$xui-color-violet-light: $xui-token-color-violet-light;
+$xui-color-violet-dark: $xui-token-color-violet-dark;
+$xui-color-violet-xdark: $xui-token-color-violet-xdark;
 
-$xui-color-grape: #b446c8;
-$xui-color-grape-xlight: mix($xui-color-white, $xui-color-grape, 65%);
-$xui-color-grape-light: mix($xui-color-white, $xui-color-grape, 50%);
-$xui-color-grape-dark: mix(#000, $xui-color-grape, 50%);
-$xui-color-grape-xdark: mix(#000, $xui-color-grape, 65%);
+$xui-color-grape: $xui-token-color-grape;
+$xui-color-grape-xlight: $xui-token-color-grape-xlight;
+$xui-color-grape-light: $xui-token-color-grape-light;
+$xui-color-grape-dark: $xui-token-color-grape-dark;
+$xui-color-grape-xdark: $xui-token-color-grape-xdark;
 
-$xui-color-pink: #ff6496;
-$xui-color-pink-xlight: mix($xui-color-white, $xui-color-pink, 65%);
-$xui-color-pink-light: mix($xui-color-white, $xui-color-pink, 50%);
-$xui-color-pink-dark: mix(#000, $xui-color-pink, 50%);
-$xui-color-pink-xdark: mix(#000, $xui-color-pink, 65%);
+$xui-color-pink: $xui-token-color-pink;
+$xui-color-pink-xlight: $xui-token-color-pink-xlight;
+$xui-color-pink-light: $xui-token-color-pink-light;
+$xui-color-pink-dark: $xui-token-color-pink-dark;
+$xui-color-pink-xdark: $xui-token-color-pink-xdark;
 
 // @section Specialty colors
 // @description Provide extra recognition for common brand or file types. Most often used for icons.
 // @type color
 //
 // Twitter
-$xui-color-twitter: #1dadea;
+$xui-color-twitter: $xui-token-color-twitter;
 // Facebook
-$xui-color-facebook: #3c5a96;
+$xui-color-facebook: $xui-token-color-facebook;
 // LinkedIn
-$xui-color-linkedin: #1178b3;
+$xui-color-linkedin: $xui-token-color-linkedin;
 // Spreadsheet
-$xui-color-file-spreadsheet: #0f9d58;
+$xui-color-file-spreadsheet: $xui-token-color-file-spreadsheet;
 // PDF
-$xui-color-file-pdf: #db4437;
+$xui-color-file-pdf: $xui-token-color-file-pdf;
 
 // @tokenparserstartignore
 

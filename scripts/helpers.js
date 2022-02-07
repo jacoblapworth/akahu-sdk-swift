@@ -43,6 +43,10 @@ function copyFile(from, to) {
   return fs.createReadStream(from).pipe(fs.createWriteStream(to));
 }
 
+function copyFileSync(from, to) {
+  return fs.copyFileSync(from, to);
+}
+
 class CaptureScriptPerformance {
   constructor() {
     this.startTime = 0;
@@ -115,6 +119,7 @@ module.exports = {
   taskRunnerReturns,
   Performance: CaptureScriptPerformance,
   copyFile,
+  copyFileSync,
   createFolderIfNotExists,
   twoDecimals,
   logScriptRunOutput,

@@ -6,6 +6,8 @@ const rimrafAsync = promisify(require('rimraf'));
 
 const buildKss = require('../build/kss');
 const buildXui = require('../build/xui');
+const copyTokens = require('../build/sass/copyTokens');
+const clearTokens = require('../build/sass/clearTokens');
 
 const watch = path.resolve(rootDirectory, 'scripts', 'watch', 'all');
 const storybook = path.resolve(rootDirectory, 'scripts', 'storybook', 'index.js');
@@ -22,6 +24,8 @@ async function watchBoth() {
   logTaskTitle(__filename);
 
   // Running these in parallel skews the performance metrics and does not result in a faster build
+  await clearTokens();
+  await copyTokens();
   await buildKss();
   await buildXui();
   await removeDistDocsReact();

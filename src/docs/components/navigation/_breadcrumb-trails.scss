@@ -1,8 +1,10 @@
 // Breadcrumb trail
 //
-// Flags: updatesComing
+// Introduction: Breadcrumb trails are made up of links that help a user visualise a page's location and allow navigation to its parent page.
 //
-// Combine breadcrumbs with a title in a page header to give the user a sense of their location and an easy way to navigate to parent pages.
+// Teaser: Breadcrumb trails are made up of links that help a user visualise a page's location and allow navigation to its parent page.
+//
+// Flags: updatesComing
 //
 // Components: Breadcrumb-trail
 //
@@ -10,17 +12,23 @@
 //
 // Styleguide: Components.Navigation.Breadcrumb Trail
 
+// When to use
+//
+// - To give a sense of location and an easy way to navigate to parent pages
+// - To show the structure of the sitemap or information architecture (rather than the user’s journey)
+//
+// Styleguide: Components.Navigation.Breadcrumb Trail.1
+
 // Best practice
 //
 // Tips:
-// Do: Make every breadcrumb a useful navigation link
+// Do: Use breadcrumbs and a page title in a page header to give a user a sense of their location
 // Do: Use a page title to indicate the current page
-// Do: Use breadcrumbs to illustrate the structure of the sitemap or information architecture – not the users' journey
-// Warning: Avoid nesting pages more than three levels deep
-// Warning: Long strings may be truncated in narrow containers
-// Don't: Don't include the current page title in the breadcrumbs, use a title instead
+// Warning: Avoid nesting pages more than 3 levels deep
+// Warning: Long strings can be truncated in narrow containers
+// Don't: Don't include the current page title in the breadcrumb trail
 //
-// Styleguide: Components.Navigation.Breadcrumb Trail.1
+// Styleguide: Components.Navigation.Breadcrumb Trail.2
 
 // Anatomy
 //
@@ -39,7 +47,7 @@
 //
 // Markup: ./examples/breadcrumb-trail/_breadcrumb-trail.html
 //
-// Styleguide: Components.Navigation.Breadcrumb Trail.2
+// Styleguide: Components.Navigation.Breadcrumb Trail.3
 
 // Compact breadcrumb trail
 //
@@ -49,9 +57,26 @@
 //
 // Markup: ./examples/breadcrumb-trail/_breadcrumb-trail-compact.html
 //
-// Styleguide: Components.Navigation.Breadcrumb Trail.2.1
+// Styleguide: Components.Navigation.Breadcrumb Trail.3.1
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: The content of a breadcrumb trail should be the title of the pages the current page links to
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Don't: Don’t add the current page title to the breadcrumb trail
+//
+// Styleguide: Components.Navigation.Breadcrumb Trail.4
+
+// Examples
+//
+// ExampleContentTable:
+// General settings > Users | General Settings > Users > Edit users
+// Accounting > Reports | Accounting > Reports > Profit and Loss
+//
+// Styleguide: Components.Navigation.Breadcrumb Trail.4.1
+
+// Related components
 //
 // Related:
 // * [Page header](./section-components-navigation-page-header.html)

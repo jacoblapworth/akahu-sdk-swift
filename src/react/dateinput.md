@@ -61,7 +61,7 @@ const ExampleDateRangePicker = () => {
   const dateRangeInputSuggestedDates = [
     {
       id: 'monthThis',
-      text: 'This Month',
+      text: 'This month',
       getStartDate: () => {
         return new Date();
       },
@@ -156,7 +156,7 @@ const ExampleDateRangePicker = () => {
   const dateRangeInputSuggestedDates = [
     {
       id: 'monthThis',
-      text: 'This Month',
+      text: 'This month',
       getStartDate: () => {
         return new Date();
       },
@@ -249,7 +249,7 @@ const ExampleDateRangePicker = () => {
   const dateRangeInputSuggestedDates = [
     {
       id: 'monthThis',
-      text: 'This Month',
+      text: 'This month',
       getStartDate: () => {
         return new Date();
       },
@@ -344,7 +344,7 @@ const ExampleDateRangePicker = () => {
   const dateRangeInputSuggestedDates = [
     {
       id: 'monthThis',
-      text: 'This Month',
+      text: 'This month',
       getStartDate: () => {
         return new Date();
       },
@@ -440,7 +440,7 @@ const ExampleDateRangePicker = () => {
   const dateRangeInputSuggestedDates = [
     {
       id: 'monthThis',
-      text: 'This Month',
+      text: 'This month',
       getStartDate: () => {
         return new Date();
       },
@@ -498,6 +498,7 @@ The `suggestedDates` property is an array of objects with the following structur
   getDate: Function,
   id: String,
   text: String,
+  description: String,
 }
 ```
 
@@ -508,6 +509,7 @@ The `suggestedDates` property is an array of objects with the following structur
   getStartDate: Function,
   id: String,
   text: String,
+  description: String,
 }
 ```
 
@@ -525,18 +527,28 @@ const ExampleDateInput = () => {
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
   const dateInputSuggestedDates = [
     {
-      id: 'monthThis',
-      text: 'This Month',
+      id: 'tomorrow',
+      text: 'Tomorrow',
       getDate: () => {
         return new Date();
-      }
+      },
+      description: '23 Mar 2021'
     },
     {
-      id: 'quarterThis',
-      text: 'This quarter',
+      id: 'mondayNext',
+      text: 'Next Monday',
       getDate: () => {
         return new Date();
-      }
+      },
+      description: '29 Mar 2021'
+    },
+    {
+      id: 'monthNext',
+      text: 'Next month',
+      getDate: () => {
+        return new Date();
+      },
+      description: '1 Apr 2021'
     }
   ];
 
@@ -578,23 +590,36 @@ const ExampleDateRangePicker = () => {
   const dateRangeInputSuggestedDates = [
     {
       id: 'monthThis',
-      text: 'This Month',
+      text: 'This month',
       getStartDate: () => {
-        return new Date();
+        return new Date(2022, 1, 1);
       },
       getEndDate: () => {
-        return new Date();
-      }
+        return new Date(2022, 1, 28);
+      },
+      description: '1 - 31 Feb 2022'
+    },
+    {
+      id: 'monthLast',
+      text: 'Last month',
+      getStartDate: () => {
+        return new Date(2022, 1, 1);
+      },
+      getEndDate: () => {
+        return new Date(2022, 1, 28);
+      },
+      description: '1 - 31 Jan 2022'
     },
     {
       id: 'quarterThis',
       text: 'This quarter',
       getStartDate: () => {
-        return new Date();
+        return new Date(2022, 0, 1);
       },
       getEndDate: () => {
-        return new Date();
-      }
+        return new Date(2022, 2, 31);
+      },
+      description: '1 Jan - 31 Mar 2022'
     }
   ];
 

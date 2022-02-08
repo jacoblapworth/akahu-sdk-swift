@@ -47,11 +47,13 @@ object XUIDocs:  Project({
       param("aws.s3.bucket.name", "xui-docs-pipeline-test") // bucket name to deploy too (must be accessible by aws.account_id)
       param("aws.s3.destination.folder", "") // destination folder relative to the root
     }
-    addSnapshotDependencies(arrayOf(BuildDocs))
+
     // This is a dependency upon deployXUITest to automatically trigger the docs deployment
-    addXUIBuildTriggers(XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUITest") }) {
+    val deployXUITest = XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUITest") }
+    addXUIBuildTriggers(deployXUITest) {
       successfulOnly = true
     }
+    addSnapshotDependencies(arrayOf(BuildDocs, deployXUITest))
   }
 
   val deployToProd = DeployToS3(BuildDocs, "Prod") {
@@ -69,11 +71,13 @@ object XUIDocs:  Project({
       param("aws.s3.bucket.name", "xero-xui")
       param("aws.s3.destination.folder", "")
     }
-    addSnapshotDependencies(arrayOf(BuildDocs))
+
     // This is a dependency upon deployXUIProd to automatically trigger the docs deployment
-    addXUIBuildTriggers(XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUIProd") }) {
+    val deployXUIProd = XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUIProd") }
+    addXUIBuildTriggers(deployXUIProd) {
       successfulOnly = true
     }
+    addSnapshotDependencies(arrayOf(BuildDocs, deployXUIProd))
   }
 
   val documentStableTest = Report(BuildDocs, deployToTest) {

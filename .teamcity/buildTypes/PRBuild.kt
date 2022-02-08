@@ -20,7 +20,7 @@ object PRBuild : BuildType({
       vcs {
         perCheckinTriggering = false
         groupCheckinsByCommitter = false
-        branchFilter = "+:*"
+        branchFilter = "+:refs/pull/*/merge"
       }
     }
   }

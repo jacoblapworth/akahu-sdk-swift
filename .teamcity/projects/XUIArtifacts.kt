@@ -59,6 +59,9 @@ object XUIArtifacts: Project({
     addXUIBuildTriggers(deployXUITest)
   }
   val documentStableProd = Report(buildXUI, deployXUIProd) {
+    params {
+      param("artifactory.target", "npm-dev/%component.modulename%/")
+    }
     addXUIBuildTriggers(deployXUIProd)
   }
 

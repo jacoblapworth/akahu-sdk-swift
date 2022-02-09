@@ -19,7 +19,14 @@ object VisRegTest : BuildType({
       vcs {
         perCheckinTriggering = false
         groupCheckinsByCommitter = false
-        branchFilter = "+:*"
+        branchFilter = """
+          +:*
+          -:<default>
+          -:refs/heads/master
+          -:refs/heads/patch
+          -:refs/heads/minor
+          -:refs/heads/breaking-changes
+        """.trimIndent()
       }
     }
   }

@@ -41,12 +41,8 @@ object BuildDocs : BuildType({
       param("version", "%node.version%")
     }
     script {
-      name = "Remove package-lock.json file"
-      scriptContent = "rm ./package-lock.json"
-    }
-    script {
       name = "Install dependencies"
-      scriptContent = "npm install"
+      scriptContent = "npm ci"
     }
     script {
       name = "Build XUI docs"

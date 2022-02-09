@@ -9,6 +9,8 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.Project
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.ScriptBuildStep
 import com.xero.teamcityhelpers.build.report.Report
 import com.xero.teamcityhelpers.project.addCoverageReport
+import helpers.addXUIBuildTriggers
+import helpers.removeAgentRegionRequirement
 
 object XUIArtifacts: Project({
   name = "XUI Artifacts"
@@ -42,30 +44,42 @@ object XUIArtifacts: Project({
     }
   }
 
-//  val deployXUIProd = DeployXUI(buildXUI, "Prod") {
-//    id("DeployXUIProd")
-//
-//    params {
-//      param("aws.s3.account_id", "966283773129")
-//      param("aws.s3.role_name", "xui-code-build-role-prod")
-//      param("aws.s3.bucket.name", "xero-edge")
-//      param("artifactory.repo", "npm-dev")
-//      param("aws.region", "us-east-1")
-//    }
-//  }
+  val deployXUIProd = DeployXUI(buildXUI, "Prod") {
+    id("DeployXUIProd")
+    params {
+      param("aws.s3.account_id", "966283773129")
+      param("aws.s3.role_name", "xui-shipto-style")
+      param("aws.s3.bucket.name", "xero-edge")
+      param("aws.region", "us-east-1")
+      param("artifactory.repo", "npm-dev")
+    }
+  }
 
-  val documentStable = Report(buildXUI, deployXUITest)
+  val documentStableTest = Report(buildXUI, deployXUITest) {
+    addXUIBuildTriggers(deployXUITest)
+  }
+  val documentStableProd = Report(buildXUI, deployXUIProd) {
+    params {
+      param("artifactory.target", "npm-dev/%component.modulename%/")
+    }
+    addXUIBuildTriggers(deployXUIProd)
+  }
+
+  removeAgentRegionRequirement(deployXUIProd)
+  removeAgentRegionRequirement(documentStableProd)
 
   buildType(buildXUI)
   buildType(deployXUITest)
-//  buildType(deployXUIProd)
-  buildType(documentStable)
+  buildType(documentStableTest)
+  buildType(deployXUIProd)
+  buildType(documentStableProd)
 
   buildTypesOrder = listOf(
     buildXUI,
     deployXUITest,
-//    deployXUIProd,
-    documentStable
+    documentStableTest,
+    deployXUIProd,
+    documentStableProd
   )
 
   buildType(PRBuild)

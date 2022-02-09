@@ -3,8 +3,9 @@ package projects
 import buildTypes.BuildDocs
 import com.xero.teamcityhelpers.build.report.Report
 import com.xero.teamcityhelpers.buildtype.trigger.addSnapshotDependencies
-import com.xero.teamcityhelpers.buildtype.trigger.addFinishBuildTrigger
 import com.xero.teamcityhelpers.deploy.s3.DeployToS3
+import helpers.addXUIBuildTriggers
+import helpers.removeAgentRegionRequirement
 import jetbrains.buildServer.configs.kotlin.v2019_2.Project
 
 object XUIDocs:  Project({
@@ -30,12 +31,12 @@ object XUIDocs:  Project({
     param("deployment.user", "xui_docs_deployer")
   }
 
-  val deployToStaging = DeployToS3(BuildDocs, "staging") {
-    name = "Staging – Deploy XUI docs"
+  val deployToTest = DeployToS3(BuildDocs, "Test") {
+    name = "Test – Deploy XUI docs"
     artifactRules = "+:dist/docs => xui-docs-build-%build.counter%.tgz"
     manualDeploy = true
     params {
-      param("component.deployment_environment", "staging")
+      param("component.deployment_environment", "Test")
 
       param("release.artifact.rules", "+:%component.dist_folder% => %component.dist_folder%")
 
@@ -46,32 +47,53 @@ object XUIDocs:  Project({
       param("aws.s3.bucket.name", "xui-docs-pipeline-test") // bucket name to deploy too (must be accessible by aws.account_id)
       param("aws.s3.destination.folder", "") // destination folder relative to the root
     }
-    addSnapshotDependencies(arrayOf(BuildDocs))
-    addFinishBuildTrigger(XUIArtifacts.buildTypes[1]) {
+
+    // This is a dependency upon deployXUITest to automatically trigger the docs deployment
+    val deployXUITest = XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUITest") }
+    addXUIBuildTriggers(deployXUITest) {
       successfulOnly = true
     }
+    addSnapshotDependencies(arrayOf(BuildDocs, deployXUITest))
   }
 
-//  val deployToProd = DeployToS3(npmBuild,"production") {
-//    manualDeploy = true
-//    params {
-//      param("aws.region", "")
-//      param("aws.account_id", "")
-//      param("aws.role_name", "")
-//      param("aws.s3.bucket.name", "")
-//      param("aws.s3.destination.folder", "product-directory/%component.deployment_environment%/%deployment.version%")
-//      param("aws.s3.cp.parameters", "--cache-control max-age=300 --metadata-directive REPLACE")
-//    }
-//    addSnapshotDependencies(arrayOf(deployToStaging))
-//  }
+  val deployToProd = DeployToS3(BuildDocs, "Prod") {
+    name = "Prod – Deploy XUI docs"
+    artifactRules = "+:dist/docs => xui-docs-build-%build.counter%.tgz"
+    manualDeploy = true
+    params {
+      param("component.deployment_environment", "Prod")
+
+      param("release.artifact.rules", "+:%component.dist_folder% => %component.dist_folder%")
+
+      param("aws.region", "us-east-1")
+      param("aws.account_id", "510694909772")
+      param("aws.role_name", "xui-shipto-docs")
+      param("aws.s3.bucket.name", "xero-xui")
+      param("aws.s3.destination.folder", "")
+    }
+
+    // This is a dependency upon deployXUIProd to automatically trigger the docs deployment
+    val deployXUIProd = XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUIProd") }
+    addXUIBuildTriggers(deployXUIProd) {
+      successfulOnly = true
+    }
+    addSnapshotDependencies(arrayOf(BuildDocs, deployXUIProd))
+  }
+
+  val documentStableTest = Report(BuildDocs, deployToTest) {
+    addXUIBuildTriggers(deployToTest)
+  }
+  val documentStableProd = Report(BuildDocs, deployToProd) {
+    addXUIBuildTriggers(deployToProd)
+  }
+
+  removeAgentRegionRequirement(deployToProd)
+  removeAgentRegionRequirement(documentStableProd)
 
   buildType(BuildDocs)
-  buildType(deployToStaging)
-//  buildType(deployToProd)
+  buildType(deployToTest)
+  buildType(deployToProd)
 
-  val documentStable = Report(BuildDocs, deployToStaging) {
-    name = "Staging – Report deployment status"
-  }
-
-  buildType(documentStable)
+  buildType(documentStableTest)
+  buildType(documentStableProd)
 })

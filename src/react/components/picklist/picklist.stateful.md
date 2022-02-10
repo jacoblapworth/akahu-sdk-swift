@@ -35,9 +35,11 @@ class BasicStatefulPicklist extends React.Component {
     super(...args);
 
     this.state = {
-      selectedItem: 2
+      selectedItem: 2,
+      highlightedId: null
     };
 
+    this.onHighlightChange = this.onHighlightChange.bind(this);
     this.onSelect = this.onSelect.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
     this._rootNode = React.createRef();
@@ -51,15 +53,30 @@ class BasicStatefulPicklist extends React.Component {
     this._rootNode.current && this._rootNode.current.focus();
   }
 
+  onHighlightChange(item) {
+    this.setState({
+      highlightedId: item.props.id
+    });
+  }
+
   onKeyDown(event) {
     this._list.current && this._list.current.onKeyDown(event);
   }
 
   render() {
+    const { highlightedId } = this.state;
     return (
-      <div id="spl-wrapper1" ref={this._rootNode} tabIndex={0} onKeyDown={this.onKeyDown}>
+      <div
+        aria-activedescendant={highlightedId}
+        id="spl-wrapper1"
+        onKeyDown={this.onKeyDown}
+        ref={this._rootNode}
+        role="group"
+        tabIndex={0}
+      >
         <XUIStatefulPicklist
           secondaryProps={{ role: null }}
+          onHighlightChange={this.onHighlightChange}
           onSelect={this.onSelect}
           ref={this._list}
         >
@@ -93,10 +110,12 @@ class BasicHorizontalStatefulPicklist extends React.Component {
     super(...args);
 
     this.state = {
-      selectedItem: 2
+      selectedItem: 2,
+      highlightedId: null
     };
 
     this.onSelect = this.onSelect.bind(this);
+    this.onHighlightChange = this.onHighlightChange.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
     this._rootNode = React.createRef();
     this._list = React.createRef();
@@ -109,16 +128,31 @@ class BasicHorizontalStatefulPicklist extends React.Component {
     this._rootNode.current && this._rootNode.current.focus();
   }
 
+  onHighlightChange(item) {
+    this.setState({
+      highlightedId: item.props.id
+    });
+  }
+
   onKeyDown(event) {
     this._list.current && this._list.current.onKeyDown(event);
   }
 
   render() {
+    const { highlightedId } = this.state;
     return (
-      <div id="spl-wrapper2" ref={this._rootNode} tabIndex={0} onKeyDown={this.onKeyDown}>
+      <div
+        aria-activedescendant={highlightedId}
+        id="spl-wrapper2"
+        onKeyDown={this.onKeyDown}
+        ref={this._rootNode}
+        role="group"
+        tabIndex={0}
+      >
         <XUIStatefulPicklist
           secondaryProps={{ role: null }}
           isHorizontal
+          onHighlightChange={this.onHighlightChange}
           onSelect={this.onSelect}
           ref={this._list}
         >

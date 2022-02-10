@@ -338,12 +338,14 @@ class InputTriggerExample extends Component {
 
     this.state = {
       inputValue: '',
-      selectedId: null
+      selectedId: null,
+      highlightedId: null
     };
 
     this.onInputChange = this.onInputChange.bind(this);
     this.onInputKeyDown = this.onInputKeyDown.bind(this);
     this.onSelect = this.onSelect.bind(this);
+    this.onHighlightChange = this.onHighlightChange.bind(this);
 
     this.ddt = React.createRef();
   }
@@ -374,8 +376,14 @@ class InputTriggerExample extends Component {
     });
   }
 
+  onHighlightChange(item) {
+    this.setState({
+      highlightedId: item.props.id
+    });
+  }
+
   render() {
-    const { selectedId, inputValue } = this.state;
+    const { highlightedId, selectedId, inputValue } = this.state;
     const trigger = (
       <XUITextInput
         label="dropdown with text input trigger"
@@ -383,6 +391,10 @@ class InputTriggerExample extends Component {
         value={inputValue}
         onChange={this.onInputChange}
         onKeyDown={this.onInputKeyDown}
+        inputProps={{
+          'aria-autocomplete': 'list',
+          'aria-activedescendant': highlightedId
+        }}
         isInvalid={this.state.isInvalid}
         validationMessage="Special characters are not allowed"
       />
@@ -413,6 +425,7 @@ class InputTriggerExample extends Component {
         ref={d => (this.dropdown = d)}
         hasKeyboardEvents={false}
         restrictFocus={false}
+        onHighlightChange={this.onHighlightChange}
         onSelect={this.onSelect}
       >
         <XUIPicklist>{pickItems}</XUIPicklist>

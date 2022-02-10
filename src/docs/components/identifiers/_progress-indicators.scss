@@ -6,18 +6,23 @@
 //
 // Teaser: To communicate progress and indicate context.
 //
-// Introduction: Progress indicators are used to visually communicate progress.
+// Introduction: Progress indicators visually communicate a user’s progress.
 //
 // Styleguide: Components.Identifiers.ProgressIndicator
+
+// When to use
+//
+// - To indicate progress towards a goal
+// - To show current position within a series of steps
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.1
 
 // Best practice
 //
 // Tips:
-// Do: Use to indicate progress towards a goal
-// Do: Use to indicate current position within a series of steps
-// Warning: Use progress indicators sparingly, as they are relatively dominant interface elements.
+// Warning: Use progress indicators sparingly, as they are a relatively dominant interface element
 //
-// Styleguide: Components.Identifiers.ProgressIndicator.1
+// Styleguide: Components.Identifiers.ProgressIndicator.2
 
 // Anatomy
 //
@@ -27,7 +32,7 @@
 // Classes:
 // xui-progress: Apply to wrapper
 //
-// Styleguide: Components.Identifiers.ProgressIndicator.2
+// Styleguide: Components.Identifiers.ProgressIndicator.3
 
 // Linear
 //
@@ -45,7 +50,7 @@
 //
 // Markup: ./examples/progress-indicator/_progress-indicator-linear.html
 //
-// Styleguide: Components.Identifiers.ProgressIndicator.2.1
+// Styleguide: Components.Identifiers.ProgressIndicator.3.1
 
 // Circular
 //
@@ -63,51 +68,19 @@
 //
 // Markup: ./examples/progress-indicator/_progress-indicator-circular.html
 //
-// Styleguide: Components.Identifiers.ProgressIndicator.2.2
-
-// Size
-//
-// Progress indicator offers two main size options to allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
-//
-// Tips:
-// Do: Use a standard sized progress indicator for navigational and interactive elements
-// Do: Use a scaling progress indicator for precise control over width and height
-// Warning: Avoid using too many different sized indicators on a single page
-//
-// Styleguide: Components.Identifiers.ProgressIndicator.3
-
-// Standard
-//
-// For the circular variant, the standard progress indicator has a fixed width and height.
-// For the linear variant, the standard progress indicator has a flexible width and a fixed height.
-//
-// ExampleClass: ds-example-flush ds-example-transparent
-//
-// Markup: ./examples/progress-indicator/_progress-indicator-standard-size.html
-//
-// Styleguide: Components.Identifiers.ProgressIndicator.3.1
-
-// Grow
-//
-// Both growing indicators inherit width and height from their parent, so they can be used in combination with other elements that have specifically defined dimensions.
-// The stroke width of the circular variant also scales tangentially to it's containing element at all times.
-// To create a growing progress indicator, apply the following modifier.
-//
-// ExampleClass: ds-example-flush ds-example-transparent
-//
-// Classes:
-// xui-progress-grow: Modifier for a growing progress indicator
-// ExampleClass: ds-example-flush ds-example-transparent
-//
-// Markup: ./examples/progress-indicator/_progress-indicator-grow.html
-//
 // Styleguide: Components.Identifiers.ProgressIndicator.3.2
 
-// Color
+// Features of a progress indicator
 //
-// The default color for progress indicators is blue.
-// However, you can set the track or current progress to any standard color you like.
-// To do this, simply set the `data-xui-progress-current-color` and `data-xui-progress-total-color` attributes to any of the following colors.
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.4
+
+// Colour
+//
+// The default colour for progress indicators is blue.
+// However, you can set the track or current progress to any standard colour you like.
+// To do this, simply set the `data-xui-progress-current-color` and `data-xui-progress-total-color` attributes to any of the following colours.
 // Note that `xui-color-red` is reserved for the error state.
 //
 // Use descriptive text alongside Progress indicators to convey information so it’s still meaningful to people who can’t discern colour
@@ -125,18 +98,18 @@
 // Grey: `xui-color-grey-1`: `grey`
 //
 // Tips:
-// Do: Use custom colors to align progress indicators to the theme of the application
-// Do: Use custom colors when indicating sentiment other than a simple error
-// Do: When using custom colors, use descriptive text like "65%"
+// Do: Use custom colours to align progress indicators to the theme of the application
+// Do: Use custom colours when indicating sentiment other than a simple error
+// Do: When using custom colours, use descriptive text like "65%"
 // Warning: Avoid using multiple coloured progress-indicators on a single screen unless they indicate sentiment
-// Don't: Don't use custom colors to indicate a simple error, use the pre-defined error classes instead
-// Dont: When using custom colors, avoid vague text like "In progress"
+// Don't: Don't use custom colours to indicate a simple error, use the pre-defined error classes instead
+// Dont: When using custom colours, avoid vague text like "In progress"
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup: ./examples/progress-indicator/_progress-indicator-color.html
 //
-// Styleguide: Components.Identifiers.ProgressIndicator.4
+// Styleguide: Components.Identifiers.ProgressIndicator.4.1
 
 // Segments
 //
@@ -154,7 +127,7 @@
 //
 // Markup: ./examples/progress-indicator/_progress-indicator-segments.html
 //
-// Styleguide: Components.Identifiers.ProgressIndicator.5
+// Styleguide: Components.Identifiers.ProgressIndicator.4.2
 
 // Indicating completion
 //
@@ -171,7 +144,7 @@
 //
 // Markup: ./examples/progress-indicator/_progress-indicator-completion.html
 //
-// Styleguide: Components.Identifiers.ProgressIndicator.6
+// Styleguide: Components.Identifiers.ProgressIndicator.4.3
 
 // Handling overflow
 //
@@ -186,14 +159,14 @@
 //
 // Markup: ./examples/progress-indicator/_progress-indicator-overflow.html
 //
-// Styleguide: Components.Identifiers.ProgressIndicator.7
+// Styleguide: Components.Identifiers.ProgressIndicator.4.4
 
 // Handling errors
 //
 // In addition to overflow, there are two generic error states that can also be applied.
 // Note that these styles take precedent over any custom color.
 //
-// Styleguide: Components.Identifiers.ProgressIndicator.8
+// Styleguide: Components.Identifiers.ProgressIndicator.4.5
 
 // Soft errors
 //
@@ -206,7 +179,7 @@
 // Classes:
 // xui-progress-error-soft: Modifier for a soft error state
 //
-// Styleguide: Components.Identifiers.ProgressIndicator.8.1
+// Styleguide: Components.Identifiers.ProgressIndicator.4.5.1
 
 // Hard errors
 //
@@ -221,7 +194,45 @@
 //
 // Markup: ./examples/progress-indicator/_progress-indicator-hard-errors.html
 //
-// Styleguide: Components.Identifiers.ProgressIndicator.8.2
+// Styleguide: Components.Identifiers.ProgressIndicator.4.5.2
+
+// Size variants
+//
+// Progress indicator offers two main size options to allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
+//
+// Tips:
+// Do: Use a standard sized progress indicator for navigational and interactive elements
+// Do: Use a scaling progress indicator for precise control over width and height
+// Warning: Avoid using too many different sized indicators on a single page
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.5
+
+// Standard
+//
+// For the circular variant, the standard progress indicator has a fixed width and height.
+// For the linear variant, the standard progress indicator has a flexible width and a fixed height.
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/progress-indicator/_progress-indicator-standard-size.html
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.5.1
+
+// Grow
+//
+// Both growing indicators inherit width and height from their parent, so they can be used in combination with other elements that have specifically defined dimensions.
+// The stroke width of the circular variant also scales tangentially to it's containing element at all times.
+// To create a growing progress indicator, apply the following modifier.
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Classes:
+// xui-progress-grow: Modifier for a growing progress indicator
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/progress-indicator/_progress-indicator-grow.html
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.5.2
 
 // Accessibility
 //
@@ -239,9 +250,23 @@
 //
 // Use descriptive text alongside Progress indicators to convey information so it’s still meaningful to people who can’t discern colour
 //
-// Styleguide: Components.Identifiers.ProgressIndicator.9
+// Styleguide: Components.Identifiers.ProgressIndicator.6
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Accessibility labels should accurately describe which step in the process the customer is
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.7
+
+// Example
+//
+// ExampleContentTable:
+// Step 4 of 8 | You're almost halfway
+//
+// Styleguide: Components.Identifiers.ProgressIndicator.7.1
+
+// Related components
 //
 // Related:
 // * [Loader](./section-components-identifiers-loader.html)

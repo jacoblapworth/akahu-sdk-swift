@@ -53,6 +53,10 @@ type BreadcrumbProps =
       title?: React.ReactNode;
     };
 
-type Props = BaseProps & BreadcrumbProps & Omit<React.HTMLAttributes<HTMLElement>, 'title'>;
+type SpreadProps = React.HTMLAttributes<HTMLElement>;
+
+type CompleteBaseProps = BaseProps & BreadcrumbProps;
+
+type Props = CompleteBaseProps & Omit<SpreadProps, keyof CompleteBaseProps>;
 
 export default class XUIPageHeader extends React.PureComponent<Props> {}

@@ -3,6 +3,7 @@ import React, { Component, PureComponent } from 'react';
 import crossIcon from '@xero/xui-icon/icons/cross-small';
 import plusIcon from '@xero/xui-icon/icons/plus';
 
+import { nanoid } from 'nanoid';
 import { XUIDropdownFooter } from '../../../dropdown';
 import XUIIcon from '../../../icon';
 import {
@@ -146,8 +147,9 @@ class AutoExample extends Component {
   }
 
   selectPerson(person) {
+    const { isSingle } = this.props;
     this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds, person],
+      selectedPeopleIds: isSingle ? [person] : [...prevState.selectedPeopleIds, person],
       value: '',
     }));
   }
@@ -216,6 +218,7 @@ class AutoExample extends Component {
           })}
         </XUIPicklist>
       );
+
     return (
       <XUIEditableTableCellAutocompleter
         inputLabel="autocompleter"
@@ -374,6 +377,7 @@ const generateCell = ({
   const derivedCellType =
     cellType === 'assorted' ? samples[columnIndex % samples.length] : cellType;
   const settings = {
+    key: nanoid(),
     inlineAlignment,
     isDisabled,
     isInvalid,

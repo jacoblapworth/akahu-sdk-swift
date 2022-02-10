@@ -21,8 +21,8 @@ import XUIIcon from '../../icon/XUIIcon';
 import formatSelectedDateToString from './helpers/formatSelectedDateToString';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import { isDayOutsideRange } from '../../datepicker/helpers/utils';
-import { pickitemClassName } from '../../picklist/private/constants';
 import { suggestedDatesHeader, suggestedDatesSecondaryText } from './suggestedDateHelperComponents';
+import getDateFormat from './helpers/getDateFormat';
 
 /**
  * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and
@@ -179,10 +179,10 @@ class XUIDateInputItem extends Component {
       return;
     }
 
-    const { isDueDate, minDate, maxDate, onValidationFailed } = this.props;
+    const { isDueDate, minDate, maxDate, onValidationFailed, locale } = this.props;
     const base = new Date();
     const now = new Date();
-    const dateFormat = DateFormat.DMY;
+    const dateFormat = getDateFormat(locale);
     const parsedDate = isDueDate
       ? parseDueDate({ now, base, dateFormat }, this.state.inputValue)
       : parseDate({ now, base, dateFormat }, this.state.inputValue);

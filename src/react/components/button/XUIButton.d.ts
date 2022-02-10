@@ -129,7 +129,7 @@ type SpreadProps =
   | React.AnchorHTMLAttributes<HTMLAnchorElement>
   | React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-type Props = BaseProps & SpreadProps;
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 export default class XUIButton extends React.PureComponent<Props> {
   /**

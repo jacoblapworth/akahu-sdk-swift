@@ -6,22 +6,29 @@
 //
 // Teaser: Communicate progress and alleviate slow load times
 //
-// Introduction: Loaders are used to communicate progress and alleviate slow load times.
+// Introduction: Loaders communicate progress and that a page is loading.
 //
 // Styleguide: Components.Identifiers.Loader
+
+// When to use
+//
+// - To show that a page or app is loading
+// - To signal the action a user took is progressing and will soon be done
+//
+// Styleguide: Components.Identifiers.Loader.1
 
 // Best practice
 //
 // Tips:
 // Do: Position loaders centrally within their containing element
-// Warning: Avoid loaders on pages that initiated action, include on destination pages instead
+// Warning: Avoid loaders on pages where the action was initiated – instead add them to destination pages
 // Dont: Don't show multiple loaders at once
 //
-// Styleguide: Components.Identifiers.Loader.1
+// Styleguide: Components.Identifiers.Loader.2
 
 // Anatomy
 //
-// To create a loader, use the following classes.
+// To create a loader, use the following classes:
 //
 // Classes:
 // xui-loader: Apply to loader
@@ -31,23 +38,11 @@
 //
 // Markup: ./examples/loader/_loader.html
 //
-// Styleguide: Components.Identifiers.Loader.2
+// Styleguide: Components.Identifiers.Loader.3
 
-// Size variants
+// Features of a loader
 //
-// Loader offers three size options that allow for greater control over visual hierarchy, [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2), and nesting.
-//
-// Tips:
-// Do: Use a smaller variant to reduce visual dominance of a loader
-// Do: Use an appropriate size variant for a loader based on the size of it's container
-//
-// Definitions:
-// Size variant:	**Height**: **Class**
-// medium: 14px: <code>.xui-loader-medium</code>
-// small: 12px: <code>.xui-loader-small</code>
-// xsmall: 10px: <code>.xui-loader-xsmall</code>
-//
-// Markup: ./examples/loader/_loader-sizes.html
+// Explore the different features that can be applied to this component.
 //
 // Styleguide: Components.Identifiers.Loader.4
 
@@ -60,7 +55,7 @@
 // xui-loader-retain-layout: Apply to loader
 // xui-u-hidden-content: Apply to content to be hidden
 //
-// Styleguide: Components.Identifiers.Loader.7
+// Styleguide: Components.Identifiers.Loader.4.1
 
 // Buttons
 //
@@ -80,13 +75,13 @@
 //
 // Markup: ./examples/loader/_loader-buttons.html
 //
-// Styleguide: Components.Identifiers.Loader.8
+// Styleguide: Components.Identifiers.Loader.4.2
 
 // Retain layout
 //
 // Markup: ./examples/loader/_loader-buttons-retain-layout.html
 //
-// Styleguide: Components.Identifiers.Loader.8.1
+// Styleguide: Components.Identifiers.Loader.4.2.1
 
 // Dropdowns
 //
@@ -97,13 +92,13 @@
 //
 // Markup: ./examples/loader/_loader-dropdowns.html
 //
-// Styleguide: Components.Identifiers.Loader.9
+// Styleguide: Components.Identifiers.Loader.4.3
 
 // Retain layout
 //
 // Markup: ./examples/loader/_loader-dropdowns-retain-layout.html
 //
-// Styleguide: Components.Identifiers.Loader.9.1
+// Styleguide: Components.Identifiers.Loader.4.3.1
 
 // Modals
 //
@@ -115,7 +110,7 @@
 //
 // Markup: ./examples/loader/_loader-modals.html
 //
-// Styleguide: Components.Identifiers.Loader.10
+// Styleguide: Components.Identifiers.Loader.4.4
 
 // Retain layout
 //
@@ -123,7 +118,7 @@
 //
 // Markup: ./examples/loader/_loader-modals-retain-layout.html
 //
-// Styleguide: Components.Identifiers.Loader.10.1
+// Styleguide: Components.Identifiers.Loader.4.4.1
 
 // Panels
 //
@@ -133,13 +128,13 @@
 //
 // Markup: ./examples/loader/_loader-panels.html
 //
-// Styleguide: Components.Identifiers.Loader.11
+// Styleguide: Components.Identifiers.Loader.4.5
 
 // Retain layout
 //
 // Markup: ./examples/loader/_loader-panels-retain-layout.html
 //
-// Styleguide: Components.Identifiers.Loader.11.1
+// Styleguide: Components.Identifiers.Loader.4.5.1
 
 // Pages
 //
@@ -148,7 +143,7 @@
 // Do: Conceal all content under the header until all data has been fetched
 // Warning: Avoid page loaders when asynchronously updating a single element, use a panel loader instead
 //
-// Styleguide: Components.Identifiers.Loader.12
+// Styleguide: Components.Identifiers.Loader.4.6
 
 // Inverted
 //
@@ -161,16 +156,42 @@
 //
 // Markup: ./examples/loader/_loader-inverted.html
 //
-// Styleguide: Components.Identifiers.Loader.13
+// Styleguide: Components.Identifiers.Loader.4.7
+
+// Size variants
+//
+// Loader offers three size options that allow for greater control over visual hierarchy, [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2), and nesting.
+//
+// Tips:
+// Do: Use a smaller variant to reduce visual dominance of a loader
+// Do: Use an appropriate size variant for a loader based on the size of it's container
+//
+// Definitions:
+// Size variant:	**Height**: **Class**
+// medium: 14px: <code>.xui-loader-medium</code>
+// small: 12px: <code>.xui-loader-small</code>
+// xsmall: 10px: <code>.xui-loader-xsmall</code>
+//
+// Markup: ./examples/loader/_loader-sizes.html
+//
+// Styleguide: Components.Identifiers.Loader.5
 
 // Accessibility
 //
 // When loading, set the aria-busy attribute to `true` on the element that is loading, not on the loader itself.
 // Additionally, make sure to apply the `xui-button-is-disabled` class and `disabled` attribute on buttons that are loading to prevent keyboard interactivity.
 //
-// Styleguide: Components.Identifiers.Loader.14
+// Styleguide: Components.Identifiers.Loader.6
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Accessibility labels should explain the active state of the action taken, for example: ‘Loading’, ‘Submitting’, ‘Saving’
+// Warning: If there’s loading text on the screen, describe what’s happening in as few words as possible
+//
+// Styleguide: Components.Identifiers.Loader.80
+
+// Related components
 //
 // Related:
 // * [Button](./section-components-controls-button.html)

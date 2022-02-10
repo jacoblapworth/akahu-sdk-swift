@@ -15,7 +15,6 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onFocus={[Function]}
@@ -76,7 +75,6 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onFocus={[Function]}
@@ -137,7 +135,6 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onFocus={[Function]}
@@ -199,7 +196,6 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onFocus={[Function]}
@@ -267,7 +263,6 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onFocus={[Function]}
@@ -328,7 +323,6 @@ exports[`XUIAutocompleter should render a class on the input element when passed
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onFocus={[Function]}
@@ -389,7 +383,6 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onFocus={[Function]}
@@ -450,7 +443,6 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       className="test-class"
       onClick={[Function]}
@@ -512,7 +504,6 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onFocus={[Function]}
@@ -577,7 +568,6 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onFocus={[Function]}
@@ -639,7 +629,6 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onFocus={[Function]}
@@ -700,7 +689,6 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onFocus={[Function]}
@@ -762,7 +750,6 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
     role="combobox"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onFocus={[Function]}

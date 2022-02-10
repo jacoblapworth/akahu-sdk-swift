@@ -6,9 +6,24 @@
 //
 // Teaser: Top-level views of detailed sub pages.
 //
-// Introduction: A content block is a simplified top-level view for a detailed sub page, often containing quick access to key actions.
+// Introduction: Content blocks display comparable items in a list view.
 //
 // Styleguide: Components.DisplayingData.ContentBlock
+
+// When to use
+//
+// - To display information in a list view
+// - To show a summary of relevant information which can be selected, sorted, and able to be acted upon
+// - To provide an entry point to a more detailed view
+//
+// Styleguide: Components.DisplayingData.ContentBlock.1
+
+// When not to use
+//
+// - Don’t use as the main content of a dropdown
+// - Don’t use when the user is meant to select or act on a single item from a list – instead use a [pickitem](./section-components-displayingdata-picklist.html#components-displayingdata-picklist)
+//
+// Styleguide: Components.DisplayingData.ContentBlock.2
 
 // Anatomy
 //
@@ -27,7 +42,13 @@
 // xui-contentblockitem-has-top-radius: Applies top left and top right border radius
 // xui-contentblockitem-has-bottom-radius: Applies bottom left and bottom right border radius
 //
-// Styleguide: Components.DisplayingData.ContentBlock.1
+// Styleguide: Components.DisplayingData.ContentBlock.3
+
+// Features of a content block
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.DisplayingData.ContentBlock.4
 
 // Text content
 //
@@ -49,7 +70,7 @@
 //
 // Markup: ./examples/content-block/_content-block.html
 //
-// Styleguide: Components.DisplayingData.ContentBlock.2
+// Styleguide: Components.DisplayingData.ContentBlock.4.1
 
 // Left content
 //
@@ -57,7 +78,7 @@
 // xui-contentblockitem--leftcontent: Wrapper for left content elements
 // xui-contentblockitem--leftcontent-layout: Vertically aligns left content elements when a description is present
 //
-// Styleguide: Components.DisplayingData.ContentBlock.3
+// Styleguide: Components.DisplayingData.ContentBlock.4.2
 
 // Checkboxes
 //
@@ -69,7 +90,7 @@
 //
 // Markup: ./examples/content-block/_content-block-checkboxes.html
 //
-// Styleguide: Components.DisplayingData.ContentBlock.3.1
+// Styleguide: Components.DisplayingData.ContentBlock.4.2.1
 
 // Avatars
 //
@@ -81,14 +102,14 @@
 //
 // Markup: ./examples/content-block/_content-block-avatars.html
 //
-// Styleguide: Components.DisplayingData.ContentBlock.3.2
+// Styleguide: Components.DisplayingData.ContentBlock.4.2.2
 
 // Right content
 //
 // Classes:
 // xui-contentblockitem--rightcontent: Wrapper for right content elements
 //
-// Styleguide: Components.DisplayingData.ContentBlock.4
+// Styleguide: Components.DisplayingData.ContentBlock.4.3
 
 // Overflow menu
 //
@@ -99,7 +120,7 @@
 //
 // Markup: ./examples/content-block/_content-block-overflow.html
 //
-// Styleguide: Components.DisplayingData.ContentBlock.4.1
+// Styleguide: Components.DisplayingData.ContentBlock.4.3.1
 
 // Pinned values
 //
@@ -114,7 +135,7 @@
 //
 // Markup: ./examples/content-block/_content-block-pinned.html
 //
-// Styleguide: Components.DisplayingData.ContentBlock.4.2
+// Styleguide: Components.DisplayingData.ContentBlock.4.3.2
 
 // Actions
 //
@@ -131,7 +152,7 @@
 //
 // Markup: ./examples/content-block/_content-block-actions.html
 //
-// Styleguide: Components.DisplayingData.ContentBlock.4.3
+// Styleguide: Components.DisplayingData.ContentBlock.4.3.3
 
 // Tags
 //
@@ -146,7 +167,7 @@
 //
 // Markup: ./examples/content-block/_content-block-tags.html
 //
-// Styleguide: Components.DisplayingData.ContentBlock.5
+// Styleguide: Components.DisplayingData.ContentBlock.4.4
 
 // Content block headers
 //
@@ -157,7 +178,7 @@
 // Classes:
 // xui-textcolor-muted: Apply to text elements for variance in style to regular content block items
 //
-// Styleguide: Components.DisplayingData.ContentBlock.6
+// Styleguide: Components.DisplayingData.ContentBlock.4.5
 
 // Standard headers
 //
@@ -169,7 +190,7 @@
 //
 // Markup: ./examples/content-block/_content-block-header.html
 //
-// Styleguide: Components.DisplayingData.ContentBlock.6.1
+// Styleguide: Components.DisplayingData.ContentBlock.4.5.1
 
 // Numerical values
 //
@@ -181,7 +202,7 @@
 //
 // Markup: ./examples/content-block/_content-block-header-numerical.html
 //
-// Styleguide: Components.DisplayingData.ContentBlock.6.2
+// Styleguide: Components.DisplayingData.ContentBlock.4.5.2
 
 // Pinned values
 //
@@ -192,7 +213,7 @@
 //
 // Markup: ./examples/content-block/_content-block-header-pinned.html
 //
-// Styleguide: Components.DisplayingData.ContentBlock.6.3
+// Styleguide: Components.DisplayingData.ContentBlock.4.5.3
 
 // With bulk select
 //
@@ -204,7 +225,7 @@
 //
 // Markup: ./examples/content-block/_content-block-header-bulk-select.html
 //
-// Styleguide: Components.DisplayingData.ContentBlock.6.4
+// Styleguide: Components.DisplayingData.ContentBlock.4.5.4
 
 // With avatar
 //
@@ -215,9 +236,20 @@
 //
 // Markup: ./examples/content-block/_content-block-header-avatar.html
 //
-// Styleguide: Components.DisplayingData.ContentBlock.6.5
+// Styleguide: Components.DisplayingData.ContentBlock.4.5.5
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Be short and succinct
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Do: Separate block content using [interpuncts](https://xui.xero.com/product-language-guide/components/punctuation/#interpuncts-)
+//
+// Related: Also see guidance for writing [headings](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#headings)
+//
+// Styleguide: Components.DisplayingData.ContentBlock.5
+
+// Related components
 //
 // Related:
 // * [Accordion](./section-components-displayingdata-accordion.html)

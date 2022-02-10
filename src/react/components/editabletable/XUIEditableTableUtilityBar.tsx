@@ -14,8 +14,12 @@ interface BaseProps {
   qaHook?: string;
 }
 
-type Props = BaseProps &
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>;
+type SpreadProps = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLTableRowElement>,
+  HTMLTableRowElement
+>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 const XUIEditableTableUtilityBar: React.FunctionComponent<Props> = ({
   children,

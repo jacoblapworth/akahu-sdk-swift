@@ -4,7 +4,7 @@
 //
 // Errors are very frustrating for a user, so when a validation message is needed, make sure it clearly suggests the user’s next step.
 //
-// Styleguide: Components.CollectingInput.Forms.4.12
+// Styleguide: Components.CollectingInput.Forms.4.6
 
 // Validation messages for fields
 //
@@ -34,7 +34,7 @@
 //
 // Markup: ./examples/form/_form-validation.html
 //
-// Styleguide: Components.CollectingInput.Forms.4.13
+// Styleguide: Components.CollectingInput.Forms.4.6.1
 
 // Validation messages for modals
 //
@@ -44,7 +44,7 @@
 //
 // Markup: ./examples/form/_form-validation-modals.html
 //
-// Styleguide: Components.CollectingInput.Forms.4.14
+// Styleguide: Components.CollectingInput.Forms.4.6.2
 
 // Other validation options
 //
@@ -53,7 +53,7 @@
 // Warning: Avoid listing out multiple errors in a banner that users must then search for
 // Warning: Only disable the submission button if there are a small number of fields and it’s clear to users what’s required of them
 //
-// Styleguide: Components.CollectingInput.Forms.4.15
+// Styleguide: Components.CollectingInput.Forms.4.6.3
 
 // When to validate
 //
@@ -62,7 +62,7 @@
 // Do: Validate whether required fields are completed on submission
 // Dont: Don't validate fields on key press
 //
-// Styleguide: Components.CollectingInput.Forms.4.16
+// Styleguide: Components.CollectingInput.Forms.4.6.4
 
 // Validation content
 //
@@ -74,7 +74,7 @@
 // Warning: Avoid technical jargon
 // Warning: Avoid saying 'sorry' or 'please', unless the problem is serious or very frustrating
 //
-// Styleguide: Components.CollectingInput.Forms.4.17
+// Styleguide: Components.CollectingInput.Forms.4.6.5
 
 // Examples of validation content
 //
@@ -83,7 +83,7 @@
 // Enter a valid email address| Email address is invalid
 // Enter a 10-digit password| Password is invalid
 //
-// Styleguide: Components.CollectingInput.Forms.4.18
+// Styleguide: Components.CollectingInput.Forms.4.6.6
 
 // Optional/required fields
 //
@@ -91,10 +91,10 @@
 // * Only ask for information that’s required or relevant to improving the user’s experience
 // * Always consider why you’re requesting certain information from the user and how you will use it
 //
-// Styleguide: Components.CollectingInput.Forms.4.19
+// Styleguide: Components.CollectingInput.Forms.4.7
 
 // Buttons
 //
-// See guidance for writing [buttons](https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#heading=h.a6gnp1g9ondn)
+// See guidance for writing [buttons](./section-components-controls-button.html#components-controls-button-7)
 //
-// Styleguide: Components.CollectingInput.Forms.4.20
+// Styleguide: Components.CollectingInput.Forms.4.8

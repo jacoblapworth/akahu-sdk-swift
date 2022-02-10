@@ -20,7 +20,9 @@ interface BaseProps {
   qaHook?: string;
 }
 
-type Props = BaseProps & React.HTMLAttributes<HTMLElement>;
+type SpreadProps = React.HTMLAttributes<HTMLElement>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 declare const XUIFilePreviewFooter: React.FunctionComponent<Props>;
 export default XUIFilePreviewFooter;

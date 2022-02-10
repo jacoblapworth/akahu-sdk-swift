@@ -4,15 +4,23 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.snrpjucksju0
 //
-// Introduction: A bar chart presents categorical data with rectangular bars and heights proportional to the values that they represent - These bars can be plotted vertically, showing comparisons among discrete categories. The X-axis of the chart shows the specific categories being compared, and the Y-axis represents a measured value.
+// Introduction: A bar chart presents data as rectangular bars and heights that are proportional to the values they represent. Bars are plotted vertically to show comparisons among categories.
 //
 // Styleguide: Components.DisplayingData.BarChart
 
-// React & Victory
+// React and Victory
 //
-// The XUI bar chart is primarily built off of the Victory set of modular charting components for React. This means that to consume the `XUIBarChart`, you will need to be using React in your application. Most of the styling is applied to a single SVG element, so we have enabled a lot of modification properties to help utilise this component in a number of ways.
+// Bar charts are built from the Victory set of modular charting components for React, so you’ll need to use React in your application.
+//
+// Most of the styling is applied to a single SVG element, and we’ve enabled a lot of modification properties to help use this component in a number of ways.
 //
 // Styleguide: Components.DisplayingData.BarChart.1
+
+// When to use
+//
+// - To visually represent data on a page
+//
+// Styleguide: Components.DisplayingData.BarChart.2
 
 // Best practice
 //
@@ -21,14 +29,13 @@
 // Do: Bars on the chart may be arranged in any order
 // Do: Always wrap in a surrounding container, such as a `xui-panel`
 // Do: Use a stacked variant to represent different values combining to a total value
-// Do: Use a chart as a supporting visualisation of data on a page
-// Warning: Avoid relying on a chart to be the primary representation of the data on that page
+// Warning: Avoid relying on a chart to be the primary representation of data on a page
 //
-// Styleguide: Components.DisplayingData.BarChart.2
+// Styleguide: Components.DisplayingData.BarChart.3
 
 // Anatomy
 //
-// Although the Bar chart is reliant on React, the following classes are applied to the wrappers of the component. However, the Bar chart is primarily composed of SVG elements.
+// Although the Bar chart is reliant on React, the following classes are applied to the wrappers of the component. However, the bar chart is primarily composed of SVG elements.
 //
 // Classes:
 // xui-panel: Panel
@@ -40,7 +47,7 @@
 // xui-chart--yaxis: Chart y-axis wrapper
 // xui-chart--bars: Chart bar wrapper
 //
-// Styleguide: Components.DisplayingData.BarChart.3
+// Styleguide: Components.DisplayingData.BarChart.4
 
 // Chart header
 //
@@ -51,27 +58,27 @@
 //
 // Markup: ./examples/bar-chart/_bar-chart-header.html
 //
-// Styleguide: Components.DisplayingData.BarChart.3.1
-
-// Layout
-//
-// Styleguide: Components.DisplayingData.BarChart.4
+// Styleguide: Components.DisplayingData.BarChart.4.1
 
 // Chart size
 //
 // Tips:
 // Do: Use default width (100%) and default height (400px) wherever possible to create a consistent experience across pages and products
-// Warning: Adjust height and width sparingly to fit with particular page layouts, eg. Widget-style containers
-//
-// Styleguide: Components.DisplayingData.BarChart.4.1
-
-// Bar width
-//
-// Bars have a min-width of 12px and a max-width of 200px. The bar width adjusts based on the size of the surrounding container and/or the number of items displayed inside the chart. When the chart can no longer fit all bars in the container, the items will overflow by default.
+// Warning: Adjust height and width sparingly to fit with particular page layouts, e.g. widget-style containers
 //
 // Styleguide: Components.DisplayingData.BarChart.4.2
 
+// Bar width
+//
+// Bars have a min-width of 12px and a max-width of 200px. The bar width adjusts based on the size of the surrounding container and/or the number of items displayed inside the chart.
+//
+// When the chart can no longer fit all bars in the container, the items will overflow by default.
+//
+// Styleguide: Components.DisplayingData.BarChart.4.3
+
 // X-axis
+//
+// The x-axis of the chart shows the specific categories being compared.
 //
 // Definitions:
 // Standard (default): Simple text string is truncated based on bar-width. Font-size reduces at bar-width breakpoints.
@@ -80,9 +87,11 @@
 //
 // Markup: ./examples/bar-chart/_bar-chart-x-axis.html
 //
-// Styleguide: Components.DisplayingData.BarChart.4.3
+// Styleguide: Components.DisplayingData.BarChart.4.4
 
 // Y-axis
+//
+// The y-axis represents a measured value.
 //
 // Definitions:
 // Scaling: Y-axis labels round up by default to the nearest number divisible by the label frequency. This is to ensure rounded numbers on each Y-axis label.
@@ -90,21 +99,21 @@
 // Label frequency: Y-axis labels are evenly distributed with a minimum gap of 100px between each label. Frequency of labels will depend on height of chart.
 // Label format: Custom units and math functions can be applied to the output of the Y-axis labels using `createYAxisLabelFormat`.
 //
-// Styleguide: Components.DisplayingData.BarChart.4.4
+// Styleguide: Components.DisplayingData.BarChart.4.5
 
 // Chart key
 //
 // Flags: updatesComing
 //
-// A chart key is added to `XUIBarChart` to outline the category of bar colors. This key can be opened by clicking the info icon. Use `keyTitle` and `keyLabel` to populate the Title and label content.
+// A chart key is added to `XUIBarChart` to outline the category of bar colours. This key can be opened by clicking the info icon. Use `keyTitle` and `keyLabel` to populate the Title and label content.
 //
 // Tips:
 // Do: Always display a title for chart key
-// Do: Create short, descriptive labels for all colors
+// Do: Create short, descriptive labels for all colours
 //
 // Markup: ./examples/bar-chart/_bar-chart-key.html
 //
-// Styleguide: Components.DisplayingData.BarChart.4.5
+// Styleguide: Components.DisplayingData.BarChart.4.6
 
 // Loading
 //
@@ -116,7 +125,7 @@
 //
 // Markup: ./examples/bar-chart/_bar-chart-loading.html
 //
-// Styleguide: Components.DisplayingData.BarChart.4.6
+// Styleguide: Components.DisplayingData.BarChart.4.7
 
 // Empty (no data)
 //
@@ -128,7 +137,7 @@
 //
 // Markup: ./examples/bar-chart/_bar-chart-no-data.html
 //
-// Styleguide: Components.DisplayingData.BarChart.4.7
+// Styleguide: Components.DisplayingData.BarChart.4.8
 
 // Empty (data with no value)
 //
@@ -141,33 +150,39 @@
 //
 // Markup: ./examples/bar-chart/_bar-chart-zero-value.html
 //
-// Styleguide: Components.DisplayingData.BarChart.4.8
+// Styleguide: Components.DisplayingData.BarChart.4.9
+
+// Features of a bar chart
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.DisplayingData.BarChart.5
 
 // Modifiers
 //
 // Modifiers can be applied to the `XUIBarChart` component to enable an advanced set of features that cater for specific use-cases outside of the default layout.
 //
-// Styleguide: Components.DisplayingData.BarChart.5
-
-// Bar color
-//
-// Bar colors can be customised to fit the particular requirements of data visualisation in particular products.
-//
-// Tips:
-// Do: Make sure primary bar color has a visually [accessible level of contrast](./section-getting-started-accessibility-design.html#getting-started-accessibility-design-4)
-// Do: Use color to fit chart to your product theme
-//
 // Styleguide: Components.DisplayingData.BarChart.5.1
 
-// Clickable bars & layers
+// Bar colour
 //
-// The active color when a bar or stacked layer is selected is `rgba(255,255,255,0.5)` (50% white). Consumers can also define their own functions that connect to the click action using the `onBarClick` handler.
+// Bar colours can be customised to fit the particular requirements of data visualisation in particular products.
 //
 // Tips:
-// Do: Use an active color that easily distinguishes selected bar or layer from other items
+// Do: Make sure primary bar colour has a visually [accessible level of contrast](./section-getting-started-accessibility-design.html#getting-started-accessibility-design-4)
+// Do: Use colour to fit chart to your product theme
+//
+// Styleguide: Components.DisplayingData.BarChart.5.1.1
+
+// Clickable bars and layers
+//
+// The active colour when a bar or stacked layer is selected is `rgba(255,255,255,0.5)` (50% white). Consumers can also define their own functions that connect to the click action using the `onBarClick` handler.
+//
+// Tips:
+// Do: Use an active colour that easily distinguishes selected bar or layer from other items
 // Don't: Don’t enable clickable bars or layers without an accompanying function
 //
-// Styleguide: Components.DisplayingData.BarChart.5.2
+// Styleguide: Components.DisplayingData.BarChart.5.1.2
 
 // Stacked layers
 //
@@ -175,9 +190,9 @@
 //
 // Tips:
 // Do: Use when groups of data values add up to a total value for an item
-// Do: Use a unique color for layers in stack
-// Do: Use complementary and contrasting colors for each layer
-// Warning: Ensure colors for the layers are accessible
+// Do: Use a unique colour for layers in stack
+// Do: Use complementary and contrasting colours for each layer
+// Warning: Ensure colours for the layers are accessible
 // Don't: Avoid stacking more than 3 layers in a bar
 // Don't: Stacked bar charts are not suited to datasets where some groups have negative values
 //
@@ -185,7 +200,7 @@
 //
 // Markup: ./examples/bar-chart/_bar-chart-stacked.html
 //
-// Styleguide: Components.DisplayingData.BarChart.5.3
+// Styleguide: Components.DisplayingData.BarChart.5.1.3
 
 // Tooltips
 //
@@ -201,7 +216,7 @@
 //
 // Markup: ./examples/bar-chart/_bar-chart-tooltips.html
 //
-// Styleguide: Components.DisplayingData.BarChart.5.4
+// Styleguide: Components.DisplayingData.BarChart.5.1.4
 
 // Overflow scroll
 //
@@ -214,28 +229,33 @@
 //
 // Markup: ./examples/bar-chart/_bar-chart-overflow.html
 //
-// Styleguide: Components.DisplayingData.BarChart.5.5
+// Styleguide: Components.DisplayingData.BarChart.5.1.5
 
 // Pagination
 //
-// Paginating content can be used as an alternative to the default overflow scroll method using `hasPagination`. Enabling pagination displays back and forward arrows which allow user to scroll to previous and next “pages” of content. By default, pagination will only occur when number of items don’t fit inside the chart container. `createPaginationMessage` and `emptyMessage` can be used to add a custom label inbetween pagination buttons.
+// Paginating content can be used as an alternative to the default overflow scroll method using `hasPagination`. Enabling pagination displays back and forward arrows which allow user to scroll to previous and next “pages” of content.
+//
+// By default, pagination will only occur when number of items don’t fit inside the chart container. `createPaginationMessage` and `emptyMessage` can be used to add a custom label inbetween pagination buttons.
 //
 // Tips:
-// Do: Use in conjunction with `xAxisVisibleItems` to set fixed number of items per “page”
-// Do: Customise pagination message to give clarity of visible content. Eg. "Page 1 of 3"
+// Do: Use in conjunction with `xAxisVisibleItems` to set fixed number of items per page”
+// Do: Customise pagination message to give clarity of visible content. E.g. "Page 1 of 3"
+//
+// Note:
+// Some of the functionality in the example below is missing as it was generated in HTML and CSS. See the full component experience in the <a href="./react/#bar-chart">React documentation</a>
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
 // Markup: ./examples/bar-chart/_bar-chart-pagination.html
 //
-// Styleguide: Components.DisplayingData.BarChart.5.6
+// Styleguide: Components.DisplayingData.BarChart.5.1.6
 
 // Maximum visible items
 //
 // Setting a maximum visible number of bars, using `xAxisVisibleItems`, allows for the bars to not reduce in width too much when displaying a large dataset or reducing container size.
 //
 // Tips:
-// Do: Set logical frequency of items Eg. 7 items for a week
+// Do: Set logical frequency of items, e.g. 7 items for a week
 // Do: Use in conjunction with pagination to set fixed number of items per “page”
 // Warning: Avoid setting frequency to less than 3 items
 //
@@ -243,9 +263,26 @@
 //
 // Markup: ./examples/bar-chart/_bar-chart-max-visible.html
 //
-// Styleguide: Components.DisplayingData.BarChart.5.7
+// Styleguide: Components.DisplayingData.BarChart.5.1.7
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Labelling should be outside and separate from the data area
+// Do: Labels should be clear and descriptive
+// Do: Use simple and concise language
+// Do: When graphs have more than one colour, use a key
+// Do: Tooltips can be applied to bar totals, bar layers, and x-axis labels – info should be supplementary and not required to understand the graph
+// Do: Use tooltips for detailed information not readily available from reading the graph, such as exact totals or specific dates
+// Warning: If space is tight, only label the major divisions along an axis instead of squeezing all the labels together
+//
+// Related: Also see guidance for formatting:
+// * [Dates](https://xui.xero.com/product-language-guide/components/writing-style/#dates)
+// * [Time](https://xui.xero.com/product-language-guide/components/writing-style/#time)
+//
+// Styleguide: Components.DisplayingData.BarChart.80
+
+// Related components
 //
 // Related:
 // * [Avatar](./section-components-identifiers-avatar.html)

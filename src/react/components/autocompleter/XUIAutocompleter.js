@@ -284,7 +284,7 @@ export default class XUIAutocompleter extends PureComponent {
 
   setHighlightedItem = () => {
     this.setState({
-      highlightedId: this.dropdown.current.getHighlightedId(),
+      highlightedId: this.dropdown.current?.getHighlightedId(),
     });
   };
 

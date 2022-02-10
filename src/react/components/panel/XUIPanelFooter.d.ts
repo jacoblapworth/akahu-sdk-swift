@@ -12,7 +12,9 @@ interface BaseProps {
   tagName?: string;
 }
 
-type Props = BaseProps & React.HTMLAttributes<HTMLElement>;
+type SpreadProps = React.HTMLAttributes<HTMLElement>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 declare const XUIPanelFooter: React.FunctionComponent<Props>;
 export default XUIPanelFooter;

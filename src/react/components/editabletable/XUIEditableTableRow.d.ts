@@ -19,8 +19,12 @@ interface BaseProps {
   style?: React.CSSProperties;
 }
 
-type Props = BaseProps &
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>;
+type SpreadProps = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLTableRowElement>,
+  HTMLTableRowElement
+>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 declare const XUIEditableTableRow: React.FunctionComponent<Props>;
 export default XUIEditableTableRow;

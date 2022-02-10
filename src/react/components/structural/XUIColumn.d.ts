@@ -9,7 +9,9 @@ interface BaseProps {
   qaHook?: string;
 }
 
-type Props = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type SpreadProps = React.HTMLAttributes<HTMLDivElement>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 declare const XUIColumn: React.FunctionComponent<Props>;
 export default XUIColumn;

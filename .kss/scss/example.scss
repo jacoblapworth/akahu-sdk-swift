@@ -83,6 +83,10 @@
 .ds-example-visual-example-container {
   display: flex;
   justify-content: center;
-  padding: 48px 0 48px 0;
+  padding: 48px 50px 48px 50px;
   background-color: #f2f3f4;
+
+  @media screen and (max-width: 640px) {
+    padding: 48px 0 48px 0;
+  }
 }

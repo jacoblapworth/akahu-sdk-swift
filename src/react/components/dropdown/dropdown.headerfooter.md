@@ -62,11 +62,13 @@ class XDD extends Component {
       items,
       search: '',
       selected,
-      selectedCount: 0
+      selectedCount: 0,
+      highlightedId: null
     };
 
     this.onApplyClick = this.onApplyClick.bind(this);
     this.onSelect = this.onSelect.bind(this);
+    this.onHighlightChange = this.onHighlightChange.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
     this.onClose = this.onClose.bind(this);
     this.onOpen = this.onOpen.bind(this);
@@ -100,6 +102,12 @@ class XDD extends Component {
         [value]: !state.selected[value]
       }
     }));
+  }
+
+  onHighlightChange(item) {
+    this.setState({
+      highlightedId: item.props.id
+    });
   }
 
   closeDropdown() {
@@ -138,7 +146,7 @@ class XDD extends Component {
   }
 
   render() {
-    const { items, search } = this.state;
+    const { highlightedId, items, search } = this.state;
     const dropdownHeader = (
       <XUIDropdownHeader
         title="Select Fruit"
@@ -161,6 +169,9 @@ class XDD extends Component {
               <XUIIcon icon={searchPath} isBoxed />
             </XUITextInputSideElement>
           }
+          inputProps={{
+            'aria-activedescendant': highlightedId
+          }}
         />
       </XUIDropdownHeader>
     );
@@ -188,6 +199,7 @@ class XDD extends Component {
     const dropdown = (
       <XUIDropdown
         ref={this.dropdown}
+        onHighlightChange={this.onHighlightChange}
         onSelect={this.onSelect}
         header={dropdownHeader}
         footer={dropdownFooter}

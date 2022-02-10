@@ -1,8 +1,8 @@
 // Overview block
 //
-// Teaser: A top level summary to display stats and figures.
+// Teaser: An overview block displays a top-level summary of stats and figures.
 //
-// Introduction: A top level summary to display stats and figures.
+// Introduction: An overview block displays a top-level summary of stats and figures.
 //
 // Components: Overview-block
 //
@@ -10,14 +10,21 @@
 //
 // Styleguide: Components.DisplayingData.OverviewBlock
 
+// When to use
+//
+// - To prominently show a summary of stats or numbers
+//
+// Styleguide: Components.DisplayingData.OverviewBlock.1
+
 // Best practice
 //
 // Tips:
 // Do: Place overview blocks at the top of the page
+// Do: Aim to use only 2 words in a label
 // Warning: Take care to only include data relevant to the current view
-// Dont: Don't include more than six sections per overview block
+// Dont: Don't include more than 6 sections per overview block
 //
-// Styleguide: Components.DisplayingData.OverviewBlock.1
+// Styleguide: Components.DisplayingData.OverviewBlock.2
 
 // Anatomy
 //
@@ -37,13 +44,19 @@
 //
 // Markup: ./examples/overview-block/_overview-block.html
 //
-// Styleguide: Components.DisplayingData.OverviewBlock.2
+// Styleguide: Components.DisplayingData.OverviewBlock.3
+
+// Features of an overview block
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.DisplayingData.OverviewBlock.4
 
 // Style variants
 //
 // Overview blocks can be styled in a number of ways, to best fit the purpose of your content.
 //
-// Styleguide: Components.DisplayingData.OverviewBlock.3
+// Styleguide: Components.DisplayingData.OverviewBlock.4.1
 
 // Text alignment
 //
@@ -63,7 +76,7 @@
 //
 // Markup: ./examples/overview-block/_overview-block-alignment.html
 //
-// Styleguide: Components.DisplayingData.OverviewBlock.3.1
+// Styleguide: Components.DisplayingData.OverviewBlock.4.1.1
 
 // Sentiment
 //
@@ -82,7 +95,7 @@
 //
 // Markup: ./examples/overview-block/_overview-block-sentiment.html
 //
-// Styleguide: Components.DisplayingData.OverviewBlock.3.2
+// Styleguide: Components.DisplayingData.OverviewBlock.4.1.2
 
 // Border and background
 //
@@ -96,7 +109,7 @@
 //
 // Markup: ./examples/overview-block/_overview-block-border-background.html
 //
-// Styleguide: Components.DisplayingData.OverviewBlock.3.3
+// Styleguide: Components.DisplayingData.OverviewBlock.4.1.3
 
 // Progress indicators
 //
@@ -110,9 +123,18 @@
 //
 // Markup: ./examples/overview-block/_overview-block-progress-indicators.html
 //
-// Styleguide: Components.DisplayingData.OverviewBlock.4
+// Styleguide: Components.DisplayingData.OverviewBlock.4.2
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Labels should be clear and succinct (aim for 2 words only)
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Warning: Avoid repeating the page title in a label (for example: ‘Approved’ rather than ‘Approved expenses’ on an ‘Expenses’ page)
+//
+// Styleguide: Components.DisplayingData.OverviewBlock.6
+
+// Related components
 //
 // Related:
 // * [Content block](./section-components-displayingdata-contentblock.html)

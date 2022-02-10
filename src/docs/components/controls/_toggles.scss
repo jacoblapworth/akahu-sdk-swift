@@ -2,7 +2,7 @@
 //
 // Teaser: Horizontally arranged radio controls.
 //
-// Introduction: Toggles are styled radio controls, arranged horizontally.
+// Introduction: Toggles are styled radio controls arranged horizontally.
 //
 // Components: Toggle
 //
@@ -10,18 +10,29 @@
 //
 // Styleguide: Components.Controls.Toggle
 
+// When to use
+//
+// - When a user has 3 or more options to choose from
+//
+// Styleguide: Components.Controls.Toggle.1
+
+// When not to use
+//
+// - Don’t use if a user has less than 3 options – instead use a [checkbox](./section-components-controls-checkbox.html) or [radio](./section-components-controls-radio.html)
+// - Don't use when content is dynamic or long – instead use a vertical [radio group](./section-components-controls-radio.html#components-controls-radio-5-2)
+//
+// Styleguide: Components.Controls.Toggle.2
+
 // Best practice
 //
 // Tips:
-// Do: Use toggles when there are 3 or more options. Otherwise, use a checkbox or radio.
 // Do: When disabling toggles within groups, disable the entire group
 // Do: Use toggles to provide quick access to options without the need for a dropdown
 // Do: Associate the toggle control with a label, using the appropriate ARIA attributes
 // Do: An alternative to partially disabled groups is to simply hide or omit the disabled options
-// Warning: Avoid partially disabled groups in which one of the disabled options is pre-selected. This combination has been known to cause unexpected results for keyboard navigation.
-// Dont: Don't use toggles when content is dynamic or long; use a vertical radio group instead
+// Warning: Avoid partially disabled groups where one of the disabled options is pre-selected, as it can cause unexpected results for keyboard navigation
 //
-// Styleguide: Components.Controls.Toggle.1
+// Styleguide: Components.Controls.Toggle.3
 
 // Anatomy
 //
@@ -38,7 +49,13 @@
 //
 // Markup: ./examples/toggle/_toggle.html
 //
-// Styleguide: Components.Controls.Toggle.2
+// Styleguide: Components.Controls.Toggle.3
+
+// Features of a toggle
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Controls.Toggle.4
 
 // Full width
 //
@@ -52,7 +69,34 @@
 //
 // Markup: ./examples/toggle/_toggle-full-width.html
 //
-// Styleguide: Components.Controls.Toggle.3
+// Styleguide: Components.Controls.Toggle.4.1
+
+// Disabled
+//
+// To disable a toggle option, apply the following global modifier.
+// Additionally, make sure the `disabled` attribute is added to the input as well.
+//
+// Classes:
+// xui-toggle-is-disabled: Apply to toggle option
+//
+// ExampleClass: ds-example-flush ds-example-transparent
+//
+// Markup: ./examples/toggle/_toggle-disabling.html
+//
+// Styleguide: Components.Controls.Toggle.4.2
+
+// Inverted
+//
+// For toggles placed on darker backgrounds, an inverted modifier is also available.
+//
+// Classes:
+// xui-toggle-inverted: Apply to toggle
+//
+// ExampleClass: ds-example-dark
+//
+// Markup: ./examples/toggle/_toggle-inverted.html
+//
+// Styleguide: Components.Controls.Toggle.4.3
 
 // Size variants
 //
@@ -67,36 +111,28 @@
 //
 // Markup: ./examples/toggle/_toggle-sizes.html
 //
-// Styleguide: Components.Controls.Toggle.4
-
-// Disabling
-//
-// To disable a toggle option, apply the following global modifier.
-// Additionally, make sure the `disabled` attribute is added to the input as well.
-//
-// Classes:
-// xui-toggle-is-disabled: Apply to toggle option
-//
-// ExampleClass: ds-example-flush ds-example-transparent
-//
-// Markup: ./examples/toggle/_toggle-disabling.html
-//
 // Styleguide: Components.Controls.Toggle.5
 
-// Inverted
+// Content guidelines
 //
-// For toggles placed on darker backgrounds, an inverted modifier is also available.
-//
-// Classes:
-// xui-toggle-inverted: Apply to toggle
-//
-// ExampleClass: ds-example-dark
-//
-// Markup: ./examples/toggle/_toggle-inverted.html
+// Tips:
+// Do: Options should follow a parallel pattern that are mutually exclusive
+// Do: Start options with a capital letter
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Don't: Don’t use punctuation
 //
 // Styleguide: Components.Controls.Toggle.6
 
-// Related links
+// Examples
+//
+// ExampleContentTable:
+// Daily | daily
+// Weekly | week days
+// Monthly | By month
+//
+//  Styleguide: Components.Controls.Toggle.6.1
+
+// Related components
 //
 // Related:
 // * [Checkbox](./section-components-controls-checkbox.html)

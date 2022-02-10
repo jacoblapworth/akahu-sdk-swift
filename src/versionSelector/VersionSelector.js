@@ -81,6 +81,90 @@ class VersionSelector extends Component {
       isPreXui14() ? ' version-selector-is-pre-14' : ''
     }`;
 
+    const majorVersions = {};
+    const semverRegex = /^(\d+)\.(\d+)\.(\d+)$/;
+    const prereleaseSemverRegex = /^(\d+)\.(\d+)\.(\d+)-.*$/;
+
+    const filteredVersions = versions
+      .filter(version => version)
+      .map(version => {
+        const semverVersion = version.match(semverRegex);
+
+        if (!semverVersion) {
+          return version;
+        }
+
+        const [_, __, minorVersion, patchVersion] = semverVersion;
+        const majorVersion = Number(semverVersion[1]);
+
+        /**
+         * From XUI 19 onwards we changed the docs strategy to only surface major versions of XUI
+         * because users should be able to upgrade to the latest minor or patch anyway.
+         */
+        if (majorVersion < 19) {
+          return version;
+        }
+
+        if (!majorVersions[majorVersion]) {
+          majorVersions[majorVersion] = version;
+        } else {
+          const [___, ____, minorVersionToCompare, patchVersionToCompare] =
+            majorVersions[majorVersion].match(semverRegex);
+
+          if (
+            Number(minorVersion) > Number(minorVersionToCompare) ||
+            (Number(minorVersion) === Number(minorVersionToCompare) &&
+              Number(patchVersion) > Number(patchVersionToCompare))
+          ) {
+            majorVersions[majorVersion] = version;
+          }
+        }
+
+        return majorVersion;
+      })
+      .filter(
+        (version, i, filteredList) =>
+          !(typeof version === 'number' && filteredList.indexOf(version) !== i),
+      )
+      .filter(version => {
+        if (typeof version === 'number' || version === 'breaking-changes') {
+          return true;
+        }
+
+        const prereleaseSemverVersion = version.match(prereleaseSemverRegex);
+
+        if (!prereleaseSemverVersion) {
+          return true;
+        }
+
+        const [_, prereleaseMajorVersion, prereleaseMinorVersion, prereleasePatchVersion] =
+          version.match(prereleaseSemverRegex);
+
+        if (!majorVersions[prereleaseMajorVersion]) {
+          return true;
+        }
+
+        const [__, ___, minorVersionToCompare, patchVersionToCompare] =
+          majorVersions[prereleaseMajorVersion].match(semverRegex);
+
+        if (prereleaseMinorVersion > minorVersionToCompare) {
+          return true;
+        }
+
+        if (
+          prereleaseMinorVersion === minorVersionToCompare &&
+          prereleasePatchVersion > patchVersionToCompare
+        ) {
+          return true;
+        }
+
+        return false;
+      });
+
+    const selectedSubVersion = Object.entries(majorVersions).find(
+      ([_, latestSubVersion]) => selectedVersion === latestSubVersion,
+    )?.[0];
+
     const cssReactSelector =
       hasReactDocs &&
       (isReactDocs ? (
@@ -129,18 +213,31 @@ class VersionSelector extends Component {
               id="version-select"
               onChange={keepPathAndSwapVersion}
             >
-              {versions &&
-                versions.map(tag => (
-                  <option key={tag} selected={selectedVersion === tag} value={tag}>
-                    {tag}
-                  </option>
-                ))}
+              {filteredVersions &&
+                filteredVersions.map(version => {
+                  if (typeof version === 'number') {
+                    return (
+                      <option
+                        key={`xui-${version}`}
+                        selected={selectedVersion === majorVersions[version]}
+                        value={majorVersions[version]}
+                      >
+                        XUI {version}
+                      </option>
+                    );
+                  }
+                  return (
+                    <option key={version} selected={selectedVersion === version} value={version}>
+                      {version}
+                    </option>
+                  );
+                })}
             </select>
             <label
               className="xui-text-deemphasis xui-text-truncated xui-padding-xsmall version-selector-label"
               htmlFor="version-select"
             >
-              {selectedVersion}
+              {selectedSubVersion ? `XUI ${selectedSubVersion}` : selectedVersion}
             </label>
             <svg
               className="xui-icon xui-iconwrapper xui-icon xui-iconwrapper-color-standard xui-select--caret"

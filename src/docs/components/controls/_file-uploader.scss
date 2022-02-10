@@ -6,23 +6,38 @@
 //
 // Teaser: Intuitively upload files into an application
 //
-// Introduction: The file uploader component leverages the native operating system file input to upload files into a product. Additionally, files uploaded are displayed in a list below the input.
+// Introduction: A file uploader lets users upload files to the product. Uploaded files are then displayed in a list below the input.
 //
 // Styleguide: Components.Controls.FileUploader
+
+// When to use
+//
+// - To provide a way for users to upload file(s) into an application
+//
+// Styleguide: Components.Controls.FileUploader.1
 
 // Best practice
 //
 // Tips:
-// Do: Use to provide a way for users to upload file(s) into an application
-// Do: Use in combination with a [toast](./section-components-alerts-toast.html) to give additional indication that a file has or has not been uploaded
+// Do: To show that a file has or has not been uploaded, use in combination with a [toast](./section-components-alerts-toast.html)
+// Do: Write the maximum file size accepted under the uploader
+// Do: If only certain file types are accepted, write this next to the max file size
 //
-// Styleguide: Components.Controls.FileUploader.1
+// Styleguide: Components.Controls.FileUploader.2
 
 // Anatomy
 //
-// File uploader is composed of two main parts. The *file input*, and the *file list*. The file input is used to action the upload process and the file list is used to represent the files as they are uploaded into the application. The file input also accepts a drag and drop variant to allow for files to be dragged from outside the browser window into a dedicated dropzone.
+// File uploader is composed of two main parts: *file input* and *file list*. The file input is used to action the upload process and the file list is used to represent the files as they are uploaded into the application.
 //
-// Styleguide: Components.Controls.FileUploader.2
+// The file input also accepts a drag and drop variant to allow for files to be dragged from outside the browser window into a dedicated dropzone.
+//
+// Styleguide: Components.Controls.FileUploader.3
+
+// Features of a file uploader
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Controls.FileUploader.4
 
 // File input
 //
@@ -33,7 +48,7 @@
 // xui-validation-layout: Adds validation spacing
 // xui-validation: Validation text
 //
-// Styleguide: Components.Controls.FileUploader.3
+// Styleguide: Components.Controls.FileUploader.4.1
 
 // File input (basic)
 //
@@ -52,7 +67,7 @@
 //
 // Markup: ./examples/file-uploader/_file-uploader-input-basic.html
 //
-// Styleguide: Components.Controls.FileUploader.3.1
+// Styleguide: Components.Controls.FileUploader.4.1.1
 
 // File input (drag and drop)
 //
@@ -72,7 +87,7 @@
 //
 // Markup: ./examples/file-uploader/_file-uploader-input-dropzone.html
 //
-// Styleguide: Components.Controls.FileUploader.3.2
+// Styleguide: Components.Controls.FileUploader.4.1.2
 
 // Disabled
 //
@@ -88,7 +103,7 @@
 //
 // Markup: ./examples/file-uploader/_file-uploader-input-disabled.html
 //
-// Styleguide: Components.Controls.FileUploader.3.3
+// Styleguide: Components.Controls.FileUploader.4.1.3
 
 // Error validation
 //
@@ -107,7 +122,7 @@
 //
 // Markup: ./examples/file-uploader/_file-uploader-input-invalid.html
 //
-// Styleguide: Components.Controls.FileUploader.3.4
+// Styleguide: Components.Controls.FileUploader.4.1.4
 
 // File list
 //
@@ -134,7 +149,7 @@
 //
 // Markup: ./examples/file-uploader/_file-uploader-list-with-icon.html
 //
-// Styleguide: Components.Controls.FileUploader.4
+// Styleguide: Components.Controls.FileUploader.4.2
 
 // Multi-line
 //
@@ -148,7 +163,7 @@
 //
 // Markup: ./examples/file-uploader/_file-uploader-list-multi-line.html
 //
-// Styleguide: Components.Controls.FileUploader.4.1
+// Styleguide: Components.Controls.FileUploader.4.2.1
 
 // Uploading
 //
@@ -161,7 +176,7 @@
 //
 // Markup: ./examples/file-uploader/_file-uploader-list-uploading.html
 //
-// Styleguide: Components.Controls.FileUploader.4.2
+// Styleguide: Components.Controls.FileUploader.4.2.2
 
 // Error
 //
@@ -175,7 +190,7 @@
 //
 // Markup: ./examples/file-uploader/_file-uploader-list-invalid.html
 //
-// Styleguide: Components.Controls.FileUploader.4.3
+// Styleguide: Components.Controls.FileUploader.4.2.3
 
 // Uploaded
 //
@@ -189,14 +204,31 @@
 //
 // Markup: ./examples/file-uploader/_file-uploader-list-uploaded.html
 //
-// Styleguide: Components.Controls.FileUploader.4.4
+// Styleguide: Components.Controls.FileUploader.4.2.4
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Do: Add a maximum file size and any restrictions in file type below the uploader
+// Do: Write file size in all caps
+// Do: Make sure there’s a space between the number and the file size
+//
+// Styleguide: Components.Controls.FileUploader.80
+
+// Examples
+//
+// ExampleContentTable:
+// 25 MB maximum file size | 25MB maximum file size
+// 3 MB maximum file size. File types accepted: CSV, PDF | 3MB maximum file size. File types accepted: .csv, .pdf
+//
+// Styleguide: Components.Controls.FileUploader.80.1
+
+// Related components
 //
 // Related:
 // * [Button](./section-components-controls-button.html)
 // * [Panel](./section-components-controls-textinput.html)
 // * [Toast](./section-components-alerts-toast.html)
-// * [Drag and drop](./section-patterns-drag-and-drop.html)
 //
 // Styleguide: Components.Controls.FileUploader.99

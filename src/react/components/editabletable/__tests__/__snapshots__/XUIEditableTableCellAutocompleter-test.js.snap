@@ -20,6 +20,7 @@ exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
     disableWrapPills={false}
     dropdownHasFixedWidth={false}
     forceDesktop={true}
+    forceStatefulPicklist={false}
     inputProps={
       Object {
         "onBlur": [Function],

@@ -98,6 +98,7 @@ class XUIEditableTableCellAutocompleter extends Component {
       inputProps,
       isDisabled,
       isInvalid,
+      forceStatefulPicklist,
       triggerClassName,
       validationMessage,
       ...spreadProps
@@ -122,6 +123,7 @@ class XUIEditableTableCellAutocompleter extends Component {
           {...spreadProps}
           _useCellStyling
           className={cn(`${baseName}--control`, className)}
+          forceStatefulPicklist={forceStatefulPicklist}
           inputProps={{
             ...inputProps,
             onBlur: this.composedOnBlur,
@@ -174,6 +176,9 @@ XUIEditableTableCellAutocompleter.propTypes = {
   /** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
   forceDesktop: PropTypes.bool,
 
+  /** Force wrapping `XUIDropdownPanel` children in a `XUIStatefulPicklist` */
+  forceStatefulPicklist: PropTypes.bool,
+
   /** ID to be added to the root node of the completer */
   id: PropTypes.string,
 
@@ -217,7 +222,7 @@ XUIEditableTableCellAutocompleter.propTypes = {
    * <br />
    * Recommended English value: *Loading*
    */
-  loadingLabel: PropTypes.string,
+  loadingAriaLabel: PropTypes.string,
 
   /**
    * Setting this to `true` makes the dropdown as wide as the trigger (defaults to `true`). <br>
@@ -285,5 +290,6 @@ XUIEditableTableCellAutocompleter.propTypes = {
 export default XUIEditableTableCellAutocompleter;
 
 XUIEditableTableCellAutocompleter.defaultProps = {
+  forceStatefulPicklist: false,
   matchTriggerWidth: true,
 };

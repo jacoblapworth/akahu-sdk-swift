@@ -28,6 +28,7 @@ class XUIDateInput extends React.Component {
       hintMessage,
       inputIcon,
       inputLabel,
+      _isDropdownHidden,
       isDisabled,
       isDueDate,
       isInvalid,
@@ -86,6 +87,12 @@ class XUIDateInput extends React.Component {
 }
 
 XUIDateInput.propTypes = {
+  /**
+   * @ignore
+   * Internal use only, used to expose up `isHidden` prop from `DropdownToggled` for testing purposes
+   */
+  _isDropdownHidden: PropTypes.bool,
+
   /** CSS class(es) to go on the wrapping DOM node */
   className: PropTypes.string,
 

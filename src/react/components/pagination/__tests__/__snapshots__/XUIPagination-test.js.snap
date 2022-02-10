@@ -21,7 +21,6 @@ exports[`<XUIPagination/> renders basic example 1`] = `
           data-ref="toggled-wrapper"
         >
           <button
-            aria-activedescendant={null}
             aria-haspopup="listbox"
             aria-label="Select a per page count"
             className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
@@ -102,7 +101,6 @@ exports[`<XUIPagination/> renders basic example 1`] = `
         data-ref="toggled-wrapper"
       >
         <button
-          aria-activedescendant={null}
           aria-haspopup="listbox"
           aria-label="Select a page"
           className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
@@ -209,7 +207,6 @@ exports[`<XUIPagination/> should only render Paging 1`] = `
         data-ref="toggled-wrapper"
       >
         <button
-          aria-activedescendant={null}
           aria-haspopup="listbox"
           aria-label="Select a page"
           className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
@@ -295,7 +292,6 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
           data-ref="toggled-wrapper"
         >
           <button
-            aria-activedescendant={null}
             aria-haspopup="listbox"
             aria-label="Select a per page count"
             className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
@@ -376,7 +372,6 @@ exports[`<XUIPagination/> should render a custom class 1`] = `
         data-ref="toggled-wrapper"
       >
         <button
-          aria-activedescendant={null}
           aria-haspopup="listbox"
           aria-label="Select a page"
           className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
@@ -464,7 +459,6 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
           data-ref="toggled-wrapper"
         >
           <button
-            aria-activedescendant={null}
             aria-haspopup="listbox"
             aria-label="Select a per page count"
             className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
@@ -547,7 +541,6 @@ exports[`<XUIPagination/> should render an automation id when a qahook is passed
         data-ref="toggled-wrapper"
       >
         <button
-          aria-activedescendant={null}
           aria-haspopup="listbox"
           aria-label="Select a page"
           className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
@@ -633,7 +626,6 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
           data-ref="toggled-wrapper"
         >
           <button
-            aria-activedescendant={null}
             aria-haspopup="listbox"
             aria-label="Select a per page count"
             className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
@@ -714,7 +706,6 @@ exports[`<XUIPagination/> should render customized contents 1`] = `
         data-ref="toggled-wrapper"
       >
         <button
-          aria-activedescendant={null}
           aria-haspopup="listbox"
           aria-label="Select a page"
           className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
@@ -800,7 +791,6 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
           data-ref="toggled-wrapper"
         >
           <button
-            aria-activedescendant={null}
             aria-haspopup="listbox"
             aria-label="Select a per page count"
             className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
@@ -880,7 +870,6 @@ exports[`<XUIPagination/> should render with customized defaultPage 1`] = `
         data-ref="toggled-wrapper"
       >
         <button
-          aria-activedescendant={null}
           aria-haspopup="listbox"
           aria-label="Select a page"
           className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
@@ -966,7 +955,6 @@ exports[`<XUIPagination/> should render with customized defaultPerPageCount 1`] 
           data-ref="toggled-wrapper"
         >
           <button
-            aria-activedescendant={null}
             aria-haspopup="listbox"
             aria-label="Select a per page count"
             className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
@@ -1047,7 +1035,6 @@ exports[`<XUIPagination/> should render with customized defaultPerPageCount 1`] 
         data-ref="toggled-wrapper"
       >
         <button
-          aria-activedescendant={null}
           aria-haspopup="listbox"
           aria-label="Select a page"
           className="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"

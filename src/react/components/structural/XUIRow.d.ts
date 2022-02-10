@@ -12,7 +12,9 @@ interface BaseProps {
   variant?: keyof typeof rowVariants;
 }
 
-type Props = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type SpreadProps = React.HTMLAttributes<HTMLDivElement>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 declare const XUIRow: React.FunctionComponent<Props>;
 export default XUIRow;

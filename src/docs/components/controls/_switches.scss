@@ -6,17 +6,29 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.d4cwl9kwnijq
 //
-// Introduction: Switches are used to make significant binary decisions.
+// Introduction: Switches give the option of having either an off or on state.
 //
 // Styleguide: Components.Controls.Switch
+
+// When to use
+//
+// - To make a decision between turning something off or on
+//
+// Styleguide: Components.Controls.Switch.1
+
+// When not to use
+//
+// - Don’t use for agreeing to terms or making a declaration – instead use a [checkbox](./section-components-controls-checkbox.html)
+// - Don’t use in forms that require a submit action – instead use a [toggle](./section-components-controls-toggle.html) or [checkbox](./section-components-controls-checkbox.html)
+//
+// Styleguide: Components.Controls.Switch.2
 
 // Best practice
 //
 // Tips:
 // Do: Toggling a switch should have immediate effect
-// Warning: In forms that require a submit action, use a toggle or a checkbox instead
 //
-// Styleguide: Components.Controls.Switch.1
+// Styleguide: Components.Controls.Switch.3
 
 // Anatomy
 //
@@ -40,9 +52,15 @@
 //
 // Markup: ./examples/switch/_switch.html
 //
-// Styleguide: Components.Controls.Switch.2
+// Styleguide: Components.Controls.Switch.4
 
-// Disabling
+// Features of a switch
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Controls.Switch.4
+
+// Disabled
 //
 // To disable a switch, add the `disabled` attribute and add the following modifier.
 //
@@ -51,7 +69,7 @@
 //
 // Markup: ./examples/switch/_switch-disabling.html
 //
-// Styleguide: Components.Controls.Switch.3
+// Styleguide: Components.Controls.Switch.4.1
 
 // Grouped switches
 //
@@ -65,7 +83,7 @@
 //
 // Markup: ./examples/switch/_switch-grouped.html
 //
-// Styleguide: Components.Controls.Switch.4
+// Styleguide: Components.Controls.Switch.4.2
 
 // Single switch
 //
@@ -73,7 +91,7 @@
 //
 // Markup: ./examples/switch/_switch-single.html
 //
-// Styleguide: Components.Controls.Switch.4.1
+// Styleguide: Components.Controls.Switch.4.2.1
 
 // Multiline switch
 //
@@ -81,7 +99,7 @@
 //
 // Markup: ./examples/switch/_switch-multiline.html
 //
-// Styleguide: Components.Controls.Switch.4.2
+// Styleguide: Components.Controls.Switch.4.2.2
 
 // Horizontal group
 //
@@ -97,14 +115,7 @@
 //
 // Markup: ./examples/switch/_switch-order.html
 //
-// Styleguide: Components.Controls.Switch.5
-
-// Accessibility
-//
-// Make sure to add the `switch` role to the hidden input element. For simplicity, this has not been done in the examples above.
-// Additionally, this will require toggling several other [aria properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_switch_role) via Javascript.
-//
-// Styleguide: Components.Controls.Switch.6
+// Styleguide: Components.Controls.Switch.4.3
 
 // Validation and hint messages
 //
@@ -129,9 +140,34 @@
 //
 // Markup: ./examples/switch/_switch-validation.html
 //
-// Styleguide: Components.Controls.Switch.7
+// Styleguide: Components.Controls.Switch.4.4
 
-// Related links
+// Accessibility
+//
+// Make sure to add the `switch` role to the hidden input element. For simplicity, this has not been done in the examples above.
+// Additionally, this will require toggling several other [aria properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_switch_role) via Javascript.
+//
+// Styleguide: Components.Controls.Switch.5
+
+// Content guidelines
+//
+// Tips:
+// Do: Write concise, meaningful labels that are neutral rather than actions
+// Do: Use sentence case (capitalise first word and proper nouns)
+//
+// Related:
+// Also see guidance for writing [labels](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#labels)
+//
+// Styleguide: Components.Controls.Switch.6
+
+// Example
+//
+// ExampleContentTable:
+// Notifications | Turn notifications on
+//
+// Styleguide: Components.Controls.Switch.6.1
+
+// Related components
 //
 // Related:
 // * [Checkbox](./section-components-controls-checkbox.html)

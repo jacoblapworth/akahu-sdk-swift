@@ -286,7 +286,7 @@ export default class XUIAutocompleter extends PureComponent {
 
   setHighlightedItem = () => {
     this.setState({
-      highlightedId: this.dropdown.current.getHighlightedId(),
+      highlightedId: this.dropdown.current?.getHighlightedId(),
     });
   };
 
@@ -337,6 +337,7 @@ export default class XUIAutocompleter extends PureComponent {
       dropdownSize,
       dropdownHasFixedWidth,
       footer,
+      forceStatefulPicklist,
       isLoading,
       loadingAriaLabel,
       children,
@@ -417,6 +418,7 @@ export default class XUIAutocompleter extends PureComponent {
       <XUIDropdown
         className={dropdownClassName}
         footer={footer}
+        forceStatefulPicklist={forceStatefulPicklist}
         hasFixedWidth={dropdownHasFixedWidth}
         hasKeyboardEvents={false}
         id={dropdownId}
@@ -526,6 +528,9 @@ XUIAutocompleter.propTypes = {
 
   /** Force the desktop user experience, even if the viewport is narrow enough for mobile. */
   forceDesktop: PropTypes.bool,
+
+  /** Force wrapping `XUIDropdownPanel` children in a `XUIStatefulPicklist` */
+  forceStatefulPicklist: PropTypes.bool,
 
   /** Hint message to show under the input */
   hintMessage: PropTypes.node,
@@ -659,6 +664,7 @@ XUIAutocompleter.defaultProps = {
   disableWrapPills: false,
   dropdownHasFixedWidth: false,
   forceDesktop: true,
+  forceStatefulPicklist: false,
   isLegacyDisplay: true,
   isLoading: false,
   matchTriggerWidth: true,

@@ -97,7 +97,6 @@ export default class XUIDropdownToggled extends PureComponent {
 
     this.state = {
       isHidden: props.isHidden,
-      activeDescendant: null,
       isNarrowViewport: checkIsNarrowViewport(),
       isOpening: false,
       isClosing: false,
@@ -437,32 +436,12 @@ export default class XUIDropdownToggled extends PureComponent {
   };
 
   /**
-   * Sets the activeDescendant state to be the id of the item selected so this can be set in
-   * the corresponding trigger attribute.
-   *
-   * @param {UIEvent} event
-   * @param {ReactElement} item
+   * Closes the dropdown when an item is selected if `closeOnSelect` is truthy.
    */
-  onSelect = (event, item) => {
-    this.setState({
-      activeDescendant: item.props.id,
-    });
-
+  onSelect = () => {
     if (this.props.closeOnSelect) {
       this.closeDropdown(true);
     }
-  };
-
-  /**
-   * Ensures that the activeDescendant aria attribute changes on the trigger when the highlighted
-   * element changes.
-   *
-   * @param {ReactElement} item
-   */
-  onHighlightChange = item => {
-    this.setState({
-      activeDescendant: item.props.id,
-    });
   };
 
   /**
@@ -574,7 +553,7 @@ export default class XUIDropdownToggled extends PureComponent {
       matchTriggerWidth,
       ...otherProps
     } = this.props;
-    const { isOpening, isClosing, isHidden, activeDescendant } = this.state;
+    const { isOpening, isClosing, isHidden } = this.state;
     const { cellRef } = this.context;
 
     const clonedTrigger = React.cloneElement(trigger, {
@@ -582,7 +561,6 @@ export default class XUIDropdownToggled extends PureComponent {
       onClick: this.handleOnClick,
       onKeyDown: this.handleOnKeyDown,
       onKeyUp: this.handleOnKeyUp,
-      'aria-activedescendant': activeDescendant,
       'aria-haspopup': ariaPopupType,
       'aria-controls': (!isHidden && this.dropdownId) || undefined,
     });

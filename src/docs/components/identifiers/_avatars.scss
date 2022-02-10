@@ -1,8 +1,7 @@
 // Avatar
 //
 // Introduction:
-// Use avatars for businesses and people to enhance recognition and give interfaces a sense of humanity.
-// XUI avatars use images when available and acronyms if they are not.
+// Avatars help users more easily recognise businesses and people. XUI’s avatars use images when available and acronyms when not.
 //
 // Components: Avatar
 //
@@ -10,16 +9,27 @@
 //
 // Styleguide: Components.Identifiers.Avatar
 
+// When to use
+//
+// - To enhance recognition of businesses and people
+// - To give interfaces a sense of humanity
+//
+// Styleguide: Components.Identifiers.Avatar.1
+
 // Best practice
 //
-// Avatars exist to aid recognition so consistency is key. Only use avatars if you can ensure the same entity will look the same, in all parts of Xero, to a single user.
-//
 // Tips:
-// Do: Ensure they're consistent for the user throughout Xero
+// Do: Make sure avatars are consistent for the user throughout Xero
 // Do: Use the small avatar variant in toolbars
 // Dont: Avoid using as the only means of identifying a business or person
 //
-// Styleguide: Components.Identifiers.Avatar.1
+// Styleguide: Components.Identifiers.Avatar.2
+
+// Features of an avatar
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Identifiers.Avatar.3
 
 // Types
 //
@@ -33,7 +43,58 @@
 //
 // Markup: ./examples/avatar/_avatar.html
 //
-// Styleguide: Components.Identifiers.Avatar.2
+// Styleguide: Components.Identifiers.Avatar.3.1
+
+// Images
+//
+// If a logo or profile picture is available this should always be used. These
+// should be drawn from a consistent source – the contact or user record. That
+// image should update if it is changed at the source.
+//
+// Ideally the image will be pre-processed to square and appropriately resized. If the image is not square
+// it will be displayed in its entirety with the experimental `object-contain` property. However support in IE/Edge is limited.
+//
+// exampleClass: ds-example-transparent ds-example-flush ds-example-nomarkuplink
+//
+// Markup: ./examples/avatar/_avatar-images.html
+//
+// Styleguide: Components.Identifiers.Avatar.3.2
+
+// Colours
+//
+// The [React component](./react/#avatar) uses a hashing algorithm to determine the correct colour based on that shared value.
+//
+// Tips:
+// Do: If no image exists, then the avatar background colour and acronym should be displayed
+// Do: Colours are selected deterministically from one of the ten Avatar colours
+// Do: Colours should be based on a unique **shared** attribute of the entity (e.g. GUID)
+// Do: If two entities share the same name, then the colour should be different
+//
+// Classes:
+// xui-avatar-color-: Sets the colour to one of the defined options with an added modifier between 1 and 10.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/avatar/_avatar-colors.html
+//
+// Styleguide: Components.Identifiers.Avatar.3.3
+
+// Grouping
+//
+// Tips:
+// Do: Use an avatar group to display many entities that belong to the same group
+// Do: If more entities exist than are reasonable to display, an additional counter should be added
+// Do: Display avatars in an order that makes sense to your content
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/avatar/_avatar-grouping.html
+//
+// Classes:
+// xui-avatargroup: Class to be used as a wrapper div around an avatar group
+// xui-avatar-counter: Modifier for an avatar counter (e.g. +3)
+//
+// Styleguide: Components.Identifiers.Avatar.3.4
 
 // Size variants
 //
@@ -58,66 +119,24 @@
 //
 // Markup: ./examples/avatar/_avatar-sizes.html
 //
-// Styleguide: Components.Identifiers.Avatar.3
-
-// Images
-//
-// If a logo or profile picture is available this should always be used. These
-// should be drawn from a consistent source – the contact or user record. That
-// image should update if it is changed at the source.
-//
-// Ideally the image will be pre-processed to square and appropriately resized. If the image is not square
-// it will be displayed in its entirety with the experimental `object-contain` property. However support in IE/Edge is limited.
-//
-// exampleClass: ds-example-transparent ds-example-flush ds-example-nomarkuplink
-//
-// Markup: ./examples/avatar/_avatar-images.html
-//
 // Styleguide: Components.Identifiers.Avatar.4
-
-// Colors
-//
-// The [React component](./react/#avatar) uses a hashing algorithm to determine the correct color based on that shared value.
-//
-// Tips:
-// Do: If no image exists, then the avatar background color and acronym should be displayed
-// Do: Colors are selected deterministically from one of the ten Avatar colors
-// Do: Colors should be based on a unique **shared** attribute of the entity (e.g. GUID)
-// Do: If two entities share the same name, then the color should be different
-//
-// Classes:
-// xui-avatar-color-: Sets the color to one of the defined options with an added modifier between 1 and 10.
-//
-// exampleClass: ds-example-transparent ds-example-flush
-//
-// Markup: ./examples/avatar/_avatar-colors.html
-//
-// Styleguide: Components.Identifiers.Avatar.5
-
-// Grouping
-//
-// Tips:
-// Do: Use an avatar group to display many entities that belong to the same group
-// Do: If more entities exist than are reasonable to display, an additional counter should be added
-// Do: Display avatars in an order that makes sense to your content
-//
-// exampleClass: ds-example-transparent ds-example-flush
-//
-// Markup: ./examples/avatar/_avatar-grouping.html
-//
-// Classes:
-// xui-avatargroup: Class to be used as a wrapper div around an avatar group
-// xui-avatar-counter: Modifier for an avatar counter (e.g. +3)
-//
-// Styleguide: Components.Identifiers.Avatar.6
 
 // Accessibility
 //
 // Avatars alone are not meant to communicate the full identity of a person or business. Use them in combination with the entity’s full name, except when grouped or when the name of the entity is not relevant to the information being displayed.
 //
-// Styleguide: Components.Identifiers.Avatar.7
+// Styleguide: Components.Identifiers.Avatar.5
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Use alt text for accessibility so screen readers can describe what’s in the image
+// Info: If an avatar represents a person, use `alt="Person’s name"`
+// Info: If an avatar represents a business, use `alt="Business’s name"`
+//
+// Styleguide: Components.Identifiers.Avatar.6
+
+// Related components
 //
 // Related:
 // * [Content block](./section-components-displayingdata-contentblock.html)

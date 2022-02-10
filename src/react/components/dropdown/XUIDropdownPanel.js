@@ -42,6 +42,8 @@ class XUIDropdownPanel extends PureComponent {
 
   _scrollableContent = React.createRef();
 
+  state = { highlightedId: null };
+
   /**
    * When -webkit-overflow-scrolling: touch is set in iOS, scrolling elements inside of a fixed
    * position div have a decent (aka > 75%) chance of simply not updating when clicking on a
@@ -255,6 +257,11 @@ class XUIDropdownPanel extends PureComponent {
     return children != null && React.Children.map(children, checkType).some(Boolean);
   }
 
+  onHighlightChange = (item, event) => {
+    this.setState({ highlightedId: item.props.id });
+    this.props.onHighlightChange(item, event);
+  };
+
   render() {
     const {
       allowNarrowViewportAutoHeight,
@@ -264,7 +271,6 @@ class XUIDropdownPanel extends PureComponent {
       header,
       ignoreKeyboardEvents,
       isHidden,
-      onHighlightChange,
       onScroll,
       onSelect,
       panelId,
@@ -305,13 +311,16 @@ class XUIDropdownPanel extends PureComponent {
     return (
       // The <div> element is being used to capture bubbled events from child elements
       // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <div
+        aria-activedescendant={this.state.highlightedId}
         aria-hidden={isHidden}
         className={`${baseClass}--panel`}
         data-automationid={qaHook}
         id={panelId}
         onKeyDown={this.keyDownHandler}
         ref={compose(panelRef, i => (this.rootNode.current = i))}
+        role="group"
         style={style}
         tabIndex={-1}
       >
@@ -328,7 +337,7 @@ class XUIDropdownPanel extends PureComponent {
               <XUIStatefulPicklist
                 className={scrollableContainerClasses}
                 ignoreKeyboardEvents={ignoreKeyboardEvents}
-                onHighlightChange={onHighlightChange}
+                onHighlightChange={this.onHighlightChange}
                 onSelect={onSelect}
                 qaHook={qaHook && `${qaHook}--scrollable-container`}
                 ref={this.list}

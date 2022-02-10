@@ -4,25 +4,36 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.t3uv5j760k08
 //
-// Introduction: A stepper is used to indicate a workflow of sequential pages or steps. The main purpose is to display progression and completion of steps in a format that is easy to decipher and integrate into multiple page layouts.
+// Introduction: Steppers show a user’s progress through a series of steps and guide them towards the completion of a process.
 //
 // Styleguide: Components.Navigation.Stepper
+
+// When to use
+//
+// - For stepped flows such as setups, sign-ups, and registrations
+// - To indicate a workflow of sequential pages or steps
+// - To show the user a progression and completion of steps
+//
+// Styleguide: Components.Navigation.Stepper.1
 
 // Best practice
 //
 // Tips:
-// Do: Use for stepped flows such as a setup
 // Do: Use in combination with `xui-isolationheader` for flows that are only ever completed once
-// Do: Use progress indicator variant of stepper for steps which include nested progression
-// Do: Allow the React component to determine the optimal responsive layout internally
-// Warning: Keep the number of steps appropriate. Not too little or too many (3 to 6 is a good range)
+// Do: Use a progress indicator variant to show a user’s progress through a single step
+// Warning: Keep the number of steps short (between 3 and 6)
 // Dont: Don’t nest steppers inside of each other
+// Don't: Don't override the layout of the stepper
 //
-// Styleguide: Components.Navigation.Stepper.1
+// Styleguide: Components.Navigation.Stepper.2
 
 // Anatomy
 //
-// To create an isolation header, use the following classes
+// Modifiers are applied to the `xui-stepper-wrapper` element to alter the format of how steps are displayed.
+//
+// On the React stepper component, these modifying classes are applied based on browser viewport width by default.
+//
+// To create an isolation header, use the following classes:
 //
 // Classes:
 // xui-stepper: Base class
@@ -39,7 +50,7 @@
 //
 // Markup: ./examples/stepper/_stepper.html
 //
-// Styleguide: Components.Navigation.Stepper.2
+// Styleguide: Components.Navigation.Stepper.3
 
 // Link modifiers
 //
@@ -55,7 +66,7 @@
 //
 // Markup: ./examples/stepper/_stepper-link-modifier.html
 //
-// Styleguide: Components.Navigation.Stepper.2.1
+// Styleguide: Components.Navigation.Stepper.3.1
 
 // Link text
 //
@@ -68,15 +79,9 @@
 //
 // Markup: ./examples/stepper/_stepper-link-text.html
 //
-// Styleguide: Components.Navigation.Stepper.2.2
+// Styleguide: Components.Navigation.Stepper.3.2
 
-// Layout
-//
-// Modifiers are applied to `xui-stepper-wrapper` element to alter the format of how steps are displayed. On the React stepper component, these modifying classes are applied based on browser viewport width by default.
-//
-// Styleguide: Components.Navigation.Stepper.3
-
-// Inline
+// Inline layout
 //
 // Tips:
 // Do: Use for full-width page layouts
@@ -89,9 +94,9 @@
 //
 // Markup: ./examples/stepper/_stepper-inline.html
 //
-// Styleguide: Components.Navigation.Stepper.3.1
+// Styleguide: Components.Navigation.Stepper.3.3
 
-// Inline (Stacked links)
+// Inline layout (stacked links)
 //
 // Tips:
 // Do: Use for full-width page layouts
@@ -105,9 +110,9 @@
 //
 // Markup: ./examples/stepper/_stepper-inline-stacked.html
 //
-// Styleguide: Components.Navigation.Stepper.3.2
+// Styleguide: Components.Navigation.Stepper.3.4
 
-// Sidebar
+// Sidebar layout
 //
 // Tips:
 // Do: Use for when you want to display step content next to sidebar
@@ -120,9 +125,9 @@
 //
 // Markup: ./examples/stepper/_stepper-sidebar.html
 //
-// Styleguide: Components.Navigation.Stepper.3.3
+// Styleguide: Components.Navigation.Stepper.3.5
 
-// Stacked
+// Stacked layout
 //
 // Tips:
 // Do: Responsively apply for small browser viewport widths
@@ -135,9 +140,21 @@
 //
 // Markup: ./examples/stepper/_stepper-stacked.html
 //
-// Styleguide: Components.Navigation.Stepper.3.4
+// Styleguide: Components.Navigation.Stepper.3.6
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Be short and succinct
+// Do: Use sentence case (capitalise first word and proper nouns)
+// Do: For titles, describe the step in as few words as possible
+// Do: Use the same terminology in the title that’s in the heading/workflow
+// Warning: Step descriptions are optional
+// Warning: Step descriptions can be descriptive or instructional
+//
+// Styleguide: Components.Navigation.Stepper.80
+
+// Related components
 //
 // Related:
 // * [Breadcrumb trail](./section-components-navigation-breadcrumb-trail.html)

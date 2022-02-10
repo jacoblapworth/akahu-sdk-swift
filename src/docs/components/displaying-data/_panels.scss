@@ -2,7 +2,7 @@
 //
 // Teaser: Top-level container for grouping page content, that gives definition against the standard grey page.
 //
-// Introduction: A panel is the top-level container for grouping page content. Panels give groups of content definition against the standard grey page.
+// Introduction: Panels are a container for grouping page content. They give groups definition against the standard grey page.
 //
 // Components: Panel
 //
@@ -10,20 +10,35 @@
 //
 // Styleguide: Components.DisplayingData.Panel
 
-// Best practice
+// When to use
 //
-// Tips:
-// Do: Use to group top-level content at the base page level
-// Warning: Avoid nesting panels inside modals, use your own class instead
-// Warning: Avoid nesting panels inside other panels, use your own class instead
-// Warning: To frame any other content other than the top-most container, use your own class instead
+// - To group top-level content at the base page level
+// - To create the sections of a form
+// - To group a list of content blocks
 //
 // Styleguide: Components.DisplayingData.Panel.1
 
+// Best practice
+//
+// Tips:
+// Warning: Avoid nesting panels inside modals or other panels – instead [use your own class](#components-displayingdata-panel-3-2)
+// Warning: Avoid framing any other content other than the top-most container – instead [use your own class](#components-displayingdata-panel-3-2)
+//
+// Styleguide: Components.DisplayingData.Panel.2
+
+// Anatomy
+//
+// At its most basic form, a panel consists of the following class:
+//
+// Classes:
+// xui-panel: Container for a panel
+//
+// Styleguide: Components.DisplayingData.Panel.3
+
 // Framing content
 //
-// For any nested elements within a page that aren't semantically panels, but you wish to create a bordered frame around, create your own classes instead.
-// To do this, use XUI's variables and mixins, without explicitly using the panel class.
+// For any nested elements within a page that aren't semantically panels but you wish to create a bordered frame around, create your own classes instead.
+// To do this, use [variables and mixins](./section-fundamentals-variables-mixins.html) without explicitly using the panel class.
 //
 // ExampleClass: ds-example-markuponly
 //
@@ -36,16 +51,13 @@
 //   box-shadow: $xui-shadow-border-all;
 // }
 //
-// Styleguide: Components.DisplayingData.Panel.2
+// Styleguide: Components.DisplayingData.Panel.3.2
 
-// Anatomy
+// Features of a panel
 //
-// At it's most basic form, a panel consists of the following class.
+// Explore the different features that can be applied to this component.
 //
-// Classes:
-// xui-panel: Container for a panel
-//
-// Styleguide: Components.DisplayingData.Panel.3
+// Styleguide: Components.DisplayingData.Panel.4
 
 // Spacing
 //
@@ -53,7 +65,7 @@
 // To add your own, use the `xui-padding-*` and `xui-margin-*` [utility classes](section-fundamentals-spacing.html).
 // We do however, recommend using `xui-padding-large` as a sensible default.
 //
-// Styleguide: Components.DisplayingData.Panel.4
+// Styleguide: Components.DisplayingData.Panel.4.1
 
 // Heading
 //
@@ -68,7 +80,7 @@
 //
 // Markup: ./examples/panel/_panel-heading.html
 //
-// Styleguide: Components.DisplayingData.Panel.5
+// Styleguide: Components.DisplayingData.Panel.4.2
 
 // Section
 //
@@ -82,7 +94,7 @@
 //
 // Markup: ./examples/panel/_panel-section.html
 //
-// Styleguide: Components.DisplayingData.Panel.6
+// Styleguide: Components.DisplayingData.Panel.4.3
 
 // Footer
 //
@@ -96,7 +108,7 @@
 //
 // Markup: ./examples/panel/_panel-footer.html
 //
-// Styleguide: Components.DisplayingData.Panel.7
+// Styleguide: Components.DisplayingData.Panel.4.4
 
 // Form
 //
@@ -107,7 +119,7 @@
 //
 // Markup: ./examples/panel/_panel-form.html
 //
-// Styleguide: Components.DisplayingData.Panel.8
+// Styleguide: Components.DisplayingData.Panel.4.5
 
 // Content blocks
 //
@@ -117,7 +129,7 @@
 //
 // Markup: ./examples/panel/_panel-content-blocks.html
 //
-// Styleguide: Components.DisplayingData.Panel.9
+// Styleguide: Components.DisplayingData.Panel.4.6
 
 // Sidebar
 //
@@ -132,9 +144,26 @@
 //
 // Markup: ./examples/panel/_panel-sidebar.html
 //
-// Styleguide: Components.DisplayingData.Panel.10
+// Styleguide: Components.DisplayingData.Panel.4.7
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Use sentence case (capitalise first word and proper nouns)
+//
+// Styleguide: Components.DisplayingData.Panel.5
+
+// TopDescription: How to write for the following areas of a panel:
+//
+//
+//
+// - [Buttons](./section-components-controls-button.html#components-controls-button-15)
+// - [Headings](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#headings)
+// - [Labels](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#labels)
+//
+// Styleguide: Components.DisplayingData.Panel.5.1
+
+// Related components
 //
 // Related:
 // * [Banner](./section-components-alerts-banner.html)

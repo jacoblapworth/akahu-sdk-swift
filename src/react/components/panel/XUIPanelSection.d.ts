@@ -14,7 +14,9 @@ interface BaseProps {
   qaHook?: string;
 }
 
-type Props = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type SpreadProps = React.HTMLAttributes<HTMLDivElement>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 declare const XUIPanelSection: React.FunctionComponent<Props>;
 export default XUIPanelSection;

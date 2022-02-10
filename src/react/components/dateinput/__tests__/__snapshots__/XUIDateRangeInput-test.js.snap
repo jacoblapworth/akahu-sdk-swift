@@ -19,7 +19,6 @@ exports[`XUIDateRangeInput renders component with specified dates 1`] = `
       data-ref="toggled-wrapper"
     >
       <div
-        aria-activedescendant={null}
         aria-haspopup="listbox"
         className="xui-dateinputitem"
         onClick={[Function]}
@@ -91,7 +90,6 @@ exports[`XUIDateRangeInput renders component with specified dates 1`] = `
       data-ref="toggled-wrapper"
     >
       <div
-        aria-activedescendant={null}
         aria-haspopup="listbox"
         className="xui-dateinputitem"
         onClick={[Function]}
@@ -164,7 +162,6 @@ exports[`XUIDateRangeInput renders component with specified dates 1`] = `
       data-ref="toggled-wrapper"
     >
       <button
-        aria-activedescendant={null}
         aria-haspopup="listbox"
         className="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped"
         data-automationid="test-daterangeinput-suggesteddates-trigger"
@@ -211,7 +208,6 @@ exports[`XUIDateRangeInput renders default component 1`] = `
       data-ref="toggled-wrapper"
     >
       <div
-        aria-activedescendant={null}
         aria-haspopup="listbox"
         className="xui-dateinputitem"
         onClick={[Function]}
@@ -280,7 +276,6 @@ exports[`XUIDateRangeInput renders default component 1`] = `
       data-ref="toggled-wrapper"
     >
       <div
-        aria-activedescendant={null}
         aria-haspopup="listbox"
         className="xui-dateinputitem"
         onClick={[Function]}
@@ -349,7 +344,6 @@ exports[`XUIDateRangeInput renders default component 1`] = `
       data-ref="toggled-wrapper"
     >
       <button
-        aria-activedescendant={null}
         aria-haspopup="listbox"
         className="xui-button xui-button-split xui-button-standard xui-button-medium xui-button-grouped"
         disabled={false}

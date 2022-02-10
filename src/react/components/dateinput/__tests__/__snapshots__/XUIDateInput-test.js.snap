@@ -9,7 +9,6 @@ exports[`XUIDateInput inserts selected date value 1`] = `
     data-ref="toggled-wrapper"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       className="xui-dateinputitem"
       onClick={[Function]}
@@ -85,7 +84,6 @@ exports[`XUIDateInput renders default component 1`] = `
     data-ref="toggled-wrapper"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       className="xui-dateinputitem"
       onClick={[Function]}

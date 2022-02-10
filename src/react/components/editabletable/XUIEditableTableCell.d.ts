@@ -7,11 +7,12 @@ interface BaseProps {
   qaHook?: string;
 }
 
-type Props = BaseProps &
-  React.DetailedHTMLProps<
-    React.TdHTMLAttributes<HTMLTableDataCellElement>,
-    HTMLTableDataCellElement
-  >;
+type SpreadProps = React.DetailedHTMLProps<
+  React.TdHTMLAttributes<HTMLTableDataCellElement>,
+  HTMLTableDataCellElement
+>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 declare const XUIEditableTableCell: React.FunctionComponent<Props>;
 export default XUIEditableTableCell;

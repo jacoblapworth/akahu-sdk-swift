@@ -32,11 +32,12 @@ interface BaseProps {
   scope?: 'col' | 'colGroup' | 'row' | 'rowGroup';
 }
 
-type Props = BaseProps &
-  React.DetailedHTMLProps<
-    React.ThHTMLAttributes<HTMLTableHeaderCellElement>,
-    HTMLTableHeaderCellElement
-  >;
+type SpreadProps = React.DetailedHTMLProps<
+  React.ThHTMLAttributes<HTMLTableHeaderCellElement>,
+  HTMLTableHeaderCellElement
+>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 declare const XUIEditableTableHeadingCell: React.FunctionComponent<Props>;
 export default XUIEditableTableHeadingCell;

@@ -156,17 +156,14 @@ class XUIStatefulPicklist extends Component {
    * called programatically
    */
   selectHighlighted(item, isTrusted = true) {
-    const spl = this;
     const { value } = item.props;
 
     if (isTrusted) {
-      spl.setState({
-        highlightedElement: item,
-      });
+      this.highlightItem(item);
     }
 
     item.props.onSelect && item.props.onSelect(value, item);
-    spl.props.onSelect && spl.props.onSelect(value, item);
+    this.props.onSelect && this.props.onSelect(value, item);
   }
 
   /**
@@ -262,9 +259,7 @@ class XUIStatefulPicklist extends Component {
     if (!canFindHighlightedEl) {
       const firstItem = findInitialHighlightedItem(this.list.current, this.idCache);
       if (firstItem) {
-        this.setState({
-          highlightedElement: firstItem,
-        });
+        this.highlightItem(firstItem);
       }
     }
   }

@@ -2,7 +2,7 @@
 //
 // Teaser: Used to categorise content and indicate sentiment.
 //
-// Introduction: Tags are used to categorise content or indicate sentiment.
+// Introduction: Tags categorise content or can indicate sentiment.
 //
 // Components: Tag
 //
@@ -10,19 +10,37 @@
 //
 // Styleguide: Components.Identifiers.Tag
 
+// When to use
+//
+// - To categorise content
+// - To indicate sentiment
+//
+// Styleguide: Components.Identifiers.Tag.1
+
+// Best practice
+//
+// Tips:
+// Do: Write text that’s descriptive so a tag is meaningful to those who can’t recognise colour
+//
+// Styleguide: Components.Identifiers.Tag.2
+
+// Features of a tag
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Identifiers.Tag.3
+
 // Style variants
 //
 // Tips:
 // Do: Use standard or neutral tags for basic categorisation
-// Do: Use colored tags to indicate sentiment
-// Do: Use descriptive text like "Invoiced"
 // Do: Ensure tag copy is short and succinct
-// Warning: Always provide descriptive copy, as the meaning of colors is not universally understood.
+// Do: Use descriptive text like 'Overdue'
+// Do: Use coloured tags to indicate sentiment
+// Don't: Don’t rely on colour for meaning – make sure text is descriptive for those who can’t recognise colour
 // Dont: Avoid using vague copy inside of tags
 //
 // First, add `xui-tag` to provide the correct layout, then add an optional modifier of `xui-tag-*` to specify sentiment and/or size. Don't forget to add another span inside with `xui-tagcontent`.
-//
-// Use descriptive text inside Tags to convey information so it’s still meaningful to people who can’t discern colour.
 //
 // Definitions:
 // Standard: <span class="xui-tag xui-tag-medium"><span class="xui-tagcontent">Standard</span></span>: No class
@@ -31,11 +49,27 @@
 // Warning: <span class="xui-tag xui-tag-medium xui-tag-warning"><span class="xui-tagcontent">Warning</span></span>: `-warning`
 // Negative: <span class="xui-tag xui-tag-medium xui-tag-negative"><span class="xui-tagcontent">Negative</span></span>: `-negative`
 //
-// Styleguide: Components.Identifiers.Tag.1
+// Styleguide: Components.Identifiers.Tag.3.1
+
+// Implementation
+//
+// Always use a `<span>` element to create a tag, in order to retain the correct display properties when placed alongside text.
+//
+// Markup: ./examples/tag/_tag-implementation.html
+//
+// Styleguide: Components.Identifiers.Tag.3.2
+
+// Truncated tags
+//
+// Tags that don't fit their containers are truncated and should have tooltips to describe the full content when a tag is hovered.
+//
+// Markup: ./examples/tag/_tag-truncation.html
+//
+// Styleguide: Components.Identifiers.Tag.3.3
 
 // Size variants
 //
-// Tags have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2).
+// Tags have a range of size options that allow for greater control over visual hierarchy and [interface density](./section-fundamentals-spacing.html#fundamentals-spacing-2)
 //
 // Tips:
 // Do: Use 'medium' as a standard size variant
@@ -51,25 +85,27 @@
 //
 // Markup: ./examples/tag/_tag-sizes.html
 //
-// Styleguide: Components.Identifiers.Tag.2
-
-// Implementation
-//
-// Always use a `<span>` element to create a tag, in order to retain the correct display properties when placed alongside text.
-//
-// Markup: ./examples/tag/_tag-implementation.html
-//
-// Styleguide: Components.Identifiers.Tag.3
-
-// Truncated Tags
-//
-// Tags that don't fit their containers are truncated and should have tooltips to describe the full content when a tag is hovered.
-//
-// Markup: ./examples/tag/_tag-truncation.html
-//
 // Styleguide: Components.Identifiers.Tag.4
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Be concise – use 1 word in most cases
+// Do: Only use more than 1 word if it’s a complex state (for example: Partially paid)
+// Do: Use the past tense
+//
+// Styleguide: Components.Identifiers.Tag.80
+
+// Examples
+//
+// ExampleContentTable:
+// Submitted | Expense submitted
+// Approved | Approved for payment
+// Paid | Pay
+//
+// Styleguide: Components.Identifiers.Tag.80.1
+
+// Related components
 //
 // Related:
 // * [Capsule](./section-components-identifiers-capsule.html)

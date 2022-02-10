@@ -7,7 +7,6 @@ exports[`<XUIDropdownToggled /> should render a passed qaHook as an auotmation i
   data-ref="toggled-wrapper"
 >
   <button
-    aria-activedescendant={null}
     aria-haspopup="listbox"
     className="xui-button xui-button-standard"
     onClick={[Function]}

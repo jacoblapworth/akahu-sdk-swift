@@ -217,7 +217,7 @@ XUIEditableTableCellAutocompleter.propTypes = {
    * <br />
    * Recommended English value: *Loading*
    */
-  loadingLabel: PropTypes.string,
+  loadingAriaLabel: PropTypes.string,
 
   /**
    * Setting this to `true` makes the dropdown as wide as the trigger (defaults to `true`). <br>

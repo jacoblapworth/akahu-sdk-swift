@@ -6,7 +6,7 @@
 
 // Headings
 //
-// Form headings should follow the guidance for [headings](./section-components-navigation-page-header.html)
+// Form headings should follow the guidance for [headings](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#headings)
 //
 // Styleguide: Components.CollectingInput.Forms.4.1
 
@@ -41,7 +41,7 @@
 // Warning: When using text inputs with hidden labels, the placeholder content should reflect what would usually be in a label
 // Warning: Make sure accessibility is maintained with `aria-labels`
 //
-// Styleguide: Components.CollectingInput.Forms.4.3
+// Styleguide: Components.CollectingInput.Forms.4.2.1
 
 // Label content
 //
@@ -51,7 +51,7 @@
 // Do: Write as statements rather than questions or instructions
 // Do: Place above or beside the form field
 //
-// Styleguide: Components.CollectingInput.Forms.4.4
+// Styleguide: Components.CollectingInput.Forms.4.2.2
 
 // Examples of label content
 //
@@ -60,7 +60,7 @@
 // Email address| What’s your email address?
 // Bank account number| Enter bank account number
 //
-// Styleguide: Components.CollectingInput.Forms.4.5
+// Styleguide: Components.CollectingInput.Forms.4.2.3
 
 // Placeholders
 //
@@ -74,25 +74,20 @@
 //
 // Markup: ./examples/form/_form-labels-placeholders.html
 //
-// Styleguide: Components.CollectingInput.Forms.4.6
+// Styleguide: Components.CollectingInput.Forms.4.3
 
 // Placeholder content
 //
 // Tips:
 // Do: Display placeholder within the form field
-// Do: Use only for supplementary, non-critical information that gives an example of formatting
-// Do: Write as example of format instead of instructions
-// Warning: Dropdown or select components are exceptions – don’t leave the fields blank. Choose a logical default option or use **Select + {field label}**
+// Do: Can be used to give an example of formatting
+// Do: Can be used for dropdown or select components – use a logical default option or use ‘Select + {field label}’
+// Warning: If using hidden labels, see placeholder guidance for [hiding labels](#components-collectinginput-forms-4-2-1)
+// Don't: Don’t use to give instructions
+// Don't: Don’t use for critical or important information – instead use a [hint message](#components-collectinginput-forms-4-5)
+// Don't: Don’t use the word ‘example’ or ‘e.g.’
 //
-// Styleguide: Components.CollectingInput.Forms.4.7
-
-// Examples of placeholder content
-//
-// ExampleContentTable:
-// 0:00| E.g 3.5 hours
-// 0.00| Enter invoice amount
-//
-// Styleguide: Components.CollectingInput.Forms.4.8
+// Styleguide: Components.CollectingInput.Forms.4.3.1
 
 // Hint messages
 //
@@ -107,7 +102,7 @@
 //
 // Markup: ./examples/form/_form-labels-notes-and-errors.html
 //
-// Styleguide: Components.CollectingInput.Forms.4.9
+// Styleguide: Components.CollectingInput.Forms.4.4
 
 // Hint message content
 //
@@ -115,7 +110,7 @@
 // Do: Be concise and provide just enough information to help users complete the field or answer common questions
 // Do: Display under a field
 //
-// Styleguide: Components.CollectingInput.Forms.4.10
+// Styleguide: Components.CollectingInput.Forms.4.4.1
 
 // Examples of hint message content
 //
@@ -125,4 +120,4 @@
 // Note:
 // Note&#58; For other messaging options, see the guidance on <a href="./section-components-alerts-tooltip.html">tooltips</a> or <a href="./section-components-alerts-popover.html">popovers</a>
 //
-// Styleguide: Components.CollectingInput.Forms.4.11
+// Styleguide: Components.CollectingInput.Forms.4.4.2

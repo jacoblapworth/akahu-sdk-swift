@@ -182,7 +182,7 @@ type SpreadProps =
   | React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
   | React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
 
-type Props = BaseProps & SpreadProps;
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 export default class XUITextInput extends React.PureComponent<Props> {
   /**

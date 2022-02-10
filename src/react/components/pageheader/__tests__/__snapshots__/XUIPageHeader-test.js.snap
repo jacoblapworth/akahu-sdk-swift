@@ -136,7 +136,6 @@ exports[`<XUI PageHeader and BreadcrumbTrail/> renders compact XUIBreadcrumbTrai
       data-ref="toggled-wrapper"
     >
       <button
-        aria-activedescendant={null}
         aria-haspopup="listbox"
         className="xui-button xui-breadcrumb--link xui-breadcrumb--dropdowntrigger"
         disabled={false}

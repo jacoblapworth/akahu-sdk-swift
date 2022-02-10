@@ -36,7 +36,9 @@ interface BaseProps {
   title: React.ReactNode;
 }
 
-type Props = BaseProps & React.HTMLAttributes<HTMLElement>;
+type SpreadProps = React.HTMLAttributes<HTMLElement>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 declare const XUIFilePreviewHeader: React.FunctionComponent<Props>;
 export default XUIFilePreviewHeader;

@@ -47,6 +47,10 @@ interface Props {
    */
   forceDesktop?: boolean;
   /**
+   * Force wrapping `XUIDropdownPanel` children in a `XUIStatefulPicklist`.
+   */
+  forceStatefulPicklist?: boolean;
+  /**
    * Hint message to show under the input.
    */
   hintMessage?: React.ReactNode;

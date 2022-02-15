@@ -116,7 +116,7 @@ export default class XUIPickitem extends PureComponent {
     return (
       <Tag
         aria-label={ariaLabel}
-        aria-selected={isMultiselect ? isSelected : null}
+        aria-selected={isMultiselect || itemRole === 'option' ? isSelected : null}
         className={classes}
         data-automationid={qaHook}
         id={id}

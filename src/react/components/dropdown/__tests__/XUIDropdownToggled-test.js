@@ -4,6 +4,9 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
 import XUIDropdown from '../XUIDropdown';
 import XUIDropdownFooter from '../XUIDropdownFooter';
 import XUIDropdownToggled from '../XUIDropdownToggled';
@@ -13,10 +16,6 @@ import XUIModal from '../../modal/XUIModal';
 import XUIButton from '../../button/XUIButton';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import wait from '../../../helpers/wait';
-
-import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { screen } from '@testing-library/dom';
 
 const testId = 'testDropdownId';
 jest.mock('nanoid');
@@ -36,7 +35,7 @@ const getTrigger = props => (
 
 const getDropdown = props => {
   return (
-    <XUIDropdown restrictFocus={false}>
+    <XUIDropdown restrictFocus={false} {...props}>
       <XUIPicklist>
         <XUIPickitem id="1">Im the whole shabang!</XUIPickitem>
         <XUIPickitem id="2">Earnings from Busking</XUIPickitem>
@@ -343,22 +342,40 @@ describe('<XUIDropdownToggled />', () => {
       expect(wrapper.instance().isDropdownOpen()).toBeFalsy();
     });
 
-    it('expects a matching id on the dropdown and referenced by aria attributes', () => {
-      expect(wrapper.html().includes(`aria-owns="xui-${testId}"`)).toBeTruthy();
-      expect(
-        wrapper.find('button').first().html().includes(`aria-controls="xui-${testId}"`),
-      ).toBeTruthy();
-    });
+    describe('A11y', () => {
+      it('should pass accessibility testing', async () => {
+        wrapper = mount(
+          <div>
+            <XUIDropdownToggled dropdown={getDropdown()} isHidden={false} trigger={getTrigger()} />
+            <div id="xui-testDropdownId">Mock dropdown for test purposes</div>
+          </div>,
+        );
+        const results = await axe(wrapper.html());
+        expect(results).toHaveNoViolations();
+      });
 
-    it('should pass accessibility testing', async () => {
-      wrapper = mount(
-        <div>
-          <XUIDropdownToggled dropdown={getDropdown()} isHidden={false} trigger={getTrigger()} />
-          <div id="xui-testDropdownId">Mock dropdown for test purposes</div>
-        </div>,
-      );
-      const results = await axe(wrapper.html());
-      expect(results).toHaveNoViolations();
+      it('expects a matching id on the dropdown and referenced by aria attributes', () => {
+        expect(wrapper.html().includes(`aria-owns="xui-${testId}"`)).toBeTruthy();
+        expect(
+          wrapper.find('button').first().html().includes(`aria-controls="xui-${testId}"`),
+        ).toBeTruthy();
+      });
+
+      test('the focused element (XUIDropdownPanel) informs assistive tech which item is highlighted', async () => {
+        // Arrange
+        render(
+          <XUIDropdownToggled
+            dropdown={getDropdown({ qaHook: 'dropdown' })}
+            isHidden={false}
+            trigger={getTrigger({ 'data-automationid': 'trigger' })}
+          />,
+        );
+
+        // Assert
+        await waitFor(() =>
+          expect(document.activeElement).toHaveAttribute('aria-activedescendant', '1'),
+        );
+      });
     });
   });
 

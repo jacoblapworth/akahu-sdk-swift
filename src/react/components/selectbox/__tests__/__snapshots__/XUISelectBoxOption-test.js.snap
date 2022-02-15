@@ -2,7 +2,7 @@
 
 exports[`<XUISelectBoxOption /> should render an a tag if an href prop is provided 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
@@ -46,7 +46,7 @@ exports[`<XUISelectBoxOption /> should render an aria role if the ariaRole prop 
 
 exports[`<XUISelectBoxOption /> should render an aria role of option by default 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
@@ -68,7 +68,7 @@ exports[`<XUISelectBoxOption /> should render an aria role of option by default 
 
 exports[`<XUISelectBoxOption /> should render an automaion id when provided with a qaHook 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   data-automationid="test-sbo"
   id="1"
@@ -92,7 +92,7 @@ exports[`<XUISelectBoxOption /> should render an automaion id when provided with
 
 exports[`<XUISelectBoxOption /> should render an button element by default 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
@@ -166,7 +166,7 @@ exports[`<XUISelectBoxOption /> should render checkboxes when the showCheckboxes
 
 exports[`<XUISelectBoxOption /> should render extra classes on the option element when values are added to the optionClassName prop 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem option-class xui-pickitem-medium"
   id="1"
   role="option"
@@ -188,7 +188,7 @@ exports[`<XUISelectBoxOption /> should render extra classes on the option elemen
 
 exports[`<XUISelectBoxOption /> should render text as truncated when the truncateText prop is set to true 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
@@ -214,7 +214,7 @@ exports[`<XUISelectBoxOption /> should render text as truncated when the truncat
 
 exports[`<XUISelectBoxOption /> should render the correct value passed in 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
@@ -236,7 +236,7 @@ exports[`<XUISelectBoxOption /> should render the correct value passed in 1`] = 
 
 exports[`<XUISelectBoxOption /> should render the highlighted class if isHighlighted is true 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-is-hovered xui-pickitem-medium"
   id="1"
   role="option"
@@ -310,7 +310,7 @@ exports[`<XUISelectBoxOption /> should render the option and the checkboxes as d
 
 exports[`<XUISelectBoxOption /> should render the option as disabled when the isDisabled prop is false 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
@@ -332,7 +332,7 @@ exports[`<XUISelectBoxOption /> should render the option as disabled when the is
 
 exports[`<XUISelectBoxOption /> should render the option as disabled when the isDisabled prop is true 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-is-disabled xui-pickitem-medium"
   id="1"
   role="option"
@@ -354,7 +354,7 @@ exports[`<XUISelectBoxOption /> should render the option as disabled when the is
 
 exports[`<XUISelectBoxOption /> should render the selected class if isSelected is true 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={true}
   className="xui-pickitem xui-pickitem-is-selected xui-pickitem-medium"
   id="1"
   role="option"
@@ -376,7 +376,7 @@ exports[`<XUISelectBoxOption /> should render the selected class if isSelected i
 
 exports[`<XUISelectBoxOption /> shouldn't render checkboxes when the showCheckboxes prop is set to false 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
@@ -398,7 +398,7 @@ exports[`<XUISelectBoxOption /> shouldn't render checkboxes when the showCheckbo
 
 exports[`<XUISelectBoxOption /> shouldn't render text as truncated when the truncateText prop is set to false 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
@@ -420,7 +420,7 @@ exports[`<XUISelectBoxOption /> shouldn't render text as truncated when the trun
 
 exports[`<XUISelectBoxOption /> shouldn't render the highlighted class by default 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
@@ -442,7 +442,7 @@ exports[`<XUISelectBoxOption /> shouldn't render the highlighted class by defaul
 
 exports[`<XUISelectBoxOption /> shouldn't render the highlighted class if isHighlighted is false 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
@@ -464,7 +464,7 @@ exports[`<XUISelectBoxOption /> shouldn't render the highlighted class if isHigh
 
 exports[`<XUISelectBoxOption /> shouldn't render the selected class by default 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"
@@ -486,7 +486,7 @@ exports[`<XUISelectBoxOption /> shouldn't render the selected class by default 1
 
 exports[`<XUISelectBoxOption /> shouldn't render the selected class if isSelected is false 1`] = `
 <li
-  aria-selected={null}
+  aria-selected={false}
   className="xui-pickitem xui-pickitem-medium"
   id="1"
   role="option"

@@ -7,20 +7,19 @@
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.gwx9ybn96p1v
 //
 // Introduction:
-// XUI provides a custom range slider for consistency across platforms and visual alignment with other form elements.
+// A range provides a custom range slider that is consistent across platforms and visually aligns with other form elements.
 //
 // Styleguide: Components.Controls.Range
 
-// Best practice
+// When to use
 //
-// Tips:
-// Do: Use a range slider when adjusting a value on a finite spectrum
+// - To adjust a value on a finite spectrum
 //
 // Styleguide: Components.Controls.Range.1
 
 // Anatomy
 //
-// To use the custom range slider, apply the following class.
+// To use the custom range slider, apply the following class:
 //
 // Classes:
 // xui-rangeslider: Apply to the native input
@@ -30,6 +29,96 @@
 // Markup: ./examples/range/_range.html
 //
 // Styleguide: Components.Controls.Range.2
+
+// Layout
+//
+// Images or labels can be positioned either side of range sliders to provide additional context.
+// You can find several helpful utility classes to aid in layout and alignment in [utilities](./section-fundamentals-utilities.html)
+//
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/range/_range-layout.html
+//
+// Styleguide: Components.Controls.Range.2.1
+
+// Features of a range
+//
+// Explore the different features that can be applied to this component.
+//
+// Styleguide: Components.Controls.Range.3
+
+// Value
+//
+// To set a default value, add the `value` attribute.
+// The `value` attribute accepts a number within the available range or a percentage, and must be expressed as a string.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/range/_range-value.html
+//
+// Styleguide: Components.Controls.Range.3.1
+
+// Steps
+//
+// To limit adjustments to increments only, simply alter the `step` attribute from the default value of `1`.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/range/_range-steps.html
+//
+// Styleguide: Components.Controls.Range.3.2
+
+// Limits
+//
+// To limit adjustments to a particular range, simply define your own `min` and `max` values.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/range/_range-limits.html
+//
+// Styleguide: Components.Controls.Range.3.3
+
+// Disabled
+//
+// To disable a range slider, simply apply the `disabled` attribute.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/range/_range-disabling.html
+//
+// Styleguide: Components.Controls.Range.3.4
+
+// Labelling
+//
+// To add standard labels and validation to a range slider, use the following classes.
+//
+// Classes:
+// xui-field-layout: Apply to wrapper to allow space for validation
+// xui-text-label: Label styles
+// xui-fieldlabel-layout: Apply to label for default layout options
+// xui-validation: Validation styles
+// xui-validation-layout: Apply to validation for default layout options
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Markup: ./examples/range/_range-labeling.html
+//
+// Styleguide: Components.Controls.Range.3.5
+
+// Invalid
+//
+// To indicate that a range slider is invalid, apply the following modifiers.
+//
+// exampleClass: ds-example-transparent ds-example-flush
+//
+// Classes:
+// xui-rangeslider-is-invalid: Apply to native input
+// xui-validation-is-invalid: Applies error validation style and "invalid" icon to text element
+//
+// Markup: ./examples/range/_range-validation.html
+//
+// Styleguide: Components.Controls.Range.3.6
 
 // Size variants
 //
@@ -50,92 +139,22 @@
 //
 // Markup: ./examples/range/_range-sizes.html
 //
-// Styleguide: Components.Controls.Range.3
-
-// Value
-//
-// To set a default value, add the `value` attribute.
-// The `value` attribute accepts a number within the available range or a percentage, and must be expressed as a string.
-//
-// exampleClass: ds-example-transparent ds-example-flush
-//
-// Markup: ./examples/range/_range-value.html
-//
 // Styleguide: Components.Controls.Range.4
 
-// Steps
+// Content guidelines
 //
-// To limit adjustments to increments only, simply alter the `step` attribute from the default value of `1`.
+// Tips:
+// Do: Labels should be meaningful and clearly describe the information being shown
+// Do: Place labels above the range at either end of the scale
+// Do: Labels should be short and succinct (1–3 words)
+// Do: Use sentence case (capitalise first word and proper nouns)
 //
-// exampleClass: ds-example-transparent ds-example-flush
-//
-// Markup: ./examples/range/_range-steps.html
+// Related:
+// Also see guidance for writing [hint messages](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-9)
 //
 // Styleguide: Components.Controls.Range.5
 
-// Limits
-//
-// To limit adjustments to a particular range, simply define your own `min` and `max` values.
-//
-// exampleClass: ds-example-transparent ds-example-flush
-//
-// Markup: ./examples/range/_range-limits.html
-//
-// Styleguide: Components.Controls.Range.6
-
-// Disabling
-//
-// To disable a range slider, simply apply the `disabled` attribute.
-//
-// exampleClass: ds-example-transparent ds-example-flush
-//
-// Markup: ./examples/range/_range-disabling.html
-//
-// Styleguide: Components.Controls.Range.7
-
-// Labeling
-//
-// To add standard labels and validation to a range slider, use the following classes.
-//
-// Classes:
-// xui-field-layout: Apply to wrapper to allow space for validation
-// xui-text-label: Label styles
-// xui-fieldlabel-layout: Apply to label for default layout options
-// xui-validation: Validation styles
-// xui-validation-layout: Apply to validation for default layout options
-//
-// exampleClass: ds-example-transparent ds-example-flush
-//
-// Markup: ./examples/range/_range-labeling.html
-//
-// Styleguide: Components.Controls.Range.8
-
-// Invalid
-//
-// To indicate that a range slider is invalid, apply the following modifiers.
-//
-// exampleClass: ds-example-transparent ds-example-flush
-//
-// Classes:
-// xui-rangeslider-is-invalid: Apply to native input
-// xui-validation-is-invalid: Applies error validation style and "invalid" icon to text element
-//
-// Markup: ./examples/range/_range-validation.html
-//
-// Styleguide: Components.Controls.Range.9
-
-// Layout
-//
-// Images or labels can be positioned either side of range sliders to provide additional context.
-// To do this, XUI offers several helpful utility classes to aid in layout and alignment.
-//
-// exampleClass: ds-example-transparent ds-example-flush
-//
-// Markup: ./examples/range/_range-layout.html
-//
-// Styleguide: Components.Controls.Range.10
-
-// Related links
+// Related components
 //
 // Related:
 // * [Form](./section-components-collectinginput-forms.html)

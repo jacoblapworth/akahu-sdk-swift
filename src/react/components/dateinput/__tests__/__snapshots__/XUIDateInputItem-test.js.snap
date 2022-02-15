@@ -15,7 +15,6 @@ exports[`XUIDateInputItem inserts selected date value 1`] = `
     data-ref="toggled-wrapper"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       className="xui-dateinputitem"
       onClick={[Function]}
@@ -92,7 +91,6 @@ exports[`XUIDateInputItem renders disabled 1`] = `
     data-ref="toggled-wrapper"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       className="xui-dateinputitem xui-dateinputitem-is-disabled"
       onClick={[Function]}
@@ -170,7 +168,6 @@ exports[`XUIDateInputItem renders with a hint 1`] = `
     data-ref="toggled-wrapper"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       className="xui-dateinputitem"
       onClick={[Function]}
@@ -254,7 +251,6 @@ exports[`XUIDateInputItem renders with the provided label 1`] = `
     data-ref="toggled-wrapper"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       className="xui-dateinputitem"
       onClick={[Function]}
@@ -331,7 +327,6 @@ exports[`XUIDateInputItem renders with validation message 1`] = `
     data-ref="toggled-wrapper"
   >
     <div
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       className="xui-dateinputitem"
       onClick={[Function]}

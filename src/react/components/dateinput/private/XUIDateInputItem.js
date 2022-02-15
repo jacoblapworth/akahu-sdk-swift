@@ -22,6 +22,8 @@ import formatSelectedDateToString from './helpers/formatSelectedDateToString';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import generateIds from '../../helpers/ariaHelpers';
 import { isDayOutsideRange } from '../../datepicker/helpers/utils';
+import { suggestedDatesHeader, suggestedDatesSecondaryText } from './suggestedDateHelperComponents';
+import getDateFormat from './helpers/getDateFormat';
 
 /**
  * Keyboard bindings to ignore. Space doesn't select in an autocompleter; left and
@@ -180,10 +182,10 @@ class XUIDateInputItem extends Component {
       return;
     }
 
-    const { isDueDate, minDate, maxDate, onValidationFailed } = this.props;
+    const { isDueDate, minDate, maxDate, onValidationFailed, locale } = this.props;
     const base = new Date();
     const now = new Date();
-    const dateFormat = DateFormat.DMY;
+    const dateFormat = getDateFormat(locale);
     const parsedDate = isDueDate
       ? parseDueDate({ now, base, dateFormat }, this.state.inputValue)
       : parseDate({ now, base, dateFormat }, this.state.inputValue);
@@ -257,6 +259,7 @@ class XUIDateInputItem extends Component {
       inputFieldClassName,
       inputIcon,
       inputLabel,
+      _isDropdownHidden,
       isDisabled,
       isInvalid,
       isLabelHidden,
@@ -381,12 +384,14 @@ class XUIDateInputItem extends Component {
           shouldManageInitialHighlight={this.state.pickitemInitialHighlight}
         >
           <XUIPicklist>
-            {suggestedDates?.map(({ id, text }) => (
+            {suggestedDatesHeader}
+            {suggestedDates?.map(({ id, text, description }) => (
               <XUIPickitem
                 id={id}
                 isSelected={selectedSuggestedDate === id}
                 key={id}
                 onSelect={this.selectSuggestedDate}
+                rightElement={suggestedDatesSecondaryText(description)}
                 value={id}
               >
                 {text}
@@ -428,6 +433,12 @@ class XUIDateInputItem extends Component {
 }
 
 XUIDateInputItem.propTypes = {
+  /**
+   * @ignore
+   * Internal use only, used to expose up `isHidden` prop from `DropdownToggled` for testing purposes
+   */
+  _isDropdownHidden: PropTypes.bool,
+
   /** Whether or not the dropdown should automatically be hidden when the user selects something */
   closeOnSelect: PropTypes.bool,
 

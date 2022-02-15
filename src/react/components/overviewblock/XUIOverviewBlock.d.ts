@@ -26,7 +26,9 @@ interface BaseProps {
   textAlignment?: 'center' | 'left' | 'right';
 }
 
-type Props = BaseProps & React.HTMLAttributes<HTMLDivElement>;
+type SpreadProps = React.HTMLAttributes<HTMLDivElement>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 declare const XUIOverviewBlock: React.FunctionComponent<Props>;
 export default XUIOverviewBlock;

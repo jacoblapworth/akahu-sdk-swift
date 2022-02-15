@@ -10,7 +10,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render a placeholder inside 
     data-ref="toggled-wrapper"
   >
     <button
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -33,7 +32,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an automation id when
     data-ref="toggled-wrapper"
   >
     <button
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -56,7 +54,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the dropdown
     data-ref="toggled-wrapper"
   >
     <button
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -79,7 +76,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render an id on the input wh
     data-ref="toggled-wrapper"
   >
     <button
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -102,7 +98,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render as disabled when isDi
     data-ref="toggled-wrapper"
   >
     <button
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -125,7 +120,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
     data-ref="toggled-wrapper"
   >
     <button
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -148,7 +142,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes to the 
     data-ref="toggled-wrapper"
   >
     <button
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -171,7 +164,6 @@ exports[`<XUIAutoCompleterSecondarySearch /> should render extra classes when pa
     data-ref="toggled-wrapper"
   >
     <button
-      aria-activedescendant={null}
       aria-haspopup="listbox"
       onClick={[Function]}
       onKeyDown={[Function]}

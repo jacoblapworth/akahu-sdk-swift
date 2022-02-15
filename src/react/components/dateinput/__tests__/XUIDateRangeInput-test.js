@@ -8,9 +8,8 @@ import XUIButton from '../../button/XUIButton';
 import XUIDateRangeInput from '../XUIDateRangeInput';
 import wait from '../../../helpers/wait';
 
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { screen } from '@testing-library/dom';
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testDateinputId');

@@ -28,7 +28,9 @@ interface BaseProps {
   value?: React.ReactNode;
 }
 
-type Props = BaseProps & React.HTMLAttributes<HTMLElement>;
+type SpreadProps = React.HTMLAttributes<HTMLElement>;
+
+type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
 
 declare const XUIOverviewSection: React.FunctionComponent<Props>;
 export default XUIOverviewSection;

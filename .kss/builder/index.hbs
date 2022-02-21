@@ -430,8 +430,25 @@
                     {{else}}
                       {{! noop }}
                     {{/ifParentSection}}
+                    {{#ifParentSection "Form layout" @root.sections}}
+                      <li class="opt-{{this.depth}}">
+                        <a href="#{{referenceURI}}" id="otp-{{referenceURI}}">
+                          {{header}}
+                        </a>
+                      </li>
+                    {{else}}
+                      {{! noop }}
+                    {{/ifParentSection}}
+                    {{#ifParentSection "Elements within a form" @root.sections}}
+                      <li class="opt-{{this.depth}}">
+                        <a href="#{{referenceURI}}" id="otp-{{referenceURI}}">
+                          {{header}}
+                        </a>
+                      </li>
+                    {{else}}
+                      {{! noop }}
+                    {{/ifParentSection}}
                   {{/ifDepth}}
-
               {{/each}}
             </ul>
           </div>

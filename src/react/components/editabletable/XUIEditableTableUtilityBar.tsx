@@ -2,9 +2,9 @@ import cn from 'classnames';
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
-import useResizeObserver from '../../helpers/useResizeObserver';
-import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
-import { tableVariantClassNames } from './constants';
+import useResizeObserver from '../helpers/useResizeObserver';
+import XUIEditableTableContext from './contexts/XUIEditableTableContext';
+import { tableVariantClassNames } from './private/constants';
 
 const baseName = `${tableVariantClassNames.editable}utilitybar`;
 
@@ -14,14 +14,17 @@ interface BaseProps {
   qaHook?: string;
 }
 
-type SpreadProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLTableRowElement>,
-  HTMLTableRowElement
+// If SpreadProps is a union the Omit must be applied to all types in the union individually.
+// Using an Omit over an entire union will not work as expected.
+// See XUIButton.d.ts for an example & XUI-3079 for an explanation.
+type SpreadProps = Omit<
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>,
+  keyof BaseProps
 >;
 
-type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
+type Props = BaseProps & SpreadProps;
 
-const EditableTableUtilityBar: React.FunctionComponent<Props> = ({
+const XUIEditableTableUtilityBar: React.FunctionComponent<Props> = ({
   children,
   className,
   qaHook,
@@ -68,10 +71,10 @@ const EditableTableUtilityBar: React.FunctionComponent<Props> = ({
   );
 };
 
-EditableTableUtilityBar.propTypes = {
+XUIEditableTableUtilityBar.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   qaHook: PropTypes.string,
 };
 
-export default EditableTableUtilityBar;
+export default XUIEditableTableUtilityBar;

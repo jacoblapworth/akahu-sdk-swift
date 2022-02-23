@@ -22,6 +22,11 @@ export default class XUIEditableTableCellAutocompleter extends React.Component<P
   focusInput: () => void;
 
   /**
+   * Force wrapping `XUIDropdownPanel` children in a `XUIStatefulPicklist`.
+   */
+  forceStatefulPicklist?: boolean;
+
+  /**
    * Set the state as not hidden in order to toggle the list open.
    */
   openDropdown: () => void;

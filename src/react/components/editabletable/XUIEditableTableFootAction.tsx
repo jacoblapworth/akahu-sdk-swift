@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import XUIButton from '../../button';
 import { tableVariantClassNames } from './private/constants';
-import EditableTableUtilityBar from './private/EditableTableUtilityBar';
+import XUIEditableTableUtilityBar from './XUIEditableTableUtilityBar';
 
 const baseName = `${tableVariantClassNames.editable}foot--action`;
 
@@ -16,12 +16,15 @@ interface BaseProps {
   qaHook?: string;
 }
 
-type SpreadProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLTableRowElement>,
-  HTMLTableRowElement
+// If SpreadProps is a union the Omit must be applied to all types in the union individually.
+// Using an Omit over an entire union will not work as expected.
+// See XUIButton.d.ts for an example & XUI-3079 for an explanation.
+type SpreadProps = Omit<
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>,
+  keyof BaseProps
 >;
 
-type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
+type Props = BaseProps & SpreadProps;
 
 const XUIEditableTableFootAction: React.FunctionComponent<Props> = ({
   addButtonContent,
@@ -31,7 +34,7 @@ const XUIEditableTableFootAction: React.FunctionComponent<Props> = ({
   qaHook,
   ...spreadProps
 }) => (
-  <EditableTableUtilityBar className={cn(baseName, className)} qaHook={qaHook} {...spreadProps}>
+  <XUIEditableTableUtilityBar className={cn(baseName, className)} qaHook={qaHook} {...spreadProps}>
     <XUIButton
       {...buttonProps}
       onClick={onAdd}
@@ -41,7 +44,7 @@ const XUIEditableTableFootAction: React.FunctionComponent<Props> = ({
     >
       {addButtonContent}
     </XUIButton>
-  </EditableTableUtilityBar>
+  </XUIEditableTableUtilityBar>
 );
 
 XUIEditableTableFootAction.propTypes = {

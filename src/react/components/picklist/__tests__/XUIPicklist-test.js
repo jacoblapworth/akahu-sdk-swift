@@ -4,6 +4,9 @@ import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { screen } from '@testing-library/dom';
 import XUIPicklist from '../XUIPicklist';
 import XUIPickitem from '../XUIPickitem';
 
@@ -73,5 +76,27 @@ describe('< Picklist />', () => {
       </XUIPicklist>,
     );
     expect(fromItems).toMatchSnapshot();
+  });
+
+  it('should not override a manually set ariaRole on a child XUIPickitem', () => {
+    render(
+      <XUIPicklist secondaryProps={{ role: 'menu' }}>
+        <XUIPickitem id="pi1" qaHook="pi1" ariaRole="menuitem" />
+      </XUIPicklist>,
+    );
+
+    const pickItem = screen.getByRole('menuitem');
+    expect(pickItem).toBeTruthy();
+  });
+
+  it("should default the ariaRole of a child XUIPickitem to 'option' when the XUIPicklist role is listbox", () => {
+    render(
+      <XUIPicklist secondaryProps={{ role: 'listbox' }}>
+        <XUIPickitem id="pi1" qaHook="pi1" />
+      </XUIPicklist>,
+    );
+
+    const pickItem = screen.getByRole('option');
+    expect(pickItem).toBeTruthy();
   });
 });

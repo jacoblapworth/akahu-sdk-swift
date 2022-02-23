@@ -35,6 +35,14 @@ const variations = [
   },
   {
     storyKind: storiesWithVariationsKindName,
+    storyTitle: 'With suggested dates open',
+    suggestedDates: dateInputSuggestedDates,
+    isDropdownHidden: false,
+    inputLabel: 'Start date',
+    selectDateLabel: 'Select date',
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
     storyTitle: 'Suggested dates with custom icon',
     suggestedDates: dateInputSuggestedDates,
     inputLabel: 'Start date',
@@ -97,6 +105,19 @@ const variations = [
     storyTitle: 'Default date range',
     isDateRangeInput: true,
     suggestedDates: dateRangeInputSuggestedDates,
+    startDateInputConfig: {
+      inputLabel: 'First date',
+    },
+    endDateInputConfig: {
+      inputLabel: 'Second date',
+    },
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'Date range with suggested dates open',
+    isDateRangeInput: true,
+    suggestedDates: dateRangeInputSuggestedDates,
+    isDropdownHidden: false,
     startDateInputConfig: {
       inputLabel: 'First date',
     },

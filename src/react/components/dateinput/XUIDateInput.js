@@ -27,6 +27,7 @@ class XUIDateInput extends React.Component {
       displayedMonth,
       hintMessage,
       inputLabel,
+      _isDropdownHidden,
       isDisabled,
       isDueDate,
       isInvalid,
@@ -54,6 +55,7 @@ class XUIDateInput extends React.Component {
     return (
       <div className={cn(`${ns}-dateinput`, className)} data-automationid={qaHook}>
         <XUIDateInputItem
+          _isDropdownHidden={_isDropdownHidden}
           closeOnSelect={closeOnSelect}
           displayedMonth={displayedMonth}
           hintMessage={hintMessage}
@@ -85,6 +87,12 @@ class XUIDateInput extends React.Component {
 }
 
 XUIDateInput.propTypes = {
+  /**
+   * @ignore
+   * Internal use only, used to expose up `isHidden` prop from `DropdownToggled` for testing purposes
+   */
+  _isDropdownHidden: PropTypes.bool,
+
   /** CSS class(es) to go on the wrapping DOM node */
   className: PropTypes.string,
 

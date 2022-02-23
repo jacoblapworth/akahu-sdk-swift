@@ -32,12 +32,18 @@ interface BaseProps {
   scope?: 'col' | 'colGroup' | 'row' | 'rowGroup';
 }
 
-type SpreadProps = React.DetailedHTMLProps<
-  React.ThHTMLAttributes<HTMLTableHeaderCellElement>,
-  HTMLTableHeaderCellElement
+// If SpreadProps is a union the Omit must be applied to all types in the union individually.
+// Using an Omit over an entire union will not work as expected.
+// See XUIButton.d.ts for an example & XUI-3079 for an explanation.
+type SpreadProps = Omit<
+  React.DetailedHTMLProps<
+    React.ThHTMLAttributes<HTMLTableHeaderCellElement>,
+    HTMLTableHeaderCellElement
+  >,
+  keyof BaseProps
 >;
 
-type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
+type Props = BaseProps & SpreadProps;
 
 declare const XUIEditableTableHeadingCell: React.FunctionComponent<Props>;
 export default XUIEditableTableHeadingCell;

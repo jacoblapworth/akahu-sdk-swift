@@ -4,7 +4,34 @@
 //
 // Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.rn5ood4vqaag
 //
-// For pages that include sub-sections, wrap the `xui-pageheading--title` alongside a horizontal [picklist](section-components-displayingdata-picklist.html#components-displayingdata-picklist-3) and apply the following class.
+// Introduction: Tabs help organise and separate related information on a page.
+//
+// Styleguide: Components.Navigation.Tabs
+
+// When to use
+//
+// - To separate related content on a page so it’s easier to navigate
+//
+// Styleguide: Components.Navigation.Tabs.1
+
+// When not to use
+//
+// - Don’t use to group unrelated content
+//
+// Styleguide: Components.Navigation.Tabs.2
+
+// Best practice
+//
+// Tips:
+// Do: Only 1 tab should be active at a time
+// Don't: Actions shouldn’t carry over across tabs
+// Info: See how tabs are used in [page headers](./section-components-navigation-page-header.html#components-navigation-page-header-4-4)
+//
+// Styleguide: Components.Navigation.Tabs.3
+
+// Anatomy
+//
+// For pages that include sub-sections, wrap the `xui-pageheading--title` alongside a [horizontal picklist](section-components-displayingdata-picklist.html#components-displayingdata-picklist-3-9) and apply the following class:
 //
 // Classes:
 // xui-pageheading--tabs: Container for title and tabs
@@ -13,9 +40,27 @@
 //
 // Markup: ./examples/tab/_tab.html
 //
-// Styleguide: Components.Navigation.Tabs
+// Styleguide: Components.Navigation.Tabs.4
 
-// Related links
+// Content guidelines
+//
+// Tips:
+// Do: Labels should be clear and distinctive
+// Do: Keep labels short (often they’re only 1 word)
+// Do: When tabs show only the user’s individual content, use the pronoun ‘your’
+// Don't: Don’t duplicate the page title
+//
+// Styleguide: Components.Navigation.Tabs.80
+
+// Examples
+//
+// ExampleContentTable:
+// All / Draft / Sent | All invoices / Draft invoices / Sent invoices
+// Your expenses | My expenses
+//
+// Styleguide: Components.Navigation.Tabs.80.1
+
+// Related components
 //
 // Related:
 // * [Page header](./section-components-navigation-page-header.html)

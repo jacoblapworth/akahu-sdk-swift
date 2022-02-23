@@ -9,6 +9,10 @@ import XUIPicklist, { XUIPickitem } from '../../picklist';
 import XUIDateInputItem from './private/XUIDateInputItem';
 import XUIControlGroup from '../controlgroup/XUIControlGroup';
 import { baseSizeClasses } from '../textinput/private/constants';
+import {
+  suggestedDatesHeader,
+  suggestedDatesSecondaryText,
+} from './private/suggestedDateHelperComponents';
 
 const baseClass = `${ns}-daterangeinput`;
 
@@ -82,6 +86,7 @@ class XUIDateRangeInput extends Component {
       nextButtonAriaLabel,
       prevButtonAriaLabel,
       qaHook,
+      _isSuggestedDatesDropdownHidden,
     } = this.props;
 
     const defaultStartDateInputConfig = {
@@ -149,15 +154,17 @@ class XUIDateRangeInput extends Component {
     const dateInputDropdown = suggestedDates && (
       <XUIDropdown className={`${baseClass}--suggesteddatesdropdown`} restrictFocus={false}>
         <XUIPicklist>
+          {suggestedDatesHeader}
           {suggestedDates.map(({ id, text, description }) => (
             <XUIPickitem
               id={id}
               isSelected={selectedSuggestedDateId === id}
               key={id}
               onSelect={this.onSelectSuggestedDateRange}
+              rightElement={suggestedDatesSecondaryText(description)}
               value={id}
             >
-              {text} {description}
+              {text}
             </XUIPickitem>
           ))}
         </XUIPicklist>
@@ -258,6 +265,7 @@ class XUIDateRangeInput extends Component {
             closeOnSelect={closeOnSelect}
             closeOnTab={false}
             dropdown={dateInputDropdown}
+            isHidden={_isSuggestedDatesDropdownHidden}
             qaHook={qaHook && `${qaHook}-daterangeinput-suggesteddates`}
             ref={this.secondaryButtonDdtRef}
             restrictedToViewPort={false}
@@ -279,6 +287,12 @@ class XUIDateRangeInput extends Component {
 }
 
 XUIDateRangeInput.propTypes = {
+  /**
+   * @ignore
+   * Internal use only, used to expose up `isHidden` prop from `DropdownToggled` for testing purposes
+   */
+  _isSuggestedDatesDropdownHidden: PropTypes.bool,
+
   /** CSS class(es) to go on the wrapping DOM node */
   className: PropTypes.string,
 

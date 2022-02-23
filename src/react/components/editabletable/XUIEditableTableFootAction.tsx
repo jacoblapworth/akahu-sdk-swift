@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import XUIButton from '../../button';
 import { tableVariantClassNames } from './private/constants';
-import EditableTableUtilityBar from './private/EditableTableUtilityBar';
+import XUIEditableTableUtilityBar from './XUIEditableTableUtilityBar';
 
 const baseName = `${tableVariantClassNames.editable}foot--action`;
 
@@ -34,7 +34,7 @@ const XUIEditableTableFootAction: React.FunctionComponent<Props> = ({
   qaHook,
   ...spreadProps
 }) => (
-  <EditableTableUtilityBar className={cn(baseName, className)} qaHook={qaHook} {...spreadProps}>
+  <XUIEditableTableUtilityBar className={cn(baseName, className)} qaHook={qaHook} {...spreadProps}>
     <XUIButton
       {...buttonProps}
       onClick={onAdd}
@@ -44,7 +44,7 @@ const XUIEditableTableFootAction: React.FunctionComponent<Props> = ({
     >
       {addButtonContent}
     </XUIButton>
-  </EditableTableUtilityBar>
+  </XUIEditableTableUtilityBar>
 );
 
 XUIEditableTableFootAction.propTypes = {

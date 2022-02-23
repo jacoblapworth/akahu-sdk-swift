@@ -9,6 +9,7 @@ export const dateInputSuggestedDates = [
       today.setDate(today.getDate() + 7);
       return today;
     },
+    description: '9 Feb 2022',
   },
   {
     id: 'month',
@@ -18,11 +19,13 @@ export const dateInputSuggestedDates = [
       today.setMonth(today.getMonth() + 1);
       return today;
     },
+    description: '2 Mar 2022',
   },
   {
     id: 'jan2019',
     text: 'January 2019',
     getDate: () => new Date(Date.UTC(2019, 0, 10)),
+    description: '1 Jan 2019',
   },
 ];
 
@@ -43,6 +46,7 @@ export const dateRangeInputSuggestedDates = [
       today.setDate(daysInMonth);
       return today;
     },
+    description: '1 - 28 Feb 22',
   },
   {
     id: 'quarterThis',
@@ -60,6 +64,7 @@ export const dateRangeInputSuggestedDates = [
       today.setDate(daysInMonth);
       return today;
     },
+    description: '1 Jan - 31 Mar 22',
   },
   {
     id: 'financialYearThis',
@@ -78,6 +83,7 @@ export const dateRangeInputSuggestedDates = [
       today.setDate(daysInMonth);
       return today;
     },
+    description: '1 Apr 21 - 31 Mar 22',
   },
   {
     id: 'monthLast',
@@ -95,6 +101,7 @@ export const dateRangeInputSuggestedDates = [
       today.setDate(daysInMonth);
       return today;
     },
+    description: '1 - 31 Jan 22',
   },
   {
     id: 'quarterNext',
@@ -112,5 +119,6 @@ export const dateRangeInputSuggestedDates = [
       today.setDate(daysInMonth);
       return today;
     },
+    description: '1 Sep - 31 Dec 21',
   },
 ];

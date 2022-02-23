@@ -2,9 +2,9 @@ import cn from 'classnames';
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
-import useResizeObserver from '../../helpers/useResizeObserver';
-import XUIEditableTableContext from '../contexts/XUIEditableTableContext';
-import { tableVariantClassNames } from './constants';
+import useResizeObserver from '../helpers/useResizeObserver';
+import XUIEditableTableContext from './contexts/XUIEditableTableContext';
+import { tableVariantClassNames } from './private/constants';
 
 const baseName = `${tableVariantClassNames.editable}utilitybar`;
 
@@ -24,7 +24,7 @@ type SpreadProps = Omit<
 
 type Props = BaseProps & SpreadProps;
 
-const EditableTableUtilityBar: React.FunctionComponent<Props> = ({
+const XUIEditableTableUtilityBar: React.FunctionComponent<Props> = ({
   children,
   className,
   qaHook,
@@ -71,10 +71,10 @@ const EditableTableUtilityBar: React.FunctionComponent<Props> = ({
   );
 };
 
-EditableTableUtilityBar.propTypes = {
+XUIEditableTableUtilityBar.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   qaHook: PropTypes.string,
 };
 
-export default EditableTableUtilityBar;
+export default XUIEditableTableUtilityBar;

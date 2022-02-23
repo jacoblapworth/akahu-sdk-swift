@@ -21,6 +21,7 @@ import XUIIcon from '../../icon/XUIIcon';
 import formatSelectedDateToString from './helpers/formatSelectedDateToString';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import { isDayOutsideRange } from '../../datepicker/helpers/utils';
+import { suggestedDatesHeader, suggestedDatesSecondaryText } from './suggestedDateHelperComponents';
 import getDateFormat from './helpers/getDateFormat';
 
 /**
@@ -254,6 +255,7 @@ class XUIDateInputItem extends Component {
       inputClassName,
       inputFieldClassName,
       inputLabel,
+      _isDropdownHidden,
       isDisabled,
       isInvalid,
       isDueDate, // Destructured so as not to spread.
@@ -376,12 +378,14 @@ class XUIDateInputItem extends Component {
           shouldManageInitialHighlight={this.state.pickitemInitialHighlight}
         >
           <XUIPicklist>
-            {suggestedDates?.map(({ id, text }) => (
+            {suggestedDatesHeader}
+            {suggestedDates?.map(({ id, text, description }) => (
               <XUIPickitem
                 id={id}
                 isSelected={selectedSuggestedDate === id}
                 key={id}
                 onSelect={this.selectSuggestedDate}
+                rightElement={suggestedDatesSecondaryText(description)}
                 value={id}
               >
                 {text}
@@ -397,6 +401,7 @@ class XUIDateInputItem extends Component {
         closeOnSelect={closeOnSelect}
         closeOnTab={false}
         dropdown={dateInputDropdown}
+        isHidden={_isDropdownHidden}
         onClose={this.onDropdownClose}
         ref={this.ddtRef}
         restrictedToViewPort={false}
@@ -409,6 +414,12 @@ class XUIDateInputItem extends Component {
 }
 
 XUIDateInputItem.propTypes = {
+  /**
+   * @ignore
+   * Internal use only, used to expose up `isHidden` prop from `DropdownToggled` for testing purposes
+   */
+  _isDropdownHidden: PropTypes.bool,
+
   /** Whether or not the dropdown should automatically be hidden when the user selects something */
   closeOnSelect: PropTypes.bool,
 

@@ -1,11 +1,14 @@
 package projects
 
 import buildTypes.BuildDocs
+import buildTypes.DeployVersionSelector
 import com.xero.teamcityhelpers.build.report.Report
 import com.xero.teamcityhelpers.buildtype.trigger.addSnapshotDependencies
+import com.xero.teamcityhelpers.buildtype.trigger.addVcsTrigger
 import com.xero.teamcityhelpers.deploy.s3.DeployToS3
 import helpers.addXUIBuildTriggers
 import helpers.removeAgentRegionRequirement
+import jetbrains.buildServer.configs.kotlin.v2019_2.ParametrizedWithType
 import jetbrains.buildServer.configs.kotlin.v2019_2.Project
 
 object XUIDocs:  Project({
@@ -56,21 +59,23 @@ object XUIDocs:  Project({
     addSnapshotDependencies(arrayOf(BuildDocs, deployXUITest))
   }
 
+  val prodParams: ParametrizedWithType.() -> Unit = {
+    param("component.deployment_environment", "Prod")
+
+    param("release.artifact.rules", "+:%component.dist_folder% => %component.dist_folder%")
+
+    param("aws.region", "us-east-1")
+    param("aws.account_id", "510694909772")
+    param("aws.role_name", "xui-shipto-docs")
+    param("aws.s3.bucket.name", "xero-xui")
+    param("aws.s3.destination.folder", "")
+  }
+
   val deployToProd = DeployToS3(BuildDocs, "Prod") {
     name = "Prod – Deploy XUI docs"
     artifactRules = "+:dist/docs => xui-docs-build-%build.counter%.tgz"
     manualDeploy = true
-    params {
-      param("component.deployment_environment", "Prod")
-
-      param("release.artifact.rules", "+:%component.dist_folder% => %component.dist_folder%")
-
-      param("aws.region", "us-east-1")
-      param("aws.account_id", "510694909772")
-      param("aws.role_name", "xui-shipto-docs")
-      param("aws.s3.bucket.name", "xero-xui")
-      param("aws.s3.destination.folder", "")
-    }
+    params(prodParams)
 
     // This is a dependency upon deployXUIProd to automatically trigger the docs deployment
     val deployXUIProd = XUIArtifacts.buildTypes.first { it.id.toString().contains("DeployXUIProd") }
@@ -78,6 +83,14 @@ object XUIDocs:  Project({
       successfulOnly = true
     }
     addSnapshotDependencies(arrayOf(BuildDocs, deployXUIProd))
+  }
+
+  val deployVersionSelector = DeployVersionSelector {
+    params {
+      prodParams()
+      param("git.trigger.rules", "+:src/versionSelector/VersionSelector.js")
+    }
+    addVcsTrigger()
   }
 
   val documentStableTest = Report(BuildDocs, deployToTest) {
@@ -93,6 +106,7 @@ object XUIDocs:  Project({
   buildType(BuildDocs)
   buildType(deployToTest)
   buildType(deployToProd)
+  buildType(deployVersionSelector)
 
   buildType(documentStableTest)
   buildType(documentStableProd)

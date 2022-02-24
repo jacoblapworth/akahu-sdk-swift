@@ -5,42 +5,47 @@
 `XUIRow` components are used to wrap `XUIColumn` components. The row variant determines how columns are spaced.
 
 ```jsx harmony
-import { XUIRow, XUIColumn } from '@xero/xui/react/structural';
+import { XUIColumn, XUIRow } from '@xero/xui/react/structural';
 
-const rowStyle = { backgroundColor: '#028DDE' };
-const colStyle = { backgroundColor: 'RGBA(255,255,255,0.5)' };
+const colStyle = { backgroundColor: 'RGBA(255,255,255,0.5)', padding: '12px' };
+const rowStyle = { backgroundColor: '#028DDE', padding: '12px' };
 
 <div>
-  <XUIRow variant="flex" style={rowStyle} className="xui-padding-small xui-margin-bottom-large">
-    <XUIColumn gridColumns="third" className="xui-padding-small" style={colStyle}>
+  <h3>Flex variant</h3>
+  <XUIRow style={rowStyle} variant="flex">
+    <XUIColumn gridColumns="third" style={colStyle}>
       4 / 12 columns
     </XUIColumn>
-    <XUIColumn gridColumns="third" className="xui-padding-small" style={colStyle}>
+    <XUIColumn gridColumns="third" style={colStyle}>
       4 / 12 columns
     </XUIColumn>
-    <XUIColumn gridColumns="third" className="xui-padding-small" style={colStyle}>
-      4 / 12 columns
-    </XUIColumn>
-  </XUIRow>
-  <XUIRow variant="grid" style={rowStyle} className="xui-padding-small xui-margin-bottom-large">
-    <XUIColumn gridColumns="third" className="xui-padding-small" style={colStyle}>
-      4 / 12 columns
-    </XUIColumn>
-    <XUIColumn gridColumns="third" className="xui-padding-small" style={colStyle}>
-      4 / 12 columns
-    </XUIColumn>
-    <XUIColumn gridColumns="third" className="xui-padding-small" style={colStyle}>
+    <XUIColumn gridColumns="third" style={colStyle}>
       4 / 12 columns
     </XUIColumn>
   </XUIRow>
-  <XUIRow variant="float" style={rowStyle} className="xui-padding-small">
-    <XUIColumn gridColumns="third" className="xui-padding-small" style={colStyle}>
+
+  <h3>Grid variant</h3>
+  <XUIRow style={rowStyle} variant="grid">
+    <XUIColumn gridColumns="third" style={colStyle}>
       4 / 12 columns
     </XUIColumn>
-    <XUIColumn gridColumns="third" className="xui-padding-small" style={colStyle}>
+    <XUIColumn gridColumns="third" style={colStyle}>
       4 / 12 columns
     </XUIColumn>
-    <XUIColumn gridColumns="third" className="xui-padding-small" style={colStyle}>
+    <XUIColumn gridColumns="third" style={colStyle}>
+      4 / 12 columns
+    </XUIColumn>
+  </XUIRow>
+
+  <h3>Float variant</h3>
+  <XUIRow style={rowStyle} variant="float">
+    <XUIColumn gridColumns="third" style={colStyle}>
+      4 / 12 columns
+    </XUIColumn>
+    <XUIColumn gridColumns="third" style={colStyle}>
+      4 / 12 columns
+    </XUIColumn>
+    <XUIColumn gridColumns="third" style={colStyle}>
       4 / 12 columns
     </XUIColumn>
   </XUIRow>

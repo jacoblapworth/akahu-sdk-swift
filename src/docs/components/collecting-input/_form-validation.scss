@@ -14,17 +14,12 @@
 //
 // Always include a colour change, descriptive message, and an icon to show where the error is. This way it’s still meaningful to people who can’t recognise colour.
 //
-// **Position**
-// * Position inline validation messages underneath the input
-// * If there’s no space below the input because it’s in a group, place it at the bottom of the group
-// * If there’s no space below the input, place it at the top of the input in a banner
-//
-//
 // Tips:
 // Do: Show on blur
 // Do: Include the name of the field in the message
 // Do: Add an explanation or example of what should be entered when formatting requirements aren't met
 // Do: Add the ‘status’ ARIA role to inline validation messages
+// Do: Position inline validation messages underneath the input or input group – if there’s no space below the input, show validation in a banner at the top of the form
 // Warning: Try to be flexible with the accepted formats rather than giving unnecessary errors
 // Dont: Don't mark fields as invalid without a validation error message
 // Dont: Don't use vague messages that don't suggest a next step

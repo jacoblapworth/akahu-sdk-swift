@@ -62,8 +62,10 @@
 // Spacing
 //
 // To provide flexibility for different types of content, panels do not provide any margin and padding by design.
+//
 // To add your own, use the `xui-padding-*` and `xui-margin-*` [utility classes](section-fundamentals-spacing.html).
-// We do however, recommend using `xui-padding-large` as a sensible default.
+//
+// We do, however, recommend using `xui-padding-large` as a sensible default.
 //
 // Styleguide: Components.DisplayingData.Panel.4.1
 
@@ -86,7 +88,7 @@
 //
 // ExampleClass: ds-example-wide-with-nav
 //
-// To create distinct sections within a panel, use the following class, and add an optional centered header.
+// To create distinct sections within a panel, use the following class and add an optional centered header.
 //
 // Classes:
 // xui-panel--section: Adds borders to seperate sections within a panel
@@ -137,6 +139,7 @@
 //
 // To create a sidebar that triggers different panel content, use the following layout.
 // Note that [utility classes](section-fundamentals-utilities.html) are also required to achieve the following layout.
+//
 // In order to create the sidebar list itself, a [picklist](section-components-displayingdata-picklist.html) is also required.
 //
 // Classes:
@@ -151,17 +154,13 @@
 // Tips:
 // Do: Use sentence case (capitalise first word and proper nouns)
 //
+//
+// Related: Also see guidance for writing:
+// * [Buttons](./section-components-controls-button.html#components-controls-button-7)
+// * [Headings](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#headings)
+// * [Labels](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#labels)
+//
 // Styleguide: Components.DisplayingData.Panel.5
-
-// TopDescription: How to write for the following areas of a panel:
-//
-//
-//
-// - [Buttons](./section-components-controls-button.html#components-controls-button-15)
-// - [Headings](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#headings)
-// - [Labels](https://xui.xero.com/product-language-guide/components/examples-of-product-writing/#labels)
-//
-// Styleguide: Components.DisplayingData.Panel.5.1
 
 // Related components
 //

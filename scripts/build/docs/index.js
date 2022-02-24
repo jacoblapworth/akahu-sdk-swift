@@ -4,12 +4,13 @@ const rimraf = require('rimraf').sync;
 const path = require('path');
 
 const xuiDocsVersion = require('./private/xuiDocsVersion');
-const build = require('../../build');
+const build = require('..');
 const generateTags = require('./generateTags');
 const addVersionSelector = require('./addVersionSelector');
 const deleteLiveReload = require('./deleteLiveReload');
 
 const { taskRunner, taskRunnerReturns } = require('../../helpers');
+
 const { succeed, fail } = taskRunnerReturns;
 
 function docsBuild() {
@@ -49,12 +50,6 @@ function docsBuild() {
       // Generate tags.json
       taskSpinner.info('Generating tags.json');
       await generateTags();
-
-      // Build version selector
-      taskSpinner.info('Building the version selector JS and CSS files');
-      execSync('npm run docs:build:selector', {
-        stdio: [0, 1, 2],
-      });
 
       // Add version selector
       taskSpinner.info('Adding the version selector JS and CSS files to the sites markup');

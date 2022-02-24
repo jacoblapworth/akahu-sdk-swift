@@ -147,9 +147,10 @@ module.exports = function(handlebars) {
     const isLast = body.data.last;
 
     const featuresOf = sections.find(section => section.header.includes("Features of"));
+    const formLayout = sections.find(section => section.header.includes("Elements within a form"));
     const featuresOfReference = featuresOf && featuresOf.reference;
     const isSectionUnderFeaturesOf = featuresOfReference && this.reference.includes(featuresOfReference);
-    const isCallout = isSectionUnderFeaturesOf ? depth === 5 : depth === 4;
+    const isCallout = (isSectionUnderFeaturesOf || formLayout) ? depth === 5 : depth === 4;
 
     var openSection = ``,
       closeSection = ``;

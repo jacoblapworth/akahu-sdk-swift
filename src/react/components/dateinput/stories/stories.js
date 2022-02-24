@@ -117,9 +117,11 @@ variations.forEach(variation => {
     const variationMinusStoryDetails = { ...variation };
     delete variationMinusStoryDetails.storyKind;
     delete variationMinusStoryDetails.storyTitle;
+    const isDropdownHidden = variation.isDropdownHidden;
 
     const component = isDateRangeInput ? (
       <XUIDateRangeInput
+        _isSuggestedDatesDropdownHidden={isDropdownHidden}
         endDateInputConfig={{
           inputLabel: 'End date',
         }}
@@ -133,6 +135,7 @@ variations.forEach(variation => {
       />
     ) : (
       <XUIDateInput
+        _isDropdownHidden={isDropdownHidden}
         inputLabel="Start date"
         locale="en-NZ"
         nextButtonAriaLabel="Next month"

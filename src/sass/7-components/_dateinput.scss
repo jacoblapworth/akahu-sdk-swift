@@ -48,3 +48,16 @@ $xui-dateinput-label-vertical-offset: 25px;
     cursor: not-allowed;
   }
 }
+
+.#{$ns}-dateinput-suggesteddates--rightelement {
+  padding-right: $xui-s-xsmall;
+}
+
+.#{$ns}-dateinput-suggesteddates--header {
+  color: $xui-color-grey-3;
+  font-size: 11px;
+  padding: $xui-s-small;
+  span {
+    padding-left: $xui-s-xsmall;
+  }
+}

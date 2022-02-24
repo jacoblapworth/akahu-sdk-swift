@@ -91,6 +91,7 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Date Input',
     variationsPath: `${variationsPath}/dateinput/stories/variations.js`,
+    ...fullPageSettings,
   },
   {
     testsPrefix: 'XUI Date Picker',

@@ -178,11 +178,20 @@ interface BaseProps {
   value?: string;
 }
 
+// If SpreadProps is a union the Omit must be applied to all types in the union individually.
+// Using an Omit over an entire union will not work as expected.
+// See XUI-3079 for an explanation.
 type SpreadProps =
-  | React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-  | React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
+  | Omit<
+      React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+      keyof BaseProps
+    >
+  | Omit<
+      React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>,
+      keyof BaseProps
+    >;
 
-type Props = BaseProps & Omit<SpreadProps, keyof BaseProps>;
+type Props = BaseProps & SpreadProps;
 
 export default class XUITextInput extends React.PureComponent<Props> {
   /**

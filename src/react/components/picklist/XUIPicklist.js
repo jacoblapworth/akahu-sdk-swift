@@ -82,7 +82,9 @@ export default class XUIPicklist extends Component {
         return React.cloneElement(child, {
           // Set the `option` role for pickitem when picklist has a `listbox` role
           ariaRole:
-            child.type === XUIPickitem && secondaryProps?.role === 'listbox' ? 'option' : undefined,
+            child.type === XUIPickitem && secondaryProps?.role === 'listbox'
+              ? 'option'
+              : child.props.ariaRole || undefined,
           size: listLevelProps.listSize,
           isMultiselect: listLevelProps.listMultiselect,
           _isHorizontal: isHorizontal,

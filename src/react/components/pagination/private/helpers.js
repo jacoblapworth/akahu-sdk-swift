@@ -15,6 +15,7 @@ export const defaultCreateCountContent = (from, to, count) => ({
 
 export const defaultCreatePagingContent = (page, pageCount) => {
   /* eslint-disable no-template-curly-in-string */
+  // eslint-disable-next-line no-console
   console.log(
     'Please make sure you add a `defaultCreatePagingContent` prop with both simple and enhanced versions, eg.',
     '(page, pageCount) => ({ enhanced: `Page ${page} of ${pageCount}`, simple: `${page} of ${pageCount}`, })',

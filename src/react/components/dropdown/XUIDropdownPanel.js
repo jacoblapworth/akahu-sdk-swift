@@ -259,7 +259,7 @@ class XUIDropdownPanel extends PureComponent {
 
   onHighlightChange = (item, event) => {
     this.setState({ highlightedId: item.props.id });
-    this.props.onHighlightChange(item, event);
+    this.props.onHighlightChange?.(item, event);
   };
 
   render() {

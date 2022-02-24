@@ -53,10 +53,13 @@ type BreadcrumbProps =
       title?: React.ReactNode;
     };
 
-type SpreadProps = React.HTMLAttributes<HTMLElement>;
+// If SpreadProps is a union the Omit must be applied to all types in the union individually.
+// Using an Omit over an entire union will not work as expected.
+// See XUIButton.d.ts for an example & XUI-3079 for an explanation.
+type SpreadProps = Omit<React.HTMLAttributes<HTMLElement>, keyof CompleteBaseProps>;
 
 type CompleteBaseProps = BaseProps & BreadcrumbProps;
 
-type Props = CompleteBaseProps & Omit<SpreadProps, keyof CompleteBaseProps>;
+type Props = CompleteBaseProps & SpreadProps;
 
 export default class XUIPageHeader extends React.PureComponent<Props> {}

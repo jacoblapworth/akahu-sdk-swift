@@ -1,0 +1,167 @@
+<div class="xui-filepreview">
+  <header class="xui-filepreviewheader">
+    <div class="xui-filepreviewheader--leftcontent">
+      <div class="xui-filepreviewheader--controlcontent">
+        <button
+          aria-label="close"
+          class="xui-button xui-button-icon-medium xui-button-icon"
+          tabindex="0"
+          type="button"
+        >
+          <svg focusable="false" class="xui-icon" role="presentation">
+            <use xlink:href="#xui-icon-cross" />
+          </svg>
+          <div class="xui-touchtarget"></div>
+        </button>
+      </div>
+      <div class="xui-filepreviewheader--titlewrapper">
+        <h2 class="xui-filepreviewheader--title">working.jpg</h2>
+      </div>
+    </div>
+    <div class="xui-filepreviewheader--rightcontent">
+      <div class="xui-filepreviewheader--actions">
+        <button
+          class="xui-button xui-text-truncated xui-button-borderless-main xui-button-small"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            class="xui-icon xui-margin-right-xsmall"
+            focusable="false"
+            height="12"
+            viewBox="0 0 10 12"
+            width="10"
+          >
+            <path d="M4 5V0h2v5h2L5 8 2 5h2zm-4 6h10v1H0v-1z" role="presentation"></path>
+          </svg>
+          Download
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="xui-filepreview--body">
+    <img
+      alt="Golf Club Receipt"
+      src="./kss-assets/file-preview-images/receipt-example.png"
+      style="max-height: 100%; max-width: 300px"
+    />
+  </div>
+  <footer class="xui-filepreviewfooter">
+    <div class="xui-filepreviewfooter--controls">
+      <button
+        aria-label="Fit to page"
+        class="xui-button xui-button-icon-medium xui-button-icon"
+        tabindex="0"
+        type="button"
+      >
+        <svg focusable="false" class="xui-icon" role="presentation">
+          <use xlink:href="#xui-icon-expand" />
+        </svg>
+        <div class="xui-touchtarget"></div>
+      </button>
+      <button
+        aria-label="Zoom out"
+        class="xui-button xui-button-icon-medium xui-button-icon"
+        tabindex="0"
+        type="button"
+      >
+        <svg focusable="false" class="xui-icon" role="presentation">
+          <use xlink:href="#xui-icon-subtraction" />
+        </svg>
+        <div class="xui-touchtarget"></div>
+      </button>
+      <button
+        aria-label="Zoom in"
+        class="xui-button xui-button-icon-medium xui-button-icon"
+        tabindex="0"
+        type="button"
+      >
+        <svg focusable="false" class="xui-icon" role="presentation">
+          <use xlink:href="#xui-icon-addition" />
+        </svg>
+        <div class="xui-touchtarget"></div>
+      </button>
+      <button
+        aria-label="Rotate clockwise"
+        class="xui-button xui-button-icon-medium xui-button-icon"
+        tabindex="0"
+        type="button"
+      >
+        <svg focusable="false" class="xui-icon" role="presentation">
+          <use xlink:href="#xui-icon-rotate-clockwise" />
+        </svg>
+        <div class="xui-touchtarget"></div>
+      </button>
+      <button
+        aria-label="Rotate anti-clockwise"
+        class="xui-button xui-button-icon-medium xui-button-icon"
+        tabindex="0"
+        type="button"
+      >
+        <svg focusable="false" class="xui-icon" role="presentation">
+          <use xlink:href="#xui-icon-rotate-anticlockwise" />
+        </svg>
+        <div class="xui-touchtarget"></div>
+      </button>
+    </div>
+    <div class="xui-filepreviewfooter--pagination">
+      <nav aria-label="Pagination" class="xui-pagination">
+        <div class="xui-pagination--paging">
+          <button
+            aria-label="Previous Page"
+            class="xui-button xui-button-icon-small xui-button-icon"
+            tabindex="0"
+            type="button"
+          >
+            <svg class="xui-icon" focusable="false" height="13" viewBox="0 0 14 13" width="14">
+              <path d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z" role="presentation"></path>
+            </svg>
+            <div class="xui-touchtarget"></div>
+          </button>
+          <div class="xui-selectwrapper">
+            <div class="">
+              <div class="xui-select xui-select-layout">
+                <div class="xui-dropdown--toggledwrapper" data-ref="toggled-wrapper">
+                  <button
+                    aria-label="Select a page"
+                    id="visual-example-control"
+                    aria-haspopup="listbox"
+                    class="xui-button xui-select--button xui-button-borderless-main xui-button-small xui-button-has-icon"
+                    tabindex="0"
+                    type="button"
+                    aria-activedescendant="Selectapage3"
+                  >
+                    <span class="xui-select--content">2 of 5</span>
+                    <div class="xui-button--caret xui-select--caret">
+                      <svg focusable="false" class="xui-icon" role="presentation">
+                        <use xlink:href="#xui-icon-caret" />
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            aria-label="Next Page"
+            class="xui-button xui-button-icon-small xui-button-icon xui-button-is-disabled"
+            tabindex="-1"
+            type="button"
+            disabled=""
+          >
+            <svg
+              class="xui-icon xui-icon-rotate-180"
+              focusable="false"
+              height="13"
+              viewBox="0 0 14 13"
+              width="14"
+            >
+              <path d="M4 5.5l4-4L6.5 0 0 6.5 6.5 13 8 11.5l-4-4h10v-2z" role="presentation"></path>
+            </svg>
+            <div class="xui-touchtarget"></div>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </footer>
+</div>

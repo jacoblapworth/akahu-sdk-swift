@@ -10,9 +10,6 @@
 //
 // Introduction: Date inputs let users type in and select a date or date range.
 //
-// Note:
-// Some of the functionality described in the content below is reliant on the React implementation of the component. The examples displayed may also be missing some functionality due to them being generated in HTML and CSS. To see the full component experience, visit the <a href="./react/#dateinput">React documentation</a>.
-//
 // ExampleClass: ds-example-transparent ds-example-flush ds-example-nomarkuplink
 //
 // Styleguide: Components.CollectingInput.DateInput
@@ -27,7 +24,7 @@
 //
 // Tips:
 // Do: Use succinct labels that clearly indicate the type of date (e.g. ‘Issue date’ or ‘Due date’)
-// Do: Ensure date formatting matches the user’s locale ([see time and date formatting guidelines](https://xui.xero.com/product-language-guide/components/our-language-style/index.html#time-and-date))
+// Do: Ensure date formatting matches the user’s locale ([see time and date formatting guidelines](https://xui.xero.com/product-language-guide/components/writing-style/#dates))
 // Do: To enable appropriate shortcuts in different regions, use locale specific shortcuts from the [Xero date-shortcuts library](https://github.dev.xero.com/XeroJS/date-shortcuts)
 // Warning: Only pre-fill date input values when you’re confident it will speed up the user’s workflow
 //
@@ -36,6 +33,8 @@
 // Features of a date input
 //
 // Explore the different features that can be applied to this component.
+//
+// Many of these features rely on the <a href="./react/#dateinput">React component</a> implementation, so the examples below may not accurately represent the end user experience.
 //
 // Styleguide: Components.CollectingInput.DateInput.3
 

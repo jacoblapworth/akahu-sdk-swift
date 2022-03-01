@@ -20,80 +20,75 @@ By default, the observed element's width is calculated based on the content box,
 #### Apply predefined classes at standard sizes
 
 ```jsx harmony
-import React from 'react';
 import cn from 'classnames';
 import useContainerQuery from '@xero/xui/react/helpers/useContainerQuery';
 
 const wrapperStyles = {
-  resize: 'horizontal',
   overflow: 'hidden',
+  resize: 'horizontal',
   maxWidth: '100%'
 };
 
-const SizeClassTest = () => {
+const ContainerQueryClassExample = () => {
   const { getWidthClasses, observedElementRef } = useContainerQuery();
 
   const classNames = cn(...getWidthClasses());
 
   return (
-    <div
-      /* On a separate element so width-classes are easier to read */
-      className="xui-panel xui-padding-xsmall"
-      style={wrapperStyles}
-    >
-      <div ref={observedElementRef} className={classNames}>
-        This panel is resizeable in some browsers. Try it (or resize your window), and check out the
-        classes on the inner element.
+    <div className="xui-panel xui-padding-xsmall" style={wrapperStyles}>
+      <div className={classNames} ref={observedElementRef}>
+        This panel is resizable in some browsers. Try resizing the panel (or resize your window),
+        and check out the classes on the inner element.
       </div>
     </div>
   );
 };
-<SizeClassTest />;
+<ContainerQueryClassExample />;
 ```
 
 #### Apply custom breakpoints
 
 ```jsx harmony
-import React from 'react';
-import { XUIIconButton } from '@xero/xui/react/button';
-import info from '@xero/xui-icon/icons/info';
 import cross from '@xero/xui-icon/icons/cross';
+import info from '@xero/xui-icon/icons/info';
 import search from '@xero/xui-icon/icons/search';
-import accessibility from '@xero/xui-icon/icons/accessibility';
+import star from '@xero/xui-icon/icons/star';
+import { XUIIconButton } from '@xero/xui/react/button';
 import useContainerQuery from '@xero/xui/react/helpers/useContainerQuery';
 
 const wrapperStyles = {
-  resize: 'horizontal',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  resize: 'horizontal'
 };
-const BreakpointsTest = () => {
+
+const ContainerQueryBreakpointsExample = () => {
   const breakpoints = {
-    info: 950,
-    cross: 750,
+    cross: 950,
+    info: 750,
     search: 550,
-    accessibility: 350
+    star: 350
   };
 
   const { isWidthAboveBreakpoint, observedElementRef } = useContainerQuery(breakpoints);
 
   return (
-    <div ref={observedElementRef} className="xui-panel xui-padding-xsmall" style={wrapperStyles}>
-      {isWidthAboveBreakpoint('accessibility') && (
-        <XUIIconButton icon={accessibility} ariaLabel="Hello" title="Hello" />
+    <div className="xui-panel xui-padding-xsmall" ref={observedElementRef} style={wrapperStyles}>
+      {isWidthAboveBreakpoint('star') && (
+        <XUIIconButton ariaLabel="Favourite" icon={star} title="Favourite" />
       )}
       {isWidthAboveBreakpoint('search') && (
-        <XUIIconButton icon={search} ariaLabel="Find one" title="Find one" />
-      )}
-      {isWidthAboveBreakpoint('cross') && (
-        <XUIIconButton icon={cross} ariaLabel="Add another" title="Add another" />
+        <XUIIconButton ariaLabel="Search" icon={search} title="Search" />
       )}
       {isWidthAboveBreakpoint('info') && (
-        <XUIIconButton icon={info} ariaLabel="More info" title="More info" />
+        <XUIIconButton ariaLabel="Information" icon={info} title="Information" />
+      )}
+      {isWidthAboveBreakpoint('cross') && (
+        <XUIIconButton ariaLabel="Close" icon={cross} title="Close" />
       )}
     </div>
   );
 };
-<BreakpointsTest />;
+<ContainerQueryBreakpointsExample />;
 ```
 
 ### Class components
@@ -110,19 +105,19 @@ Once set up, there are two ways to use the container query.
 #### Apply predefined classes at standard sizes
 
 ```jsx harmony
-import { Component } from 'react';
+import { Component, createRef } from 'react';
 import cn from 'classnames';
-import { observe, unobserve, getWidthClasses } from '@xero/xui/react/helpers/containerQuery';
+import { observe, getWidthClasses, unobserve } from '@xero/xui/react/helpers/containerQuery';
 
 const wrapperStyles = {
-  resize: 'horizontal',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  resize: 'horizontal'
 };
 
-class SizeClassTest extends Component {
-  constructor(...args) {
-    super(...args);
-    this._area = React.createRef();
+class ContainerQueryClassExample extends Component {
+  constructor(props) {
+    super(props);
+    this._area = createRef();
   }
 
   componentDidMount() {
@@ -137,48 +132,44 @@ class SizeClassTest extends Component {
     const classNames = cn(...getWidthClasses(this.state));
 
     return (
-      <div
-        /* On a separate element so width-classes are easier to read */
-        className="xui-panel xui-padding-xsmall"
-        style={wrapperStyles}
-      >
-        <div ref={this._area} className={classNames}>
-          This panel is resizeable in some browsers. Try it (or resize your window), and check out
-          the classes on the inner element.
+      <div className="xui-panel xui-padding-xsmall" style={wrapperStyles}>
+        <div className={classNames} ref={this._area}>
+          This panel is resizable in some browsers. Try resizing the panel (or resize your window),
+          and check out the classes on the inner element.
         </div>
       </div>
     );
   }
 }
-<SizeClassTest />;
+<ContainerQueryClassExample />;
 ```
 
 #### Apply custom breakpoints
 
 ```jsx harmony
-import { Component } from 'react';
+import { Component, createRef } from 'react';
+import star from '@xero/xui-icon/icons/star';
+import cross from '@xero/xui-icon/icons/cross';
+import info from '@xero/xui-icon/icons/info';
+import search from '@xero/xui-icon/icons/search';
 import { XUIIconButton } from '@xero/xui/react/button';
 import { observe, unobserve } from '@xero/xui/react/helpers/containerQuery';
-import info from '@xero/xui-icon/icons/info';
-import cross from '@xero/xui-icon/icons/cross';
-import search from '@xero/xui-icon/icons/search';
-import accessibility from '@xero/xui-icon/icons/accessibility';
 
 const wrapperStyles = {
-  resize: 'horizontal',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  resize: 'horizontal'
 };
 
-class BreakpointsTest extends Component {
-  constructor(...args) {
-    super(...args);
+class ContainerQueryBreakpointsExample extends Component {
+  constructor(props) {
+    super(props);
     this.state = {};
-    this._area = React.createRef();
+    this._area = createRef();
     this._breakpoints = {
-      info: 950,
-      cross: 750,
+      cross: 950,
+      info: 750,
       search: 550,
-      accessibility: 350
+      star: 350
     };
   }
 
@@ -192,18 +183,16 @@ class BreakpointsTest extends Component {
 
   render() {
     return (
-      <div ref={this._area} className="xui-panel xui-padding-xsmall" style={wrapperStyles}>
-        {this.state.accessibility && (
-          <XUIIconButton icon={accessibility} ariaLabel="Hello" title="Hello" />
+      <div className="xui-panel xui-padding-xsmall" ref={this._area} style={wrapperStyles}>
+        {this.state.star && <XUIIconButton ariaLabel="Favourite" icon={star} title="Favourite" />}
+        {this.state.search && <XUIIconButton ariaLabel="Search" icon={search} title="Search" />}
+        {this.state.info && (
+          <XUIIconButton ariaLabel="Information" icon={info} title="Information" />
         )}
-        {this.state.search && <XUIIconButton icon={search} ariaLabel="Find one" title="Find one" />}
-        {this.state.cross && (
-          <XUIIconButton icon={cross} ariaLabel="Add another" title="Add another" />
-        )}
-        {this.state.info && <XUIIconButton icon={info} ariaLabel="More info" title="More info" />}
+        {this.state.cross && <XUIIconButton ariaLabel="Close" icon={cross} title="Close" />}
       </div>
     );
   }
 }
-<BreakpointsTest />;
+<ContainerQueryBreakpointsExample />;
 ```

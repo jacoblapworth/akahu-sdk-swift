@@ -82,11 +82,8 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-s-xlar
 // stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-textinput-focus {
   &:not(.#{$ns}-textinput-cell) {
-    box-shadow: $xui-shadow-focus;
+    @include xui-focus-direct;
   }
-  outline: none;
-  transition: box-shadow 0.1s;
-  z-index: $xui-z-index-focus;
 }
 
 .#{$ns}-textinput-is-disabled {
@@ -311,48 +308,22 @@ $input-text-vertical-padding-standard: ($xui-control-size-standard - $xui-s-xlar
 
 .#{$ns}-textinput-borderless:not(.#{$ns}-textinput-cell) {
   border: 0;
-
-  &:focus {
-    box-shadow: none;
-  }
 }
 
 .#{$ns}-textinput-borderless-transparent:not(.#{$ns}-textinput-cell) {
   background-color: transparent;
-
-  &.#{$ns}-textinput-focus {
-    background-color: $xui-textinput-borderless-transparent-focus-bg-color;
-    box-shadow: none;
-  }
-
-  &.#{$ns}-textinput-borderless-inverted.#{$ns}-textinput-focus {
-    background-color: $xui-textinput-borderless-transparent-inverted-focus-bg-color;
-  }
 }
 
 .#{$ns}-textinput-borderless-solid:not(.#{$ns}-textinput-cell) {
   background-color: $xui-textinput-borderless-solid-bg-color;
 
-  &.#{$ns}-textinput-focus {
-    background-color: $xui-textinput-borderless-solid-focus-bg-color;
-    box-shadow: none;
-  }
-
   &.#{$ns}-textinput-borderless-inverted {
     background-color: $xui-textinput-borderless-solid-inverted-bg-color;
-
-    &.#{$ns}-textinput-focus {
-      background-color: $xui-textinput-borderless-solid-inverted-focus-bg-color;
-    }
   }
 }
 
 .#{$ns}-textinput-borderless.#{$ns}-textinput-is-invalid:not(.#{$ns}-textinput-cell) {
   background-color: $xui-textinput-borderless-invalid-bg-color;
-
-  &.#{$ns}-textinput-focus {
-    background-color: $xui-textinput-borderless-invalid-focus-bg-color;
-  }
 }
 
 .#{$ns}-textinput-borderless-inverted:not(.#{$ns}-textinput-cell) {

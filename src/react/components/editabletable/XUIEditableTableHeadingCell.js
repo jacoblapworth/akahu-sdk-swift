@@ -4,8 +4,12 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIIcon from '../icon/XUIIcon';
 
+import PortalFocus from './private/PortalFocus';
+import XUIEditableTableContext from './contexts/XUIEditableTableContext';
+
 import queryIsValidInteraction from '../../helpers/isQueryValidInteraction';
 import XUIEditableTableClassContext from './contexts/XUIEditableTableClassContext';
+import useResizeObserver from '../helpers/useResizeObserver';
 
 const XUIEditableTableHeadingCell = ({
   children,
@@ -13,16 +17,41 @@ const XUIEditableTableHeadingCell = ({
   inlineAlignment,
   isSortActive,
   isSortAsc,
+  onBlur,
   onClick,
+  onFocus,
   onKeyDown,
   onSortChange,
   qaHook,
   scope,
   ...spreadProps
 }) => {
+  const { observedElementRef, contentRect: observedElementContentRect } = useResizeObserver();
+  const { scrollContainerRef } = React.useContext(XUIEditableTableContext);
+
   const tableClassName = React.useContext(XUIEditableTableClassContext);
   const sortButtonContentRef = React.useRef();
   const isSortable = Boolean(onSortChange);
+
+  const [isFocused, setIsFocused] = React.useState();
+
+  /**
+   * Records the focus state onBlur, before calling any user-supplied handlers.
+   * @param {event} event
+   */
+  const composedOnBlur = event => {
+    setIsFocused(false);
+    onBlur && onBlur(event);
+  };
+
+  /**
+   * Records the focus state onFocus, before calling any user-supplied handlers.
+   * @param {event} event
+   */
+  const composedOnFocus = event => {
+    setIsFocused(true);
+    onFocus && onFocus(event);
+  };
 
   const handleInteraction = event => {
     const isValidInteraction = queryIsValidInteraction(event);
@@ -63,8 +92,11 @@ const XUIEditableTableHeadingCell = ({
     <th
       className={cellClassName}
       data-automationid={qaHook}
+      onBlur={composedOnBlur}
       onClick={composedOnClick}
+      onFocus={composedOnFocus}
       onKeyDown={composedOnKeyDown}
+      ref={observedElementRef}
       role={isSortable ? 'button' : undefined}
       scope={scope}
       tabIndex={isSortable ? 0 : undefined}
@@ -92,6 +124,14 @@ const XUIEditableTableHeadingCell = ({
               rotation={isSortAsc ? 180 : undefined}
             />
           </div>
+          {isFocused && (
+            <PortalFocus
+              focusedCellContentRect={observedElementContentRect}
+              focusedCellRef={observedElementRef}
+              isFocused={isFocused}
+              scrollContainerRef={scrollContainerRef}
+            />
+          )}
         </div>
       ) : (
         children
@@ -115,7 +155,9 @@ XUIEditableTableHeadingCell.propTypes = {
    * This indication only appears if the `isSortActive` is set to `true`.
    */
   isSortAsc: PropTypes.bool,
+  onBlur: PropTypes.func,
   onClick: PropTypes.func,
+  onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
   /**
    * Callback to handle a sort interaction.

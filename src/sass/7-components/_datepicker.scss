@@ -87,9 +87,6 @@ $xui-datepicker-day-size: $xui-control-size-standard;
   top: 0;
   width: 100%;
 }
-.#{$ns}-datepicker--heading-select-has-focus {
-  @include xui-state-focus-shadow;
-}
 
 .#{$ns}-datepicker--heading-label.#{$ns}-button-standard {
   position: static;
@@ -116,12 +113,21 @@ $xui-datepicker-day-size: $xui-control-size-standard;
     border-bottom-right-radius: 0;
     border-right: none;
     border-top-right-radius: 0;
+
+    &.#{$ns}-datepicker--heading-select-has-focus {
+      border-right: 1px solid $xui-button-border-color;
+      position: inherit;
+    }
   }
 
   :last-child .#{$ns}-button {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
   }
+}
+
+.#{$ns}-datepicker--heading-select-has-focus {
+  @include xui-focus-direct;
 }
 
 .#{$ns}-datepicker--body {

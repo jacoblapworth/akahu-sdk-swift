@@ -3,6 +3,8 @@
 @import '../vars';
 @import '../mixins';
 
+$xui-svg-focus-stroke-width: 2;
+
 // Group styles
 // ============
 .#{$ns}-styledcheckboxradio-group {
@@ -146,15 +148,16 @@
 // prefers-reduced-motion can be ignored here because this instance is not a motion animation
 // stylelint-disable-next-line a11y/media-prefers-reduced-motion
 .#{$ns}-styledcheckboxradio--focus,
+.#{$ns}-styledcheckboxradio--focus-outer,
 .#{$ns}-styledcheckboxradio--main {
   transition: all $xui-motion-speed-fast ease;
 }
 
-.#{$ns}-styledcheckboxradio--focus {
+.#{$ns}-styledcheckboxradio--focus,
+.#{$ns}-styledcheckboxradio--focus-outer {
   opacity: 0; // Hide focus
   stroke: transparent;
   stroke-linejoin: round;
-  stroke-width: 6;
 }
 
 .#{$ns}-styledcheckboxradio--main {
@@ -177,7 +180,14 @@
     // 			 https://developer.mozilla.org/en/docs/Web/CSS/filter
     .#{$ns}-styledcheckboxradio--focus {
       opacity: 1; // Show focus
-      stroke: $xui-checkboxradio-focus-stroke;
+      stroke: $xui-color-white;
+      stroke-width: $xui-svg-focus-stroke-width;
+    }
+
+    .#{$ns}-styledcheckboxradio--focus-outer {
+      opacity: 1; // Show focus
+      stroke: $xui-color-blue-light;
+      stroke-width: $xui-svg-focus-stroke-width + 3;
     }
   }
 
@@ -188,7 +198,8 @@
   }
 
   &:active + .#{$ns}-iconwrapper {
-    .#{$ns}-styledcheckboxradio--focus {
+    .#{$ns}-styledcheckboxradio--focus,
+    .#{$ns}-styledcheckboxradio--focus-outer {
       opacity: 0; // Hide focus
       stroke: transparent;
     }
@@ -300,7 +311,7 @@
   // ========================
   &:focus + .#{$ns}-styledcheckboxradio--checkbox,
   &:focus + .#{$ns}-styledcheckboxradio--radio {
-    box-shadow: $xui-shadow-focus;
+    @include xui-focus-direct;
   }
   &:active + .#{$ns}-styledcheckboxradio--checkbox,
   &:active + .#{$ns}-styledcheckboxradio--radio {

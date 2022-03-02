@@ -57,7 +57,7 @@
     text-decoration: underline;
   }
   &:focus {
-    @include xui-state-focus-shadow($xui-shadow-focus-inset);
+    @include xui-focus-direct($focus-box-shadow-inset);
     color: $xui-link-color; // overriding the a:focus color
   }
   &.#{$ns}-breadcrumb--dropdowntrigger {

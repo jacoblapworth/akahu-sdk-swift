@@ -69,9 +69,9 @@
   background-color: $xui-toggle-label-checked-active-bg-color;
 }
 
-// Focus, not hover
-.#{$ns}-toggle--input:focus:not(:hover) + .#{$ns}-toggle--label {
-  box-shadow: $xui-shadow-focus;
+// Focus
+.#{$ns}-toggle--input:focus + .#{$ns}-toggle--label {
+  @include xui-focus-direct;
 }
 
 // Disabled
@@ -161,9 +161,9 @@
     border-color: $xui-toggle-label-inverted-checked-active-bg-color;
   }
 
-  // Focus, not hover
-  .#{$ns}-toggle--input:focus:not(:hover) + .#{$ns}-toggle--label {
-    box-shadow: $xui-shadow-focus-inverted;
+  // Focus
+  .#{$ns}-toggle--input:focus + .#{$ns}-toggle--label {
+    @include xui-focus-direct($focus-box-shadow-inverted);
   }
 
   // Checked, disabled
@@ -201,7 +201,7 @@
 .#{$ns}-toggle > .#{$ns}-toggle--optionwrapper,
 .#{$ns}-toggle > .#{$ns}-toggle--option {
   &:nth-of-type(n + 2) .#{$ns}-toggle--label {
-    border-left: none;
+    margin-left: -1px;
   }
 
   &:first-of-type .#{$ns}-toggle--label {

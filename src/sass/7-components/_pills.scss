@@ -95,6 +95,7 @@
 }
 
 .#{$ns}-pill--button {
+  @include xui-focus;
   align-self: stretch; // Make hit target bigger vertically
   color: $xui-pill-color;
   padding: 0; // Override the padding on the different sizes

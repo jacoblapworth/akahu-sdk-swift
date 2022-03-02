@@ -31,6 +31,7 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 - React components for `XUIAutocompleter` `XUISelectBox` and `XUIDateInput` have had their markup slightly modified, such that any visible labels are now sibling elements of the trigger. This should not result in any behaviour change.
 - For `XUIDateRangeInput`, markup has been significantly modified to support a more robust CSS grid layout, under the hood. The new structure supports greater flexibility in the lengths of labels, hints, and validation messages, while maintaining alignment between the controls. See the [examples in the Guide](https://xui.xero.com/20.0.0/section-components-collectinginput-dateinput.html) to construct these with hand-coded HTML.
 - The way element IDs are generated has changed slightly for `XUIAutocompleter`. You may need to update your tests.
+- Focus state was updated across whole XUI. Affected components: `XUICheckbox`, `XUIEditableTable`, `XUIRadio`, `XUIButton`, `XUITextInput`, `XUIAccordion`, `XUIDatePicker`, `XUIRange`, `XUISwitch`, `XUIBreadcrumb`, `XUIPickItem`, `XUIPill`, `XUIStepper`, `XUITable`, `XUIToggle` and other components using the listed ones.
 
 ## XUI React components
 

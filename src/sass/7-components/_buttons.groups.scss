@@ -12,11 +12,12 @@
 
   > .#{$ns}-button-grouped:nth-child(n + 2),
   > :nth-child(n + 2) > .#{$ns}-button {
-    border-left: 0;
-    margin-left: 1px;
+    margin-left: -1px;
 
-    &.#{$ns}-button-standard {
-      margin-left: 0;
+    &.#{$ns}-button-main,
+    &.#{$ns}-button-negative {
+      border-left: 0;
+      margin-left: 1px;
     }
   }
 
@@ -30,13 +31,4 @@
 .#{$ns}-button-grouped {
   border-radius: 0;
   flex-grow: 1;
-
-  &:hover {
-    z-index: $xui-z-index-focus; // show full border on hover
-  }
-
-  &:focus,
-  &:active {
-    z-index: ($xui-z-index-focus + 1); // override full border on focus/active
-  }
 }

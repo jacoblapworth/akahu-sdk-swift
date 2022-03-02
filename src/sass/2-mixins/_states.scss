@@ -1,17 +1,16 @@
 @import '../vars';
+@import 'focus';
 
 // Focus ring along, for reuse, as needed
 @mixin xui-state-focus-shadow($shadow: $xui-shadow-focus) {
-  box-shadow: $shadow;
-  outline: none;
-  transition: box-shadow $xui-motion-speed-fast;
+  @include xui-focus;
 }
 
 // Applies standard focus styling and given content on focus
 @mixin xui-state-focus {
   &:focus {
     @content;
-    @include xui-state-focus-shadow;
+    @include xui-focus-direct;
   }
 }
 
@@ -20,9 +19,9 @@
   // prefers-reduced-motion can be ignored here because this instance is not a motion animation
   // stylelint-disable-next-line a11y/media-prefers-reduced-motion
   &:focus {
-    box-shadow: $xui-shadow-focus-inverted;
     outline: none;
     transition: box-shadow $xui-motion-speed-fast;
+    @include xui-focus-direct;
   }
 }
 

@@ -5,6 +5,9 @@
 @import './states';
 @import './typography';
 
+$content-block-border-shadow: $xui-shadow-border-all;
+$content-block-combined-focus-border: $content-block-border-shadow, xui-focus-box-shadow-shift(1px);
+
 @mixin xui-input-base {
   appearance: none; // For removing default input styling in Safari
   background-color: transparent;
@@ -124,15 +127,25 @@ $justify - Property to use for justify-content
   border-top: $xui-border-standard;
   position: relative;
   text-decoration: none;
+  &:focus {
+    @include xui-focus-direct($content-block-combined-focus-border);
+    background-color: $xui-color-white; // overwrite double box-shadow from the parent
+    border-top: 1px solid transparent;
+  }
   &:first-child {
     border-top: 0;
+  }
+  &:first-child:last-child {
+    border-radius: $xui-radius;
   }
   &-rowlink {
     color: inherit; // Remove default link color
     text-decoration: none; // Remove default link underline
-    &.#{$classname}-rowlink:hover,
-    &.#{$classname}-rowlink:focus {
+    &.#{$classname}-rowlink:hover {
       background-color: $xui-color-grey-8;
+      cursor: pointer;
+    }
+    &.#{$classname}-rowlink:focus {
       cursor: pointer;
     }
     &.#{$classname}-rowlink:active {

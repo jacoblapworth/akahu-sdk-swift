@@ -1,0 +1,32 @@
+@import '../vars';
+
+@function xui-focus-box-shadow-shift($value: 0, $innerRingColor: $xui-color-white) {
+  @return 0 0 0 (1px + $value) $innerRingColor, 0 0 0 (4px + $value) $xui-color-blue-light;
+}
+
+$focus-box-shadow: xui-focus-box-shadow-shift();
+$focus-box-shadow-inverted: xui-focus-box-shadow-shift(0, $xui-color-grey-2);
+$focus-box-shadow-inset: inset 0 0 0 4px $xui-color-blue-light, inset 0 0 0 5px $xui-color-white;
+
+// Focus ring alone
+@mixin xui-focus-direct($shadow: $focus-box-shadow) {
+  box-shadow: $shadow;
+  outline: none;
+  text-decoration: none;
+  transition: box-shadow $xui-motion-speed-fast;
+  z-index: $xui-z-index-focus;
+}
+
+@mixin xui-focus-direct-reset {
+  box-shadow: none;
+  outline: none;
+  text-decoration: none;
+}
+
+@mixin xui-focus($shadow: $focus-box-shadow) {
+  transition: box-shadow $xui-motion-speed-fast;
+
+  &:focus {
+    @include xui-focus-direct($shadow);
+  }
+}

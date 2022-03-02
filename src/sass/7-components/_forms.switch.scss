@@ -75,7 +75,7 @@ $xui-switch-label-padding: $xui-s-xsmall;
 .#{$ns}-switch--checkbox {
   @include xui-position-offscreen-input;
   &:focus + .#{$ns}-switch--control {
-    box-shadow: $xui-shadow-focus;
+    @include xui-focus-direct;
   }
 
   &:checked + .#{$ns}-switch--control {

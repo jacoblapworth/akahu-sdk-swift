@@ -8,7 +8,6 @@
   display: flex;
   flex-wrap: nowrap;
   min-height: $xui-navigation-height;
-  overflow: hidden;
   z-index: $xui-z-index-belownav;
   &--content {
     align-items: stretch;

@@ -18,7 +18,9 @@ exports[`EditableTableHeadRow renders utility control columns, if applicable 1`]
         >
           <th
             className="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
+            onBlur={[Function]}
             onClick={[Function]}
+            onFocus={[Function]}
             onKeyDown={[Function]}
             scope="col"
             style={
@@ -39,7 +41,9 @@ exports[`EditableTableHeadRow renders utility control columns, if applicable 1`]
         >
           <th
             className="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
+            onBlur={[Function]}
             onClick={[Function]}
+            onFocus={[Function]}
             onKeyDown={[Function]}
             scope="col"
             style={

@@ -42,6 +42,7 @@ const buildSvgRadio = (qaHook, { radioElementClassName, iconMain }) => {
         viewBox={`0 0 ${iconMain.width} ${iconMain.height}`}
         width={iconMain.width}
       >
+        <path className={`${baseClass}--focus-outer`} d={iconMain.path} role="presentation" />
         <path className={`${baseClass}--focus`} d={iconMain.path} role="presentation" />
         <path className={`${baseClass}--main`} d={iconMain.path} role="presentation" />
       </svg>

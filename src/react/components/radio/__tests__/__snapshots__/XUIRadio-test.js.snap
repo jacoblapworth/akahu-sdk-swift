@@ -192,6 +192,11 @@ exports[`XUIRadio should render with an icon when one is provided 1`] = `
         width={15}
       >
         <path
+          className="xui-styledcheckboxradio--focus-outer"
+          d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z"
+          role="presentation"
+        />
+        <path
           className="xui-styledcheckboxradio--focus"
           d="M7.5 12.5l-5 2.5.833-5.417L0 5.833 5 5l2.5-5L10 5l5 .833-3.333 3.75L12.5 15z"
           role="presentation"

@@ -3,7 +3,9 @@
 exports[`<XUIEditableTableCell /> composes the className correctly 1`] = `
 <th
   className="xui-editabletableheadingcell test-classname xui-editabletableheadingcell-leftaligned"
+  onBlur={[Function]}
   onClick={[Function]}
+  onFocus={[Function]}
   onKeyDown={[Function]}
   scope="col"
 />
@@ -12,7 +14,9 @@ exports[`<XUIEditableTableCell /> composes the className correctly 1`] = `
 exports[`<XUIEditableTableCell /> render with customized scope 1`] = `
 <th
   className="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
+  onBlur={[Function]}
   onClick={[Function]}
+  onFocus={[Function]}
   onKeyDown={[Function]}
   scope="rowGroup"
 />
@@ -21,7 +25,9 @@ exports[`<XUIEditableTableCell /> render with customized scope 1`] = `
 exports[`<XUIEditableTableCell /> renders correctly 1`] = `
 <th
   className="xui-editabletableheadingcell xui-editabletableheadingcell-leftaligned"
+  onBlur={[Function]}
   onClick={[Function]}
+  onFocus={[Function]}
   onKeyDown={[Function]}
   scope="col"
 >

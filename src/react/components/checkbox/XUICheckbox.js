@@ -58,6 +58,7 @@ const buildSvgCheckbox = (qaHook, { checkboxElementClassName, iconMain }) => {
         viewBox={`0 0 ${iconMain.width} ${iconMain.height}`}
         width={iconMain.width}
       >
+        {createPathWithClass(`${baseClass}--focus-outer`)}
         {createPathWithClass(`${baseClass}--focus`)}
         {createPathWithClass(`${baseClass}--main`)}
       </svg>

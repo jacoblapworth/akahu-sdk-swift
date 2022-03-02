@@ -1,9 +1,12 @@
 @import '../vars';
 @import '../mixins';
 
+$capsule-border-shadow: 0 0 0 1px $xui-capsule-border-color;
+$capsule-combined-focus-border: $capsule-border-shadow, xui-focus-box-shadow-shift(1px);
+
 .#{$ns}-capsule {
   border-radius: $xui-radius;
-  box-shadow: 0 0 0 1px $xui-capsule-border-color;
+  box-shadow: $capsule-border-shadow;
   display: inline;
   padding: 0.01em 0.1em;
 
@@ -16,9 +19,9 @@
   }
 
   &:focus {
-    background: $xui-capsule-focus-bg-color;
-    box-shadow: $xui-shadow-focus;
-    color: $xui-capsule-focus-color;
+    @include xui-focus-direct($capsule-combined-focus-border);
+
+    color: $xui-capsule-interactive-color;
   }
 }
 
@@ -36,8 +39,9 @@
   }
 
   &:focus {
+    @include xui-focus-direct($capsule-combined-focus-border);
+
     background-color: $xui-invalid-bg-color;
-    box-shadow: $xui-shadow-focus;
     color: $xui-capsule-invalid-color;
   }
 }

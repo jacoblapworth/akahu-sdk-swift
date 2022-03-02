@@ -84,16 +84,20 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
   width: 100%;
 
   .#{$ns}-pickitem:not(.#{$ns}-pickitem-is-disabled) > & {
-    &:hover,
     &:focus {
-      background: $xui-pickitem-focus-bg-color;
+      @include xui-focus-direct;
     }
     &:hover {
+      background: $xui-pickitem-focus-bg-color;
       cursor: pointer;
     }
     &:active {
       background: $xui-pickitem-active-bg-color;
     }
+  }
+
+  .#{$ns}-pickitem-text-truncated {
+    @include xui-text-truncated;
   }
 }
 
@@ -109,6 +113,11 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
     @include xui-margin-vertical(2px);
     margin-left: $xui-s-2xsmall;
     margin-right: 0px;
+  }
+  // Utility style that can be applied to pickitems and sub-elements.
+  .#{$ns}-pickitem-text-truncated,
+  &.#{$ns}-pickitem-text-truncated {
+    @include xui-text-truncated;
   }
   &.#{$ns}-pickitem-text-truncated {
     display: flex;
@@ -247,9 +256,12 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
     margin-left: $xui-s-2xsmall;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: $xui-pickitem-focus-bg-color;
+  }
+
+  &:focus {
+    @include xui-focus-direct;
   }
 
   &:active {
@@ -313,9 +325,12 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
   display: flex;
   padding: 3px;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: $xui-pickitem-focus-bg-color;
+  }
+
+  &:focus {
+    @include xui-focus-direct;
   }
 
   &:active {
@@ -466,9 +481,11 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
 
 .#{$ns}-pickitem-is-hovered {
   background: $xui-pickitem-focus-bg-color;
-  &:hover,
-  &:focus {
+  &:hover {
     background: $xui-pickitem-focus-bg-color;
+  }
+  &:focus {
+    @include xui-focus-direct;
   }
 
   &:active {
@@ -539,11 +556,6 @@ $pickitem-has-leftelement-secondarytext-min-width: $pickitem-has-leftelement-min
   .#{$ns}-submenu .#{$ns}-pickitem--body {
     padding-left: $xui-s-small + $xui-s-large; // Double indent for sub menus.
   }
-}
-
-// Utility style that can be applied to pickitems and sub-elements.
-.#{$ns}-pickitem-text-truncated {
-  @include xui-text-truncated;
 }
 
 .#{$ns}-pickitem-is-disabled {

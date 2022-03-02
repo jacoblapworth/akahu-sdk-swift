@@ -2,6 +2,8 @@
 @import '../mixins';
 
 $xui-accordion-pop-width: $xui-s-xsmall;
+$accordion-border-shadow: $xui-shadow-border-all;
+$accordion-combined-focus-border: $accordion-border-shadow, xui-foucs-box-shadow-shift(1px);
 
 .#{$ns}-accordion--emptystate {
   @include xui-text-muted;
@@ -24,12 +26,14 @@ $xui-accordion-pop-width: $xui-s-xsmall;
   }
 
   @include xui-breakpoint-medium-up {
-    &:first-child {
+    &:first-child,
+    &:first-child .#{$ns}-accordiontrigger:focus {
       border-top-left-radius: $xui-radius;
       border-top-right-radius: $xui-radius;
     }
 
-    &:last-child {
+    &:last-child,
+    &:last-child .#{$ns}-accordiontrigger:focus {
       border-bottom-left-radius: $xui-radius;
       border-bottom-right-radius: $xui-radius;
     }

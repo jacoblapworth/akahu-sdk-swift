@@ -170,10 +170,13 @@ $stepper-spacing: $xui-s-2xlarge;
     background: $xui-stepper-hover-bg-color;
   }
 
-  &.#{$ns}-stepper-link-active:focus,
-  &.#{$ns}-stepper-link-standard:focus {
-    @include xui-stepper-link-color($xui-stepper-focus-color);
-    background: $xui-stepper-focus-bg-color;
+  &.#{$ns}-stepper-link-active,
+  &.#{$ns}-stepper-link-standard,
+  &.#{$ns}-stepper-link-error,
+  &.#{$ns}-stepper-link-disabled {
+    &:focus {
+      @include xui-focus-direct;
+    }
   }
 
   &.#{$ns}-stepper-link-standard:active {
@@ -184,11 +187,6 @@ $stepper-spacing: $xui-s-2xlarge;
   &.#{$ns}-stepper-link-error:hover {
     @include xui-stepper-link-color($xui-stepper-error-hover-color);
     background: $xui-stepper-hover-bg-color;
-  }
-
-  &.#{$ns}-stepper-link-error:focus {
-    @include xui-stepper-link-color($xui-stepper-error-focus-color);
-    background: $xui-stepper-focus-bg-color;
   }
 
   &.#{$ns}-stepper-link-error:active {
@@ -266,14 +264,16 @@ $stepper-spacing: $xui-s-2xlarge;
       }
     }
 
+    // stacked focus here
     &.#{$ns}-stepper-link-active:focus,
     &.#{$ns}-stepper-link-standard:focus,
     &.#{$ns}-stepper-link-error:focus {
       background: transparent;
+      @include xui-focus-direct-reset;
 
       .#{$ns}-stepper-link-icon,
       .#{$ns}-stepper-link-progress {
-        background: $xui-stepper-focus-bg-color;
+        @include xui-focus-direct;
       }
     }
 

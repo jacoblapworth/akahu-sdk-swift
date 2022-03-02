@@ -1,4 +1,5 @@
 @import '../vars';
+@import 'focus';
 
 /*
 Provides reset for button styles applied by the browser
@@ -35,11 +36,7 @@ Applies focus button styling on focus
 $shadow - `box-shadow` to apply on hover
 */
 @mixin xui-button-focus($shadow) {
-  &:focus {
-    box-shadow: $shadow;
-    text-decoration: none;
-    z-index: $xui-z-index-focus;
-  }
+  @include xui-focus;
 }
 
 /*
@@ -133,14 +130,14 @@ $background-active - Background color to use while active
   padding: 11px $xui-input-padding-horizontal;
   position: relative;
   transition-duration: $xui-motion-speed-fast;
-  transition-property: color, background;
+  transition-property: color, background, box-shadow;
   transition-timing-function: $xui-motion-curve-standard;
   &:hover {
     background: $background-focus;
     color: $text-hover-color;
   }
   &:focus {
-    background: $background-focus;
+    @include xui-focus-direct;
     color: $text-hover-color;
   }
   &:active {
@@ -168,9 +165,8 @@ $hover-bg-color - Background color to use when hovered
     color: $text-color;
   }
   &:focus {
-    background: $focus-bg-color;
+    @include xui-focus-direct;
     color: $text-color;
-    outline: none;
   }
   &:active {
     background: $active-bg-color;

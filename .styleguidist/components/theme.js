@@ -52,6 +52,6 @@ export const mq = {
 
 export const borderRadius = 3;
 export const buttonPadding = '5px 12px';
-export const buttonFocusDropShadow = '0 0 0 3px rgba(0, 10, 30, 0.2)';
+export const buttonFocusDropShadow = '0 0 0 1px #fff, 0 0 0 4px #80bce4';
 export const maxWidth = 1000;
 export const sidebarWidth = 'calc(16% - 1px);';

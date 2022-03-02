@@ -124,16 +124,18 @@ $xui-rangeslider-thumb-diameter-xsmall: $xui-s-standard;
 
   &:focus {
     outline: none;
+
+    // combining selectors into one rule, breaks focus entirely
     &::-webkit-slider-thumb {
-      box-shadow: $xui-shadow-focus;
+      @include xui-focus-direct;
     }
 
     &::-moz-range-thumb {
-      box-shadow: $xui-shadow-focus;
+      @include xui-focus-direct;
     }
 
     &::-ms-thumb {
-      box-shadow: $xui-shadow-focus;
+      @include xui-focus-direct;
     }
   }
 

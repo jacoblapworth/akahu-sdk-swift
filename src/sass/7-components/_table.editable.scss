@@ -146,7 +146,7 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
     padding-left: $xui-s-standard;
     padding-right: $xui-s-standard;
     &:focus {
-      @include xui-editabletable-sortbutton-bg-color($xui-editabletable-sortbutton-focus-bg-color);
+      @include xui-focus-direct;
     }
 
     &:active {
@@ -307,28 +307,28 @@ $xui-editabletablecell-vertical-padding: $xui-s-xsmall;
 .#{$ns}-editabletable--portalfocus {
   pointer-events: none;
   position: absolute;
-  @include xui-state-focus-shadow;
+  @include xui-focus-direct(xui-focus-box-shadow-shift(1px));
   .#{$ns}-editabletable--portalfocus--border {
     box-shadow: $xui-shadow-border-all;
     height: 100%;
   }
   // When the horizontal sides of the focused cell are covered, clip the right-side shadow
   &.#{$ns}-editabletable--portalfocus-horizontalCovered {
-    clip-path: inset(-3px 0px -3px 0);
+    clip-path: inset(-5px 0px -5px 0);
     .#{$ns}-editabletable--portalfocus--border {
       clip-path: inset(-1px 0px -1px 0);
     }
   }
   // When the right side of the focused cell is covered, clip the right-side shadow
   &.#{$ns}-editabletable--portalfocus-rightCovered {
-    clip-path: inset(-3px 0px -3px -3px);
+    clip-path: inset(-5px 0px -5px -5px);
     .#{$ns}-editabletable--portalfocus--border {
       clip-path: inset(-1px 0px -1px -1px);
     }
   }
   // When the left side of the focused cell is covered, clip the left-side shadow
   &.#{$ns}-editabletable--portalfocus-leftCovered {
-    clip-path: inset(-3px -3px -3px 0px);
+    clip-path: inset(-5px -5px -5px 0px);
     .#{$ns}-editabletable--portalfocus--border {
       clip-path: inset(-1px -1px -1px 0px);
     }

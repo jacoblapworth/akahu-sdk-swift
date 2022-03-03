@@ -4,12 +4,13 @@ Avatars can be collected into groups.
 import XUIAvatar, { XUIAvatarGroup } from '@xero/xui/react/avatar';
 
 <XUIAvatarGroup>
-  <XUIAvatar value="Bettong" />
-  <XUIAvatar value="Bandicoot" />
-  <XUIAvatar value="Quokka" />
-  <XUIAvatar value="Wombat" />
-  <XUIAvatar value="Pademelon" />
-  <XUIAvatar value="Quoll" />
+  <XUIAvatar identifier="cta" value="Cherise Tan" />
+  <XUIAvatar identifier="cbo" value="Corinne Bowie" />
+  <XUIAvatar identifier="fcl" value="Finn Clark" />
+  <XUIAvatar identifier="fco" value="Frank Congson" />
+  <XUIAvatar identifier="npi" value="Nick Piesco" />
+  <XUIAvatar identifier="sle" value="Sacha Lee" />
+  <XUIAvatar identifier="san" value="Sam Annand" />
 </XUIAvatarGroup>;
 ```
 
@@ -21,11 +22,12 @@ Providing an `avatarSize` prop will override the sizing of any Avatar in the gro
 import XUIAvatar, { XUIAvatarGroup } from '@xero/xui/react/avatar';
 
 <XUIAvatarGroup maxAvatars={4} avatarSize="large">
-  <XUIAvatar value="Bandicoot" />
-  <XUIAvatar size="small" value="Quokka" />
-  <XUIAvatar size="xlarge" value="Wombat" />
-  <XUIAvatar size="small" value="Bettong" />
-  <XUIAvatar size="medium" value="Pademelon" />
-  <XUIAvatar value="Quoll" />
+  <XUIAvatar identifier="cta" value="Cherise Tan" />
+  <XUIAvatar identifier="cbo" size="small" value="Corinne Bowie" />
+  <XUIAvatar identifier="fcl" size="xlarge" value="Finn Clark" />
+  <XUIAvatar identifier="fco" size="small" value="Frank Congson" />
+  <XUIAvatar identifier="npi" size="medium" value="Nick Piesco" />
+  <XUIAvatar identifier="sle" size="large" value="Sam Annand" />
+  <XUIAvatar identifier="san" value="Sacha Lee" />
 </XUIAvatarGroup>;
 ```

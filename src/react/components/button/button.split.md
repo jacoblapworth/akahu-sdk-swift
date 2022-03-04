@@ -4,28 +4,24 @@ The `<XUISplitButtonGroup>` component will inherit the `isDisabled` and the `var
 A `<XUISplitButtonGroup>` can only be completely disabled - you cannot disable only one part of the button
 
 ```jsx harmony
-import XUIButton, { XUISplitButtonGroup, XUISecondaryButton } from '@xero/xui/react/button';
-import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import XUIButton, { XUISecondaryButton, XUISplitButtonGroup } from '@xero/xui/react/button';
 import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 // try setting `isDisabled={true}`, or change the variant, and see how both buttons are disabled
 
 <XUISplitButtonGroup variant="main">
-  <XUIButton>Split action</XUIButton>
+  <XUIButton>Save</XUIButton>
   <XUIDropdownToggled
-    trigger={<XUISecondaryButton variant="main" key="split" aria-label="Other actions" />}
     dropdown={
       <XUIDropdown hasFixedWidth size="small">
         <XUIPicklist>
-          <XUIPickitem id="aa" value="aa" key="aa">
-            Option 1
-          </XUIPickitem>
-          <XUIPickitem id="bb" value="bb" key="bb">
-            Option 2
-          </XUIPickitem>
+          <XUIPickitem id="save-and-send-1">Save and send</XUIPickitem>
+          <XUIPickitem id="save-and-print-2">Save and print</XUIPickitem>
         </XUIPicklist>
       </XUIDropdown>
     }
+    trigger={<XUISecondaryButton aria-label="Save options" variant="main" />}
   />
 </XUISplitButtonGroup>;
 ```
@@ -33,26 +29,22 @@ import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 When using a secondary button as the trigger of a dropdown, variants are not inherited. You might also need to adjust the height, if your button is multi-line.
 
 ```jsx harmony
-import XUIButton, { XUISplitButtonGroup, XUISecondaryButton } from '@xero/xui/react/button';
-import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import XUIButton, { XUISecondaryButton, XUISplitButtonGroup } from '@xero/xui/react/button';
 import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 <XUISplitButtonGroup variant="standard">
-  <XUIButton>Split action</XUIButton>
+  <XUIButton>Save</XUIButton>
   <XUIDropdownToggled
-    trigger={<XUISecondaryButton variant="standard" key="split" aria-label="Other actions" />}
     dropdown={
       <XUIDropdown hasFixedWidth size="small">
         <XUIPicklist>
-          <XUIPickitem id="aa" value="aa" key="aa">
-            Option 1
-          </XUIPickitem>
-          <XUIPickitem id="bb" value="bb" key="bb">
-            Option 2
-          </XUIPickitem>
+          <XUIPickitem id="save-and-send-2">Save and send</XUIPickitem>
+          <XUIPickitem id="save-and-print-2">Save and print</XUIPickitem>
         </XUIPicklist>
       </XUIDropdown>
     }
+    trigger={<XUISecondaryButton aria-label="Save options" variant="standard" />}
   />
 </XUISplitButtonGroup>;
 ```

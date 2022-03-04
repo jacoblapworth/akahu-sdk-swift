@@ -1,8 +1,11 @@
 package projects
 
+import buildTypes.BranchDependency
 import buildTypes.BuildDocs
 import buildTypes.DeployVersionSelector
+import buildTypes.UpdateCloudFrontDistribution
 import com.xero.teamcityhelpers.build.report.Report
+import com.xero.teamcityhelpers.buildtype.trigger.addFinishBuildTrigger
 import com.xero.teamcityhelpers.buildtype.trigger.addSnapshotDependencies
 import com.xero.teamcityhelpers.buildtype.trigger.addVcsTrigger
 import com.xero.teamcityhelpers.deploy.s3.DeployToS3
@@ -56,7 +59,7 @@ object XUIDocs:  Project({
     addXUIBuildTriggers(deployXUITest) {
       successfulOnly = true
     }
-    addSnapshotDependencies(arrayOf(BuildDocs, deployXUITest))
+    addSnapshotDependencies(arrayOf(BranchDependency, BuildDocs))
   }
 
   val prodParams: ParametrizedWithType.() -> Unit = {
@@ -82,7 +85,7 @@ object XUIDocs:  Project({
     addXUIBuildTriggers(deployXUIProd) {
       successfulOnly = true
     }
-    addSnapshotDependencies(arrayOf(BuildDocs, deployXUIProd))
+    addSnapshotDependencies(arrayOf(BranchDependency, BuildDocs))
   }
 
   val deployVersionSelector = DeployVersionSelector {
@@ -91,6 +94,16 @@ object XUIDocs:  Project({
       param("git.trigger.rules", "+:src/versionSelector/VersionSelector.js")
     }
     addVcsTrigger()
+  }
+
+  val updateCloudFrontDistribution = UpdateCloudFrontDistribution() {
+    name = "Prod – Update CloudFront Distribution"
+
+    // We only want to update CloudFront when we're deploying the latest production version of XUI.
+    // To do this, we only trigger this for releases happening from the `main` branch
+    // (`addFinishBuildTrigger` will only trigger for the `main` branch)
+    addFinishBuildTrigger(deployToProd)
+    addSnapshotDependencies(arrayOf(BranchDependency))
   }
 
   val documentStableTest = Report(BuildDocs, deployToTest) {
@@ -107,7 +120,18 @@ object XUIDocs:  Project({
   buildType(deployToTest)
   buildType(deployToProd)
   buildType(deployVersionSelector)
+  buildType(updateCloudFrontDistribution)
 
   buildType(documentStableTest)
   buildType(documentStableProd)
+
+  buildTypesOrder = listOf(
+    BuildDocs,
+    deployToTest,
+    documentStableTest,
+    deployToProd,
+    documentStableProd,
+    deployVersionSelector,
+    updateCloudFrontDistribution
+  )
 })

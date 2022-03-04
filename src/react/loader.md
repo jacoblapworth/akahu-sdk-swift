@@ -33,7 +33,7 @@ Apart from the `medium` size, Loaders can also be `small` or `xsmall`.
 ```jsx harmony
 import XUILoader from '@xero/xui/react/loader';
 
-<XUILoader ariaLabel="Loading" size="medium" hasDefaultLayout={false} />;
+<XUILoader ariaLabel="Loading" hasDefaultLayout={false} size="medium" />;
 ```
 
 ### Inverted

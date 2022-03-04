@@ -132,8 +132,8 @@
               </div>
             {{/if}}
             {{#if components}}
-              {{#renderComponents components}}
               <div style="display: flex;">
+              {{#renderComponents components}}
                 <span class="xui-margin-right-small">
                   <a href="{{url}}" target="_blank" class="xui-button xui-button-small xui-button-borderless-main xui-margin-top-large ds-example-storybooklink" aria-label="View {{name}} React documentation" style="display: flex; align-items: center"><span class="xui-margin-right-xsmall">React docs</span>
                     <svg focusable="false" class="xui-icon" role="presentation"> <use xlink:href="#xui-icon-external" /></svg>
@@ -144,8 +144,16 @@
                     <svg focusable="false" class="xui-icon" role="presentation"> <use xlink:href="#xui-icon-external" /></svg>
                   </a>
                 </span>
-              </div>
               {{/renderComponents}}
+              {{#if figmacomponentframekey}}
+                <span class="xui-margin-right-small">
+                  {{!-- When XUI major versions are updated change the Figma fileKey and version below (ie. `...file/{fileKey}?node-id...`) --}}
+                  <a href="https://www.figma.com/file/44zXwCb0bvCY4qHNBJS2M9/XUI-19-%7C-Design-Systems?node-id={{figmacomponentframekey}}" target="_blank" class="xui-button xui-button-small xui-button-borderless-main xui-margin-top-large ds-example-storybooklink" style="display: flex; align-items: center;"><span class="xui-margin-right-xsmall">Figma</span>
+                    <svg focusable="false" class="xui-icon" role="presentation"> <use xlink:href="#xui-icon-external" /></svg>
+                  </a>
+                </span>
+              {{/if}}
+              </div>
             {{/if}}
 
             {{#ifParentPage "Components"}}
@@ -238,19 +246,6 @@
 
           {{#if parameters}}
             {{>renderParameters}}
-          {{/if}}
-
-          {{#if language}}
-            <div class="ds-language-link">
-              <span class="xui-tooltip">
-                <a href="{{language}}" target="_blank" class="xui-button-icon xui-button-icon-medium" aria-label="View writing guide">
-                  <svg focusable="false" class="xui-icon xui-icon-color-blue" role="presentation">
-                    <use xlink:href="#xui-icon-file-document" />
-                  </svg>
-                </a>
-                <span class="xui-tooltip--tip xui-positioningInline--content-bottomcenter">Writing guide</span>
-              </span>
-            </div>
           {{/if}}
         </div>
 

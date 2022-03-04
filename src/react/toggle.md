@@ -15,47 +15,36 @@ Use the `type` prop on `XUIToggleOption`s to specify whether they should behave 
 ```jsx harmony
 import XUIToggle, { XUIToggleOption } from '@xero/xui/react/toggle';
 
-const noop = () => {};
 const checkboxToggle = {
   name: 'toggle-checkbox',
-  onChange: noop,
+  onChange: () => {
+    console.log('onChange');
+  },
   type: 'checkbox'
 };
 
 const radioToggle = {
   name: 'toggle-radio',
-  onChange: noop,
+  onChange: () => {
+    console.log('onChange');
+  },
   type: 'radio'
 };
 
 <div>
-  <div className="xui-margin-bottom">
-    <XUIToggle
-      layout="fullwidth"
-      label="checkbox toggle"
-      isLabelHidden
-      hintMessage="Select one or more values"
-    >
-      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
-      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
-      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
-      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
-    </XUIToggle>
-  </div>
-  <div>
-    <XUIToggle
-      layout="fullwidth"
-      label="radio toggle"
-      isLabelHidden
-      isInvalid
-      validationMessage="Select one value"
-    >
-      <XUIToggleOption {...radioToggle}>Radio</XUIToggleOption>
-      <XUIToggleOption {...radioToggle}>Radio</XUIToggleOption>
-      <XUIToggleOption {...radioToggle}>Radio</XUIToggleOption>
-      <XUIToggleOption {...radioToggle}>Radio</XUIToggleOption>
-    </XUIToggle>
-  </div>
+  <h3>Checkbox toggle</h3>
+  <XUIToggle hintMessage="Select one or more columns" label="Columns to display" layout="fullwidth">
+    <XUIToggleOption {...checkboxToggle}>Account</XUIToggleOption>
+    <XUIToggleOption {...checkboxToggle}>Description</XUIToggleOption>
+    <XUIToggleOption {...checkboxToggle}>Balance</XUIToggleOption>
+  </XUIToggle>
+
+  <h3>Radio toggle</h3>
+  <XUIToggle isInvalid label="View mode" layout="fullwidth" validationMessage="Select a view mode">
+    <XUIToggleOption {...radioToggle}>Summary view</XUIToggleOption>
+    <XUIToggleOption {...radioToggle}>Table view</XUIToggleOption>
+    <XUIToggleOption {...radioToggle}>List view</XUIToggleOption>
+  </XUIToggle>
 </div>;
 ```
 
@@ -67,22 +56,25 @@ To use a `XUIToggle` within an dark section, pass `"inverted"` to `XUIToggle`'s 
 import XUIToggle, { XUIToggleOption } from '@xero/xui/react/toggle';
 import ExampleContainer from './docs/ExampleContainer';
 
-const noop = () => {};
 const checkboxToggle = {
   name: 'toggle-checkbox-inverted',
-  onChange: noop,
+  onChange: () => {
+    console.log('onChange');
+  },
   type: 'checkbox'
 };
 
 <ExampleContainer className="xui-padding xui-color-white" isInverted>
-  <XUIToggle layout="fullwidth" color="inverted" label="checkbox toggle" isLabelHidden>
-    <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
-    <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
-    <XUIToggleOption {...checkboxToggle} isDisabled isChecked>
-      Disabled
+  <XUIToggle color="inverted" isLabelHidden label="Columns to display" layout="fullwidth">
+    <XUIToggleOption {...checkboxToggle} isDefaultChecked>
+      Amount
+    </XUIToggleOption>
+    <XUIToggleOption {...checkboxToggle}>Description</XUIToggleOption>
+    <XUIToggleOption {...checkboxToggle} isChecked isDisabled>
+      Balance
     </XUIToggleOption>
     <XUIToggleOption {...checkboxToggle} isDisabled>
-      Disabled
+      GST Rate
     </XUIToggleOption>
   </XUIToggle>
 </ExampleContainer>;
@@ -95,27 +87,19 @@ To make your toggles smaller (same size as small buttons), pass `"small"` to `XU
 ```jsx harmony
 import XUIToggle, { XUIToggleOption } from '@xero/xui/react/toggle';
 
-const noop = () => {};
 const radioToggle = {
   name: 'toggle-radio-layout-size',
-  onChange: noop,
+  onChange: () => {
+    console.log('onChange');
+  },
   type: 'radio'
 };
 
-<div>
-  <XUIToggle
-    className="xui-margin-bottom"
-    size="small"
-    layout="fullwidth"
-    label="radio toggle"
-    isLabelHidden
-  >
-    <XUIToggleOption {...radioToggle}>Uno</XUIToggleOption>
-    <XUIToggleOption {...radioToggle}>Dos</XUIToggleOption>
-    <XUIToggleOption {...radioToggle}>Tres</XUIToggleOption>
-    <XUIToggleOption {...radioToggle}>Cuatro</XUIToggleOption>
-  </XUIToggle>
-</div>;
+<XUIToggle label="View mode" layout="fullwidth" size="small">
+  <XUIToggleOption {...radioToggle}>Summary view</XUIToggleOption>
+  <XUIToggleOption {...radioToggle}>Table view</XUIToggleOption>
+  <XUIToggleOption {...radioToggle}>List view</XUIToggleOption>
+</XUIToggle>;
 ```
 
 ### Other Supported Layouts
@@ -125,25 +109,28 @@ When using `XUIToggle` with text content, it's recommended to use the `fullwidth
 You can also choose not to specify a layout, if the markup of your toggle content has more complicated requirements.
 
 ```jsx harmony
-import XUIToggle, { XUIToggleOption } from '@xero/xui/react/toggle';
 import XUITextInput from '@xero/xui/react/textinput';
+import XUIToggle, { XUIToggleOption } from '@xero/xui/react/toggle';
 
-const noop = () => {};
-const checkboxToggle = {
-  name: 'toggle-checkbox',
-  onChange: noop,
-  type: 'checkbox'
+const radioToggle = {
+  name: 'toggle-radio',
+  onChange: () => {
+    console.log('onChange');
+  },
+  type: 'radio'
 };
 
 <form className="xui-form-layout">
   <div className="xui-field-layout">
-    <XUITextInput type="url" placeholder="http://www.xero.com" label="Input" />
+    <XUITextInput label="Name" defaultValue="John Smith" type="text" />
   </div>
   <div className="xui-field-layout">
-    <XUIToggle layout="fullwidth" label="Toggle">
-      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
-      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
-      <XUIToggleOption {...checkboxToggle}>Checkbox</XUIToggleOption>
+    <XUIToggle label="Permissions" layout="fullwidth">
+      <XUIToggleOption {...radioToggle} isDefaultChecked>
+        Limited
+      </XUIToggleOption>
+      <XUIToggleOption {...radioToggle}>Standard</XUIToggleOption>
+      <XUIToggleOption {...radioToggle}>Admin</XUIToggleOption>
     </XUIToggle>
   </div>
 </form>;

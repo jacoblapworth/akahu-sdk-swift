@@ -21,37 +21,41 @@
 ```
 
 ```jsx harmony
-import { nanoid } from 'nanoid';
 import { useState, useEffect } from 'react';
+import { nanoid } from 'nanoid';
 import XUIButton from '@xero/xui/react/button';
 import XUIFileUploader from '@xero/xui/react/fileuploader';
-import { defaultProps, fakeUpload } from './components/fileuploader/private/helpers';
+import { fakeUpload } from './components/fileuploader/private/helpers';
 
 const defaultFileList = [
   {
-    uid: nanoid(10),
+    originalFile: new File([new ArrayBuffer(123456)], 'logo.jpg', { type: 'image/jpeg' }),
     status: 'uploading',
-    originalFile: new File([new ArrayBuffer(123456)], 'test1.jpg', { type: 'image/jpeg' })
+    uid: nanoid(10)
   },
   {
-    uid: nanoid(10),
-    status: 'done',
-    originalFile: new File([new ArrayBuffer(12345678)], 'test2.pdf', { type: 'application/pdf' }),
+    originalFile: new File([new ArrayBuffer(12345678)], 'INV-4231.pdf', {
+      type: 'application/pdf'
+    }),
     rightContent: (
       <XUIButton size="small" variant="borderless-main">
         Action
       </XUIButton>
-    )
+    ),
+    status: 'done',
+    uid: nanoid(10)
   },
   {
-    uid: nanoid(10),
+    originalFile: new File([new ArrayBuffer(12345)], 'INV-4232.pdf', { type: 'application/pdf' }),
     status: 'error',
-    originalFile: new File([new ArrayBuffer(12345)], 'test3.zip', { type: 'application/zip' })
+    uid: nanoid(10)
   },
   {
-    uid: nanoid(10),
+    originalFile: new File([new ArrayBuffer(12345)], 'supporting-documents.zip', {
+      type: 'application/zip'
+    }),
     status: 'uploading',
-    originalFile: new File([new ArrayBuffer(12345)], 'test4.zip', { type: 'application/zip' }),
+    uid: nanoid(10),
     uploadProgressPercentage: 0
   }
 ];
@@ -125,14 +129,21 @@ const Example = () => {
 
   return (
     <XUIFileUploader
-      {...defaultProps}
+      buttonText="Select file"
+      cancelButtonText="Cancel"
+      defaultErrorMessage="Failed to upload file"
+      deleteLabel="Delete file"
+      dropZoneMessage="Drag and drop file(s) or select manually"
       errorIconAriaLabel="Error"
-      label="Upload file(s)"
       fileList={fileList}
+      fileSizeUnits={['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']}
+      label="Upload document(s)"
       onDelete={onDelete}
       onFilesChange={onFilesChange}
       onRetry={onRetry}
+      retryButtonText="Retry"
       uploadingIconAriaLabel="Uploading"
+      uploadingMessage="Uploading..."
     />
   );
 };
@@ -148,7 +159,7 @@ You can achieve this by supplying the `uploadProgressPercentage` value a percent
 {
     uid: nanoid(10),
     status: 'uploading',
-    originalFile: { name: 'test1.jpg', type: 'image/jpeg', size: 11111 },
+    originalFile: { name: 'logo.jpg', type: 'image/jpeg', size: 11111 },
     uploadProgressPercentage: 50,
 },
 ```
@@ -162,10 +173,23 @@ Set `hasDragAndDrop` to true to support dragging files to upload, and use `dropZ
 ```jsx harmony
 import { useState } from 'react';
 import XUIFileUploader from '@xero/xui/react/fileuploader';
-import { defaultProps, fakeUpload } from './components/fileuploader/private/helpers';
+import { fakeUpload } from './components/fileuploader/private/helpers';
 
-const Example = props => {
-  const [fileList, setFileList] = useState(props.fileList || defaultProps.fileList);
+const fileuploaderProps = {
+  buttonText: 'Select file',
+  cancelButtonText: 'Cancel',
+  defaultErrorMessage: 'Failed to upload file',
+  deleteLabel: 'Delete file',
+  fileSizeUnits: ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+  retryButtonText: 'Retry',
+  errorIconAriaLabel: 'Error',
+  label: 'Upload document(s)',
+  uploadingIconAriaLabel: 'Uploading',
+  uploadingMessage: 'Uploading...'
+};
+
+const Example = () => {
+  const [fileList, setFileList] = useState([]);
 
   const handleFileUpload = (files, newFileList) => {
     files.forEach(file => {
@@ -217,16 +241,13 @@ const Example = props => {
 
   return (
     <XUIFileUploader
-      {...defaultProps}
-      {...props}
-      errorIconAriaLabel="Error"
-      label="Upload file(s)"
-      hasDragAndDrop
+      {...fileuploaderProps}
+      dropZoneMessage="Drag and drop file(s) or select manually"
       fileList={fileList}
+      hasDragAndDrop
       onDelete={onDelete}
       onFilesChange={onFilesChange}
       onRetry={onRetry}
-      uploadingIconAriaLabel="Uploading"
     />
   );
 };
@@ -238,29 +259,35 @@ const Example = props => {
 ```jsx harmony
 import { useState } from 'react';
 import XUIFileUploader from '@xero/xui/react/fileuploader';
-import {
-  defaultFileList,
-  defaultProps,
-  fakeUpload
-} from './components/fileuploader/private/helpers';
+import { fakeUpload } from './components/fileuploader/private/helpers';
+
+const fileuploaderProps = {
+  buttonText: 'Select file',
+  cancelButtonText: 'Cancel',
+  defaultErrorMessage: 'Failed to upload file',
+  deleteLabel: 'Delete file',
+  dropZoneMessage: 'Drag and drop file(s) or select manually',
+  errorIconAriaLabel: 'Error',
+  fileList: [],
+  fileSizeUnits: ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+  label: 'Upload document(s)',
+  onDelete: () => {
+    console.log('onDelete');
+  },
+  onFilesChange: () => {
+    console.log('onFilesChange');
+  },
+  onRetry: () => {
+    console.log('onRetry');
+  },
+  retryButtonText: 'Retry',
+  uploadingIconAriaLabel: 'Uploading',
+  uploadingMessage: 'Uploading...'
+};
 
 <div>
-  <XUIFileUploader
-    {...defaultProps}
-    errorIconAriaLabel="Error"
-    isDisabled
-    isFieldLayout
-    label="Upload file(s)"
-    uploadingIconAriaLabel="Uploading"
-  />
-  <XUIFileUploader
-    {...defaultProps}
-    errorIconAriaLabel="Error"
-    hasDragAndDrop
-    isDisabled
-    label="Upload file(s)"
-    uploadingIconAriaLabel="Uploading"
-  />
+  <XUIFileUploader {...fileuploaderProps} isDisabled isFieldLayout />
+  <XUIFileUploader {...fileuploaderProps} hasDragAndDrop isDisabled />
 </div>;
 ```
 
@@ -271,14 +298,10 @@ Validation messages and styling should be added to XUIFileUploader using the `va
 ```jsx harmony
 import { useState } from 'react';
 import XUIFileUploader from '@xero/xui/react/fileuploader';
-import {
-  defaultFileList,
-  defaultProps,
-  fakeUpload
-} from './components/fileuploader/private/helpers';
+import { fakeUpload } from './components/fileuploader/private/helpers';
 
 const Example = props => {
-  const [fileList, setFileList] = useState(props.fileList || defaultProps.fileList);
+  const [fileList, setFileList] = useState(props.fileList || []);
 
   const handleFileUpload = (files, newFileList) => {
     files.forEach(file => {
@@ -330,21 +353,35 @@ const Example = props => {
 
   return (
     <XUIFileUploader
-      {...defaultProps}
       {...props}
+      buttonText="Select file"
+      cancelButtonText="Cancel"
+      defaultErrorMessage="Failed to upload file"
+      deleteLabel="Delete file"
+      dropZoneMessage="Drag and drop file(s) or select manually"
       errorIconAriaLabel="Error"
       fileList={fileList}
+      fileSizeUnits={['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']}
+      label="Upload document(s)"
       onDelete={onDelete}
       onFilesChange={onFilesChange}
       onRetry={onRetry}
+      retryButtonText="Retry"
+      uploadingMessage="Uploading..."
       uploadingIconAriaLabel="Uploading"
     />
   );
 };
 
 <div>
-  <Example label="With a hint" hasDragAndDrop hintMessage="Hint text" />
-  <Example label="Invalid" hasDragAndDrop isInvalid validationMessage="Validation message" />
+  <h3>With a hint</h3>
+  <Example hasDragAndDrop hintMessage="25 MB maximum file size" />
+  <h3>With a validation message</h3>
+  <Example
+    hasDragAndDrop
+    isInvalid
+    validationMessage="Your file couldn't be uploaded due to a connection issue. Please check connection and try again."
+  />
 </div>;
 ```
 
@@ -355,28 +392,43 @@ Prop `showFilesAsMultiline` and `showIcon` are used to change the style of fileL
 **Note:** The styles for error status will not be influenced by these two props, and the uploading spinner will not be influenced by the `showIcon` prop.
 
 ```jsx harmony
-import { nanoid } from 'nanoid';
 import { useState } from 'react';
+import { nanoid } from 'nanoid';
 import XUIFileUploader from '@xero/xui/react/fileuploader';
-import { defaultProps, fakeUpload } from './components/fileuploader/private/helpers';
+import { fakeUpload } from './components/fileuploader/private/helpers';
 
 const defaultFileList = [
   {
     uid: nanoid(10),
     status: 'uploading',
-    originalFile: new File([new ArrayBuffer(123456)], 'test1.jpg', { type: 'image/jpeg' })
+    originalFile: new File([new ArrayBuffer(123456)], 'logo.jpg', { type: 'image/jpeg' })
   },
   {
     uid: nanoid(10),
     status: 'done',
-    originalFile: new File([new ArrayBuffer(12345678)], 'test2.pdf', { type: 'application/pdf' })
+    originalFile: new File([new ArrayBuffer(12345678)], 'INV-4321.pdf', { type: 'application/pdf' })
   },
   {
     uid: nanoid(10),
     status: 'error',
-    originalFile: new File([new ArrayBuffer(12345)], 'test3.zip', { type: 'application/zip' })
+    originalFile: new File([new ArrayBuffer(12345)], 'supporting-documents.zip', {
+      type: 'application/zip'
+    })
   }
 ];
+
+const fileuploaderProps = {
+  buttonText: 'Select file',
+  cancelButtonText: 'Cancel',
+  defaultErrorMessage: 'Failed to upload file',
+  deleteLabel: 'Delete file',
+  errorIconAriaLabel: 'Error',
+  dropZoneMessage: 'Drag and drop file(s) or select manually',
+  fileSizeUnits: ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+  label: 'Upload document(s)',
+  retryButtonText: 'Retry',
+  uploadingIconAriaLabel: 'Uploading'
+};
 
 const Example = () => {
   const [fileList, setFileList] = useState(defaultFileList);
@@ -431,16 +483,13 @@ const Example = () => {
 
   return (
     <XUIFileUploader
-      {...defaultProps}
-      errorIconAriaLabel="Error"
-      label="Upload file(s)"
+      {...fileuploaderProps}
       fileList={fileList}
       onDelete={onDelete}
       onFilesChange={onFilesChange}
       onRetry={onRetry}
       showFilesAsMultiline={false}
       showIcon={false}
-      uploadingIconAriaLabel="Uploading"
     />
   );
 };

@@ -9,17 +9,17 @@ import XUITag from '@xero/xui/react/tag';
 
 <div>
   <XUITag className="xui-margin-right-xsmall" variant="positive">
-    Positive tag
+    Paid
   </XUITag>
   <XUITag className="xui-margin-right-xsmall" variant="warning">
-    Warning tag
+    Due
   </XUITag>
   <XUITag className="xui-margin-right-xsmall" variant="negative">
-    Negative tag
+    Overdue
   </XUITag>
   <XUITag className="xui-margin-right-xsmall" variant="neutral">
-    Neutral tag
+    Draft
   </XUITag>
-  <XUITag className="xui-margin-right-xsmall">Standard tag</XUITag>
+  <XUITag>New</XUITag>
 </div>;
 ```

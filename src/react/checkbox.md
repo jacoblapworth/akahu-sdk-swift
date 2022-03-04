@@ -16,11 +16,12 @@ Enhanced version of HTML checkbox. Use in place of `<input type="checkbox" />`.
 import XUICheckbox from '@xero/xui/react/checkbox';
 
 <div>
-  <XUICheckbox isDefaultChecked hintMessage="Hint text">
-    Item 1
-  </XUICheckbox>
-  <XUICheckbox>Item 2</XUICheckbox>
-  <XUICheckbox>Item 3</XUICheckbox>
+  <span className="xui-text-label xui-fieldlabel-layout" id="uncontrolledCheckbox">
+    Quote title
+  </span>
+  <div aria-labelledby="uncontrolledCheckbox">
+    <XUICheckbox isDefaultChecked>Use project name</XUICheckbox>
+  </div>
 </div>;
 ```
 
@@ -29,11 +30,10 @@ import XUICheckbox from '@xero/xui/react/checkbox';
 Controlled `XUICheckbox`s' presentation are driven by the two props, `isChecked` and `isIndeterminate`. You can hook into the `onChange` event to update them when the user interacts with the checkbox.
 
 ```jsx harmony
-import { PureComponent } from 'react';
-
+import { useState } from 'react';
 import XUICheckbox from '@xero/xui/react/checkbox';
 
-const options = ['Cats', 'Dogs', 'Birds', 'Fish'];
+const options = ['Draft', 'In progress', 'Closed'];
 const selectedStates = {
   ALL: 'ALL',
   INDETERMINATE: 'INDETERMINATE',
@@ -52,79 +52,58 @@ const getSelectedState = selectedItems => {
   return selectedStates.INDETERMINATE;
 };
 
-class Example extends PureComponent {
-  constructor(...args) {
-    super(...args);
+const RangeExample = () => {
+  const [selectedItems, setSelectedItems] = useState({});
+  const [selectedState, setSelectedState] = useState(selectedStates.NONE);
 
-    this.state = {
-      selectedItems: {},
-      selectedState: selectedStates.NONE
-    };
+  const onChange = event => {
+    const value = event.target.value;
+    const newSelectedItems = { ...selectedItems, [value]: !selectedItems[value] };
 
-    this.onChange = this.onChange.bind(this);
-    this.toggleAll = this.toggleAll.bind(this);
-  }
+    setSelectedItems(newSelectedItems);
+    setSelectedState(getSelectedState(newSelectedItems));
+  };
 
-  onChange(e) {
-    const value = e.target.value;
-    this.setState(prevState => {
-      const selectedItems = {
-        ...prevState.selectedItems,
-        [value]: !prevState.selectedItems[value]
-      };
-      return {
-        selectedItems,
-        selectedState: getSelectedState(selectedItems)
-      };
-    });
-  }
-
-  toggleAll() {
-    this.setState(prevState => {
-      const newSelectedState = prevState.selectedState === selectedStates.ALL ? false : true;
-      return {
-        selectedItems: options.reduce(
-          (selectedItems, option) => ({
-            ...selectedItems,
-            [option]: newSelectedState
-          }),
-          {}
-        ),
-        selectedState: newSelectedState ? selectedStates.ALL : selectedStates.NONE
-      };
-    });
-  }
-
-  render() {
-    const { selectedItems, selectedState } = this.state;
-    return (
-      <div>
-        Which animals do you like?
-        <div>
-          <XUICheckbox
-            isIndeterminate={selectedState === selectedStates.INDETERMINATE}
-            isChecked={selectedState === selectedStates.ALL}
-            onChange={this.toggleAll}
-          >
-            All
-          </XUICheckbox>
-          {options.map(option => (
-            <XUICheckbox
-              key={option}
-              value={option}
-              isChecked={selectedItems[option]}
-              onChange={this.onChange}
-            >
-              {option}
-            </XUICheckbox>
-          ))}
-        </div>
-      </div>
+  const toggleAll = () => {
+    const newSelectedState = selectedState === selectedStates.ALL ? false : true;
+    const newSelectedItems = options.reduce(
+      (selectedItems, option) => ({ ...selectedItems, [option]: newSelectedState }),
+      {}
     );
-  }
-}
 
-<Example />;
+    setSelectedItems(newSelectedItems);
+    setSelectedState(newSelectedState ? selectedStates.ALL : selectedStates.NONE);
+  };
+
+  return (
+    <div>
+      <span className="xui-text-label xui-fieldlabel-layout" id="controlledCheckboxes">
+        Project state
+      </span>
+      <div aria-labelledby="controlledCheckboxes" role="group">
+        <XUICheckbox
+          isChecked={selectedState === selectedStates.ALL}
+          isIndeterminate={selectedState === selectedStates.INDETERMINATE}
+          onChange={toggleAll}
+        >
+          All
+        </XUICheckbox>
+        {options.map(option => (
+          <XUICheckbox
+            isChecked={selectedItems[option]}
+            key={option}
+            onChange={onChange}
+            value={option}
+          >
+            {option}
+          </XUICheckbox>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+<RangeExample />;
 ```
 
 ### Range selection
@@ -147,7 +126,7 @@ can specify the group a checkbox belongs to with the `rangeSelectionGroup` prop.
 ```jsx harmony
 import XUICheckbox, { XUICheckboxRangeSelector } from '@xero/xui/react/checkbox';
 
-const Example = () => {
+const CheckboxExample = () => {
   const [selectedItems, setSelectedItems] = React.useState([false, false, false]);
 
   const toggleCheckbox = index => {
@@ -165,31 +144,33 @@ const Example = () => {
   };
 
   return (
-    <XUICheckboxRangeSelector>
-      <XUICheckbox
-        excludeFromRangeSelection
-        isChecked={selectedItems.every(item => item)}
-        isIndeterminate={
-          !selectedItems.every(item => item) && selectedItems.filter(item => item).length > 0
-        }
-        onChange={toggleAll}
-      >
-        All
-      </XUICheckbox>
-      <XUICheckbox isChecked={selectedItems[0]} onChange={() => toggleCheckbox(0)}>
-        Item 1
-      </XUICheckbox>
-      <XUICheckbox isChecked={selectedItems[1]} onChange={() => toggleCheckbox(1)}>
-        Item 2
-      </XUICheckbox>
-      <XUICheckbox isChecked={selectedItems[2]} onChange={() => toggleCheckbox(2)}>
-        Item 3
-      </XUICheckbox>
-    </XUICheckboxRangeSelector>
+    <div>
+      <XUICheckboxRangeSelector>
+        <XUICheckbox
+          excludeFromRangeSelection
+          isChecked={selectedItems.every(item => item)}
+          isIndeterminate={
+            !selectedItems.every(item => item) && selectedItems.filter(item => item).length > 0
+          }
+          onChange={toggleAll}
+        >
+          All
+        </XUICheckbox>
+        <XUICheckbox isChecked={selectedItems[0]} onChange={() => toggleCheckbox(0)}>
+          Draft
+        </XUICheckbox>
+        <XUICheckbox isChecked={selectedItems[1]} onChange={() => toggleCheckbox(1)}>
+          In progress
+        </XUICheckbox>
+        <XUICheckbox isChecked={selectedItems[2]} onChange={() => toggleCheckbox(2)}>
+          Closed
+        </XUICheckbox>
+      </XUICheckboxRangeSelector>
+    </div>
   );
 };
 
-<Example />;
+<CheckboxExample />;
 ```
 
 ### Disabled
@@ -198,13 +179,19 @@ const Example = () => {
 import XUICheckbox from '@xero/xui/react/checkbox';
 
 <div>
-  <XUICheckbox isDisabled>Unchecked</XUICheckbox>
-  <XUICheckbox isDisabled isDefaultChecked>
-    Checked
-  </XUICheckbox>
-  <XUICheckbox isDisabled isChecked={false} isIndeterminate>
-    Indeterminate
-  </XUICheckbox>
+  <span className="xui-text-label xui-fieldlabel-layout" id="disabledCheckboxes">
+    Project state
+  </span>
+  <div aria-labelledby="disabledCheckboxes" role="group">
+    <XUICheckbox isDisabled isIndeterminate>
+      All
+    </XUICheckbox>
+    <XUICheckbox isDisabled>Draft</XUICheckbox>
+    <XUICheckbox isDisabled>In Progress</XUICheckbox>
+    <XUICheckbox isDefaultChecked isDisabled>
+      Closed
+    </XUICheckbox>
+  </div>
 </div>;
 ```
 
@@ -213,45 +200,17 @@ import XUICheckbox from '@xero/xui/react/checkbox';
 Use the `isReversed` prop to have the label appear to the left of the checkbox element.
 
 ```jsx harmony
-import { PureComponent } from 'react';
+import { useState } from 'react';
 import XUICheckbox from '@xero/xui/react/checkbox';
 
-class Example extends PureComponent {
-  constructor() {
-    this.state = {
-      isIndeterminate: true
-    };
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange() {
-    this.setState({
-      isIndeterminate: !this.state.isIndeterminate
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <XUICheckbox isReversed isDefaultChecked={false}>
-          Unchecked
-        </XUICheckbox>
-        <XUICheckbox isReversed isDefaultChecked>
-          Checked
-        </XUICheckbox>
-        <XUICheckbox
-          isReversed
-          isIndeterminate={this.state.isIndeterminate}
-          onChange={this.onChange}
-        >
-          Indeterminate
-        </XUICheckbox>
-      </div>
-    );
-  }
-}
-
-<Example />;
+<div>
+  <span className="xui-text-label xui-fieldlabel-layout" id="reversedCheckboxes">
+    Quote title
+  </span>
+  <div aria-labelledby="reversedCheckboxes">
+    <XUICheckbox isReversed>Use project name</XUICheckbox>
+  </div>
+</div>;
 ```
 
 It is also possible to use the `isLabelHidden` prop to visually hide the label, but we strongly recommend providing a label for accessibility purposes, even if it will be hidden.
@@ -266,9 +225,7 @@ It is also possible to use the `isLabelHidden` prop to visually hide the label, 
 import starIcon from '@xero/xui-icon/icons/star';
 import XUICheckbox from '@xero/xui/react/checkbox';
 
-<div>
-  <XUICheckbox isDefaultChecked iconMain={starIcon}>
-    Favourite
-  </XUICheckbox>
-</div>;
+<XUICheckbox iconMain={starIcon} isDefaultChecked>
+  Balance Sheet
+</XUICheckbox>;
 ```

@@ -11,16 +11,22 @@ Standard banners are given a layout class by default and with no actionale butto
 ```jsx harmony
 import XUIBanner, { XUIBannerMessage } from '@xero/xui/react/banner';
 
-const onBannerClose = () => {
-  alert('Standard banner closed');
+const handleCloseClick = () => {
+  console.log('onCloseClick');
 };
 
 <div>
   <XUIBanner>
-    <XUIBannerMessage qaHook="banner-example--message">System Message</XUIBannerMessage>
+    <XUIBannerMessage>
+      We recommend that only your accountant or bookkeeper create journals, unless you have
+      experience managing your general ledger.
+    </XUIBannerMessage>
   </XUIBanner>
-  <XUIBanner closeButtonLabel="Close" sentiment="negative" onCloseClick={onBannerClose}>
-    <XUIBannerMessage>Negative sentiment with close button</XUIBannerMessage>
+  <XUIBanner closeButtonLabel="Close" onCloseClick={handleCloseClick} sentiment="negative">
+    <XUIBannerMessage>
+      Data can't be loaded as there's a problem with your internet connection. Check your connection
+      and try again.
+    </XUIBannerMessage>
   </XUIBanner>
 </div>;
 ```

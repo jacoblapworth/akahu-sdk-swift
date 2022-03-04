@@ -2,9 +2,9 @@
 //
 // Components: Isolation-header
 //
-// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.xjlje033gg4k
-//
 // Introduction: An isolation header is an alternate header for a page – or series of sub-pages – that excludes the global navigation for a more focused experience.
+//
+// FigmaComponentFrameKey: 1425%3A13453
 //
 // Teaser: Show in place of the global header when you want to encourage focus and have more control of the workflow
 //
@@ -29,6 +29,7 @@
 // Tips:
 // Do: For flows a user only completes once, use with a [stepper](./section-components-navigation-stepper.html#components-navigation-stepper)
 // Warning: Avoid using the back arrow icon to close/exit out of isolation mode
+// Dont: Don’t use isolation headers inside of modals
 // Dont: Don’t use isolation headers in combination with the global navigation
 // Dont: Don’t nest pages within isolation modes
 //
@@ -101,10 +102,6 @@
 //
 // Styleguide: Components.Navigation.Isolation header.5
 
-// Navigation
-//
-// Styleguide: Components.Navigation.Isolation header.5.1
-
 // Implementation
 //
 // While XUI provides the UI for the isolation header, its specific functionality must be implemented by the
@@ -137,7 +134,7 @@
 // These query parameters will allow a page to link to another page in isolation mode and specify the intended behaviour.
 // However, it is up to the page using isolation mode to read these query parameters and implement the behaviours.
 //
-// Styleguide: Components.Navigation.Isolation header.5.1.1
+// Styleguide: Components.Navigation.Isolation header.5.1
 
 // Tooltip
 //
@@ -146,7 +143,7 @@
 //
 // Markup: ./examples/isolation-header/_isolation-header-tooltip.html
 //
-// Styleguide: Components.Navigation.Isolation header.5.1.2
+// Styleguide: Components.Navigation.Isolation header.5.2
 
 // Stepper
 //
@@ -155,7 +152,7 @@
 //
 // Markup: ./examples/isolation-header/_isolation-header-stepper.html
 //
-// Styleguide: Components.Navigation.Isolation header.5.1.3
+// Styleguide: Components.Navigation.Isolation header.5.3
 
 // Accessibility
 //

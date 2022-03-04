@@ -3,7 +3,7 @@ import React from 'react';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { boolean, text } from '@storybook/addon-knobs';
+import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 
 // Components we need to test with
 import XUICapsule from '../XUICapsule';
@@ -14,17 +14,19 @@ import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
-  const isInteractive = boolean('is interactive', false);
-  const interactiveOnClick = () => {};
-  const href = isInteractive ? text('href', 'https://www.xero.com') : null;
-
+  const capsuleContent = text('Capsule content', 'Client’s name');
+  const hasOnClickHandler = boolean('Has onClick handler', false);
+  const href = text('href', 'https://go.xero.com/ReportPacks/OrganisationReportFields.aspx');
   return (
     <XUICapsule
-      href={href}
-      isValid={boolean('is valid', true)}
-      onClick={isInteractive ? interactiveOnClick : null}
+      className={text('className', '')}
+      href={href === '' ? null : href}
+      isLink={boolean('isLink', true)}
+      isValid={boolean('isValid', true)}
+      onClick={hasOnClickHandler ? () => {} : undefined}
+      target={text('target', '_blank')}
     >
-      Capsule
+      {capsuleContent}
     </XUICapsule>
   );
 });

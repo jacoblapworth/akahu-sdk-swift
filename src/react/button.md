@@ -12,10 +12,10 @@ You can give `XUIButton` a click handler to perform actions when the button is t
 import XUIButton from '@xero/xui/react/button';
 
 function handleClick() {
-  alert('You have clicked a button');
+  console.log('onClick');
 }
 
-<XUIButton onClick={handleClick}>Action</XUIButton>;
+<XUIButton onClick={handleClick}>Cancel</XUIButton>;
 ```
 
 ### Variants
@@ -29,55 +29,51 @@ import ExampleContainer from './docs/ExampleContainer';
 
 <div>
   <h3>Regular buttons</h3>
-  <div className="xui-padding-small">
+  <ExampleContainer>
     <XUIButton className="xui-margin-right-small" variant="main">
-      Main
+      Submit
     </XUIButton>
     <XUIButton className="xui-margin-right-small" variant="create">
       Create
     </XUIButton>
     <XUIButton className="xui-margin-right-small" variant="negative">
-      Negative
+      Delete
     </XUIButton>
-    <XUIButton className="xui-margin-right-small" variant="standard">
-      Standard
-    </XUIButton>
-  </div>
-  <h3>Regular buttons</h3>
-  <div className="xui-padding-small">
-    <XUIButton className="xui-margin-right-small" variant="borderless-standard">
-      Borderless standard
-    </XUIButton>
+    <XUIButton variant="standard">Cancel</XUIButton>
+  </ExampleContainer>
+
+  <h3>Borderless buttons</h3>
+  <ExampleContainer>
     <XUIButton className="xui-margin-right-small" variant="borderless-main">
-      Borderless main
+      Submit
     </XUIButton>
     <XUIButton className="xui-margin-right-small" variant="borderless-create">
-      Borderless create
+      Create
     </XUIButton>
     <XUIButton className="xui-margin-right-small" variant="borderless-negative">
-      Borderless negative
+      Delete
     </XUIButton>
-    <XUIButton className="xui-margin-right-small" variant="borderless-muted">
-      Borderless muted
+    <XUIButton className="xui-margin-right-small" variant="borderless-standard">
+      Cancel
     </XUIButton>
-  </div>
+    <XUIButton variant="borderless-muted">Back</XUIButton>
+  </ExampleContainer>
+
   <h3>Inverted buttons</h3>
-  <ExampleContainer className="xui-padding-xsmall" isInverted>
+  <ExampleContainer isInverted>
     <XUIButton className="xui-margin-right-small" isInverted variant="main">
-      Main inverted
+      Submit
     </XUIButton>
     <XUIButton className="xui-margin-right-small" isInverted variant="create">
-      Create inverted
+      Create
     </XUIButton>
     <XUIButton className="xui-margin-right-small" isInverted variant="negative">
-      Negative inverted
+      Delete
     </XUIButton>
     <XUIButton className="xui-margin-right-small" isInverted variant="standard">
-      Standard inverted
+      Cancel
     </XUIButton>
-    <XUIButton className="xui-margin-right-small" variant="borderless-inverted">
-      Borderless inverted
-    </XUIButton>
+    <XUIButton variant="borderless-inverted">Back</XUIButton>
   </ExampleContainer>
 </div>;
 ```
@@ -94,11 +90,11 @@ The `size` prop allows you to modify the default button size.
 import XUIButton from '@xero/xui/react/button';
 
 <div>
-  <XUIButton className="xui-margin-right-small">Medium</XUIButton>
+  <XUIButton className="xui-margin-right-small">Cancel</XUIButton>
   <XUIButton className="xui-margin-right-small" size="small">
-    Small
+    Cancel
   </XUIButton>
-  <XUIButton size="xsmall">Xsmall</XUIButton>
+  <XUIButton size="xsmall">Cancel</XUIButton>
 </div>;
 ```
 
@@ -114,16 +110,14 @@ You can make buttons span the width of their container by setting the `fullWidth
 import XUIButton from '@xero/xui/react/button';
 
 <div>
-  <div className="xui-margin-bottom">
-    <XUIButton variant="main" fullWidth="always">
-      Full-width
-    </XUIButton>
-  </div>
-  <div>
-    <XUIButton variant="main" fullWidth="small-down">
-      Full-width at small breakpoint
-    </XUIButton>
-  </div>
+  <h3>Full-width always</h3>
+  <XUIButton fullWidth="always" variant="main">
+    Submit
+  </XUIButton>
+  <h3>Full-width at small breakpoint</h3>
+  <XUIButton fullWidth="small-down" variant="main">
+    Submit
+  </XUIButton>
 </div>;
 ```
 
@@ -134,35 +128,16 @@ Icons can add context to the text content of the button. If you want a button to
 Buttons only accept icons on one side of the text content. If you try to add icons on both sides, only the icon on the left will show. The exception is buttons using the `hasCaret` setting, which may also show an icon on the left.
 
 ```jsx harmony
-import XUIButton from '@xero/xui/react/button';
-import settings from '@xero/xui-icon/icons/settings';
 import external from '@xero/xui-icon/icons/external';
+import settings from '@xero/xui-icon/icons/settings';
+
+import XUIButton from '@xero/xui/react/button';
 
 <div>
-  <div className="xui-margin-bottom">
-    <XUIButton className="xui-margin-right" leftIcon={settings}>
-      Left icon
-    </XUIButton>
-    <XUIButton className="xui-margin-right" rightIcon={external}>
-      Right icon
-    </XUIButton>
-  </div>
-  <div className="xui-margin-bottom">
-    <XUIButton className="xui-margin-right" leftIcon={settings} size="small">
-      Left icon
-    </XUIButton>
-    <XUIButton className="xui-margin-right" rightIcon={external} size="small">
-      Right icon
-    </XUIButton>
-  </div>
-  <div>
-    <XUIButton className="xui-margin-right" leftIcon={settings} size="xsmall">
-      Left icon
-    </XUIButton>
-    <XUIButton className="xui-margin-right" rightIcon={external} size="xsmall">
-      Right icon
-    </XUIButton>
-  </div>
+  <XUIButton className="xui-margin-right" leftIcon={settings}>
+    Settings
+  </XUIButton>
+  <XUIButton rightIcon={external}>View invoice</XUIButton>
 </div>;
 ```
 
@@ -175,7 +150,7 @@ Check out the [Dropdown](#dropdown) examples to see buttons being used as trigge
 ```jsx harmony
 import XUIButton from '@xero/xui/react/button';
 
-<XUIButton hasCaret>Dropdown</XUIButton>;
+<XUIButton hasCaret>Country</XUIButton>;
 ```
 
 ### Disabled / Loading States
@@ -186,14 +161,14 @@ You can programatically disable a button by setting the `isDisabled` prop to `tr
 import XUIButton from '@xero/xui/react/button';
 
 <div>
-  <XUIButton className="xui-margin-right-small" variant="create" isDisabled>
-    Disabled button
+  <XUIButton className="xui-margin-right-small" isDisabled variant="borderless-standard">
+    Previous step
   </XUIButton>
   <XUIButton className="xui-margin-right-small" isDisabled>
-    Disabled button
+    Cancel
   </XUIButton>
-  <XUIButton variant="borderless-standard" isDisabled>
-    Disabled button
+  <XUIButton isDisabled variant="main">
+    Submit
   </XUIButton>
 </div>;
 ```
@@ -208,41 +183,60 @@ The `hasMinLoaderWidth` prop modifies the button by applying a 75px min width on
 import XUIButton from '@xero/xui/react/button';
 
 <div>
-  <XUIButton className="xui-margin-right-small" variant="main" loadingAriaLabel="Loading">
-    Button with lots of text
+  <h3>Retains layout</h3>
+  <XUIButton className="xui-margin-right-small" loadingAriaLabel="Loading" variant="main">
+    Submit purchase order
   </XUIButton>
-  <XUIButton className="xui-margin-right-small" variant="main" isLoading loadingAriaLabel="Loading">
-    Button with lots of text
+  <XUIButton className="xui-margin-right-small" isLoading loadingAriaLabel="Loading" variant="main">
+    Submit purchase order
+  </XUIButton>
+  <XUIButton className="xui-margin-right-small" loadingAriaLabel="Loading" variant="main">
+    OK
+  </XUIButton>
+  <XUIButton isLoading loadingAriaLabel="Loading" variant="main">
+    OK
+  </XUIButton>
+
+  <h3>Does not retain layout</h3>
+  <XUIButton
+    className="xui-margin-right-small"
+    loadingAriaLabel="Loading"
+    retainLayout={false}
+    variant="main"
+  >
+    Submit purchase order
   </XUIButton>
   <XUIButton
     className="xui-margin-right-small"
-    variant="main"
     isLoading
     loadingAriaLabel="Loading"
     retainLayout={false}
-  >
-    Button with lots of text
-  </XUIButton>
-  <XUIButton className="xui-margin-right-small" variant="standard" loadingAriaLabel="Loading">
-    OK
-  </XUIButton>
-  <XUIButton
-    className="xui-margin-right-small"
-    variant="standard"
-    isLoading
-    loadingAriaLabel="Loading"
-  >
-    OK
-  </XUIButton>
-  <XUIButton
-    className="xui-margin-right-small"
     variant="main"
+  >
+    Submit purchase order
+  </XUIButton>
+  <XUIButton
+    className="xui-margin-right-small"
     loadingAriaLabel="Loading"
-    hasMinLoaderWidth
+    retainLayout={false}
+    variant="main"
   >
     OK
   </XUIButton>
-  <XUIButton variant="main" isLoading loadingAriaLabel="Loading" hasMinLoaderWidth>
+  <XUIButton isLoading loadingAriaLabel="Loading" retainLayout={false} variant="main">
+    OK
+  </XUIButton>
+
+  <h3>Has min loader width</h3>
+  <XUIButton
+    className="xui-margin-right-small"
+    hasMinLoaderWidth
+    loadingAriaLabel="Loading"
+    variant="main"
+  >
+    OK
+  </XUIButton>
+  <XUIButton hasMinLoaderWidth isLoading loadingAriaLabel="Loading" variant="main">
     OK
   </XUIButton>
 </div>;

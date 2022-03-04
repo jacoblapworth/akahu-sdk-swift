@@ -4,11 +4,11 @@
 //
 // VisualExample: ./components/alerts/examples/toast/_toast-visual-example.html
 //
-// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.exg1mc43btyk
-//
 // Teaser: Visual confirmation of user actions or system events.
 //
 // Introduction: Toasts are used to visually confirm a user action or system event.
+//
+// FigmaComponentFrameKey: 1425%3A13450
 //
 // Styleguide: Components.Alerts.Toast
 
@@ -21,7 +21,7 @@
 
 // When not to use
 //
-// - Don’t use to highlight form errors – instead use [inline validation](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-13)
+// - Don’t use to highlight form errors – instead use [inline validation](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-6-1)
 //
 // Styleguide: Components.Alerts.Toast.2
 
@@ -29,7 +29,7 @@
 //
 // Tips:
 // Do: Display at the bottom left-hand corner of the page
-// Do: Should relate to the action just performed
+// Do: Content should relate to the action just performed
 // Do: Keep content brief and to the point
 //
 // Styleguide: Components.Alerts.Toast.3
@@ -43,7 +43,7 @@
 // Do: Always include a close button
 // Warning: Avoid long or complex descriptions
 //
-// To create a toast, apply the following classes:
+// To create a toast, apply the following classes.
 //
 // Classes:
 // xui-toast: Container for a toast
@@ -129,9 +129,20 @@
 //
 // If another toast is required, hide the current one from view, before showing the new one.
 //
-// For more guidance on how to use toasts, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
+// For more guidance on how to use toasts, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role)
 //
 // Styleguide: Components.Alerts.Toast.5.4
+
+// Accessibility
+//
+// It is recommended to use the `alert` role when using toasts with negative sentiment.
+//
+// This role is limited to important or time-sensitive messages, so only use it when you require the users' immediate attention.
+// In all other contexts use the `status` role.
+//
+// For further information on roles, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
+//
+// Styleguide: Components.Alerts.Toast.6
 
 // Content guidelines
 //
@@ -141,7 +152,7 @@
 // Do: Use contractions for a conversational tone (for example: didn’t, couldn’t, can’t)
 // Dont: Don’t put full stops at the end of a link
 //
-// Styleguide: Components.Alerts.Toast.6
+// Styleguide: Components.Alerts.Toast.7
 
 // Examples
 //
@@ -149,18 +160,9 @@
 // Invoice sent | Your invoice INV-9087 has been sent to Fleur’s Flowers.
 // Contact didn't save | Contact did not save.
 //
-// Styleguide: Components.Alerts.Toast.6.1
+// Styleguide: Components.Alerts.Toast.7.1
 
-// Accessibility
-//
-// It is recommended to use the `alert` role when using toasts with negative sentiment.
-// This role is limited to important or time-sensitive messages, so only use it when you require the users' immediate attention.
-// In all other contexts use the `status` role.
-// For further information on roles, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role).
-//
-// Styleguide: Components.Alerts.Toast.9
-
-// Related links
+// Related components
 //
 // Related:
 // * [Banner](./section-components-alerts-banner.html)

@@ -4,11 +4,11 @@
 //
 // Components: Button
 //
-// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.n0x4g065o3eg
-//
 // Teaser: Use buttons for the most important actions on a page.
 //
 // Introduction: Use buttons for the most important actions on a page.
+//
+// FigmaComponentFrameKey: 1425%3A13435
 //
 // VisualExample: ./components/controls/examples/button/_button-visual-example.html
 //
@@ -63,10 +63,10 @@
 //
 // Add a `xui-button-*` modifier to specify which kind of button you require.
 //
-// Aim to use [1 primary action on each page](./section-patterns-page-level-actions.html#patterns-page-level-actions-1). The primary action can be:
-// - a blue ‘main’ button (this is the most common),
-// - a green ‘create’ button, or
-// - a red ‘negative’ button.
+// Aim to [use 1 primary action on each page](./section-patterns-page-level-actions.html#patterns-page-level-actions-1). The primary action can be either a:
+// - blue ‘main’ button (this is the most common)
+// - green ‘create’ button
+// - red ‘negative’ button
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -105,9 +105,9 @@
 //
 // Styleguide: Components.Controls.Button.4.2.2
 
-// Full width buttons
+// Full-width buttons
 //
-// To force a button to occupy the entire width of its parent at all times, apply the following utility class.
+// To force a button to occupy the entire width of its parent at all times, apply the following utility class:
 //
 // Classes:
 // xui-button-fullwidth: 100% width
@@ -118,9 +118,9 @@
 //
 // Styleguide: Components.Controls.Button.4.3
 
-// Full width for mobile
+// Full-width for mobile
 //
-// To force a button to occupy the entire width of its parent at narrow viewports, apply the following modifier.
+// To force a button to occupy the entire width of its parent at narrow viewports, apply the following modifier:
 //
 // Classes:
 // xui-button-fullwidth-layout: 100% width below 600px ($xui-breakpoint-small-down)
@@ -156,7 +156,7 @@
 
 // Icon button size variants
 //
-// Icon buttons require their own classes to be applied to use size variants. Follow the same [size variants as regular buttons](./section-components-controls-button.html#components-controls-button-16.
+// Icon buttons require their own classes to be applied to use size variants. Follow the same [size variants as regular buttons](./section-components-controls-button.html#components-controls-button-16)
 //
 //**Note:** Icon buttons nested inside controls should use the same size variant as the control.
 //
@@ -263,7 +263,7 @@
 
 // Grouped buttons
 //
-// To group a series of similar actions in a more compact space, apply the following classes.
+// To group a series of similar actions in a more compact space, apply the following classes:
 //
 // ExampleClass: ds-example-flush ds-example-transparent
 //
@@ -277,7 +277,7 @@
 
 // Layout
 //
-// To position buttons correctly inside a form, modal or page, apply the following classes.
+// To position buttons correctly inside a form, modal or page, apply the following classes:
 //
 // Classes:
 // xui-actions: Apply to button container to set the correct layout
@@ -348,7 +348,7 @@
 
 // Use the format: verb + noun
 //
-// Do this unless the [button is common](#components-controls-button-15-3) and the context is very clear.
+// Do this unless the context is very clear and the [button is a commonly used](#components-controls-button-7-3)
 //
 // ExampleContentTable:
 // View PDF | View
@@ -434,7 +434,7 @@
 //
 // Styleguide: Components.Controls.Button.8
 
-// Related links
+// Related components
 //
 // Related:
 // * [Dropdown](./section-components-collectinginput-dropdowns.html)

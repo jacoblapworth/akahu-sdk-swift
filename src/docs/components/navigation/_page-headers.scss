@@ -6,7 +6,7 @@
 //
 // Components: Page-header
 //
-// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.kk4oijzi48fo
+// FigmaComponentFrameKey: 1425%3A13454
 //
 // Styleguide: Components.Navigation.Page header
 
@@ -33,7 +33,7 @@
 // Do: Only place actions in the page header that are highly used or key to the product workflow
 // Do: All information should be directly relevant to all the content on the page
 // Don't: Avoid cluttering the page header component with too many visual elements
-// Info: For guidance on applying actions to a page header, see [Page-level actions pattern guide](./section-patterns-page-level-actions.html)
+// Info: For guidance on applying actions to a page header, see [page-level actions pattern guide](./section-patterns-page-level-actions.html)
 //
 // Styleguide: Components.Navigation.Page header.3
 
@@ -103,7 +103,7 @@
 // Do: Use a tag to indicate a page state or status (for example, “draft”)
 // Warning: Avoid using a tag to identify a new page unless it is imperative to the user experience
 // Don't: Avoid displaying more than 1 tag, as tags are generally used to represent a group of mutually exclusive states
-// Info: [Tag component guide](./section-components-identifiers-tag.html)
+// Info: [Learn more about tags](./section-components-identifiers-tag.html)
 //
 // ExampleClass: ds-example-wide-with-nav
 //
@@ -136,9 +136,9 @@
 // Tips:
 // Do: Make every breadcrumb a useful navigation link
 // Do: Use the primary title to indicate the current page
-// Don't: Use breadcrumbs to illustrate the structure of the sitemap or information architecture – not the users' journey
+// Don't: Use breadcrumbs to illustrate the structure of the sitemap or information architecture – not the user's journey
 // Don't: Avoid nesting pages more than 3 levels deep
-// Info: [Breadcrumb trail component guide](./section-components-navigation-breadcrumb-trail.html)
+// Info: [Learn more about breadcrumb trails](./section-components-navigation-breadcrumb-trail.html)
 //
 // ExampleClass: ds-example-wide-with-nav
 //
@@ -151,9 +151,9 @@
 // Tabs are used as navigational elements for sub-sections or sub-pages of the page in view. Placing these alongside the title(s) in the page header reinforces the parent-child relationship between the pages
 //
 // Tips:
-// Do: treat tabs as categories of the parent page, not as a substitute for a page title
+// Do: Treat tabs as categories of the parent page, not as a substitute for a page title
 // Do: Consider using the compact tab variant when there are many tabs or text content is exceptionally long
-// Info: [Tabs component guide](./section-components-navigation-tabs.html)
+// Info: [Learn more about tabs](./section-components-navigation-tabs.html)
 //
 // ExampleClass: ds-example-wide-with-nav
 //
@@ -168,7 +168,7 @@
 // Tips:
 // Do: Keep text content concise to avoid page header height growing drastically on small viewports
 // Do: Consider using the compact variants of [breadcrumb trail](./section-components-navigation-breadcrumb-trail.html) and [tabs](./section-components-navigation-tabs.html) at smaller breakpoints
-// Do: Consider moving buttons to fall under an overflow [icon button](./section-components-controls-button.html#components-controls-button-6) at smaller breakpoints
+// Do: Consider moving buttons to fall under an overflow [icon button](./section-components-controls-button.html#components-controls-button-4-4) at smaller breakpoints
 // Don't: Don’t remove pertinent page header details or functionality on small viewport widths
 //
 // ExampleClass: ds-example-wide-with-nav
@@ -188,7 +188,7 @@
 // Don't: Don’t use punctuation
 //
 // Related:
-// Also see guidance for writing [buttons](./section-components-controls-button.html#components-controls-button-15)
+// Also see guidance for writing [buttons](./section-components-controls-button.html#components-controls-button-7)
 //
 // Styleguide: Components.Navigation.Page header.5
 

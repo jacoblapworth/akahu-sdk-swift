@@ -17,29 +17,27 @@ If `onDeleteClick` is added, a delete button will be rendered inside the pill, a
 ```jsx harmony
 import XUIPill from '@xero/xui/react/pill';
 
-const wasDeleted = () => {
-  window.alert('deleted');
+const handleDelete = () => {
+  console.log('onDeleteClick');
 };
-const wasClicked = () => {
-  window.alert('clicked');
-};
-const linkWasDeleted = () => {
-  window.alert('deleted link');
+const handleClick = () => {
+  console.log('onClick');
 };
 
 <div>
   <XUIPill
-    value="Deletable selection"
-    onDeleteClick={wasDeleted}
-    deleteButtonLabel="Delete"
     className="xui-margin-right-xsmall"
-  />
-  <XUIPill value="Undeletable" onClick={wasClicked} className="xui-margin-right-xsmall" />
-  <XUIPill
-    href="https://xero.com"
-    value="Link Pill"
-    onDeleteClick={linkWasDeleted}
     deleteButtonLabel="Delete"
+    onDeleteClick={handleDelete}
+    value="Jane Smith"
+  />
+  <XUIPill className="xui-margin-right-xsmall" onClick={handleClick} value="Jane Smith" />
+  <XUIPill
+    href="/"
+    deleteButtonLabel="Delete"
+    onDeleteClick={handleDelete}
+    target="_blank"
+    value="Jane Smith"
   />
 </div>;
 ```
@@ -55,15 +53,14 @@ import XUIPill from '@xero/xui/react/pill';
 
 <div>
   <XUIPill
-    value="Avatar pill"
-    className="xui-margin-right-xsmall"
     avatarProps={{
-      value: 'SJ',
-      imageUrl:
-        'https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c'
+      imageUrl: 'https://picsum.photos/id/1011/100/100',
+      value: 'Jane Smith'
     }}
+    className="xui-margin-right-xsmall"
+    value="Jane Smith"
   />
-  <XUIPill value="Avatar pill" avatarProps={{ value: 'SJ' }} />
+  <XUIPill avatarProps={{ value: 'Jane Smith' }} value="Jane Smith" />
 </div>;
 ```
 
@@ -74,24 +71,28 @@ Pills can be `medium` or `small` size, by passing one of these values to the `si
 ```jsx harmony
 import XUIPill from '@xero/xui/react/pill';
 
-const NOOP = () => {};
+const handleDelete = () => {
+  console.log('onDeleteClick');
+};
+
 <div>
   <XUIPill
-    value="Medium"
     avatarProps={{
-      value: 'M'
+      value: 'Jane Smith'
     }}
-    onDeleteClick={NOOP}
+    className="xui-margin-right-xsmall"
     deleteButtonLabel="Delete"
+    onDeleteClick={handleDelete}
+    value="Jane Smith"
   />
   <XUIPill
-    value="Small"
-    size="small"
     avatarProps={{
-      value: 'Small'
+      value: 'Jane Smith'
     }}
-    onDeleteClick={NOOP}
     deleteButtonLabel="Delete"
+    onDeleteClick={handleDelete}
+    size="small"
+    value="Jane Smith"
   />
 </div>;
 ```
@@ -103,7 +104,7 @@ Pills can be rendered as invalid by passing the `isInvalid` prop.
 ```jsx harmony
 import XUIPill from '@xero/xui/react/pill';
 
-<XUIPill value="Invalid" isInvalid />;
+<XUIPill value="Jane Smith" isInvalid />;
 ```
 
 ### Secondary text
@@ -113,5 +114,5 @@ Content passed to `secondaryText` will be rendered using a secondary text modifi
 ```jsx harmony
 import XUIPill from '@xero/xui/react/pill';
 
-<XUIPill secondaryText="Secondary" value="Primary" />;
+<XUIPill secondaryText="Primary Contact:" value="Jane Smith" />;
 ```

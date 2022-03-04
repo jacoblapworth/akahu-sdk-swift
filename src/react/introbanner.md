@@ -18,18 +18,18 @@ All intro banner components must be provided with `dismissButtonText` and `onDis
 The bare minimum intro banner component can be achieved by using `XUIIntroBanner` with a `XUIIntroBannerBody` child, along with props for the header title and dismiss button.
 
 ```js
-import { XUIIntroBanner, XUIIntroBannerBody } from '@xero/xui/react/introbanner';
-import XUIIcon from '@xero/xui/react/icon';
 import external from '@xero/xui-icon/icons/external';
+import XUIIcon from '@xero/xui/react/icon';
+import XUIIntroBanner, { XUIIntroBannerBody } from '@xero/xui/react/introbanner';
 
-const dismiss = () => {
-  window.alert('Dismiss');
+const handleDismiss = () => {
+  console.log('onDismiss');
 };
 
 <XUIIntroBanner
   dismissButtonText="Hide"
   headerTitle="Learn how to manage your inventory"
-  onDismiss={dismiss}
+  onDismiss={handleDismiss}
 >
   <XUIIntroBannerBody>
     <p>
@@ -58,21 +58,20 @@ const dismiss = () => {
 We recommend providing actions in the form of `XUIButton` components.
 
 ```js
+import external from '@xero/xui-icon/icons/external';
 import XUIButton from '@xero/xui/react/button';
-import {
-  XUIIntroBanner,
+import XUIIcon from '@xero/xui/react/icon';
+import XUIIntroBanner, {
   XUIIntroBannerBody,
   XUIIntroBannerFooter
 } from '@xero/xui/react/introbanner';
-import XUIIcon from '@xero/xui/react/icon';
-import external from '@xero/xui-icon/icons/external';
 
-const dismiss = () => {
-  window.alert('Dismiss');
+const handleDismiss = () => {
+  console.log('onDismiss');
 };
 
-const click = () => {
-  window.alert('Link to external video');
+const handleClick = () => {
+  console.log('onClick');
 };
 
 const body = (
@@ -97,7 +96,7 @@ const body = (
 
 const footer = (
   <XUIIntroBannerFooter>
-    <XUIButton onClick={click} rightIcon={external} size="small" variant="standard">
+    <XUIButton onClick={handleClick} rightIcon={external} size="small" variant="standard">
       Watch video on Xero TV
     </XUIButton>
   </XUIIntroBannerFooter>
@@ -107,7 +106,7 @@ const footer = (
   dismissButtonText="Hide"
   footer={footer}
   headerTitle="Learn how to manage your inventory"
-  onDismiss={dismiss}
+  onDismiss={handleDismiss}
 >
   {body}
 </XUIIntroBanner>;
@@ -118,12 +117,12 @@ const footer = (
 The intro banner can also include an illustration, which is displayed in the form of a `XUIIllustration` component. Provide a link to the illustration in the form of a `illustrationUrl` prop in order to compose this variant.
 
 ```js
-import { XUIIntroBanner, XUIIntroBannerBody } from '@xero/xui/react/introbanner';
-import XUIIcon from '@xero/xui/react/icon';
 import external from '@xero/xui-icon/icons/external';
+import XUIIcon from '@xero/xui/react/icon';
+import XUIIntroBanner, { XUIIntroBannerBody } from '@xero/xui/react/introbanner';
 
-const dismiss = () => {
-  window.alert('Dismiss');
+const handleDismiss = () => {
+  console.log('onDismiss');
 };
 
 const body = (
@@ -150,7 +149,7 @@ const body = (
   dismissButtonText="Hide"
   headerTitle="Learn how to manage your inventory"
   illustrationUrl="https://edge.xero.com/illustration/job-maker-01/job-maker-01.svg"
-  onDismiss={dismiss}
+  onDismiss={handleDismiss}
 >
   {body}
 </XUIIntroBanner>;
@@ -163,22 +162,22 @@ A play button can be displayed on top of the illustration if an introduction vid
 A `XUIIntroBannerFooter` component should also be provided containing a “Watch Video” button.
 
 ```js
-import XUIButton from '@xero/xui/react/button';
-import {
-  XUIIntroBanner,
-  XUIIntroBannerBody,
-  XUIIntroBannerFooter
-} from '@xero/xui/react/introbanner';
-import XUIIcon from '@xero/xui/react/icon';
 import external from '@xero/xui-icon/icons/external';
 import videoIcon from '@xero/xui-icon/icons/social-youtube';
 
-const dismiss = () => {
-  window.alert('Dismiss');
+import XUIButton from '@xero/xui/react/button';
+import XUIIcon from '@xero/xui/react/icon';
+import XUIIntroBanner, {
+  XUIIntroBannerBody,
+  XUIIntroBannerFooter
+} from '@xero/xui/react/introbanner';
+
+const handleDismiss = () => {
+  console.log('onDismiss');
 };
 
 const watchVideo = () => {
-  window.alert('Watch video');
+  console.log('onClick');
 };
 
 const body = (
@@ -214,7 +213,7 @@ const footer = (
   footer={footer}
   headerTitle="Learn how to manage your inventory"
   illustrationUrl="https://edge.xero.com/illustration/job-maker-01/job-maker-01.svg"
-  onDismiss={dismiss}
+  onDismiss={handleDismiss}
   onVideoClick={watchVideo}
   videoButtonLabel="Watch video"
 >

@@ -8,13 +8,13 @@
 //
 // VisualExample: ./components/alerts/examples/banner/_banner-visual-example.html
 //
-// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.yhnmgwweghhm
+// FigmaComponentFrameKey: 1425%3A13448
 //
 // Styleguide: Components.Alerts.Banner
 
 // When to use
 //
-// - To show error or validation information when [inline validation](section-components-collectinginput-forms.html#components-collectinginput-forms-4-12) isn’t possible
+// - To show error or validation information when [inline validation](section-components-collectinginput-forms.html#components-collectinginput-forms-4-6) isn’t possible
 // - To display important information above the main content
 //
 // Styleguide: Components.Alerts.Banner.1
@@ -80,7 +80,7 @@
 //
 // Tips:
 // Do: Use positive sentiment if an action’s feedback is delayed, persistent, or has a relevant action
-// Warning: Avoid using for success messages – [toasts](./section-components-alerts-toast.html) can be used instead
+// Warning: Avoid using for success messages – instead use a [toast](./section-components-alerts-toast.html)
 //
 // Definitions:
 // Positive: Adds green border: `-positive`
@@ -145,17 +145,13 @@
 // Do: For single sentences, don’t use a full stop
 // Don't: Avoid repeating or rehashing the heading text in the body copy
 //
+//
+// Related: Also see guidance for writing:
+// * [Buttons](./section-components-controls-button.html#components-controls-button-7)
+// * [Headings](//xui.xero.com/product-language-guide/components/examples-of-product-writing/#headings)
+// * [Links](//xui.xero.com/product-language-guide/components/writing-style/#links)
+//
 // Styleguide: Components.Alerts.Banner.7
-
-// TopDescription: Also see guidance for writing:
-//
-//
-//
-// - [Buttons](./section-components-controls-button.html#components-controls-button-7)
-// - [Headings](//xui.xero.com/product-language-guide/components/examples-of-product-writing/#headings)
-// - [Links](//xui.xero.com/product-language-guide/components/writing-style/#links)
-//
-// Styleguide: Components.Alerts.Banner.7.1
 
 // Related components
 //

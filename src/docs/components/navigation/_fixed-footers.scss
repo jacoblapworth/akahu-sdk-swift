@@ -6,6 +6,8 @@
 //
 // Components: Fixed-footer
 //
+// FigmaComponentFrameKey: 13542%3A43209
+//
 // Styleguide: Components.Navigation.FixedFooter
 
 // When to use
@@ -25,7 +27,7 @@
 //
 // Tips:
 // Do: When using a fixed footer, the position should be always fixed and not conditionally sticky
-// Info: For more information, see [Page-level actions guidance](./section-patterns-page-level-actions.html)
+// Info: For more information, see [page-level actions guidance](./section-patterns-page-level-actions.html)
 //
 // Styleguide: Components.Navigation.FixedFooter.3
 
@@ -50,7 +52,7 @@
 //
 // Tips:
 // Do: Align internal content to the left or right of the footer
-// Do: Consider the user workflow when containing actions inside a fixed footer. For example, right-align actions that complete a user flow. For how to correctly position XUIActions component in the fixed footer, see [layout](./section-components-controls-button.html#components-controls-button-15)
+// Do: Consider the user workflow when containing actions inside a fixed footer. For example, right-align actions that complete a user flow. For how to correctly position XUIActions component in the fixed footer, see [layout](./section-components-controls-button.html#components-controls-button-4-11)
 // Do: Use the small button size variant
 // Do: Align text content on the left to allow for actions to be displayed on the right
 // Don't: If using a fixed footer to navigate users through a flow, avoid discarding unsaved changes without a warning

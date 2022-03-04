@@ -5,10 +5,10 @@ To disable an entire button group, you must add the `isDisabled` prop to each bu
 ```jsx harmony
 import XUIButton, { XUIButtonGroup } from '@xero/xui/react/button';
 
-<XUIButtonGroup qaHook="numbered-buttongroup">
-  <XUIButton>Action 1</XUIButton>
-  <XUIButton>Action 2</XUIButton>
-  <XUIButton>Action 3</XUIButton>
+<XUIButtonGroup>
+  <XUIButton>Delete</XUIButton>
+  <XUIButton>Copy</XUIButton>
+  <XUIButton>Edit</XUIButton>
 </XUIButtonGroup>;
 ```
 
@@ -17,9 +17,9 @@ To set the size of an entire button group, you can set the `size` prop on `<XUIB
 ```jsx harmony
 import XUIButton, { XUIButtonGroup } from '@xero/xui/react/button';
 
-<XUIButtonGroup qaHook="numbered-buttongroup" size="small">
-  <XUIButton>Action 1</XUIButton>
-  <XUIButton>Action 2</XUIButton>
-  <XUIButton>Action 3</XUIButton>
+<XUIButtonGroup size="small">
+  <XUIButton>Delete</XUIButton>
+  <XUIButton>Copy</XUIButton>
+  <XUIButton>Edit</XUIButton>
 </XUIButtonGroup>;
 ```

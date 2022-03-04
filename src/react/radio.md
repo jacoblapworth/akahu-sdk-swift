@@ -17,15 +17,20 @@ You can use as an uncontrolled component by not setting `isChecked` on any of th
 ```jsx harmony
 import XUIRadio from '@xero/xui/react/radio';
 
-<div role="radiogroup" aria-label="test group">
-  <XUIRadio name="test" isDefaultChecked hintMessage="Hint message">
-    Option 1
-  </XUIRadio>
-  <XUIRadio name="test">Option 2</XUIRadio>
-  <XUIRadio name="test">Option 3</XUIRadio>
-  <XUIRadio name="test" isDisabled>
-    Option 4
-  </XUIRadio>
+<div>
+  <span className="xui-text-label xui-fieldlabel-layout" id="uncontrolledRadios">
+    Period
+  </span>
+  <div aria-labelledby="uncontrolledRadios" role="radiogroup">
+    <XUIRadio isDefaultChecked name="period-uncontrolled">
+      Day
+    </XUIRadio>
+    <XUIRadio name="period-uncontrolled">Month</XUIRadio>
+    <XUIRadio name="period-uncontrolled">Quarter</XUIRadio>
+    <XUIRadio isDisabled name="period-uncontrolled">
+      Year
+    </XUIRadio>
+  </div>
 </div>;
 ```
 
@@ -34,51 +39,42 @@ import XUIRadio from '@xero/xui/react/radio';
 You can create controlled inputs by setting `isChecked` on radio items and using `onChange` to update the selected item.
 
 ```jsx harmony
+import { useState } from 'react';
 import XUIRadio from '@xero/xui/react/radio';
-import { PureComponent } from 'react';
 
-const options = ['Cats', 'Dogs', 'Birds', 'Fish'];
+const options = ['Day', 'Month', 'Quarter', 'Year'];
 
-class Example extends PureComponent {
-  constructor(...args) {
-    super(...args);
+const RadioExample = () => {
+  const [selectedItem, setSelectedItem] = useState('Day');
 
-    this.state = {
-      selectedItem: null
-    };
+  const onChange = event => {
+    setSelectedItem(event.target.value);
+  };
 
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange(e) {
-    this.setState({
-      selectedItem: e.target.value
-    });
-  }
-
-  render() {
-    const { selectedItem } = this.state;
-    return (
-      <div role="radiogroup" aria-label="pets group">
-        {selectedItem == null ? "What're your favourite pets?" : `Your favourite: ${selectedItem}`}
+  return (
+    <div>
+      <span className="xui-text-label xui-fieldlabel-layout" id="controlledRadios">
+        {selectedItem == null ? 'Period' : `Selected period: ${selectedItem}`}
+      </span>
+      <div aria-labelledby="controlledRadios" role="radiogroup">
         <div>
           {options.map(option => (
             <XUIRadio
-              key={option}
-              value={option}
               isChecked={selectedItem === option}
-              onChange={this.onChange}
+              key={option}
+              onChange={onChange}
+              value={option}
             >
               {option}
             </XUIRadio>
           ))}
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-<Example />;
+<RadioExample />;
 ```
 
 ### Reversed labels
@@ -88,19 +84,24 @@ Use the `isReversed` prop to have the label appear to the left of the checkbox e
 ```jsx harmony
 import XUIRadio from '@xero/xui/react/radio';
 
-<div role="radiogroup" aria-label="reversed group">
-  <XUIRadio isReversed name="reversedRadios">
-    Option 1
-  </XUIRadio>
-  <XUIRadio isReversed name="reversedRadios">
-    Option 2
-  </XUIRadio>
-  <XUIRadio isReversed name="reversedRadios" isDisabled>
-    Option 3
-  </XUIRadio>
-  <XUIRadio isReversed name="reversedRadios" isDisabled isDefaultChecked>
-    Option 4
-  </XUIRadio>
+<div>
+  <span className="xui-text-label xui-fieldlabel-layout" id="reversedRadios">
+    Period
+  </span>
+  <div aria-labelledby="reversedRadios" role="radiogroup">
+    <XUIRadio isDefaultChecked isReversed name="period-reversed">
+      Day
+    </XUIRadio>
+    <XUIRadio isReversed name="period-reversed">
+      Month
+    </XUIRadio>
+    <XUIRadio isDisabled isReversed name="period-reversed">
+      Quarter
+    </XUIRadio>
+    <XUIRadio isDisabled isReversed name="period-reversed">
+      Year
+    </XUIRadio>
+  </div>
 </div>;
 ```
 
@@ -113,18 +114,23 @@ It is also possible to use the `isLabelHidden` prop to visually hide the label, 
 `iconMain` is the icon object from `@xero/xui-icon` to render in place of the standard radio control.
 
 ```jsx harmony
-import XUIRadio from '@xero/xui/react/radio';
 import star from '@xero/xui-icon/icons/star';
+import XUIRadio from '@xero/xui/react/radio';
 
 <div>
-  <XUIRadio name="customRadio" iconMain={star}>
-    Option 1
-  </XUIRadio>
-  <XUIRadio name="customRadio" iconMain={star}>
-    Option 2
-  </XUIRadio>
-  <XUIRadio name="customRadio" iconMain={star}>
-    Option 3
-  </XUIRadio>
+  <span className="xui-text-label xui-fieldlabel-layout" id="starredRadios">
+    Reports
+  </span>
+  <div aria-labelledby="starredRadios" role="radiogroup">
+    <XUIRadio name="starredReport" iconMain={star} isDefaultChecked>
+      Balance Sheet
+    </XUIRadio>
+    <XUIRadio name="starredReport" iconMain={star}>
+      Profit and loss
+    </XUIRadio>
+    <XUIRadio name="starredReport" iconMain={star}>
+      Account transactions
+    </XUIRadio>
+  </div>
 </div>;
 ```

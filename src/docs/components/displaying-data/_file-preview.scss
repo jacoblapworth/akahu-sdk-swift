@@ -4,27 +4,28 @@
 //
 // Components: File-preview
 //
-// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit
-//
 // Introduced: 19.2.0
 //
 // Teaser: A file preview lets a user view images and documents and/or transcribe data from a file.
 //
 // Introduction: A file preview lets a user view images and documents and/or transcribe data from a file.
 //
+// FigmaComponentFrameKey: 16278%3A157848
+//
+// VisualExample: ./components/displaying-data/examples/file-preview/_file-preview-visual-example.html
+//
 // Styleguide: Components.DisplayingData.FilePreview
 
-// When  to use
+// When to use
 //
 // File previews are used to preview and/or transcribe data from a file. Consider which of these best suits a user’s needs before deciding on placement.
 //
-// Tips:
-// Do: To view an uploaded file (for example: only viewing an image of a product item)
-// Do: To transcribe data from an uploaded file (for example: from a receipt)
+// - To view an uploaded file (for example: only viewing an image of a product item)
+// - To transcribe data from an uploaded file (for example: from a receipt)
 //
 // Styleguide: Components.DisplayingData.FilePreview.1
 
-// Best Practice
+// Best practice
 //
 // Tips:
 // Do: A file should always have a header, body, and footer
@@ -64,7 +65,9 @@
 
 // Header
 //
-// The API for XUIFilePreviewHeader is similar to the [isolation header](./section-components-navigation-isolation-header.html) and [page header](./section-components-navigation-page-header.html). It accepts a `navigationButton` for controlling the display of the preview, a `title` and `secondary` for giving context around the file being shown, as well as `actions` for any actions relating to the file. Additionally, implementers can choose to set the `headerTag` and `headingLevel` for finer control over HTML semantics and accessibility.
+// The API for XUIFilePreviewHeader is similar to the [isolation header](./section-components-navigation-isolation-header.html) and [page header](./section-components-navigation-page-header.html). It accepts a `navigationButton` for controlling the display of the preview, a `title` and `secondary` for giving context around the file being shown, as well as `actions` for any actions relating to the file.
+//
+// Additionally, implementers can choose to set the `headerTag` and `headingLevel` for finer control over HTML semantics and accessibility.
 //
 // Styleguide: Components.DisplayingData.FilePreview.3.3
 
@@ -140,7 +143,7 @@
 //
 // Styleguide: Components.DisplayingData.FilePreview.50
 
-// Related links
+// Related components
 //
 // Related:
 // * [Page header](./section-components-navigation-page-header.html)

@@ -19,5 +19,5 @@ import { XUICompositionDetailHeader } from '@xero/xui/react/compositions';
 const headerContent = <div style={{ background: '#B446C8', height: '60px' }}></div>;
 const detailContent = <div style={{ background: '#C5C5F6', height: '100px' }}></div>;
 
-<XUICompositionDetailHeader header={headerContent} detail={detailContent} />;
+<XUICompositionDetailHeader detail={detailContent} header={headerContent} />;
 ```

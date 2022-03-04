@@ -3,123 +3,242 @@ import React from 'react';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { boolean, text, select } from '@storybook/addon-knobs';
+import { boolean, date, select, text } from '@storybook/addon-knobs';
 
 // Components we need to test with
 import XUIDateInput from '../XUIDateInput';
 import XUIDateRangeInput from '../XUIDateRangeInput';
 
+import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';
 import { dateInputSuggestedDates, dateRangeInputSuggestedDates } from './helpers/suggestedDates';
 
-import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
+import {
+  dateInputStoriesWithKnobsKindName,
+  dateInputStoriesWithVariationsKindName,
+  dateInputVariations,
+  dateRangeInputStoriesWithKnobsKindName,
+  dateRangeInputStoriesWithVariationsKindName,
+  dateRangeInputVariations,
+} from './variations';
 
-const sampleOnSelectDateFunction = date => {
-  console.log('Print date', date);
+// Default date knob returns a string, but we want a ‘Date’ date.
+// https://github.com/storybookjs/addon-knobs#date
+const dateKnob = (name, defaultValue, groupId) => {
+  const dateString = date(name, defaultValue, groupId);
+
+  return new Date(dateString);
 };
 
-const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
-storiesWithKnobs.add('Playground', () => {
-  const isDateRangeDemo = boolean('isDateRangeInput', false);
-  const isDueDate = boolean('isDueDate', false);
+const inputSizes = ['xsmall', 'small', 'medium'];
 
-  let singleDateProps = {
-    closeOnSelect: true,
-    inputLabel: 'Single date',
-    locale: 'en-NZ',
-    isDueDate,
-    nextButtonAriaLabel: 'Next month',
-    onSelectDate: sampleOnSelectDateFunction,
-    prevButtonAriaLabel: 'Previous month',
-    validationMessage: text('validationMessage', ''),
+const dateInputStoriesWithKnobs = storiesOf(dateInputStoriesWithKnobsKindName, module);
+dateInputStoriesWithKnobs.add('Playground', () => {
+  const storybookProps = {
+    suggestedDates: boolean('Has suggested dates', false) ? dateInputSuggestedDates : null,
   };
 
-  let dateRangeProps = {
-    locale: 'en-NZ',
-    nextButtonAriaLabel: 'Next month',
-    prevButtonAriaLabel: 'Previous month',
-    startDateInputConfig: {
-      isDueDate,
-      onSelectDate: sampleOnSelectDateFunction,
-    },
-    endDateInputConfig: {
-      isDueDate,
-      onSelectDate: sampleOnSelectDateFunction,
-    },
-    suggestedDates: dateRangeInputSuggestedDates,
+  const reactProps = {
+    closeOnSelect: boolean('closeOnSelect', undefined),
+    displayedMonth: dateKnob('displayedMonth', new Date(2022, 1, 1)),
+    hintMessage: text('hintMessage', ''),
+    inputLabel: text('inputLabel', 'Issue date'),
+    isDisabled: boolean('isDisabled', false),
+    isDueDate: boolean('isDueDate', undefined),
+    isInvalid: boolean('isInvalid', false),
+    locale: text('locale', 'en-NZ'),
+    maxDate: dateKnob('maxDate', new Date(2099, 11, 31)),
+    minDate: dateKnob('minDate', new Date(0)),
+    nextButtonAriaLabel: text('nextButtonAriaLabel', 'Next month'),
+    prevButtonAriaLabel: text('prevButtonAriaLabel', 'Previous month'),
+    selectDateIcon: flattenedIconMap[select('selectDateIcon', flattenedIconList, 'date-start')],
+    selectDateLabel: text('selectDateLabel', 'Select date'),
+    selectedDateDefaultValue: dateKnob('selectedDateDefaultValue', new Date(2022, 1, 2)),
+    selectedDateValue: dateKnob('selectedDateValue', new Date(2022, 1, 2)),
+    size: select('size', inputSizes, 'medium'),
+    validationMessage: text('validationMessage', 'Issue date cannot be in the past'),
   };
 
-  // Now add conditional knobs.
-  if (!isDateRangeDemo) {
-    singleDateProps = {
-      ...singleDateProps,
-      selectedDateValue: boolean('Empty default date?', true) ? null : new Date(2019, 11, 20),
-      suggestedDates: boolean('Date input suggested dates', false) ? dateInputSuggestedDates : null,
-      hintMessage: text('Hint Message', ''),
-      isDisabled: boolean('isDisabled', false),
-      isInvalid: boolean('isInvalid', false),
-      locale: text('Locale', 'en-NZ'),
-    };
-  } else {
-    const showLabels = select(
-      'Which labels visible?',
-      ['group', 'individual', 'both'],
-      'individual',
-    );
-    dateRangeProps = {
-      ...dateRangeProps,
-      groupConfig: {
-        hintMessage: text('Hint message for group', ''),
-        groupLabel: text('Group label', 'Dates of travel'),
-        isGroupLabelHidden: showLabels === 'individual',
-        isDisabled: boolean('Group disabled?', false),
-        isInvalid: boolean('Group invalid?', false),
-        locale: text('Locale', 'en-NZ'),
-        validationMessage: text('Validation message for group', ''),
-      },
-      startDateInputConfig: {
-        ...dateRangeProps.startDateInputConfig,
-        hintMessage: text('Hint Message for first date', ''),
-        inputLabel: text('First label', 'Departure'),
-        isLabelHidden: showLabels === 'group',
-        selectedDateValue: boolean('Empty default first date?', true)
-          ? null
-          : new Date(2019, 11, 20),
-        isDisabled: boolean('First date disabled?', false),
-        isInvalid: boolean('First date invalid?', false),
-        validationMessage: text('Validation message for first', ''),
-      },
-      endDateInputConfig: {
-        ...dateRangeProps.endDateInputConfig,
-        hintMessage: text('Hint Message for second date', ''),
-        inputLabel: text('Second label', 'Return'),
-        isLabelHidden: showLabels === 'group',
-        selectedDateValue: boolean('Empty default second date?', true) ? null : new Date(),
-        isDisabled: boolean('Second date disabled?', false),
-        isInvalid: boolean('Second date invalid?', false),
-        validationMessage: text('Validation message for second', ''),
-      },
-    };
-  }
+  const dateInputProps = {
+    ...storybookProps,
+    ...reactProps,
+  };
 
-  return isDateRangeDemo ? (
-    <XUIDateRangeInput {...dateRangeProps} />
-  ) : (
-    <XUIDateInput {...singleDateProps} />
-  );
+  const PlaygroundDateInput = props => {
+    const [selectedDate, setSelectedDate] = React.useState();
+
+    const onSelectDate = newDate => {
+      setSelectedDate(newDate);
+    };
+
+    return <XUIDateInput {...props} onSelectDate={onSelectDate} selectedDateValue={selectedDate} />;
+  };
+
+  return <PlaygroundDateInput {...dateInputProps} />;
 });
 
-const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+const dateRangeInputStoriesWithKnobs = storiesOf(dateRangeInputStoriesWithKnobsKindName, module);
+dateRangeInputStoriesWithKnobs.add('Playground', () => {
+  const dateInputReactPropsGroupId = 'Props';
+  const groupConfigReactPropsGroupId = 'groupConfig';
+  const startDateReactPropsGroupId = 'startDateInputConfig';
+  const endDateReactPropsGroupId = 'endDateInputConfig';
 
-variations.forEach(variation => {
-  storiesWithVariations.add(variation.storyTitle, () => {
-    const isDateRangeInput = variation.isDateRangeInput;
-    const isInFixedContainer = variation.fixedContainer;
+  const storybookProps = {
+    suggestedDates: boolean('Has suggested dates', false, dateInputReactPropsGroupId)
+      ? dateRangeInputSuggestedDates
+      : null,
+  };
+
+  const dateInputReactProps = {
+    closeOnSelect: boolean('closeOnSelect', undefined, dateInputReactPropsGroupId),
+    locale: text('locale', 'en-NZ', dateInputReactPropsGroupId),
+    nextButtonAriaLabel: text('nextButtonAriaLabel', 'Next month', dateInputReactPropsGroupId),
+    prevButtonAriaLabel: text('prevButtonAriaLabel', 'Previous month', dateInputReactPropsGroupId),
+    size: select('size', inputSizes, 'medium', dateInputReactPropsGroupId),
+  };
+
+  const groupConfigReactProps = {
+    groupLabel: text('groupLabel', 'Project dates', groupConfigReactPropsGroupId),
+    hintMessage: text('hintMessage', '', groupConfigReactPropsGroupId),
+    isDisabled: boolean('isDisabled', false, groupConfigReactPropsGroupId),
+    isGroupLabelHidden: boolean('isGroupLabelHidden', true, groupConfigReactPropsGroupId),
+    isInvalid: boolean('isInvalid', false, groupConfigReactPropsGroupId),
+    validationMessage: text(
+      'validationMessage',
+      'Project must have a valid start and end date',
+      groupConfigReactPropsGroupId,
+    ),
+  };
+
+  const startDateReactProps = {
+    displayedMonth: dateKnob('displayedMonth', new Date(2022, 1, 1), startDateReactPropsGroupId),
+    hintMessage: text('hintMessage', '', startDateReactPropsGroupId),
+    inputLabel: text('inputLabel', 'Start date', startDateReactPropsGroupId),
+    isDisabled: boolean('isDisabled', false, startDateReactPropsGroupId),
+    isDueDate: boolean('isDueDate', false, startDateReactPropsGroupId),
+    isInvalid: boolean('isInvalid', false, startDateReactPropsGroupId),
+    isLabelHidden: boolean('isLabelHidden', false, startDateReactPropsGroupId),
+    maxDate: dateKnob('maxDate', new Date(2099, 11, 31), startDateReactPropsGroupId),
+    minDate: dateKnob('minDate', new Date(0), startDateReactPropsGroupId),
+    selectedDateDefaultValue: dateKnob(
+      'selectedDateValue',
+      new Date(2022, 1, 2),
+      startDateReactPropsGroupId,
+    ),
+    selectedDateValue: dateKnob(
+      'selectedDateValue',
+      new Date(2022, 1, 2),
+      startDateReactPropsGroupId,
+    ),
+    validationMessage: text(
+      'validationMessage',
+      'Please enter a valid date',
+      startDateReactPropsGroupId,
+    ),
+  };
+
+  const endDateReactProps = {
+    displayedMonth: dateKnob('displayedMonth', new Date(2022, 1, 1), endDateReactPropsGroupId),
+    hintMessage: text('hintMessage', '', endDateReactPropsGroupId),
+    inputLabel: text('inputLabel', 'End date', endDateReactPropsGroupId),
+    isDisabled: boolean('isDisabled', false, endDateReactPropsGroupId),
+    isDueDate: boolean('isDueDate', false, endDateReactPropsGroupId),
+    isInvalid: boolean('isInvalid', false, endDateReactPropsGroupId),
+    isLabelHidden: boolean('isLabelHidden', false, endDateReactPropsGroupId),
+    maxDate: dateKnob('maxDate', new Date(2099, 11, 31), endDateReactPropsGroupId),
+    minDate: dateKnob('minDate', new Date(0), endDateReactPropsGroupId),
+    selectedDateDefaultValue: dateKnob(
+      'selectedDateValue',
+      new Date(2022, 1, 9),
+      endDateReactPropsGroupId,
+    ),
+    selectedDateValue: dateKnob(
+      'selectedDateValue',
+      new Date(2022, 1, 9),
+      endDateReactPropsGroupId,
+    ),
+    validationMessage: text(
+      'validationMessage',
+      'Please enter a valid date',
+      endDateReactPropsGroupId,
+    ),
+  };
+
+  const dateRangeInputProps = {
+    ...storybookProps,
+    ...dateInputReactProps,
+    groupConfig: groupConfigReactProps,
+    startDateInputConfig: startDateReactProps,
+    endDateInputConfig: endDateReactProps,
+  };
+
+  const PlaygroundDateRangeInput = props => {
+    const [selectedEndDate, setSelectedEndDate] = React.useState();
+    const [selectedStartDate, setSelectedStartDate] = React.useState();
+
+    const onSelectEndDate = newDate => {
+      setSelectedEndDate(newDate);
+    };
+
+    const onSelectStartDate = newDate => {
+      setSelectedStartDate(newDate);
+    };
+
+    return (
+      <XUIDateRangeInput
+        {...props}
+        endDateInputConfig={{
+          ...props.endDateInputConfig,
+          onSelectDate: onSelectEndDate,
+          selectedDateValue: selectedEndDate,
+        }}
+        startDateInputConfig={{
+          ...props.startDateInputConfig,
+          onSelectDate: onSelectStartDate,
+          selectedDateValue: selectedStartDate,
+        }}
+      />
+    );
+  };
+
+  return <PlaygroundDateRangeInput {...dateRangeInputProps} />;
+});
+
+const dateInputStoriesWithVariations = storiesOf(dateInputStoriesWithVariationsKindName, module);
+dateInputVariations.forEach(variation => {
+  dateInputStoriesWithVariations.add(variation.storyTitle, () => {
+    const { isDropdownHidden } = variation;
     const variationMinusStoryDetails = { ...variation };
+
     delete variationMinusStoryDetails.storyKind;
     delete variationMinusStoryDetails.storyTitle;
-    const isDropdownHidden = variation.isDropdownHidden;
 
-    const component = isDateRangeInput ? (
+    return (
+      <XUIDateInput
+        _isDropdownHidden={isDropdownHidden}
+        inputLabel="Start date"
+        locale="en-NZ"
+        nextButtonAriaLabel="Next month"
+        prevButtonAriaLabel="Previous month"
+        {...variationMinusStoryDetails}
+      />
+    );
+  });
+});
+
+const dateRangeInputStoriesWithVariations = storiesOf(
+  dateRangeInputStoriesWithVariationsKindName,
+  module,
+);
+dateRangeInputVariations.forEach(variation => {
+  dateRangeInputStoriesWithVariations.add(variation.storyTitle, () => {
+    const { isDropdownHidden, isInFixedContainer } = variation;
+    const variationMinusStoryDetails = { ...variation };
+
+    delete variationMinusStoryDetails.storyKind;
+    delete variationMinusStoryDetails.storyTitle;
+
+    const component = (
       <XUIDateRangeInput
         _isSuggestedDatesDropdownHidden={isDropdownHidden}
         endDateInputConfig={{
@@ -131,15 +250,6 @@ variations.forEach(variation => {
         startDateInputConfig={{
           inputLabel: 'Start date',
         }}
-        {...variationMinusStoryDetails}
-      />
-    ) : (
-      <XUIDateInput
-        _isDropdownHidden={isDropdownHidden}
-        inputLabel="Start date"
-        locale="en-NZ"
-        nextButtonAriaLabel="Next month"
-        prevButtonAriaLabel="Previous month"
         {...variationMinusStoryDetails}
       />
     );

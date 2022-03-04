@@ -91,11 +91,18 @@ const componentsToTest = [
   {
     testsPrefix: 'XUI Date Input',
     variationsPath: `${variationsPath}/dateinput/stories/variations.js`,
+    variationsProp: 'dateInputVariations',
     ...fullPageSettings,
   },
   {
     testsPrefix: 'XUI Date Picker',
     variationsPath: `${variationsPath}/datepicker/stories/variations.js`,
+  },
+  {
+    testsPrefix: 'XUI Date Range Input',
+    variationsPath: `${variationsPath}/dateinput/stories/variations.js`,
+    variationsProp: 'dateRangeInputVariations',
+    ...fullPageSettings,
   },
   {
     testsPrefix: 'XUI Dropdown',

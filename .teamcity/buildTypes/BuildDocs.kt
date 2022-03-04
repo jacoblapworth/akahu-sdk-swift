@@ -1,4 +1,6 @@
 package buildTypes
+import buildTypes.BranchDependency
+import com.xero.teamcityhelpers.buildtype.trigger.addSnapshotDependencies
 import com.xero.teamcityhelpers.buildtype.versioning.identifyFrontendBuild
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
@@ -9,6 +11,8 @@ object BuildDocs : BuildType({
   publishArtifacts = PublishMode.SUCCESSFUL
   artifactRules = "+:dist/docs => dist/docs"
   identifyFrontendBuild()
+
+  addSnapshotDependencies(arrayOf(BranchDependency))
 
   params {
     param("component.dist_folder", "dist/docs")

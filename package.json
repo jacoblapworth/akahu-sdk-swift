@@ -26,6 +26,7 @@
     "build:cssmin": "node scripts/build/cssmin",
     "docs:build": "node scripts/build/docs",
     "docs:build:selector": "cross-env NODE_ENV=production rollup --config ./rollup.config.js",
+    "docs:pipeline:cloudfront": "bash scripts/pipeline/cloudfront.sh",
     "generate:component": "npx plop@2.7",
     "link:watch": "nodemon --watch src -e ts,tsx,js,jsx,css,scss,html,md,json scripts/prepack",
     "lint": "eslint ./ --ext .js,.jsx,.ts,.tsx && node scripts/lint/sass",

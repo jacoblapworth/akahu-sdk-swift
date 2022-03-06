@@ -1,37 +1,45 @@
 `XUIPopoverFooter` is an optional component that can be used to display actions for a popover.
 
 ```js
-import XUIButton from './button';
-import XUIPopover, { XUIPopoverBody, XUIPopoverFooter } from './popover';
+import { useRef, useState } from 'react';
+import info from '@xero/xui-icon/icons/info';
+import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import XUIPopover, { XUIPopoverBody, XUIPopoverFooter } from '@xero/xui/react/popover';
 
-const ExampleComponent = () => {
-  const triggerRef = React.useRef();
+const PopoverExample = () => {
+  const triggerRef = useRef();
+  const [isPopoverOpen, setIsPopoverOpen] = useState(true);
+
+  const closePopover = () => setIsPopoverOpen(false);
+  const togglePopover = () => setIsPopoverOpen(!isPopoverOpen);
 
   return (
-    <React.Fragment>
-      <span
-        aria-owns="popover-footer-example"
+    <div style={{ alignItems: 'center', display: 'flex', height: '180px' }}>
+      <XUIIconButton
+        aria-haspopup
+        aria-owns={isPopoverOpen && 'popover-footer-example'}
+        icon={info}
+        onClick={togglePopover}
         ref={triggerRef}
-        style={{ display: 'inline-block', height: '140px' }}
       />
-      <XUIPopover id="popover-footer-example" preferredPosition="right" triggerRef={triggerRef}>
-        <XUIPopoverBody>Popovers can also be closed by an action button.</XUIPopoverBody>
-        <XUIPopoverFooter
-          primaryAction={
-            <XUIButton
-              onClick={() => {
-                // Close the popover
-              }}
-              variant="main"
-            >
-              Done
-            </XUIButton>
-          }
-        />
-      </XUIPopover>
-    </React.Fragment>
+      {isPopoverOpen && (
+        <XUIPopover id="popover-footer-example" preferredPosition="right" triggerRef={triggerRef}>
+          <XUIPopoverBody>
+            The percentage of a project's income that's profit. The higher the profit margin, the
+            more cost-effective a project is.
+          </XUIPopoverBody>
+          <XUIPopoverFooter
+            primaryAction={
+              <XUIButton onClick={closePopover} variant="main">
+                Close
+              </XUIButton>
+            }
+          />
+        </XUIPopover>
+      )}
+    </div>
   );
 };
 
-<ExampleComponent />;
+<PopoverExample />;
 ```

@@ -8,8 +8,6 @@
 //
 // Components: Dropdown
 //
-// Language: https://docs.google.com/document/d/1YDv-SISe90GmHcnmy24A5KauSQHSbfivP9DXtkCZygI/edit#bookmark=id.dszy23b5puhq
-//
 // Teaser:
 // Used to reveal additional actions not present on the parent page.
 //
@@ -17,6 +15,8 @@
 // A dropdown displays an expandable list of options or actions for a user to select.
 //
 // VisualExample: ./components/collecting-input/examples/dropdown/_dropdown-visual-example.html
+//
+// FigmaComponentFrameKey: 1425%3A13459
 //
 // Styleguide: Components.CollectingInput.Dropdowns
 
@@ -271,28 +271,36 @@
 //
 // Styleguide: Components.CollectingInput.Dropdowns.31
 
-// TopDescription: Make sure dropdown items are clear and predictable so customers understand what happens when they make a selection.
+// Clear and predictable items
+//
+// Make sure dropdown items are clear so customers understand what happens when they make a selection.
 //
 // ExampleContentTable:
 // Copy to draft invoice | Copy to another document
 //
 // Styleguide: Components.CollectingInput.Dropdowns.31.1
 
-// TopDescription: Lead with a verb that encourages action.
+// Lead with a verb
+//
+// Leading with a verb encourages action.
 //
 // ExampleContentTable:
 // Edit details | Purchase order changes
 //
 // Styleguide: Components.CollectingInput.Dropdowns.31.2
 
-// TopDescription: Use a verb then a noun for greater clarity, unless the action is clear with a single verb.
+// Use the format: verb + noun
+//
+// Use a verb then a noun for greater clarity, unless the action is clear with a single verb.
 //
 // ExampleContentTable:
 // Delete contact | Delete
 //
 // Styleguide: Components.CollectingInput.Dropdowns.31.3
 
-// TopDescription: Make sure items are in logical order (alphabetical, chronological, order of importance, etc.).
+// Follow logical order
+//
+// Make sure items are in logical order (alphabetical, chronological, order of importance, etc.).
 //
 // ExampleContentTable:
 // Today | End of last month

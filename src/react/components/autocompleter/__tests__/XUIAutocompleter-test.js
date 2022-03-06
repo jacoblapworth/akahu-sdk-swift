@@ -1,10 +1,13 @@
 import React from 'react';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import renderer from 'react-test-renderer';
 import { nanoid } from 'nanoid';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAutocompleter from '../XUIAutocompleter';
+import XUIAutocompleterEmptyState from '../XUIAutocompleterEmptyState';
 import XUIButton from '../../button/XUIButton';
 import XUIPill from '../../pill/XUIPill';
 import XUIPicklist from '../../picklist/XUIPicklist';
@@ -15,8 +18,7 @@ import XUIDropdownLayout from '../../dropdown/XUIDropdownLayout';
 import XUIDropdownFooter from '../../dropdown/XUIDropdownFooter';
 import { eventKeyValues } from '../../helpers/reactKeyHandler';
 import wait from '../../../helpers/wait';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import NOOP from '../../helpers/noop';
 
 jest.mock('nanoid');
 nanoid.mockImplementation(() => 'testAutocompleterId');
@@ -557,6 +559,46 @@ describe('XUIAutocompleter', () => {
 
       // Assert
       expect(onClose).toHaveBeenCalled();
+    });
+  });
+
+  describe('when down arrow is pressed', () => {
+    test('empty dropdowns do not throw an error when attempting to highlight the first item', async () => {
+      // Arrange
+      const autocompleterRef = React.createRef();
+
+      render(
+        <XUIAutocompleter
+          dropdownSize="medium"
+          qaHook="testAutocompleter"
+          onSearch={NOOP}
+          ref={autocompleterRef}
+        >
+          <XUIPicklist>
+            <XUIAutocompleterEmptyState qaHook="testAutocompleterEmptyState">
+              Empty list
+            </XUIAutocompleterEmptyState>
+          </XUIPicklist>
+        </XUIAutocompleter>,
+      );
+      const input = screen.getByTestId('testAutocompleter');
+
+      // Act
+      userEvent.click(input); // Focus autocompleter
+      autocompleterRef.current.openDropdown(); // Open dropdown
+      userEvent.keyboard('{arrowDown}'); // Focus first item
+
+      /**
+       * Why are we awaiting a 0ms timer? Rationale: To ensure that the test assertion runs after
+       * all the required re-renders have taken placed. Important: If jest.useFakeTimers() is used,
+       * this test must be placed in a separate describe test.
+       */
+      await wait();
+
+      const dropdown = screen.getByTestId('testAutocompleterEmptyState');
+
+      // Assert
+      expect(dropdown).toBeInTheDocument();
     });
   });
 

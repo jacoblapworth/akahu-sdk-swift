@@ -22,7 +22,8 @@
     "image-caption",
     "language",
     "examplecontenttable",
-    "visualexample"
+    "visualexample",
+    "figmacomponentframekey"
   ],
   "destination": "./dist/docs",
   "css": ["./kss-assets/xui.css", "./style.css"],

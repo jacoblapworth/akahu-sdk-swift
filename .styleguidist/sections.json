@@ -554,7 +554,7 @@
             ]
           },
           {
-            "name": "Tables",
+            "name": "Table",
             "content": "../src/react/table.md",
             "sections": [
               {

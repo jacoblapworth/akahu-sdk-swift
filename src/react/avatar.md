@@ -25,7 +25,7 @@ Circular avatars are used to represent people. This is the default avatar varian
 ```jsx harmony
 import XUIAvatar from '@xero/xui/react/avatar';
 
-<XUIAvatar value="Xero" qaHook="xero-avatar" />;
+<XUIAvatar value="Roisin Pearson" />;
 ```
 
 Rectangular avatars are used to represent businesses (a company, a practice, etc). Use the `variant` "business" to get a rectangular avatar. Rectangular avatars display up to three letters.
@@ -33,7 +33,7 @@ Rectangular avatars are used to represent businesses (a company, a practice, etc
 ```jsx harmony
 import XUIAvatar from '@xero/xui/react/avatar';
 
-<XUIAvatar value="Xero User Interfaces" variant="business" />;
+<XUIAvatar value="Capital Cab Co" variant="business" />;
 ```
 
 ### Images
@@ -45,47 +45,35 @@ Although the CSS will attempt to scale the image to fit, as best practice we rec
 ```jsx harmony
 import XUIAvatar from '@xero/xui/react/avatar';
 
-<XUIAvatar
-  value="Xero"
-  imageUrl="https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c"
-/>;
+<XUIAvatar value="Jane Smith" imageUrl="https://picsum.photos/id/1011/100/100" />;
 ```
 
 If the image supplied to `XUIAvatar` fails to load, the default avatar will be displayed as a fallback using the required `value` prop. If you need to handle other behaviour, you can also provide an `onError` handler.
 
 ```jsx harmony
-import { Component } from 'react';
+import { useState } from 'react';
 import XUIAvatar from '@xero/xui/react/avatar';
 
-class XUIAvatarWithErrorHandler extends Component {
-  constructor(...args) {
-    super(...args);
-    this.state = {
-      message: ''
-    };
-    this.onError = this.onError.bind(this);
-  }
+const XUIAvatarExample = () => {
+  const [message, setMessage] = useState('');
 
-  onError() {
-    this.setState({
-      message: 'The image in this avatar failed to load.'
-    });
-  }
+  const onError = () => {
+    setMessage('The image for this contact failed to load');
+  };
 
-  render() {
-    return (
-      <div>
-        <XUIAvatar
-          value="Failure"
-          imageUrl="/this/is/a/broken/path/to/an/image.jpg"
-          onError={this.onError}
-        />
-        <span className="xui-margin-left-small">{this.state.message}</span>
-      </div>
-    );
-  }
-}
-<XUIAvatarWithErrorHandler />;
+  return (
+    <div>
+      <XUIAvatar
+        imageUrl="/this/is/a/broken/path/to/an/image.jpg"
+        onError={onError}
+        value="Jane Smith"
+      />
+      <span className="xui-margin-left-small">{message}</span>
+    </div>
+  );
+};
+
+<XUIAvatarExample />;
 ```
 
 ### Colours
@@ -96,12 +84,12 @@ The colour of `XUIAvatar` is determined by the contents of either the `value` or
 import XUIAvatar from '@xero/xui/react/avatar';
 
 <div>
-  <XUIAvatar className="xui-margin-right-small" value="Xero" identifier="a" />
-  <XUIAvatar className="xui-margin-right-small" value="Xero" identifier="b" />
-  <XUIAvatar className="xui-margin-right-small" value="Xero" identifier="c" />
-  <XUIAvatar className="xui-margin-right-small" value="Xero" identifier="d" />
-  <XUIAvatar className="xui-margin-right-small" value="Xero" identifier="e" />
-  <XUIAvatar className="xui-margin-right-small" value="Xero" identifier="f" />
+  <XUIAvatar className="xui-margin-right-small" identifier="js1" value="Jane Smith" />
+  <XUIAvatar className="xui-margin-right-small" identifier="js2" value="Jane Smith" />
+  <XUIAvatar className="xui-margin-right-small" identifier="js3" value="Jane Smith" />
+  <XUIAvatar className="xui-margin-right-small" identifier="js4" value="Jane Smith" />
+  <XUIAvatar className="xui-margin-right-small" identifier="js5" value="Jane Smith" />
+  <XUIAvatar identifier="js6" value="Jane Smith" />
 </div>;
 ```
 
@@ -114,70 +102,40 @@ import XUIAvatar from '@xero/xui/react/avatar';
 
 <div>
   <div className="xui-padding-bottom-small">
-    <XUIAvatar
-      size="2xsmall"
-      value="2 X Small"
-      qaHook="xero-avatar"
-      className="xui-margin-right-small"
-    />
-    <XUIAvatar
-      size="xsmall"
-      value="X Small"
-      qaHook="xero-avatar"
-      className="xui-margin-right-small"
-    />
-    <XUIAvatar size="small" value="Small" qaHook="xero-avatar" className="xui-margin-right-small" />
-    <XUIAvatar value="Medium" qaHook="xero-avatar" className="xui-margin-right-small" />
-    <XUIAvatar size="large" value="Large" qaHook="xero-avatar" className="xui-margin-right-small" />
-    <XUIAvatar
-      size="xlarge"
-      value="X Large"
-      qaHook="xero-avatar"
-      className="xui-margin-right-small"
-    />
+    <XUIAvatar className="xui-margin-right-small" size="2xsmall" value="Jane Smith" />
+    <XUIAvatar className="xui-margin-right-small" size="xsmall" value="Jane Smith" />
+    <XUIAvatar className="xui-margin-right-small" size="small" value="Jane Smith" />
+    <XUIAvatar className="xui-margin-right-small" value="Jane Smith" />
+    <XUIAvatar className="xui-margin-right-small" size="large" value="Jane Smith" />
+    <XUIAvatar size="xlarge" value="Jane Smith" />
   </div>
   <div>
     <XUIAvatar
-      variant="business"
+      className="xui-margin-right-small"
       size="2xsmall"
-      value="2 X Small"
-      qaHook="xero-avatar"
-      className="xui-margin-right-small"
+      value="Capital Cab Co"
+      variant="business"
     />
     <XUIAvatar
-      variant="business"
+      className="xui-margin-right-small"
       size="xsmall"
-      value="X Small"
-      qaHook="xero-avatar"
-      className="xui-margin-right-small"
+      value="Capital Cab Co"
+      variant="business"
     />
     <XUIAvatar
-      variant="business"
+      className="xui-margin-right-small"
       size="small"
-      value="Small"
-      qaHook="xero-avatar"
-      className="xui-margin-right-small"
-    />
-    <XUIAvatar
+      value="Capital Cab Co"
       variant="business"
-      value="Medium"
-      qaHook="xero-avatar"
-      className="xui-margin-right-small"
     />
+    <XUIAvatar className="xui-margin-right-small" value="Capital Cab Co" variant="business" />
     <XUIAvatar
-      variant="business"
+      className="xui-margin-right-small"
       size="large"
-      value="Large"
-      qaHook="xero-avatar"
-      className="xui-margin-right-small"
-    />
-    <XUIAvatar
+      value="Capital Cab Co"
       variant="business"
-      size="xlarge"
-      value="X Large"
-      qaHook="xero-avatar"
-      className="xui-margin-right-small"
     />
+    <XUIAvatar size="xlarge" value="Capital Cab Co" variant="business" />
   </div>
 </div>;
 ```

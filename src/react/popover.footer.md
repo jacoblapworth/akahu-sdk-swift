@@ -18,6 +18,7 @@ const PopoverExample = () => {
       <XUIIconButton
         aria-haspopup
         aria-owns={isPopoverOpen && 'popover-footer-example'}
+        ariaLabel="More information"
         icon={info}
         onClick={togglePopover}
         ref={triggerRef}

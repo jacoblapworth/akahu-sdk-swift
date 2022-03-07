@@ -43,6 +43,7 @@ const PopoverExample = () => {
       <XUIIconButton
         aria-haspopup
         aria-owns={isPopoverOpen && 'informational-popover'}
+        ariaLabel="More information"
         icon={info}
         onClick={togglePopover}
         ref={triggerRef}

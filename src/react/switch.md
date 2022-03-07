@@ -7,45 +7,15 @@
 ## Example
 
 ```jsx harmony
-import { PureComponent } from 'react';
 import XUISwitch from '@xero/xui/react/switch';
 
-class Example extends PureComponent {
-  constructor(...args) {
-    super(...args);
+<div>
+  <h3>Enabled switch</h3>
+  <XUISwitch hintMessage="The GST rate is 15%" isDefaultChecked>
+    Include GST
+  </XUISwitch>
 
-    this.onChange = this.onChange.bind(this);
-    this.state = {
-      isSecondSwitchChecked: true
-    };
-  }
-
-  onChange() {
-    this.setState(prevState => ({ isSecondSwitchChecked: !prevState.isSecondSwitchChecked }));
-  }
-
-  render() {
-    return (
-      <div>
-        <h3>Click the switch</h3>
-        <div className="xui-margin-bottom">
-          <XUISwitch isDefaultChecked onChange={this.onChange}>
-            Enabled switch
-          </XUISwitch>
-        </div>
-        <div>
-          <XUISwitch
-            isDisabled
-            isChecked={this.state.isSecondSwitchChecked}
-            hintMessage="Can't touch this"
-          >
-            Disabled switch
-          </XUISwitch>
-        </div>
-      </div>
-    );
-  }
-}
-
-<Example />;
+  <h3>Disabled switch</h3>
+  <XUISwitch isDisabled>Include notes</XUISwitch>
+</div>;
 ```

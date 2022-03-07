@@ -4,28 +4,24 @@ Single action banners provide an additional call to action inside the banner.
 
 ```jsx harmony
 import XUIBanner, {
-  XUIBannerMessage,
+  XUIBannerAction,
   XUIBannerActions,
-  XUIBannerAction
+  XUIBannerMessage
 } from '@xero/xui/react/banner';
 
-const onBannerClose = () => {
-  alert('Single action banner closed');
+const handleCloseClick = () => {
+  console.log('onCloseClick');
+};
+
+const handleClick = () => {
+  console.log('onClick');
 };
 
 <div>
-  <XUIBanner qaHook="banner-example">
-    <XUIBannerMessage qaHook="banner-example--message">Standard</XUIBannerMessage>
+  <XUIBanner closeButtonLabel="Close" onCloseClick={handleCloseClick} sentiment="neutral">
+    <XUIBannerMessage>Haven't received a notification yet?</XUIBannerMessage>
     <XUIBannerActions>
-      <XUIBannerAction href="#" qaHook="banner-example--action">
-        Action
-      </XUIBannerAction>
-    </XUIBannerActions>
-  </XUIBanner>
-  <XUIBanner closeButtonLabel="Close" onCloseClick={onBannerClose}>
-    <XUIBannerMessage>Closable</XUIBannerMessage>
-    <XUIBannerActions>
-      <XUIBannerAction href="#">Action</XUIBannerAction>
+      <XUIBannerAction onClick={handleClick}>Resend notification</XUIBannerAction>
     </XUIBannerActions>
   </XUIBanner>
 </div>;
@@ -37,30 +33,25 @@ Multi action banners can be wrapped in a `XUIBannerActions` component to provide
 
 ```jsx harmony
 import XUIBanner, {
-  XUIBannerMessage,
+  XUIBannerAction,
   XUIBannerActions,
-  XUIBannerAction
+  XUIBannerMessage
 } from '@xero/xui/react/banner';
 
-const onBannerClose = () => {
-  alert('Multi action banner closed');
+const handleCloseClick = () => {
+  console.log('onCloseClick');
+};
+
+const handleClick = () => {
+  console.log('onClick');
 };
 
 <div>
-  <XUIBanner>
-    <XUIBannerMessage>Standard</XUIBannerMessage>
+  <XUIBanner closeButtonLabel="Close" onCloseClick={handleCloseClick} sentiment="positive">
+    <XUIBannerMessage>Puratana has approved your leave request</XUIBannerMessage>
     <XUIBannerActions>
-      <XUIBannerAction href="#">Action One</XUIBannerAction>
-      <XUIBannerAction href="#">Action Two</XUIBannerAction>
-    </XUIBannerActions>
-  </XUIBanner>
-  <XUIBanner closeButtonLabel="Close" onCloseClick={onBannerClose}>
-    <XUIBannerMessage>
-      Avoid long descriptions. However, it's helpful to know that text does wrap by default.
-    </XUIBannerMessage>
-    <XUIBannerActions>
-      <XUIBannerAction href="#">Action One</XUIBannerAction>
-      <XUIBannerAction href="#">Action Two</XUIBannerAction>
+      <XUIBannerAction onClick={handleClick}>View leave request</XUIBannerAction>
+      <XUIBannerAction onClick={handleClick}>View all leave</XUIBannerAction>
     </XUIBannerActions>
   </XUIBanner>
 </div>;

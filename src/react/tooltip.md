@@ -13,22 +13,16 @@ The default tooltip is triggered on mouseover, focus, or as part of a touch-pres
 **Note:** This component wraps the trigger component and the tooltip in an inline-block element for positioning purposes. It may be helpful to add `wrapperClassName` to apply styles that were directly affecting the trigger.
 
 ```jsx harmony
-import infoIcon from '@xero/xui-icon/icons/info';
-
-import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
-import XUIIcon from '@xero/xui/react/icon';
+import info from '@xero/xui-icon/icons/info';
+import { XUIIconButton } from '@xero/xui/react/button';
 import XUITooltip from '@xero/xui/react/tooltip';
 
-const triggerIcon = (
-  <span>
-    <XUIIconButton icon={infoIcon} ariaLabel="More info" />
-  </span>
-);
-const triggerButton = <XUIButton>A button</XUIButton>;
+const triggerIcon = <XUIIconButton ariaLabel="More information about email address" icon={info} />;
 
 <div>
-  <XUITooltip trigger={triggerIcon}>Tooltip with all default behavior</XUITooltip>
-  <XUITooltip trigger={triggerButton}>Another tooltip with all default behavior</XUITooltip>
+  <XUITooltip trigger={triggerIcon}>
+    Email address will be used to send e-invoices to your customer
+  </XUITooltip>
 </div>;
 ```
 
@@ -39,28 +33,29 @@ Min and max width of the tip, on-open and on-close hooks, the mix of triggering 
 Do not use `triggerOnClick` if your trigger has it's own explicit `onClick` or `onKeyDown` props, as those handlers will take precedent, and `XUITooltip` will not open on click or keydown. The default `triggerOnHover` and `triggerOnFocus` behaviour is ideal for these cases, but the `onOpen` and `onClose` hooks are also available to handle events in a more custom way.
 
 ```jsx harmony
-import XUIButton from '@xero/xui/react/button';
 import XUITooltip from '@xero/xui/react/tooltip';
 
-const inlineTrigger = <span style={{ textDecoration: 'underline' }}>look at what we have</span>;
-const logOpen = () => {
-  console.log('opening');
+const handleOpen = () => {
+  console.log('onOpen');
 };
 
-const props = {
-  preferredPosition: 'bottom-left',
-  triggerOnClick: true,
-  triggerOnHover: false,
-  onOpen: logOpen
-};
+const inlineTrigger = (
+  <span style={{ textDecoration: 'underline' }} tabIndex={0}>
+    Australian business number (ABN)
+  </span>
+);
 
 <p>
-  So often we avoid running water, and running water is a lot of fun. Isn&apos;t that fantastic? You
-  can just push a little tree out of your brush like that. Look around,{' '}
-  <XUITooltip trigger={inlineTrigger} {...props}>
-    Here is a tip on an inline trigger
-  </XUITooltip>
-  . Beauty is everywhere, you only have to look to see it.
+  Enter or update other basic information for your organisation such as
+  <XUITooltip
+    onOpen={handleOpen}
+    preferredPosition="bottom-left"
+    trigger={inlineTrigger}
+    triggerOnClick={true}
+    triggeronHover={false}
+  >
+    The 11-digit number that's issued by the ATO
+  </XUITooltip>, address and organisation type.
 </p>;
 ```
 
@@ -83,16 +78,32 @@ XUITooltip is intended to work out of the box with XUI components and DOM elemen
 Custom function components must [forward the ref to a DOM element](https://reactjs.org/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
 
 ```jsx harmony
-import React from 'react';
-import XUITooltip from './tooltip';
+import { forwardRef } from 'react';
+import XUITooltip from '@xero/xui/react/tooltip';
 
-const CustomFunctionalComponentExample = React.forwardRef((props, ref) => {
-  return <span ref={ref}>custom functional component</span>;
+const CustomFunctionComponent = forwardRef((props, ref) => {
+  return (
+    <span
+      onBlur={() => {
+        props.onBlur();
+      }}
+      onFocus={() => {
+        props.onFocus();
+      }}
+      ref={ref}
+      style={{ textDecoration: 'underline' }}
+      tabIndex={0}
+    >
+      Australian business number (ABN)
+    </span>
+  );
 });
 
 <div>
-  An example of
-  <XUITooltip trigger={<CustomFunctionalComponentExample />}>Here is a tip</XUITooltip>.
+  Enter or update other basic information for your organisation such as
+  <XUITooltip trigger={<CustomFunctionComponent />}>
+    The 11-digit number that's issued by the ATO
+  </XUITooltip>, address and organisation type.
 </div>;
 ```
 
@@ -101,22 +112,38 @@ const CustomFunctionalComponentExample = React.forwardRef((props, ref) => {
 Custom class components must have a ref to a DOM element that is exposed via a public `rootNode` property.
 
 ```jsx harmony
-import React from 'react';
-import XUITooltip from './tooltip';
+import { Component, createRef } from 'react';
+import XUITooltip from '@xero/xui/react/tooltip';
 
-class ClassComponentExample extends React.PureComponent {
+class CustomClassComponent extends Component {
   constructor(props) {
     super(props);
-
-    this.rootNode = React.createRef();
+    this.rootNode = createRef();
   }
+
   render() {
-    return <span ref={this.rootNode}>class component example</span>;
+    return (
+      <span
+        onBlur={() => {
+          this.props.onBlur();
+        }}
+        onFocus={() => {
+          this.props.onFocus();
+        }}
+        ref={this.rootNode}
+        style={{ textDecoration: 'underline' }}
+        tabIndex={0}
+      >
+        Australian business number (ABN)
+      </span>
+    );
   }
 }
 
 <div>
-  An example of
-  <XUITooltip trigger={<ClassComponentExample />}>Here is a tip</XUITooltip>.
+  Enter or update other basic information for your organisation such as
+  <XUITooltip trigger={<CustomClassComponent />}>
+    The 11-digit number that's issued by the ATO
+  </XUITooltip>, address and organisation type.
 </div>;
 ```

@@ -19,12 +19,7 @@ A single Circular or Linear track showing `progress` vs `total` values.
 ```jsx harmony
 import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
-<XUIProgressCircular
-  ariaLabel="Progress Indicator"
-  id="standard-circular"
-  total={5}
-  progress={3}
-/>;
+<XUIProgressCircular ariaLabel="Uploading" id="circular" progress={3} total={5} />;
 ```
 
 #### Linear
@@ -32,7 +27,7 @@ import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 ```jsx harmony
 import { XUIProgressLinear } from '@xero/xui/react/progressindicator';
 
-<XUIProgressLinear ariaLabel="Progress Indicator" id="standard-linear" total={5} progress={3} />;
+<XUIProgressLinear ariaLabel="Loading next page" id="linear" progress={3} total={5} />;
 ```
 
 ### Segments
@@ -45,11 +40,11 @@ Track is split up into evenly spaced segments _(based on the `total` value)_ wit
 import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
 <XUIProgressCircular
-  ariaLabel="Progress Indicator"
+  ariaLabel="Uploading"
   id="segments-circular"
-  total={5}
-  progress={3}
   isSegmented
+  progress={3}
+  total={5}
 />;
 ```
 
@@ -59,15 +54,29 @@ import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 import { XUIProgressLinear } from '@xero/xui/react/progressindicator';
 
 <XUIProgressLinear
-  ariaLabel="Progress Indicator"
+  ariaLabel="Loading next page"
   id="segments-linear"
-  total={5}
-  progress={3}
   isSegmented
+  progress={3}
+  total={5}
 />;
 ```
 
 ### Thickness
+
+#### Circular
+
+```jsx harmony
+import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
+
+<XUIProgressCircular
+  ariaLabel="Uploading"
+  id="circular-thickness"
+  progress={3}
+  thickness={7}
+  total={5}
+/>;
+```
 
 #### Linear
 
@@ -77,25 +86,11 @@ Set the thickness of the track using the `thickness` prop.
 import { XUIProgressLinear } from '@xero/xui/react/progressindicator';
 
 <XUIProgressLinear
-  ariaLabel="Progress Indicator"
-  id="thickness-linear"
+  ariaLabel="Loading next page"
+  id="linear-thickness"
   total={5}
   progress={3}
   thickness={20}
-/>;
-```
-
-#### Circular
-
-```jsx harmony
-import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
-
-<XUIProgressCircular
-  ariaLabel="Progress Indicator"
-  id="thickness-circular"
-  total={5}
-  progress={3}
-  thickness={7}
 />;
 ```
 
@@ -114,13 +109,7 @@ Set the UI to fill the width of its parent container with the `isGrow` prop.
 import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
 <div style={{ background: '#F5F6F7', maxWidth: '300px', padding: '10px', width: 'calc(50vw / 4)' }}>
-  <XUIProgressCircular
-    ariaLabel="Progress Indicator"
-    id="grow-dynamic-circular"
-    total={5}
-    progress={3}
-    isGrow
-  />
+  <XUIProgressCircular ariaLabel="Uploading" id="grow-circular" isGrow progress={3} total={5} />
 </div>;
 ```
 
@@ -131,12 +120,12 @@ import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
 <div style={{ background: '#F5F6F7', maxWidth: '300px', padding: '10px', width: 'calc(50vw / 4)' }}>
   <XUIProgressCircular
-    ariaLabel="Progress Indicator"
-    id="grow-static-circular"
-    total={5}
-    progress={3}
+    ariaLabel="Uploading"
+    id="grow-circular-thickness"
     isGrow
+    progress={3}
     thickness={30}
+    total={5}
   />
 </div>;
 ```
@@ -153,13 +142,7 @@ import { XUIProgressLinear } from '@xero/xui/react/progressindicator';
 <div
   style={{ background: '#F5F6F7', height: 'calc(50vw / 10)', maxHeight: '70px', padding: '10px' }}
 >
-  <XUIProgressLinear
-    ariaLabel="Progress Indicator"
-    id="grow-linear"
-    total={5}
-    progress={3}
-    isGrow
-  />
+  <XUIProgressLinear ariaLabel="Loading next page" id="grow-linear" isGrow progress={3} total={5} />
 </div>;
 ```
 
@@ -170,11 +153,11 @@ import { XUIProgressLinear } from '@xero/xui/react/progressindicator';
 
 <div style={{ background: '#F5F6F7', height: '100px', padding: '10px' }}>
   <XUIProgressLinear
-    ariaLabel="Progress Indicator"
-    id="grow-linear"
-    total={5}
-    progress={3}
+    ariaLabel="Loading next page"
+    id="grow-linear-thickness"
     isGrow
+    progress={3}
+    total={5}
     thickness={10}
   />
 </div>;
@@ -190,11 +173,11 @@ Create a Tool Tip that is visible when a mouse cursor enters the component with 
 import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
 <XUIProgressCircular
-  ariaLabel="Progress Indicator"
+  ariaLabel="Uploading"
   id="tooltip-circular"
-  total={5}
-  progress={3}
   hasToolTip
+  progress={3}
+  total={5}
 />;
 ```
 
@@ -208,11 +191,11 @@ You can supply the `toolTipMessage` prop a customised message to replace the def
 import { XUIProgressLinear } from '@xero/xui/react/progressindicator';
 
 <XUIProgressLinear
-  ariaLabel="Progress Indicator"
+  ariaLabel="Setup progress"
   id="tooltip-linear"
-  total={5}
-  progress={3}
   hasToolTip
+  progress={3}
+  total={5}
   toolTipMessage="Answered 3 of 5 questions"
 />;
 ```
@@ -229,12 +212,12 @@ Change the UI to illustrate when the `progress` exceeds the `total` value.
 import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
 <XUIProgressCircular
-  ariaLabel="Progress Indicator"
+  ariaLabel="Uploading"
   id="overflow-circular"
-  total={5}
-  progress={7}
-  isSegmented
   isOverflow
+  isSegmented
+  progress={7}
+  total={5}
 />;
 ```
 
@@ -244,10 +227,10 @@ import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 import { XUIProgressLinear } from '@xero/xui/react/progressindicator';
 
 <XUIProgressLinear
-  ariaLabel="Progress Indicator"
+  ariaLabel="Loading"
   id="overflow-linear"
-  total={5}
   progress={7}
+  total={5}
   isSegmented
   isOverflow
 />;
@@ -265,11 +248,11 @@ Change the `progress` track into an error state with the `isSoftError` prop.
 import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
 <XUIProgressCircular
-  ariaLabel="Progress Indicator"
-  id="soft-circular"
-  total={5}
-  progress={3}
+  ariaLabel="Uploading"
+  id="soft-error-circular"
   isSoftError
+  progress={3}
+  total={5}
 />;
 ```
 
@@ -279,11 +262,11 @@ import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 import { XUIProgressLinear } from '@xero/xui/react/progressindicator';
 
 <XUIProgressLinear
-  ariaLabel="Progress Indicator"
-  id="soft-linear"
-  total={5}
-  progress={3}
+  ariaLabel="Loading next page"
+  id="soft-error-linear"
   isSoftError
+  progress={3}
+  total={5}
 />;
 ```
 
@@ -310,12 +293,12 @@ Change the color of the `total` and `progress` track by supplying the `totalColo
 import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
 <XUIProgressCircular
-  ariaLabel="Progress Indicator"
+  ariaLabel="Loading"
   id="color-circular"
-  total={5}
   progress={3}
-  totalColor="grape"
-  progressColor="mint"
+  progressColor="green"
+  total={5}
+  totalColor="yellow"
 />;
 ```
 
@@ -325,12 +308,12 @@ import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 import { XUIProgressLinear } from '@xero/xui/react/progressindicator';
 
 <XUIProgressLinear
-  ariaLabel="Progress Indicator"
+  ariaLabel="Loading next page"
   id="color-linear"
-  total={5}
   progress={3}
+  progressColor="green"
+  total={5}
   totalColor="yellow"
-  progressColor="violet"
 />;
 ```
 
@@ -344,11 +327,11 @@ Show a complete icon when the `progress` equals the `total` value with the `isAl
 import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
 <XUIProgressCircular
-  ariaLabel="Progress Indicator"
+  ariaLabel="Uploading"
   id="complete-circular"
-  total={5}
-  progress={5}
   isAlertOnComplete
+  progress={5}
+  total={5}
 />;
 ```
 
@@ -360,11 +343,11 @@ Show an error icon with the `isHardError` prop.
 import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
 <XUIProgressCircular
-  ariaLabel="Progress Indicator"
-  id="hard-circular"
-  total={5}
-  progress={3}
+  ariaLabel="Uploading"
+  id="hard-error-circular"
   isHardError
+  progress={3}
+  total={5}
 />;
 ```
 
@@ -374,12 +357,12 @@ You can supply the `hardErrorAlert` prop some custom content _(JSX, String, Numb
 import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
 <XUIProgressCircular
-  ariaLabel="Progress Indicator"
+  ariaLabel="Uploading"
+  hardErrorAlert="X"
   id="hard-custom-circular"
-  total={5}
-  progress={3}
   isHardError
-  hardErrorAlert=":-("
+  progress={3}
+  total={5}
 />;
 ```
 
@@ -392,16 +375,16 @@ import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
 <div style={{ width: '100px' }}>
   <XUIProgressCircular
-    ariaLabel="Progress Indicator"
-    id="central-content-circular1"
-    total={5}
-    progress={3}
+    ariaLabel="Updating contact details"
+    id="central-content-image-circular"
     isGrow
+    progress={3}
+    total={5}
   >
     <img
-      style={{ width: '100%', height: 'auto' }}
       alt=""
-      src="https://i.picsum.photos/id/1033/100/100.jpg?hmac=tomT-dDv5vivqHh5P2NCXMYcsD8G3D4-hAqxbdQ7O2c"
+      src="https://picsum.photos/id/1011/100/100"
+      style={{ height: 'auto', width: '100%' }}
     />
   </XUIProgressCircular>
 </div>;
@@ -412,11 +395,11 @@ import { XUIProgressCircular } from '@xero/xui/react/progressindicator';
 
 <div style={{ width: '100px' }}>
   <XUIProgressCircular
-    ariaLabel="Progress Indicator"
-    id="central-content-circular2"
-    total={5}
-    progress={3}
+    ariaLabel="Uploading"
+    id="central-content-text-circular"
     isGrow
+    progress={3}
+    total={5}
   >
     <div
       style={{ height: '100%' }}
@@ -437,15 +420,15 @@ Change the traditional segment _dashes_ to instead render as circular _dots_ usi
 ```jsx harmony
 import { XUIProgressLinear } from '@xero/xui/react/progressindicator';
 
-<div style={{ width: `${30 * 9}px` }}>
+<div style={{ width: '270px' }}>
   <XUIProgressLinear
-    ariaLabel="Progress Indicator"
+    ariaLabel="Loading next page"
+    hasSegmentDots
     id="dots-linear"
-    total={5}
+    isSegmented
     progress={3}
     thickness={30}
-    isSegmented
-    hasSegmentDots
+    total={5}
   />
 </div>;
 ```

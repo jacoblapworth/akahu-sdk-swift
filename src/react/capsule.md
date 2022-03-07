@@ -8,29 +8,29 @@ Capsules are used to draw attention to placeholders that will be replaced with d
 
 ### Default capsules
 
-A default capsule is inline text with a border that can receive focus.
+A default capsule is inline text with a border that can receive focus. Capsules inherit font size and colour.
 
 ```jsx harmony
 import XUICapsule from '@xero/xui/react/capsule';
 
 <div>
   <div className="xui-heading-large">
-    Capsules <XUICapsule>inherit</XUICapsule> font size & colour
+    Compilation Report to the Directors Of <XUICapsule>Legal or Trading Name</XUICapsule>
   </div>
   <div className="xui-heading">
-    Capsules <XUICapsule>inherit</XUICapsule> font size & colour
+    Compilation Report to the Directors Of <XUICapsule>Legal or Trading Name</XUICapsule>
   </div>
   <div className="xui-heading-small">
-    Capsules <XUICapsule>inherit</XUICapsule> font size & colour
+    Compilation Report to the Directors Of <XUICapsule>Legal or Trading Name</XUICapsule>
   </div>
   <div className="xui-heading-xsmall">
-    Capsules <XUICapsule>inherit</XUICapsule> font size & colour
+    Compilation Report to the Directors Of <XUICapsule>Legal or Trading Name</XUICapsule>
   </div>
   <div>
-    Capsules <XUICapsule>inherit</XUICapsule> font size & colour
+    Compilation Report to the Directors Of <XUICapsule>Legal or Trading Name</XUICapsule>
   </div>
   <div className="xui-text-minor">
-    Capsules <XUICapsule>inherit</XUICapsule> font size & colour
+    Compilation Report to the Directors Of <XUICapsule>Legal or Trading Name</XUICapsule>
   </div>
 </div>;
 ```
@@ -43,10 +43,10 @@ Capsules can trigger actions passed in through the `onClick` and `href` props. T
 import XUICapsule from '@xero/xui/react/capsule';
 
 <div>
-  This
-  <XUICapsule isLink href="https://www.google.com" target="_blank">
-    capsule
-  </XUICapsule> is interactive; it's a link to Google that will open in a new tab
+  Compilation Report to the Directors Of
+  <XUICapsule href="/" isLink target="_blank">
+    Legal or Trading Name
+  </XUICapsule>
 </div>;
 ```
 
@@ -58,6 +58,7 @@ Invalid capsules, such as those containing incomplete formulas, are produced by 
 import XUICapsule from '@xero/xui/react/capsule';
 
 <div>
-  This capsule is <XUICapsule isValid={false}>invalid</XUICapsule>
+  Compilation Report to the Directors Of
+  <XUICapsule isValid={false}>Legal or Trading Name</XUICapsule>
 </div>;
 ```

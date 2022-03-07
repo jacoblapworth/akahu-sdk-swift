@@ -12,30 +12,38 @@ Try to resize: Click and drag the bottom right corner of the following container
 
 ```jsx harmony
 import XUIPagination from '@xero/xui/react/pagination';
-import {
-  defaultPerPageCountOptions,
-  defaultPerPageContent,
-  defaultCreateCountContent,
-  defaultCreatePagingContent
-} from './components/pagination/private/helpers';
 
-const defaultProps = {
-  ariaLabel: 'Pagination',
-  createCountContent: defaultCreateCountContent,
-  createPagingContent: defaultCreatePagingContent,
-  nextPageLabel: 'Next Page',
-  pageSelectLabel: 'Select a page',
-  perPageContent: defaultPerPageContent,
-  perPageCountSelectLabel: 'Select a per page count',
-  previousPageLabel: 'Previous Page'
+const numberFormat = number => new Intl.NumberFormat().format(number);
+
+const createCountContent = (from, to, count) => ({
+  enhanced: `Showing items ${numberFormat(from)}–${numberFormat(to)} of ${numberFormat(count)}`,
+  simple: `Total items: ${numberFormat(count)}`
+});
+
+const createPagingContent = (page, pageCount) => {
+  return {
+    enhanced: `Page ${numberFormat(page)} of ${numberFormat(pageCount)}`,
+    simple: `${numberFormat(page)} of ${numberFormat(pageCount)}`
+  };
 };
 
 const wrapperStyles = {
-  resize: 'horizontal',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  resize: 'horizontal'
 };
+
 <div className="xui-panel xui-padding-small" style={wrapperStyles}>
-  <XUIPagination count={98} {...defaultProps} />
+  <XUIPagination
+    ariaLabel="Pagination"
+    count={98}
+    createCountContent={createCountContent}
+    createPagingContent={createPagingContent}
+    nextPageLabel="Next Page"
+    pageSelectLabel="Select a page"
+    perPageContent="Items per page"
+    perPageCountSelectLabel="Select a per page count"
+    previousPageLabel="Previous Page"
+  />
 </div>;
 ```
 
@@ -45,31 +53,39 @@ const wrapperStyles = {
 
 ```jsx harmony
 import XUIPagination from '@xero/xui/react/pagination';
-import {
-  defaultPerPageCountOptions,
-  defaultPerPageContent,
-  defaultCreateCountContent,
-  defaultCreatePagingContent
-} from './components/pagination/private/helpers';
 
-const defaultProps = {
+const numberFormat = number => new Intl.NumberFormat().format(number);
+
+const createCountContent = (from, to, count) => ({
+  enhanced: `Showing items ${numberFormat(from)}–${numberFormat(to)} of ${numberFormat(count)}`,
+  simple: `Total items: ${numberFormat(count)}`
+});
+
+const createPagingContent = (page, pageCount) => {
+  return {
+    enhanced: `Page ${numberFormat(page)} of ${numberFormat(pageCount)}`,
+    simple: `${numberFormat(page)} of ${numberFormat(pageCount)}`
+  };
+};
+
+const paginationProps = {
   ariaLabel: 'Pagination',
-  createCountContent: defaultCreateCountContent,
-  createPagingContent: defaultCreatePagingContent,
+  createCountContent: createCountContent,
+  createPagingContent: createPagingContent,
   nextPageLabel: 'Next Page',
   pageSelectLabel: 'Select a page',
-  perPageContent: defaultPerPageContent,
+  perPageContent: 'Items per page',
   perPageCountSelectLabel: 'Select a per page count',
   previousPageLabel: 'Previous Page'
 };
 
-const UncontrolledExample = () => {
+const UncontrolledPaginationExample = () => {
   const onPageChange = page => {
-    console.log(`Page: ${page}`);
+    console.log(`onPageChange - Page: ${page}`);
   };
 
   const onPerPageCountChange = perPageCount => {
-    console.log(`Per Page Count: ${perPageCount}`);
+    console.log(`onPerPageCountChange - Per Page Count: ${perPageCount}`);
   };
 
   return (
@@ -79,11 +95,11 @@ const UncontrolledExample = () => {
       defaultPerPageCount={50}
       onPageChange={onPageChange}
       onPerPageCountChange={onPerPageCountChange}
-      {...defaultProps}
+      {...paginationProps}
     />
   );
 };
-<UncontrolledExample />;
+<UncontrolledPaginationExample />;
 ```
 
 ## Controlled
@@ -95,25 +111,33 @@ Following is an example changing the default behavior (jump to the fist page) wh
 ```jsx harmony
 import { useState } from 'react';
 import XUIPagination from '@xero/xui/react/pagination';
-import {
-  defaultPerPageCountOptions,
-  defaultPerPageContent,
-  defaultCreateCountContent,
-  defaultCreatePagingContent
-} from './components/pagination/private/helpers';
 
-const defaultProps = {
+const numberFormat = number => new Intl.NumberFormat().format(number);
+
+const createCountContent = (from, to, count) => ({
+  enhanced: `Showing items ${numberFormat(from)}–${numberFormat(to)} of ${numberFormat(count)}`,
+  simple: `Total items: ${numberFormat(count)}`
+});
+
+const createPagingContent = (page, pageCount) => {
+  return {
+    enhanced: `Page ${numberFormat(page)} of ${numberFormat(pageCount)}`,
+    simple: `${numberFormat(page)} of ${numberFormat(pageCount)}`
+  };
+};
+
+const paginationProps = {
   ariaLabel: 'Pagination',
-  createCountContent: defaultCreateCountContent,
-  createPagingContent: defaultCreatePagingContent,
+  createCountContent: createCountContent,
+  createPagingContent: createPagingContent,
   nextPageLabel: 'Next Page',
   pageSelectLabel: 'Select a page',
-  perPageContent: defaultPerPageContent,
+  perPageContent: 'Items per page',
   perPageCountSelectLabel: 'Select a per page count',
   previousPageLabel: 'Previous Page'
 };
 
-const ControlledExample = ({ count }) => {
+const ControlledPaginationExample = ({ count }) => {
   const [page, setPage] = useState(3);
   const [perPageCount, setPerPageCount] = useState(25);
 
@@ -130,11 +154,12 @@ const ControlledExample = ({ count }) => {
       onPerPageCountChange={onPerPageCountChange}
       page={page}
       perPageCount={perPageCount}
-      {...defaultProps}
+      {...paginationProps}
     />
   );
 };
-<ControlledExample count={200} />;
+
+<ControlledPaginationExample count={200} />;
 ```
 
 ## Paging only
@@ -143,30 +168,33 @@ To use paging widget only, set prop `showCount` and `showPerPageCountSelect` to 
 
 ```jsx harmony
 import XUIPagination from '@xero/xui/react/pagination';
-import {
-  defaultPerPageCountOptions,
-  defaultPerPageContent,
-  defaultCreateCountContent,
-  defaultCreatePagingContent
-} from './components/pagination/private/helpers';
 
-const defaultProps = {
+const numberFormat = number => new Intl.NumberFormat().format(number);
+
+const createCountContent = (from, to, count) => ({
+  enhanced: `Showing items ${numberFormat(from)}–${numberFormat(to)} of ${numberFormat(count)}`,
+  simple: `Total items: ${numberFormat(count)}`
+});
+
+const createPagingContent = (page, pageCount) => {
+  return {
+    enhanced: `Page ${numberFormat(page)} of ${numberFormat(pageCount)}`,
+    simple: `${numberFormat(page)} of ${numberFormat(pageCount)}`
+  };
+};
+
+const paginationProps = {
   ariaLabel: 'Pagination',
-  createCountContent: defaultCreateCountContent,
-  createPagingContent: defaultCreatePagingContent,
+  createCountContent: createCountContent,
+  createPagingContent: createPagingContent,
   nextPageLabel: 'Next Page',
   pageSelectLabel: 'Select a page',
-  perPageContent: defaultPerPageContent,
+  perPageContent: 'Items per page',
   perPageCountSelectLabel: 'Select a per page count',
   previousPageLabel: 'Previous Page'
 };
 
-const Example = () => {
-  return (
-    <XUIPagination count={100} showCount={false} showPerPageCountSelect={false} {...defaultProps} />
-  );
-};
-<Example />;
+<XUIPagination count={100} showCount={false} showPerPageCountSelect={false} {...paginationProps} />;
 ```
 
 ## Customise Content
@@ -177,22 +205,26 @@ Numbers in `createPagingContent` and `createCountContent` should be formatted fo
 
 ```jsx harmony
 import XUIPagination from '@xero/xui/react/pagination';
-import {
-  defaultPerPageCountOptions,
-  defaultCreatePagingContent,
-  numberFormat
-} from './components/pagination/private/helpers';
 
-const defaultProps = {
+const numberFormat = number => new Intl.NumberFormat().format(number);
+
+const createPagingContent = (page, pageCount) => {
+  return {
+    enhanced: `Page ${numberFormat(page)} of ${numberFormat(pageCount)}`,
+    simple: `${numberFormat(page)} of ${numberFormat(pageCount)}`
+  };
+};
+
+const paginationProps = {
   ariaLabel: 'Pagination',
-  createPagingContent: defaultCreatePagingContent,
+  createPagingContent: createPagingContent,
   nextPageLabel: 'Next Page',
   pageSelectLabel: 'Select a page',
   perPageCountSelectLabel: 'Select a per page count',
   previousPageLabel: 'Previous Page'
 };
 
-const Example = () => (
+const PaginationExample = () => (
   <XUIPagination
     count={100}
     createCountContent={(from, to, count) => ({
@@ -202,8 +234,9 @@ const Example = () => (
       )}`
     })}
     perPageContent="Contacts per page"
-    {...defaultProps}
+    {...paginationProps}
   />
 );
-<Example />;
+
+<PaginationExample />;
 ```

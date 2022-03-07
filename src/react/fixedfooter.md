@@ -11,33 +11,40 @@ Fixed footer is an experimental component to hold actions at the bottom of the v
 The fixed footer is an empty white bar with a top-edge shadow that remains fixed to the bottom of the viewport and prevents nearby elements from getting hidden behind it.
 
 ```jsx harmony
-import { Fragment, useState } from 'react';
-import XUIFixedFooterWIP from '@xero/xui/react/fixedfooter';
-import XUIButton from '@xero/xui/react/button';
+import { useState } from 'react';
 import XUIActions from '@xero/xui/react/actions';
+import XUIButton from '@xero/xui/react/button';
+import XUIFixedFooterWIP from '@xero/xui/react/fixedfooter';
 
-const FooterTest = () => {
+const FooterExample = () => {
   const [isVisible, setIsVisible] = useState(false);
+
   return (
-    <Fragment>
-      <XUIButton onClick={() => setIsVisible(!isVisible)}>Toggle fixed footer</XUIButton>
+    <>
+      <XUIButton onClick={() => setIsVisible(!isVisible)}>Toggle fixed footer display</XUIButton>
       {isVisible && (
         <XUIFixedFooterWIP>
-          <XUIActions
-            className="xui-padding-small"
-            primaryAction={
-              <XUIButton size="small" variant="main">
-                ActionCompletion
+          <div className="xui-actions xui-actions-linear xui-padding">
+            <XUIButton size="small">Edit layout</XUIButton>
+            <div>
+              <XUIButton hasCaret size="small">
+                Save as
               </XUIButton>
-            }
-            secondaryAction={<XUIButton size="small">Action2Completion</XUIButton>}
-          />
+              <XUIButton className="xui-margin-left-xsmall" hasCaret size="small">
+                Export
+              </XUIButton>
+              <XUIButton className="xui-margin-left-xsmall" size="small" variant="main">
+                Save
+              </XUIButton>
+            </div>
+          </div>
         </XUIFixedFooterWIP>
       )}
-    </Fragment>
+    </>
   );
 };
-<FooterTest />;
+
+<FooterExample />;
 ```
 
 ## How it works

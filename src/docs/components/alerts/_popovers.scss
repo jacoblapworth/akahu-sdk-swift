@@ -56,32 +56,6 @@
 //
 // Styleguide: Components.Alerts.Popover.4
 
-// Positioning
-//
-// The position of a popover is important to complement the surrounding UI elements. If the popover’s preferred position causes it to go off-screen, then the popover should use the next available position.
-//
-// The React popover component automatically positions the arrow to be centred on its trigger as well as makes sure the popover never renders outside of the viewport. To specify a position for the arrow element in HTML/CSS, you can provide a `xui-popover-arrow*` modifier.
-//
-// Tips:
-// Do: Position the popover so it complements other elements on the page
-// Do: Make sure the popover doesn’t cover related content
-//
-// Classes:
-// -topleft: Modifier for a top-left arrow
-// -topcenter: Modifier for a top-center arrow
-// -topright: Modifier for a top-right arrow
-// -righttop: Modifier for a right-top arrow
-// -rightcenter: Modifier for a right-center arrow
-// -rightbottom: Modifier for a right-bottom arrow
-// -bottomleft: Modifier for a bottom-left arrow
-// -bottomcenter: Modifier for a bottom-center arrow
-// -bottomright: Modifier for a bottom-right arrow
-// -lefttop: Modifier for a left-top arrow
-// -leftcenter: Modifier for a left-center arrow
-// -leftbottom: Modifier for a left-bottom arrow
-//
-// Styleguide: Components.Alerts.Popover.4.1
-
 // Features of a popover
 //
 // Explore the different features that can be applied to this component.
@@ -148,6 +122,32 @@
 //
 // Styleguide: Components.Alerts.Popover.5.2.1
 
+// Positioning
+//
+// The position of a popover is important to complement the surrounding UI elements. If the popover’s preferred position causes it to go off-screen, then the popover should use the next available position.
+//
+// The React popover component automatically positions the arrow to be centred on its trigger as well as makes sure the popover never renders outside of the viewport. To specify a position for the arrow element in HTML/CSS, you can provide a `xui-popover-arrow*` modifier.
+//
+// Tips:
+// Do: Position the popover so it complements other elements on the page
+// Do: Make sure the popover doesn’t cover related content
+//
+// Classes:
+// -topleft: Modifier for a top-left arrow
+// -topcenter: Modifier for a top-center arrow
+// -topright: Modifier for a top-right arrow
+// -righttop: Modifier for a right-top arrow
+// -rightcenter: Modifier for a right-center arrow
+// -rightbottom: Modifier for a right-bottom arrow
+// -bottomleft: Modifier for a bottom-left arrow
+// -bottomcenter: Modifier for a bottom-center arrow
+// -bottomright: Modifier for a bottom-right arrow
+// -lefttop: Modifier for a left-top arrow
+// -leftcenter: Modifier for a left-center arrow
+// -leftbottom: Modifier for a left-bottom arrow
+//
+// Styleguide: Components.Alerts.Popover.5.3
+
 // Responsive behaviour
 //
 // When the viewport is narrower than the width of the popover, the class `xui-popover-fullwidth` should be applied and the popover position should move (if not already) to above or below the trigger. This functionality is provided automatically with the React popover component.
@@ -159,7 +159,7 @@
 //
 // Markup: ./examples/popover/_popover-responsive.html
 //
-// Styleguide: Components.Alerts.Popover.5.3
+// Styleguide: Components.Alerts.Popover.5.4
 
 // Size variants
 //

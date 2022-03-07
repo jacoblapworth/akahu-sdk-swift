@@ -13,12 +13,8 @@ import XUIActions from '@xero/xui/react/actions';
 import XUIButton from '@xero/xui/react/button';
 
 <XUIActions
-  primaryAction={
-    <XUIButton key="one" variant="main">
-      Continue
-    </XUIButton>
-  }
-  secondaryAction={<XUIButton key="two">Cancel</XUIButton>}
+  primaryAction={<XUIButton variant="main">Continue</XUIButton>}
+  secondaryAction={<XUIButton>Cancel</XUIButton>}
 />;
 ```
 
@@ -32,11 +28,7 @@ import XUIButton from '@xero/xui/react/button';
 
 <XUIActions
   isLinear
-  primaryAction={
-    <XUIButton key="one" variant="main">
-      Next
-    </XUIButton>
-  }
-  secondaryAction={<XUIButton key="two">Previous</XUIButton>}
+  primaryAction={<XUIButton variant="main">Next</XUIButton>}
+  secondaryAction={<XUIButton>Previous</XUIButton>}
 />;
 ```

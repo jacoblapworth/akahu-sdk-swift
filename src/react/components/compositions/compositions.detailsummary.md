@@ -26,8 +26,8 @@ const summaryContent = (
 );
 
 <XUICompositionDetailSummaryHeader
-  header={headerContent}
   detail={detailContent}
+  header={headerContent}
   summary={summaryContent}
 />;
 ```

@@ -5,21 +5,27 @@ The touch target for Checkboxes in a group is the entire "row" of the Checkbox G
 ```jsx harmony
 import XUICheckbox, { XUICheckboxGroup } from '@xero/xui/react/checkbox';
 
-<XUICheckboxGroup hintMessage="Hint message">
-  <XUICheckbox>Item 1</XUICheckbox>
-  <XUICheckbox>Item 2</XUICheckbox>
-  <XUICheckbox isDisabled>Item 3</XUICheckbox>
+<XUICheckboxGroup
+  hintMessage="Select which items should be included on the quote"
+  label="Confirm items to quote"
+>
+  <XUICheckbox>Tasks</XUICheckbox>
+  <XUICheckbox>Annual Financial Statements Preparation</XUICheckbox>
+  <XUICheckbox isDisabled>Tax Return Preparation</XUICheckbox>
 </XUICheckboxGroup>;
 ```
 
 ```jsx harmony
 import XUICheckbox, { XUICheckboxGroup } from '@xero/xui/react/checkbox';
 
-<XUICheckboxGroup isInvalid validationMessage="Validation message">
-  <XUICheckbox>Tūī</XUICheckbox>
-  <XUICheckbox>Pīwakawaka</XUICheckbox>
-  <XUICheckbox>Ruru</XUICheckbox>
-  <XUICheckbox>Moa</XUICheckbox>
+<XUICheckboxGroup
+  isInvalid
+  label="Confirm items to quote"
+  validationMessage="Select 1 or more items"
+>
+  <XUICheckbox>Tasks</XUICheckbox>
+  <XUICheckbox>Annual Financial Statements Preparation</XUICheckbox>
+  <XUICheckbox>Tax Return Preparation</XUICheckbox>
 </XUICheckboxGroup>;
 ```
 
@@ -29,15 +35,9 @@ The Checkbox Group doesn't impact the checkboxes in any way, so you have the sam
 import star from '@xero/xui-icon/icons/star';
 import XUICheckbox, { XUICheckboxGroup } from '@xero/xui/react/checkbox';
 
-<XUICheckboxGroup>
-  <XUICheckbox isReversed iconMain={star}>
-    Cockatoo
-  </XUICheckbox>
-  <XUICheckbox isReversed iconMain={star}>
-    Galah
-  </XUICheckbox>
-  <XUICheckbox isReversed iconMain={star}>
-    Magpie
-  </XUICheckbox>
+<XUICheckboxGroup label="Reports">
+  <XUICheckbox iconMain={star}>Balance sheet</XUICheckbox>
+  <XUICheckbox iconMain={star}>Profit and loss</XUICheckbox>
+  <XUICheckbox iconMain={star}>Account transactions</XUICheckbox>
 </XUICheckboxGroup>;
 ```

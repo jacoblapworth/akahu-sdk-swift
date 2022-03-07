@@ -28,6 +28,12 @@ $xui-introbanner-padding-vertical: $xui-s-2xlarge;
 
   &.#{$ns}-introbanner-has-illustration.#{$ns}-introbanner-small-up {
     display: flex;
+    .#{$ns}-introbanner--illustration {
+      margin: unset;
+      .#{$ns}-illustration {
+        padding-top: 0;
+      }
+    }
   }
 }
 

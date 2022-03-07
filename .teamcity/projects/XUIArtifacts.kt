@@ -1,9 +1,11 @@
 package projects
 
+import buildTypes.BranchDependency
 import buildTypes.DeployXUI
 import buildTypes.PRBuild
 import buildTypes.VisRegTest
 import com.xero.teamcityhelpers.build.npm.NpmBuild
+import com.xero.teamcityhelpers.buildtype.trigger.addSnapshotDependencies
 import com.xero.teamcityhelpers.buildtype.yarn.addNpmLibraryArtifacts
 import jetbrains.buildServer.configs.kotlin.v2019_2.Project
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.ScriptBuildStep
@@ -23,6 +25,7 @@ object XUIArtifacts: Project({
   val buildXUI = NpmBuild {
     name = "Build XUI"
     addNpmLibraryArtifacts()
+    addSnapshotDependencies(arrayOf(BranchDependency))
   }
 
   // NpmBuild only runs `npm run build` by default, so we must add our own pack step
@@ -68,6 +71,7 @@ object XUIArtifacts: Project({
   removeAgentRegionRequirement(deployXUIProd)
   removeAgentRegionRequirement(documentStableProd)
 
+  buildType(BranchDependency)
   buildType(buildXUI)
   buildType(deployXUITest)
   buildType(documentStableTest)
@@ -75,6 +79,7 @@ object XUIArtifacts: Project({
   buildType(documentStableProd)
 
   buildTypesOrder = listOf(
+    BranchDependency,
     buildXUI,
     deployXUITest,
     documentStableTest,

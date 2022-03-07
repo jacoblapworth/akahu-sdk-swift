@@ -14,41 +14,27 @@ We recommend being cautious when passing down a `type` to your input using `inpu
 import XUITextInput from '@xero/xui/react/textinput';
 
 <div>
+  <h3>Standard text input</h3>
+  <XUITextInput fieldClassName="xui-margin-bottom" label="Contact name" />
+  <h3>Standard text input with default value</h3>
+  <XUITextInput defaultValue="John Smith" fieldClassName="xui-margin-bottom" label="Contact name" />
+  <h3>Number input with placeholder</h3>
   <XUITextInput
     fieldClassName="xui-margin-bottom"
-    placeholder="A standard text input"
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    fieldClassName="xui-margin-bottom"
-    qaHook="test-ui"
-    defaultValue="This one has a default value"
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    fieldClassName="xui-margin-bottom"
-    qaHook="test-ui"
+    label="Time taken"
+    placeholder="0:00"
     type="number"
-    placeholder="A number input"
-    label="input"
-    isLabelHidden
   />
+  <h3>Reverse-aligned input</h3>
   <XUITextInput
     fieldClassName="xui-margin-bottom"
-    placeholder="A reverse-aligned input"
     isValueReverseAligned
-    label="input"
-    isLabelHidden
+    label="Time taken"
+    placeholder="0:00"
+    type="number"
   />
-  <XUITextInput
-    qaHook="test-ui"
-    inputProps={{ readOnly: true }}
-    defaultValue="A read-only value"
-    label="input"
-    isLabelHidden
-  />
+  <h3>Read-only text input</h3>
+  <XUITextInput defaultValue="John Smith" inputProps={{ readOnly: true }} label="Contact name" />
 </div>;
 ```
 
@@ -59,7 +45,7 @@ Labels can be set on `XUITextInput` by passing a value to the `label` prop.
 ```jsx harmony
 import XUITextInput from '@xero/xui/react/textinput';
 
-<XUITextInput label="Label" />;
+<XUITextInput label="Contact name" />;
 ```
 
 ### Validation
@@ -67,61 +53,50 @@ import XUITextInput from '@xero/xui/react/textinput';
 Validation messages and styling should be added to inputs using the `validationMessage` and `isInvalid` props. Additionally, hint messages can be passed to inputs using the `hintMessage` prop. It's best to set `isFieldLayout=true` on all inputs to ensure consistent spacing between fields.
 
 ```jsx harmony
-import { PureComponent } from 'react';
+import { useState } from 'react';
 import XUITextInput from '@xero/xui/react/textinput';
 
-class Example extends PureComponent {
-  constructor(...args) {
-    super(...args);
+const TextInputExample = () => {
+  const [hasFocus, setHasFocus] = useState(false);
 
-    this.state = {
-      text: ''
-    };
-    this.onFocus = this.onFocus.bind(this);
-    this.onBlur = this.onBlur.bind(this);
-  }
+  const onFocus = () => {
+    setHasFocus(true);
+  };
 
-  onFocus() {
-    this.setState({
-      hasFocus: true
-    });
-  }
+  const onBlur = () => {
+    setHasFocus(false);
+  };
 
-  onBlur() {
-    this.setState({
-      hasFocus: false
-    });
-  }
+  return (
+    <div>
+      <h3>Text input with validation message</h3>
+      <XUITextInput
+        isFieldLayout
+        isInvalid
+        label="Bank account number"
+        validationMessage="Bank account numbers must have at least 9 digits"
+      />
 
-  render() {
-    return (
-      <div>
-        <XUITextInput
-          label="An invalid input"
-          validationMessage="Well it's not right"
-          isInvalid
-          isFieldLayout
-        />
-        <XUITextInput
-          label="Input with a hint"
-          placeholder="I always have a hint"
-          hintMessage="Just a good old hint"
-          isFieldLayout
-        />
-        <XUITextInput
-          label="Input that may have a hint"
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
-          placeholder="I have a hint when I'm focused"
-          hintMessage={(this.state.hasFocus && 'Just a good old hint') || ''}
-          isFieldLayout
-        />
-      </div>
-    );
-  }
-}
+      <h3 className="xui-padding-top">Text input with hint message</h3>
+      <XUITextInput
+        hintMessage="Found on the top of your IR3 statement"
+        isFieldLayout
+        label="IRD number"
+      />
 
-<Example />;
+      <h3 className="xui-padding-top">Text input with hint message when focused</h3>
+      <XUITextInput
+        hintMessage={(hasFocus && 'Found on the top of your IR3 statement') || ''}
+        isFieldLayout
+        label="IRD number"
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />
+    </div>
+  );
+};
+
+<TextInputExample />;
 ```
 
 #### Multiline Input
@@ -132,31 +107,14 @@ class Example extends PureComponent {
 import XUITextInput from '@xero/xui/react/textinput';
 
 <div>
-  <XUITextInput
-    isFieldLayout
-    isMultiline
-    placeholder="This input will automatically grow up to 5 rows high"
-    minRows={2}
-    maxRows={5}
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    isFieldLayout
-    isMultiline
-    placeholder="This input will automatically grow without limit"
-    minRows={3}
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    isFieldLayout
-    isMultiline
-    placeholder="This input has a set number of rows"
-    rows={3}
-    label="input"
-    isLabelHidden
-  />
+  <h3>Multiline input which grows automatically up to 5 rows high</h3>
+  <XUITextInput isFieldLayout isMultiline label="Notes" maxRows={5} minRows={2} />
+
+  <h3>Multiline input which grows automatically without limit</h3>
+  <XUITextInput isFieldLayout isMultiline label="Notes" minRows={3} />
+
+  <h3>Multiline input with a set number of rows</h3>
+  <XUITextInput isFieldLayout isMultiline label="Notes" rows={3} />
 </div>;
 ```
 
@@ -165,206 +123,188 @@ import XUITextInput from '@xero/xui/react/textinput';
 Content can be added to the side of a `XUITextInput` using the `leftElement` and `rightElement` props. It's recommended that you use the `XUITextInputSideElement` component to ensure the correct styling is applied. When using custom static side elements (e.g. icons, text, avatars), focus the input when the side element is clicked. (e.g. `<CustomElement onClick={ this.inputRef?.current?.focus() }>`)
 
 ```jsx harmony
-import linkedin from '@xero/xui-icon/icons/social-linkedin';
-import facebook from '@xero/xui-icon/icons/social-facebook';
 import search from '@xero/xui-icon/icons/search';
-import attach from '@xero/xui-icon/icons/attach';
+import twitter from '@xero/xui-icon/icons/social-twitter';
 
-import XUIPill from '@xero/xui/react/pill';
 import XUIAvatar from '@xero/xui/react/avatar';
-import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
+import XUIButton from '@xero/xui/react/button';
 import XUIIcon from '@xero/xui/react/icon';
-import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import XUIPill from '@xero/xui/react/pill';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
+
 <div>
+  <h3>Standard text inputs with side content</h3>
   <XUITextInput
     isFieldLayout
-    placeholder="Search"
+    label="Contact"
     leftElement={
       <XUITextInputSideElement type="icon">
-        <XUIIcon isBoxed icon={search} />
+        <XUIIcon icon={search} isBoxed />
       </XUITextInputSideElement>
     }
-    label="input"
-    isLabelHidden
+    placeholder="Search"
   />
   <XUITextInput
+    defaultValue="Jane Smith"
     isFieldLayout
-    placeholder="Avatar"
+    label="Contact"
     leftElement={
       <XUITextInputSideElement type="avatar">
-        <XUIAvatar value="Avatar" size="small" />
+        <XUIAvatar size="small" value="Jane Smith" />
       </XUITextInputSideElement>
     }
   />
   <XUITextInput
     isFieldLayout
-    placeholder="Pill"
+    label="Contact"
     leftElement={
       <XUITextInputSideElement type="pill">
         <XUIPill
-          value="Pill"
-          avatarProps={{ value: 'Pill' }}
-          onDeleteClick={() => {}}
+          avatarProps={{ value: 'Jane Smith' }}
           deleteButtonLabel="Delete"
+          onDeleteClick={() => {
+            console.log('XUIPill - onDeleteClick');
+          }}
+          value="Jane Smith"
         />
       </XUITextInputSideElement>
     }
   />
   <XUITextInput
+    defaultValue="Jane"
     isFieldLayout
-    placeholder="Linkedin"
-    leftElement={
-      <XUITextInputSideElement type="icon" backgroundColor="linkedin">
-        <XUIIcon isBoxed icon={linkedin} />
-      </XUITextInputSideElement>
-    }
-    label="input"
-    isLabelHidden
+    label="Name"
+    leftElement={<XUITextInputSideElement type="text">First name:</XUITextInputSideElement>}
   />
   <XUITextInput
     isFieldLayout
-    placeholder="Facebook"
-    leftElement={
-      <XUITextInputSideElement type="icon" backgroundColor="facebook">
-        <XUIIcon isBoxed icon={facebook} />
-      </XUITextInputSideElement>
-    }
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    isFieldLayout
-    placeholder="Facebook Right"
-    rightElement={
-      <XUITextInputSideElement type="icon" backgroundColor="facebook">
-        <XUIIcon isBoxed icon={facebook} />
-      </XUITextInputSideElement>
-    }
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    isFieldLayout
-    placeholder="Placeholder text"
-    leftElement={<XUITextInputSideElement type="text">Text here:</XUITextInputSideElement>}
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    isFieldLayout
-    placeholder="Placeholder text"
+    label="Contact"
     leftElement={
       <XUITextInputSideElement type="button">
-        <XUIButton variant="main" size="small">
-          Left Button
-        </XUIButton>
+        <XUIButton size="small">Clear</XUIButton>
       </XUITextInputSideElement>
     }
-    label="input"
-    isLabelHidden
+    placeholder="Search"
   />
   <XUITextInput
     isFieldLayout
-    placeholder="Placeholder text"
+    label="Twitter"
+    leftElement={
+      <XUITextInputSideElement backgroundColor="twitter" type="icon">
+        <XUIIcon icon={twitter} isBoxed />
+      </XUITextInputSideElement>
+    }
+    placeholder="@username"
+  />
+  <XUITextInput
+    isFieldLayout
+    label="Contact"
+    placeholder="Search"
     rightElement={
       <XUITextInputSideElement type="button">
-        <XUIButton variant="main" size="small">
-          Submit
-        </XUIButton>
+        <XUIButton size="small">Clear</XUIButton>
       </XUITextInputSideElement>
     }
-    label="input"
-    isLabelHidden
   />
   <XUITextInput
     isFieldLayout
-    isMultiline
-    placeholder="Top aligned right content"
+    label="Twitter"
+    placeholder="@username"
     rightElement={
-      <XUITextInputSideElement type="button" alignment="top">
-        <XUIButton variant="main" size="small">
-          Submit
-        </XUIButton>
+      <XUITextInputSideElement backgroundColor="twitter" type="icon">
+        <XUIIcon icon={twitter} isBoxed />
       </XUITextInputSideElement>
     }
-    label="input"
-    isLabelHidden
   />
+</div>;
+```
+
+```jsx harmony
+import attach from '@xero/xui-icon/icons/attach';
+import twitter from '@xero/xui-icon/icons/social-twitter';
+
+import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import XUIIcon from '@xero/xui/react/icon';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
+
+<div>
+  <h3>Multiline text inputs with side content</h3>
   <XUITextInput
     isFieldLayout
     isMultiline
-    placeholder="Center aligned right content"
-    rightElement={
-      <XUITextInputSideElement type="button" alignment="center">
-        <XUIButton variant="main" size="small">
-          Submit
-        </XUIButton>
-      </XUITextInputSideElement>
-    }
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    isFieldLayout
-    isMultiline
-    placeholder="Bottom aligned right content"
-    rightElement={
-      <XUITextInputSideElement type="button" alignment="bottom">
-        <XUIButton variant="main" size="small">
-          Submit
-        </XUIButton>
-      </XUITextInputSideElement>
-    }
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    isFieldLayout
-    isMultiline
-    placeholder="Top aligned right content"
-    rightElement={
-      <XUITextInputSideElement type="icon" alignment="top">
-        <XUIIconButton icon={attach} ariaLabel="attach" />
-      </XUITextInputSideElement>
-    }
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    isFieldLayout
-    isMultiline
-    placeholder="Center aligned right content"
-    rightElement={
-      <XUITextInputSideElement type="icon" alignment="center">
-        <XUIIconButton icon={attach} ariaLabel="attach" />
-      </XUITextInputSideElement>
-    }
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    isFieldLayout
-    isMultiline
-    placeholder="Bottom aligned right content"
-    rightElement={
-      <XUITextInputSideElement type="icon" alignment="bottom">
-        <XUIIconButton icon={attach} ariaLabel="attach" />
-      </XUITextInputSideElement>
-    }
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    isFieldLayout
-    isMultiline
-    placeholder="Bottom aligned top-aligned content with background"
+    label="Twitter"
     leftElement={
-      <XUITextInputSideElement type="icon" alignment="top" backgroundColor="facebook">
-        <XUIIcon isBoxed icon={facebook} />
+      <XUITextInputSideElement alignment="top" backgroundColor="twitter" type="icon">
+        <XUIIcon icon={twitter} isBoxed />
       </XUITextInputSideElement>
     }
-    label="input"
-    isLabelHidden
+    placeholder="@username"
+  />
+  <XUITextInput
+    defaultValue="jane@xero.com, john@xero.com"
+    isFieldLayout
+    isMultiline
+    label="Emails"
+    rightElement={
+      <XUITextInputSideElement alignment="top" type="button">
+        <XUIButton size="small">Clear</XUIButton>
+      </XUITextInputSideElement>
+    }
+  />
+  <XUITextInput
+    defaultValue="jane@xero.com, john@xero.com"
+    isFieldLayout
+    isMultiline
+    label="Emails"
+    rightElement={
+      <XUITextInputSideElement alignment="center" type="button">
+        <XUIButton size="small">Clear</XUIButton>
+      </XUITextInputSideElement>
+    }
+  />
+  <XUITextInput
+    defaultValue="jane@xero.com, john@xero.com"
+    isFieldLayout
+    isMultiline
+    label="Emails"
+    rightElement={
+      <XUITextInputSideElement alignment="bottom" type="button">
+        <XUIButton size="small">Clear</XUIButton>
+      </XUITextInputSideElement>
+    }
+  />
+  <XUITextInput
+    isFieldLayout
+    isMultiline
+    label="Files"
+    placeholder="Select file(s) to attach"
+    rightElement={
+      <XUITextInputSideElement alignment="top" type="icon">
+        <XUIIconButton ariaLabel="attach" icon={attach} />
+      </XUITextInputSideElement>
+    }
+  />
+  <XUITextInput
+    isFieldLayout
+    isMultiline
+    label="Files"
+    placeholder="Select file(s) to attach"
+    rightElement={
+      <XUITextInputSideElement alignment="center" type="icon">
+        <XUIIconButton ariaLabel="attach" icon={attach} />
+      </XUITextInputSideElement>
+    }
+  />
+  <XUITextInput
+    isFieldLayout
+    isMultiline
+    label="Files"
+    placeholder="Select file(s) to attach"
+    rightElement={
+      <XUITextInputSideElement alignment="bottom" type="icon">
+        <XUIIconButton ariaLabel="attach" icon={attach} />
+      </XUITextInputSideElement>
+    }
   />
 </div>;
 ```
@@ -377,73 +317,77 @@ Note that only avatars and text side elements have `2xsmall` size variants, so a
 
 ```jsx harmony
 import crossSmall from '@xero/xui-icon/icons/cross-small';
-
 import XUIAvatar from '@xero/xui/react/avatar';
-import XUIPill from '@xero/xui/react/pill';
 import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import XUIPill from '@xero/xui/react/pill';
 import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 
 <div>
   <XUITextInput
+    defaultValue="Jane Smith"
     fieldClassName="xui-margin-bottom"
-    placeholder="Medium size"
+    label="Contact"
     leftElement={
       <XUITextInputSideElement type="avatar">
-        <XUIAvatar value="bob" size="small" />
+        <XUIAvatar size="small" value="Jane Smith" />
       </XUITextInputSideElement>
     }
     rightElement={
       <XUITextInputSideElement type="icon">
-        <XUIIconButton icon={crossSmall} ariaLabel="Clear content" />
+        <XUIIconButton ariaLabel="Clear content" icon={crossSmall} />
       </XUITextInputSideElement>
     }
   />
   <XUITextInput
+    defaultValue="Jane Smith"
     fieldClassName="xui-margin-bottom"
-    placeholder="Small size"
+    label="Contact"
+    leftElement={
+      <XUITextInputSideElement type="avatar">
+        <XUIAvatar size="xsmall" value="Jane Smith" />
+      </XUITextInputSideElement>
+    }
+    rightElement={
+      <XUITextInputSideElement type="icon">
+        <XUIIconButton ariaLabel="Clear content" icon={crossSmall} size="small" />
+      </XUITextInputSideElement>
+    }
     size="small"
-    leftElement={
-      <XUITextInputSideElement type="avatar">
-        <XUIAvatar value="bob" size="xsmall" />
-      </XUITextInputSideElement>
-    }
-    rightElement={
-      <XUITextInputSideElement type="icon">
-        <XUIIconButton size="small" icon={crossSmall} ariaLabel="Clear content" />
-      </XUITextInputSideElement>
-    }
   />
   <XUITextInput
+    defaultValue="Jane Smith"
     fieldClassName="xui-margin-bottom"
-    placeholder="Extra small size"
-    size="xsmall"
+    label="Contact"
     leftElement={
       <XUITextInputSideElement type="avatar">
-        <XUIAvatar value="bob" size="2xsmall" />
+        <XUIAvatar size="2xsmall" value="Jane Smith" />
       </XUITextInputSideElement>
     }
     rightElement={
       <XUITextInputSideElement type="icon">
-        <XUIIconButton size="xsmall" icon={crossSmall} ariaLabel="Clear content" />
+        <XUIIconButton ariaLabel="Clear content" icon={crossSmall} size="xsmall" />
       </XUITextInputSideElement>
     }
+    size="xsmall"
   />
   <XUITextInput
-    placeholder="Medium size"
+    label="Contacts"
     leftElement={
       <XUITextInputSideElement type="pill">
         <XUIPill
-          avatarProps={{ value: 'Pill' }}
-          value="Pill"
-          onDeleteClick={() => {}}
+          avatarProps={{ value: 'Jane Smith' }}
           deleteButtonLabel="Delete"
+          onDeleteClick={() => {
+            console.log('XUIPill - onDeleteClick');
+          }}
+          value="Jane Smith"
         />
       </XUITextInputSideElement>
     }
     rightElement={
       <XUITextInputSideElement type="button">
         <XUIButton size="small" variant="standard">
-          Label
+          Clear
         </XUIButton>
       </XUITextInputSideElement>
     }
@@ -458,55 +402,43 @@ import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput
 **Note:** _Don’t vertically stack `small` and `xsmall` text inputs due to poor touch interaction potential._
 
 ```jsx harmony
-import XUIIcon from '@xero/xui/react/icon';
 import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 import XUIControlGroup from '@xero/xui/react/controlgroup';
-import facebook from '@xero/xui-icon/icons/social-facebook';
 
 <div>
-  <XUIControlGroup className="xui-field-layout">
+  <XUIControlGroup className="xui-field-layout" label="Name">
     <XUITextInput
-      leftElement={<XUITextInputSideElement type="text">To:</XUITextInputSideElement>}
-      placeholder="placeholder"
-      isInvalid
-      validationMessage="invalid input"
-    />
-    <XUITextInput
-      leftElement={<XUITextInputSideElement type="text">From:</XUITextInputSideElement>}
-      placeholder="placeholder"
-      hintMessage="hint hint hint"
-    />
-    <XUITextInput
-      leftElement={
-        <XUITextInputSideElement type="icon" backgroundColor="facebook">
-          <XUIIcon isBoxed icon={facebook} />
-        </XUITextInputSideElement>
-      }
-      placeholder="placeholder"
-      label="input"
       isLabelHidden
+      label="First name"
+      leftElement={<XUITextInputSideElement type="text">First name:</XUITextInputSideElement>}
+    />
+    <XUITextInput
+      isLabelHidden
+      label="Middle name"
+      leftElement={<XUITextInputSideElement type="text">Middle name:</XUITextInputSideElement>}
+    />
+    <XUITextInput
+      isLabelHidden
+      label="Last name"
+      leftElement={<XUITextInputSideElement type="text">Last name:</XUITextInputSideElement>}
     />
   </XUIControlGroup>
 
   <XUIControlGroup isLockedVertical label="Details">
     <XUITextInput
-      leftElement={<XUITextInputSideElement type="text">To:</XUITextInputSideElement>}
-      placeholder="placeholder"
-      isInvalid
-    />
-    <XUITextInput
-      leftElement={<XUITextInputSideElement type="text">From:</XUITextInputSideElement>}
-      placeholder="placeholder"
-    />
-    <XUITextInput
-      leftElement={
-        <XUITextInputSideElement type="icon" backgroundColor="facebook">
-          <XUIIcon isBoxed icon={facebook} />
-        </XUITextInputSideElement>
-      }
-      placeholder="placeholder"
-      label="input"
       isLabelHidden
+      label="First name"
+      leftElement={<XUITextInputSideElement type="text">First name:</XUITextInputSideElement>}
+    />
+    <XUITextInput
+      isLabelHidden
+      label="Middle name"
+      leftElement={<XUITextInputSideElement type="text">Middle name:</XUITextInputSideElement>}
+    />
+    <XUITextInput
+      isLabelHidden
+      label="Last name"
+      leftElement={<XUITextInputSideElement type="text">Last name:</XUITextInputSideElement>}
     />
   </XUIControlGroup>
 </div>;
@@ -515,130 +447,100 @@ import facebook from '@xero/xui-icon/icons/social-facebook';
 #### Borderless Variants
 
 ```jsx harmony
-import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
+import XUITextInput from '@xero/xui/react/textinput';
 
-<div
-  style={{
-    padding: '10px',
-    backgroundColor: '#f5f6f7'
-  }}
->
-  <XUITextInput
-    leftElement={
-      <XUITextInputSideElement type="text">Transparent Borderless:</XUITextInputSideElement>
-    }
-    isFieldLayout
-    isBorderlessTransparent
-    placeholder="placeholder"
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    leftElement={<XUITextInputSideElement type="text">Solid Borderless:</XUITextInputSideElement>}
-    isBorderlessSolid
-    placeholder="placeholder"
-    label="input"
-    isLabelHidden
-  />
+const styles = {
+  backgroundColor: '#f5f6f7',
+  padding: '10px'
+};
+
+<div>
+  <h3>Transparent borderless</h3>
+  <div style={styles}>
+    <XUITextInput defaultValue="John Smith" isBorderlessTransparent label="Contact name" />
+  </div>
+
+  <h3>Solid borderless</h3>
+  <div style={styles}>
+    <XUITextInput defaultValue="John Smith" isBorderlessSolid label="Contact name" />
+  </div>
 </div>;
 ```
 
 #### Inverted Borderless Variant
 
 ```jsx harmony
-import search from '@xero/xui-icon/icons/search';
 import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
-import XUIIcon from '@xero/xui/react/icon';
 import ExampleContainer from './docs/ExampleContainer';
 
-<ExampleContainer className="xui-padding-xsmall" isInverted>
-  <XUITextInput
-    leftElement={
-      <XUITextInputSideElement type="text">Inverted Borderless Solid:</XUITextInputSideElement>
-    }
-    isFieldLayout
-    isBorderlessSolid
-    isInverted
-    placeholder="placeholder"
-    label="input"
-    isLabelHidden
-  />
-  <XUITextInput
-    leftElement={
-      <XUITextInputSideElement type="icon">
-        <XUIIcon isBoxed icon={search} />
-      </XUITextInputSideElement>
-    }
-    isBorderlessTransparent
-    isInverted
-    placeholder="inverted borderless transparent"
-    label="input"
-    isLabelHidden
-  />
-</ExampleContainer>;
+<div>
+  <h3>Inverted transparent borderless</h3>
+  <ExampleContainer className="xui-padding-xsmall" isInverted>
+    <XUITextInput
+      isBorderlessTransparent
+      isInverted
+      isLabelHidden
+      label="Contact name"
+      leftElement={<XUITextInputSideElement type="text">Contact name:</XUITextInputSideElement>}
+      placeholder="John Smith"
+    />
+  </ExampleContainer>
+
+  <h3>Inverted solid borderless</h3>
+  <ExampleContainer className="xui-padding-xsmall" isInverted>
+    <XUITextInput
+      isBorderlessSolid
+      isInverted
+      isLabelHidden
+      label="Contact name"
+      leftElement={<XUITextInputSideElement type="text">Contact name:</XUITextInputSideElement>}
+      placeholder="John Smith"
+    />
+  </ExampleContainer>
+</div>;
 ```
 
 #### Stateful Clear Button
 
 ```js
-import { PureComponent } from 'react';
+import { useState } from 'react';
 import clear from '@xero/xui-icon/icons/clear';
-import search from '@xero/xui-icon/icons/search';
+import url from '@xero/xui-icon/icons/url';
 
-import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 import XUIIcon from '@xero/xui/react/icon';
 import { XUIIconButton } from '@xero/xui/react/button';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 
-class Example extends PureComponent {
-  constructor(...args) {
-    super(...args);
+const TextInputExample = () => {
+  const [value, setValue] = useState('https://www.xero.com');
 
-    this.onChange = this.onChange.bind(this);
-    this.onClearButtonClick = this.onClearButtonClick.bind(this);
+  const onChange = event => {
+    setValue(event.target.value);
+  };
 
-    this.state = {
-      value: 'Clear me away'
-    };
-  }
+  const onClearButtonClick = () => {
+    setValue('');
+  };
 
-  onChange(e) {
-    this.setState({
-      value: e.target.value
-    });
-  }
+  const button = <XUIIconButton ariaLabel="clear" icon={clear} onClick={onClearButtonClick} />;
 
-  onClearButtonClick() {
-    this.setState({
-      value: ''
-    });
-  }
+  return (
+    <XUITextInput
+      label="Website"
+      leftElement={
+        <XUITextInputSideElement type="icon">
+          <XUIIcon icon={url} isBoxed />
+        </XUITextInputSideElement>
+      }
+      onChange={onChange}
+      placeholder="https://www.google.com"
+      rightElement={<XUITextInputSideElement type="icon">{button}</XUITextInputSideElement>}
+      value={value}
+    />
+  );
+};
 
-  render() {
-    const { value } = this.state;
-
-    const button = (
-      <XUIIconButton icon={clear} ariaLabel="clear" onClick={this.onClearButtonClick} />
-    );
-
-    return (
-      <XUITextInput
-        leftElement={
-          <XUITextInputSideElement type="icon">
-            <XUIIcon isBoxed icon={search} />
-          </XUITextInputSideElement>
-        }
-        rightElement={<XUITextInputSideElement type="icon">{button}</XUITextInputSideElement>}
-        onChange={this.onChange}
-        placeholder="This is a search box"
-        value={value}
-        label="input"
-        isLabelHidden
-      />
-    );
-  }
-}
-
-<Example />;
+<TextInputExample />;
 ```
 
 #### Character counter
@@ -652,76 +554,43 @@ You must also add a validation message using the `characterCounterValidationMess
 ##### Controlled example
 
 ```js
-import { Component } from 'react';
-
+import { useState } from 'react';
 import XUITextInput from '@xero/xui/react/textinput';
-import XUIIcon from '@xero/xui/react/icon';
-import { XUIIconButton } from '@xero/xui/react/button';
 
-class Example extends Component {
-  constructor(...args) {
-    super(...args);
+const TextInputExample = () => {
+  const [value, setValue] = useState('xero_user_20201030019');
 
-    this.onChange = this.onChange.bind(this);
+  const onChange = event => {
+    setValue(event.target.value);
+  };
 
-    this.state = {
-      value: 'This input is too long'
-    };
-  }
+  return (
+    <XUITextInput
+      characterCounter={{
+        maxCharCount: 20,
+        validationMessage: 'Username should be no longer than 20 characters'
+      }}
+      label="Username"
+      onChange={onChange}
+      value={value}
+    />
+  );
+};
 
-  onChange(e) {
-    this.setState({
-      value: e.target.value
-    });
-  }
-
-  render() {
-    const { value } = this.state;
-
-    return (
-      <XUITextInput
-        onChange={this.onChange}
-        value={value}
-        label="Input with character counter"
-        characterCounter={{
-          maxCharCount: 10,
-          validationMessage: "Username can't be longer than 10 characters"
-        }}
-      />
-    );
-  }
-}
-
-<Example />;
+<TextInputExample />;
 ```
 
 ##### Uncontrolled example
 
 ```js
-import { Component } from 'react';
-
 import XUITextInput from '@xero/xui/react/textinput';
-import XUIIcon from '@xero/xui/react/icon';
-import { XUIIconButton } from '@xero/xui/react/button';
 
-class Example extends Component {
-  constructor(...args) {
-    super(...args);
-  }
-
-  render() {
-    return (
-      <XUITextInput
-        defaultValue="This default input is too long"
-        label="Input with character counter"
-        characterCounter={{
-          maxCharCount: 10,
-          validationMessage: "Username can't be longer than 10 characters"
-        }}
-      />
-    );
-  }
-}
-
-<Example />;
+<XUITextInput
+  defaultValue="xero_user_20201030019"
+  characterCounter={{
+    maxCharCount: 20,
+    validationMessage: 'Username should be no longer than 20 characters'
+  }}
+  label="Username"
+/>;
 ```

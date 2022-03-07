@@ -7,14 +7,14 @@ Inverted style will be applied when `isInverted` prop is passed.
 The `size` prop is used for the size classes of the iconButton, and the `iconSize` prop is used for the size classes of the icon.
 
 ```jsx harmony
+import overflow from '@xero/xui-icon/icons/overflow';
 import { XUIIconButton } from '@xero/xui/react/button';
+
 import ExampleContainer from '../../docs/ExampleContainer';
-import overflowIcon from '@xero/xui-icon/icons/overflow';
 
 const props = {
-  icon: overflowIcon,
-  ariaLabel: 'Dots menu',
-  className: 'xui-margin-right'
+  ariaLabel: 'Overflow menu',
+  icon: overflow
 };
 
 <div>
@@ -25,12 +25,13 @@ const props = {
     <br />
     <XUIIconButton {...props} size="xsmall" />
   </ExampleContainer>
+
   <ExampleContainer className="xui-padding-xsmall" isInverted>
     <XUIIconButton {...props} isInverted />
     <br />
-    <XUIIconButton {...props} size="small" isInverted />
+    <XUIIconButton {...props} isInverted size="small" />
     <br />
-    <XUIIconButton {...props} size="xsmall" isInverted />
+    <XUIIconButton {...props} isInverted size="xsmall" />
   </ExampleContainer>
 </div>;
 ```

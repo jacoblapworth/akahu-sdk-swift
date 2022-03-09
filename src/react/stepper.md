@@ -19,38 +19,33 @@ You can opt out of the stepper's responsive functionality, however we **strongly
 Lock by supplying the string `inline` to the prop `lockLayout`.
 
 ```jsx harmony
+import { useState } from 'react';
 import XUIStepper from '@xero/xui/react/stepper';
 
-const tabs = [{ name: 'Tab 1' }, { name: 'Tab 2' }, { name: 'Tab 3' }];
+const tabs = [{ name: 'Plan' }, { name: 'Billing' }, { name: 'Review' }];
+const content = ['Select a plan', 'Payment details', 'Confirm purchase'];
 
-class Demo extends React.Component {
-  constructor(...args) {
-    super(...args);
-    this.state = { currentStep: 0 };
-    this.updateCurrentStep = this.updateCurrentStep.bind(this);
-  }
+const StepperExample = () => {
+  const [currentStep, setCurrentStep] = useState(0);
 
-  updateCurrentStep(currentStep) {
-    this.setState({ currentStep });
-  }
+  const updateCurrentStep = step => {
+    setCurrentStep(step);
+  };
 
-  render() {
-    const { currentStep } = this.state;
-    return (
-      <XUIStepper
-        id="stepper-inline-standard"
-        lockLayout="inline"
-        currentStep={currentStep}
-        updateCurrentStep={this.updateCurrentStep}
-        tabs={tabs}
-      >
-        <h3>{`Custom Content for Tab ${currentStep + 1}`}</h3>
-      </XUIStepper>
-    );
-  }
-}
+  return (
+    <XUIStepper
+      currentStep={currentStep}
+      id="stepper-inline-standard"
+      lockLayout="inline"
+      tabs={tabs}
+      updateCurrentStep={updateCurrentStep}
+    >
+      <h3 className="xui-text-align-center">{content[currentStep]}</h3>
+    </XUIStepper>
+  );
+};
 
-<Demo />;
+<StepperExample />;
 ```
 
 #### Inline _(stacked buttons)_
@@ -60,38 +55,34 @@ The `inline` layout also has the ability to stack its button content using the p
 - You can use this prop in both a _locked_ or _default_ layout state.
 
 ```jsx harmony
+import { useState } from 'react';
 import XUIStepper from '@xero/xui/react/stepper';
 
-const tabs = [{ name: 'Tab 1' }, { name: 'Tab 2' }, { name: 'Tab 3' }];
+const tabs = [{ name: 'Plan' }, { name: 'Billing' }, { name: 'Review' }];
+const content = ['Select a plan', 'Payment details', 'Confirm purchase'];
 
-class Demo extends React.Component {
-  constructor(...args) {
-    super(...args);
-    this.state = { currentStep: 0 };
-    this.updateCurrentStep = this.updateCurrentStep.bind(this);
-  }
+const StepperExample = () => {
+  const [currentStep, setCurrentStep] = useState(0);
 
-  updateCurrentStep(currentStep) {
-    this.setState({ currentStep });
-  }
+  const updateCurrentStep = step => {
+    setCurrentStep(step);
+  };
 
-  render() {
-    const { currentStep } = this.state;
-    return (
-      <XUIStepper
-        id="stepper-inline-stacked"
-        lockLayout="inline"
-        currentStep={currentStep}
-        updateCurrentStep={this.updateCurrentStep}
-        tabs={tabs}
-      >
-        <h3>{`Custom Content for Tab ${currentStep + 1}`}</h3>
-      </XUIStepper>
-    );
-  }
-}
+  return (
+    <XUIStepper
+      currentStep={currentStep}
+      hasStackedButtons
+      id="stepper-inline-stacked"
+      lockLayout="inline"
+      tabs={tabs}
+      updateCurrentStep={updateCurrentStep}
+    >
+      <h3 className="xui-text-align-center">{content[currentStep]}</h3>
+    </XUIStepper>
+  );
+};
 
-<Demo />;
+<StepperExample />;
 ```
 
 #### Side Bar
@@ -99,38 +90,33 @@ class Demo extends React.Component {
 Lock by supplying the string `sidebar` to the prop `lockLayout`.
 
 ```jsx harmony
+import { useState } from 'react';
 import XUIStepper from '@xero/xui/react/stepper';
 
-const tabs = [{ name: 'Tab 1' }, { name: 'Tab 2' }, { name: 'Tab 3' }];
+const tabs = [{ name: 'Plan' }, { name: 'Billing' }, { name: 'Review' }];
+const content = ['Select a plan', 'Payment details', 'Confirm purchase'];
 
-class Demo extends React.Component {
-  constructor(...args) {
-    super(...args);
-    this.state = { currentStep: 0 };
-    this.updateCurrentStep = this.updateCurrentStep.bind(this);
-  }
+const StepperExample = () => {
+  const [currentStep, setCurrentStep] = useState(0);
 
-  updateCurrentStep(currentStep) {
-    this.setState({ currentStep });
-  }
+  const updateCurrentStep = step => {
+    setCurrentStep(step);
+  };
 
-  render() {
-    const { currentStep } = this.state;
-    return (
-      <XUIStepper
-        id="stepper-sidebar-standard"
-        lockLayout="sidebar"
-        currentStep={currentStep}
-        updateCurrentStep={this.updateCurrentStep}
-        tabs={tabs}
-      >
-        <h3>{`Custom Content for Tab ${currentStep + 1}`}</h3>
-      </XUIStepper>
-    );
-  }
-}
+  return (
+    <XUIStepper
+      currentStep={currentStep}
+      id="stepper-sidebar-standard"
+      lockLayout="sidebar"
+      tabs={tabs}
+      updateCurrentStep={updateCurrentStep}
+    >
+      <h3>{content[currentStep]}</h3>
+    </XUIStepper>
+  );
+};
 
-<Demo />;
+<StepperExample />;
 ```
 
 #### Stacked
@@ -138,38 +124,33 @@ class Demo extends React.Component {
 Lock by supplying the string `stacked` to the prop `lockLayout`.
 
 ```jsx harmony
+import { useState } from 'react';
 import XUIStepper from '@xero/xui/react/stepper';
 
-const tabs = [{ name: 'Tab 1' }, { name: 'Tab 2' }, { name: 'Tab 3' }];
+const tabs = [{ name: 'Plan' }, { name: 'Billing' }, { name: 'Review' }];
+const content = ['Select a plan', 'Payment details', 'Confirm purchase'];
 
-class Demo extends React.Component {
-  constructor(...args) {
-    super(...args);
-    this.state = { currentStep: 0 };
-    this.updateCurrentStep = this.updateCurrentStep.bind(this);
-  }
+const StepperExample = () => {
+  const [currentStep, setCurrentStep] = useState(0);
 
-  updateCurrentStep(currentStep) {
-    this.setState({ currentStep });
-  }
+  const updateCurrentStep = step => {
+    setCurrentStep(step);
+  };
 
-  render() {
-    const { currentStep } = this.state;
-    return (
-      <XUIStepper
-        id="stepper-stacked-standard"
-        lockLayout="stacked"
-        currentStep={currentStep}
-        updateCurrentStep={this.updateCurrentStep}
-        tabs={tabs}
-      >
-        <h3>{`Custom Content for Tab ${currentStep + 1}`}</h3>
-      </XUIStepper>
-    );
-  }
-}
+  return (
+    <XUIStepper
+      currentStep={currentStep}
+      id="stepper-stacked-standard"
+      lockLayout="stacked"
+      tabs={tabs}
+      updateCurrentStep={updateCurrentStep}
+    >
+      <h3>{content[currentStep]}</h3>
+    </XUIStepper>
+  );
+};
 
-<Demo />;
+<StepperExample />;
 ```
 
 ### Tab options
@@ -184,45 +165,45 @@ You as a developer control the tab configuration via the `tabs` prop. This gives
 - Change a tab to a _complete_ state via the `isComplete` prop.
 
 ```jsx harmony
+import { useState } from 'react';
 import XUIStepper from '@xero/xui/react/stepper';
 
 const tabs = [
-  { name: 'Active' },
-  { name: 'Standard' },
-  { name: 'Description', description: 'description prop' },
-  { name: 'Complete', description: 'isComplete prop', isComplete: true },
-  { name: 'Error', description: 'isError prop', isError: true },
-  { name: 'Disabled', description: 'isDisabled prop', isDisabled: true }
+  { description: 'Complete', isComplete: true, name: 'Plan' },
+  {
+    description: 'Payment details are incomplete',
+    isError: true,
+    name: 'Billing'
+  },
+  {
+    description: 'Add/view subscription details',
+    name: 'Subscription details'
+  },
+  { description: 'Review & pay', isDisabled: true, name: 'Review' }
 ];
+const content = ['Select a plan', 'Payment details', 'Subscription details', 'Confirm purchase'];
 
-class Demo extends React.Component {
-  constructor(...args) {
-    super(...args);
-    this.state = { currentStep: 0 };
-    this.updateCurrentStep = this.updateCurrentStep.bind(this);
-  }
+const StepperExample = () => {
+  const [currentStep, setCurrentStep] = useState(2);
 
-  updateCurrentStep(currentStep) {
-    this.setState({ currentStep });
-  }
+  const updateCurrentStep = step => {
+    setCurrentStep(step);
+  };
 
-  render() {
-    const { currentStep } = this.state;
-    return (
-      <XUIStepper
-        id="stepper-tab-generic"
-        lockLayout="stacked"
-        currentStep={currentStep}
-        updateCurrentStep={this.updateCurrentStep}
-        tabs={tabs}
-      >
-        <h3>{`Custom Content for Tab ${currentStep + 1}`}</h3>
-      </XUIStepper>
-    );
-  }
-}
+  return (
+    <XUIStepper
+      currentStep={currentStep}
+      id="stepper-tab-generic"
+      lockLayout="stacked"
+      tabs={tabs}
+      updateCurrentStep={updateCurrentStep}
+    >
+      <h3>{content[currentStep]}</h3>
+    </XUIStepper>
+  );
+};
 
-<Demo />;
+<StepperExample />;
 ```
 
 #### Progress Indicator
@@ -234,78 +215,56 @@ In addition to the generic tab format a **Progress Indicator** can be included w
   will be applied automatically.
 
 ```jsx harmony
+import { useState } from 'react';
 import XUIStepper from '@xero/xui/react/stepper';
 
 const tabs = [
-  { name: 'Active', isProgress: true, totalProgress: 5, currentProgress: 3 },
-  { name: 'Standard', isProgress: true, totalProgress: 5, currentProgress: 3 },
   {
-    name: 'Description',
-    description: 'description prop',
-    isProgress: true,
-    totalProgress: 5,
-    currentProgress: 3
-  },
-  {
-    name: 'Complete',
-    description: 'isComplete prop',
+    currentProgress: 5,
+    description: 'Complete',
     isComplete: true,
     isProgress: true,
-    totalProgress: 5,
-    currentProgress: 0
+    name: 'Plan',
+    totalProgress: 5
   },
   {
-    name: 'Complete (automatic)',
-    description: 'isComplete prop',
-    isComplete: true,
-    isProgress: true,
-    totalProgress: 5,
-    currentProgress: 5
-  },
-  {
-    name: 'Error',
-    description: 'isError prop',
+    currentProgress: 3,
+    description: 'Payment details are incomplete',
     isError: true,
     isProgress: true,
-    totalProgress: 5,
-    currentProgress: 3
+    name: 'Billing',
+    totalProgress: 5
   },
   {
-    name: 'Disabled',
-    description: 'isDisabled prop',
-    isDisabled: true,
+    currentProgress: 3,
+    description: 'Add/view subscription details',
     isProgress: true,
-    totalProgress: 5,
-    currentProgress: 3
-  }
+    name: 'Subscription details',
+    totalProgress: 5
+  },
+  { description: 'Review & pay', isDisabled: true, name: 'Review' }
 ];
+const content = ['Select a plan', 'Payment details', 'Subscription details', 'Confirm purchase'];
 
-class Demo extends React.Component {
-  constructor(...args) {
-    super(...args);
-    this.state = { currentStep: 0 };
-    this.updateCurrentStep = this.updateCurrentStep.bind(this);
-  }
+const StepperExample = () => {
+  const [currentStep, setCurrentStep] = useState(2);
 
-  updateCurrentStep(currentStep) {
-    this.setState({ currentStep });
-  }
+  const updateCurrentStep = step => {
+    setCurrentStep(step);
+  };
 
-  render() {
-    const { currentStep } = this.state;
-    return (
-      <XUIStepper
-        id="stepper-tab-progress"
-        lockLayout="stacked"
-        currentStep={currentStep}
-        updateCurrentStep={this.updateCurrentStep}
-        tabs={tabs}
-      >
-        <h3>{`Custom Content for Tab ${currentStep + 1}`}</h3>
-      </XUIStepper>
-    );
-  }
-}
+  return (
+    <XUIStepper
+      currentStep={currentStep}
+      id="stepper-tab-progress"
+      lockLayout="stacked"
+      tabs={tabs}
+      updateCurrentStep={updateCurrentStep}
+    >
+      <h3>{content[currentStep]}</h3>
+    </XUIStepper>
+  );
+};
 
-<Demo />;
+<StepperExample />;
 ```

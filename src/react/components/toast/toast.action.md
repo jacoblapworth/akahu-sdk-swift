@@ -6,25 +6,22 @@
 import XUIToast, { XUIToastAction } from '@xero/xui/react/toast';
 
 const onToastClose = () => {
-  alert('Single action toast closed');
+  console.log('onCloseClick');
 };
 
 <div>
   <XUIToast
     closeButtonLabel="Close"
-    message="Option 1"
+    message="Invoice deleted"
     onCloseClick={onToastClose}
-    primaryAction={
-      <XUIToastAction href="#" qaHook="toast-example--action">
-        Action 1
-      </XUIToastAction>
-    }
-    qaHook="toast-example"
-    secondaryAction={
-      <XUIToastAction href="#" qaHook="toast-example--action-2">
-        Action 2
-      </XUIToastAction>
-    }
+    primaryAction={<XUIToastAction href="">Undo</XUIToastAction>}
+  />
+  <XUIToast
+    closeButtonLabel="Close"
+    message="Invoice approved"
+    onCloseClick={onToastClose}
+    primaryAction={<XUIToastAction href="">View invoice</XUIToastAction>}
+    secondaryAction={<XUIToastAction href="">Create new invoice</XUIToastAction>}
   />
 </div>;
 ```

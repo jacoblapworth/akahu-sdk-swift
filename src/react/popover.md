@@ -26,27 +26,29 @@ Triggers that open a popover when clicked need to be given the `aria-haspopup` a
 assistive technologies know that there is more content available
 
 ```js
-import XUIButton from './button';
-import XUIPopover, { XUIPopoverBody } from './popover';
+import { useState, useRef } from 'react';
+import info from '@xero/xui-icon/icons/info';
+import { XUIIconButton } from '@xero/xui/react/button';
+import XUIPopover, { XUIPopoverBody } from '@xero/xui/react/popover';
 
-const ExampleComponent = () => {
-  const triggerRef = React.useRef();
-  const [isPopoverOpen, setIsPopoverOpen] = React.useState();
+const PopoverExample = () => {
+  const triggerRef = useRef();
+  const [isPopoverOpen, setIsPopoverOpen] = useState();
 
   const closePopover = () => setIsPopoverOpen(false);
-  const openPopover = () => setIsPopoverOpen(true);
   const togglePopover = () => setIsPopoverOpen(!isPopoverOpen);
 
   return (
-    <React.Fragment>
-      <XUIButton
+    <>
+      <XUIIconButton
         aria-haspopup
         aria-owns={isPopoverOpen && 'informational-popover'}
+        ariaLabel="More information"
+        icon={info}
         onClick={togglePopover}
         ref={triggerRef}
-      >
-        Toggle a popover
-      </XUIButton>
+      />
+
       {isPopoverOpen && (
         <XUIPopover
           id="informational-popover"
@@ -55,17 +57,22 @@ const ExampleComponent = () => {
           triggerRef={triggerRef}
         >
           <XUIPopoverBody>
-            This popover can be opened and closed by clicking the trigger, and can be closed by
-            clicking outside the popover.
-            <a href="#popover">Popovers with interactive content</a> are also accessible via the keyboard.
+            <p>
+              The 30 most recent transactions, including the opening balance, adjustments, and
+              transactions where this item is purchased or sold.
+            </p>
+            <p>
+              To see all transactions, go to the
+              <a href="">Inventory Item Details</a> report.
+            </p>
           </XUIPopoverBody>
         </XUIPopover>
       )}
-    </React.Fragment>
+    </>
   );
 };
 
-<ExampleComponent />;
+<PopoverExample />;
 ```
 
 ### Onboarding
@@ -78,38 +85,40 @@ Once an onboarding modal has been dismissed, it should not reappear when the use
 page.
 
 ```js
-import XUIButton from './button';
-import XUISwitch from './switch';
-import XUIIllustration from './illustration';
-import XUIPopover, { XUIPopoverBody, XUIPopoverFooter, XUIPopoverHeader } from './popover';
+import { useRef, useState } from 'react';
+import XUIButton from '@xero/xui/react/button';
+import XUIIllustration from '@xero/xui/react/illustration';
+import XUIPopover, {
+  XUIPopoverBody,
+  XUIPopoverFooter,
+  XUIPopoverHeader
+} from '@xero/xui/react/popover';
+import XUISwitch from '@xero/xui/react/switch';
 
-const ExampleComponent = () => {
+const PopoverExample = () => {
   // Pre-load illustration
   const img = new Image();
-  img.src =
-    'https://edge.xero.com/illustration/scene/detectives-power_plug-01/detectives-power_plug-01.svg';
+  img.src = 'https://edge.xero.com/illustration/contacts-on-mobile-01/contacts-on-mobile-01.svg';
 
-  const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
-  const [step, setStep] = React.useState(0);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [step, setStep] = useState(0);
 
-  const trigger1Ref = React.useRef();
-  const trigger2Ref = React.useRef();
-  const trigger3Ref = React.useRef();
+  const trigger1Ref = useRef();
+  const trigger2Ref = useRef();
+  const trigger3Ref = useRef();
 
   const steps = [
     {
-      preferredPosition: 'left',
-      triggerRef: trigger1Ref,
       content: (
-        <React.Fragment>
+        <>
           <XUIPopoverHeader
             closeButtonProps={{ ariaLabel: 'Close', onClick: () => setIsPopoverOpen(false) }}
-            subtitle="Step 1/3"
-            title="Welcome to Doc Packs"
+            subtitle="1/3"
+            title="Find your contacts"
           />
           <XUIPopoverBody>
-            Here is some copy on some new feature. Do this new thing and then you can do another
-            thing.
+            View your contacts by customers or suppliers, or create custom contact groups to suit
+            your needs
           </XUIPopoverBody>
           <XUIPopoverFooter
             primaryAction={
@@ -118,22 +127,22 @@ const ExampleComponent = () => {
               </XUIButton>
             }
           />
-        </React.Fragment>
-      )
+        </>
+      ),
+      preferredPosition: 'left',
+      triggerRef: trigger1Ref
     },
     {
-      preferredPosition: 'top',
-      triggerRef: trigger2Ref,
       content: (
-        <React.Fragment>
+        <>
           <XUIPopoverHeader
             closeButtonProps={{ ariaLabel: 'Close', onClick: () => setIsPopoverOpen(false) }}
-            subtitle="Step 2/3"
-            title="Sign document"
+            subtitle="2/3"
+            title="Import and export contacts"
           />
           <XUIPopoverBody>
-            Here is some copy on some new feature. Do this new thing and then you can do another
-            thing.
+            Import your contacts from another system, or export your Xero contacts and add them to
+            your preferred CRM
           </XUIPopoverBody>
           <XUIPopoverFooter
             primaryAction={
@@ -143,37 +152,41 @@ const ExampleComponent = () => {
             }
             secondaryAction={<XUIButton onClick={() => setStep(0)}>Previous</XUIButton>}
           />
-        </React.Fragment>
-      )
+        </>
+      ),
+      preferredPosition: 'top',
+      triggerRef: trigger2Ref
     },
     {
-      triggerRef: trigger3Ref,
       content: (
-        <React.Fragment>
+        <>
           <XUIPopoverHeader
             closeButtonProps={{ ariaLabel: 'Close', onClick: () => setIsPopoverOpen(false) }}
-            subtitle="Step 3/3"
-            title="Connect to E-Sign"
+            subtitle="3/3"
+            title="Manage your contacts"
           />
           <XUIPopoverBody>
-            Here is some copy on some new feature. This is the last thing to do.
+            Carry out common tasks on individual contacts, such as edit, archive or adding to custom
+            groups
             <XUIIllustration size="small" src={img.src} />
           </XUIPopoverBody>
           <XUIPopoverFooter
             primaryAction={
               <XUIButton onClick={() => setIsPopoverOpen(false)} variant="main">
-                Done
+                Close
               </XUIButton>
             }
             secondaryAction={<XUIButton onClick={() => setStep(1)}>Previous</XUIButton>}
           />
-        </React.Fragment>
-      )
+        </>
+      ),
+      preferredPosition: 'top',
+      triggerRef: trigger3Ref
     }
   ];
 
   return (
-    <React.Fragment>
+    <>
       <XUISwitch
         className="xui-margin-bottom-large"
         isChecked={isPopoverOpen}
@@ -182,28 +195,32 @@ const ExampleComponent = () => {
           setIsPopoverOpen(!isPopoverOpen);
         }}
       >
-        Onboarding
+        View onboarding steps
       </XUISwitch>
       <div
-        style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', justifyItems: 'center' }}
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'auto 1fr auto',
+          justifyItems: 'center'
+        }}
       >
         <XUIButton
           aria-owns={isPopoverOpen && step === 0 && 'onboarding-popover'}
           ref={steps[0].triggerRef}
         >
-          First step
+          View contacts
         </XUIButton>
         <XUIButton
           aria-owns={isPopoverOpen && step === 1 && 'onboarding-popover'}
           ref={steps[1].triggerRef}
         >
-          Second step
+          Import contacts
         </XUIButton>
         <XUIButton
           aria-owns={isPopoverOpen && step === 2 && 'onboarding-popover'}
           ref={steps[2].triggerRef}
         >
-          Third step
+          Manage contacts
         </XUIButton>
       </div>
       {isPopoverOpen && (
@@ -215,11 +232,11 @@ const ExampleComponent = () => {
           {steps[step].content}
         </XUIPopover>
       )}
-    </React.Fragment>
+    </>
   );
 };
 
-<ExampleComponent />;
+<PopoverExample />;
 ```
 
 ### Custom trigger components
@@ -233,28 +250,34 @@ will allow XUIPopover to position itself correctly around the custom trigger.
 Custom function components must [forward the ref to a DOM element](https://reactjs.org/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
 
 ```js
-import XUIPopover, { XUIPopoverBody } from './popover';
+import { forwardRef, useRef } from 'react';
+import XUIPopover, { XUIPopoverBody } from '@xero/xui/react/popover';
 
-const CustomTriggerComponent = React.forwardRef((props, ref) => {
-  return <span ref={ref}>This is a custom function component</span>;
+const CustomTriggerComponent = forwardRef((props, ref) => {
+  return (
+    <h3 ref={ref} style={{ display: 'inline' }}>
+      Profit margin
+    </h3>
+  );
 });
 
-const ExampleComponent = () => {
-  const triggerRef = React.useRef();
+const PopoverExample = () => {
+  const triggerRef = useRef();
 
   return (
-    <div style={{ height: '120px' }}>
+    <div style={{ height: '160px' }}>
       <CustomTriggerComponent ref={triggerRef} />
       <XUIPopover id="custom-class-component-popover" triggerRef={triggerRef}>
         <XUIPopoverBody>
-          This popover is making use of the trigger's forwarded ref to position itself.
+          The percentage of a project's income that's profit. The higher the profit margin, the more
+          cost-effective a project is.
         </XUIPopoverBody>
       </XUIPopover>
     </div>
   );
 };
 
-<ExampleComponent />;
+<PopoverExample />;
 ```
 
 #### Class components
@@ -262,34 +285,39 @@ const ExampleComponent = () => {
 Custom class components must have a ref to a DOM element that is exposed via a public `rootNode` property.
 
 ```js
-import XUIPopover, { XUIPopoverBody } from './popover';
+import { Component, createRef, useRef } from 'react';
+import XUIPopover, { XUIPopoverBody } from '@xero/xui/react/popover';
 
-class CustomTriggerComponent extends React.Component {
+class CustomTriggerComponent extends Component {
   constructor(props) {
     super(props);
-
-    this.rootNode = React.createRef();
+    this.rootNode = createRef();
   }
 
   render() {
-    return <span ref={this.rootNode}>This is a custom class component.</span>;
+    return (
+      <h3 ref={this.rootNode} style={{ display: 'inline' }}>
+        Profit margin
+      </h3>
+    );
   }
 }
 
-const ExampleComponent = () => {
-  const triggerRef = React.useRef();
+const PopoverExample = () => {
+  const triggerRef = useRef();
 
   return (
-    <div style={{ height: '120px' }}>
+    <div style={{ height: '160px' }}>
       <CustomTriggerComponent ref={triggerRef} />
       <XUIPopover id="custom-class-component-popover" triggerRef={triggerRef}>
         <XUIPopoverBody>
-          This popover is making use of the trigger's rootNode property to position itself.
+          The percentage of a project's income that's profit. The higher the profit margin, the more
+          cost-effective a project is.
         </XUIPopoverBody>
       </XUIPopover>
     </div>
   );
 };
 
-<ExampleComponent />;
+<PopoverExample />;
 ```

@@ -6,6 +6,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, number, text, select } from '@storybook/addon-knobs';
 
 import iconPath from '@xero/xui-icon/icons/suggestion';
+import customImagePlaceholder from './350x350.png';
 
 // Components we need to test with
 import XUIProgressLinear from '../XUIProgressLinear';
@@ -206,7 +207,7 @@ variations.forEach(variation => {
     const children = (
       <img
         alt="custom indicator fill"
-        src="http://via.placeholder.com/350x350"
+        src={customImagePlaceholder}
         style={{ width: '100%', height: 'auto' }}
       />
     );

@@ -3,7 +3,7 @@ import React from 'react';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 
 // Components we need to test with
 import XUICapsule from '../XUICapsule';

@@ -20,6 +20,10 @@ module.exports = ({ config }) => ({
         },
         test: /\.(j|t)sx?$/,
       },
+      {
+        test: /\.png$/,
+        loaders: ['file-loader'],
+      },
     ],
   },
   plugins: [...config.plugins, new ForkTsCheckerWebpackPlugin()],

@@ -2,34 +2,56 @@
 button. Assistive technologies will use the title as a label for the popover.
 
 ```js
-import XUIPopover, { XUIPopoverBody, XUIPopoverHeader } from './popover';
+import { useRef, useState } from 'react';
+import info from '@xero/xui-icon/icons/info';
+import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import XUIPopover, {
+  XUIPopoverBody,
+  XUIPopoverFooter,
+  XUIPopoverHeader
+} from '@xero/xui/react/popover';
 
-const ExampleComponent = () => {
-  const triggerRef = React.useRef();
+const PopoverExample = () => {
+  const triggerRef = useRef();
+  const [isPopoverOpen, setIsPopoverOpen] = useState(true);
+
+  const closePopover = () => setIsPopoverOpen(false);
+  const togglePopover = () => setIsPopoverOpen(!isPopoverOpen);
 
   return (
-    <React.Fragment>
-      <span
-        aria-owns="popover-header-example"
+    <div style={{ alignItems: 'center', display: 'flex', height: '220px' }}>
+      <XUIIconButton
+        aria-haspopup
+        aria-owns={isPopoverOpen && 'popover-header-example'}
+        ariaLabel="More information"
+        icon={info}
+        onClick={togglePopover}
         ref={triggerRef}
-        style={{ display: 'inline-block', height: '160px' }}
       />
-      <XUIPopover id="popover-header-example" preferredPosition="right" triggerRef={triggerRef}>
-        <XUIPopoverHeader
-          closeButtonProps={{ ariaLabel: 'Close' }}
-          onClose={() => {
-            // Close the popover
-          }}
-          title="Popover title"
-          subtitle="Step 1/3"
-        />
-        <XUIPopoverBody>
-          Use the title to summarize the popover, and use the body to explain the details.
-        </XUIPopoverBody>
-      </XUIPopover>
-    </React.Fragment>
+      {isPopoverOpen && (
+        <XUIPopover id="popover-header-example" preferredPosition="right" triggerRef={triggerRef}>
+          <XUIPopoverHeader
+            closeButtonProps={{ ariaLabel: 'Close' }}
+            onClose={closePopover}
+            subtitle="1/3"
+            title="Find your contacts"
+          />
+          <XUIPopoverBody>
+            View your contacts by customers or suppliers, or create custom contact groups to suit
+            your needs
+          </XUIPopoverBody>
+          <XUIPopoverFooter
+            primaryAction={
+              <XUIButton onClick={() => console.log('onClick')} variant="main">
+                Next
+              </XUIButton>
+            }
+          />
+        </XUIPopover>
+      )}
+    </div>
   );
 };
 
-<ExampleComponent />;
+<PopoverExample />;
 ```

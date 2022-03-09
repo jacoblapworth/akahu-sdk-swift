@@ -66,6 +66,29 @@ describe('<XUIEditableTableCellTextInput />', () => {
       expect(inputSpy).toBeCalledTimes(1);
     });
 
+    it('selects the whole input when the border is clicked', () => {
+      // Arrange
+      const wrapper = mount(
+        <table>
+          <tbody>
+            <tr>
+              <XUIEditableTableCellTextInput defaultValue="input value" />
+            </tr>
+          </tbody>
+        </table>,
+      );
+      const inputSpy = jest.spyOn(wrapper.find('input').instance(), 'select');
+
+      // Act
+      wrapper
+        .find('.xui-editabletablecelltextinput--control')
+        .simulate('mousedown')
+        .simulate('click');
+      jest.runAllTimers();
+      // Assert
+      expect(inputSpy).toBeCalledTimes(1);
+    });
+
     it('does not select text if clicking a cell when it is already focused', () => {
       const onFocusMock = jest.fn();
 

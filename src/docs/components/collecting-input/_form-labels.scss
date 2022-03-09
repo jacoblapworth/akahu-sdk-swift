@@ -82,9 +82,10 @@
 // Do: Display placeholder within the form field
 // Do: Can be used to give an example of formatting
 // Do: Can be used for dropdown or select components – use a logical default option or use ‘Select + {field label}’
+// Do: In a search field, placeholder content should be ‘Search + {label name}’
 // Warning: If using hidden labels, see placeholder guidance for [hiding labels](#components-collectinginput-forms-4-2-1)
 // Don't: Don’t use to give instructions
-// Don't: Don’t use for critical or important information – instead use a [hint message](#components-collectinginput-forms-4-5)
+// Don't: Don’t use for critical or important information – instead use a [hint message](#components-collectinginput-forms-4-4)
 // Don't: Don’t use the word ‘example’ or ‘e.g.’
 //
 // Styleguide: Components.CollectingInput.Forms.4.3.1
@@ -116,6 +117,7 @@
 //
 // ExampleContentTable:
 // Found on the top of your IR3 form| Your IRD number is your unique tax number from the Inland Revenue Department. It can be found on the top of your IR3 form.
+// Enter a customer name or customer ID. Separate multiple search terms with a comma.| Search using customer name or customer ID
 //
 // Note:
 // Note&#58; For other messaging options, see the guidance on <a href="./section-components-alerts-tooltip.html">tooltips</a> or <a href="./section-components-alerts-popover.html">popovers</a>

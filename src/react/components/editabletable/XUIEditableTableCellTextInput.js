@@ -55,9 +55,8 @@ const XUIEditableTableCellTextInput = ({
 
   const onClick = event => {
     if (isFocusingViaClick && getSelection().toString().length === 0) {
-      const { target } = event;
       // Timeout must be used to avoid a synchronisation issue with Safari
-      setTimeoutHandle(setTimeout(() => target.select(), 0));
+      setTimeoutHandle(setTimeout(() => textInputComponentRef.current?.input.select(), 0));
     }
     setIsFocusingViaClick(false);
   };

@@ -12,11 +12,11 @@
 import XUIToast from '@xero/xui/react/toast';
 
 const onToastClose = () => {
-  alert('Standard toast closed');
+  console.log('onCloseClick');
 };
 
 <div>
-  <XUIToast message="System Message" />
-  <XUIToast closeButtonLabel="Close" message="Standard" onCloseClick={onToastClose} />
+  <XUIToast message="Invoice sent" />
+  <XUIToast closeButtonLabel="Close" message="Invoice sent" onCloseClick={onToastClose} />
 </div>;
 ```

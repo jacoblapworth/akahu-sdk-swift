@@ -12,25 +12,25 @@ for behavioural aspects.
 
 ```jsx harmony
 import cross from '@xero/xui-icon/icons/cross';
-
-import XUIIsolationHeader from '@xero/xui/react/isolationheader';
 import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import XUIIsolationHeader from '@xero/xui/react/isolationheader';
 
 const navigationButton = <XUIIconButton icon={cross} ariaLabel="close" />;
-const title = 'Main title';
-const secondary = 'Secondary title';
-const supplementary = 'Supplementary text';
-const actions = (
-  <XUIButton variant="main" size="small">
-    Primary
+const title = 'New tasks & expenses invoice';
+const secondary = 'Draft';
+const actions = [
+  <XUIButton key="saveDraft" size="small">
+    Save draft
+  </XUIButton>,
+  <XUIButton key="saveAndOpen" size="small" variant="main">
+    Save and open draft invoice
   </XUIButton>
-);
+];
 
 <XUIIsolationHeader
   actions={actions}
   navigationButton={navigationButton}
   secondary={secondary}
-  supplementary={supplementary}
   title={title}
 />;
 ```

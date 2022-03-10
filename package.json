@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@xero/blind-date": "^2.5.1",
+    "@xero/xlabs-emptystate": "1.0.4",
     "@xero/xui-icon": "^6.7.0",
     "autosize": "5.0.1",
     "babel-runtime": "^6.26.0",

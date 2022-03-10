@@ -1,145 +1,120 @@
-// Libs
 import React, { PureComponent } from 'react';
+import XLabsEmptyState from '@xero/xlabs-emptystate/';
 
-// Story book things
 import { storiesOf } from '@storybook/react';
 import { object, boolean, text, select, number, color } from '@storybook/addon-knobs';
 import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
-import { createArray } from '../../progressindicator/helpers/utilities';
+import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';
 
 // Components we need to test with
 import XUIBarChart from '../XUIBarChart';
+import { CHART_BREAKPOINT, CHART_HEIGHT } from '../helpers/constants';
 
 import logReadyState from '../../../stories/helpers/log-ready-state';
 
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 
 storiesWithKnobs.add('Playground', () => {
-  const chartWidth = number('Chart width', 500);
-  const chartHeight = number('Chart height', 400);
-  const barsTotal = number('Total bars', 3) || undefined;
-  const xAxisVisibleItems = number('X-axis visible items', 0) || undefined;
-  const yAxisDefaultTopValue = number('Y-axis default top value', 0) || undefined;
-
-  const chartId = text('Chart ID', 'chartPlayground');
-  const chartTitle = text('Chart title', 'Chart Playground');
-  const chartDescription = text(
-    'Chart description',
-    'A playground to experiment with the chart component',
-  );
-  const keyTitle = text('Key title', 'Graph key');
-  const paginationNextTitle = text('Pagination next title', '') || undefined;
-  const paginationPreviousTitle = text('Pagination next title', '') || undefined;
-  const emptyMessage = text('Empty state message', '') || undefined;
-  const loadingAriaLabel = text('Loading Aria label', '') || undefined;
-
-  const isChartTitleHidden = boolean('Hide chart title', false);
-  const isBarStacked = boolean('Stack bars', false);
-  const isBarToolTipHidden = boolean('Hide bar tooltip', false);
-  const isXAxisToolTipHidden = boolean('Hide x-axis label tooltip', false);
-  const createYAxisLabelFormat =
-    boolean('Create custom y-axis format', false) && (y => `${Math.round(y * 100)}k`);
-  const hasPagination = boolean('Show pagination', false);
-  const createPaginationMessage =
-    boolean('Create custom pagination message', false) &&
-    ((current, total) => `Page ${current} of ${total}`);
-  const emptyStateComponent = boolean('Show empty state custom component', false) ? (
-    <div className="xui-text-align-center">
-      <h3 className="xui-heading-xlarge">
-        Sorry{' '}
-        <span aria-label="Confused face" role="img">
-          🙁
-        </span>
-      </h3>
-      <p className="xui-heading-small">There is no data to display!</p>
-    </div>
-  ) : undefined;
-  const isLoading = boolean('Show loading state', false);
-  const hasNegativeValues = boolean('Include bars with negative values', false);
-
   const xAxisTypes = ['abbreviation', 'avatar', 'standard'];
-  const xAxisType = select('X-axis type', xAxisTypes, 'standard', 'xAxisType');
-  const barColorActive = color('Active bar color', '', 'activeColor') || undefined;
-
-  const totalStacks = 3;
-  let onBarClick;
-  let createBarToolTipMessage;
-  let activeBars;
-  let barColor;
-  let keyLabel;
-
-  if (isBarStacked) {
-    onBarClick =
-      boolean('Create bar click callback', false) &&
-      ((event, { y, stackIndex }) => alert(`Clicked stack ${y[stackIndex]}`));
-    createBarToolTipMessage =
-      boolean('Create bar tooltip message', false) &&
-      (({ y, stackIndex }) => `Looking at stack ${y[stackIndex]}`);
-    activeBars = object('Active bars', { 0: true, 1: [0] });
-    keyLabel = createArray(totalStacks).map((_, index) =>
-      text(`Stack #${index + 1} key`, '', `stackKey${index + 1}`),
-    );
-    barColor = createArray(totalStacks).map((_, index) =>
-      color(`Stack #${index + 1} color`, '', `stackColor${index + 1}`),
-    );
-  } else {
-    onBarClick =
-      boolean('Create bar click callback', false) && ((event, { y }) => alert(`Clicked bar ${y}`));
-    createBarToolTipMessage =
-      boolean('Create bar tooltip message', false) && (({ y }) => `Looking at bar ${y}`);
-    activeBars = object('Active bars', { 0: true });
-    barColor = color('Bar color', '', 'barColor');
-    keyLabel = text('Bar key', '');
-  }
-  const multiplyWithNegativity = () => (hasNegativeValues && Math.round(Math.random()) ? -1 : 1);
-  const randomise = () => Math.random() * 4 * multiplyWithNegativity();
-  const wrapperStyles = { width: `${chartWidth}px` };
-  const isLabelAbbreviation = xAxisType === 'abbreviation';
-  const barsData = createArray(barsTotal).map((_, id) => {
-    const ref = id + 1;
-    return {
-      id,
-      x: isLabelAbbreviation
-        ? `${ref} | #${ref} | Num #${ref} | Number #${ref}`
-        : `Item Number ${ref}`,
-      y: isBarStacked ? createArray(totalStacks).map(randomise) : randomise(),
-    };
-  });
-
+  const hasCustomEmptyState = boolean('Has custom empty state component', false);
+  const hasCustomBarToolTip = boolean('Has custom bar tool tip', false);
+  const hasPaginationMessage = boolean('Has pagination message', true);
+  const hasCustomYAxisFormatting = boolean('Has custom y axis formatting', false);
+  const hasOnBarClickHandler = boolean('Has onBarClick handler', false);
+  const isBarStacked = boolean('isBarStacked', false);
+  const customEmptyState = (
+    <XLabsEmptyState icon={flattenedIconMap.chart} message={<p>No income data found</p>} />
+  );
   return (
-    <div style={wrapperStyles}>
+    <div style={{ width: CHART_BREAKPOINT + 1 }}>
       <XUIBarChart
-        {...{
-          chartId,
-          chartTitle,
-          isChartTitleHidden,
-          chartDescription,
-          chartHeight,
-          isBarStacked,
-          keyTitle,
-          keyLabel,
-          barsData,
-          barColor,
-          activeBars,
-          isBarToolTipHidden,
-          isXAxisToolTipHidden,
-          xAxisType,
-          xAxisVisibleItems,
-          yAxisDefaultTopValue,
-          hasPagination,
-          paginationNextTitle,
-          barColorActive,
-          paginationPreviousTitle,
-          emptyMessage,
-          emptyStateComponent,
-          isLoading,
-          loadingAriaLabel,
-        }}
-        // Make sure functions are are delayed correctly (not booleans from knobs).
-        createBarToolTipMessage={createBarToolTipMessage || undefined}
-        createPaginationMessage={createPaginationMessage || undefined}
-        createYAxisLabelFormat={createYAxisLabelFormat || undefined}
-        onBarClick={onBarClick || undefined}
+        activeBars={object(
+          `activeBars${isBarStacked ? '' : ' '}`, // Force storybook to update the knob with the new stacked data
+          isBarStacked ? {} : { 0: false, 1: false, 2: false, 3: false, 4: false, 5: false },
+        )}
+        barColor={
+          isBarStacked ? object('barColor', ['#80C19E', '#EE99A3']) : color('barColor', '#80C19E')
+        }
+        barColorActive={color('barColorActive', '#EE99A3')}
+        barsData={object(
+          `barsData${isBarStacked ? '' : ' '}`, // Force storybook to update the knob with the new stacked data
+          isBarStacked
+            ? [
+                { id: 0, x: '2021', y: [3, 7] },
+                { id: 1, x: '2020', y: [7, 13] },
+                { id: 2, x: '2019', y: [2, 3] },
+                { id: 3, x: '2018', y: [3, 7] },
+                { id: 4, x: '2017', y: [7, 13] },
+                { id: 5, x: '2016', y: [2, 3] },
+              ]
+            : [
+                { id: 0, x: '2021', y: 10 },
+                { id: 1, x: '2020', y: 20 },
+                { id: 2, x: '2019', y: 5 },
+                { id: 3, x: '2018', y: 10 },
+                { id: 4, x: '2017', y: 20 },
+                { id: 5, x: '2016', y: 5 },
+              ],
+        )}
+        chartDescription={text(
+          'chartDescription',
+          'Bar chart showing yearly income from the past six years. ' +
+            '2021: $10000, ' +
+            '2020: $20000,  ' +
+            '2019: $5000, ' +
+            '2018: $10000, ' +
+            '2017: $20000, ' +
+            '2016: $5000.',
+        )}
+        chartHeight={number('chartHeight', CHART_HEIGHT)}
+        chartId={text('chartId', 'incomeChart')}
+        chartTitle={text('chartTitle', 'Yearly income (in thousands of U.S. dollars)')}
+        createBarToolTipMessage={
+          hasCustomBarToolTip
+            ? bar =>
+                bar.stackIndex !== undefined
+                  ? `${Math.round(bar.y[bar.stackIndex])}k`
+                  : `${Math.round(bar.y)}k`
+            : undefined
+        }
+        createPaginationMessage={
+          hasPaginationMessage ? (current, total) => `Page ${current} of ${total}` : undefined
+        }
+        createYAxisLabelFormat={
+          hasCustomYAxisFormatting ? value => `${Math.round(value)}k` : undefined
+        }
+        emptyMessage={text('emptyMessage', 'There is no data to display')}
+        emptyStateComponent={hasCustomEmptyState ? customEmptyState : undefined}
+        emptyStateIcon={
+          flattenedIconMap[select('emptyStateIcon', ['', ...flattenedIconList], 'chart')]
+        }
+        hasPagination={boolean('hasPagination', true)}
+        isBarStacked={isBarStacked}
+        isBarToolTipHidden={boolean('isBarToolTipHidden', false)}
+        isChartTitleHidden={boolean('isChartTitleHidden', false)}
+        isLoading={boolean('isLoading', false)}
+        isXAxisToolTipHidden={boolean('isXAxisToolTipHidden', false)}
+        keyLabel={
+          isBarStacked
+            ? object('keyLabel', ['Restaurant', 'Bar'])
+            : text('keyLabel', 'Yearly income')
+        }
+        keyTitle={text('keyTitle', 'Income graph key')}
+        loadingAriaLabel={text('loadingAriaLabel', 'Loading income chart')}
+        onBarClick={
+          hasOnBarClickHandler
+            ? (_, { y, stackIndex }) => {
+                alert(`Bar value is: ${stackIndex !== undefined ? y[stackIndex] : y}`);
+              }
+            : undefined
+        }
+        paginationLabel={text('paginationLabel', 'Pagination')}
+        paginationNextTitle={text('paginationNextTitle', 'Next page')}
+        paginationPreviousTitle={text('paginationPreviousTitle', 'Previous page')}
+        qaHook={text('qaHook', 'income-chart')}
+        xAxisType={select('xAxisType', xAxisTypes, 'standard')}
+        xAxisVisibleItems={number('xAxisVisibleItems', 3)}
+        yAxisDefaultTopValue={number('yAxisDefaultTopValue', 0)}
       />
     </div>
   );

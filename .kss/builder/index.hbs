@@ -127,7 +127,7 @@
           {{! Disable table of contents for the following sections }}
           {{#if @first}}
             {{#if visualexample}}
-              <div class="ds-example-visual-example-container">
+              <div class="ds-example-visual-example-container {{#isInList visualexampleclass "ds-example-wide-with-nav"}} ds-example-wide-with-nav{{/isInList}}">
                   {{{includePage visualexample}}}
               </div>
             {{/if}}

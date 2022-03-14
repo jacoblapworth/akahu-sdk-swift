@@ -27,6 +27,7 @@ module.exports = {
     '@xero/eslint-config-xero-react',
     'plugin:jest/recommended',
     'plugin:jsx-a11y/recommended',
+    'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended',
     'prettier',
   ],

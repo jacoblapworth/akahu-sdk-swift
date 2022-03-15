@@ -16,7 +16,7 @@
 In the following example, the `buttonContent` of `XUISelectBox` is being set to value of the selected item in the example's state.
 
 ```jsx harmony
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import bank from '@xero/xui-icon/icons/bank';
 import XUIIcon from '@xero/xui/react/icon';
 import XUISelectBox, { XUISelectBoxOption } from '@xero/xui/react/selectbox';
@@ -25,7 +25,6 @@ const banks = ['ANZ', 'ASB', 'Kiwi Bank', 'Westpac'];
 
 const SelectBoxExample = () => {
   const [selectedBank, setSelectedBank] = useState();
-  const selectBox = useRef();
 
   const onBankSelect = value => {
     setSelectedBank(value);
@@ -41,7 +40,6 @@ const SelectBoxExample = () => {
       }
       caretTitle="Toggle list"
       label="Bank"
-      ref={selectBox}
     >
       {banks.map((bank, index) => {
         return (
@@ -68,7 +66,7 @@ const SelectBoxExample = () => {
 You can select multiple values by keeping track of an array, rather than a single value. Use the `showCheckboxes` prop to help indicate that multiple selections are supported.
 
 ```jsx harmony
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import XUISelectBox, { XUISelectBoxOption } from '@xero/xui/react/selectbox';
 
 const columns = ['Account', 'Account Code', 'Account Type', 'Credit', 'Date'];
@@ -101,7 +99,6 @@ const compareValuesByLength = (a, b) => {
 
 const SelectBoxExample = () => {
   const [selectedColumns, setSelectedColumns] = useState([]);
-  const selectBox = useRef();
 
   const onColumnSelect = value => {
     if (selectedColumns.indexOf(value) > -1) {
@@ -129,7 +126,6 @@ const SelectBoxExample = () => {
       isInvalid={!selectedColumns.length}
       label="Columns"
       onSelect={onColumnSelect}
-      ref={selectBox}
       validationMessage="Please select at least one column"
     >
       {columns.map((column, index) => {
@@ -157,7 +153,7 @@ const SelectBoxExample = () => {
 The `size` prop allows you to change the default `XUISelectBox` size.
 
 ```jsx harmony
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import bank from '@xero/xui-icon/icons/bank';
 import XUIIcon from '@xero/xui/react/icon';
 import XUISelectBox, { XUISelectBoxOption } from '@xero/xui/react/selectbox';
@@ -166,7 +162,6 @@ const banks = ['ANZ', 'ASB', 'Kiwi Bank', 'Westpac'];
 
 const SelectBoxExample = () => {
   const [selectedBank, setSelectedBank] = useState();
-  const selectBox = useRef();
 
   const onBankSelect = value => {
     setSelectedBank(value);
@@ -182,7 +177,6 @@ const SelectBoxExample = () => {
       }
       caretTitle="Toggle list"
       label="Bank"
-      ref={selectBox}
       size="small"
     >
       {banks.map((bank, index) => {
@@ -210,7 +204,7 @@ const SelectBoxExample = () => {
 The standard button variants available in [`XUIButton`](#button) can be applied here through the `buttonVariant` prop. We recommend setting the `fullWidth` prop to `never` to prevent the select box being full width with button variants.
 
 ```jsx harmony
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import bank from '@xero/xui-icon/icons/bank';
 import XUIIcon from '@xero/xui/react/icon';
 import XUISelectBox, { XUISelectBoxOption } from '@xero/xui/react/selectbox';
@@ -219,7 +213,6 @@ const banks = ['ANZ', 'ASB', 'Kiwi Bank', 'Westpac'];
 
 const SelectBoxExample = () => {
   const [selectedBank, setSelectedBank] = useState();
-  const selectBox = useRef();
 
   const onBankSelect = value => {
     setSelectedBank(value);
@@ -238,7 +231,6 @@ const SelectBoxExample = () => {
       fullWidth="never"
       hintMessage="Selecting your bank helps us set up your bank feed"
       label="Bank"
-      ref={selectBox}
     >
       {banks.map((bank, index) => {
         return (

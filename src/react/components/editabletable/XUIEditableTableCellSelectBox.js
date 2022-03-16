@@ -16,6 +16,7 @@ const XUIEditableTableCellSelectBox = ({
   onFocus,
   isDisabled,
   isInvalid,
+  useNewFocusBehaviour,
   validationMessage,
   ...spreadProps
 }) => {
@@ -94,6 +95,7 @@ const XUIEditableTableCellSelectBox = ({
         onBlur={composedOnBlur}
         onFocus={composedOnFocus}
         ref={selectBoxRef}
+        useNewFocusBehaviour={useNewFocusBehaviour}
       >
         {children}
       </XUISelectBox>
@@ -175,6 +177,11 @@ XUIEditableTableCellSelectBox.propTypes = {
 
   /** Whether focus should be restricted to the dropdown while it's open. */
   restrictFocus: PropTypes.bool,
+
+  /** Whether or not to use the new focus behaviour - which treats dropdown navigation
+   * like a `combobox` role. Defaults to `false`.
+   */
+  useNewFocusBehaviour: PropTypes.bool,
 
   /** Validation message to show under the input if `isInvalid` is true */
   validationMessage: PropTypes.node,

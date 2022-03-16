@@ -13,7 +13,6 @@ import { fixedWidthDropdownSizes } from '../dropdown/private/constants';
 import { eventKeyValues, isKeyClick } from '../helpers/reactKeyHandler';
 import { observe, unobserve } from '../helpers/resizeObserver';
 import labelRequiredError, { loadingAriaLabelOnly } from '../helpers/labelRequiredError';
-import getFocusableDescendants from '../helpers/getFocusableDescendants';
 
 const baseClass = `${ns}-autocompleter`;
 

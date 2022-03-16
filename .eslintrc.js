@@ -101,6 +101,12 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['axeHelper.ts'],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
+    {
       files: ['**/scripts/**/*.js', 'babel.config.js', 'webpack.umd.config.js'],
       rules: {
         'import/no-extraneous-dependencies': 'off',

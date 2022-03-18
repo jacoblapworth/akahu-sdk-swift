@@ -69,8 +69,6 @@ const wrapperStyles = {
 </div>;
 ```
 
-If using a `XUIIconButton` as an action button, ensure that it is a `small` icon button to maintain the recommended button layout.
-
 ```jsx harmony
 import overflow from '@xero/xui-icon/icons/overflow';
 import XUIActions from '@xero/xui/react/actions';
@@ -80,9 +78,7 @@ import XUIPageHeader from '@xero/xui/react/pageheader';
 const builtActions = (
   <XUIActions
     hasLayout={false}
-    primaryAction={
-      <XUIIconButton icon={overflow} key="moreOptions" ariaLabel="More options" size="small" />
-    }
+    primaryAction={<XUIIconButton icon={overflow} key="moreOptions" ariaLabel="More options" />}
     secondaryAction={
       <XUIButton key="newContact" size="small" variant="create">
         New contact

@@ -3,238 +3,171 @@
 If you've included any actions in the header or footer, set the `closeOnTab` property of `XUIDropdownToggled` to `false`, so users navigating by keyboard are able to access them.
 
 ```jsx harmony
-import { Component } from 'react';
+import { useRef, useState } from 'react';
+import searchPath from '@xero/xui-icon/icons/search';
+import plusIcon from '@xero/xui-icon/icons/plus';
+
+import XUIButton from '@xero/xui/react/button';
 import XUIDropdown, {
   XUIDropdownToggled,
   XUIDropdownHeader,
   XUIDropdownFooter
 } from '@xero/xui/react/dropdown';
-import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
-import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
-import XUIButton from '@xero/xui/react/button';
 import XUIIcon from '@xero/xui/react/icon';
-import { isKeySpacebar } from '@xero/xui/react/helpers/reactKeyHandler';
-import searchPath from '@xero/xui-icon/icons/search';
-import plusIcon from '@xero/xui-icon/icons/plus';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 
-const items = [
-  'Apricot',
-  'Banana',
-  'Cherry',
-  'Dragon Fruit',
-  'Eggplant',
-  'Fennel',
-  'Grapefruit',
-  'Honeydew',
-  'Iceberg Lettuce',
-  'Jackfruit',
-  'Kiwifruit',
-  'Lime',
-  'Mango',
-  'Nectarine',
-  'Orange',
-  'Pineapple',
-  'Quince',
-  'Rapberry',
-  'Starfruit',
-  'Tomato',
-  'Uglifruit',
-  'Valencia Orange',
-  'Watermelon',
-  'Xi gua',
-  'Yellow quash',
-  'Zucchini'
-].map((text, id) => {
+const groups = ['Customers', 'Suppliers', 'Overseas clients'].map((text, id) => {
   return { id, text };
 });
 
 const getNumberOfTrueValues = items => Object.keys(items).filter(key => !!items[key]).length;
 
-class XDD extends Component {
-  constructor(...args) {
-    super(...args);
+const DropdownHeaderFooterExample = () => {
+  const [items, setItems] = useState(groups);
+  const [search, setSearch] = useState('');
+  const [selected, setSelected] = useState({ 0: false, 1: false, 2: false });
+  const [selectedCount, setSelectedCount] = useState(0);
+  const [highlightedId, setHighlightedId] = useState(null);
+  const [previousSelected, setPreviousSelected] = useState(null);
 
-    const selected = {};
+  const ddt = useRef();
+  const dropdownRef = useRef();
+  const input = useRef();
+  const triggerRef = useRef();
 
-    items.forEach(item => (selected[item.id] = false));
+  const onSearch = event => {
+    const value = event.target.value;
+    setSearch(value);
+    setItems(groups.filter(group => group.text.toLowerCase().indexOf(value.toLowerCase()) > -1));
+  };
 
-    this.state = {
-      items,
-      search: '',
-      selected,
-      selectedCount: 0,
-      highlightedId: null
-    };
+  const onSearchKeyDown = event => {
+    const isKeySpacebar = event => event.key === ' ';
 
-    this.onApplyClick = this.onApplyClick.bind(this);
-    this.onSelect = this.onSelect.bind(this);
-    this.onHighlightChange = this.onHighlightChange.bind(this);
-    this.closeDropdown = this.closeDropdown.bind(this);
-    this.onClose = this.onClose.bind(this);
-    this.onOpen = this.onOpen.bind(this);
-    this.onSearch = this.onSearch.bind(this);
-    this.onSearchKeyDown = this.onSearchKeyDown.bind(this);
-    this.focusInput = this.focusInput.bind(this);
-
-    this.ddt = React.createRef();
-    this.dropdown = React.createRef();
-  }
-
-  onSearch(event) {
-    const val = event.target.value;
-    this.setState({
-      search: val,
-      items: items.filter(item => item.text.toLowerCase().indexOf(val.toLowerCase()) > -1)
-    });
-  }
-
-  onSearchKeyDown(event) {
-    // Allow users to type spaces without selecting
+    //Allow users to type spaces without selecting
     if (!isKeySpacebar(event)) {
-      this.dropdown.current && this.dropdown.current.onKeyDown(event);
+      dropdownRef.current && dropdownRef.current.onKeyDown(event);
     }
-  }
+  };
 
-  onSelect(value) {
-    this.setState(state => ({
-      selected: {
-        ...state.selected,
-        [value]: !state.selected[value]
-      }
-    }));
-  }
+  const onSelect = value => {
+    setSelected({ ...selected, [value]: !selected[value] });
+  };
 
-  onHighlightChange(item) {
-    this.setState({
-      highlightedId: item.props.id
-    });
-  }
+  const onHighlightChange = item => setHighlightedId(item.props.id);
 
-  closeDropdown() {
-    this.ddt.current.closeDropdown();
-  }
+  const closeDropdown = () => {
+    ddt.current.closeDropdown();
+    triggerRef.current.focus();
+  };
 
-  onApplyClick() {
-    this.setState(state => ({
-      selectedCount: getNumberOfTrueValues(state.selected),
-      previousSelected: null
-    }));
-    this.closeDropdown();
-  }
+  const onApplyClick = () => {
+    setSelectedCount(getNumberOfTrueValues(selected));
+    setPreviousSelected(null);
+    closeDropdown();
+  };
 
-  onClose() {
-    this.setState(state => {
-      const newSelected = state.previousSelected != null ? state.previousSelected : state.selected;
-      return {
-        selected: newSelected,
-        previousSelected: null,
-        selectedCount: getNumberOfTrueValues(newSelected),
-        search: '',
-        items: items
-      };
-    });
-  }
+  const onClose = () => {
+    const newSelected = previousSelected || selected;
+    setSelected(newSelected);
+    setPreviousSelected(null);
+    setSelectedCount(getNumberOfTrueValues(newSelected));
+    setSearch('');
+    setItems(groups);
+  };
 
-  onOpen() {
-    this.setState(state => ({
-      previousSelected: state.selected
-    }));
-  }
+  const onOpen = () => setPreviousSelected(selected);
 
-  focusInput() {
-    this.input && this.input.focus();
-  }
+  const focusInput = () => input.current && input.current.focus();
 
-  render() {
-    const { highlightedId, items, search } = this.state;
-    const dropdownHeader = (
-      <XUIDropdownHeader
-        title="Select Fruit"
-        onSecondaryButtonClick={this.closeDropdown}
-        onPrimaryButtonClick={this.onApplyClick}
-        primaryButtonContent="Apply"
-        secondaryButtonContent="Cancel"
-      >
-        <XUITextInput
-          inputRef={i => (this.input = i)}
-          placeholder="Search"
-          type="search"
-          value={search}
-          onKeyDown={this.onSearchKeyDown}
-          onChange={this.onSearch}
-          isBorderlessSolid
-          fieldClassName="xui-u-fullwidth"
-          leftElement={
-            <XUITextInputSideElement type="icon">
-              <XUIIcon icon={searchPath} isBoxed />
-            </XUITextInputSideElement>
-          }
-          inputProps={{
-            'aria-activedescendant': highlightedId
-          }}
-        />
-      </XUIDropdownHeader>
-    );
-
-    const dropdownFooter = (
-      <XUIDropdownFooter
-        pickItems={
-          <XUIPickitem
-            id="footerAction"
-            leftElement={<XUIIcon isInline icon={plusIcon} className="xui-margin-right-xsmall" />}
-          >
-            Add New Fruit
-          </XUIPickitem>
+  const dropdownHeader = (
+    <XUIDropdownHeader
+      onPrimaryButtonClick={onApplyClick}
+      onSecondaryButtonClick={closeDropdown}
+      primaryButtonContent="Apply"
+      secondaryButtonContent="Cancel"
+      title="Add to group"
+    >
+      <XUITextInput
+        fieldClassName="xui-u-fullwidth"
+        inputProps={{
+          'aria-activedescendant': highlightedId
+        }}
+        inputRef={input}
+        isBorderlessSolid
+        leftElement={
+          <XUITextInputSideElement type="icon">
+            <XUIIcon icon={searchPath} isBoxed />
+          </XUITextInputSideElement>
         }
+        onChange={onSearch}
+        onKeyDown={onSearchKeyDown}
+        placeholder="Search"
+        type="search"
+        value={search}
       />
-    );
+    </XUIDropdownHeader>
+  );
 
-    const trigger = (
-      <XUIButton hasCaret>
-        {this.state.selectedCount > 0
-          ? `${this.state.selectedCount} items selected`
-          : 'Toggle Button'}
-      </XUIButton>
-    );
-    const dropdown = (
-      <XUIDropdown
-        ref={this.dropdown}
-        onHighlightChange={this.onHighlightChange}
-        onSelect={this.onSelect}
-        header={dropdownHeader}
-        footer={dropdownFooter}
-        size="large"
-        hasKeyboardEvents={false}
-        hasFixedWidth
-      >
-        <XUIPicklist>
-          {items.map(item => (
-            <XUIPickitem
-              key={item.id}
-              id={item.id}
-              value={item.id}
-              isSelected={this.state.selected[item.id]}
-              isMultiselect
-            >
-              {item.text}
+  const dropdownFooter = (
+    <XUIDropdownFooter
+      pickItems={
+        <XUIPickitem
+          id="footerAction"
+          leftElement={<XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} isInline />}
+          onClick={() => console.log('New group - onClick')}
+        >
+          New group
+        </XUIPickitem>
+      }
+    />
+  );
+
+  const trigger = (
+    <XUIButton hasCaret ref={triggerRef}>
+      {selectedCount > 0 ? `${selectedCount} groups selected` : 'Group'}
+    </XUIButton>
+  );
+
+  const dropdown = (
+    <XUIDropdown
+      footer={dropdownFooter}
+      hasFixedWidth
+      hasKeyboardEvents={false}
+      header={dropdownHeader}
+      onHighlightChange={onHighlightChange}
+      onSelect={onSelect}
+      ref={dropdownRef}
+      size="large"
+    >
+      <XUIPicklist>
+        {items.map(item => {
+          const { id, text } = item;
+
+          return (
+            <XUIPickitem id={id} isMultiselect isSelected={selected[id]} key={id} value={id}>
+              {text}
             </XUIPickitem>
-          ))}
-        </XUIPicklist>
-      </XUIDropdown>
-    );
-    return (
-      <XUIDropdownToggled
-        ref={this.ddt}
-        onOpenAnimationEnd={this.focusInput}
-        trigger={trigger}
-        dropdown={dropdown}
-        closeOnSelect={false}
-        closeOnTab={false}
-        onClose={this.onClose}
-        onOpen={this.onOpen}
-      />
-    );
-  }
-}
-<XDD />;
+          );
+        })}
+      </XUIPicklist>
+    </XUIDropdown>
+  );
+
+  return (
+    <XUIDropdownToggled
+      closeOnSelect={false}
+      dropdown={dropdown}
+      onClose={onClose}
+      onOpen={onOpen}
+      onOpenAnimationEnd={focusInput}
+      ref={ddt}
+      trigger={trigger}
+      useNewFocusBehaviour
+    />
+  );
+};
+
+<DropdownHeaderFooterExample />;
 ```

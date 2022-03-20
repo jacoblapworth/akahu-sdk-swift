@@ -49,16 +49,12 @@
 <div class="ds-page-header">
   {{> breadcrumbs }}
   {{#each sections}}
-    {{#ifParentPage "Components"}}
-      {{#if @first}}
-        {{#hasChildren}}
-      {{else}}
-        {{> onthispage }}
-        {{/hasChildren}}
-      {{/if}}
+    {{#if @first}}
+      {{#hasChildren}}
     {{else}}
-      {{! noop }}
-    {{/ifParentPage}}
+      {{> onthispage }}
+      {{/hasChildren}}
+    {{/if}}
   {{/each}}
 </div>
 {{/unless}}
@@ -155,26 +151,6 @@
               {{/if}}
               </div>
             {{/if}}
-
-            {{#ifParentPage "Components"}}
-              {{! noop }}
-            {{else}}
-              {{#ifStyleguide "Compositions" "Components.CollectingInput.Forms" "Components.DisplayingData.EditableTable" "Contributing to XUI.XUI Labs.XUI Labs Overview" "Contributing to XUI.XUI Labs.Contributing" "Fundamentals"}}
-                {{! noop }}
-              {{else}}
-                <div>
-                  <ul>
-                    {{#each  @root.sections}} {{#ifDepth 2}}
-                      <li>
-                        <a href="#{{referenceURI}}">
-                          {{header}}
-                        </a>
-                      </li>
-                    {{/ifDepth}} {{/each}}
-                  </ul>
-                </div>
-              {{/ifStyleguide}}
-            {{/ifParentPage}}
           {{/if}}
 
           {{#ifStyleguide "Fundamentals.Icons.1" }}
@@ -402,7 +378,9 @@
   </div>
   {{#each sections}}
     {{#if @first}}
-      {{#ifParentPage "Components"}}
+      {{#ifStyleguide "Compositions" "Fundamentals" "Components" "Patterns" "Components.Controls" "Components.Identifiers" "Components.Alerts" "Components.Navigation" "Components.CollectingInput" "Components.DisplayingData"}}
+        {{! noop }}
+      {{else}}
         <div class="ds-nav-sticky-wrapper">
           <div class="ds-nav-sticky">
             <span style="margin-bottom: 13px">On this page</span>
@@ -448,9 +426,7 @@
             </ul>
           </div>
         </div>
-      {{else}}
-        {{! noop }}
-      {{/ifParentPage}}
+      {{/ifStyleguide}}
     {{/if}}
   {{/each}}
 </article>

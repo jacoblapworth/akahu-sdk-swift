@@ -42,6 +42,7 @@ exports[`XUIAutocompleter has data-automationid set on the input, list, dropdown
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid="baseAC--input"
             id="xui-testAutocompleterId"
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -102,6 +103,7 @@ exports[`XUIAutocompleter inserts the searchValue inside the input 1`] = `
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="xui-testAutocompleterId"
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -163,6 +165,7 @@ exports[`XUIAutocompleter renders with a hidden label 1`] = `
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="xui-testAutocompleterId"
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -230,6 +233,7 @@ exports[`XUIAutocompleter renders with the provided label 1`] = `
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="xui-testAutocompleterId"
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -290,6 +294,7 @@ exports[`XUIAutocompleter should not add padding classes to the input when pills
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="xui-testAutocompleterId"
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -350,6 +355,7 @@ exports[`XUIAutocompleter should render a class on the input element when passed
             className="test-class xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="xui-testAutocompleterId"
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -410,6 +416,7 @@ exports[`XUIAutocompleter should render a class on the root node when passed in 
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="xui-testAutocompleterId"
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -471,6 +478,7 @@ exports[`XUIAutocompleter should render a class on the trigger element when pass
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="xui-testAutocompleterId"
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -534,6 +542,7 @@ exports[`XUIAutocompleter should render a placeholder inside the input when pass
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="xui-testAutocompleterId"
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             placeholder="Search"
@@ -595,6 +604,7 @@ exports[`XUIAutocompleter should render an id on the input when a value is passe
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="test-inputId"
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -656,6 +666,7 @@ exports[`XUIAutocompleter should render an id on the root node when passed in th
             className="xui-autocompleter--textinput xui-textinput--input xui-textinput--input-medium"
             data-automationid={null}
             id="xui-testAutocompleterId"
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -717,6 +728,7 @@ exports[`XUIAutocompleter should render as disabled when isDisabled prop is true
             data-automationid={null}
             disabled={true}
             id="xui-testAutocompleterId"
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"
@@ -778,6 +790,7 @@ exports[`XUIAutocompleter should respect a max length of the input value when th
             data-automationid={null}
             id="xui-testAutocompleterId"
             maxLength={5}
+            onBlur={[Function]}
             onBlurCapture={[Function]}
             onFocusCapture={[Function]}
             role="textbox"

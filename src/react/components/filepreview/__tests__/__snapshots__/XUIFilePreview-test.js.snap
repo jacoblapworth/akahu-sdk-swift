@@ -49,7 +49,9 @@ exports[`<XUI FilePreview/> renders passed header and footer nodes 1`] = `
   <div
     class="xui-filepreview"
   >
-    <header />
+    <div>
+      <header />
+    </div>
     <div
       class="xui-filepreview--body"
     >

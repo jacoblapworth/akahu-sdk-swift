@@ -27,6 +27,7 @@ module.exports = {
     '@xero/eslint-config-xero-react',
     'plugin:jest/recommended',
     'plugin:jsx-a11y/recommended',
+    'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended',
     'prettier',
   ],
@@ -169,6 +170,7 @@ module.exports = {
         '@typescript-eslint/triple-slash-reference': 'off',
         '@typescript-eslint/type-annotation-spacing': 'off',
         'import/named': 'off',
+        'import/prefer-default-export': 'off',
         // TODO: Decide whether or not we want to turn any of the below options on. They came in during an ESLint update so I turned them all off for now. Each of these could still be turned off for special use-cases if needed.
         'simple-import-sort/imports': 'off',
         'simple-import-sort/exports': 'off',

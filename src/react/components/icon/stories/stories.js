@@ -1,34 +1,27 @@
-// Libs
-import React from 'react';
-
-// Story book things
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { text, select, boolean } from '@storybook/addon-knobs';
-
-// Components we need to test with
-import { wrapperSizeClasses, rotationClasses, colorClasses } from '../private/constants';
-import XUIIcon from '../XUIIcon';
-
-import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';
+import { colorClasses, rotationClasses, wrapperSizeClasses } from '../private/constants';
+import XUIIcon from '../XUIIcon';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
-  const rotation = select('Rotation', [0, ...Object.keys(rotationClasses)]);
-  const color = select('Color', Object.keys(colorClasses), 'standard');
-  const icon = select('Icon', flattenedIconList, 'xero');
+  const rotation = select('rotation', ['', ...Object.keys(rotationClasses)], '');
+  const color = select('color', ['', ...Object.keys(colorClasses)], '');
+  const icon = select('icon', flattenedIconList, 'xero');
 
   return (
     <XUIIcon
       color={color === 'standard' ? undefined : color}
-      description={text('Description', '')}
+      description={text('description', '')}
       icon={flattenedIconMap[icon]}
-      isBoxed={boolean('Boxed', true)}
-      role={text('Role', undefined)}
+      isBoxed={boolean('isBoxed', false)}
+      role={text('role', XUIIcon.defaultProps.role)}
       rotation={rotation > 0 ? rotation : null}
-      size={select('Size', Object.keys(wrapperSizeClasses), 'large')}
-      title={text('Title', '')}
+      size={select('size', ['', ...Object.keys(wrapperSizeClasses)], '')}
+      title={text('title', '')}
     />
   );
 });

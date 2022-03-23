@@ -1,0 +1,43 @@
+<div class="xui-fileuploader">
+  <div>
+    <label class="xui-text-label xui-fieldlabel-layout" for="visual-example-file-uploader-control"
+      >Upload document(s)</label
+    >
+    <div class="xui-fileuploader--dropzone">
+      <input
+        class="xui-fileuploader--input"
+        multiple=""
+        type="file"
+        id="visual-example-file-uploader-control"
+      />
+      <span>Drag and drop file(s) or select manually</span>
+      <button class="xui-button xui-button-standard xui-button-small" type="button">
+        Select file
+      </button>
+    </div>
+    <div class="xui-validation xui-validation-layout" role="status">25MB total file size limit</div>
+  </div>
+  <ul class="xui-fileuploader--filelist">
+    <li class="xui-fileuploader--fileitem">
+      <div class="xui-fileuploader--fileitem--icon xui-iconwrapper xui-iconwrapper-medium">
+        <svg class="xui-icon xui-icon-color-file-pdf" role="presentation">
+          <use xlink:href="#xui-icon-file-pdf" />
+        </svg>
+      </div>
+      <div class="xui-fileuploader--fileitem--maincontent">
+        INV-4321.pdf
+        <span class="xui-fileuploader--fileitem--description">1.45 MB</span>
+      </div>
+      <div class="xui-fileuploader--fileitem--rightcontent">
+        <button
+          aria-label="Delete file"
+          class="xui-button xui-button-icon-medium xui-button-icon"
+          type="button"
+        >
+          <svg class="xui-icon" role="presentation"><use xlink:href="#xui-icon-trash" /></svg>
+          <div class="xui-touchtarget"></div>
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

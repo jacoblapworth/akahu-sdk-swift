@@ -122,7 +122,7 @@
     align-self: flex-end;
     justify-content: flex-end;
     // Height of the nav minus height of the button, over two.
-    padding-bottom: 0.5 * ($xui-navigation-height - $xui-s-2xlarge);
+    padding-bottom: 0.5 * ($xui-navigation-height - $xui-control-size-standard);
   }
   &--tabs {
     align-items: stretch;
@@ -133,14 +133,19 @@
   }
   &--actions {
     @include xui-margin-right($xui-s-xsmall);
-    align-items: center; /* Required for button height not to stretch */
+    align-items: center; /* Required for button height not to stretch in isolation header */
     display: flex;
     flex: 1 1 auto;
     justify-content: flex-end;
+    min-height: $xui-control-size-standard;
     > .#{$ns}-button,
     > .#{$ns}-buttongroup,
     .#{$ns}-actions .#{$ns}-actions--primary {
       @include xui-margin-left($xui-s-small);
+    }
+
+    .#{$ns}-actions {
+      align-items: center; /* Required for button height not to stretch in page header */
     }
   }
 }

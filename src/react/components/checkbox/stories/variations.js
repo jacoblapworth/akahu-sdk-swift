@@ -2,101 +2,106 @@ import { desktopPlus320 } from '../../../stories/helpers/viewports';
 
 const starIcon = require('@xero/xui-icon/icons/star').default;
 
-const storiesWithKnobsKindName = 'Components/XUICheckbox';
-const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
+const checkboxStoriesWithKnobsKindName = 'Components/XUICheckbox';
+const checkboxStoriesWithVariationsKindName = `${checkboxStoriesWithKnobsKindName}/Tests`;
 
-const variations = [
+const checkboxGroupStoriesWithKnobsKindName = 'Components/XUICheckboxGroup';
+const checkboxGroupStoriesWithVariationsKindName = `${checkboxGroupStoriesWithKnobsKindName}/Tests`;
+
+const checkboxRangeSelectorStoriesWithKnobsKindName = 'Components/XUICheckboxRangeSelector';
+
+const checkboxVariations = [
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'Default',
     labelText: 'Just a regular checkbox',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'with no label',
     labelText: 'No Label Example',
     isLabelHidden: true,
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'unchecked hover state',
     isLabelHidden: true,
     hoverSelector: '.xui-styledcheckboxradio--input',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'checked',
     labelText: 'Checked Example',
     isDefaultChecked: true,
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'checked hover state',
     isDefaultChecked: true,
     isLabelHidden: true,
     hoverSelector: '.xui-styledcheckboxradio--input',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'disabled',
     labelText: 'Disabled Example',
     isDisabled: true,
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'checked and disabled',
     labelText: 'Checked and Disabled Example',
     isDefaultChecked: true,
     isDisabled: true,
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'checked small',
     labelText: 'Checked Small Example',
     isDefaultChecked: true,
     size: 'small',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'checked xsmall',
     labelText: 'Checked XSmall Example',
     isDefaultChecked: true,
     size: 'xsmall',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'indeterminate',
     labelText: 'Indeterminate Example',
     isIndeterminate: true,
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'indeterminate and disabled',
     labelText: 'Indeterminate and Disabled Example',
     isIndeterminate: true,
     isDisabled: true,
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'reversed label',
     labelText: 'Reversed Example',
     isReversed: true,
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'with an icon',
     labelText: 'Icon Example',
     iconMain: starIcon,
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'with an icon hover state',
     labelText: 'Icon Example',
     iconMain: starIcon,
     hoverSelector: '.xui-styledcheckboxradio--input',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'with an icon and a long label',
     viewports: desktopPlus320,
     labelText:
@@ -104,7 +109,7 @@ const variations = [
     iconMain: starIcon,
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'with an checked icon',
     labelText: 'Icon Example',
     isDefaultChecked: true,
@@ -112,7 +117,7 @@ const variations = [
     hoverSelector: '.xui-styledcheckboxradio--input',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'with an checked icon hover state',
     labelText: 'Icon Example',
     isDefaultChecked: true,
@@ -120,55 +125,25 @@ const variations = [
     hoverSelector: '.xui-styledcheckboxradio--input',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'inline group',
     isSeries: true,
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'inline group reversed',
     isReversed: true,
     isSeries: true,
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'grouped',
-    isGroup: true,
-    groupProps: {
-      label: 'Birds',
-      hintMessage: 'This is a clue',
-    },
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'grouped and invalid',
-    isGroup: true,
-    groupProps: {
-      label: 'Birds',
-      hintMessage: 'hello',
-      isInvalid: true,
-      validationMessage: 'whoops',
-    },
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'grouped and reversed',
-    isGroup: true,
-    isReversed: true,
-    groupProps: {
-      label: 'Birds',
-      hintMessage: 'This is a clue',
-    },
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'has a long label',
     viewports: desktopPlus320,
     labelText:
       "You have no idea how choice our stuffed Tuis were aye. Every time I see those rip-off old man's beards it's like the sausage sizzle all over again aye, rack off. Anyway, James Cook is just Rhys Darby in disguise, to find the true meaning of life, one must start munting with the Edmonds Cook Book, mate.",
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: checkboxStoriesWithVariationsKindName,
     storyTitle: 'has a long label and hint/vaildation',
     viewports: desktopPlus320,
     labelText:
@@ -179,8 +154,8 @@ const variations = [
 
 [false, true].forEach(isInvalid => {
   isInvalid &&
-    variations.push({
-      storyKind: storiesWithVariationsKindName,
+    checkboxVariations.push({
+      storyKind: checkboxStoriesWithVariationsKindName,
       storyTitle: `with long validation message`,
       isInvalid,
       viewports: desktopPlus320,
@@ -195,8 +170,8 @@ const variations = [
 
       const isReversedTitle = isReversed ? ' and reversed' : '';
 
-      variations.push({
-        storyKind: storiesWithVariationsKindName,
+      checkboxVariations.push({
+        storyKind: checkboxStoriesWithVariationsKindName,
         storyTitle: `${isInvalidTitle}${isLabelHiddenTitle}${isReversedTitle}`,
         isInvalid,
         isLabelHidden,
@@ -208,4 +183,48 @@ const variations = [
   });
 });
 
-export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };
+const checkboxGroupVarations = [
+  {
+    storyKind: checkboxGroupStoriesWithVariationsKindName,
+    storyTitle: 'grouped',
+    isGroup: true,
+    groupProps: {
+      label: 'Birds',
+      hintMessage: 'This is a clue',
+    },
+  },
+  {
+    storyKind: checkboxGroupStoriesWithVariationsKindName,
+    storyTitle: 'grouped and invalid',
+    isGroup: true,
+    groupProps: {
+      label: 'Birds',
+      hintMessage: 'hello',
+      isInvalid: true,
+      validationMessage: 'whoops',
+    },
+  },
+  {
+    storyKind: checkboxGroupStoriesWithVariationsKindName,
+    storyTitle: 'grouped and reversed',
+    isGroup: true,
+    isReversed: true,
+    groupProps: {
+      label: 'Birds',
+      hintMessage: 'This is a clue',
+    },
+  },
+];
+
+const variations = [...checkboxVariations, ...checkboxGroupVarations];
+
+export {
+  checkboxStoriesWithVariationsKindName,
+  checkboxStoriesWithKnobsKindName,
+  checkboxGroupStoriesWithKnobsKindName,
+  checkboxGroupStoriesWithVariationsKindName,
+  checkboxRangeSelectorStoriesWithKnobsKindName,
+  checkboxVariations,
+  checkboxGroupVarations,
+  variations,
+};

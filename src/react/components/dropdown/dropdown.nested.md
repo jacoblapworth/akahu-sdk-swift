@@ -1,8 +1,9 @@
 `XUINestedDropdown` is designed as a `XUIDropdown` replacement that allows consumers to implement small, multi-step flows inside of a triggered dropdown. A quick example would be allowing the user to choose between some suggested dates and a fixed custom date like below.
 
 ```jsx harmony
-import 'array.prototype.find';
-import { Component } from 'react';
+import { useRef, useState } from 'react';
+import XUIButton from '@xero/xui/react/button';
+import XUIDatePicker from '@xero/xui/react/datepicker';
 import {
   XUIDropdownFooter,
   XUIDropdownHeader,
@@ -10,8 +11,6 @@ import {
   XUIDropdownToggled,
   XUINestedDropdown
 } from '@xero/xui/react/dropdown';
-import XUIButton from '@xero/xui/react/button';
-import XUIDatePicker from '@xero/xui/react/datepicker';
 import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 const months = [
@@ -41,171 +40,145 @@ function getToday() {
 
 const suggestedDates = [
   {
-    id: 'week',
-    text: 'Next Week',
+    id: 'today',
     getDate: () => {
       const today = getToday();
-      today.setDate(today.getDate() + 7);
+      today.setDate(today.getDate());
       return today;
-    }
+    },
+    text: 'Today'
   },
   {
-    id: 'month',
-    text: 'Next Month',
+    id: 'tomorrow',
     getDate: () => {
       const today = getToday();
-      today.setMonth(today.getMonth() + 1);
+      today.setDate(today.getDate() + 1);
       return today;
-    }
+    },
+    text: 'Tomorrow'
   }
 ];
 
-class NestedExample extends Component {
-  constructor(...args) {
-    super(...args);
+const NestedDropdownExample = () => {
+  const [activePanel, setActivePanel] = useState('suggestedDates');
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [selectedSuggestedDate, setSelectedSuggestedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(null);
 
-    this.state = {
-      activePanel: 'suggestedDates',
-      currentMonth: new Date(),
-      selectedSuggestedDate: null,
-      selectedDate: null
-    };
-    this.datepicker = React.createRef();
-    this.ddt = React.createRef();
+  const datepicker = useRef();
+  const ddt = useRef();
 
-    this.closeDropdown = this.closeDropdown.bind(this);
-    this.focusDatePicker = this.focusDatePicker.bind(this);
-    this.showSuggestedDates = this.showSuggestedDates.bind(this);
-    this.showMonth = this.showMonth.bind(this);
-    this.selectSuggestedDate = this.selectSuggestedDate.bind(this);
-    this.selectDate = this.selectDate.bind(this);
-    this.selectCustomSuggestedDate = this.selectCustomSuggestedDate.bind(this);
-  }
+  const closeDropdown = () => ddt.current.closeDropdown();
 
-  closeDropdown() {
-    this.ddt.current.closeDropdown();
-  }
-
-  focusDatePicker() {
-    if (this.state.activePanel === 'customDate') {
-      this.datepicker.current.focus();
+  const focusDatePicker = () => {
+    if (activePanel === 'customDate') {
+      datepicker.current.focus();
     }
-  }
+  };
 
-  showSuggestedDates() {
-    this.setState({
-      activePanel: 'suggestedDates'
-    });
-  }
+  const showSuggestedDates = () => {
+    setActivePanel('suggestedDates');
+  };
 
-  showMonth(date) {
-    this.setState({
-      currentMonth: date
-    });
-  }
+  const showMonth = date => setCurrentMonth(date);
 
-  selectSuggestedDate(selectedCd) {
-    if (selectedCd === 'custom') {
-      this.setState({
-        activePanel: 'customDate'
-      });
+  const selectSuggestedDate = selectedValue => {
+    if (selectedValue === 'custom') {
+      setActivePanel('customDate');
     } else {
-      const cd = suggestedDates.find(suggestedDate => suggestedDate.id === selectedCd);
-      this.setState({
-        selectedSuggestedDate: cd.id,
-        selectedDate: cd.getDate()
-      });
-      this.closeDropdown();
+      const selectedDate = suggestedDates.find(suggestedDate => suggestedDate.id === selectedValue);
+      setSelectedSuggestedDate(selectedDate.id);
+      setSelectedDate(selectedDate.getDate());
+      closeDropdown();
     }
-  }
+  };
 
-  selectDate(date) {
-    this.setState({
-      selectedSuggestedDate: 'custom',
-      selectedDate: date
-    });
-    this.closeDropdown();
-  }
+  const selectDate = date => {
+    setSelectedSuggestedDate('custom');
+    setSelectedDate(date);
+    closeDropdown();
+  };
 
-  selectCustomSuggestedDate() {
-    this.selectSuggestedDate('custom');
-  }
+  const selectCustomSuggestedDate = () => {
+    selectSuggestedDate('custom');
+  };
 
-  render() {
-    const { activePanel, selectedDate } = this.state;
-    let triggerText = 'Select a Date';
-    if (selectedDate != null) {
-      triggerText = formatDate(selectedDate);
-    }
+  const triggerText = selectedDate === null ? 'Issue date' : formatDate(selectedDate);
 
-    const trigger = <XUIButton hasCaret>{triggerText}</XUIButton>;
+  const trigger = <XUIButton hasCaret>{triggerText}</XUIButton>;
 
-    const dropdownFooter = (
-      <XUIDropdownFooter
-        pickItems={
-          <XUIPickitem id="custom" key="custom" onClick={this.selectCustomSuggestedDate}>
-            Custom Date
-          </XUIPickitem>
-        }
-      />
-    );
+  const dropdownFooter = (
+    <XUIDropdownFooter
+      pickItems={
+        <XUIPickitem id="custom" key="custom" onClick={selectCustomSuggestedDate}>
+          Pick another date
+        </XUIPickitem>
+      }
+    />
+  );
 
-    const dropdown = (
-      <XUINestedDropdown currentPanelId={activePanel} onPanelChange={this.focusDatePicker}>
-        <XUIDropdownPanel panelId="suggestedDates" footer={dropdownFooter}>
-          <XUIPicklist>
-            {suggestedDates.map(cd => (
+  const dropdown = (
+    <XUINestedDropdown currentPanelId={activePanel} onPanelChange={focusDatePicker}>
+      <XUIDropdownPanel footer={dropdownFooter} panelId="suggestedDates">
+        <XUIPicklist>
+          {suggestedDates.map(cd => {
+            const { id, text } = cd;
+
+            return (
               <XUIPickitem
-                key={cd.id}
-                id={cd.id}
-                value={cd.id}
-                isSelected={this.state.selectedSuggestedDate === cd.id}
-                onSelect={this.selectSuggestedDate}
+                id={id}
+                isSelected={selectedSuggestedDate === id}
+                key={id}
+                onSelect={selectSuggestedDate}
+                value={id}
               >
-                {cd.text}
+                {text}
               </XUIPickitem>
-            ))}
-          </XUIPicklist>
-        </XUIDropdownPanel>
-        <XUIDropdownPanel
-          panelId="customDate"
-          header={
-            <XUIDropdownHeader
-              title="Example Title"
-              onBackButtonClick={this.showSuggestedDates}
-              onSecondaryButtonClick={this.closeDropdown}
-              secondaryButtonContent="Cancel"
-              backButtonAriaLabel="Back"
-            />
-          }
-        >
-          <XUIDatePicker
-            displayedMonth={this.state.currentMonth}
-            locale="en"
-            nextButtonAriaLabel="Next month"
-            onSelectDate={this.selectDate}
-            prevButtonAriaLabel="Previous month"
-            ref={this.datepicker}
-            selectedDate={this.state.selectedDate}
+            );
+          })}
+        </XUIPicklist>
+      </XUIDropdownPanel>
+      <XUIDropdownPanel
+        header={
+          <XUIDropdownHeader
+            backButtonAriaLabel="Back"
+            onBackButtonClick={showSuggestedDates}
+            onSecondaryButtonClick={closeDropdown}
+            secondaryButtonContent="Cancel"
+            title="Suggested Dates"
           />
-        </XUIDropdownPanel>
-      </XUINestedDropdown>
-    );
-    const isPicklist = activePanel !== 'customDate';
-    return (
-      <XUIDropdownToggled
-        ref={this.ddt}
-        trigger={trigger}
-        dropdown={dropdown}
-        closeOnSelect={false}
-        onClose={this.showSuggestedDates}
-        closeOnTab={false}
-        restrictToViewPort={isPicklist}
-      />
-    );
-  }
-}
-<NestedExample />;
+        }
+        panelId="customDate"
+      >
+        <XUIDatePicker
+          displayedMonth={currentMonth}
+          locale="en"
+          nextButtonAriaLabel="Next month"
+          onSelectDate={selectDate}
+          prevButtonAriaLabel="Previous month"
+          ref={datepicker}
+          selectedDate={selectedDate}
+        />
+      </XUIDropdownPanel>
+    </XUINestedDropdown>
+  );
+
+  const isPicklist = activePanel !== 'customDate';
+
+  return (
+    <XUIDropdownToggled
+      closeOnSelect={false}
+      closeOnTab={false}
+      dropdown={dropdown}
+      onClose={showSuggestedDates}
+      ref={ddt}
+      restrictToViewPort={isPicklist}
+      trigger={trigger}
+    />
+  );
+};
+
+<NestedDropdownExample />;
 ```
 
 - Each panel must be wrapped in a `XUIDropdownPanel` and passed as children to `XUINestedDropdown`. Each panel should be given a `panelId` and the id of the currently selected panel should be passed to `XUINestedDropdown` via the `currentPanelId` prop.

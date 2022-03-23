@@ -121,7 +121,8 @@ exports[`<XUISelectBoxOption /> should render checkboxes when the showCheckboxes
 >
   <div
     className="xui-pickitem--body"
-    role="presentation"
+    role="button"
+    tabIndex="-1"
   >
     <div
       className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
@@ -265,7 +266,8 @@ exports[`<XUISelectBoxOption /> should render the option and the checkboxes as d
 >
   <div
     className="xui-pickitem--body"
-    role="presentation"
+    role="button"
+    tabIndex="-1"
   >
     <div
       className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"

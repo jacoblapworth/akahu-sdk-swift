@@ -7,178 +7,122 @@
 If you want standard `XUIPicklist` behaviour (close on select, keyboard handlers, etc) then you **must** have `XUIPicklist` as an immediate child of the `XUIDropdown`. If you are missing these features, make sure that you are correctly using the `XUIPicklist` component.
 
 ```jsx harmony
-import { Component } from 'react';
+import { useState } from 'react';
+import clock from '@xero/xui-icon/icons/clock';
+import receipt from '@xero/xui-icon/icons/receipt';
+import task from '@xero/xui-icon/icons/task';
+
 import XUIButton from '@xero/xui/react/button';
-import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
+import XUIIcon from '@xero/xui/react/icon';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
-const isSelected = (item, selectedIds) =>
-  item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
+const isSelected = (item, selectedIds) => item.props.id === selectedIds;
 
-function createItems(item, selectedId) {
+const createItems = (item, selectedId) => {
   if (Array.isArray(item)) {
     return item.map(i => createItems(i, selectedId));
   }
 
+  const { icon, name, props } = item;
+
   return (
     <XUIPickitem
-      {...item.props}
-      value={item.props.id}
-      key={item.props.id}
+      {...props}
       isSelected={isSelected(item, selectedId)}
+      key={props.id}
+      leftElement={<XUIIcon icon={icon} />}
+      value={props.id}
     >
-      {item.text}
+      {name}
     </XUIPickitem>
   );
-}
+};
 
-const toggledItems = [
-  'Apricot',
-  'Banana',
-  'Cherry',
-  'Dragon Fruit',
-  'Eggplant',
-  'Fennel',
-  'Grapefruit',
-  'Honeydew',
-  'Iceberg Lettuce',
-  'Jackfruit',
-  'Kiwifruit',
-  'Lime',
-  'Mango',
-  'Nectarine',
-  'Orange',
-  'Pineapple',
-  'Quince',
-  'Rapberry',
-  'Starfruit',
-  'Tomato',
-  'Uglifruit',
-  'Valencia Orange',
-  'Watermelon',
-  'Xi gua',
-  'Yellow Squash',
-  'Zucchini'
-].map((text, id) => {
-  return { props: { id }, text };
+const dropdownItems = [
+  { icon: task, name: 'Task' },
+  { icon: clock, name: 'Time entry' },
+  { icon: receipt, name: 'Estimated expense' },
+  { icon: receipt, name: 'Expense' }
+].map(({ icon, name }, id) => {
+  return { props: { id }, icon, name };
 });
 
-class ToggledDropdown extends Component {
-  constructor(...args) {
-    super(...args);
-    this.state = {
-      selectedId: null
-    };
-    this.logOpen = this.logOpen.bind(this);
-    this.onSelect = this.onSelect.bind(this);
-  }
+const DropdownToggledExample = () => {
+  const [selectedId, setSelectedId] = useState(null);
 
-  onSelect(value) {
-    this.setState({
-      selectedId: value
-    });
-  }
+  const onSelect = value => {
+    setSelectedId(value);
+  };
 
-  logOpen() {
-    console.log('user wants to open the dropdown');
-  }
+  const trigger = <XUIButton hasCaret>Add</XUIButton>;
 
-  render() {
-    const trigger = (
-      <XUIButton hasCaret>
-        {this.state.selectedId === null
-          ? 'Trigger Button'
-          : toggledItems[this.state.selectedId].text}
-      </XUIButton>
-    );
-    const dropdown = (
-      <XUIDropdown onSelect={this.onSelect}>
-        <XUIPicklist>{createItems(toggledItems, this.state.selectedId)}</XUIPicklist>
-      </XUIDropdown>
-    );
-    return (
+  const dropdown = (
+    <XUIDropdown onSelect={onSelect}>
+      <XUIPicklist>{createItems(dropdownItems, selectedId)}</XUIPicklist>
+    </XUIDropdown>
+  );
+  return (
+    <>
       <XUIDropdownToggled
-        className="exampleClass"
-        onOpen={this.logOpen}
-        trigger={trigger}
         dropdown={dropdown}
-        qaHook="dropdown-example"
+        onOpen={() => console.log('onOpen')}
+        trigger={trigger}
       />
-    );
-  }
-}
-<ToggledDropdown />;
+    </>
+  );
+};
+
+<DropdownToggledExample />;
 ```
 
 ### Multiselect picklist
 
 ```jsx harmony
-import { Component } from 'react';
+import { useState } from 'react';
 import XUIButton from '@xero/xui/react/button';
-import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 const items = [
-  { id: 'a', text: 'First' },
-  { id: 'b', text: 'Second' },
-  { id: 'c', text: 'Third' },
-  { id: 'd', text: 'Fourth' }
+  { id: 'draft', text: 'Draft' },
+  { id: 'inProgress', text: 'In progress' },
+  { id: 'closed', text: 'Closed' }
 ];
 
-class MultiselectExample extends Component {
-  constructor(...args) {
-    super(...args);
+const DropdownToggledExample = () => {
+  const [selected, setSelected] = useState({ draft: false, inProgress: false, closed: false });
 
-    this.state = {
-      selected: {
-        a: false,
-        b: false,
-        c: false,
-        d: false
-      }
-    };
+  const onSelect = value => {
+    setSelected({ ...selected, [value]: !selected[value] });
+  };
 
-    this.onSelect = this.onSelect.bind(this);
-  }
+  const selectedItems = items.filter(item => selected[item.id]).map(item => item.text);
 
-  onSelect(value) {
-    this.setState(state => ({
-      selected: {
-        ...state.selected,
-        [value]: !state.selected[value]
-      }
-    }));
-  }
-
-  render() {
-    const { selected } = this.state;
-    const selectedItems = items.filter(item => selected[item.id]).map(item => item.text);
-    const trigger = (
-      <XUIButton hasCaret>
-        {selectedItems.length == 0 ? 'Select Items' : selectedItems.join(', ')}
-      </XUIButton>
-    );
-    const dropdown = (
-      <XUIDropdown onSelect={this.onSelect}>
-        <XUIPicklist>
-          {items.map(item => (
-            <XUIPickitem
-              key={item.id}
-              id={item.id}
-              value={item.id}
-              isSelected={selected[item.id]}
-              isMultiselect
-            >
-              {item.text} Option
+  const trigger = (
+    <XUIButton hasCaret>
+      {selectedItems.length == 0 ? 'Project state' : selectedItems.join(', ')}
+    </XUIButton>
+  );
+  const dropdown = (
+    <XUIDropdown onSelect={onSelect}>
+      <XUIPicklist>
+        {items.map(item => {
+          const { id, text } = item;
+          return (
+            <XUIPickitem id={id} isMultiselect isSelected={selected[id]} key={id} value={id}>
+              {text}
             </XUIPickitem>
-          ))}
-        </XUIPicklist>
-      </XUIDropdown>
-    );
-    return <XUIDropdownToggled trigger={trigger} dropdown={dropdown} closeOnSelect={false} />;
-  }
-}
-<MultiselectExample />;
+          );
+        })}
+      </XUIPicklist>
+    </XUIDropdown>
+  );
+
+  return <XUIDropdownToggled closeOnSelect={false} dropdown={dropdown} trigger={trigger} />;
+};
+
+<DropdownToggledExample />;
 ```
 
 #### Props required for this behaviour
@@ -193,10 +137,10 @@ Although using `XUIDropdown` with `XUIPicklist` provides the default behaviour, 
 ### Dropdown with a date picker
 
 ```jsx harmony
-import { Component } from 'react';
+import { useRef, useState } from 'react';
 import XUIButton from '@xero/xui/react/button';
-import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 import XUIDatePicker from '@xero/xui/react/datepicker';
+import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 
 const today = new Date();
 const months = [
@@ -216,64 +160,54 @@ const months = [
 
 const formatDate = date => `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 
-class SimpleDropdownDatePicker extends Component {
-  constructor(...args) {
-    super(...args);
-    this.datepicker = React.createRef();
-    this.ddt = React.createRef();
+const DropdownDatePickerExample = () => {
+  const [selectedDate, setSelectedDate] = useState(today);
+  const [currentMonth, setCurrentMonth] = useState(new Date());
 
-    this.state = {
-      selectedDate: today,
-      currentMonth: new Date()
-    };
+  const datepicker = useRef();
+  const ddt = useRef();
 
-    this.onSelectDate = this.onSelectDate.bind(this);
-    this.focusDatePicker = this.focusDatePicker.bind(this);
-  }
+  const focusDatePicker = () => datepicker.current.focus();
 
-  focusDatePicker() {
-    this.datepicker.current.focus();
-  }
+  const onSelectDate = day => {
+    setSelectedDate(day);
+    setCurrentMonth(day);
+    ddt.current.closeDropdown();
+  };
 
-  onSelectDate(day) {
-    this.setState({
-      selectedDate: day,
-      currentMonth: day
-    });
-    this.ddt.current.closeDropdown();
-  }
-
-  render() {
-    const { currentMonth, selectedDate } = this.state;
-    const dropdown = (
-      <XUIDropdown>
-        <XUIDatePicker
-          displayedMonth={currentMonth}
-          locale="en"
-          nextButtonAriaLabel="Next month"
-          onSelectDate={this.onSelectDate}
-          prevButtonAriaLabel="Previous month"
-          ref={this.datepicker}
-          selectedDate={selectedDate}
-        />
-      </XUIDropdown>
-    );
-    const trigger = (
-      <XUIButton>{selectedDate == null ? 'Select a date' : formatDate(selectedDate)}</XUIButton>
-    );
-    return (
-      <XUIDropdownToggled
-        ref={this.ddt}
-        trigger={trigger}
-        dropdown={dropdown}
-        closeOnTab={false}
-        restrictToViewPort={false}
-        onOpenAnimationEnd={this.focusDatePicker}
+  const dropdown = (
+    <XUIDropdown>
+      <XUIDatePicker
+        displayedMonth={currentMonth}
+        locale="en"
+        nextButtonAriaLabel="Next month"
+        onSelectDate={onSelectDate}
+        prevButtonAriaLabel="Previous month"
+        ref={datepicker}
+        selectedDate={selectedDate}
       />
-    );
-  }
-}
-<SimpleDropdownDatePicker />;
+    </XUIDropdown>
+  );
+
+  const trigger = (
+    <XUIButton hasCaret>
+      {selectedDate == null ? 'Select a date' : formatDate(selectedDate)}
+    </XUIButton>
+  );
+
+  return (
+    <XUIDropdownToggled
+      dropdown={dropdown}
+      onOpenAnimationEnd={focusDatePicker}
+      ref={ddt}
+      restrictToViewPort={false}
+      trigger={trigger}
+      useNewFocusBehaviour={true}
+    />
+  );
+};
+
+<DropdownDatePickerExample />;
 ```
 
 As mentioned, the above example is not using dropdown with its optimised use case so we need to manually handle some interactions. See the key points below for more details.
@@ -290,160 +224,138 @@ As mentioned, the above example is not using dropdown with its optimised use cas
 It is highly recommended that you use [`Autocompleter`](#autocompleter) to implement this pattern if it fits your use case. It handles these customisations by default.
 
 ```jsx harmony
-import 'array.prototype.find';
-import { Component } from 'react';
-import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
-import XUITextInput from '@xero/xui/react/textinput';
+import { useRef, useState } from 'react';
 import {
   boldMatch,
   decorateSubStr,
   XUIAutocompleterEmptyState
 } from '@xero/xui/react/autocompleter';
+import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
 import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import XUITextInput from '@xero/xui/react/textinput';
 
 const items = [
-  'Apricot',
-  'Banana',
-  'Cherry',
-  'Dragon Fruit',
-  'Eggplant',
-  'Fennel',
-  'Grapefruit',
-  'Honeydew',
-  'Iceberg Lettuce',
-  'Jackfruit',
-  'Kiwifruit',
-  'Lime',
-  'Mango',
-  'Nectarine',
-  'Orange',
-  'Pineapple',
-  'Quince',
-  'Rapberry',
-  'Starfruit',
-  'Tomato',
-  'Uglifruit',
-  'Valencia Orange',
-  'Watermelon',
-  'Xi gua',
-  'Yellow quash',
-  'Zucchini'
+  '090 - Business Bank Account',
+  '091 - Business Savings Account',
+  '200 - Sales',
+  '260 - Other Revenue',
+  '270 - Interest Income',
+  '300 - Purchases',
+  '310 - Cost of Goods Sold',
+  '400 - Advertising',
+  '404 - Bank Fees',
+  '408 - Cleaning',
+  '412 - Consulting & Accounting',
+  '420 - Entertainment',
+  '424 - Entertainment - Non deductible',
+  '425 - Freight & Courier',
+  '429 - General Expenses',
+  '433 - Insurance',
+  '437 - Interest Expense',
+  '441 - Legal Expenses',
+  '445 - Light, Power, Heating',
+  '449 - Motor Vehicle Expenses',
+  '453 - Office Expenses',
+  '461 - Printing & Stationery',
+  '469 - Rent',
+  '473 - Repairs and Maintenance',
+  '477 - Salaries',
+  '478 - KiwiSaver Employer Contributions'
 ].map((text, id) => {
   return { id, text };
 });
 
-class InputTriggerExample extends Component {
-  constructor(...args) {
-    super(...args);
+const DropdownInputExample = () => {
+  const [inputValue, setInputValue] = useState('');
+  const [selectedId, setSelectedId] = useState(null);
+  const [highlightedId, setHighlightedId] = useState(null);
+  const [isInvalid, setIsInvalid] = useState(false);
 
-    this.state = {
-      inputValue: '',
-      selectedId: null,
-      highlightedId: null
-    };
+  const dropdownRef = useRef();
+  const ddt = useRef();
 
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onInputKeyDown = this.onInputKeyDown.bind(this);
-    this.onSelect = this.onSelect.bind(this);
-    this.onHighlightChange = this.onHighlightChange.bind(this);
-
-    this.ddt = React.createRef();
-  }
-
-  onInputChange(event) {
+  const onInputChange = event => {
     const invalidInput = !!event.target.value.match(/[\!\.\^%&#]/);
     if (invalidInput) {
-      this.ddt.current.closeDropdown();
+      ddt.current.closeDropdown();
     }
-    this.setState({
-      inputValue: event.target.value,
-      isInvalid: invalidInput
-    });
-  }
 
-  onInputKeyDown(event) {
-    if (this.ddt.current.isDropdownOpen() && this.dropdown != null) {
-      this.dropdown.onKeyDown(event);
+    setInputValue(event.target.value);
+    setIsInvalid(invalidInput);
+  };
+
+  const onInputKeyDown = event => {
+    if (ddt.current.isDropdownOpen() && dropdownRef.current != null) {
+      dropdownRef.current.onKeyDown(event);
     } else {
-      this.ddt.current.openDropdown();
+      ddt.current.openDropdown();
     }
+  };
+
+  const onSelect = value => {
+    setInputValue(items.find(item => item.id === value).text);
+    setSelectedId(value);
+  };
+
+  const onHighlightChange = item => {
+    setHighlightedId(item.props.id);
+  };
+
+  const trigger = (
+    <XUITextInput
+      inputProps={{
+        'aria-autocomplete': 'list',
+        'aria-activedescendant': highlightedId
+      }}
+      isInvalid={isInvalid}
+      label="Account"
+      onChange={onInputChange}
+      onKeyDown={onInputKeyDown}
+      placeholder="Select account"
+      validationMessage="Special characters are not allowed"
+      value={inputValue}
+    />
+  );
+
+  let visibleItems;
+  if (inputValue === '' || (selectedId != null && items[selectedId].text === inputValue)) {
+    visibleItems = items;
+  } else {
+    const matcher = new RegExp(inputValue, 'i');
+    visibleItems = items.filter(item => matcher.test(item.text));
   }
 
-  onSelect(value) {
-    this.setState({
-      inputValue: items.find(item => item.id === value).text,
-      selectedId: value
-    });
+  let pickItems;
+  if (visibleItems.length === 0) {
+    pickItems = <XUIAutocompleterEmptyState>No accounts found</XUIAutocompleterEmptyState>;
+  } else {
+    pickItems = visibleItems.map(item => (
+      <XUIPickitem key={item.id} id={item.id} value={item.id} isSelected={selectedId === item.id}>
+        <span>{decorateSubStr(item.text, inputValue, boldMatch)}</span>
+      </XUIPickitem>
+    ));
   }
 
-  onHighlightChange(item) {
-    this.setState({
-      highlightedId: item.props.id
-    });
-  }
+  const dropdown = (
+    <XUIDropdown
+      hasKeyboardEvents={false}
+      ref={dropdownRef}
+      restrictFocus={false}
+      hasFixedWidth
+      onHighlightChange={onHighlightChange}
+      onSelect={onSelect}
+      size="medium"
+    >
+      <XUIPicklist>{pickItems}</XUIPicklist>
+    </XUIDropdown>
+  );
 
-  render() {
-    const { highlightedId, selectedId, inputValue } = this.state;
-    const trigger = (
-      <XUITextInput
-        label="dropdown with text input trigger"
-        placeholder="Type Here"
-        value={inputValue}
-        onChange={this.onInputChange}
-        onKeyDown={this.onInputKeyDown}
-        inputProps={{
-          'aria-autocomplete': 'list',
-          'aria-activedescendant': highlightedId
-        }}
-        isInvalid={this.state.isInvalid}
-        validationMessage="Special characters are not allowed"
-      />
-    );
+  return (
+    <XUIDropdownToggled dropdown={dropdown} ref={ddt} trigger={trigger} triggerClickAction="none" />
+  );
+};
 
-    let visibleItems;
-    if (inputValue === '' || (selectedId != null && items[selectedId].text === inputValue)) {
-      visibleItems = items;
-    } else {
-      const matcher = new RegExp(inputValue, 'i');
-      visibleItems = items.filter(item => matcher.test(item.text));
-    }
-    let pickItems;
-    if (visibleItems.length === 0) {
-      pickItems = (
-        <XUIAutocompleterEmptyState id="noItems">No Fruit Found</XUIAutocompleterEmptyState>
-      );
-    } else {
-      pickItems = visibleItems.map(item => (
-        <XUIPickitem key={item.id} id={item.id} value={item.id} isSelected={selectedId === item.id}>
-          <span>{decorateSubStr(item.text, inputValue, boldMatch)}</span>
-        </XUIPickitem>
-      ));
-    }
-
-    const dropdown = (
-      <XUIDropdown
-        ref={d => (this.dropdown = d)}
-        hasKeyboardEvents={false}
-        restrictFocus={false}
-        onHighlightChange={this.onHighlightChange}
-        onSelect={this.onSelect}
-      >
-        <XUIPicklist>{pickItems}</XUIPicklist>
-      </XUIDropdown>
-    );
-
-    return (
-      <XUIDropdownToggled
-        ref={this.ddt}
-        trigger={trigger}
-        dropdown={dropdown}
-        triggerClickAction="none"
-      />
-    );
-  }
-}
-
-<InputTriggerExample />;
+<DropdownInputExample />;
 ```
 
 #### Props required for this behaviour

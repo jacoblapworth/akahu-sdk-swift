@@ -34,6 +34,7 @@ const PickitemMultiselect = ({
   pinnedElement,
   rightElement,
   isDisabled,
+  tabIndex,
 }) => {
   const mainContent = shouldTruncate ? (
     <span className={`${pickitemClassName}-text-truncated`}>
@@ -71,7 +72,8 @@ const PickitemMultiselect = ({
       onKeyDown={onKeyDown}
       onMouseOver={onMouseOver}
       onMouseUp={onMouseUp}
-      role="presentation"
+      role="button"
+      tabIndex={tabIndex || 0}
     >
       <XUICheckbox
         checkboxElementClassName={`${pickitemClassName}--input`}
@@ -124,6 +126,7 @@ PickitemMultiselect.propTypes = {
   /** Less important text to appear beside primary. */
   secondaryElement: PropTypes.node,
   shouldTruncate: PropTypes.bool,
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 export default PickitemMultiselect;

@@ -17,7 +17,7 @@ const babelVisualRegression = require('../build/babel_visualregression');
 const Docker = require('./helpers/Docker');
 const md5FileHash = require('./helpers/md5FileHash');
 
-async function runVisualRegresionTestsInDocker() {
+async function runVisualRegressionTestsInDocker() {
   logTaskTitle(__filename);
 
   await babelVisualRegression();
@@ -39,7 +39,9 @@ async function runVisualRegresionTestsInDocker() {
   // Make sure Docker is running
   await docker.ping();
 
-  if (argv.clean) {
+  const newNodeVersion = md5FileHash('.nvmrc');
+  const currentNodeVersion = md5FileHash('.docker/.nvmrc');
+  if (argv.clean || newNodeVersion !== currentNodeVersion) {
     await docker.removeContainer();
     await docker.removeImage();
   }
@@ -49,8 +51,8 @@ async function runVisualRegresionTestsInDocker() {
   await docker.startContainer();
 
   // Install project dependencies inside `/.docker`
-  const newDependencyHash = await md5FileHash('package.json');
-  const currentDependencyHash = await md5FileHash('.docker/package.json');
+  const newDependencyHash = md5FileHash('package.json');
+  const currentDependencyHash = md5FileHash('.docker/package.json');
 
   if (newDependencyHash !== currentDependencyHash) {
     console.log(chalk.blue('[Docker]'), 'Installing dependencies');
@@ -58,6 +60,9 @@ async function runVisualRegresionTestsInDocker() {
     await docker.exec(['cp', '../package.json', './']);
     await docker.exec(['cp', '../package-lock.json', './']);
     await docker.exec(['npm', 'install']);
+  }
+  if (currentNodeVersion !== newNodeVersion) {
+    await docker.exec(['cp', '../.nvmrc', './']);
   }
 
   // Copy required files from `./.visual-testing` to `/.docker/.visual-testing`
@@ -103,5 +108,5 @@ async function runVisualRegresionTestsInDocker() {
   return logScriptRunOutput(twoDecimals(perf.delta), 'Visual regression tests');
 }
 
-module.exports = runVisualRegresionTestsInDocker;
+module.exports = runVisualRegressionTestsInDocker;
 require('make-runnable/custom')({ printOutputFrame: false });

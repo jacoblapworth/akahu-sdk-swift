@@ -6,11 +6,13 @@ import { storiesOf } from '@storybook/react';
 import { text, boolean, select } from '@storybook/addon-knobs';
 
 // Components we need to test with
+import overflow from '@xero/xui-icon/icons/overflow';
 import XUIPageHeader from '../XUIPageHeader';
 import XUIBreadcrumbTrail from '../XUIBreadcrumbTrail';
 import XUIPicklist from '../../picklist/XUIPicklist';
 import XUIPickitem from '../../picklist/XUIPickitem';
 import XUIButton from '../../button/XUIButton';
+import XUIIconButton from '../../button/XUIIconButton';
 import XUIActions from '../../actions/XUIActions';
 import XUITag from '../../tag/XUITag';
 import { userBreakpoints } from '../../helpers/breakpoints';
@@ -60,13 +62,18 @@ const longExampleTabs = breakpoint => (
     </XUIPickitem>
   </XUIPicklist>
 );
-const buildActions = ({ longContent, ...props } = {}) => (
+
+const buildActions = ({ longContent, iconButton, ...props } = {}) => (
   <XUIActions
     hasLayout={false}
     primaryAction={
-      <XUIButton size="small" variant="main">
-        {longContent ? 'ActionCompletion' : 'One'}
-      </XUIButton>
+      iconButton ? (
+        <XUIIconButton ariaLabel="More options" icon={overflow} key="moreOptions" />
+      ) : (
+        <XUIButton size="small" variant="main">
+          {longContent ? 'ActionCompletion' : 'One'}
+        </XUIButton>
+      )
     }
     secondaryAction={
       <XUIButton size="small">{longContent ? 'Action2Completion' : 'Two'}</XUIButton>
@@ -149,6 +156,7 @@ variations.forEach(baseVariation => {
       clickSelector,
       hoverSelector,
       includeAnchor,
+      iconButton,
       ...variation
     } = variationMinusStoryDetails;
 
@@ -198,10 +206,7 @@ variations.forEach(baseVariation => {
         : exampleTabs(tabsSwapPoint, includeAnchor);
     }
     if (variation.actions) {
-      variation.actions = buildActions({
-        hasLayout: false,
-        longContent,
-      });
+      variation.actions = buildActions({ hasLayout: false, longContent, iconButton });
     }
 
     return <XUIPageHeader {...variation} />;

@@ -822,4 +822,87 @@ describe('XUIAutocompleter', () => {
       });
     });
   });
+
+  describe('when passed an onBlur function via inputProps', () => {
+    const onBlurMock = jest.fn();
+    const topLevelOnBlurMock = jest.fn();
+    const blurTestAutocompleter = hasTopLevelOnBlur => (
+      <>
+        <XUIAutocompleter
+          dropdownSize="medium"
+          inputProps={{ onBlur: onBlurMock }}
+          onSearch={() => {}}
+          openOnFocus
+          qaHook="testAutocompleter"
+          onBlur={hasTopLevelOnBlur ? topLevelOnBlurMock : undefined}
+        >
+          <XUIPicklist qaHook="blurTestDropDown">
+            <XUIPickitem id="blurTestPickItem" qaHook="blurTestPickItem">
+              Item
+            </XUIPickitem>
+          </XUIPicklist>
+        </XUIAutocompleter>
+        <div data-automationid="outside-autocompleter" />
+      </>
+    );
+    it('should call the function if manually blurring off of the text input', () => {
+      // Arrange
+      onBlurMock.mockClear();
+      render(blurTestAutocompleter());
+
+      // Act
+      const input = screen.getByTestId('testAutocompleter');
+      userEvent.click(input); // Focus autocompleter
+
+      const outsideAutocompleter = screen.getByTestId('outside-autocompleter');
+      userEvent.click(outsideAutocompleter); // Manually click away from autocompleter
+
+      // Assert
+      expect(onBlurMock).toHaveBeenCalledTimes(1);
+    });
+
+    it('should not call the function if the dropdown closes due to a click inside the dropdown', () => {
+      // Arrange
+      onBlurMock.mockClear();
+      render(blurTestAutocompleter());
+      // Act
+      const input = screen.getByTestId('testAutocompleter');
+      userEvent.click(input); // Focus autocompleter
+      const item = screen.getByTestId('blurTestPickItem');
+      userEvent.click(item);
+
+      // Assert
+      expect(onBlurMock).not.toHaveBeenCalled();
+      expect(screen.queryByTestId('blurTestDropDown')).toBeNull(); // Dropdown was closed
+    });
+
+    it('should not call the function if the dropdown closes due to a keyboard selection inside the dropdown', () => {
+      // Arrange
+      onBlurMock.mockClear();
+      render(blurTestAutocompleter());
+      // Act
+      const input = screen.getByTestId('testAutocompleter');
+      userEvent.click(input); // Focus autocompleter
+      const item = screen.getByTestId('blurTestPickItem');
+      userEvent.type(item, '{Enter}');
+
+      // Assert
+      expect(onBlurMock).not.toHaveBeenCalled();
+      expect(screen.queryByTestId('blurTestDropDown')).toBeNull(); // Dropdown was closed
+    });
+
+    it('should not call an onBlur method passed as a prop directly onto the autocompleter', () => {
+      // Arrange
+      render(blurTestAutocompleter());
+      // Act
+      const input = screen.getByTestId('testAutocompleter');
+      userEvent.click(input); // Focus autocompleter
+
+      const outsideAutocompleter = screen.getByTestId('outside-autocompleter');
+      userEvent.click(outsideAutocompleter); // Manually click away from autocompleter
+
+      // Assert
+      expect(topLevelOnBlurMock).not.toHaveBeenCalled();
+    });
+  });
 });

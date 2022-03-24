@@ -94,10 +94,13 @@ storiesWithKnobs.add('Playground', () => {
 
   const hasCheckbox = boolean('hasCheckbox', false);
   const hasPinnedFirstColumn = boolean('hasPinnedFirstColumn', false);
+  const checkAllValueOptions = [undefined, 'unchecked', 'checked', 'indeterminate'];
   const checkboxProps = hasCheckbox && {
     hasCheckbox,
     hasPinnedFirstColumn,
+    checkAllValue: select('checkAllValue', checkAllValueOptions, checkAllValueOptions[0]),
     checkedIds: { 0: true },
+    isCheckAllDisabled: boolean('isCheckAllDisabled', false),
     onCheckAllToggle: NOOP,
     onCheckOneToggle: NOOP,
   };

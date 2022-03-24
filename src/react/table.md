@@ -462,9 +462,11 @@ Each row's _Checked_ state is derived from checking for _"truthy"_ row key / val
 
 Each row's _Disabled_ state is derived from checking for _"truthy"_ row key / value pairs in the `disabledIds` prop.
 
-**Note: Make sure the state of the _disbled_ checkbox will not be changed via the bulk-select. For reference, There's an example `onCheckAllToggle` callback function below.**
+**Note: Make sure the state of the _disabled_ checkbox will not be changed via the bulk-select. For reference, There's an example `onCheckAllToggle` callback function below.**
 
 Interactions for the _"master"_ and _"single"_ checkbox toggles can be handled using the `onCheckAllToggle` and `onCheckOneToggle` props. If you provide these, you must also provide the corresponding `checkAllRowsAriaLabel` or `checkOneRowAriaLabel` for accessibility purposes.
+
+The header checkbox state is derived from comparing `checkedIds` with `data`. You can override this using `checkAllValue` and `isCheckAllDisabled`. This is useful for paginated data, where the selection might be larger than the currently displayed data.
 
 ```jsx harmony
 import Table, { XUITableColumn as Column, XUITableCell as Cell } from '@xero/xui/react/table';

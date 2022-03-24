@@ -55,6 +55,7 @@ module.exports = {
     'no-cond-assign': ['warn', 'except-parens'],
     radix: 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/no-unused-prop-types': 'off',
     // end rules needing review
 
     'arrow-parens': [1, 'as-needed'],

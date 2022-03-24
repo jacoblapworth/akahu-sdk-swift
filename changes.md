@@ -68,6 +68,10 @@ The following components will have this new behaviour available as an opt-in fro
 - `XUISelectBox` and `XUISelectBoxOption`, `XUIAutocompleter` and `XUIAutocompleterSecondarySearch`: by setting `useNewFocusBehaviour` to true
 - `XUIDropdownToggled` and `XUISplitButtonGroup`, with either `XUIDropdown` or `XUINestedDropdown` as the dropdown: by setting `useNewFocusBehaviour` to true on `XUIDropdownToggled`
 
+The following components will have this new behaviour available as an opt-in from XUI `19.4.0` onwards:
+
+- `XUIEditableTableCellSelectBox`, `XUIEditableTableCellAutocompleter`and `XUIEdiableTableCellAutocompleterSecondarySearch`: by setting `useNewFocusBehaviour` to true
+
 The following components will ALWAYS have this behaviour from XUI `19.2.0` onwards:
 
 - `XUIDateInputItem`, `XUIDateRangeInput` and overflow dropdowns in `XUITable`

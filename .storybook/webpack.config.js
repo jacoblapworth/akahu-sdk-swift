@@ -15,10 +15,23 @@ module.exports = ({ config }) => ({
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
-            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+            presets: [
+              '@babel/preset-env',
+              [
+                '@babel/preset-react',
+                {
+                  runtime: 'automatic',
+                },
+              ],
+              '@babel/preset-typescript',
+            ],
           },
         },
         test: /\.(j|t)sx?$/,
+      },
+      {
+        test: /\.png$/,
+        loaders: ['file-loader'],
       },
     ],
   },

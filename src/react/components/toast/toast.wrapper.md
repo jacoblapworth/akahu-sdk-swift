@@ -7,93 +7,82 @@ This example of `XUIToastWrapper` defines a `timeoutToast` method to dismiss the
 Make sure to give users enough time to trigger toast actions via keyboard navigation. If the inability to trigger an action is detrimental to the user, you should consider not using any timeout at all and instead relying on an action to close the toast.
 
 ```js
-import { PureComponent } from 'react';
-import XUIToast, { XUIToastWrapper, XUIToastMessage } from '@xero/xui/react/toast';
+import { useState } from 'react';
 import XUIButton from '@xero/xui/react/button';
+import XUIToast, { XUIToastMessage, XUIToastWrapper } from '@xero/xui/react/toast';
 
 const TOAST_TIMEOUT = 10000;
 const MAX_TOASTS = 2;
 
-class Example extends PureComponent {
-  constructor(...args) {
-    super(...args);
+const ToastExample = () => {
+  const [toasts, setToasts] = useState([]);
+  const [toastCounter, setToastCounter] = useState(0);
+  const [timerHandles, setTimerHandles] = useState({});
 
-    this._toastCounter = 0;
+  const addToast = () => {
+    const toastName = `INV-208${toastCounter} sent`;
 
-    this.state = {
-      toasts: [],
-      timerHandles: []
-    };
-    this.removeToast = this.removeToast.bind(this);
-    this.addToast = this.addToast.bind(this);
-    this.addToastTimeout = this.addToastTimeout.bind(this);
-    this.stopToastTimeout = this.stopToastTimeout.bind(this);
-    this.timeoutToast = this.timeoutToast.bind(this);
-  }
+    setToasts(previousState => {
+      return [...previousState.slice(-MAX_TOASTS + 1), toastName];
+    });
 
-  removeToast(toastToRemove) {
-    this.setState(prevState => ({
-      toasts: prevState.toasts.filter(toast => toast !== toastToRemove)
-    }));
-  }
-
-  addToast() {
-    this.setState(prevState => {
-      const toastName = `Toast number ${++this._toastCounter}`;
-      const handles = {
-        ...prevState.timerHandles,
-        [toastName]: this.timeoutToast(toastName, TOAST_TIMEOUT)
-      };
-
+    setTimerHandles(previousState => {
       return {
-        toasts: [...prevState.toasts.slice(-MAX_TOASTS + 1), toastName],
-        timerHandles: handles
+        ...previousState,
+        [toastName]: timeoutToast(toastName, TOAST_TIMEOUT)
       };
     });
-  }
 
-  addToastTimeout(toastToClose) {
-    const handle = setTimeout(() => this.removeToast(toastToClose), TOAST_TIMEOUT);
-    this.setState(prevState => {
-      const handles = {
-        ...prevState.timerHandles,
+    setToastCounter(previousState => previousState + 1);
+  };
+
+  const removeToast = toastToRemove => {
+    setToasts(previousState => {
+      return previousState.filter(toast => toast !== toastToRemove);
+    });
+  };
+
+  const addToastTimeout = toastToClose => {
+    const handle = setTimeout(() => removeToast(toastToClose), TOAST_TIMEOUT);
+
+    setTimerHandles(previousState => {
+      return {
+        ...previousState,
         [toastToClose]: handle
       };
-      return {
-        timerHandles: handles
-      };
     });
-  }
+  };
 
-  timeoutToast(toastToClose, delay) {
-    return setTimeout(() => this.removeToast(toastToClose), delay);
-  }
+  const timeoutToast = (toastToClose, delay) => {
+    return setTimeout(() => removeToast(toastToClose), delay);
+  };
 
-  stopToastTimeout(toast) {
-    clearTimeout(this.state.timerHandles[toast]);
-  }
+  const stopToastTimeout = toast => {
+    clearTimeout(timerHandles[toast]);
+  };
 
-  render() {
-    return (
-      <div>
-        <XUIButton onClick={this.addToast}>Add a toast</XUIButton>
-        <XUIToastWrapper>
-          {this.state.toasts.map((toast, idx) => (
+  return (
+    <div>
+      <XUIButton onClick={addToast} variant="main">
+        Send invoice
+      </XUIButton>
+      <XUIToastWrapper>
+        {toasts &&
+          toasts.map((toast, index) => (
             <XUIToast
               closeButtonLabel="Close"
-              key={idx}
-              onCloseClick={() => this.removeToast(toast)}
-              onMouseLeave={() => this.addToastTimeout(toast)}
-              onMouseOver={() => this.stopToastTimeout(toast)}
+              key={index}
+              onCloseClick={() => removeToast(toast)}
+              onMouseLeave={() => addToastTimeout(toast)}
+              onMouseOver={() => stopToastTimeout(toast)}
             >
               <XUIToastMessage>{toast}</XUIToastMessage>
             </XUIToast>
           ))}
-        </XUIToastWrapper>
-      </div>
-    );
-  }
-}
+      </XUIToastWrapper>
+    </div>
+  );
+};
 
-<Example />;
+<ToastExample />;
 ```

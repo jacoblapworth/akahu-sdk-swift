@@ -23,6 +23,7 @@
     "language",
     "examplecontenttable",
     "visualexample",
+    "visualexampleclass",
     "figmacomponentframekey"
   ],
   "destination": "./dist/docs",

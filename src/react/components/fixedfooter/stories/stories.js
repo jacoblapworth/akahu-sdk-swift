@@ -1,21 +1,15 @@
-// Libs
-import React from 'react';
-
-// Components we need to test with
-import overflow from '@xero/xui-icon/icons/overflow';
-import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs';
-import XUIFixedFooterWIP from '../XUIFixedFooterWIP';
+import { storiesOf } from '@storybook/react';
+import overflow from '@xero/xui-icon/icons/overflow';
+import React from 'react';
 import XUIActions from '../../../actions';
+import XUIAvatar from '../../../avatar';
 import XUIButton, { XUIIconButton } from '../../../button';
 import { XUIContentBlock, XUIContentBlockItem } from '../../../contentblock';
-import XUIAvatar from '../../../avatar';
-import XUITag from '../../../tag';
-
-// Story book things
 import logReadyState from '../../../stories/helpers/log-ready-state';
-
-import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
+import XUITag from '../../../tag';
+import XUIFixedFooterWIP from '../XUIFixedFooterWIP';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
 const sampleText =
   "1. Some content could go here and we want to be sure it doesn't get hidden behind the sticky elements.2. Some content could go here and we want to be sure it doesn't get hidden behind the sticky elements.3. Some content could go here and we want to be sure it doesn't get hidden behind the sticky elements.4. Some content could go here and we want to be sure it doesn't get hidden behind the sticky elements.";
@@ -33,15 +27,11 @@ const sampleActions = (
   <XUIActions
     className="xui-padding-small"
     primaryAction={
-      <XUIButton onClick={() => console.log('primary click')} size="small" variant="main">
+      <XUIButton size="small" variant="main">
         ActionCompletion
       </XUIButton>
     }
-    secondaryAction={
-      <XUIButton onClick={() => console.log('secondary click')} size="small">
-        Action2Completion
-      </XUIButton>
-    }
+    secondaryAction={<XUIButton size="small">Action2Completion</XUIButton>}
   />
 );
 
@@ -71,13 +61,49 @@ const sampleContentBlock = (
   </XUIContentBlock>
 );
 
+const Example = () => {
+  const [showFixedFooter, setShowFixedFooter] = React.useState(false);
+  return (
+    <>
+      <XUIButton
+        onClick={() => {
+          setShowFixedFooter(!showFixedFooter);
+        }}
+      >
+        Toggle fixed footer
+      </XUIButton>
+      {showFixedFooter && (
+        <XUIFixedFooterWIP>
+          <XUIActions
+            className="xui-padding-small"
+            isLinear
+            primaryAction={
+              <span>
+                <XUIButton className="xui-margin-right-small" hasCaret size="small">
+                  Save as
+                </XUIButton>
+                <XUIButton className="xui-margin-right-small" hasCaret size="small">
+                  Export
+                </XUIButton>
+                <XUIButton onClick={() => console.log('primary click')} size="small" variant="main">
+                  Save
+                </XUIButton>
+              </span>
+            }
+            secondaryAction={
+              <XUIButton onClick={() => console.log('secondary click')} size="small">
+                Edit
+              </XUIButton>
+            }
+          />
+        </XUIFixedFooterWIP>
+      )}
+    </>
+  );
+};
+
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
-storiesWithKnobs.add('Playground', () => (
-  <>
-    {sampleLongContentPanel}
-    <XUIFixedFooterWIP qaHook={text('qaHook', '')}>{sampleActions}</XUIFixedFooterWIP>
-  </>
-));
+storiesWithKnobs.add('Playground', () => <Example />);
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 const fixedStories = storiesOf(storiesWithVariationsKindName, module);

@@ -1,141 +1,115 @@
 This component behaves similarly to an autocompleter, except that it is triggered by a button instead of an input. The input is a secondary interaction, focused by default when the dropdown opens. The secondary search component is a separate component to the autocompleter but share similar APIs.
 
 ```jsx harmony
-import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
-import {
-  XUIAutocompleterSecondarySearch,
-  XUIAutocompleterEmptyState
-} from '@xero/xui/react/autocompleter';
-import { XUIDropdownFooter } from '@xero/xui/react/dropdown';
-import XUIButton from '@xero/xui/react/button';
-import XUIIcon from '@xero/xui/react/icon';
-import plusIcon from '@xero/xui-icon/icons/plus';
+import { useState } from 'react';
+import plus from '@xero/xui-icon/icons/plus';
 
-const SecondarySearchData = [
-  { props: { id: 'ss1' }, text: 'Cost' },
-  { props: { id: 'ss2' }, text: 'More Costs' },
-  { props: { id: 'ss3' }, text: 'No Costs' },
-  { props: { id: 'ss4' }, text: 'Nothing about Cost' },
-  { props: { id: 'ss5' }, text: 'Something Unrelated' },
-  { props: { id: 'ss6' }, text: 'Random Item' },
-  { props: { id: 'ss7' }, text: 'Coats' },
-  { props: { id: 'ss8' }, text: 'Big Coat' }
+import {
+  XUIAutocompleterEmptyState,
+  XUIAutocompleterSecondarySearch
+} from '@xero/xui/react/autocompleter';
+import XUIAvatar from '@xero/xui/react/avatar';
+import XUIButton from '@xero/xui/react/button';
+import { XUIDropdownFooter } from '@xero/xui/react/dropdown';
+import XUIIcon from '@xero/xui/react/icon';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+
+const projects = [
+  { contact: 'Abby & Wells', id: 'ss1', text: 'Website redesign' },
+  { contact: 'Eastside Club', id: 'ss2', text: 'Website IA' },
+  { contact: 'Luna Cafe', id: 'ss3', text: 'Brochure design' },
+  { contact: 'Rite Agency', id: 'ss4', text: 'Ad campaign' }
 ];
 
 const isSelected = (item, selectedIds) =>
-  item.props.id === selectedIds || (!!selectedIds && selectedIds[item.props.id]);
+  item.id === selectedIds || (!!selectedIds && selectedIds[item.id]);
 
-const noop = () => {};
-
-function createItems(item, selectedId) {
+const createItems = (item, selectedId) => {
   if (Array.isArray(item)) {
     return item.map(i => createItems(i, selectedId));
   }
 
+  const { contact, id, text } = item;
+
   return (
     <XUIPickitem
-      {...item.props}
-      value={item.props.id}
-      key={item.props.id}
+      id={id}
       isSelected={isSelected(item, selectedId)}
+      key={id}
+      leftElement={<XUIAvatar size="small" value={contact} variant="business" />}
+      value={item}
     >
-      {item.text}
+      {text}
     </XUIPickitem>
   );
-}
+};
 
-class SecondarySearchExample extends React.Component {
-  constructor(...args) {
-    super(...args);
+const AutocompleterSecondarySearchExample = () => {
+  const [data, setData] = useState(projects);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [value, setValue] = useState('');
 
-    const sse = this;
+  const onOptionSelect = item => {
+    setSelectedItem(item);
+  };
 
-    sse.state = {
-      data: SecondarySearchData,
-      selectedItem: null,
-      value: ''
-    };
-
-    sse.onSearch = sse.onSearch.bind(sse);
-    sse.onClose = sse.onClose.bind(sse);
-    sse.onOptionSelect = sse.onOptionSelect.bind(sse);
-  }
-
-  onOptionSelect(value) {
-    this.setState({
-      selectedItem: value
-    });
-  }
-
-  onSearch(value) {
-    const matchingData = SecondarySearchData.filter(item =>
+  const onSearch = value => {
+    const matchingData = projects.filter(item =>
       item.text.toLowerCase().includes(value.toLowerCase())
     );
 
-    this.setState({
-      data: matchingData,
-      value: value
-    });
-  }
+    setData(matchingData);
+    setValue(value);
+  };
 
-  onClose() {
-    this.setState({
-      value: '',
-      data: SecondarySearchData
-    });
-  }
+  const onClose = () => {
+    setValue('');
+    setData(projects);
+  };
 
-  render() {
-    const sse = this;
-    const { value, data } = sse.state;
+  const trigger = <XUIButton hasCaret>{selectedItem ? selectedItem.text : 'Project'}</XUIButton>;
 
-    const trigger = (
-      <XUIButton type="button" hasCaret onClick={noop} data-ref="toggled_trigger">
-        Toggle Me
-      </XUIButton>
+  const items =
+    data.length > 0 ? (
+      createItems(data, selectedItem)
+    ) : (
+      <XUIAutocompleterEmptyState>No projects found</XUIAutocompleterEmptyState>
     );
 
-    const items =
-      data.length > 0 ? (
-        createItems(data, sse.state.selectedItem)
-      ) : (
-        <XUIAutocompleterEmptyState>No results found</XUIAutocompleterEmptyState>
-      );
-
-    const footer = (
-      <XUIDropdownFooter
-        pickItems={
-          <XUIPickitem
-            id="footerAction"
-            leftElement={<XUIIcon icon={plusIcon} className="xui-margin-right-xsmall" />}
-          >
-            Add New Person
-          </XUIPickitem>
-        }
-      />
-    );
-
-    return (
-      <div>
-        <XUIAutocompleterSecondarySearch
-          trigger={trigger}
-          onOptionSelect={sse.onOptionSelect}
-          onSearch={sse.onSearch}
-          searchValue={value}
-          dropdownSize="small"
-          inputLabel="secondary search label"
-          isInputLabelHidden
-          qaHook="secondary-search"
-          footer={footer}
-          closeOnTab={false}
-          onClose={this.onClose}
+  const footer = (
+    <XUIDropdownFooter
+      pickItems={
+        <XUIPickitem
+          id="footerAction"
+          leftElement={<XUIIcon className="xui-margin-right-xsmall" icon={plus} />}
+          onClick={() => console.log('Add new project - onClick')}
         >
-          <XUIPicklist>{items}</XUIPicklist>
-        </XUIAutocompleterSecondarySearch>
-      </div>
-    );
-  }
-}
+          Add new project
+        </XUIPickitem>
+      }
+    />
+  );
 
-<SecondarySearchExample />;
+  return (
+    <div>
+      <XUIAutocompleterSecondarySearch
+        dropdownSize="medium"
+        footer={footer}
+        inputLabel="Search projects"
+        isInputLabelHidden
+        onClose={onClose}
+        onOptionSelect={onOptionSelect}
+        onSearch={onSearch}
+        placeholder="Search projects"
+        searchValue={value}
+        trigger={trigger}
+        useNewFocusBehaviour
+      >
+        <XUIPicklist>{items}</XUIPicklist>
+      </XUIAutocompleterSecondarySearch>
+    </div>
+  );
+};
+
+<AutocompleterSecondarySearchExample />;
 ```

@@ -22,15 +22,41 @@ module.exports = {
     'simple-import-sort',
     '@typescript-eslint',
     'typescript-sort-keys',
+    'filenames',
   ],
   extends: [
-    '@xero/eslint-config-xero-react',
     'plugin:jest/recommended',
     'plugin:jsx-a11y/recommended',
+    'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended',
     'prettier',
+    'airbnb',
   ],
   rules: {
+    // TODO: Review these rules and adjust as desired
+    'no-undef': 'off',
+    'operator-linebreak': 'off',
+    'max-len': 'off',
+    'object-curly-newline': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'no-confusing-arrow': 'off',
+    'no-tabs': 'off',
+    quotes: 'off',
+    'jsx-a11y/control-has-associated-label': 'off',
+    'function-paren-newline': 'off',
+    'no-redeclare': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'linebreak-style': 'off',
+    'no-underscore-dangle': 'off',
+    'no-constant-condition': ['error', { checkLoops: false }],
+    'filenames/match-regex': ['error', '^[a-zA-Z0-9.-]+$', true],
+    'filenames/no-index': 'off',
+    'no-cond-assign': ['warn', 'except-parens'],
+    radix: 'off',
+    'react/react-in-jsx-scope': 'off',
+    // end rules needing review
+
     'arrow-parens': [1, 'as-needed'],
     'comma-dangle': 1,
     'filenames/match-exported': 0, // TODO: Investigate fix. Our react/* files don't match the export names (i.e. tag.js exports XUITag)
@@ -101,6 +127,12 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['axeHelper.ts'],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
+    {
       files: ['**/scripts/**/*.js', 'babel.config.js', 'webpack.umd.config.js'],
       rules: {
         'import/no-extraneous-dependencies': 'off',
@@ -163,6 +195,7 @@ module.exports = {
         '@typescript-eslint/triple-slash-reference': 'off',
         '@typescript-eslint/type-annotation-spacing': 'off',
         'import/named': 'off',
+        'import/prefer-default-export': 'off',
         // TODO: Decide whether or not we want to turn any of the below options on. They came in during an ESLint update so I turned them all off for now. Each of these could still be turned off for special use-cases if needed.
         'simple-import-sort/imports': 'off',
         'simple-import-sort/exports': 'off',

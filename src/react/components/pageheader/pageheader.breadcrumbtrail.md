@@ -5,26 +5,28 @@
 `XUIBreadcrumbTrail` creates a list of sequenced nav items from a provided array. It is most commonly found in addition to a title in a `XUIPageHeader`. The array can contain objects used to generate anchor links, or it can contain HTML nodes which will have the `xui-breadcrumb--link` class added to them. As always, be mindful of accessibility concerns if using non-semantic elements for interactivity.
 
 ```jsx harmony
-import { XUIPageHeader, XUIBreadcrumbTrail } from '@xero/xui/react/pageheader';
+import XUIPageHeader, { XUIBreadcrumbTrail } from '@xero/xui/react/pageheader';
 
-const logHi = () => console.log('hello');
+const handleClick = () => console.log('onClick');
+const handleKeyDown = () => console.log('onKeyDown');
 
 const breadcrumbLinks = [
-  <span tabIndex={0} role="link" onClick={logHi} key="a">
-    Elements
+  <span key="a" onClick={handleClick} onKeyDown={handleKeyDown} role="link" tabIndex={0}>
+    Organisations
   </span>,
-  { key: 'b', label: 'Identifiers', href: '#breadcrumb' },
-  { key: 'c', label: 'Avatar', href: '#breadcrumb2' }
+  { href: '#settings', key: 'b', label: 'Settings' },
+  { href: '#permissions', key: 'c', label: 'Permissions' }
 ];
+
 const builtBreadcrumb = <XUIBreadcrumbTrail breadcrumbs={breadcrumbLinks} />;
 
 const wrapperStyles = {
-  resize: 'horizontal',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  resize: 'horizontal'
 };
 
 <div className="xui-panel xui-padding-small" style={wrapperStyles}>
-  <XUIPageHeader breadcrumb={builtBreadcrumb} title="Update your account" />
+  <XUIPageHeader breadcrumb={builtBreadcrumb} title="Edit permissions" />
 </div>;
 ```
 
@@ -35,26 +37,29 @@ const wrapperStyles = {
 Try to resize: Click and drag the bottom right corner of the following container.
 
 ```jsx harmony
-import { XUIPageHeader, XUIBreadcrumbTrail } from '@xero/xui/react/pageheader';
+import XUIPageHeader, { XUIBreadcrumbTrail } from '@xero/xui/react/pageheader';
 
-const logHi = () => console.log('hello');
+const handleClick = () => console.log('onClick');
+const handleKeyDown = () => console.log('onKeyDown');
 
 const breadcrumbLinks = [
-  <span tabIndex={0} role="link" onClick={logHi} key="a">
-    Elements
+  <span key="a" onClick={handleClick} onKeyDown={handleKeyDown} role="link" tabIndex={0}>
+    Organisations
   </span>,
-  { key: 'b', label: 'Identifiers', href: '#breadcrumb' },
-  { key: 'c', label: 'Avatar', href: '#breadcrumb2' }
+  { href: '#settings', key: 'b', label: 'Settings' },
+  { href: '#permissions', key: 'c', label: 'Permissions' }
 ];
+
 const builtBreadcrumb = (
   <XUIBreadcrumbTrail breadcrumbs={breadcrumbLinks} swapAtBreakpoint="small" />
 );
 
 const wrapperStyles = {
-  resize: 'horizontal',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  resize: 'horizontal'
 };
+
 <div className="xui-panel xui-padding-small" style={wrapperStyles}>
-  <XUIPageHeader breadcrumb={builtBreadcrumb} title="Update your account" />
+  <XUIPageHeader breadcrumb={builtBreadcrumb} title="Edit permissions" />
 </div>;
 ```

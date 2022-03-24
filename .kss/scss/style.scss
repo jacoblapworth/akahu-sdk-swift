@@ -115,7 +115,7 @@ $ds-section-space: calc(6rem + 2vh);
 }
 
 .ds-title--level-1 {
-  font-size: #{"max(calc(1.6em + 1.5vw), "$ds-min-h1-size")"};
+  font-size: #{'max(calc(1.6em + 1.5vw), ' $ds-min-h1-size ')'};
   letter-spacing: -0.006em;
   line-height: 1.15;
   // Add padding to accommodate react link
@@ -131,7 +131,7 @@ $ds-section-space: calc(6rem + 2vh);
 
 .ds-title--level-2,
 .ds-description h2 {
-  font-size: #{"max(calc(1.2em + 0.4vw), "$ds-min-h2-size")"};
+  font-size: #{'max(calc(1.2em + 0.4vw), ' $ds-min-h2-size ')'};
   padding-top: $ds-section-space;
   letter-spacing: -0.006em;
 
@@ -1248,6 +1248,11 @@ $kss-color-padding: #eeebff;
   margin: 10px 0;
   padding-left: 0;
   line-height: $xui-line-height-standard;
+
+  li {
+    padding-bottom: 6px;
+    line-height: 1.2rem;
+  }
 }
 
 .ds-nav-sticky--list--highlighted {

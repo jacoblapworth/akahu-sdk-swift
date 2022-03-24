@@ -100,6 +100,7 @@ class XUIEditableTableCellAutocompleter extends Component {
       isInvalid,
       forceStatefulPicklist,
       triggerClassName,
+      useNewFocusBehaviour,
       validationMessage,
       ...spreadProps
     } = this.props;
@@ -134,6 +135,7 @@ class XUIEditableTableCellAutocompleter extends Component {
           isInvalid={isInvalid}
           ref={this.completerRef}
           triggerClassName={cn(`${baseName}--trigger`, triggerClassName)}
+          useNewFocusBehaviour={useNewFocusBehaviour}
         />
       </XUIEditableTableCellControl>
     );
@@ -282,6 +284,11 @@ XUIEditableTableCellAutocompleter.propTypes = {
 
   /** CSS class(es) to go on the trigger element which contains the input and pills */
   triggerClassName: PropTypes.string,
+
+  /** Whether or not to use the new focus behaviour - which treats dropdown navigation
+   * like a `combobox` role. Defaults to `false`.
+   */
+  useNewFocusBehaviour: PropTypes.bool,
 
   /** Validation message to show under the input if `isInvalid` is true */
   validationMessage: PropTypes.node,

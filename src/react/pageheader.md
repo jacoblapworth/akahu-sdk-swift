@@ -9,30 +9,30 @@ The `XUIPageHeader` appears beneath the global header on a page. In a basic exam
 #### Examples
 
 ```jsx harmony
-import { XUIPageHeader } from '@xero/xui/react/pageheader';
+import XUIPageHeader from '@xero/xui/react/pageheader';
 
-<XUIPageHeader title="Account Settings" />;
+<XUIPageHeader title="Account settings" />;
 ```
 
 ```jsx harmony
-import { XUIPageHeader } from '@xero/xui/react/pageheader';
+import XUIPageHeader from '@xero/xui/react/pageheader';
 import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 const builtTabs = (
   <XUIPicklist secondaryProps={{ role: 'menu' }}>
-    <XUIPickitem ariaRole="menuitem" id="one">
-      See all
+    <XUIPickitem ariaRole="menuitem" id="all-1">
+      All
     </XUIPickitem>
-    <XUIPickitem ariaRole="menuitem" id="two" isSelected>
-      Edit
+    <XUIPickitem ariaRole="menuitem" id="customers-1" isSelected>
+      Customers
     </XUIPickitem>
-    <XUIPickitem ariaRole="menuitem" id="three">
-      Add
+    <XUIPickitem ariaRole="menuitem" id="suppliers-1">
+      Suppliers
     </XUIPickitem>
   </XUIPicklist>
 );
 
-<XUIPageHeader title="Contacts" tabs={builtTabs} />;
+<XUIPageHeader tabs={builtTabs} title="Contacts" />;
 ```
 
 For responsive support, there's a compact version for horizontal picklist which could be used in `tabs` of `XUIPageHeader`.
@@ -42,112 +42,108 @@ For responsive support, there's a compact version for horizontal picklist which 
 Try to resize: Click and drag the bottom right corner of the following container.
 
 ```jsx harmony
-import { XUIPageHeader } from '@xero/xui/react/pageheader';
+import XUIPageHeader from '@xero/xui/react/pageheader';
 import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 const builtTabs = (
   <XUIPicklist secondaryProps={{ role: 'menu' }} swapAtBreakpoint="small">
-    <XUIPickitem ariaRole="menuitem" id="one">
-      See all
+    <XUIPickitem ariaRole="menuitem" id="all-2">
+      All
     </XUIPickitem>
-    <XUIPickitem ariaRole="menuitem" id="two" isSelected>
-      Edit
+    <XUIPickitem ariaRole="menuitem" id="customers-2" isSelected>
+      Customers
     </XUIPickitem>
-    <XUIPickitem ariaRole="menuitem" id="three">
-      Add
+    <XUIPickitem ariaRole="menuitem" id="suppliers-2">
+      Suppliers
     </XUIPickitem>
   </XUIPicklist>
 );
+
 const wrapperStyles = {
-  resize: 'horizontal',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  resize: 'horizontal'
 };
 
 <div className="xui-panel xui-padding-xsmall" style={wrapperStyles}>
-  <XUIPageHeader title="Contacts" tabs={builtTabs} />
+  <XUIPageHeader tabs={builtTabs} title="Contacts" />
 </div>;
 ```
 
 ```jsx harmony
-import { XUIPageHeader } from '@xero/xui/react/pageheader';
+import overflow from '@xero/xui-icon/icons/overflow';
 import XUIActions from '@xero/xui/react/actions';
-import XUIButton from '@xero/xui/react/button';
+import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import XUIPageHeader from '@xero/xui/react/pageheader';
 
 const builtActions = (
   <XUIActions
     hasLayout={false}
-    primaryAction={
-      <XUIButton key="one" variant="main" size="small">
-        Create
-      </XUIButton>
-    }
+    primaryAction={<XUIIconButton icon={overflow} key="moreOptions" ariaLabel="More options" />}
     secondaryAction={
-      <XUIButton key="two" size="small">
-        Discard
+      <XUIButton key="newContact" size="small" variant="create">
+        New contact
       </XUIButton>
     }
   />
 );
 
-<XUIPageHeader title="Create Invoice" actions={builtActions} />;
+<XUIPageHeader actions={builtActions} title="Contacts" />;
 ```
 
 ```jsx harmony
-import { XUIPageHeader, XUIBreadcrumbTrail } from '@xero/xui/react/pageheader';
 import XUIActions from '@xero/xui/react/actions';
 import XUIButton from '@xero/xui/react/button';
-import XUITag from '@xero/xui/react/tag';
+import XUIPageHeader, { XUIBreadcrumbTrail } from '@xero/xui/react/pageheader';
 import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import XUITag from '@xero/xui/react/tag';
 
 const builtActions = (
   <XUIActions
     hasLayout={false}
     primaryAction={
-      <XUIButton key="one" variant="main" size="small">
+      <XUIButton key="create" size="small" variant="create">
         Create
       </XUIButton>
     }
     secondaryAction={
-      <XUIButton key="two" size="small">
+      <XUIButton key="discard" size="small">
         Discard
       </XUIButton>
     }
   />
 );
 
-const sampleBreadcrumb = [
-  <span role="link" tabIndex="0" onClick={() => alert('hello')} onKeyDown={() => {}} key="1">
-    Organisation settings
-  </span>,
-  { label: 'Edit organisation', href: '#2' }
+const breadcrumbLinks = [
+  { href: '#organisation-settings', key: '1', label: 'Organisation settings' },
+  { href: '#edit-organisation', key: '2', label: 'Edit organisation' }
 ];
-const builtBreadcrumb = <XUIBreadcrumbTrail breadcrumbs={sampleBreadcrumb} />;
+const builtBreadcrumb = <XUIBreadcrumbTrail breadcrumbs={breadcrumbLinks} />;
 
 const builtTabs = (
   <XUIPicklist secondaryProps={{ role: 'menu' }}>
-    <XUIPickitem ariaRole="menuitem" id="one">
+    <XUIPickitem ariaRole="menuitem" id="seeAll">
       See all
     </XUIPickitem>
-    <XUIPickitem ariaRole="menuitem" id="two" isSelected>
+    <XUIPickitem ariaRole="menuitem" id="edit" isSelected>
       Edit
     </XUIPickitem>
-    <XUIPickitem ariaRole="menuitem" id="three">
+    <XUIPickitem ariaRole="menuitem" id="add">
       Add
     </XUIPickitem>
   </XUIPicklist>
 );
 
 <XUIPageHeader
-  title="New member"
-  secondary="Create a read-only member"
+  actions={builtActions}
+  breadcrumb={builtBreadcrumb}
+  secondary="Cherise Tan"
   supplementary="Saved"
+  tabs={builtTabs}
   tags={[
     <XUITag key="pending" size="small">
       Pending
     </XUITag>
   ]}
-  actions={builtActions}
-  breadcrumb={builtBreadcrumb}
-  tabs={builtTabs}
+  title="New member"
 />;
 ```

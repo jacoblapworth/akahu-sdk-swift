@@ -450,6 +450,82 @@ describe('XUITable', () => {
         // Assert
         expect(screen.queryByTestId('testId-head-checkbox--input')).toHaveAttribute('disabled');
       });
+
+      test('selectAllValue overrides default header checkbox behaviour when checked', () => {
+        // Arrange
+        render(
+          <XUITableWithData
+            checkAllValue="checked"
+            checkedIds={{
+              row1: true,
+            }}
+            data={{
+              row1: { fruit: 'Apple', color: 'Red', price: 2.99 },
+              row2: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
+            }}
+            hasCheckbox
+            onCheckAllToggle={NOOP}
+            qaHook="testId"
+          />,
+        );
+
+        // Assert
+        expect(screen.queryByTestId('testId-head-checkbox--input')).toHaveAttribute('checked');
+        expect(
+          (screen.queryByTestId('testId-head-checkbox--input') as HTMLInputElement).indeterminate,
+        ).toBeFalsy();
+      });
+
+      test('selectAllValue overrides default header checkbox behaviour when indeterminate', () => {
+        // Arrange
+        render(
+          <XUITableWithData
+            checkAllValue="indeterminate"
+            checkedIds={{
+              row1: true,
+              row2: true,
+            }}
+            data={{
+              row1: { fruit: 'Apple', color: 'Red', price: 2.99 },
+              row2: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
+            }}
+            hasCheckbox
+            onCheckAllToggle={NOOP}
+            qaHook="testId"
+          />,
+        );
+
+        // Assert
+        expect(
+          (screen.queryByTestId('testId-head-checkbox--input') as HTMLInputElement).indeterminate,
+        ).toBeTruthy();
+        expect(screen.queryByTestId('testId-head-checkbox--input')).not.toHaveAttribute('checked');
+      });
+    });
+
+    test('selectAllValue overrides default header checkbox behaviour when unchecked', () => {
+      // Arrange
+      render(
+        <XUITableWithData
+          checkAllValue="unchecked"
+          checkedIds={{
+            row1: true,
+          }}
+          data={{
+            row1: { fruit: 'Apple', color: 'Red', price: 2.99 },
+            row2: { fruit: 'Banana', color: 'Yellow', price: 2.99 },
+          }}
+          hasCheckbox
+          onCheckAllToggle={NOOP}
+          qaHook="testId"
+        />,
+      );
+
+      // Assert
+      expect(screen.queryByTestId('testId-head-checkbox--input')).not.toHaveAttribute('checked');
+      expect(
+        (screen.queryByTestId('testId-head-checkbox--input') as HTMLInputElement).indeterminate,
+      ).toBeFalsy();
     });
 
     test('pressing tab moves through sortable headers', () => {

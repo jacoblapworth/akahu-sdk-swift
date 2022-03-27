@@ -1,0 +1,128 @@
+// Error pages
+//
+// flags: wip new
+//
+// Teaser: Best practice guidance for the use of error pages.
+//
+// Introduction: No digital experience works all of the time, so it’s inevitable that some users will end up clicking on a page that's down, has a broken url, or requires permission. In these circumstances, we redirect users to an error page.
+//
+// Weight: 5.4
+//
+// Styleguide: Patterns.Error-pages
+
+// When to use
+//
+// * Viewing the page requires permissions the user doesn't have [(403)](./section-patterns-error-pages.html#patterns-error-pages-4-1)
+// * A page can't be found as the link is broken or URL is entered incorrectly [(404)](./section-patterns-error-pages.html#patterns-error-pages-4-2)
+// * There is a problem with the server and it can't complete a request [(500)](./section-patterns-error-pages.html#patterns-error-pages-5-1)
+// * The service is temporarily unavailable [(503)](./section-patterns-error-pages.html#patterns-error-pages-5-2)
+//
+// Styleguide: Patterns.Error-pages.1
+
+// When not to use
+//
+// Don’t use these four error pages for any alternative errors. If a new error message is required, seek support from the [Fedex](https://xero.slack.com/archives/C019469M9JQ) or [XUI](https://xero.slack.com/archives/C56RA62Q5) teams.
+//
+// Styleguide: Patterns.Error-pages.2
+
+// Best practice
+//
+// Tips:
+// Do: Error pages should inform the user of what went wrong and give the best action to resolve the error or allow them to go back to the original page
+// Do: All error pages should have a global navigation. If that is not possible, the actions provided should direct the user to the appropriate help or information
+//
+// Styleguide: Patterns.Error-pages.3
+
+// Client-side errors
+//
+// Client-side errors are the ‘4xx’ class. They usually appear if a page is not found or there are authentication issues. Xero has standardised errors for 403 and 404.
+//
+// Styleguide: Patterns.Error-pages.4
+
+// 403 — Lack of permission
+//
+// A 403 error comes after a user has logged-in but does not have the necessary permissions to access the desired resource.
+//
+// To resolve this error, a user can try the following:
+// * Double-check file permissions
+// * Clear the browser cache
+// * Reload the page
+// * Contact the System Administrator
+//
+// ExampleClass: ds-example-nomarkuplink
+//
+// Markup: ./examples/error-pages/_error-pages-403.html
+//
+// Styleguide: Patterns.Error-pages.4.1
+
+// 404 — Page not found
+//
+// A 404 error means the server couldn’t find the page the user requested.
+//
+// To resolve this error, a user can try the following:
+// * Check they have typed the correct URL
+// * Reload the page
+//
+// ExampleClass: ds-example-nomarkuplink
+//
+// Markup: ./examples/error-pages/_error-pages-404.html
+//
+// Styleguide: Patterns.Error-pages.4.2
+
+// Server-side errors
+//
+// The ‘5xx’ errors are the fault of server providers and/or because of connectivity issues. Either way, if one of these kinds of errors persists, users should contact support. Xero has standardised errors for 500 and 503.
+//
+// Styleguide: Patterns.Error-pages.5
+
+// 500 — Server error
+//
+// This error occurs when the server encounters a problem and can’t complete a request. The 500 error is a very broad HTTP status code — see it as the server saying that something’s wrong and doesn’t want to further comment.
+//
+// To resolve this error, a user can try the following:
+// * Refresh the page in a few moments
+// * [Learn other ways to resolve the issue](https://central.xero.com/s/article/Error-message-404-and-500-in-Xero)
+// * Check for issues on [Xero's system status page](https://status.xero.com/)
+//
+// ExampleClass: ds-example-nomarkuplink
+//
+// Markup: ./examples/error-pages/_error-pages-500.html
+//
+// Styleguide: Patterns.Error-pages.5.1
+
+// 503 — Technical issue
+//
+// An error 503 is when the service is temporarily unavailable because of either a planned or an unplanned event. This may be caused by temporary overloading or a maintenance issue.
+//
+// To resolve this error, a user can try the following:
+// * Reload the page
+// * Check the system status page for updates
+//
+// ExampleClass: ds-example-nomarkuplink
+//
+// Markup: ./examples/error-pages/_error-pages-503.html
+//
+// Styleguide: Patterns.Error-pages.5.2
+
+// Usage
+//
+// The error pages are designed as full screen layouts and can be found in this [Figma file](https://www.figma.com/file/K9FAQTESRw53U8ybiPk1st/Error-pages-%7C-Design-systems?node-id=2625%3A4727).
+//
+// To avoid user confusion, don’t use them for any other purpose but the specified client/server side errors.
+//
+// Styleguide: Patterns.Error-pages.6
+
+// Implementation
+//
+// * Use an [error component](https://github.dev.xero.com/XeroJS/spa-boilerplate-tools/blob/master/src/components/ErrorComponent/ErrorComponent.md) to display Error Pages in [SPAs (Single Page Applications)](https://kotahi.xero.dev/learn/snHLiLWhE4drEfgQnPXecm)
+// * An `<ErrorComponent>` is implemented in the [spa-boilerplate](https://github.dev.xero.com/templates/spa-boilerplate), so all you need to do is [render the appropriate error](https://github.dev.xero.com/XeroJS/spa-boilerplate-tools/blob/e143a6fc5ba5d451f9a330785081c154a1634fca/docs/app-state.md#toggling-the-apps-error-state)
+//
+// Styleguide: Patterns.Error-pages.6.1
+
+// Related links
+//
+// Related:
+// * [Validation messages](./section-components-collectinginput-forms.html#components-collectinginput-forms-4-12)
+// * [Empty state (XUI Labs)](./xui-labs/?path=/docs/components-xlabsemptystate--playground)
+//
+// Styleguide: Patterns.Error-pages.99

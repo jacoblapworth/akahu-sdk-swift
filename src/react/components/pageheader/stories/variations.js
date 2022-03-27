@@ -171,6 +171,21 @@ const variations = [
     secondary: 'Longer content that could go here',
     actions: true,
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `with title and tabs and icon action`,
+    title: 'Testing title with tabs and icon action',
+    actions: true,
+    iconButton: true,
+    tabs: true,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: `with title and icon action`,
+    title: 'Testing title with icon action',
+    actions: true,
+    iconButton: true,
+  },
 ];
 
 export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations };

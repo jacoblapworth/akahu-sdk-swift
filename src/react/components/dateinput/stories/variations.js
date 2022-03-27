@@ -2,112 +2,117 @@ import clockIcon from '@xero/xui-icon/icons/clock';
 import { desktopPlus320 } from '../../../stories/helpers/viewports';
 import { dateInputSuggestedDates, dateRangeInputSuggestedDates } from './helpers/suggestedDates';
 
-const storiesWithKnobsKindName = 'Components/XUIDateInput';
-const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
+const dateInputStoriesWithKnobsKindName = 'Components/XUIDateInput';
+const dateInputStoriesWithVariationsKindName = `${dateInputStoriesWithKnobsKindName}/Tests`;
+const dateRangeInputStoriesWithKnobsKindName = 'Components/XUIDateRangeInput';
+const dateRangeInputStoriesWithVariationsKindName = `${dateRangeInputStoriesWithKnobsKindName}/Tests`;
 
-const variations = [
+const dateInputVariations = [
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Default',
+    storyKind: dateInputStoriesWithVariationsKindName,
+    storyTitle: 'default',
     inputLabel: 'Start date',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: dateInputStoriesWithVariationsKindName,
     storyTitle: 'with initial date',
     selectedDateDefaultValue: new Date(2020, 1, 20),
     qaHook: 'qatest',
     inputLabel: 'Start date',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: dateInputStoriesWithVariationsKindName,
     storyTitle: 'with custom input icon',
     inputIcon: clockIcon,
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'With suggested dates',
+    storyKind: dateInputStoriesWithVariationsKindName,
+    storyTitle: 'with suggested dates',
     selectedDateDefaultValue: new Date(2021, 0, 1),
     suggestedDates: dateInputSuggestedDates,
     inputLabel: 'Start date',
     selectDateLabel: 'Select date',
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Empty with suggested dates',
+    storyKind: dateInputStoriesWithVariationsKindName,
+    storyTitle: 'empty with suggested dates',
     suggestedDates: dateInputSuggestedDates,
     inputLabel: 'Start date',
     selectDateLabel: 'Select date',
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'With suggested dates open',
+    storyKind: dateInputStoriesWithVariationsKindName,
+    storyTitle: 'with suggested dates open',
     suggestedDates: dateInputSuggestedDates,
     isDropdownHidden: false,
     inputLabel: 'Start date',
     selectDateLabel: 'Select date',
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Suggested dates with custom icon',
+    storyKind: dateInputStoriesWithVariationsKindName,
+    storyTitle: 'suggested dates with custom icon',
     suggestedDates: dateInputSuggestedDates,
     inputLabel: 'Start date',
     selectDateLabel: 'Select date',
     selectDateIcon: clockIcon,
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'With min and max range',
+    storyKind: dateInputStoriesWithVariationsKindName,
+    storyTitle: 'with min and max range',
     minDate: new Date(2010, 0, 10),
     maxDate: new Date(2010, 5, 15),
     displayedMonth: new Date(2010, 5),
     validationMessage: 'Please correct your input',
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'With a hint',
+    storyKind: dateInputStoriesWithVariationsKindName,
+    storyTitle: 'with a hint',
     hintMessage: 'Sample hint message',
     selectedDateDefaultValue: new Date(2021, 0, 1),
     inputLabel: 'Start date',
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'With an error',
+    storyKind: dateInputStoriesWithVariationsKindName,
+    storyTitle: 'with an error',
     isInvalid: true,
     validationMessage: 'Please correct your input',
     selectedDateDefaultValue: new Date(2021, 0, 1),
     inputLabel: 'Start date',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: dateInputStoriesWithVariationsKindName,
     storyTitle: 'Disabled',
     isDisabled: true,
     selectedDateDefaultValue: new Date(2021, 0, 1),
     inputLabel: 'Start date',
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'With specified DatePicker month picker',
+    storyKind: dateInputStoriesWithVariationsKindName,
+    storyTitle: 'with specified DatePicker month picker',
     selectedDateDefaultValue: new Date(2020, 5, 10),
     displayedMonth: new Date(2020, 3, 10),
     inputLabel: 'Start date',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: dateInputStoriesWithVariationsKindName,
     storyTitle: 'small',
     selectedDateDefaultValue: new Date(2020, 1, 20),
     size: 'small',
     inputLabel: 'Start date',
   },
   {
-    storyKind: storiesWithVariationsKindName,
+    storyKind: dateInputStoriesWithVariationsKindName,
     storyTitle: 'xsmall',
     selectedDateDefaultValue: new Date(2020, 1, 20),
     size: 'xsmall',
     inputLabel: 'Start date',
   },
+];
+
+const dateRangeInputVariations = [
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Default date range',
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'default',
     isDateRangeInput: true,
     suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
@@ -118,9 +123,8 @@ const variations = [
     },
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Date range with suggested dates open',
-    isDateRangeInput: true,
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'with suggested dates open',
     suggestedDates: dateRangeInputSuggestedDates,
     isDropdownHidden: false,
     startDateInputConfig: {
@@ -131,9 +135,8 @@ const variations = [
     },
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Date range without labels',
-    isDateRangeInput: true,
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'without labels',
     suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(2021, 0, 1),
@@ -147,9 +150,8 @@ const variations = [
     },
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Date range with group label',
-    isDateRangeInput: true,
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'with group label',
     suggestedDates: dateRangeInputSuggestedDates,
     groupConfig: {
       groupLabel: 'Date range',
@@ -162,9 +164,8 @@ const variations = [
     },
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Disabled date range',
-    isDateRangeInput: true,
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'disabled',
     suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(2021, 0, 1),
@@ -177,9 +178,8 @@ const variations = [
     },
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Date range across two years',
-    isDateRangeInput: true,
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'across two years',
     suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(1999, 5, 5),
@@ -193,9 +193,8 @@ const variations = [
     },
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Date range localised',
-    isDateRangeInput: true,
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'localised',
     suggestedDates: dateRangeInputSuggestedDates,
     locale: 'el',
     startDateInputConfig: {
@@ -210,9 +209,8 @@ const variations = [
     },
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Date range US localised',
-    isDateRangeInput: true,
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'US localised',
     suggestedDates: dateRangeInputSuggestedDates,
     locale: 'en-US',
     startDateInputConfig: {
@@ -227,11 +225,10 @@ const variations = [
     },
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'In fixed width container',
-    isDateRangeInput: true,
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'in fixed width container',
     suggestedDates: dateRangeInputSuggestedDates,
-    fixedContainer: true,
+    isInFixedContainer: true,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(1999, 5, 5),
       inputLabel: 'First Date',
@@ -242,9 +239,8 @@ const variations = [
     },
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Date range with no suggested dates',
-    isDateRangeInput: true,
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'with no suggested dates',
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(1999, 5, 5),
       inputLabel: 'First Date',
@@ -255,9 +251,23 @@ const variations = [
     },
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Date range with two errors',
-    isDateRangeInput: true,
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'with one error',
+    suggestedDates: dateRangeInputSuggestedDates,
+    startDateInputConfig: {
+      selectedDateDefaultValue: new Date(1999, 5, 5),
+      inputLabel: 'First Date',
+    },
+    endDateInputConfig: {
+      selectedDateDefaultValue: new Date(2000, 11, 15),
+      inputLabel: 'Second Date',
+      isInvalid: true,
+      validationMessage: 'Please correct your input',
+    },
+  },
+  {
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'with two errors',
     suggestedDates: dateRangeInputSuggestedDates,
     startDateInputConfig: {
       selectedDateDefaultValue: new Date(1999, 5, 5),
@@ -274,25 +284,8 @@ const variations = [
     viewports: desktopPlus320,
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Date range with just one error',
-    isDateRangeInput: true,
-    suggestedDates: dateRangeInputSuggestedDates,
-    startDateInputConfig: {
-      selectedDateDefaultValue: new Date(1999, 5, 5),
-      inputLabel: 'First Date',
-    },
-    endDateInputConfig: {
-      selectedDateDefaultValue: new Date(2000, 11, 15),
-      inputLabel: 'Second Date',
-      isInvalid: true,
-      validationMessage: 'Please correct your input',
-    },
-  },
-  {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Date range small',
-    isDateRangeInput: true,
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'small',
     suggestedDates: dateRangeInputSuggestedDates,
     size: 'small',
     startDateInputConfig: {
@@ -305,9 +298,8 @@ const variations = [
     },
   },
   {
-    storyKind: storiesWithVariationsKindName,
-    storyTitle: 'Date range xsmall',
-    isDateRangeInput: true,
+    storyKind: dateRangeInputStoriesWithVariationsKindName,
+    storyTitle: 'xsmall',
     suggestedDates: dateRangeInputSuggestedDates,
     size: 'xsmall',
     startDateInputConfig: {
@@ -321,4 +313,11 @@ const variations = [
   },
 ];
 
-export { variations, storiesWithKnobsKindName, storiesWithVariationsKindName };
+export {
+  dateInputStoriesWithKnobsKindName,
+  dateInputStoriesWithVariationsKindName,
+  dateInputVariations,
+  dateRangeInputStoriesWithKnobsKindName,
+  dateRangeInputStoriesWithVariationsKindName,
+  dateRangeInputVariations,
+};

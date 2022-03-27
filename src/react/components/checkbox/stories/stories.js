@@ -1,91 +1,116 @@
-// Libs
-import React from 'react';
-
-// Story book things
+import { boolean, object, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { boolean, text, select } from '@storybook/addon-knobs';
-
-// Components we need to test with
-import XUICheckboxGroup from '../XUICheckboxGroup';
+import React from 'react';
+import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';
 import XUICheckbox from '../XUICheckbox';
+import XUICheckboxGroup from '../XUICheckboxGroup';
+import XUICheckboxRangeSelector from '../XUICheckboxRangeSelector';
+import { addVariations } from './util';
+import {
+  checkboxGroupStoriesWithKnobsKindName,
+  checkboxGroupStoriesWithVariationsKindName,
+  checkboxGroupVarations,
+  checkboxRangeSelectorStoriesWithKnobsKindName,
+  checkboxStoriesWithKnobsKindName,
+  checkboxStoriesWithVariationsKindName,
+  checkboxVariations,
+} from './variations';
 
-import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
+// Playgrounds
+const checkboxStoriesWithKnobs = storiesOf(checkboxStoriesWithKnobsKindName, module);
+checkboxStoriesWithKnobs.addParameters({ layout: 'centered' });
+checkboxStoriesWithKnobs.add('Playground', () => {
+  const isChecked = boolean('isChecked', false);
+  const size = select('size', ['', 'medium', 'small', 'xsmall'], '');
+  return (
+    <XUICheckbox
+      hintMessage={text('hintMessage', '')}
+      iconMain={flattenedIconMap[select('iconMain', ['', ...flattenedIconList])]}
+      inputProps={object('inputProps', {})}
+      isChecked={isChecked || undefined}
+      isDisabled={boolean('isDisabled', false)}
+      isInvalid={boolean('isInvalid', false)}
+      isLabelHidden={boolean('isLabelHidden', false)}
+      isReversed={boolean('isReversed', false)}
+      size={size === '' ? undefined : size}
+      validationMessage={text('validationMessage', 'Cannot retrieve project name')}
+    >
+      {text('Checkbox content', 'Use project name')}
+    </XUICheckbox>
+  );
+});
 
-const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
-storiesWithKnobs.addParameters({ layout: 'centered' });
-storiesWithKnobs.add('Playground', () => (
-  <XUICheckbox
-    hintMessage={text('hintMessage', '')}
-    isDisabled={boolean('isDisabled', false)}
-    isIndeterminate={boolean('isIndeterminate', false)}
+const checkboxGroupStoriesWithKnobs = storiesOf(checkboxGroupStoriesWithKnobsKindName, module);
+checkboxGroupStoriesWithKnobs.addParameters({ layout: 'centered' });
+checkboxGroupStoriesWithKnobs.add('Playground', () => (
+  <XUICheckboxGroup
+    hintMessage={text('hintMessage', 'Select which items should be included on the quote')}
     isInvalid={boolean('isInvalid', false)}
     isLabelHidden={boolean('isLabelHidden', false)}
-    isReversed={boolean('isReversed', false)}
-    size={select('size', ['medium', 'small', 'xsmall'], 'medium')}
-    validationMessage={text('validationMessage', '')}
-    value={text('value', '')}
+    label={text('label', 'Confirm items to quote')}
+    validationMessage={text('validationMessage', 'Select 1 or more items')}
   >
-    {text('label text', 'Test checkbox')}
-  </XUICheckbox>
+    <XUICheckbox>Tasks</XUICheckbox>
+    <XUICheckbox>Annual Financial Statements Preparation</XUICheckbox>
+    <XUICheckbox isDisabled>Tax Return Preparation</XUICheckbox>
+  </XUICheckboxGroup>
 ));
 
-const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
+const checkboxRangeSelectorStoriesWithKnobs = storiesOf(
+  checkboxRangeSelectorStoriesWithKnobsKindName,
+  module,
+);
+checkboxRangeSelectorStoriesWithKnobs.addParameters({ layout: 'centered' });
+checkboxRangeSelectorStoriesWithKnobs.add('Playground', () => {
+  const [selectedItems, setSelectedItems] = React.useState([false, false, false]);
 
-variations.forEach(variation => {
-  storiesWithVariations.add(variation.storyTitle, () => {
-    const { isGroup, isReversed, isSeries, groupProps } = variation;
-    const label = typeof variation.labelText === 'string' ? variation.labelText : 'Test radio';
+  const toggleCheckbox = index => {
+    setSelectedItems(previousState => {
+      const newSelectedItems = [...previousState];
+      newSelectedItems[index] = !selectedItems[index];
+      return newSelectedItems;
+    });
+  };
 
-    // Remove story-specific properties
-    const checkboxProps = {
-      ...variation,
-      storyKind: undefined,
-      storyTitle: undefined,
-      isGroup: undefined,
-      label: undefined,
-    };
+  const toggleAll = () => {
+    const newCheckedState = !selectedItems.every(item => item);
 
-    if (isGroup) {
-      return (
-        <div
-          style={
-            (groupProps?.isLockedVertical !== false && { maxWidth: '600px' }) || {
-              width: 'calc(100vw - 10px)',
-            }
+    setSelectedItems([newCheckedState, newCheckedState, newCheckedState]);
+  };
+
+  return (
+    <XUICheckboxRangeSelector>
+      <XUICheckboxGroup>
+        <XUICheckbox
+          excludeFromRangeSelection
+          isChecked={selectedItems.every(item => item)}
+          isIndeterminate={
+            !selectedItems.every(item => item) && selectedItems.filter(item => item).length > 0
           }
+          onChange={toggleAll}
         >
-          <XUICheckboxGroup {...groupProps}>
-            <XUICheckbox isDefaultChecked isReversed={isReversed}>
-              Kakapo
-            </XUICheckbox>
-            <XUICheckbox isReversed={isReversed}>Weka</XUICheckbox>
-            <XUICheckbox isDisabled isReversed={isReversed}>
-              Kea
-            </XUICheckbox>
-            <XUICheckbox isReversed={isReversed}>
-              Yet another option, but this one is a good deal longer and may potentially wrap to a
-              new line
-            </XUICheckbox>
-          </XUICheckboxGroup>
-        </div>
-      );
-    }
-
-    if (isSeries) {
-      return (
-        <div>
-          <XUICheckbox isReversed={isReversed}>Kakapo</XUICheckbox>
-          <XUICheckbox isDefaultChecked isReversed={isReversed}>
-            Kea
-          </XUICheckbox>
-          <XUICheckbox isReversed={isReversed}>
-            Yet another option, but this one is a good deal longer and may potentially wrap to a new
-            line
-          </XUICheckbox>
-        </div>
-      );
-    }
-
-    return <XUICheckbox {...checkboxProps}>{label}</XUICheckbox>;
-  });
+          All
+        </XUICheckbox>
+        <XUICheckbox isChecked={selectedItems[0]} onChange={() => toggleCheckbox(0)}>
+          Invoice number
+        </XUICheckbox>
+        <XUICheckbox isChecked={selectedItems[1]} onChange={() => toggleCheckbox(1)}>
+          Reference
+        </XUICheckbox>
+        <XUICheckbox isChecked={selectedItems[2]} onChange={() => toggleCheckbox(2)}>
+          Due date
+        </XUICheckbox>
+      </XUICheckboxGroup>
+    </XUICheckboxRangeSelector>
+  );
 });
+
+// Variations
+const checkboxStoriesWithVariations = storiesOf(checkboxStoriesWithVariationsKindName, module);
+addVariations(checkboxVariations, checkboxStoriesWithVariations);
+
+const checkboxGroupStoriesWithVariations = storiesOf(
+  checkboxGroupStoriesWithVariationsKindName,
+  module,
+);
+addVariations(checkboxGroupVarations, checkboxGroupStoriesWithVariations);

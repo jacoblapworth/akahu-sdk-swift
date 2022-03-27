@@ -1,40 +1,32 @@
-// Libs
-import React from 'react';
-
-// Story book things
+import { object, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { text, select } from '@storybook/addon-knobs';
-
-// Components we need to test with
-import XUIIllustration from '../XUIIllustration';
-import { sizeClasses } from '../private/constants';
-
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
-
-import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
+import { sizeClasses } from '../private/constants';
+import XUIIllustration from '../XUIIllustration';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 storiesWithKnobs.add('Playground', () => {
-  const size = select('Size', Object.keys(sizeClasses), 'medium');
-  const height = text('Height');
-  const padding = text('Padding');
+  const alt = text('alt', 'Child drops ice cream from cone while walking');
+  const height = text('height');
+  const padding = text('padding');
+  const size = select('size', ['', ...Object.keys(sizeClasses)], '');
   const src = text(
-    'Illustration URL',
-    'https://edge.xero.com/illustration/scene/concierges-envelope-01/concierges-envelope-01.svg',
+    'src',
+    'https://edge.xero.com/illustration/child-spilling-ice-cream-01/child-spilling-ice-cream-01.svg',
   );
-  const alt = text('Alternative text');
-  const className = text('Classes');
+  const style = object('style');
 
   return (
-    <div style={{ width: '600px' }}>
+    <div style={{ maxWidth: '600px' }}>
       <XUIIllustration
         alt={alt}
-        className={className}
         height={height}
         padding={padding}
         size={size}
         src={src}
+        style={style}
       />
     </div>
   );

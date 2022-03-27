@@ -15,7 +15,6 @@ import generateIds from '../helpers/ariaHelpers';
 import { eventKeyValues, isKeyClick } from '../helpers/reactKeyHandler';
 import { observe, unobserve } from '../helpers/resizeObserver';
 import labelRequiredError, { loadingAriaLabelOnly } from '../helpers/labelRequiredError';
-import getFocusableDescendants from '../helpers/getFocusableDescendants';
 
 const baseClass = `${ns}-autocompleter`;
 
@@ -220,8 +219,11 @@ export default class XUIAutocompleter extends PureComponent {
        * The default setTimeout of 0ms will place the running of the callback function to the end of the callstack.
        * This will ensure that dropdown onKeyDown event occurs after the re-rendering of the picklist selection is complete.
        * This implementation has been chosen as it allows us to ensure the correct behaviour without invasive changes to Autocompletion/dropdown/statefulPicklist components.
+       * This is not done if the enter key is pressed so as to not interfere with expected onBlur behaviour. This still ensures correct behaviour overall.
        */
-      setTimeout(() => this.dropdown.current?.onKeyDown?.(event));
+      event.key === eventKeyValues.enter
+        ? this.dropdown.current?.onKeyDown?.(event)
+        : setTimeout(() => this.dropdown.current?.onKeyDown?.(event));
     }
 
     if (
@@ -242,6 +244,11 @@ export default class XUIAutocompleter extends PureComponent {
     if (this.props.openOnFocus && !this.state.focused && !this.state.isDropdownOpen) {
       this.openDropdown();
     }
+  };
+
+  onInputBlur = event => {
+    const onBlurMethod = this.props.inputProps?.onBlur || this.props.onBlur;
+    this.state.isDropdownOpen ? event.preventDefault() : onBlurMethod?.();
   };
 
   onTriggerFocus = event => {
@@ -395,6 +402,7 @@ export default class XUIAutocompleter extends PureComponent {
             style: {
               flexBasis: inputWidth,
             },
+            onBlur: this.onInputBlur,
           }}
           inputRef={this.inputNode}
           isDisabled={isDisabled}
@@ -607,6 +615,11 @@ XUIAutocompleter.propTypes = {
 
   /** Callback to handle when a pill has been backspaced */
   onBackspacePill: PropTypes.func,
+
+  /** Callback to handle when the autocompleter is blurred.
+   * An onBlur method set in `inputProps` will take precedence over this method
+   */
+  onBlur: PropTypes.func,
 
   /** Callback for when the list closes */
   onClose: PropTypes.func,

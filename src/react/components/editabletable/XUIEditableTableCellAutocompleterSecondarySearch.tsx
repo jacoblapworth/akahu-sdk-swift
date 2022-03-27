@@ -135,6 +135,7 @@ class XUIEditableTableCellAutocompleterSecondarySearch extends React.Component<P
       isInvalid,
       triggerProps,
       triggerClassName,
+      useNewFocusBehaviour,
       validationMessage,
       ...spreadProps
     } = this.props;
@@ -175,6 +176,7 @@ class XUIEditableTableCellAutocompleterSecondarySearch extends React.Component<P
               onFocus={this.composedOnFocus}
             />
           }
+          useNewFocusBehaviour={useNewFocusBehaviour}
         />
       </XUIEditableTableCellControl>
     );
@@ -298,6 +300,11 @@ class XUIEditableTableCellAutocompleterSecondarySearch extends React.Component<P
 
     /** Attributes to set on the trigger button. */
     triggerProps: PropTypes.object,
+
+    /** Whether or not to use the new focus behaviour - which treats dropdown navigation
+     * like a `combobox` role. Defaults to `false`.
+     */
+    useNewFocusBehaviour: PropTypes.bool,
 
     /** Validation message to show under the input if `isInvalid` is true */
     validationMessage: PropTypes.node,

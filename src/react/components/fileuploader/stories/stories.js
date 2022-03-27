@@ -1,20 +1,13 @@
-// Libs
-import React, { useState } from 'react';
-
-// Story book things
+import { array, boolean, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { text, boolean } from '@storybook/addon-knobs';
-
-// Components we need to test with
-import XUIFileUploader from '../XUIFileUploader';
-
+import React from 'react';
 import customCentered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
-
-import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
 import { defaultFileList, defaultProps, fakeUpload } from '../private/helpers';
+import XUIFileUploader from '../XUIFileUploader';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
 const Example = props => {
-  const [fileList, setFileList] = useState(props.fileList || defaultProps.fileList);
+  const [fileList, setFileList] = React.useState(props.fileList || defaultProps.fileList);
 
   const handleFileUpload = (files, newFileList) => {
     files.forEach(file => {
@@ -83,24 +76,25 @@ storiesWithKnobs.add('Playground', () => {
   const props = {
     acceptedFileExtensions: text('acceptedFileExtensions', undefined),
     acceptsMultipleFiles: boolean('acceptsMultipleFiles', true),
-    buttonText: text('buttonText', 'Select file'),
-    cancelButtonText: text('cancelButtonText', 'Cancel'),
-    className: text('className', undefined),
-    dropZoneMessage: text('dropZoneMessage', 'Drag and drop file(s) or select manually'),
-    defaultErrorMessage: text('defaultErrorMessage', 'File failed to upload'),
-    fieldClassName: text('fieldClassName', undefined),
-    fileListClassName: text('fileListClassName', undefined),
+    buttonText: text('buttonText', defaultProps.buttonText),
+    cancelButtonText: text('cancelButtonText', defaultProps.cancelButtonText),
+    defaultErrorMessage: text('defaultErrorMessage', defaultProps.defaultErrorMessage),
+    deleteLabel: text('deleteLabel', defaultProps.deleteLabel),
+    dropZoneMessage: text('dropZoneMessage', defaultProps.dropZoneMessage),
+    errorIconAriaLabel: text('errorIconAriaLabel', defaultProps.errorIconAriaLabel),
+    fileSizeUnits: array('fileSizeUnits', defaultProps.fileSizeUnits),
     hasDragAndDrop: boolean('hasDragAndDrop', false),
     hintMessage: text('hintMessage', undefined),
     isDisabled: boolean('isDisabled', false),
     isFieldLayout: boolean('isFieldLayout', false),
     isInvalid: boolean('isInvalid', false),
-    label: text('label', 'Label'),
-    labelClassName: text('labelClassName', undefined),
-    retryButtonText: text('retryButtonText', 'Retry'),
+    isLabelHidden: boolean('isLabelHidden', false),
+    label: text('label', defaultProps.label),
+    retryButtonText: text('retryButtonText', defaultProps.retryButtonText),
     showFilesAsMultiline: boolean('showFilesAsMultiline', true),
     showIcon: boolean('showIcon', true),
-    uploadingMessage: text('uploadingMessage', 'Uploading'),
+    uploadingIconAriaLabel: text('uploadingIconAriaLabel', defaultProps.uploadingIconAriaLabel),
+    uploadingMessage: text('uploadingMessage', defaultProps.uploadingMessage),
     validationMessage: text('validationMessage', undefined),
   };
   return <Example {...props} fileList={defaultFileList} />;
@@ -110,7 +104,7 @@ const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 storiesWithVariations.addDecorator(customCentered);
 
 variations.forEach(variations => {
-  const { storyTitle, storyKind, ...variationMinusStoryDetails } = variations;
+  const { storyTitle, storyKind, ...variationProps } = variations;
 
-  storiesWithVariations.add(storyTitle, () => <Example {...variationMinusStoryDetails} />);
+  storiesWithVariations.add(storyTitle, () => <Example {...variationProps} />);
 });

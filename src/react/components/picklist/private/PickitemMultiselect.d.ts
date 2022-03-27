@@ -32,6 +32,7 @@ export interface Props {
    */
   secondaryElement?: React.ReactNode;
   shouldTruncate?: boolean;
+  tabIndex?: number;
 }
 
 export default class PickitemMultiselect extends React.PureComponent<Props> {}

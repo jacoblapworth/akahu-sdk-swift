@@ -39,6 +39,12 @@ interface BaseProps<RD extends RowData> {
    */
   checkAllRowsAriaLabel?: React.ReactNode;
   /**
+   * Value of the table header "check all" checkbox. This overrides the default behavior of comparing `data` with `checkedIds`
+   *
+   * @since XUI 19.4.0
+   */
+  checkAllValue?: 'checked' | 'unchecked' | 'indeterminate';
+  /**
    * Describes "single row" checkbox functionality for accessibility. Required when `hasCheckbox` is
    * set to `true`.
    *
@@ -137,6 +143,12 @@ interface BaseProps<RD extends RowData> {
    * Whether the table should omit the xui-panel class to render without a border.
    */
   isBorderless?: boolean;
+  /**
+   * Disables the table header "check all" checkbox to toggle all rows. This overrides the default behavior of disabling when `data` is empty.
+   *
+   * @since XUI 19.4.0
+   */
+  isCheckAllDisabled?: boolean;
   /**
    * Appends a XUILoader after the last row.
    */
@@ -257,6 +269,7 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
       isBorderless,
       isLoading,
       isResponsive,
+      isCheckAllDisabled: shouldDisableSelectAll,
       isSortAsc,
       isTruncated: shouldTruncate,
       loaderAriaLabel,
@@ -266,6 +279,7 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
       onSortChange,
       overflowMenuTitle,
       qaHook,
+      checkAllValue,
       shouldRowClick,
       useFixedLayout,
     } = this.props;
@@ -279,6 +293,16 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
       columns.every(element => React.isValidElement(element) && element.props.head);
 
     const isTruncated = canTruncate(this.state, this.props) && shouldTruncate;
+
+    const isSelectAllChecked = checkAllValue
+      ? checkAllValue === 'checked'
+      : Object.keys(rows).length > 0 && checkedRowIds.length === Object.keys(rows).length;
+
+    const isSelectAllIndeterminate = checkAllValue
+      ? checkAllValue === 'indeterminate'
+      : checkedRowIds.length > 0 && checkedRowIds.length < Object.keys(rows).length;
+
+    const isSelectAllDisabled = shouldDisableSelectAll ?? Object.keys(rows).length === 0;
 
     const wrapperStyle =
       // If we omit this check, wrapperStyle is always a non-empty object, and passes extraneous (but harmless) props.
@@ -332,13 +356,9 @@ class XUITable<RD extends RowData = RowData> extends React.PureComponent<Props<R
               columns={React.Children.toArray(children) as Array<XUITableColumn<RD>>}
               hasCheckbox={hasCheckbox}
               hasOverflowMenu={hasOverflowMenu}
-              isSelectAllChecked={
-                Object.keys(rows).length > 0 && checkedRowIds.length === Object.keys(rows).length
-              }
-              isSelectAllDisabled={Object.keys(rows).length === 0}
-              isSelectAllIndeterminate={
-                checkedRowIds.length > 0 && checkedRowIds.length < Object.keys(rows).length
-              }
+              isSelectAllChecked={isSelectAllChecked}
+              isSelectAllDisabled={isSelectAllDisabled}
+              isSelectAllIndeterminate={isSelectAllIndeterminate}
               isSortAsc={isSortAsc}
               isTruncated={isTruncated}
               onCheckAllToggle={onCheckAllToggle}

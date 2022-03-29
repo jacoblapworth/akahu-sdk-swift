@@ -1,6 +1,6 @@
 import { commonViewports, desktopPlus320 } from '../../../stories/helpers/viewports';
 
-const storiesWithKnobsKindName = 'Components/XUIContentBlock';
+const storiesWithKnobsKindName = 'Components/XUIContentBlockItem';
 const storiesWithVariationsKindName = `${storiesWithKnobsKindName}/Tests`;
 
 const variations = [

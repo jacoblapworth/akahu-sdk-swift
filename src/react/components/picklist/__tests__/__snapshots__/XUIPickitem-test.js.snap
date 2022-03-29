@@ -28,7 +28,8 @@ exports[`<XUIPickitem /> renders a multiselect pickitem with truncation 1`] = `
 >
   <div
     className="xui-pickitem--body"
-    role="presentation"
+    role="button"
+    tabIndex={0}
   >
     <div
       className="xui-pickitem-text-truncated xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
@@ -188,7 +189,8 @@ exports[`<XUIPickitem /> renders a selected multiselect pickitem (overriding lef
 >
   <div
     className="xui-pickitem--body"
-    role="presentation"
+    role="button"
+    tabIndex={0}
   >
     <div
       className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"
@@ -239,7 +241,8 @@ exports[`<XUIPickitem /> renders a selected multiselect pickitem without selecte
 >
   <div
     className="xui-pickitem--body"
-    role="presentation"
+    role="button"
+    tabIndex={0}
   >
     <div
       className="xui-pickitem-multiselect--checkbox xui-styledcheckboxradiowrapper xui-styledcheckboxradio-small"

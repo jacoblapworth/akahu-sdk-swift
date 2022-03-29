@@ -55,6 +55,7 @@ class XUIDateInput extends React.Component {
 
     return (
       <XUIDateInputItem
+        _isDropdownHidden={_isDropdownHidden}
         closeOnSelect={closeOnSelect}
         displayedMonth={displayedMonth}
         hintMessage={hintMessage}

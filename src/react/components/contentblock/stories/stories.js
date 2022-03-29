@@ -1,24 +1,23 @@
-// Libs
-import React from 'react';
-
-// Story book things
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { select, text, boolean } from '@storybook/addon-knobs';
-
-// Components we need to test with
 import overflow from '@xero/xui-icon/icons/overflow';
+import React from 'react';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+import XUIActions from '../../actions/XUIActions';
+import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
-import XUIActions from '../../actions/XUIActions';
+import XUICheckbox from '../../checkbox/XUICheckbox';
+import XUIDropdown from '../../dropdown/XUIDropdown';
+import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
 import XUIPanel from '../../panel/XUIPanel';
+import XUIPickitem from '../../picklist/XUIPickitem';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUIRolloverCheckbox from '../../rollovercheckbox/XUIRolloverCheckbox';
+import XUITag from '../../tag/XUITag';
 import XUIContentBlock from '../XUIContentBlock';
 import XUIContentBlockItem from '../XUIContentBlockItem';
-import XUICheckbox from '../../checkbox/XUICheckbox';
-import XUIRolloverCheckbox from '../../rollovercheckbox/XUIRolloverCheckbox';
-import XUIAvatar from '../../avatar/XUIAvatar';
-import XUITag from '../../tag/XUITag';
-
-import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
 const buildExampleContentblockItem = children =>
   children.map((child, index) => {
@@ -72,52 +71,86 @@ const buildExampleContentblockItem = children =>
 const exampleClickHandler = () => console.log('clicked');
 
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
-storiesWithKnobs.addParameters({ layout: 'centered' });
+storiesWithKnobs.addDecorator(centered);
+storiesWithKnobs.addParameters({ layout: 'fullscreen' });
 storiesWithKnobs.add('Playground', () => {
-  const staticItems = [
-    {
-      primaryHeading: 'Item 2 Primary (checkbox)',
-      secondaryHeading: 'Item 2 Secondary',
-      leftContent: 'checkbox',
-      overflow: true,
-    },
-    {
-      primaryHeading: 'Item 3 Primary (rollover)',
-      leftContent: 'rollover',
-      overflow: true,
-    },
-    {
-      primaryHeading: 'Item 4 Primary',
-      secondaryHeading: 'Item 4 Secondary',
-      tag: true,
-      overflow: true,
-      description: 'Many people were hoping that if the Democrats won control of Congress',
-    },
-  ];
-  const leftContent = select('left content', ['rollover', 'checkbox', 'avatar', 'none'], 'none');
-  const hasTag = boolean('Has tag?', false);
-  const dynamicSettings = {
-    primaryHeading: text('primaryHeading', 'Item 1 Primary'),
-    secondaryHeading: text('secondaryHeading', '') || undefined,
-    overflow: boolean('Has overflow menu?', false) ? (
-      <XUIIconButton ariaLabel="Overflow menu" icon={overflow} />
-    ) : undefined,
-    action: boolean('Has action?', false) ? (
-      <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>} />
-    ) : undefined,
-    description: text('description', '') || undefined,
-    leftContent: leftContent === 'none' ? undefined : leftContent,
-    tag: hasTag,
-    tagPosition:
-      (hasTag && select('Tag position', ['description', 'right', 'inline'], 'description')) ||
-      undefined,
-    pinnedValue: boolean('Pinned value', false) || undefined,
+  const leftContentType = select(
+    'Left content type',
+    ['', 'checkbox', 'avatar', 'rollover'],
+    'avatar',
+  );
+  const leftContent = () => {
+    const avatar = <XUIAvatar size="small" value="Bobs Burger" />;
+    switch (leftContentType) {
+      case 'avatar':
+        return avatar;
+      case 'checkbox':
+        return <XUICheckbox />;
+      case 'rollover':
+        return (
+          <XUIRolloverCheckbox
+            isCheckboxHidden
+            label="Avatar rollover checkbox"
+            rolloverComponent={avatar}
+          />
+        );
+      default:
+        return undefined;
+    }
   };
+  const hasAction = boolean('Has action', false);
+  const hasOverflow = boolean('Has overflow', false);
+  const hasTag = boolean('Has tag', false);
   return (
-    <XUIContentBlock className="xui-panel">
-      {buildExampleContentblockItem([dynamicSettings])}
-      {buildExampleContentblockItem(staticItems)}
-    </XUIContentBlock>
+    <div style={{ maxWidth: '1000px' }}>
+      <XUIContentBlock className="xui-panel">
+        <XUIContentBlockItem
+          action={
+            hasAction ? (
+              <XUIActions secondaryAction={<XUIButton size="small">Edit</XUIButton>} />
+            ) : undefined
+          }
+          description={text('description', 'Deadline 1 Feb 2023  •  Estimate 10,000.00')}
+          hasLayout={boolean('hasLayout', true)}
+          href={text('href', '')}
+          isRowLink={boolean('isRowLink', false)}
+          leftContent={leftContent()}
+          overflow={
+            hasOverflow ? (
+              <XUIDropdownToggled
+                dropdown={
+                  <XUIDropdown>
+                    <XUIPicklist>
+                      <XUIPickitem id="edit">Duplicate project</XUIPickitem>
+                      <XUIPickitem id="submit">Delete</XUIPickitem>
+                    </XUIPicklist>
+                  </XUIDropdown>
+                }
+                trigger={<XUIIconButton ariaLabel="Overflow" icon={overflow} />}
+              />
+            ) : undefined
+          }
+          pinnedValue={text('pinnedValue', '')}
+          primaryHeading={text('primaryHeading', 'Bob’s Burger')}
+          secondaryHeading={text('secondaryHeading', 'Website design')}
+          tagPosition={select('tagPosition', ['', 'description', 'right', 'inline'])}
+          tags={
+            hasTag
+              ? [
+                  <XUITag
+                    className="xui-margin-right"
+                    key="negative-tag"
+                    size="small"
+                    variant="negative"
+                  >
+                    Overdue
+                  </XUITag>,
+                ]
+              : undefined
+          }
+        />
+      </XUIContentBlock>
+    </div>
   );
 });
 
@@ -128,9 +161,7 @@ variations.forEach(variation => {
 
   storiesWithVariations.add(storyTitle, () => (
     <XUIPanel>
-      <XUIContentBlock {...variationMinusStoryDetails}>
-        {buildExampleContentblockItem(items)}
-      </XUIContentBlock>
+      <div {...variationMinusStoryDetails}>{buildExampleContentblockItem(items)}</div>
     </XUIPanel>
   ));
 });

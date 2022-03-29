@@ -1,93 +1,84 @@
-// Libs
 import React from 'react';
 
-// Story book things
 import { storiesOf } from '@storybook/react';
 import { boolean, text, number, select } from '@storybook/addon-knobs';
 
-// Components we need to test with
-import view from '@xero/xui-icon/icons/view';
 import XUIButton from '../XUIButton';
 import XUIButtonGroup from '../XUIButtonGroup';
-import XUISplitButton from '../XUISecondaryButton';
-import XUISplitButtonGroup from '../XUISplitButtonGroup';
-import XUIIconButton from '../XUIIconButton';
 import XUIDropdown from '../../dropdown/XUIDropdown';
 import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
+import XUIIconButton from '../XUIIconButton';
+import XUIPickitem from '../../picklist/XUIPickitem';
+import XUIPicklist from '../../picklist/XUIPicklist';
+import XUISecondaryButton from '../XUISecondaryButton';
+import XUISplitButtonGroup from '../XUISplitButtonGroup';
 
+import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';
 import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+import addVariations from './util';
 
-import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 import {
   textButtonVariants,
   sizeClassNames,
   buttonTypes,
   widthClassNames,
+  standardVariantClassNames,
 } from '../private/constants';
+import {
+  colorClasses as iconColorClasses,
+  rotationClasses as iconRotationClasses,
+  wrapperSizeClasses as iconWrapperSizeClasses,
+} from '../../icon/private/constants';
 
-const dropdownWithTrigger = (
-  <XUIDropdownToggled
-    dropdown={
-      <XUIDropdown>
-        <p className="xui-padding-small">hello</p>
-      </XUIDropdown>
-    }
-    key="ddt"
-    trigger={<XUISplitButton aria-label="Other actions" key="split3" variant="main" />}
-  />
-);
+import {
+  buttonStoriesWithKnobsKindName,
+  buttonStoriesWithVariationsKindName,
+  iconButtonStoriesWithKnobsKindName,
+  iconButtonStoriesWithVariationsKindName,
+  buttonGroupStoriesWithKnobsKindName,
+  buttonGroupStoriesWithVariationsKindName,
+  splitButtonGroupStoriesWithKnobsKindName,
+  splitButtonGroupStoriesWithVariationsKindName,
+  buttonVariations,
+  iconButtonVariations,
+  buttonGroupVariations,
+  splitButtonGroupVariations,
+} from './variations';
 
-const buttonContents = {
-  withCaret: ['Caret button'],
-  withIcon: ['Icon in a button'],
-  asGroup: [<XUIButton key="one">One</XUIButton>, <XUIButton key="two">Two</XUIButton>],
-  asMultiGroup: [
-    <XUIButton key="one">Some significantly longer content in the first button</XUIButton>,
-    <XUIButton key="two">Additional very long content in a second button</XUIButton>,
-  ],
-  asSplitGroup: [
-    <XUIButton key="main1">Main</XUIButton>,
-    <XUISplitButton aria-label="Other actions" key="split1" />,
-  ],
-  asSplitGroupMulti: [
-    <XUIButton key="main2">
-      This is a bunch of multi line text to make sure the icon displays correctly
-    </XUIButton>,
-    <XUISplitButton aria-label="Other actions" key="split2" />,
-  ],
-  asSplitGroupDropdown: [<XUIButton key="main3">Main</XUIButton>, dropdownWithTrigger],
+const buttonWrapperStyles = {
+  alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  maxWidth: '600px',
 };
 
-const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
-storiesWithKnobs.addDecorator(centered);
-storiesWithKnobs.add('Playground', () => {
-  const hasLeftIcon = boolean('leftIcon', false);
-  const hasRightIcon = boolean('rightIcon', false);
-  const isIcon = boolean('is icon button', false);
-  const Tag = isIcon ? XUIIconButton : XUIButton;
+// Playgrounds
+const buttonStoriesWithKnobs = storiesOf(buttonStoriesWithKnobsKindName, module);
+buttonStoriesWithKnobs.addDecorator(centered);
+buttonStoriesWithKnobs.add('Playground', () => {
+  const iconList = ['', ...flattenedIconList];
+  const buttonContent = text('Button content', 'Cancel');
   return (
-    <div style={{ maxWidth: '600px' }}>
-      <Tag
-        aria-label={isIcon ? 'View' : undefined}
+    <div style={buttonWrapperStyles}>
+      <XUIButton
         className={text('className', '')}
         fullWidth={select('fullWidth', Object.keys(widthClassNames), 'never')}
         hasCaret={boolean('hasCaret', false)}
         hasMinLoaderWidth={boolean('hasMinLoaderWidth', false)}
         href={text('href', '')}
-        icon={isIcon ? view : undefined}
         isDisabled={boolean('isDisabled', false)}
         isExternalLink={boolean('isExternalLink', false)}
         isGrouped={boolean('isGrouped', false)}
         isInverted={boolean('isInverted', false)}
         isLink={boolean('isLink', false)}
         isLoading={boolean('isLoading', false)}
-        leftIcon={hasLeftIcon ? view : null}
+        leftIcon={flattenedIconMap[select('leftIcon', iconList)]}
         loadingAriaLabel={text('loadingAriaLabel', 'Loading')}
         qaHook={text('qaHook', '')}
         rel={text('rel', '')}
         retainLayout={boolean('retainLayout', true)}
-        rightIcon={hasRightIcon ? view : null}
-        size={select('size', Object.keys(sizeClassNames))}
+        rightIcon={flattenedIconMap[select('rightIcon', iconList)]}
+        size={select('size', ['', ...Object.keys(sizeClassNames)])}
         tabIndex={number('tabIndex', 0)}
         target={text('target', '')}
         title={text('title', '')}
@@ -96,58 +87,128 @@ storiesWithKnobs.add('Playground', () => {
           Object.keys(buttonTypes).map(type => buttonTypes[type]),
           'button',
         )}
-        variant={!isIcon && select('variant', Object.keys(textButtonVariants), 'standard')}
+        variant={select('variant', Object.keys(textButtonVariants), 'standard')}
       >
-        {isIcon ? null : 'Test button'}
-      </Tag>
+        {buttonContent}
+      </XUIButton>
     </div>
   );
 });
 
-const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-storiesWithVariations.addDecorator(centered);
+const iconButtonStoriesWithKnobs = storiesOf(iconButtonStoriesWithKnobsKindName, module);
+iconButtonStoriesWithKnobs.addDecorator(centered);
+iconButtonStoriesWithKnobs.add('Playground', () => (
+  <div style={buttonWrapperStyles}>
+    <XUIIconButton
+      ariaLabel={text('ariaLabel', 'Close')}
+      className={text('className', '')}
+      description={text('description', '')}
+      href={text('href', '')}
+      icon={flattenedIconMap[select('icon', flattenedIconList, 'cross')]}
+      iconColor={select('iconColor', ['', ...Object.keys(iconColorClasses)])}
+      iconSize={select('iconSize', ['', ...Object.keys(iconWrapperSizeClasses)])}
+      isDisabled={boolean('isDisabled', false)}
+      isExternalLink={boolean('isExternalLink', false)}
+      isInverted={boolean('isInverted', false)}
+      isLink={boolean('isLink', false)}
+      qaHook={text('qaHook', '')}
+      rel={text('rel', '')}
+      role={text('role', '')}
+      rotation={select('rotation', ['', ...Object.keys(iconRotationClasses)], '')}
+      size={select('size', ['', ...Object.keys(sizeClassNames)])}
+      tabIndex={number('tabIndex', 0)}
+      target={text('target', '')}
+      title={text('title', '')}
+      type={select(
+        'type',
+        Object.keys(buttonTypes).map(type => buttonTypes[type]),
+        'button',
+      )}
+    />
+  </div>
+));
 
-variations.forEach(variation => {
-  storiesWithVariations.add(variation.storyTitle, () => {
-    const variationMinusStoryDetails = { ...variation };
-    const value =
-      variationMinusStoryDetails.value || buttonContents[variationMinusStoryDetails.contentsKey];
-    const componentType = variationMinusStoryDetails.componentType;
-    delete variationMinusStoryDetails.storyKind;
-    delete variationMinusStoryDetails.storyTitle;
-    delete variationMinusStoryDetails.componentType;
-    delete variationMinusStoryDetails.contentsKey;
-    variationMinusStoryDetails.value = undefined;
+const buttonGroupStoriesWithKnobs = storiesOf(buttonGroupStoriesWithKnobsKindName, module);
+buttonGroupStoriesWithKnobs.addDecorator(centered);
+buttonGroupStoriesWithKnobs.add('Playground', () => (
+  <div style={buttonWrapperStyles}>
+    <XUIButtonGroup
+      className={text('className', '')}
+      qaHook={text('qaHook', '')}
+      size={select('size', ['', ...Object.keys(sizeClassNames)])}
+    >
+      <XUIButton>Edit</XUIButton>
+      <XUIButton>Save</XUIButton>
+      <XUIButton>Submit</XUIButton>
+    </XUIButtonGroup>
+  </div>
+));
 
-    const width =
-      !variationMinusStoryDetails.fullWidth || variationMinusStoryDetails.fullWidth === 'never'
-        ? 'auto'
-        : '';
-    const ButtonWrapper = ({ children }) => (
-      <div style={{ maxWidth: '600px', width }}>{children}</div>
-    );
+const splitButtonGroupStoriesWithKnobs = storiesOf(
+  splitButtonGroupStoriesWithKnobsKindName,
+  module,
+);
+splitButtonGroupStoriesWithKnobs.addDecorator(centered);
+splitButtonGroupStoriesWithKnobs.add('Playground', () => {
+  const variant = select('variant', Object.keys(standardVariantClassNames), 'main');
+  const isDisabled = boolean('isDisabled', false);
 
-    let buttonContent;
-
-    switch (componentType) {
-      case 'XUIButtonGroup':
-        buttonContent = <XUIButtonGroup {...variationMinusStoryDetails}>{value}</XUIButtonGroup>;
-        break;
-      case 'XUISplitButtonGroup':
-        buttonContent = (
-          <div style={{ maxWidth: '150px' }}>
-            <XUISplitButtonGroup {...variationMinusStoryDetails}>{value}</XUISplitButtonGroup>
-          </div>
-        );
-        break;
-      case 'XUIIconButton':
-        buttonContent = (
-          <XUIIconButton icon={view} {...variationMinusStoryDetails} ariaLabel="View" />
-        );
-        break;
-      default:
-        buttonContent = <XUIButton {...variationMinusStoryDetails}>{value}</XUIButton>;
-    }
-    return <ButtonWrapper>{buttonContent}</ButtonWrapper>;
-  });
+  return (
+    <div style={buttonWrapperStyles}>
+      <XUISplitButtonGroup
+        className={text('className', '')}
+        isDisabled={isDisabled}
+        qaHook={text('qaHook', '')}
+        size={select('size', ['', ...Object.keys(sizeClassNames)])}
+        variant={variant}
+      >
+        <XUIButton>Save</XUIButton>
+        <XUIDropdownToggled
+          dropdown={
+            <XUIDropdown hasFixedWidth size="small">
+              <XUIPicklist>
+                <XUIPickitem id="saveAndSend" key="saveAndSend" value="saveAndSend">
+                  Save and send
+                </XUIPickitem>
+                <XUIPickitem id="saveAndPrint" key="saveAndPrint" value="saveAndPrint">
+                  Save and print
+                </XUIPickitem>
+              </XUIPicklist>
+            </XUIDropdown>
+          }
+          trigger={
+            <XUISecondaryButton
+              aria-label="Other actions"
+              isDisabled={isDisabled}
+              key="split"
+              variant={variant}
+            />
+          }
+        />
+      </XUISplitButtonGroup>
+    </div>
+  );
 });
+
+// Variations
+const buttonStoriesWithVariations = storiesOf(buttonStoriesWithVariationsKindName, module);
+buttonStoriesWithVariations.addDecorator(centered);
+addVariations(buttonVariations, buttonStoriesWithVariations);
+
+const iconButtonStoriesWithVariations = storiesOf(iconButtonStoriesWithVariationsKindName, module);
+iconButtonStoriesWithVariations.addDecorator(centered);
+addVariations(iconButtonVariations, iconButtonStoriesWithVariations);
+
+const buttonGroupStoriesWithVariations = storiesOf(
+  buttonGroupStoriesWithVariationsKindName,
+  module,
+);
+buttonGroupStoriesWithVariations.addDecorator(centered);
+addVariations(buttonGroupVariations, buttonGroupStoriesWithVariations);
+
+const splitButtonGroupStoriesWithVariations = storiesOf(
+  splitButtonGroupStoriesWithVariationsKindName,
+  module,
+);
+splitButtonGroupStoriesWithVariations.addDecorator(centered);
+addVariations(splitButtonGroupVariations, splitButtonGroupStoriesWithVariations);

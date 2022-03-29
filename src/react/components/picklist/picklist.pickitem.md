@@ -3,6 +3,7 @@ Although not a required child of `XUIPicklist`s, `XUIPickitem`s are the standard
 `XUIPickitem`s support many kinds of content. `XUIPicklistHeader` and `XUIPicklistDivider` can be used as siblings of `XUIPickitem`s.
 
 ```jsx harmony
+import { useState } from 'react';
 import XUIPicklist, {
   XUIPickitem,
   XUIPicklistHeader,
@@ -11,6 +12,51 @@ import XUIPicklist, {
 import XUIIcon from '@xero/xui/react/icon';
 import XUIAvatar from '@xero/xui/react/avatar';
 import search from '@xero/xui-icon/icons/search';
+
+const items = [
+  { id: 'corinne', text: 'Corinne Bowie' },
+  { id: 'dion', text: 'Dion Wise' }
+];
+
+const MultiselectPickitemExample = () => {
+  const [selected, setSelected] = useState({
+    corinne: true,
+    dion: false
+  });
+
+  const onSelect = id => {
+    setSelected({ ...selected, [id]: !selected[id] });
+  };
+
+  const handleKeyDown = (event, id) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onSelect(id);
+    }
+  };
+
+  const selectedItems = items.filter(item => selected[item.id]).map(item => item.text);
+
+  return (
+    <XUIPicklist isMultiselect>
+      {items.map(item => {
+        const { id, text } = item;
+        return (
+          <XUIPickitem
+            id={id}
+            isSelected={selected[id]}
+            key={id}
+            onClick={() => onSelect(id)}
+            onKeyDown={e => handleKeyDown(e, id)}
+            value={id}
+          >
+            {text}
+          </XUIPickitem>
+        );
+      })}
+    </XUIPicklist>
+  );
+};
 
 <div>
   <XUIPicklist>
@@ -40,13 +86,6 @@ import search from '@xero/xui-icon/icons/search';
       isMultiline
     />
   </XUIPicklist>
-  <XUIPicklist isMultiselect>
-    <XUIPickitem id="pi5" isDisabled>
-      Jannyne Perez
-    </XUIPickitem>
-    <XUIPickitem id="pi6" isSelected>
-      Brock Abernethy
-    </XUIPickitem>
-  </XUIPicklist>
+  <MultiselectPickitemExample />
 </div>;
 ```

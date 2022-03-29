@@ -306,7 +306,6 @@ describe('XUIDateInput', () => {
 
         // Act
         const input = screen.getByTestId('test-dateinput-dateinputitem--input--input');
-        // @TODO XUI-2898 Remove the line below once this ticket has been completed
         userEvent.type(input, '{arrowDown}');
         userEvent.tab();
 
@@ -327,7 +326,6 @@ describe('XUIDateInput', () => {
 
         // Act
         const input = screen.getByTestId('test-dateinput-dateinputitem--input--input');
-        // @TODO XUI-2898 Remove the line below once this ticket has been completed
         userEvent.type(input, '{arrowDown}');
         userEvent.tab();
         userEvent.tab();
@@ -354,7 +352,6 @@ describe('XUIDateInput', () => {
         // Act
         const input = screen.getByTestId('test-dateinput-dateinputitem--input--input');
         userEvent.click(input);
-        // @TODO XUI-2898 Remove the line below once this ticket has been completed
         userEvent.type(input, '{arrowDown}');
         userEvent.tab();
         userEvent.tab({ shift: true });

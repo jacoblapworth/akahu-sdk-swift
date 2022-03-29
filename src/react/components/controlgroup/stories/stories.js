@@ -201,25 +201,23 @@ variations.forEach(variation => {
       ...variationMinusStoryDetails
     } = props;
     return (
-      <div style={wrapperStyle}>
-        <XUIControlGroup label={storyTitle} {...groupProps}>
-          {baseElements[type]({
-            label: 'First',
-            children: 'First',
-            ...(itemProps && itemProps[0]),
-          })}
-          {baseElements[type]({
-            label: 'Middle',
-            children: 'Middle',
-            ...(itemProps && itemProps[1]),
-          })}
-          {baseElements[type]({
-            label: 'Last',
-            children: 'Last',
-            ...(itemProps && itemProps[2]),
-          })}
-        </XUIControlGroup>
-      </div>
+      <XUIControlGroup label={storyTitle} {...groupProps}>
+        {baseElements[type]({
+          label: 'First',
+          children: 'First',
+          ...(itemProps && itemProps[0]),
+        })}
+        {baseElements[type]({
+          label: 'Middle',
+          children: 'Middle',
+          ...(itemProps && itemProps[1]),
+        })}
+        {baseElements[type]({
+          label: 'Last',
+          children: 'Last',
+          ...(itemProps && itemProps[2]),
+        })}
+      </XUIControlGroup>
     );
   });
 });

@@ -38,7 +38,7 @@ Also note that the `<XUIAutocompleterEmptyState>` component needs to be wrapped 
 Currently it's recommended that you do not pass in a `rightElement` prop while using wrapping pills. At certain widths, the right element may wrap down to the next row without the input, which doesn't display nicely.
 
 ```jsx harmony
-import { Component, PureComponent, Fragment } from 'react';
+import { useRef, useState } from 'react';
 
 import XUIAutocompleter, {
   XUIAutocompleterEmptyState,
@@ -46,165 +46,152 @@ import XUIAutocompleter, {
   decorateSubStr
 } from '@xero/xui/react/autocompleter';
 import XUIAvatar from '@xero/xui/react/avatar';
-import XUIPill from '@xero/xui/react/pill';
 import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import XUIPill from '@xero/xui/react/pill';
 
-import people from './components/autocompleter/private/people';
+const contacts = [
+  {
+    email: 'frida@gmail.com',
+    id: 0,
+    name: 'Frida'
+  },
+  {
+    id: 1,
+    email: 'fredgreen@gmail.com',
+    name: 'Fred Green'
+  },
+  {
+    email: 'peterparker@yahoo.com',
+    id: 2,
+    name: 'Peter Parker'
+  },
+  {
+    email: 'davechang@xero.com',
+    id: 3,
+    name: 'Dave Chang'
+  },
+  {
+    email: 'roy@roychoi.com',
+    id: 4,
+    name: 'Roy Choi'
+  }
+];
 
-const filterPeople = (peopleToSearch, value, idsToExclude) => {
-  const val = value.toLowerCase();
-  return peopleToSearch.filter(
-    (person, index) =>
-      idsToExclude.indexOf(index) === -1 &&
-      (person.name.toLowerCase().indexOf(val) > -1 ||
-        person.email.toLowerCase().indexOf(val) > -1 ||
-        person.subtext.toLowerCase().indexOf(val) > -1)
+const Pills = ({ id, onDeleteClick }) => {
+  return (
+    <XUIPill
+      className="xui-autocompleter--pill"
+      deleteButtonLabel={`Delete ${contacts[id].name}`}
+      key={id}
+      onDeleteClick={() => {
+        onDeleteClick(id);
+      }}
+      size="small"
+      value={contacts[id].name}
+    />
   );
 };
 
-class PillWrapper extends PureComponent {
-  constructor(...args) {
-    super(...args);
-    this.deleteSelf = this.deleteSelf.bind(this);
-  }
+const AutocompleterExample = () => {
+  const [value, setValue] = useState('');
+  const [selectedContactsIds, setSelectedContactsIds] = useState([0]);
+  const [isInvalid, setIsInvalid] = useState(false);
+  const autocompleter = useRef();
 
-  deleteSelf() {
-    this.props.onDeleteClick(this.props.id);
-  }
-
-  render() {
-    const { id } = this.props;
-    return (
-      <XUIPill
-        value={people[id].name}
-        className="xui-autocompleter--pill"
-        onDeleteClick={this.deleteSelf}
-        deleteButtonLabel="Delete"
-        key={id}
-        size="small"
-      />
-    );
-  }
-}
-
-//Example to show how the children can be styled however and you also define your own search criteria.
-class WrapPillsExample extends Component {
-  constructor(...args) {
-    super(...args);
-
-    this.state = {
-      value: '',
-      selectedPeopleIds: [0]
-    };
-
-    this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
-    this.deletePerson = this.deletePerson.bind(this);
-    this.deleteLastPerson = this.deleteLastPerson.bind(this);
-    this.selectPerson = this.selectPerson.bind(this);
-    this.completer = React.createRef();
-  }
-
-  onSearchChangeHandler(value) {
+  const onSearchChangeHandler = value => {
     const invalidInput = !!value.match(/[\!\.\^%&#]/);
     if (invalidInput) {
-      this.completer.current.closeDropdown();
+      autocompleter.current.closeDropdown();
     } else {
-      this.completer.current.openDropdown();
+      autocompleter.current.openDropdown();
     }
-    this.setState({
-      value,
-      isInvalid: invalidInput
+    setValue(value);
+    setIsInvalid(invalidInput);
+  };
+
+  const deleteContact = idToRemove => {
+    setSelectedContactsIds(previousState => {
+      return [...previousState.filter(id => id !== idToRemove)];
     });
-  }
+  };
 
-  deletePerson(idToRemove) {
-    this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds.filter(id => id !== idToRemove)]
-    }));
-  }
+  const deleteLastContact = () => {
+    setSelectedContactsIds(previousState => {
+      return [...previousState.slice(0, -1)];
+    });
+  };
 
-  deleteLastPerson() {
-    this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds.slice(0, -1)]
-    }));
-  }
+  const selectContact = contact => {
+    setSelectedContactsIds(previousState => {
+      return [...previousState, contact];
+    });
+    setValue('');
+  };
 
-  selectPerson(person) {
-    this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds, person],
-      value: ''
-    }));
-  }
+  const renderPills = selectedContactsIds => {
+    return selectedContactsIds.map(id => <Pills id={id} key={id} onDeleteClick={deleteContact} />);
+  };
 
-  renderPills(selectedPeopleIds) {
-    return selectedPeopleIds.map(id => (
-      <PillWrapper id={id} key={id} onDeleteClick={this.deletePerson} />
-    ));
-  }
+  const unselectedContactsIds = contacts.filter(
+    (contact, index) =>
+      selectedContactsIds.indexOf(index) === -1 &&
+      (contact.name.toLowerCase().indexOf(value.toLowerCase()) > -1 ||
+        contact.email.toLowerCase().indexOf(value.toLowerCase()) > -1)
+  );
 
-  render() {
-    const { value, selectedPeopleIds } = this.state;
-    const unselectedPeopleIds = filterPeople(people, value, selectedPeopleIds);
+  const dropdownContents =
+    unselectedContactsIds.length === 0 ? (
+      <XUIPicklist>
+        <XUIAutocompleterEmptyState>No contacts found</XUIAutocompleterEmptyState>
+      </XUIPicklist>
+    ) : (
+      <XUIPicklist>
+        {unselectedContactsIds.map(contact => {
+          const { email, id, name } = contact;
 
-    const dropdownContents =
-      unselectedPeopleIds.length === 0 ? (
-        <XUIPicklist>
-          <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>
-        </XUIPicklist>
-      ) : (
-        <XUIPicklist>
-          {unselectedPeopleIds.map(person => {
-            const secondaryContent = (
-              <Fragment>
-                {decorateSubStr(person.email, value || '', boldMatch)},{' '}
-                {decorateSubStr(person.subtext, value || '', boldMatch)}
-              </Fragment>
-            );
-            const headingContent = (
-              <Fragment>{decorateSubStr(person.name, value || '', boldMatch)}</Fragment>
-            );
-            return (
-              <XUIPickitem
-                shouldTruncate
-                key={person.id}
-                id={person.id}
-                value={person.id}
-                secondaryElement={secondaryContent}
-                headingElement={headingContent}
-                leftElement={
-                  <XUIAvatar value={person.name} imageUrl={person.avatar} size="small" />
-                }
-                onSelect={this.selectPerson}
-                isMultiline
-              />
-            );
-          })}
-        </XUIPicklist>
-      );
-    const validityMsg = this.state.isInvalid
-      ? 'Special characters are not allowed'
-      : 'Please enter a search term';
-    return (
-      <XUIAutocompleter
-        inputLabel="autocompleter"
-        isInputLabelHidden
-        ref={this.completer}
-        onSearch={this.onSearchChangeHandler}
-        placeholder="XUI Autocompleter accommodates enough space to fit the placeholder"
-        searchValue={value}
-        onBackspacePill={this.deleteLastPerson}
-        pills={this.renderPills(selectedPeopleIds)}
-        isInvalid={(!value && !selectedPeopleIds.length) || this.state.isInvalid}
-        validationMessage={validityMsg}
-        hintMessage="Begin entering a contact name"
-      >
-        {dropdownContents}
-      </XUIAutocompleter>
+          const headingContent = decorateSubStr(name, value || '', boldMatch);
+          const secondaryContent = decorateSubStr(email, value || '', boldMatch);
+
+          return (
+            <XUIPickitem
+              headingElement={headingContent}
+              id={id}
+              isMultiline
+              key={id}
+              leftElement={<XUIAvatar size="small" value={name} />}
+              onSelect={selectContact}
+              secondaryElement={secondaryContent}
+              shouldTruncate
+              value={id}
+            />
+          );
+        })}
+      </XUIPicklist>
     );
-  }
-}
 
-<WrapPillsExample />;
+  const validationMessage = isInvalid
+    ? 'Special characters are not allowed'
+    : 'Please select at least 1 contact';
+
+  return (
+    <XUIAutocompleter
+      hintMessage="Contacts will receive a copy of the invoice"
+      inputLabel="Contact(s)"
+      isInvalid={(!value && !selectedContactsIds.length) || isInvalid}
+      onBackspacePill={deleteLastContact}
+      onSearch={onSearchChangeHandler}
+      pills={renderPills(selectedContactsIds)}
+      placeholder="Search contacts"
+      ref={autocompleter}
+      searchValue={value}
+      validationMessage={validationMessage}
+    >
+      {dropdownContents}
+    </XUIAutocompleter>
+  );
+};
+
+<AutocompleterExample />;
 ```
 
 #### Validation with autocompleter input
@@ -216,161 +203,147 @@ Since the input triggering the dropdown could potentially be invalid (eg., the i
 By default the pills and search bar will wrap inside the `XUIAutocompleter` input container. To disable this, set `disableWrapPills` to true.
 
 ```jsx harmony
-import { Component, PureComponent, Fragment } from 'react';
+import { useRef, useState } from 'react';
 
-import XUIAvatar from '@xero/xui/react/avatar';
 import XUIAutocompleter, {
   XUIAutocompleterEmptyState,
   boldMatch,
   decorateSubStr
 } from '@xero/xui/react/autocompleter';
+import XUIAvatar from '@xero/xui/react/avatar';
 import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import XUIPill from '@xero/xui/react/pill';
 
-import people from './components/autocompleter/private/people';
+const contacts = [
+  {
+    email: 'frida@gmail.com',
+    id: 0,
+    name: 'Frida'
+  },
+  {
+    id: 1,
+    email: 'fredgreen@gmail.com',
+    name: 'Fred Green'
+  },
+  {
+    email: 'peterparker@yahoo.com',
+    id: 2,
+    name: 'Peter Parker'
+  },
+  {
+    email: 'davechang@xero.com',
+    id: 3,
+    name: 'Dave Chang'
+  },
+  {
+    email: 'roy@roychoi.com',
+    id: 4,
+    name: 'Roy Choi'
+  }
+];
 
-const filterPeople = (peopleToSearch, value, idsToExclude) => {
-  const val = value.toLowerCase();
-  return peopleToSearch.filter(
-    (person, index) =>
-      idsToExclude.indexOf(index) === -1 &&
-      (person.name.toLowerCase().indexOf(val) > -1 ||
-        person.email.toLowerCase().indexOf(val) > -1 ||
-        person.subtext.toLowerCase().indexOf(val) > -1)
+const Pills = ({ id, onDeleteClick }) => {
+  return (
+    <XUIPill
+      className="xui-autocompleter--pill"
+      deleteButtonLabel={`Delete ${contacts[id].name}`}
+      key={id}
+      onDeleteClick={() => {
+        onDeleteClick(id);
+      }}
+      size="small"
+      value={contacts[id].name}
+    />
   );
 };
 
-class PillWrapper extends PureComponent {
-  constructor(...args) {
-    super(...args);
-    this.deleteSelf = this.deleteSelf.bind(this);
-  }
+const AutocompleterExample = () => {
+  const [value, setValue] = useState('');
+  const [selectedContactsIds, setSelectedContactsIds] = useState([0]);
+  const autocompleter = useRef();
 
-  deleteSelf() {
-    this.props.onDeleteClick(this.props.id);
-  }
+  const onSearchChangeHandler = value => {
+    autocompleter.current.openDropdown();
+    setValue(value);
+  };
 
-  render() {
-    const { id } = this.props;
-    return (
-      <XUIPill
-        value={people[id].name}
-        className="xui-autocompleter--pill"
-        onDeleteClick={this.deleteSelf}
-        deleteButtonLabel="Delete"
-        key={id}
-        size="small"
-      />
+  const deleteContact = idToRemove => {
+    setSelectedContactsIds(previousState => {
+      return [...previousState.filter(id => id !== idToRemove)];
+    });
+  };
+
+  const deleteLastContact = () => {
+    setSelectedContactsIds(previousState => {
+      return [...previousState.slice(0, -1)];
+    });
+  };
+
+  const selectContact = contact => {
+    setSelectedContactsIds(previousState => {
+      return [...previousState, contact];
+    });
+    setValue('');
+  };
+
+  const renderPills = selectedContactsIds => {
+    return selectedContactsIds.map(id => <Pills id={id} key={id} onDeleteClick={deleteContact} />);
+  };
+
+  const unselectedContactsIds = contacts.filter(
+    (contact, index) =>
+      selectedContactsIds.indexOf(index) === -1 &&
+      (contact.name.toLowerCase().indexOf(value.toLowerCase()) > -1 ||
+        contact.email.toLowerCase().indexOf(value.toLowerCase()) > -1)
+  );
+
+  const dropdownContents =
+    unselectedContactsIds.length === 0 ? (
+      <XUIPicklist>
+        <XUIAutocompleterEmptyState>No contacts found</XUIAutocompleterEmptyState>
+      </XUIPicklist>
+    ) : (
+      <XUIPicklist>
+        {unselectedContactsIds.map(contact => {
+          const { email, id, name } = contact;
+
+          const headingContent = decorateSubStr(name, value || '', boldMatch);
+          const secondaryContent = decorateSubStr(email, value || '', boldMatch);
+
+          return (
+            <XUIPickitem
+              headingElement={headingContent}
+              id={id}
+              isMultiline
+              key={id}
+              leftElement={<XUIAvatar size="small" value={name} />}
+              onSelect={selectContact}
+              secondaryElement={secondaryContent}
+              shouldTruncate
+              value={id}
+            />
+          );
+        })}
+      </XUIPicklist>
     );
-  }
-}
 
-//Example to show how the children can be styled however and you also define your own search criteria.
-class DisableWrapPills extends Component {
-  constructor(...args) {
-    super(...args);
+  return (
+    <XUIAutocompleter
+      disableWrapPills
+      inputLabel="Contact(s)"
+      onBackspacePill={deleteLastContact}
+      onSearch={onSearchChangeHandler}
+      pills={renderPills(selectedContactsIds)}
+      placeholder="Search contacts"
+      ref={autocompleter}
+      searchValue={value}
+    >
+      {dropdownContents}
+    </XUIAutocompleter>
+  );
+};
 
-    this.state = {
-      value: '',
-      selectedPeopleIds: [0]
-    };
-
-    this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
-    this.deletePerson = this.deletePerson.bind(this);
-    this.deleteLastPerson = this.deleteLastPerson.bind(this);
-    this.selectPerson = this.selectPerson.bind(this);
-    this.completer = React.createRef();
-  }
-
-  onSearchChangeHandler(value) {
-    this.completer.current.openDropdown();
-    this.setState(prevState => ({ value }));
-  }
-
-  deletePerson(idToRemove) {
-    this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds.filter(id => id !== idToRemove)]
-    }));
-  }
-
-  deleteLastPerson() {
-    this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds.slice(0, -1)]
-    }));
-  }
-
-  selectPerson(person) {
-    this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds, person],
-      value: ''
-    }));
-  }
-
-  renderPills(selectedPeopleIds) {
-    return selectedPeopleIds.map(id => (
-      <PillWrapper id={id} key={id} onDeleteClick={this.deletePerson} />
-    ));
-  }
-
-  render() {
-    const { value, selectedPeopleIds } = this.state;
-    const unselectedPeopleIds = filterPeople(people, value, selectedPeopleIds);
-
-    const dropdownContents =
-      unselectedPeopleIds.length === 0 ? (
-        <XUIPicklist>
-          <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>
-        </XUIPicklist>
-      ) : (
-        <XUIPicklist>
-          {unselectedPeopleIds.map(person => {
-            const secondaryContent = (
-              <Fragment>
-                {decorateSubStr(person.email, value || '', boldMatch)},{' '}
-                {decorateSubStr(person.subtext, value || '', boldMatch)}
-              </Fragment>
-            );
-            const headingContent = (
-              <Fragment>{decorateSubStr(person.name, value || '', boldMatch)}</Fragment>
-            );
-            return (
-              <XUIPickitem
-                shouldTruncate
-                key={person.id}
-                id={person.id}
-                value={person.id}
-                secondaryElement={secondaryContent}
-                headingElement={headingContent}
-                leftElement={
-                  <XUIAvatar value={person.name} imageUrl={person.avatar} size="small" />
-                }
-                onSelect={this.selectPerson}
-                isMultiline
-              />
-            );
-          })}
-        </XUIPicklist>
-      );
-
-    return (
-      <XUIAutocompleter
-        inputLabel="autocompleter"
-        isInputLabelHidden
-        ref={this.completer}
-        onSearch={this.onSearchChangeHandler}
-        placeholder="XUI Autocompleter accommodates enough space to fit the placeholder"
-        searchValue={value}
-        onBackspacePill={this.deleteLastPerson}
-        disableWrapPills
-        pills={this.renderPills(selectedPeopleIds)}
-      >
-        {dropdownContents}
-      </XUIAutocompleter>
-    );
-  }
-}
-
-<DisableWrapPills />;
+<AutocompleterExample />;
 ```
 
 ### Single-select
@@ -378,131 +351,137 @@ class DisableWrapPills extends Component {
 When using `XUIAutocompleter` for selecting a single option, use the `leftElement` and `rightElement` props for adding information and options about the selected item and leave the `pills` prop empty.
 
 ```jsx harmony
-import { Component, Fragment } from 'react';
+import { useRef, useState } from 'react';
 import crossIcon from '@xero/xui-icon/icons/cross-small';
 
-import { XUIIconButton } from '@xero/xui/react/button';
+import XUIAutocompleter, {
+  XUIAutocompleterEmptyState,
+  boldMatch,
+  decorateSubStr
+} from '@xero/xui/react/autocompleter';
 import XUIAvatar from '@xero/xui/react/avatar';
-import XUIAutocompleter, { boldMatch, decorateSubStr } from '@xero/xui/react/autocompleter';
+import { XUIIconButton } from '@xero/xui/react/button';
 import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import { XUITextInputSideElement } from '@xero/xui/react/textinput';
 
-import people from './components/autocompleter/private/people';
+const contacts = [
+  {
+    email: 'frida@gmail.com',
+    id: 0,
+    name: 'Frida'
+  },
+  {
+    id: 1,
+    email: 'fredgreen@gmail.com',
+    name: 'Fred Green'
+  },
+  {
+    email: 'peterparker@yahoo.com',
+    id: 2,
+    name: 'Peter Parker'
+  },
+  {
+    email: 'davechang@xero.com',
+    id: 3,
+    name: 'Dave Chang'
+  },
+  {
+    email: 'roy@roychoi.com',
+    id: 4,
+    name: 'Roy Choi'
+  }
+];
 
-const filterPeople = (peopleToSearch, value) => {
-  const val = value.toLowerCase();
-  return peopleToSearch.filter(
-    person =>
-      person.name.toLowerCase().indexOf(val) > -1 ||
-      person.email.toLowerCase().indexOf(val) > -1 ||
-      person.subtext.toLowerCase().indexOf(val) > -1
+const AutocompleterExample = () => {
+  const [value, setValue] = useState(contacts[0].name);
+  const [selectedContactId, setSelectedContactId] = useState([0]);
+  const autocompleter = useRef();
+
+  const onSearchChangeHandler = value => {
+    autocompleter.current.openDropdown();
+
+    const valueMatchesSelectedContact =
+      selectedContactId != null && value === contacts[selectedContactId].name;
+
+    setValue(value);
+
+    valueMatchesSelectedContact
+      ? setSelectedContactId(selectedContactId)
+      : setSelectedContactId(null);
+  };
+
+  const selectContact = selectedContactId => {
+    setSelectedContactId(selectedContactId);
+    selectedContactId !== null ? setValue(contacts[selectedContactId].name) : setValue('');
+  };
+
+  const clearSelection = () => {
+    selectContact(null);
+  };
+
+  const searchResults = contacts.filter(
+    contact =>
+      contact.name.toLowerCase().indexOf(value.toLowerCase()) > -1 ||
+      contact.email.toLowerCase().indexOf(value.toLowerCase()) > -1
   );
-};
 
-//Example to show how the children can be styled however and you also define your own search criteria.
-class SingleSelectExample extends Component {
-  constructor(...args) {
-    super(...args);
-
-    this.state = {
-      value: people[0].name,
-      selectedPersonId: 0
-    };
-
-    this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
-    this.selectPerson = this.selectPerson.bind(this);
-    this.clearSelection = this.clearSelection.bind(this);
-    this.completer = React.createRef();
-  }
-
-  onSearchChangeHandler(value) {
-    this.completer.current.openDropdown();
-    this.setState(prevState => {
-      const { selectedPersonId } = prevState;
-      const textIsCurrentName = selectedPersonId != null && value === people[selectedPersonId].name;
-      return {
-        value,
-        selectedPersonId: textIsCurrentName ? selectedPersonId : null
-      };
-    });
-  }
-
-  selectPerson(selectedPersonId) {
-    this.setState(prevState => ({
-      selectedPersonId,
-      value: selectedPersonId != null ? people[selectedPersonId].name : ''
-    }));
-  }
-
-  clearSelection() {
-    this.selectPerson(null);
-  }
-
-  render() {
-    const { value, selectedPersonId } = this.state;
-    const searchResults = filterPeople(people, value);
-
-    const dropdownContents = (
+  const dropdownContents =
+    searchResults.length === 0 ? (
       <XUIPicklist>
-        {searchResults.map(person => {
-          const secondaryContent = (
-            <Fragment>
-              {decorateSubStr(person.email, value || '', boldMatch)},{' '}
-              {decorateSubStr(person.subtext, value || '', boldMatch)}
-            </Fragment>
-          );
-          const headingContent = (
-            <Fragment>{decorateSubStr(person.name, value || '', boldMatch)}</Fragment>
-          );
+        <XUIAutocompleterEmptyState>No contacts found</XUIAutocompleterEmptyState>
+      </XUIPicklist>
+    ) : (
+      <XUIPicklist>
+        {searchResults.map(contact => {
+          const { email, id, name } = contact;
+
+          const headingContent = decorateSubStr(name, value || '', boldMatch);
+          const secondaryContent = decorateSubStr(email, value || '', boldMatch);
           return (
             <XUIPickitem
-              shouldTruncate
-              key={person.id}
-              id={person.id}
-              value={person.id}
-              secondaryElement={secondaryContent}
               headingElement={headingContent}
-              leftElement={<XUIAvatar value={person.name} imageUrl={person.avatar} size="small" />}
-              onSelect={this.selectPerson}
+              id={id}
               isMultiline
+              key={id}
+              leftElement={<XUIAvatar size="small" value={name} />}
+              onSelect={() => selectContact(id)}
+              secondaryElement={secondaryContent}
+              shouldTruncate
+              value={id}
             />
           );
         })}
       </XUIPicklist>
     );
-    const leftElement = selectedPersonId != null && (
-      <XUITextInputSideElement type="avatar">
-        <XUIAvatar
-          value={people[selectedPersonId].name}
-          imageUrl={people[selectedPersonId].avatar}
-          size="small"
-        />
-      </XUITextInputSideElement>
-    );
-    const rightElement = selectedPersonId != null && (
-      <XUITextInputSideElement type="icon">
-        <XUIIconButton icon={crossIcon} ariaLabel="Clear" onClick={this.clearSelection} />
-      </XUITextInputSideElement>
-    );
 
-    return (
-      <XUIAutocompleter
-        inputLabel="autocompleter"
-        isInputLabelHidden
-        ref={this.completer}
-        onSearch={this.onSearchChangeHandler}
-        placeholder="Select a person"
-        searchValue={value}
-        leftElement={leftElement}
-        rightElement={rightElement}
-      >
-        {dropdownContents}
-      </XUIAutocompleter>
-    );
-  }
-}
+  const leftElement = selectedContactId != null && (
+    <XUITextInputSideElement type="avatar">
+      <XUIAvatar size="small" value={contacts[selectedContactId].name} />
+    </XUITextInputSideElement>
+  );
 
-<SingleSelectExample />;
+  const rightElement = selectedContactId != null && (
+    <XUITextInputSideElement type="icon">
+      <XUIIconButton ariaLabel="Clear selection" icon={crossIcon} onClick={clearSelection} />
+    </XUITextInputSideElement>
+  );
+
+  return (
+    <XUIAutocompleter
+      inputLabel="Contact"
+      leftElement={leftElement}
+      onSearch={onSearchChangeHandler}
+      placeholder="Search contacts"
+      ref={autocompleter}
+      rightElement={rightElement}
+      searchValue={value}
+    >
+      {dropdownContents}
+    </XUIAutocompleter>
+  );
+};
+
+<AutocompleterExample />;
 ```
 
 ### Adding custom key down behaviour
@@ -512,7 +491,7 @@ Custom key down behaviours can be applied by providing a callback function to th
 Please note. This prop is not intended to give users the ability to disable or amend the default onKeyDown behaviours. If a custom function is provided, this will be called after the relevant default onKeyDown behaviour.
 
 ```jsx harmony
-import { Component, PureComponent, Fragment } from 'react';
+import { useRef, useState } from 'react';
 
 import XUIAutocompleter, {
   XUIAutocompleterEmptyState,
@@ -520,171 +499,143 @@ import XUIAutocompleter, {
   decorateSubStr
 } from '@xero/xui/react/autocompleter';
 import XUIAvatar from '@xero/xui/react/avatar';
-import XUIPill from '@xero/xui/react/pill';
 import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import XUIPill from '@xero/xui/react/pill';
 
-import people from './components/autocompleter/private/people';
+const contacts = [
+  {
+    email: 'frida@gmail.com',
+    id: 0,
+    name: 'Frida'
+  },
+  {
+    id: 1,
+    email: 'fredgreen@gmail.com',
+    name: 'Fred Green'
+  },
+  {
+    email: 'peterparker@yahoo.com',
+    id: 2,
+    name: 'Peter Parker'
+  },
+  {
+    email: 'davechang@xero.com',
+    id: 3,
+    name: 'Dave Chang'
+  },
+  {
+    email: 'roy@roychoi.com',
+    id: 4,
+    name: 'Roy Choi'
+  }
+];
 
-const filterPeople = (peopleToSearch, value, idsToExclude) => {
-  const val = value.toLowerCase();
-  return peopleToSearch.filter(
-    (person, index) =>
-      idsToExclude.indexOf(index) === -1 &&
-      (person.name.toLowerCase().indexOf(val) > -1 ||
-        person.email.toLowerCase().indexOf(val) > -1 ||
-        person.subtext.toLowerCase().indexOf(val) > -1)
+const Pills = ({ id, onDeleteClick }) => {
+  return (
+    <XUIPill
+      className="xui-autocompleter--pill"
+      deleteButtonLabel={`Delete ${contacts[id].name}`}
+      key={id}
+      onDeleteClick={() => {
+        onDeleteClick(id);
+      }}
+      size="small"
+      value={contacts[id].name}
+    />
   );
 };
 
-class PillWrapper extends PureComponent {
-  constructor(...args) {
-    super(...args);
-    this.deleteSelf = this.deleteSelf.bind(this);
-  }
+const AutocompleterExample = () => {
+  const [value, setValue] = useState('');
+  const [selectedContactsIds, setSelectedContactsIds] = useState([0]);
+  const autocompleter = useRef();
 
-  deleteSelf() {
-    this.props.onDeleteClick(this.props.id);
-  }
+  const onKeyDownHandler = event => {
+    console.log('custom onKeyDown event');
+  };
 
-  render() {
-    const { id } = this.props;
-    return (
-      <XUIPill
-        value={people[id].name}
-        className="xui-autocompleter--pill"
-        onDeleteClick={this.deleteSelf}
-        deleteButtonLabel="Delete"
-        key={id}
-        size="small"
-      />
-    );
-  }
-}
+  const onSearchChangeHandler = value => {
+    autocompleter.current.openDropdown();
+    setValue(value);
+  };
 
-// Example to show how a custom onKeyDown function can be added.
-class CustomKeyDownExample extends Component {
-  constructor(...args) {
-    super(...args);
-
-    this.state = {
-      value: '',
-      selectedPeopleIds: [0]
-    };
-
-    this.onSearchChangeHandler = this.onSearchChangeHandler.bind(this);
-    this.onKeyDownHandler = this.onKeyDownHandler.bind(this);
-    this.deletePerson = this.deletePerson.bind(this);
-    this.deleteLastPerson = this.deleteLastPerson.bind(this);
-    this.selectPerson = this.selectPerson.bind(this);
-    this.completer = React.createRef();
-  }
-
-  // Custom onKeyDownHandler example where pressing e will fire a console log "You pressed e".
-  onKeyDownHandler(event) {
-    if (event.keyCode === 69) {
-      console.log('You pressed e');
-    }
-  }
-
-  onSearchChangeHandler(value) {
-    const invalidInput = !!value.match(/[\!\.\^%&#]/);
-    if (invalidInput) {
-      this.completer.current.closeDropdown();
-    } else {
-      this.completer.current.openDropdown();
-    }
-    this.setState({
-      value,
-      isInvalid: invalidInput
+  const deleteContact = idToRemove => {
+    setSelectedContactsIds(previousState => {
+      return [...previousState.filter(id => id !== idToRemove)];
     });
-  }
+  };
 
-  deletePerson(idToRemove) {
-    this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds.filter(id => id !== idToRemove)]
-    }));
-  }
+  const deleteLastContact = () => {
+    setSelectedContactsIds(previousState => {
+      return [...previousState.slice(0, -1)];
+    });
+  };
 
-  deleteLastPerson() {
-    this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds.slice(0, -1)]
-    }));
-  }
+  const selectContact = contact => {
+    setSelectedContactsIds(previousState => {
+      return [...previousState, contact];
+    });
+    setValue('');
+  };
 
-  selectPerson(person) {
-    this.setState(prevState => ({
-      selectedPeopleIds: [...prevState.selectedPeopleIds, person],
-      value: ''
-    }));
-  }
+  const renderPills = selectedContactsIds => {
+    return selectedContactsIds.map(id => <Pills id={id} key={id} onDeleteClick={deleteContact} />);
+  };
 
-  renderPills(selectedPeopleIds) {
-    return selectedPeopleIds.map(id => (
-      <PillWrapper id={id} key={id} onDeleteClick={this.deletePerson} />
-    ));
-  }
+  const unselectedContactsIds = contacts.filter(
+    (contact, index) =>
+      selectedContactsIds.indexOf(index) === -1 &&
+      (contact.name.toLowerCase().indexOf(value.toLowerCase()) > -1 ||
+        contact.email.toLowerCase().indexOf(value.toLowerCase()) > -1)
+  );
 
-  render() {
-    const { value, selectedPeopleIds } = this.state;
-    const unselectedPeopleIds = filterPeople(people, value, selectedPeopleIds);
+  const dropdownContents =
+    unselectedContactsIds.length === 0 ? (
+      <XUIPicklist>
+        <XUIAutocompleterEmptyState>No contacts found</XUIAutocompleterEmptyState>
+      </XUIPicklist>
+    ) : (
+      <XUIPicklist>
+        {unselectedContactsIds.map(contact => {
+          const { email, id, name } = contact;
 
-    const dropdownContents =
-      unselectedPeopleIds.length === 0 ? (
-        <XUIPicklist>
-          <XUIAutocompleterEmptyState id="no_people">No People Found</XUIAutocompleterEmptyState>
-        </XUIPicklist>
-      ) : (
-        <XUIPicklist>
-          {unselectedPeopleIds.map(person => {
-            const secondaryContent = (
-              <Fragment>
-                {decorateSubStr(person.email, value || '', boldMatch)},{' '}
-                {decorateSubStr(person.subtext, value || '', boldMatch)}
-              </Fragment>
-            );
-            const headingContent = (
-              <Fragment>{decorateSubStr(person.name, value || '', boldMatch)}</Fragment>
-            );
-            return (
-              <XUIPickitem
-                shouldTruncate
-                key={person.id}
-                id={person.id}
-                value={person.id}
-                secondaryElement={secondaryContent}
-                headingElement={headingContent}
-                leftElement={
-                  <XUIAvatar value={person.name} imageUrl={person.avatar} size="small" />
-                }
-                onSelect={this.selectPerson}
-                isMultiline
-              />
-            );
-          })}
-        </XUIPicklist>
-      );
-    const validityMsg = this.state.isInvalid
-      ? 'Special characters are not allowed'
-      : 'Please enter a search term';
-    return (
-      <XUIAutocompleter
-        inputLabel="autocompleter"
-        closeOnTab={true}
-        closeOnSelect={false}
-        isInputLabelHidden
-        ref={this.completer}
-        onSearch={this.onSearchChangeHandler}
-        placeholder="This custom implementation logs a special message when you press e"
-        searchValue={value}
-        onBackspacePill={this.deleteLastPerson}
-        pills={this.renderPills(selectedPeopleIds)}
-        isInvalid={(!value && !selectedPeopleIds.length) || this.state.isInvalid}
-        onKeyDown={this.onKeyDownHandler}
-      >
-        {dropdownContents}
-      </XUIAutocompleter>
+          const headingContent = decorateSubStr(name, value || '', boldMatch);
+          const secondaryContent = decorateSubStr(email, value || '', boldMatch);
+
+          return (
+            <XUIPickitem
+              headingElement={headingContent}
+              id={id}
+              isMultiline
+              key={id}
+              leftElement={<XUIAvatar size="small" value={name} />}
+              onSelect={selectContact}
+              secondaryElement={secondaryContent}
+              shouldTruncate
+              value={id}
+            />
+          );
+        })}
+      </XUIPicklist>
     );
-  }
-}
-<CustomKeyDownExample />;
+
+  return (
+    <XUIAutocompleter
+      closeOnSelect={false}
+      closeOnTab={true}
+      inputLabel="Contact(s)"
+      onBackspacePill={deleteLastContact}
+      onKeyDown={onKeyDownHandler}
+      onSearch={onSearchChangeHandler}
+      pills={renderPills(selectedContactsIds)}
+      placeholder="Search contacts"
+      ref={autocompleter}
+      searchValue={value}
+    >
+      {dropdownContents}
+    </XUIAutocompleter>
+  );
+};
+
+<AutocompleterExample />;
 ```

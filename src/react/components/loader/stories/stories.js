@@ -1,17 +1,9 @@
-// Libs
-import React from 'react';
-
-// Story book things
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { boolean, select } from '@storybook/addon-knobs';
-
-// Components we need to test with
+import ExampleContainer from '../../../docs/ExampleContainer';
 import { sizeClassNames } from '../private/constants';
 import XUILoader from '../XUILoader';
-
-import ExampleContainer from '../../../docs/ExampleContainer';
-
-import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
 const sizes = Object.keys(sizeClassNames);
 
@@ -21,25 +13,27 @@ const getContainerStyle = isRequired =>
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addParameters({ layout: 'centered' });
 storiesWithKnobs.add('Playground', () => {
-  const size = select('size', sizes, sizes[0]);
+  const isAnimated = boolean('Is animated', true) ? null : 'xui-loader-static';
 
-  const hasDefaultLayout = boolean('default layout', true);
-  const retainLayout = boolean('retain layout', true);
-  const isStatic = boolean('static animations', false) ? 'xui-loader-static' : null;
+  const ariaLabel = text('ariaLabel', 'Loading');
+  const hasDefaultLayout = boolean('hasDefaultLayout', true);
+  const isInverted = boolean('isInverted', false);
+  const retainLayout = boolean('retainLayout', false);
+  const size = select('size', sizes, sizes[2]);
 
   const attrs = {
     className: 'xui-background-white',
-    isInverted: boolean('is inverted', false),
+    isInverted,
     style: getContainerStyle(!hasDefaultLayout),
   };
 
   return (
     <ExampleContainer {...attrs}>
       <XUILoader
-        ariaLabel="Loading"
-        className={isStatic}
+        ariaLabel={ariaLabel}
+        className={isAnimated}
         hasDefaultLayout={hasDefaultLayout}
-        isInverted={attrs.isInverted}
+        isInverted={isInverted}
         retainLayout={retainLayout}
         size={size}
       />

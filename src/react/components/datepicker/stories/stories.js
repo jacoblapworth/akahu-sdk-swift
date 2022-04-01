@@ -3,7 +3,8 @@ import React from 'react';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { boolean, date, number, text } from '@storybook/addon-knobs';
+import { boolean, number, text } from '@storybook/addon-knobs';
+import { dateKnob } from '../../../../../.storybook/helpers';
 
 // Components we need to test with
 import XUIDatePicker from '../XUIDatePicker';
@@ -25,71 +26,65 @@ function maxDate(d1, d2) {
   return d1 > d2 ? d1 : d2;
 }
 
-class ExamplePicker extends React.Component {
-  state = {
-    selectedDate: null,
-    selectedRange: null,
-  };
-
-  onSelectDate = newDate => {
-    if (this.props.selectRange) {
-      this.setState(prevState => {
-        const { selectedRange } = prevState;
-        if (selectedRange && selectedRange.from && !selectedRange.to) {
-          return {
-            selectedRange: {
-              from: minDate(selectedRange.from, newDate),
-              to: maxDate(selectedRange.from, newDate),
-            },
-            selectedDate: null,
-          };
-        }
-        return {
-          selectedRange: {
-            from: newDate,
-            to: null,
-          },
-          selectedDate: null,
-        };
-      });
-    } else {
-      this.setState({
-        selectedDate: newDate,
-        selectedRange: null,
-      });
-    }
-  };
-
-  render() {
-    return (
-      <XUIDatePicker
-        nextButtonAriaLabel="Next month"
-        onSelectDate={this.onSelectDate}
-        prevButtonAriaLabel="Previous month"
-        selectedDate={this.state.selectedDate}
-        selectedRange={this.state.selectedRange}
-        {...this.props}
-      />
-    );
-  }
-}
-
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addParameters({ layout: 'centered' });
-storiesWithKnobs.add('Playground', () => (
-  <XUIPanel>
-    <ExamplePicker
-      displayedMonth={date('displayedMonth', '') ? new Date(date('displayedMonth', '')) : undefined}
-      firstDayOfWeek={number('firstDayOfWeek', 0)}
-      locale={text('locale', 'en')}
-      maxDate={date('maxDate', '') ? new Date(date('maxDate', '')) : undefined}
-      minDate={date('minDate', '') ? new Date(date('minDate', '')) : undefined}
-      selectRange={boolean('select range', false)}
-      showDaysInOtherMonths={boolean('showDaysInOtherMonths', false)}
-      showFixedNumberOfWeeks={boolean('showFixedNumberOfWeeks', false)}
-    />
-  </XUIPanel>
-));
+storiesWithKnobs.add('Playground', () => {
+  const storybookProps = {
+    selectRange: boolean('Select date range', false),
+  };
+
+  const reactProps = {
+    displayedMonth: dateKnob('displayedMonth', new Date(2022, 1, 1)),
+    firstDayOfWeek: number('firstDayOfWeek', 0),
+    locale: text('locale', 'en-NZ'),
+    maxDate: dateKnob('maxDate', new Date(2099, 11, 31)),
+    minDate: dateKnob('minDate', new Date(0)),
+    nextButtonAriaLabel: text('nextButtonAriaLabel', 'Next month'),
+    prevButtonAriaLabel: text('prevButtonAriaLabel', 'Previous month'),
+    selectedDate: dateKnob('selectedDate', new Date(2022, 1, 2)),
+    selectedRange: {},
+    showDaysInOtherMonths: boolean('showDaysInOtherMonths', true),
+    showFixedNumberOfWeeks: boolean('showFixedNumberOfWeeks', false),
+  };
+
+  const PlaygroundDatePicker = props => {
+    const [selectedDate, setSelectedDate] = React.useState(reactProps.selectedDate);
+    const [selectedRange, setSelectedRange] = React.useState(reactProps.selectedRange);
+
+    const onSelectDate = newDate => {
+      if (storybookProps.selectRange) {
+        setSelectedDate(null);
+
+        if (selectedRange && selectedRange.from && !selectedRange.to) {
+          setSelectedRange({
+            from: minDate(selectedRange.from, newDate),
+            to: maxDate(selectedRange.from, newDate),
+          });
+        } else {
+          setSelectedRange({ from: newDate, to: null });
+        }
+      } else {
+        setSelectedDate(newDate);
+        setSelectedRange(null);
+      }
+    };
+
+    return (
+      <XUIDatePicker
+        {...props}
+        onSelectDate={onSelectDate}
+        selectedDate={selectedDate}
+        selectedRange={selectedRange}
+      />
+    );
+  };
+
+  return (
+    <XUIPanel>
+      <PlaygroundDatePicker {...reactProps} />
+    </XUIPanel>
+  );
+});
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
 

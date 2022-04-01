@@ -1,46 +1,63 @@
-// Libs
-import React, { Fragment } from 'react';
-
-// Story book things
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { boolean, select } from '@storybook/addon-knobs';
-
-// Components we need to test with
+import React from 'react';
+import XUIActions from '../../actions/XUIActions';
+import XUIButton from '../../button/XUIButton';
+import XUIDateInput from '../../dateinput/XUIDateInput';
+import XUITextInput from '../../textinput/XUITextInput';
+import { modalSizes } from '../constants';
 import XUIModal from '../XUIModal';
 import XUIModalBody from '../XUIModalBody';
 import XUIModalFooter from '../XUIModalFooter';
 import XUIModalHeader from '../XUIModalHeader';
-import XUITextInput from '../../textinput/XUITextInput';
-import XUIButton from '../../button/XUIButton';
-import { modalSizes } from '../constants';
-
 import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 
 storiesWithKnobs.add('Playground', () => {
-  const headerEnabled = boolean('Show Header', true);
-  const header = headerEnabled ? <XUIModalHeader>Header</XUIModalHeader> : null;
+  const [isOpen, setIsOpen] = React.useState(true);
 
-  const footerEnabled = boolean('Show Footer', true);
-  const footer = footerEnabled ? <XUIModalFooter>Footer!</XUIModalFooter> : null;
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  const headerEnabled = boolean('Has header', true);
+  const header = headerEnabled ? <XUIModalHeader>New project</XUIModalHeader> : null;
+
+  const footerEnabled = boolean('Has footer', true);
+  const footer = footerEnabled ? (
+    <XUIModalFooter>
+      <XUIActions
+        primaryAction={<XUIButton variant="main">Create project</XUIButton>}
+        secondaryAction={<XUIButton onClick={handleClose}>Cancel</XUIButton>}
+      />
+    </XUIModalFooter>
+  ) : null;
 
   return (
     <>
-      <XUITextInput />
-      <XUIButton>Test button</XUIButton>
+      <XUIButton onClick={handleOpen}>Open modal</XUIButton>
       <XUIModal
+        ariaDescribedBy={text('ariaDescribedBy', undefined)}
+        ariaLabelledBy={text('ariaLabeledBy', undefined)}
         closeButtonLabel="Close"
-        isForm={boolean('Main content is a form', false)}
-        isOpen={boolean('Is open', true)}
-        isUsingPortal={boolean('Uses portal', true)}
-        size={select('Size', Object.keys(modalSizes))}
+        hasDefaultLayout={boolean('hasDefaultLayout', true)}
+        hideOnEsc={boolean('hideOnEsc', true)}
+        hideOnOverlayClick={boolean('hideOnOverlayClick', false)}
+        isForm
+        isOpen={boolean('isOpen', true) && isOpen}
+        isUsingPortal={boolean('isUsingPortal', true)}
+        onClose={handleClose}
+        size={select('Size', Object.keys(modalSizes), 'medium')}
       >
         {header}
         <XUIModalBody>
-          Plain modal
-          <XUITextInput />
-          <XUIButton>Test button</XUIButton>
+          <XUITextInput isFieldLayout label="Contact" placeholder="Find or create a contact" />
+          <XUITextInput isFieldLayout label="Project name" />
+          <XUIDateInput isFieldLayout label="Deadline" placeholder="Select date" />
         </XUIModalBody>
         {footer}
       </XUIModal>

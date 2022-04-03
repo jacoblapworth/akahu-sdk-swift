@@ -41,15 +41,11 @@ storiesWithKnobs.add('Playground', () => {
     <>
       <XUIButton onClick={handleOpen}>Open modal</XUIButton>
       <XUIModal
-        ariaDescribedBy={text('ariaDescribedBy', undefined)}
-        ariaLabelledBy={text('ariaLabeledBy', undefined)}
         closeButtonLabel="Close"
-        hasDefaultLayout={boolean('hasDefaultLayout', true)}
         hideOnEsc={boolean('hideOnEsc', true)}
         hideOnOverlayClick={boolean('hideOnOverlayClick', false)}
         isForm
         isOpen={boolean('isOpen', true) && isOpen}
-        isUsingPortal={boolean('isUsingPortal', true)}
         onClose={handleClose}
         size={select('Size', Object.keys(modalSizes), 'medium')}
       >

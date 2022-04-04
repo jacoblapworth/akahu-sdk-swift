@@ -1,6 +1,6 @@
 ## _XUI React Docs provide technical, API documentation and interactive examples._
 
-## Getting Started
+## Getting started
 
 These docs act as a kitchen sink of our components and are focused on the technical configuration and their use. This includes component documentation, examples and API docs. The examples are interactive demos of the components and they can be live-edited by expanding the code block.
 

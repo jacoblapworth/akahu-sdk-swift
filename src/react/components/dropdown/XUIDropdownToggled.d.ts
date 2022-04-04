@@ -28,6 +28,8 @@ interface Props {
    */
   closeOnSelect?: boolean;
   /**
+   * @deprecated This prop will be set to `false` and removed in XUI 21.
+   *
    * Whether or not the dropdown should be automatically hidden when the user hits the tab key. Good
    * to turn this off if you've got a date picker, nested dropd down, form, or other complex
    * component inside of a dropdown.
@@ -59,6 +61,8 @@ interface Props {
    */
   isHidden?: boolean;
   /**
+   * @deprecated: This prop will be set to `true` and removed in XUI 21.
+   *
    * Use the "legacy" (portaled) display.
    *
    * Currently defaults to `true`.
@@ -135,6 +139,8 @@ interface Props {
    */
   triggerDropdownGap?: number;
   /**
+   * @deprecated This prop will be set to `true` and removed in XUI 21.
+   *
    * Whether or not to use the new focus behaviour - which treats dropdown navigation
    * like a `combobox` role. Defaults to `false`.
    */

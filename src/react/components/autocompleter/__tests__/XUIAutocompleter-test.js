@@ -518,7 +518,6 @@ describe('XUIAutocompleter', () => {
     );
     const autocompleterComponent = createComponent({
       onSearch,
-      closeOnTab: false,
       footer: footerComponent,
       isLegacyDisplay: false,
     });
@@ -544,7 +543,6 @@ describe('XUIAutocompleter', () => {
       const autocompleterComponent = createComponent({
         onClose,
         onSearch,
-        closeOnTab: false,
         isLegacyDisplay: false,
         ref: autocompleterRef,
       });
@@ -734,7 +732,6 @@ describe('XUIAutocompleter', () => {
         // Arrange
         render(
           createComponent({
-            closeOnTab: false,
             footer: footerComponent,
             onSearch: () => {},
             qaHook: 'autocompleter',
@@ -755,7 +752,6 @@ describe('XUIAutocompleter', () => {
         // Arrange
         render(
           createComponent({
-            closeOnTab: false,
             footer: footerComponent,
             onSearch: () => {},
             qaHook: 'autocompleter',
@@ -777,7 +773,6 @@ describe('XUIAutocompleter', () => {
         render(
           <>
             {createComponent({
-              closeOnTab: false,
               footer: footerComponent,
               onSearch: () => {},
               qaHook: 'autocompleter',
@@ -802,7 +797,6 @@ describe('XUIAutocompleter', () => {
         // Arrange
         render(
           createComponent({
-            closeOnTab: false,
             footer: footerComponent,
             onSearch: () => {},
             qaHook: 'autocompleter',

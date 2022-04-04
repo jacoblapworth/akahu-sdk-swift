@@ -86,7 +86,6 @@ export default class DropdownDateRange extends React.Component {
     );
     return (
       <XUIDropdownToggled
-        closeOnTab={false}
         dropdown={dropdown}
         onOpenAnimationEnd={this.focusDatePicker}
         ref={this.ddt}

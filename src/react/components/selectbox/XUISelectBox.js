@@ -275,7 +275,9 @@ XUISelectBox.propTypes = {
   /** for adding automation ID to component as well as input and button sub-components */
   qaHook: PropTypes.string,
 
-  /** Whether focus should be restricted to the dropdown while it's open.
+  /**
+   * @deprecated This prop will be set to `false` and removed in XUI 21.
+   * Whether focus should be restricted to the dropdown while it's open.
    * This is set to false if `useNewFocusBehaviour` is true.
    */
   restrictFocus: PropTypes.bool,
@@ -304,5 +306,5 @@ XUISelectBox.defaultProps = {
   isOpen: false,
   isTextTruncated: true,
   matchTriggerWidth: true,
-  restrictFocus: true,
+  restrictFocus: false,
 };

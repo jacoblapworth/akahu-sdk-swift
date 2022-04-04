@@ -59,20 +59,27 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 ### Updated focus/tab navigation for dropdowns
 
-The ability to use new focus/navigation behaviour for dropdown components has been added. This new behaviour fixes a number of navigation bugs in these components, and shifts them to behave as more of a `combobox` role, rather than a `modal` role. This behaviour is currently feature flagged, and can be accessed by setting `useNewFocusBehaviour` to `true` in the relevant components. In XUI 20, the default behaviour for these components will be updated to this new focus/navigation behaviour.
+The new focus/navigation behaviour for dropdown components that we added in 19.2.0 is now the default behaviour. This new behaviour fixes a number of navigation bugs in these components, and shifts them to behave as more of a `combobox` role, rather than a `modal` role.
 
-The following components will have this new behaviour available as an opt-in from XUI `19.2.0` onwards:
+As part of this change we have deprecated `useNewFocusBehaviour`, `isLegacyDisplay`, `restrictFocus` and `closeOnTab` props.
 
-- `XUISelectBox` and `XUISelectBoxOption`, `XUIAutocompleter` and `XUIAutocompleterSecondarySearch`: by setting `useNewFocusBehaviour` to true
-- `XUIDropdownToggled` and `XUISplitButtonGroup`, with either `XUIDropdown` or `XUINestedDropdown` as the dropdown: by setting `useNewFocusBehaviour` to true on `XUIDropdownToggled`
+We have also amended the default values of some of these deprecated props:
 
-The following components will have this new behaviour available as an opt-in from XUI `19.4.0` onwards:
+- `useNewFocusBehaviour` is set to `true` by default
+- `restrictFocus` is set to `false` by default
+- `closeOnTab` is set to `false` by default
 
-- `XUIEditableTableCellSelectBox`, `XUIEditableTableCellAutocompleter`and `XUIEdiableTableCellAutocompleterSecondarySearch`: by setting `useNewFocusBehaviour` to true
+You will still be able to access these deprecated props, but just keep in mind that these will be removed in XUI 21.
 
-The following components will ALWAYS have this behaviour from XUI `19.2.0` onwards:
+To apply the old dropdown behaviour, set the following props in `XUIDropdown` and `XUIDropdownToggled`:
 
-- `XUIDateInputItem`, `XUIDateRangeInput` and overflow dropdowns in `XUITable`
+- `useNewFocusBehaviour` to `false`
+- `restrictFocus` to `true`
+- `closeOnTab` to `true`
+
+The following components that use `XUIDropdown` and `XUIDropdownToggled` under the hood are affected by this change:
+
+- `XUIDropdown`, `XUIDropdownToggled`, `XUISelectBox`, `XUISelectBoxOption`, `XUIAutocompleter`, `XUIAutocompleterSecondarySearch`, `XUISplitButtonGroup`, `XUIEditableTableCellSelectBox`, `XUIEditableTableCellAutocompleter`and `XUIEditableTableCellAutocompleterSecondarySearch`: by setting `useNewFocusBehaviour`, `XUIDateInputItem`, `XUIDateRangeInput` and overflow dropdowns in `XUITable`.
 
 ### Component props
 

@@ -23,7 +23,7 @@ class ChartKey extends PureComponent {
     const trigger = <XUIIconButton ariaLabel={title} icon={infoPathData} title={title} />;
 
     const dropdown = (
-      <XUIDropdown hasFixedWidth hasKeyboardEvents={false} restrictFocus={false} size="small">
+      <XUIDropdown hasFixedWidth hasKeyboardEvents={false} size="small">
         <div className={`${NAME_SPACE}-chart--key`}>
           <div className={`${NAME_SPACE}-chart--key-title`}>{title}</div>
           <ul className={`${NAME_SPACE}-chart--key-list`}>{labels.map(this.createLabel)}</ul>

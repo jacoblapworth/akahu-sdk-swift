@@ -141,7 +141,7 @@ const sideBySide = (
     <XUIDropdownToggled
       className="xui-margin-right-large"
       dropdown={
-        <XUIDropdown hasFixedWidth restrictFocus={false} size="medium">
+        <XUIDropdown hasFixedWidth size="medium">
           <XUIPicklist>{createItems(toggledItems, 'one')}</XUIPicklist>
         </XUIDropdown>
       }
@@ -152,7 +152,7 @@ const sideBySide = (
     />
     <XUIDropdownToggled
       dropdown={
-        <XUIDropdown hasFixedWidth restrictFocus={false} size="medium">
+        <XUIDropdown hasFixedWidth size="medium">
           <XUIPicklist>{createItems(toggledItems, 'two')}</XUIPicklist>
         </XUIDropdown>
       }
@@ -166,18 +166,13 @@ const DropdownInDropdown = () => {
   const [selectedSubItem, setSelectedSubitem] = React.useState('Select One');
   return (
     <XUIDropdownToggled
-      closeOnTab={false}
       dropdown={
         <XUIDropdown hasFixedWidth size="large">
           <XUIPanel className="xui-padding">
             <XUITextInput fieldClassName="xui-column-6-of-12" />
             <XUIDropdownToggled
-              closeOnTab={false}
               dropdown={
-                <XUIDropdown
-                  onSelect={selected => setSelectedSubitem(selected)}
-                  restrictFocus={false}
-                >
+                <XUIDropdown onSelect={selected => setSelectedSubitem(selected)}>
                   <XUIPicklist>{createItems(toggledShort, 'i')}</XUIPicklist>
                 </XUIDropdown>
               }
@@ -211,7 +206,6 @@ storiesWithKnobs.add('Playground', () => {
           forceDesktop={forceDesktop}
           hasFixedWidth={boolean('hasFixedWidth', false)}
           header={showHeader ? header : undefined}
-          restrictFocus={boolean('restrictFocus', false)}
           size={select(
             'dropdown size',
             [...Object.keys(maxWidthDropdownSizes), undefined],
@@ -274,7 +268,6 @@ const getPositioningTest = () => {
   };
   const ddProps = {
     isHidden: true,
-    restrictFocus: false,
     size: 'small',
   };
 
@@ -376,7 +369,7 @@ const hintLabel = props => (
     trigger={createTriggerInput(props.triggerSettings)}
     {...props}
     dropdown={
-      <XUIDropdown hasFixedWidth restrictFocus={false} size="medium">
+      <XUIDropdown hasFixedWidth size="medium">
         <XUIPicklist>{createItems(toggledItems, 'seven')}</XUIPicklist>
       </XUIDropdown>
     }

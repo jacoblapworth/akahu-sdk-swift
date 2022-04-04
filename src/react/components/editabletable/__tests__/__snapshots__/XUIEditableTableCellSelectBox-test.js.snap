@@ -26,7 +26,7 @@ exports[`<XUIEditableTableCellSelectBox /> renders correctly 1`] = `
     matchTriggerWidth={true}
     onBlur={[Function]}
     onFocus={[Function]}
-    restrictFocus={true}
+    restrictFocus={false}
   >
     <XUISelectBoxOption
       _isMenuItem={true}

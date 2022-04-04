@@ -9,6 +9,7 @@ import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll'
 import { ns } from '../helpers/xuiClassNamespace';
 import { fixedWidthDropdownSizes } from './private/constants';
 import { openedModals } from '../helpers/modalManager';
+import { logWarning } from '../helpers/developmentConsole';
 
 /**
  * Wrapper for all content which will go inside of a dropdown. It ensures the correct
@@ -28,6 +29,13 @@ export default class XUIDropdown extends PureComponent {
     if (!isHidden && restrictFocus) {
       window.addEventListener('focus', this._restrictFocus, true);
     }
+
+    /** @todo to remove in XUI 21 */
+    restrictFocus &&
+      logWarning({
+        componentName: XUIDropdown.name,
+        message: '`restrictFocus` is now deprecated and will be removed in XUI 21',
+      });
   }
 
   componentDidUpdate(prevProps) {
@@ -373,7 +381,9 @@ XUIDropdown.propTypes = {
 
   qaHook: PropTypes.string,
 
-  /** Whether focus should be restricted to the dropdown while it's open.
+  /**
+   * @deprecated This prop will be set to `false` and removed in XUI 21.
+   * Whether focus should be restricted to the dropdown while it's open.
    * Setting `useNewFocusBehaviour` to true in `XUIDropdownToggled` will override this prop and set it to `false`
    */
   restrictFocus: PropTypes.bool,
@@ -397,6 +407,6 @@ XUIDropdown.defaultProps = {
   hasKeyboardEvents: true,
   ignoreKeyboardEvents: [],
   isHidden: false,
-  restrictFocus: true,
+  restrictFocus: false,
   shouldManageInitialHighlight: true,
 };

@@ -97,7 +97,10 @@ interface Props {
   onSelect?: (value: any, item: XUIPickitem) => void;
   qaHook?: string;
   /**
+   * @deprecated This prop will be set to `false` and removed in XUI 21.
+   *
    * Whether focus should be restricted to the dropdown while it's open.
+   *
    * Setting `useNewFocusBehaviour` to true in `XUIDropdownToggled` will override this prop and set it to `false`
    */
   restrictFocus?: boolean;

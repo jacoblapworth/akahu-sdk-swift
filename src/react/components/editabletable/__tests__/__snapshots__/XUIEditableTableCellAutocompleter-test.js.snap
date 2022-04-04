@@ -16,7 +16,7 @@ exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
   <XUIAutocompleter
     _useCellStyling={true}
     className="xui-editabletablecellautocompleter--control"
-    closeOnTab={true}
+    closeOnTab={false}
     disableWrapPills={false}
     dropdownHasFixedWidth={false}
     forceDesktop={true}
@@ -35,6 +35,7 @@ exports[`<XUIEditableTableCellAutocompleter /> renders correctly 1`] = `
     openOnFocus={false}
     searchDebounceTimeout={200}
     triggerClassName="xui-editabletablecellautocompleter--trigger"
+    useNewFocusBehaviour={true}
   />
 </XUIEditableTableCellControl>
 `;

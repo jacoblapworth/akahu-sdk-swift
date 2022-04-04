@@ -109,7 +109,6 @@ class SecondarySearchExample extends React.Component {
       <div style={{ width: 'auto' }}>
         <XUIAutocompleterSecondarySearch
           className={this.props.className}
-          closeOnTab={false}
           dropdownSize="medium"
           footer={footer}
           inputId="secondary_input_id"

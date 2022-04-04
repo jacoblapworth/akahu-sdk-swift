@@ -127,7 +127,10 @@ interface Props {
    */
   qaHook?: string;
   /**
+   * @deprecated This prop will be set to `false` and removed in XUI 21.
+   *
    * Whether focus should be restricted to the dropdown while it's open.
+   *
    * This is set to false if `useNewFocusBehaviour` is true.
    */
   restrictFocus?: boolean;

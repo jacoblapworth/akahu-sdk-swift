@@ -152,8 +152,11 @@ XUIEditableTableCellAutocompleter.propTypes = {
   /** Maps to the `closeOnSelect` property of the DropdownToggled component. */
   closeOnSelect: PropTypes.bool,
 
-  /** Maps to the `closeOnTab` property of the DropdownToggled component. Set to false, if you've
-   * supplied a footer element with any links or interaction. */
+  /**
+   * @deprecated This prop will be set to `false` and removed in XUI 21.
+   * Maps to the `closeOnTab` property of the DropdownToggled component. Set to false, if you've
+   * supplied a footer element with any links or interaction.
+   */
   closeOnTab: PropTypes.bool,
 
   /** Whether the pills should wrap instead of scroll on overflow */

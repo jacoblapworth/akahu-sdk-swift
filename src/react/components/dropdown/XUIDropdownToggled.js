@@ -24,6 +24,7 @@ import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 import { lockScroll, unlockScroll, isScrollLocked } from '../helpers/lockScroll';
 import isRunningInJest from '../helpers/isRunningInJest';
 import getTriggerElementRef from '../helpers/getTriggerElementRef';
+import { logWarning } from '../helpers/developmentConsole';
 
 /**
  * If the given DOM node isn't on screen, scroll it into view.
@@ -135,6 +136,24 @@ export default class XUIDropdownToggled extends PureComponent {
 
     this.onResize = debounce(this.onResize, 250);
     this.onScroll = throttleToFrame(this.repositionDropdown);
+
+    /** @todo to remove in XUI 21 */
+    const { closeOnTab, isLegacyDisplay, useNewFocusBehaviour } = this.props;
+    closeOnTab &&
+      logWarning({
+        componentName: XUIDropdownToggled.name,
+        message: '`closeOnTab` is now deprecated and will be removed in XUI 21',
+      });
+    !isLegacyDisplay &&
+      logWarning({
+        componentName: XUIDropdownToggled.name,
+        message: '`isLegacyDisplay` is now deprecated and will be removed in XUI 21',
+      });
+    !useNewFocusBehaviour &&
+      logWarning({
+        componentName: XUIDropdownToggled.name,
+        message: '`useNewFocusBehaviour` is now deprecated and will be removed in XUI 21',
+      });
   }
 
   /**
@@ -697,9 +716,12 @@ XUIDropdownToggled.propTypes = {
   /** Whether or not the dropdown should be automatically hidden when the user selects something */
   closeOnSelect: PropTypes.bool,
 
-  /** Whether or not the dropdown should be automatically hidden when the user hits the tab key.
+  /**
+   * @deprecated This prop will be set to `false` and removed in XUI 21.
+   * Whether or not the dropdown should be automatically hidden when the user hits the tab key.
    * Good to turn this off if you've got a date picker, nested dropd down, form, or other complex
-   * component inside of a dropdown. */
+   * component inside of a dropdown.
+   */
   closeOnTab: PropTypes.bool,
 
   /** Whether scroll locking behaviour should be disabled on mobile */
@@ -720,7 +742,10 @@ XUIDropdownToggled.propTypes = {
   /** Whether the dropdown is hidden on initial render */
   isHidden: PropTypes.bool,
 
-  /** Use the "legacy" (portaled) display. Currently defaults to "true." */
+  /**
+   * @deprecated This prop will be set to `true` and removed in XUI 21.
+   * Use the "legacy" (portaled) display. Currently defaults to "true."
+   */
   isLegacyDisplay: PropTypes.bool,
 
   /**
@@ -780,7 +805,9 @@ XUIDropdownToggled.propTypes = {
    */
   triggerDropdownGap: PropTypes.number,
 
-  /** Whether or not to use the new focus behaviour - which treats dropdown navigation
+  /**
+   * @deprecated This prop will be set to `true` and removed in XUI 21.
+   * Whether or not to use the new focus behaviour - which treats dropdown navigation
    * like a `combobox` role. Defaults to `false`.
    */
   useNewFocusBehaviour: PropTypes.bool,
@@ -789,7 +816,7 @@ XUIDropdownToggled.propTypes = {
 XUIDropdownToggled.defaultProps = {
   ariaPopupType: 'listbox',
   closeOnSelect: true,
-  closeOnTab: true,
+  closeOnTab: false,
   disableScrollLocking: false,
   forceDesktop: false,
   isBlock: false,
@@ -801,5 +828,5 @@ XUIDropdownToggled.defaultProps = {
   restrictToViewPort: true,
   triggerClickAction: 'toggle',
   triggerDropdownGap: 6,
-  useNewFocusBehaviour: false,
+  useNewFocusBehaviour: true,
 };

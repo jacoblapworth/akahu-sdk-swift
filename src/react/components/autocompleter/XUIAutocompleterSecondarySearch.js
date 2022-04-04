@@ -275,8 +275,11 @@ XUIAutocompleterSecondarySearch.propTypes = {
   /** Maps to the `closeOnSelect` property of the `XUIDropdownToggled` component. */
   closeOnSelect: PropTypes.bool,
 
-  /** Maps to the `closeOnTab` property of the `XUIDropdownToggled` component. Set to false,
-   * if you've supplied a footer element with any links or interaction. */
+  /**
+   * @deprecated This prop will be set to `false` and removed in XUI 21.
+   * Maps to the `closeOnTab` property of the `XUIDropdownToggled` component. Set to false,
+   * if you've supplied a footer element with any links or interaction.
+   */
   closeOnTab: PropTypes.bool,
 
   /** CSS class(es) to go on the dropdown list */
@@ -321,6 +324,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
   isInputLabelHidden: PropTypes.bool,
 
   /**
+   * @deprecated This prop will be set to `true` and removed in XUI 21.
    * Whether the underlying DropdownToggled component uses the "legacy" (portaled) display.
    * Defaults to "true."
    */
@@ -367,7 +371,9 @@ XUIAutocompleterSecondarySearch.propTypes = {
 
   qaHook: PropTypes.string,
 
-  /** Whether focus should be restricted to the dropdown while it's open.
+  /**
+   * @deprecated This prop will be set to `false` and removed in XUI 21.
+   * Whether focus should be restricted to the dropdown while it's open.
    * This is set to false if `useNewFocusBehaviour` is true.
    */
   restrictFocus: PropTypes.bool,
@@ -389,6 +395,7 @@ XUIAutocompleterSecondarySearch.propTypes = {
 XUIAutocompleterSecondarySearch.defaultProps = {
   // isLoading: false,
   isLegacyDisplay: true,
-  restrictFocus: true,
+  restrictFocus: false,
   searchThrottleInterval: 0,
+  useNewFocusBehaviour: true,
 };

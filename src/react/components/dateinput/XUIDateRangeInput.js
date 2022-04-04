@@ -153,7 +153,7 @@ class XUIDateRangeInput extends Component {
     const isAnyDisabled = isStartDisabled || isEndDisabled || isGroupDisabled;
 
     const dateInputDropdown = suggestedDates && (
-      <XUIDropdown className={`${baseClass}--suggesteddatesdropdown`} restrictFocus={false}>
+      <XUIDropdown className={`${baseClass}--suggesteddatesdropdown`}>
         <XUIPicklist>
           {suggestedDatesHeader}
           {suggestedDates.map(({ id, text, description }) => (
@@ -245,7 +245,6 @@ class XUIDateRangeInput extends Component {
               isAnyDisabled && `${baseClass}--suggested-disabled`,
             )}
             closeOnSelect={closeOnSelect}
-            closeOnTab={false}
             dropdown={dateInputDropdown}
             isHidden={_isSuggestedDatesDropdownHidden}
             qaHook={qaHook && `${qaHook}-daterangeinput-suggesteddates`}

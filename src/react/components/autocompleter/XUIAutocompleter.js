@@ -511,8 +511,11 @@ XUIAutocompleter.propTypes = {
   /** Maps to the `closeOnSelect` property of the `XUIDropdownToggled` component. */
   closeOnSelect: PropTypes.bool,
 
-  /** Maps to the `closeOnTab` property of the `XUIDropdownToggled` component. Set to false, if you've
-   * supplied a footer element with any links or interaction. */
+  /**
+   * @deprecated This prop will be set to `false` and removed in XUI 21.
+   * Maps to the `closeOnTab` property of the `XUIDropdownToggled` component. Set to false, if you've
+   * supplied a footer element with any links or interaction.
+   */
   closeOnTab: PropTypes.bool,
 
   /** Whether the pills should wrap instead of scroll on overflow */
@@ -578,6 +581,7 @@ XUIAutocompleter.propTypes = {
   isInvalid: PropTypes.bool,
 
   /**
+   * @deprecated This prop will be set to `true` and removed in XUI 21.
    * Whether the underlying DropdownToggled component uses the "legacy" (portaled) display.
    * Defaults to "true."
    */
@@ -664,8 +668,11 @@ XUIAutocompleter.propTypes = {
   /** CSS class(es) to go on the trigger element which contains the input and pills */
   triggerClassName: PropTypes.string,
 
-  /** Whether or not to use the new focus behaviour - which treats dropdown navigation
-   * like a `combobox` role. Defaults to `false`. */
+  /**
+   * @deprecated This prop will be set to `true` and removed in XUI 21.
+   * Whether or not to use the new focus behaviour - which treats dropdown navigation
+   * like a `combobox` role. Defaults to `true`.
+   */
   useNewFocusBehaviour: PropTypes.bool,
 
   /** Validation message to show under the input if `isInvalid` is true */
@@ -673,7 +680,7 @@ XUIAutocompleter.propTypes = {
 };
 
 XUIAutocompleter.defaultProps = {
-  closeOnTab: true,
+  closeOnTab: false,
   disableWrapPills: false,
   dropdownHasFixedWidth: false,
   forceDesktop: true,
@@ -683,4 +690,5 @@ XUIAutocompleter.defaultProps = {
   matchTriggerWidth: true,
   openOnFocus: false,
   searchDebounceTimeout: 200,
+  useNewFocusBehaviour: true,
 };

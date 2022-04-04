@@ -215,7 +215,6 @@ As mentioned, the above example is not using dropdown with its optimised use cas
 #### Props required for this behaviour
 
 - `restrictToViewPort=false` -> `XUIDropdownToggled`: Ensure that the user is never required to scroll the contents of the date picker. Scrolling is fine for lists. But scrolling a date picker is a bad user experience. This means that the date picker might hang off the edge of the screen or slightly cover the button, but this is preferable to having to scroll inside of the dropdown.
-- `closeOnTab=false` -> `XUIDropdownToggled`: Enables user to use the tab key to navigate to the next/previous month buttons or the selects controlling the month and year.
 - `onOpenAnimationEnd=function` -> `XUIDropdownToggled`: This function should call `XUIDatePicker.focus` as focus is required to enable keyboard navigation on the datepicker.
 - `onSelectDate` -> `XUIDatePicker`: This function should call `XUIDropdownToggled.closeDropdown` manually close the dropdown when appropriate.
 
@@ -340,7 +339,6 @@ const DropdownInputExample = () => {
     <XUIDropdown
       hasKeyboardEvents={false}
       ref={dropdownRef}
-      restrictFocus={false}
       hasFixedWidth
       onHighlightChange={onHighlightChange}
       onSelect={onSelect}

@@ -14,6 +14,8 @@ interface Props {
    */
   closeOnSelect?: boolean;
   /**
+   * @deprecated This prop will be set to `false` and removed in XUI 21.
+   *
    * Maps to the `closeOnTab` property of the `XUIDropdownToggled` component.
    */
   closeOnTab?: boolean;
@@ -104,6 +106,8 @@ interface Props {
    */
   isInvalid?: boolean;
   /**
+   * @deprecated This prop will be set to `true` and removed in XUI 21.
+   *
    * Whether the underlying DropdownToggled component uses the "legacy" (portaled) display.
    *
    * Defaults to "true."

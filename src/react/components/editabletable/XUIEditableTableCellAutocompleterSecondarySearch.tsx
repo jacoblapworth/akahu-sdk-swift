@@ -197,8 +197,13 @@ class XUIEditableTableCellAutocompleterSecondarySearch extends React.Component<P
     /** Maps to the `closeOnSelect` property of the DropdownToggled component. */
     closeOnSelect: PropTypes.bool,
 
-    /** Maps to the `closeOnTab` property of the DropdownToggled component. Set to false, if you've
-     * supplied a footer element with any links or interaction. */
+    /**
+     * @deprecated This prop will be set to `false` and removed in XUI 21.
+     *
+     * Maps to the `closeOnTab` property of the DropdownToggled component.
+     *
+     * Set to false, if you've supplied a footer element with any links or interaction.
+     */
     closeOnTab: PropTypes.bool,
 
     /** CSS class(es) to go on the dropdown list */
@@ -253,7 +258,10 @@ class XUIEditableTableCellAutocompleterSecondarySearch extends React.Component<P
     isInvalid: PropTypes.bool,
 
     /**
+     * @deprecated This prop will be set to `true` and removed in XUI 21.
+     *
      * Whether the underlying DropdownToggled component uses the "legacy" (portaled) display.
+     *
      * Defaults to "true."
      */
     isLegacyDisplay: PropTypes.bool,

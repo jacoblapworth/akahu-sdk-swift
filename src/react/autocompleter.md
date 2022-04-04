@@ -622,7 +622,6 @@ const AutocompleterExample = () => {
   return (
     <XUIAutocompleter
       closeOnSelect={false}
-      closeOnTab={true}
       inputLabel="Contact(s)"
       onBackspacePill={deleteLastContact}
       onKeyDown={onKeyDownHandler}

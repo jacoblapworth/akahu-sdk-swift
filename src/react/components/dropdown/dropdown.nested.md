@@ -168,7 +168,6 @@ const NestedDropdownExample = () => {
   return (
     <XUIDropdownToggled
       closeOnSelect={false}
-      closeOnTab={false}
       dropdown={dropdown}
       onClose={showSuggestedDates}
       ref={ddt}

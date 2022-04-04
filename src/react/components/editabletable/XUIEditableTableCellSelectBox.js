@@ -175,7 +175,10 @@ XUIEditableTableCellSelectBox.propTypes = {
 
   qaHook: PropTypes.string,
 
-  /** Whether focus should be restricted to the dropdown while it's open. */
+  /**
+   * @deprecated This prop will be set to `false` and removed in XUI 21.
+   * Whether focus should be restricted to the dropdown while it's open.
+   */
   restrictFocus: PropTypes.bool,
 
   /** Whether or not to use the new focus behaviour - which treats dropdown navigation

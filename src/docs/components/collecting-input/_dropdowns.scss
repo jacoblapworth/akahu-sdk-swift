@@ -255,6 +255,8 @@
 
 // Accessibility
 //
+// Flags: updated updatesComing
+//
 // Unless the trigger itself is an input, a dropdown shouldn’t open when its trigger is in focus.
 // The enter and arrow keys should trigger visibility and shift focus to the dropdown itself, and the escape key closes it.
 // Tapping anywhere on the screen (or the mask at narrow viewports) should also dismiss the dropdown.

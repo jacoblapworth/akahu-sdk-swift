@@ -418,7 +418,6 @@ class XUIDateInputItem extends Component {
       >
         <XUIDropdownToggled
           closeOnSelect={closeOnSelect}
-          closeOnTab={false}
           dropdown={dateInputDropdown}
           isHidden={_isDropdownHidden}
           onClose={this.onDropdownClose}

@@ -42,7 +42,6 @@ const variations = [
     ddSettings: {
       headerAndFooter: true,
     },
-    closeOnTab: false,
     closeOnSelect: false,
   },
   {
@@ -53,7 +52,6 @@ const variations = [
       children: 'datepicker',
     },
     restrictToViewPort: false,
-    closeOnTab: false,
   },
   {
     storyKind: storiesWithVariationsKindName,
@@ -68,7 +66,6 @@ const variations = [
     ddSettings: {
       children: 'nested',
     },
-    closeOnTab: false,
     closeOnSelect: false,
     restrictToViewPort: false,
   },
@@ -78,7 +75,6 @@ const variations = [
     ddSettings: {
       children: 'nestedScrollable',
     },
-    closeOnTab: false,
     closeOnSelect: false,
   },
   {

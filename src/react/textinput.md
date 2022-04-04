@@ -48,6 +48,38 @@ import XUITextInput from '@xero/xui/react/textinput';
 <XUITextInput label="Contact name" />;
 ```
 
+### Optional fields indicator
+
+#### As a label
+
+If you want to indicate that the input is an optional field, you can do so by composing the indicator within the label using our helper class `xui-textinput-label-indicator`.
+
+```jsx harmony
+import XUITextInput from '@xero/xui/react/textinput';
+
+<XUITextInput
+  label={
+    <>
+      Contact<span className="xui-textinput-label-indicator">(Optional)</span>
+    </>
+  }
+/>;
+```
+
+#### As a placeholder
+
+If you want to provide an optional field indicator without a label, you can do so by adding the `(Optional)` text into the `placeholder` prop.
+
+```jsx harmony
+import XUITextInput from '@xero/xui/react/textinput';
+
+<XUITextInput isLabelHidden label="Contact (Optional)" placeholder="Contact (Optional)" />;
+```
+
+#### Your own custom indicator
+
+You can use the above patterns with text other than 'Optional' such as 'Required' too. Please take care to respect the form input guidance in the [XUI Documentation](../section-components-collectinginput-forms.html)
+
 ### Validation
 
 Validation messages and styling should be added to inputs using the `validationMessage` and `isInvalid` props. Additionally, hint messages can be passed to inputs using the `hintMessage` prop. It's best to set `isFieldLayout=true` on all inputs to ensure consistent spacing between fields.

@@ -13,76 +13,85 @@ import XUIIcon from '../../icon/XUIIcon';
  *
  * @param {Object} props
  */
-const PickitemBody = ({
-  children,
-  className,
-  headingElement,
-  href,
-  leftElement,
-  onBlur,
-  onClick,
-  onFocus,
-  onKeyDown,
-  onMouseOver,
-  onMouseUp,
-  pinnedElement,
-  primaryElement,
-  qaHook,
-  rightElement,
-  secondaryElement,
-  shouldTruncate,
-  showButtonCaret,
-  tabIndex,
-  target,
-}) => {
-  const rel = target ? 'noopener noreferrer' : null;
-  const childProps = {
-    className: cn(itemBodyClassName, className, showButtonCaret && `${itemBodyClassName}-has-icon`),
-    onClick,
-    onKeyDown,
-    onMouseUp,
-    onMouseOver,
-    onBlur,
-    onFocus,
-    rel,
-    tabIndex,
-  };
+const PickitemBody = React.forwardRef(
+  (
+    {
+      children,
+      className,
+      headingElement,
+      href,
+      leftElement,
+      onBlur,
+      onClick,
+      onFocus,
+      onKeyDown,
+      onMouseOver,
+      onMouseUp,
+      pinnedElement,
+      primaryElement,
+      qaHook,
+      rightElement,
+      secondaryElement,
+      shouldTruncate,
+      showButtonCaret,
+      tabIndex,
+      target,
+    },
+    ref,
+  ) => {
+    const rel = target ? 'noopener noreferrer' : null;
+    const childProps = {
+      className: cn(
+        itemBodyClassName,
+        className,
+        showButtonCaret && `${itemBodyClassName}-has-icon`,
+      ),
+      onClick,
+      onKeyDown,
+      onMouseUp,
+      onMouseOver,
+      onBlur,
+      onFocus,
+      rel,
+      tabIndex,
+    };
 
-  const textClassName = cn(
-    itemTextClassName,
-    shouldTruncate && `${pickitemClassName}-text-truncated`,
-  );
-
-  const Tag = href ? 'a' : 'button';
-  const elementSettings = href ? { ...{ href, target } } : { type: 'button' };
-
-  const mainContent =
-    (children || primaryElement) && shouldTruncate ? (
-      <span className={`${pickitemClassName}-text-truncated`}>
-        {primaryElement}
-        {children}
-      </span>
-    ) : (
-      <>
-        {primaryElement}
-        {children}
-      </>
+    const textClassName = cn(
+      itemTextClassName,
+      shouldTruncate && `${pickitemClassName}-text-truncated`,
     );
 
-  return (
-    <Tag {...elementSettings} data-automationid={qaHook} {...childProps}>
-      {leftElement}
-      <span className={textClassName}>
-        {headingElement}
-        {mainContent}
-        {secondaryElement}
-      </span>
-      {pinnedElement}
-      {rightElement}
-      {showButtonCaret && <XUIIcon className={`${pickitemClassName}--caret`} icon={caret} />}
-    </Tag>
-  );
-};
+    const Tag = href ? 'a' : 'button';
+    const elementSettings = href ? { ...{ href, target } } : { type: 'button' };
+
+    const mainContent =
+      (children || primaryElement) && shouldTruncate ? (
+        <span className={`${pickitemClassName}-text-truncated`}>
+          {primaryElement}
+          {children}
+        </span>
+      ) : (
+        <>
+          {primaryElement}
+          {children}
+        </>
+      );
+
+    return (
+      <Tag {...elementSettings} data-automationid={qaHook} {...childProps} ref={ref}>
+        {leftElement}
+        <span className={textClassName}>
+          {headingElement}
+          {mainContent}
+          {secondaryElement}
+        </span>
+        {pinnedElement}
+        {rightElement}
+        {showButtonCaret && <XUIIcon className={`${pickitemClassName}--caret`} icon={caret} />}
+      </Tag>
+    );
+  },
+);
 
 PickitemBody.propTypes = {
   checkboxClassName: PropTypes.string,

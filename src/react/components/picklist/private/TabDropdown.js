@@ -14,6 +14,8 @@ import XUIDropdownToggled from '../../dropdown/XUIDropdownToggled';
  */
 const TabDropdown = ({ className, closeOnSelect, dropdownList, ulProps }) => {
   let tabItem = dropdownList[0];
+  const triggerRef = React.useRef();
+
   const dropdown = (
     <XUIDropdown forceStatefulPicklist>
       <ul {...ulProps}>
@@ -34,11 +36,12 @@ const TabDropdown = ({ className, closeOnSelect, dropdownList, ulProps }) => {
 
   const tabSelectTrigger = React.cloneElement(tabItem, {
     id: `tabDropdownTrigger-${tabItem.props.id || 0}`,
-    pickitemBodyProps: { showButtonCaret: true },
+    pickitemBodyProps: { showButtonCaret: true, ref: triggerRef },
   });
 
   return (
     <XUIDropdownToggled
+      _triggerElementRef={triggerRef.current}
       className={className}
       closeOnSelect={closeOnSelect}
       dropdown={dropdown}

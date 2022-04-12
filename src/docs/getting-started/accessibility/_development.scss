@@ -1,4 +1,4 @@
-// Accessible Development
+// Accessible development
 //
 // Introduction: Guide to accessible app development at Xero (WCAG 2.1 AA)
 //
@@ -10,7 +10,7 @@
 //
 // Weight: 1.13
 //
-// Styleguide: Getting Started.Accessibility.Development
+// Styleguide: Getting started.Accessibility.Development
 
 // Template-level or app-level
 //
@@ -26,7 +26,7 @@
 // * Include a skip link on each page ([2.4.1](https://www.wuhcag.com/bypass-blocks/))
 // * Ensure your app includes no significant client-side errors, and include Google Analytics to monitor for future errors ([4.1.1](https://www.wuhcag.com/parsing/))
 //
-// Styleguide: Getting Started.Accessibility.Development.1
+// Styleguide: Getting started.Accessibility.Development.1
 
 // Across components
 //
@@ -41,9 +41,9 @@
 // * Custom keyboard shortcuts should not interfere with existing browser or OS functionality ([2.1.4](https://www.w3.org/TR/WCAG21/#character-key-shortcuts))
 // * Use role="status" to communicate updates to assistive technologies, without stealing focus ([4.1.3](https://www.w3.org/TR/WCAG21/#status-messages))
 //
-// Styleguide: Getting Started.Accessibility.Development.2
+// Styleguide: Getting started.Accessibility.Development.2
 
-// UI Clarity
+// UI clarity
 //
 // Labelling and language play a major part in how usable an application is, even for users without vision or cognitive impairments. Here are some things you can do to ensure access for all:
 //
@@ -58,7 +58,7 @@
 // * Elements with the same function are labelled and named consistently, and vice versa: icons and terminology should have consistent meaning across the app. ([3.2.4](https://www.wuhcag.com/consistent-identification/))
 // * Use proper roles and states, and available ARIA attributes to provide clarity and additional information for assistive technology ([4.1.2](https://www.wuhcag.com/name-role-value/))
 //
-// Styleguide: Getting Started.Accessibility.Development.3
+// Styleguide: Getting started.Accessibility.Development.3
 
 // Forms
 //
@@ -75,7 +75,7 @@
 //     * Suggestion: Give helpful suggestions as to how the user might fix the error ([3.3.3](https://www.wuhcag.com/error-suggestion/))
 //     * Prevention: Legal commitments and financial transactions must be reversible, validated for errors before submission, OR provide a summary page before final confirmation ([3.3.4](https://www.wuhcag.com/error-prevention-legal-financial-data/))
 //
-// Styleguide: Getting Started.Accessibility.Development.4
+// Styleguide: Getting started.Accessibility.Development.4
 
 // Timing and rich media
 //
@@ -88,7 +88,7 @@
 // * Nothing on the page should flash more than 3 times per second ([2.3.1](https://www.wuhcag.com/three-flashes-or-below/))
 // * Allow users to disable non-essential motion animations if they have requested it, see our <a href="section-fundamentals-motion.html#fundamentals-motion-1">Motion Fundamentals</a> page. ([2.3.3 - AAA](https://www.w3.org/WAI/standards-guidelines/wcag/new-in-21/#233-animation-from-interactions-aaa))
 //
-// Styleguide: Getting Started.Accessibility.Development.5
+// Styleguide: Getting started.Accessibility.Development.5
 
 // Testing your app for accessibility
 //
@@ -97,4 +97,4 @@
 // 1. Manually test for keyboard navigability and input interaction. It's [fairly straightforward](https://a11yproject.com/posts/navigate-using-just-your-keyboard/) to do so.
 // 1. Get in touch with the UXE team with questions and concerns.
 //
-// Styleguide: Getting Started.Accessibility.Development.6
+// Styleguide: Getting started.Accessibility.Development.6

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { nanoid } from 'nanoid';
 import renderer from 'react-test-renderer';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import XUIAccordionItem from '../XUIAccordionItem';
 import XUIAccordionContext from '../XUIAccordionContext';
@@ -16,23 +17,32 @@ jest.mock('nanoid');
 nanoid.mockImplementation(() => '123');
 
 const emptyStateComponent = <div>Empty state component</div>;
-const qaHook = 'testHook';
+const testQaHook = 'testHook';
+const toggleLabel = 'Toggle';
 
 // eslint-disable-next-line react/prop-types
-const Test = ({ children, isOpen }) => {
+const Test = ({ children, isOpen, qaHook, onClick }) => {
   const [openItemId, setOpenItemId] = useState(null);
+  // useCallback matching implementation of `setOpenAccordionItem` from XUIAccordion
+  const setOpenAccordionItem = useCallback(
+    itemId => {
+      setOpenItemId(itemId !== openItemId ? itemId : null);
+    },
+    [openItemId, setOpenItemId],
+  );
   return (
     <div>
       <XUIAccordionContext.Provider
         value={{
           emptyStateComponent,
           openAccordionItemId: openItemId,
-          qaHook,
-          setOpenAccordionItem: setOpenItemId,
-          toggleLabel: 'Toggle',
+          setOpenAccordionItem,
+          toggleLabel,
         }}
       >
-        <XUIAccordionItem isOpen={isOpen}>{children}</XUIAccordionItem>
+        <XUIAccordionItem isOpen={isOpen} qaHook={qaHook} onClick={onClick}>
+          {children}
+        </XUIAccordionItem>
       </XUIAccordionContext.Provider>
     </div>
   );
@@ -45,7 +55,7 @@ describe('<XUIAccordionItem />', () => {
     const component = renderer.create(
       <XUIAccordionContext.Provider
         value={{
-          toggleLabel: 'Toggle',
+          toggleLabel,
         }}
       >
         <XUIAccordionItem />
@@ -70,10 +80,10 @@ describe('<XUIAccordionItem />', () => {
     const component = renderer.create(
       <XUIAccordionContext.Provider
         value={{
-          toggleLabel: 'Toggle',
+          toggleLabel,
         }}
       >
-        <XUIAccordionItem qaHook={qaHook} />
+        <XUIAccordionItem qaHook={testQaHook} />
       </XUIAccordionContext.Provider>,
     );
     expect(component).toMatchSnapshot();
@@ -104,6 +114,64 @@ describe('<XUIAccordionItem />', () => {
     rerender(<TestAccordionItem isOpen={subsequentIsOpen} />);
 
     // Post-Assert
+    expect(screen.queryByText(contentText)).not.toBeInTheDocument();
+  });
+
+  test('should open/close accordion item when onClick is passed without isOpen', async () => {
+    // Arrange
+    const contentText = 'Content';
+    const onItemClick = jest.fn();
+    const TestAccordionItem = ({ onClick }) => (
+      <Test onClick={onClick} qaHook={testQaHook}>
+        <div>{contentText}</div>
+      </Test>
+    );
+
+    render(<TestAccordionItem onClick={onItemClick} />);
+
+    // Pre-assert
+    expect(screen.queryByText(contentText)).not.toBeInTheDocument();
+
+    // Act
+    const triggerButton = screen.getByTestId(`${testQaHook}--trigger`);
+    userEvent.click(triggerButton);
+
+    // Post-Assert
+    expect(onItemClick).toHaveBeenCalled();
+    expect(screen.queryByText(contentText)).toBeInTheDocument();
+
+    // Act
+    userEvent.click(triggerButton);
+
+    // Assert
+    expect(screen.queryByText(contentText)).not.toBeInTheDocument();
+  });
+
+  test('should open/close accordion item without onClick and isOpen', async () => {
+    // Arrange
+    const contentText = 'Content';
+    const TestAccordionItem = () => (
+      <Test qaHook={testQaHook}>
+        <div>{contentText}</div>
+      </Test>
+    );
+
+    render(<TestAccordionItem />);
+
+    // Pre-assert
+    expect(screen.queryByText(contentText)).not.toBeInTheDocument();
+
+    // Act
+    const triggerButton = screen.getByTestId(`${testQaHook}--trigger`);
+    userEvent.click(triggerButton);
+
+    // Post-Assert
+    expect(screen.queryByText(contentText)).toBeInTheDocument();
+
+    // Act
+    userEvent.click(triggerButton);
+
+    // Assert
     expect(screen.queryByText(contentText)).not.toBeInTheDocument();
   });
 });

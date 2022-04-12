@@ -9,72 +9,80 @@ Pagination contols should be provided through the `pagination` prop. This enable
 ## Examples
 
 ```jsx harmony
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
+import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import { XUIDropdown, XUIDropdownToggled } from '@xero/xui/react/dropdown';
 import {
   XUIFilePreview,
   XUIFilePreviewHeader,
   XUIFilePreviewFooter
 } from '@xero/xui/react/filepreview';
-import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
 import XUIIcon from '@xero/xui/react/icon';
-import useContainerQuery from '@xero/xui/react/helpers/useContainerQuery';
 import XUIPagination from '@xero/xui/react/pagination';
-import { XUIDropdown, XUIDropdownToggled } from '@xero/xui/react/dropdown';
 import { XUIPicklist, XUIPickitem } from '@xero/xui/react/picklist';
+import useContainerQuery from '@xero/xui/react/helpers/useContainerQuery';
 
 import addition from '@xero/xui-icon/icons/addition';
-import subtraction from '@xero/xui-icon/icons/subtraction';
-import expand from '@xero/xui-icon/icons/expand';
-import rotateClockwise from '@xero/xui-icon/icons/rotate-clockwise';
-import rotateAnticlockwise from '@xero/xui-icon/icons/rotate-anticlockwise';
-import overflow from '@xero/xui-icon/icons/overflow';
 import cross from '@xero/xui-icon/icons/cross';
+import expand from '@xero/xui-icon/icons/expand';
 import importIcon from '@xero/xui-icon/icons/import';
+import overflow from '@xero/xui-icon/icons/overflow';
+import rotateAnticlockwise from '@xero/xui-icon/icons/rotate-anticlockwise';
+import rotateClockwise from '@xero/xui-icon/icons/rotate-clockwise';
+import subtraction from '@xero/xui-icon/icons/subtraction';
 
-import { defaultCreatePagingContent } from './components/pagination/private/helpers';
-
-const ExampleFooter = () => {
+const FilePreviewFooter = () => {
   const { isWidthAboveBreakpoint, observedElementRef } = useContainerQuery({
     fitsEntireControlBar: 450
   });
 
   const pagination = (
     <XUIPagination
+      ariaLabel="File navigation"
       count={3}
-      perPageCount={1}
-      perPageCountOptions={[1]}
-      showCount={false}
-      showPerPageCountSelect={false}
-      ariaLabel="Pagination"
       createPagingContent={(page, pageCount) => ({
-        enhanced: `Page ${page} of ${pageCount}`,
+        enhanced: `File ${page} of ${pageCount}`,
         simple: `${page} of ${pageCount}`
       })}
-      nextPageLabel="Next Page"
-      pageSelectLabel="Select a page"
-      perPageCountSelectLabel="Select a per page count"
-      previousPageLabel="Previous Page"
+      nextPageLabel="Next file"
+      pageSelectLabel="Select a file"
+      perPageCount={1}
+      previousPageLabel="Previous file"
+      showCount={false}
+      showPerPageCountSelect={false}
     />
   );
 
   return (
     <XUIFilePreviewFooter pagination={pagination} ref={observedElementRef}>
       {isWidthAboveBreakpoint('fitsEntireControlBar') && (
-        <XUIIconButton ariaLabel="Expand" icon={expand} onClick={() => {}} />
+        <XUIIconButton
+          ariaLabel="Expand"
+          icon={expand}
+          onClick={() => console.log('onClick - expand')}
+        />
       )}
-      <XUIIconButton ariaLabel="Zoom out" icon={subtraction} onClick={() => {}} />
-      <XUIIconButton ariaLabel="Zoom in" icon={addition} onClick={() => {}} />
+      <XUIIconButton
+        ariaLabel="Zoom out"
+        icon={subtraction}
+        onClick={() => console.log('onClick - zoom out')}
+      />
+      <XUIIconButton
+        ariaLabel="Zoom in"
+        icon={addition}
+        onClick={() => console.log('onClick - zoom in')}
+      />
       {isWidthAboveBreakpoint('fitsEntireControlBar') && (
         <>
           <XUIIconButton
-            ariaLabel="Rotate clockwise"
+            ariaLabel="Rotate anti-clockwise"
             icon={rotateAnticlockwise}
-            onClick={() => {}}
+            onClick={() => console.log('onClick - rotate anti-clockwise')}
           />
           <XUIIconButton
-            ariaLabel="Rotate anti-clockwise"
+            ariaLabel="Rotate clockwise"
             icon={rotateClockwise}
-            onClick={() => {}}
+            onClick={() => console.log('onClick - rotate clockwise')}
           />
         </>
       )}
@@ -83,19 +91,19 @@ const ExampleFooter = () => {
           dropdown={
             <XUIDropdown>
               <XUIPicklist>
-                <XUIPickitem id="cc" key="cc" value="cc">
+                <XUIPickitem id="window">
                   <XUIIcon icon={expand} isBoxed /> Fit to window
                 </XUIPickitem>
-                <XUIPickitem id="aa" key="aa" value="aa">
+                <XUIPickitem id="anti-clockwise">
                   <XUIIcon icon={rotateAnticlockwise} isBoxed /> Rotate anti-clockwise
                 </XUIPickitem>
-                <XUIPickitem id="bb" key="bb" value="bb">
+                <XUIPickitem id="clockwise">
                   <XUIIcon icon={rotateClockwise} isBoxed /> Rotate clockwise
                 </XUIPickitem>
               </XUIPicklist>
             </XUIDropdown>
           }
-          trigger={<XUIIconButton ariaLabel="More options" icon={overflow} onClick={() => {}} />}
+          trigger={<XUIIconButton ariaLabel="More options" icon={overflow} />}
         />
       )}
     </XUIFilePreviewFooter>
@@ -103,15 +111,22 @@ const ExampleFooter = () => {
 };
 
 const downloadAction = (
-  <XUIButton size="small" variant="borderless-main" className="xui-text-truncated">
+  <XUIButton className="xui-text-truncated" size="small" variant="borderless-main">
     <XUIIcon className="xui-margin-right-xsmall" icon={importIcon} />
     Download
   </XUIButton>
 );
+
 const header = (
   <XUIFilePreviewHeader
     actions={downloadAction}
-    navigationButton={<XUIIconButton ariaLabel="close" icon={cross} onClick={() => {}} />}
+    navigationButton={
+      <XUIIconButton
+        ariaLabel="close"
+        icon={cross}
+        onClick={() => console.log('onClick - close')}
+      />
+    }
     title="illustration_casual-meeting-01_casual-meeting-01.svg"
   />
 );
@@ -127,18 +142,13 @@ const imageStyles = {
   maxWidth: '100%'
 };
 
-const Example = () => {
-  return (
-    <div style={wrapperStyles}>
-      <XUIFilePreview footer={<ExampleFooter />} header={header}>
-        <img
-          alt="A casual meeting across a conference table"
-          src="https://edge.xero.com/illustration/casual-meeting-01/casual-meeting-01.svg"
-          style={imageStyles}
-        />
-      </XUIFilePreview>
-    </div>
-  );
-};
-<Example />;
+<div style={wrapperStyles}>
+  <XUIFilePreview footer={<FilePreviewFooter />} header={header}>
+    <img
+      alt="A casual meeting across a conference table"
+      src="https://edge.xero.com/illustration/casual-meeting-01/casual-meeting-01.svg"
+      style={imageStyles}
+    />
+  </XUIFilePreview>
+</div>;
 ```

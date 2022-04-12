@@ -9,27 +9,40 @@
 #### Simple Content block
 
 ```jsx harmony
-import { XUIContentBlock, XUIContentBlockItem } from '@xero/xui/react/contentblock';
 import { XUIIconButton } from '@xero/xui/react/button';
-import XUIIcon from '@xero/xui/react/icon';
+import { XUIContentBlock, XUIContentBlockItem } from '@xero/xui/react/contentblock';
+import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import overflow from '@xero/xui-icon/icons/overflow';
 
-const overflowButton = <XUIIconButton icon={overflow} ariaLabel="More options" />;
+const overflowMenu = (
+  <XUIDropdownToggled
+    dropdown={
+      <XUIDropdown>
+        <XUIPicklist>
+          <XUIPickitem id="duplicate">Duplicate project</XUIPickitem>
+          <XUIPickitem id="delete">Delete</XUIPickitem>
+        </XUIPicklist>
+      </XUIDropdown>
+    }
+    trigger={<XUIIconButton ariaLabel="More options" icon={overflow} />}
+  />
+);
 
 <XUIContentBlock className="xui-panel">
   <XUIContentBlockItem
-    isRowLink
     hasTopRadius
-    primaryHeading="Primary"
-    href="#"
-    overflow={overflowButton}
+    href="#bobs-burgers"
+    isRowLink
+    overflow={overflowMenu}
+    primaryHeading="Bob's Burgers"
   />
   <XUIContentBlockItem
-    isRowLink
     hasBottomRadius
-    primaryHeading="Primary"
-    href="#"
-    overflow={overflowButton}
+    href="#capital-cabs"
+    isRowLink
+    overflow={overflowMenu}
+    primaryHeading="Capital Cabs"
   />
 </XUIContentBlock>;
 ```
@@ -41,38 +54,50 @@ Generally, the content inside a content block is split into left or right conten
 ```jsx harmony
 import { XUIContentBlock, XUIContentBlockItem } from '@xero/xui/react/contentblock';
 import XUIActions from '@xero/xui/react/actions';
-import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
 import XUIAvatar from '@xero/xui/react/avatar';
+import XUIButton, { XUIIconButton } from '@xero/xui/react/button';
+import XUIDropdown, { XUIDropdownToggled } from '@xero/xui/react/dropdown';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import XUITag from '@xero/xui/react/tag';
-import XUIIcon from '@xero/xui/react/icon';
 import overflow from '@xero/xui-icon/icons/overflow';
 
-const description =
-  'Quinoa sustainable celiac deep v polaroid four loko disrupt. Keytar cloud bread pinterest freegan, artisan hot chicken air plant ethical. Tbh selvage synth marfa affogato tacos +1, beard food truck sriracha tousled readymade. Pour-over distillery tilde venmo. Shoreditch vinyl tbh selvage, vexillologist iPhone flannel hoodie. Live-edge gluten-free brooklyn, gastropub lo-fi schlitz vinyl.';
-const overflowButton = <XUIIconButton icon={overflow} ariaLabel="More options" />;
-const avatar = <XUIAvatar value="Tim Redmond" />;
-const actionButton = <XUIActions secondaryAction={<XUIButton size="small">Action</XUIButton>} />;
+const avatar = <XUIAvatar value="Bob's Burgers" />;
+const actionButton = <XUIActions secondaryAction={<XUIButton size="small">Edit</XUIButton>} />;
+
 const tag = (
-  <XUITag variant="positive" size="small">
-    Positive tag
+  <XUITag size="small" variant="negative">
+    Overdue
   </XUITag>
 );
-const callback = () => {
-  alert('clicked');
-};
+
+const overflowMenu = (
+  <XUIDropdownToggled
+    dropdown={
+      <XUIDropdown>
+        <XUIPicklist>
+          <XUIPickitem id="duplicate">Duplicate project</XUIPickitem>
+          <XUIPickitem id="delete">Delete</XUIPickitem>
+        </XUIPicklist>
+      </XUIDropdown>
+    }
+    trigger={<XUIIconButton ariaLabel="More options" icon={overflow} />}
+  />
+);
 
 <XUIContentBlock className="xui-panel">
   <XUIContentBlockItem
-    primaryHeading="Primary"
-    secondaryHeading="Secondary"
-    description={description}
-    overflow={overflowButton}
-    leftContent={avatar}
-    pinnedValue="0.00"
     action={actionButton}
-    tags={tag}
+    description="Deadline 1 Feb 2023 • Estimate 10,000.00"
+    leftContent={avatar}
+    onClick={() => {
+      console.log('onClick');
+    }}
+    overflow={overflowMenu}
+    pinnedValue="1,802.23"
+    primaryHeading="Bob's Burgers"
+    secondaryHeading="Website design"
     tagPosition="inline"
-    onClick={callback}
+    tags={tag}
   />
 </XUIContentBlock>;
 ```

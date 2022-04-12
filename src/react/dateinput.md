@@ -1,6 +1,5 @@
 <div class="xui-margin-vertical">
-  <!-- TODO -->
-	<a href="../section-components-collectinginput-datepicker.html" isDocLink>Dateinput in the XUI Documentation</a>
+	<a href="../section-components-collectinginput-dateinput.html" isDocLink>Dateinput in the XUI Documentation</a>
 </div>
 
 `XUIDateInput` and `XUIDateRangeInput` are an experimental components for selecting dates. They combine `XUITextInput` for keyboard interaction and `XUIDatePicker` for selecting dates from a calendar.
@@ -60,43 +59,35 @@ const ExampleDateRangePicker = () => {
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
   const dateRangeInputSuggestedDates = [
     {
+      getEndDate: () => new Date(),
+      getStartDate: () => new Date(),
       id: 'monthThis',
-      text: 'This month',
-      getStartDate: () => {
-        return new Date();
-      },
-      getEndDate: () => {
-        return new Date();
-      }
+      text: 'This month'
     },
     {
+      getEndDate: () => new Date(),
+      getStartDate: () => new Date(),
       id: 'quarterThis',
-      text: 'This quarter',
-      getStartDate: () => {
-        return new Date();
-      },
-      getEndDate: () => {
-        return new Date();
-      }
+      text: 'This quarter'
     }
   ];
 
   return (
     <XUIDateRangeInput
-      suggestedDates={dateRangeInputSuggestedDates}
-      locale="en-NZ"
-      nextButtonAriaLabel="Next month"
-      prevButtonAriaLabel="Previous month"
       endDateInputConfig={{
         inputLabel: 'End date',
         onSelectDate: onSelectEndDate,
         selectedDateValue: endDate
       }}
+      locale="en-NZ"
+      nextButtonAriaLabel="Next month"
+      prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
         inputLabel: 'Start date',
         onSelectDate: onSelectStartDate,
         selectedDateValue: startDate
       }}
+      suggestedDates={dateRangeInputSuggestedDates}
     />
   );
 };
@@ -113,9 +104,10 @@ When controlling changes in input values in your store, pass it as `selectedDate
 import { useState } from 'react';
 import XUIDateInput from '@xero/xui/react/dateinput';
 
+const defaultDate = new Date(2021, 0, 1);
+
 const ExampleDateInput = () => {
   const [selectedDate, setSelectedDate] = useState();
-  const defaultValue = new Date(2021, 0, 1);
 
   const onSelectDate = newDate => {
     setSelectedDate(newDate);
@@ -128,7 +120,7 @@ const ExampleDateInput = () => {
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
       prevButtonAriaLabel="Previous month"
-      selectedDateDefaultValue={defaultValue}
+      selectedDateDefaultValue={defaultDate}
       selectedDateValue={selectedDate}
     />
   );
@@ -140,6 +132,9 @@ const ExampleDateInput = () => {
 ```jsx
 import { useState } from 'react';
 import { XUIDateRangeInput } from '@xero/xui/react/dateinput';
+
+const defaultStartDate = new Date(2021, 0, 1);
+const defaultEndDate = new Date(2021, 0, 31);
 
 const ExampleDateRangePicker = () => {
   const [startDate, setStartDate] = useState();
@@ -155,43 +150,37 @@ const ExampleDateRangePicker = () => {
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
   const dateRangeInputSuggestedDates = [
     {
+      getEndDate: () => new Date(),
+      getStartDate: () => new Date(),
       id: 'monthThis',
-      text: 'This month',
-      getStartDate: () => {
-        return new Date();
-      },
-      getEndDate: () => {
-        return new Date();
-      }
+      text: 'This month'
     },
     {
-      id: 'quarterThis',
+      getEndDate: () => new Date(),
+      getStartDate: () => new Date(),
       text: 'This quarter',
-      getStartDate: () => {
-        return new Date();
-      },
-      getEndDate: () => {
-        return new Date();
-      }
+      id: 'quarterThis'
     }
   ];
 
   return (
     <XUIDateRangeInput
-      suggestedDates={dateRangeInputSuggestedDates}
+      endDateInputConfig={{
+        inputLabel: 'End date',
+        onSelectDate: onSelectEndDate,
+        selectedDateDefaultValue: defaultEndDate,
+        selectedDateValue: endDate
+      }}
       locale="en-NZ"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
+        inputLabel: 'Start date',
         onSelectDate: onSelectStartDate,
-        selectedDateValue: startDate,
-        inputLabel: 'Start date'
+        selectedDateDefaultValue: defaultStartDate,
+        selectedDateValue: startDate
       }}
-      endDateInputConfig={{
-        onSelectDate: onSelectEndDate,
-        selectedDateValue: endDate,
-        inputLabel: 'End date'
-      }}
+      suggestedDates={dateRangeInputSuggestedDates}
     />
   );
 };
@@ -248,45 +237,37 @@ const ExampleDateRangePicker = () => {
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
   const dateRangeInputSuggestedDates = [
     {
+      getEndDate: () => new Date(),
+      getStartDate: () => new Date(),
       id: 'monthThis',
-      text: 'This month',
-      getStartDate: () => {
-        return new Date();
-      },
-      getEndDate: () => {
-        return new Date();
-      }
+      text: 'This month'
     },
     {
+      getEndDate: () => new Date(),
+      getStartDate: () => new Date(),
       id: 'quarterThis',
-      text: 'This quarter',
-      getStartDate: () => {
-        return new Date();
-      },
-      getEndDate: () => {
-        return new Date();
-      }
+      text: 'This quarter'
     }
   ];
 
   return (
     <XUIDateRangeInput
-      suggestedDates={dateRangeInputSuggestedDates}
+      endDateInputConfig={{
+        inputLabel: 'End date',
+        isDisabled: true,
+        onSelectDate: onSelectEndDate,
+        selectedDateValue: endDate
+      }}
       locale="en-NZ"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
+        inputLabel: 'Start date',
+        isDisabled: true,
         onSelectDate: onSelectStartDate,
-        selectedDateValue: startDate,
-        isDisabled: true,
-        inputLabel: 'Start date'
+        selectedDateValue: startDate
       }}
-      endDateInputConfig={{
-        onSelectDate: onSelectEndDate,
-        selectedDateValue: endDate,
-        isDisabled: true,
-        inputLabel: 'End date'
-      }}
+      suggestedDates={dateRangeInputSuggestedDates}
     />
   );
 };
@@ -296,7 +277,7 @@ const ExampleDateRangePicker = () => {
 
 ### Hints
 
-For `XUIDateInput`, hints can be provided using the `hintMessage` prop. For `XUIDateRangeInput` hints can be provided by providing `hintMessage` properties to the `startDateInputConfig` and/or `endDateInputConfig` object props.
+For `XUIDateInput`, hints can be provided using the `hintMessage` prop. For `XUIDateRangeInput` hints can be provided by providing `hintMessage` properties to the `groupConfig`, `startDateInputConfig` and/or `endDateInputConfig` object props.
 
 ```jsx
 import { useState } from 'react';
@@ -311,7 +292,7 @@ const ExampleDateInput = () => {
 
   return (
     <XUIDateInput
-      hintMessage="Helpful hint"
+      hintMessage="The first day the employee will begin work"
       inputLabel="Start date"
       locale="en-NZ"
       nextButtonAriaLabel="Next month"
@@ -343,45 +324,36 @@ const ExampleDateRangePicker = () => {
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
   const dateRangeInputSuggestedDates = [
     {
+      getEndDate: () => new Date(),
+      getStartDate: () => new Date(),
       id: 'monthThis',
-      text: 'This month',
-      getStartDate: () => {
-        return new Date();
-      },
-      getEndDate: () => {
-        return new Date();
-      }
+      text: 'This month'
     },
     {
+      getEndDate: () => new Date(),
+      getStartDate: () => new Date(),
       id: 'quarterThis',
-      text: 'This quarter',
-      getStartDate: () => {
-        return new Date();
-      },
-      getEndDate: () => {
-        return new Date();
-      }
+      text: 'This quarter'
     }
   ];
 
   return (
     <XUIDateRangeInput
-      suggestedDates={dateRangeInputSuggestedDates}
+      endDateInputConfig={{
+        inputLabel: 'End date',
+        onSelectDate: onSelectEndDate,
+        selectedDateValue: endDate
+      }}
+      groupConfig={{ hintMessage: 'Project length must not exceed 12 months' }}
       locale="en-NZ"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
+        inputLabel: 'Start date',
         onSelectDate: onSelectStartDate,
-        selectedDateValue: startDate,
-        hintMessage: 'Start hint text',
-        inputLabel: 'Start date'
+        selectedDateValue: startDate
       }}
-      endDateInputConfig={{
-        onSelectDate: onSelectEndDate,
-        selectedDateValue: endDate,
-        hintMessage: 'End hint text',
-        inputLabel: 'End date'
-      }}
+      suggestedDates={dateRangeInputSuggestedDates}
     />
   );
 };
@@ -399,21 +371,23 @@ import XUIDateInput from '@xero/xui/react/dateinput';
 
 const ExampleDateInput = () => {
   const [selectedDate, setSelectedDate] = useState();
+  const [isInvalid, setIsInvalid] = useState(true);
 
   const onSelectDate = newDate => {
+    newDate === null ? setIsInvalid(true) : setIsInvalid(false);
     setSelectedDate(newDate);
   };
 
   return (
     <XUIDateInput
-      locale="en-NZ"
       inputLabel="Start date"
+      isInvalid={isInvalid}
+      locale="en-NZ"
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
-      selectedDateValue={selectedDate}
       prevButtonAriaLabel="Previous month"
-      validationMessage="Start error explanation"
-      isInvalid={true}
+      selectedDateValue={selectedDate}
+      validationMessage="Project must have a start date"
     />
   );
 };
@@ -429,57 +403,55 @@ const ExampleDateRangePicker = () => {
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
 
+  const [startDateIsInvalid, setStartDateIsInvalid] = useState(true);
+  const [endDateIsInvalid, setEndDateIsInvalid] = useState(true);
+
   const onSelectStartDate = newDate => {
+    newDate === null ? setStartDateIsInvalid(true) : setStartDateIsInvalid(false);
     setStartDate(newDate);
   };
+
   const onSelectEndDate = newDate => {
+    newDate === null ? setEndDateIsInvalid(true) : setEndDateIsInvalid(false);
     setEndDate(newDate);
   };
 
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
   const dateRangeInputSuggestedDates = [
     {
+      getEndDate: () => new Date(),
+      getStartDate: () => new Date(),
       id: 'monthThis',
-      text: 'This month',
-      getStartDate: () => {
-        return new Date();
-      },
-      getEndDate: () => {
-        return new Date();
-      }
+      text: 'This month'
     },
     {
+      getEndDate: () => new Date(),
+      getStartDate: () => new Date(),
       id: 'quarterThis',
-      text: 'This quarter',
-      getStartDate: () => {
-        return new Date();
-      },
-      getEndDate: () => {
-        return new Date();
-      }
+      text: 'This quarter'
     }
   ];
 
   return (
     <XUIDateRangeInput
-      suggestedDates={dateRangeInputSuggestedDates}
+      endDateInputConfig={{
+        inputLabel: 'End date',
+        isInvalid: endDateIsInvalid,
+        onSelectDate: onSelectEndDate,
+        selectedDateValue: endDate,
+        validationMessage: 'Project must have an end date'
+      }}
       locale="en-NZ"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
+        inputLabel: 'Start date',
+        isInvalid: startDateIsInvalid,
         onSelectDate: onSelectStartDate,
         selectedDateValue: startDate,
-        validationMessage: 'Start error explanation',
-        isInvalid: true,
-        inputLabel: 'First label'
+        validationMessage: 'Project must have a start date'
       }}
-      endDateInputConfig={{
-        onSelectDate: onSelectEndDate,
-        selectedDateValue: endDate,
-        validationMessage: 'End error explanation',
-        isInvalid: true,
-        inputLabel: 'Second label'
-      }}
+      suggestedDates={dateRangeInputSuggestedDates}
     />
   );
 };
@@ -527,28 +499,22 @@ const ExampleDateInput = () => {
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
   const dateInputSuggestedDates = [
     {
+      description: '23 Mar 2021',
+      getDate: () => new Date(2021, 2, 23),
       id: 'tomorrow',
-      text: 'Tomorrow',
-      getDate: () => {
-        return new Date();
-      },
-      description: '23 Mar 2021'
+      text: 'Tomorrow'
     },
     {
+      description: '29 Mar 2021',
+      getDate: () => new Date(2021, 2, 29),
       id: 'mondayNext',
-      text: 'Next Monday',
-      getDate: () => {
-        return new Date();
-      },
-      description: '29 Mar 2021'
+      text: 'Next Monday'
     },
     {
+      description: '1 Apr 2021',
+      getDate: () => new Date(2021, 3, 1),
       id: 'monthNext',
-      text: 'Next month',
-      getDate: () => {
-        return new Date();
-      },
-      description: '1 Apr 2021'
+      text: 'Next month'
     }
   ];
 
@@ -589,56 +555,44 @@ const ExampleDateRangePicker = () => {
   // Implement getting correct dates in getStartDate and getStartDate using your date handling library.
   const dateRangeInputSuggestedDates = [
     {
+      description: '1 - 28 Feb 2022',
+      getEndDate: () => new Date(2022, 1, 28),
+      getStartDate: () => new Date(2022, 1, 1),
       id: 'monthThis',
-      text: 'This month',
-      getStartDate: () => {
-        return new Date(2022, 1, 1);
-      },
-      getEndDate: () => {
-        return new Date(2022, 1, 28);
-      },
-      description: '1 - 31 Feb 2022'
+      text: 'This month'
     },
     {
+      description: '1 - 28 Jan 2022',
+      getEndDate: () => new Date(2022, 0, 28),
+      getStartDate: () => new Date(2022, 0, 1),
       id: 'monthLast',
-      text: 'Last month',
-      getStartDate: () => {
-        return new Date(2022, 1, 1);
-      },
-      getEndDate: () => {
-        return new Date(2022, 1, 28);
-      },
-      description: '1 - 31 Jan 2022'
+      text: 'Last month'
     },
     {
+      description: '1 Jan - 31 Mar 2022',
+      getEndDate: () => new Date(2022, 2, 31),
+      getStartDate: () => new Date(2022, 0, 1),
       id: 'quarterThis',
-      text: 'This quarter',
-      getStartDate: () => {
-        return new Date(2022, 0, 1);
-      },
-      getEndDate: () => {
-        return new Date(2022, 2, 31);
-      },
-      description: '1 Jan - 31 Mar 2022'
+      text: 'This quarter'
     }
   ];
 
   return (
     <XUIDateRangeInput
-      suggestedDates={dateRangeInputSuggestedDates}
+      endDateInputConfig={{
+        inputLabel: 'End date',
+        onSelectDate: onSelectEndDate,
+        selectedDateValue: endDate
+      }}
       locale="en-NZ"
       nextButtonAriaLabel="Next month"
       prevButtonAriaLabel="Previous month"
       startDateInputConfig={{
+        inputLabel: 'Start date',
         onSelectDate: onSelectStartDate,
-        selectedDateValue: startDate,
-        inputLabel: 'Start date'
+        selectedDateValue: startDate
       }}
-      endDateInputConfig={{
-        onSelectDate: onSelectEndDate,
-        selectedDateValue: endDate,
-        inputLabel: 'End date'
-      }}
+      suggestedDates={dateRangeInputSuggestedDates}
     />
   );
 };
@@ -680,7 +634,7 @@ const ExampleDateInput = () => {
 
   return (
     <XUIDateInput
-      inputLabel="Small date input"
+      inputLabel="Start date"
       locale="en-NZ"
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
@@ -735,22 +689,35 @@ For instance as seen in the example below, you are able to stop a user from subm
 
 ```jsx
 import { useState } from 'react';
-import XUIDateInput from '@xero/xui/react/dateinput';
+import XUIActions from '@xero/xui/react/actions';
 import XUIButton from '@xero/xui/react/button';
+import XUIDateInput from '@xero/xui/react/dateinput';
 
 const ExampleDateInput = () => {
   const [selectedDate, setSelectedDate] = useState();
-  const [isInvalidState, setIsInvalidState] = useState(true);
-  const [validationMessage, setValidationMessage] = useState('Set error message');
+  const [inputIsInvalid, setInputIsInvalid] = useState(false);
+  const [formIsInvalid, setFormIsInvalid] = useState(true);
+  const [validationMessage, setValidationMessage] = useState('');
+
+  const setIsInvalid = isInvalid => {
+    setInputIsInvalid(isInvalid);
+    setFormIsInvalid(isInvalid);
+  };
 
   const onSelectDate = newDate => {
-    setIsInvalidState(false);
+    if (newDate === null) {
+      setValidationMessage('Project must have a start date');
+      setIsInvalid(true);
+    } else {
+      setValidationMessage('');
+      setIsInvalid(false);
+    }
     setSelectedDate(newDate);
   };
 
   const onError = invalidString => {
     setValidationMessage(`${invalidString} is not a valid date input`);
-    setIsInvalidState(true);
+    setIsInvalid(true);
   };
 
   return (
@@ -759,17 +726,23 @@ const ExampleDateInput = () => {
         <XUIDateInput
           displayedMonth={new Date(2021, 0)}
           inputLabel="Start date"
+          isInvalid={inputIsInvalid}
           locale="en-NZ"
           nextButtonAriaLabel="Next month"
           onSelectDate={onSelectDate}
           prevButtonAriaLabel="Previous month"
           selectedDateValue={selectedDate}
-          isInvalid={isInvalidState}
           onValidationFailed={onError}
           validationMessage={validationMessage}
         />
       </div>
-      <XUIButton isDisabled={isInvalidState}>Submit</XUIButton>
+      <XUIActions
+        primaryAction={
+          <XUIButton isDisabled={formIsInvalid} variant="main">
+            Submit
+          </XUIButton>
+        }
+      />
     </div>
   );
 };
@@ -789,13 +762,16 @@ import XUIDateInput from '@xero/xui/react/dateinput';
 
 const ExampleDateInput = () => {
   const [selectedDate, setSelectedDate] = useState();
-  const [isInvalidState, setIsInvalidState] = useState(false);
-  const [validationMessage, setValidationMessage] = useState('Set error message');
+  const [isInvalid, setIsInvalid] = useState(false);
+  const [validationMessage, setValidationMessage] = useState('');
 
   const onSelectDate = newDate => {
     if (newDate.getFullYear() === 2021) {
-      setIsInvalidState(true);
-      setValidationMessage(`Please provide a date that is not in 2021`);
+      setIsInvalid(true);
+      setValidationMessage(`Start date can't be in 2021`);
+    } else {
+      setIsInvalid(false);
+      setValidationMessage('');
     }
     setSelectedDate(newDate);
   };
@@ -804,12 +780,12 @@ const ExampleDateInput = () => {
     <XUIDateInput
       displayedMonth={new Date(2021, 0)}
       inputLabel="Start date"
+      isInvalid={isInvalid}
       locale="en-NZ"
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
       prevButtonAriaLabel="Previous month"
       selectedDateValue={selectedDate}
-      isInvalid={isInvalidState}
       validationMessage={validationMessage}
     />
   );
@@ -826,29 +802,24 @@ import XUIDateInput from '@xero/xui/react/dateinput';
 
 const ExampleDateInput = () => {
   const [selectedDate, setSelectedDate] = useState();
-  const [isInvalidState, setIsInvalidState] = useState(false);
-  const [validationMessage, setValidationMessage] = useState('You must enter a date');
+  const [isInvalid, setIsInvalid] = useState(true);
 
   const onSelectDate = newDate => {
-    if (newDate === null) {
-      setIsInvalidState(true);
-    } else {
-      setIsInvalidState(false);
-    }
+    newDate === null ? setIsInvalid(true) : setIsInvalid(false);
     setSelectedDate(newDate);
   };
 
   return (
     <XUIDateInput
       displayedMonth={new Date(2021, 0)}
-      inputLabel="Date input requiring an input"
+      inputLabel="Start date"
+      isInvalid={isInvalid}
       locale="en-NZ"
       nextButtonAriaLabel="Next month"
       onSelectDate={onSelectDate}
       prevButtonAriaLabel="Previous month"
       selectedDateValue={selectedDate}
-      isInvalid={isInvalidState}
-      validationMessage={validationMessage}
+      validationMessage="Project must have a start date"
     />
   );
 };

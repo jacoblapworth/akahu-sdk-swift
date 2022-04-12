@@ -12,6 +12,11 @@ interface Props {
    */
   id: string;
   /**
+   * A callback to be called when the user clicks the close button or presses the escape key to
+   * close the popover.
+   */
+  onClickCloseButton?: () => void;
+  /**
    * A callback to be called when the user clicks outside the popover or uses the keyboard to
    * navigate outside the popover.
    */

@@ -33,25 +33,26 @@ exports[`<XUIPopover /> renders without crashing 1`] = `
                 style="position: absolute;"
               >
                 <div
-                  aria-describedby="test-popover-body"
-                  class="xui-popover xui-popover-wrapper xui-popover-medium"
-                  id="test-popover"
-                  role="dialog"
-                >
+                  tabindex="0"
+                />
+                <div
+                  tabindex="0"
+                />
+                <div>
                   <div
-                    tabindex="0"
-                  />
-                  <div
-                    tabindex="0"
-                  />
-                  <div />
-                  <div
-                    tabindex="0"
-                  />
-                  <div
-                    tabindex="0"
+                    aria-describedby="test-popover-body"
+                    class="xui-popover xui-popover-wrapper xui-popover-medium"
+                    id="test-popover"
+                    role="dialog"
+                    tabindex="-1"
                   />
                 </div>
+                <div
+                  tabindex="0"
+                />
+                <div
+                  tabindex="0"
+                />
               </div>
             </div>
           </div>
@@ -67,46 +68,47 @@ exports[`<XUIPopover /> renders without crashing 1`] = `
               }
             }
           >
-            <div
-              aria-describedby="test-popover-body"
-              className="xui-popover xui-popover-wrapper xui-popover-medium"
-              id="test-popover"
-              role="dialog"
-              style={
+            <PortalFocusHelper
+              focusPortalRef={
                 Object {
-                  "maxWidth": undefined,
+                  "_triggerRef": Object {
+                    "current": null,
+                  },
+                  "current": null,
                 }
               }
             >
-              <PortalFocusHelper
-                focusPortalRef={
-                  Object {
-                    "_triggerRef": Object {
-                      "current": null,
-                    },
-                    "current": null,
+              <div
+                onFocus={[Function]}
+                tabIndex={0}
+              />
+              <div
+                onFocus={[Function]}
+                tabIndex={0}
+              />
+              <div>
+                <div
+                  aria-describedby="test-popover-body"
+                  className="xui-popover xui-popover-wrapper xui-popover-medium"
+                  id="test-popover"
+                  role="dialog"
+                  style={
+                    Object {
+                      "maxWidth": undefined,
+                    }
                   }
-                }
-              >
-                <div
-                  onFocus={[Function]}
-                  tabIndex={0}
+                  tabIndex={-1}
                 />
-                <div
-                  onFocus={[Function]}
-                  tabIndex={0}
-                />
-                <div />
-                <div
-                  onFocus={[Function]}
-                  tabIndex={0}
-                />
-                <div
-                  onFocus={[Function]}
-                  tabIndex={0}
-                />
-              </PortalFocusHelper>
-            </div>
+              </div>
+              <div
+                onFocus={[Function]}
+                tabIndex={0}
+              />
+              <div
+                onFocus={[Function]}
+                tabIndex={0}
+              />
+            </PortalFocusHelper>
             <Positioning
               triggerRef={
                 Object {

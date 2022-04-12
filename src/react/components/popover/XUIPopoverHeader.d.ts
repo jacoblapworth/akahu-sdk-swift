@@ -12,6 +12,8 @@ interface Props {
   closeButtonProps: Omit<React.ComponentProps<typeof XUIIconButton>, 'icon' | 'size'> &
     Partial<Pick<React.ComponentProps<typeof XUIIconButton>, 'size'>>;
   /**
+   * @deprecated
+   *
    * Callback to be called when the close button is clicked. If provided along with
    * `closeButtonProps.onClick`, both will be called.
    */

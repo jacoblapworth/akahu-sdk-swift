@@ -35,6 +35,8 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 
 ## XUI React components
 
+- `XUIPopoverHeader`'s `onClose` prop has been deprecated in favour of `XUIPopover`'s `onClickCloseButton` prop. This change has been made to support closing the popover with the ESC key with onboarding popovers.
+
 - `XUIDateInput` default visual appearance has changed to show the `date-start` icon next to the input. This can be changed using the new `inputIcon` prop.
 
 - `XUIDateRangeInput` default visual appearance has changed to show the `date-start` icon next to the first input, and the `date-end` icon next to the second input.
@@ -85,6 +87,10 @@ The following components that use `XUIDropdown` and `XUIDropdownToggled` under t
 
 _Note. The codemod will resolve most prop differences automatically when run._
 
+- `XUIPopover`
+  - Now has an `onClickCloseButton` that works with the ESC key
+- `XUIPopoverHeader`
+  - `onClose` has been deprecated
 - `XUIDateInput`
   - Now has an `inputIcon` prop to allow the icon displayed next to the input to be changed
 - `XUIEditableTableFootAction`

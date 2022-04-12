@@ -133,6 +133,98 @@ describe('<XUIPopover />', () => {
     expect(triggerFocusMock).not.toHaveBeenCalled();
   });
 
+  describe('Escape Key Pressed', () => {
+    test('onClickOutside is called when escape key is pressed', () => {
+      // Arrange
+      const onClickOutsideMock = jest.fn();
+      const triggerRef = React.createRef();
+      render(
+        <>
+          <button ref={triggerRef} />
+          <XUIPopover
+            id="test-popover"
+            onClickOutside={onClickOutsideMock}
+            triggerRef={triggerRef}
+          />
+        </>,
+      );
+
+      // Act
+      userEvent.keyboard('{esc}');
+
+      // Assert
+      expect(onClickOutsideMock).toHaveBeenCalled();
+    });
+
+    test('onClickCloseButton is called when escape key is pressed inside the popover', () => {
+      // Arrange
+      const onClickCloseButtonMock = jest.fn();
+      const triggerRef = React.createRef();
+      render(
+        <XUIPopover
+          id="test-popover"
+          onClickCloseButton={onClickCloseButtonMock}
+          triggerRef={triggerRef}
+        >
+          Inside the popover
+        </XUIPopover>,
+      );
+
+      // Act
+      userEvent.click(screen.getByText('Inside the popover'));
+      userEvent.keyboard('{esc}');
+
+      // Assert
+      expect(onClickCloseButtonMock).toHaveBeenCalled();
+    });
+
+    test('onClickCloseButton is called when escape key is pressed inside the trigger', () => {
+      // Arrange
+      const onClickCloseButtonMock = jest.fn();
+      const triggerRef = React.createRef();
+      render(
+        <>
+          <button ref={triggerRef} data-automationid={'trigger'}>trigger button</button>
+          <XUIPopover
+            id="test-popover"
+            onClickCloseButton={onClickCloseButtonMock}
+            triggerRef={triggerRef}
+          >
+            Inside the popover
+          </XUIPopover>
+        </>,
+      );
+
+      // Act
+      userEvent.click(screen.getByTestId('trigger'));
+      userEvent.keyboard('{esc}');
+
+      // Assert
+      expect(onClickCloseButtonMock).toHaveBeenCalled();
+    });
+
+    test('onClickCloseButton is not called when escape key is pressed outside the popover', () => {
+      // Arrange
+      const onClickCloseButtonMock = jest.fn();
+      const triggerRef = React.createRef();
+      render(
+        <XUIPopover
+          id="test-popover"
+          onClickCloseButton={onClickCloseButtonMock}
+          triggerRef={triggerRef}
+        >
+          Inside the popover
+        </XUIPopover>,
+      );
+
+      // Act
+      userEvent.keyboard('{esc}');
+
+      // Assert
+      expect(onClickCloseButtonMock).not.toHaveBeenCalled();
+    });
+  });
+
   it.skip('should pass accessibility testing', async () => {
     const triggerRef = React.createRef();
     const wrapper = mount(<XUIPopover id="test-popover" triggerRef={triggerRef} />);

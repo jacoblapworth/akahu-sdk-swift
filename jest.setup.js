@@ -43,6 +43,7 @@ function logToError(...rest) {
      * Until then, we'll just have to ignore the error.
      */
     'changing the droppableId or type of a Droppable during a drag',
+    '`XUIPopoverHeader` will stop supporting',
   ].find(xuiWarning => error.includes(xuiWarning));
 
   if (!xuiWarnings) {

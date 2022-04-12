@@ -19,8 +19,8 @@ have a few requirements.
 Popovers can be used to provide supporting information to elements on the page without having an
 impact on the underlying visual layout.
 
-These popovers should open and close when the user interacts with a trigger. They should also close
-when the user clicks outside the popover.
+These popovers open and close when the user interacts with a trigger. They also close when the user
+clicks outside the popover or presses the escape key.
 
 Triggers that open a popover when clicked need to be given the `aria-haspopup` attribute to help
 assistive technologies know that there is more content available
@@ -77,9 +77,9 @@ const PopoverExample = () => {
 
 ### Onboarding
 
-Popovers used for onboarding should not close when the user clicks outside the popover, instead they
-should include a way to explicitly dismiss the popover. The example below makes use of
-`XUIPopoverHeader`'s close button to achieve this.
+Popovers used for onboarding do not close when the user clicks outside the popover, instead they
+include a way to explicitly dismiss the popover, using the popover's `onClickCloseButton` prop to
+achieve this when the user clicks the close button or presses the escape key inside the popover.
 
 Once an onboarding modal has been dismissed, it should not reappear when the user comes back to the
 page.
@@ -107,12 +107,15 @@ const PopoverExample = () => {
   const trigger2Ref = useRef();
   const trigger3Ref = useRef();
 
+  const closePopover = () => setIsPopoverOpen(false);
+  const togglePopover = () => setIsPopoverOpen(!isPopoverOpen);
+
   const steps = [
     {
       content: (
         <>
           <XUIPopoverHeader
-            closeButtonProps={{ ariaLabel: 'Close', onClick: () => setIsPopoverOpen(false) }}
+            closeButtonProps={{ ariaLabel: 'Close' }}
             subtitle="1/3"
             title="Find your contacts"
           />
@@ -136,7 +139,7 @@ const PopoverExample = () => {
       content: (
         <>
           <XUIPopoverHeader
-            closeButtonProps={{ ariaLabel: 'Close', onClick: () => setIsPopoverOpen(false) }}
+            closeButtonProps={{ ariaLabel: 'Close' }}
             subtitle="2/3"
             title="Import and export contacts"
           />
@@ -161,7 +164,7 @@ const PopoverExample = () => {
       content: (
         <>
           <XUIPopoverHeader
-            closeButtonProps={{ ariaLabel: 'Close', onClick: () => setIsPopoverOpen(false) }}
+            closeButtonProps={{ ariaLabel: 'Close' }}
             subtitle="3/3"
             title="Manage your contacts"
           />
@@ -172,7 +175,7 @@ const PopoverExample = () => {
           </XUIPopoverBody>
           <XUIPopoverFooter
             primaryAction={
-              <XUIButton onClick={() => setIsPopoverOpen(false)} variant="main">
+              <XUIButton onClick={closePopover} variant="main">
                 Close
               </XUIButton>
             }
@@ -228,6 +231,7 @@ const PopoverExample = () => {
           id="onboarding-popover"
           preferredPosition={steps[step].preferredPosition}
           triggerRef={steps[step].triggerRef}
+          onClickCloseButton={closePopover}
         >
           {steps[step].content}
         </XUIPopover>

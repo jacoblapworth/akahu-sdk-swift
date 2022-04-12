@@ -8,6 +8,8 @@ import getFocusableElement from '../helpers/PortalFocusHelper/helpers/getFocusab
 import PortalFocusHelper from '../helpers/PortalFocusHelper/PortalFocusHelper';
 import Positioning from './private/Positioning';
 import getTriggerElementRef from '../helpers/getTriggerElementRef';
+import { eventKeyValues } from '../helpers/reactKeyHandler';
+import CloseContext from './contexts/CloseContext';
 
 const BORDER_SHADOW_SIZE = 1;
 const ARROW_SIZE = 8 + BORDER_SHADOW_SIZE;
@@ -35,8 +37,16 @@ export default class XUIPopover extends React.Component {
   }
 
   render() {
-    const { className, children, id, onClickOutside, preferredPosition, qaHook, width } =
-      this.props;
+    const {
+      className,
+      children,
+      id,
+      onClickCloseButton,
+      onClickOutside,
+      preferredPosition,
+      qaHook,
+      width,
+    } = this.props;
 
     const bodyId = `${id}-body`;
 
@@ -52,32 +62,35 @@ export default class XUIPopover extends React.Component {
         >
           {(location, isFullWidth) => (
             <>
-              <div
-                aria-describedby={bodyId}
-                aria-labelledby={this.state.titleId}
-                className={cn(
-                  `${baseClassName}`,
-                  `${baseClassName}-wrapper`,
-                  isFullWidth && `${baseClassName}-fullwidth`,
-                  /**
-                   * We only want to apply the size class when the width is a string because a
-                   * number would indicate that a custom width should be used.
-                   */
-                  typeof width === 'string' && sizeClassNames[width],
-                  className,
-                )}
-                data-automationid={qaHook}
-                id={id}
-                ref={this.wrapperRef}
-                role="dialog"
-                style={{ maxWidth: typeof width === 'number' ? `${width}px` : undefined }}
-              >
-                <PortalFocusHelper focusPortalRef={triggerRef} onReturnFocus={onClickOutside}>
+              <PortalFocusHelper focusPortalRef={triggerRef} onReturnFocus={onClickOutside}>
+                <div
+                  aria-describedby={bodyId}
+                  aria-labelledby={this.state.titleId}
+                  className={cn(
+                    `${baseClassName}`,
+                    `${baseClassName}-wrapper`,
+                    isFullWidth && `${baseClassName}-fullwidth`,
+                    /**
+                     * We only want to apply the size class when the width is a string because a
+                     * number would indicate that a custom width should be used.
+                     */
+                    typeof width === 'string' && sizeClassNames[width],
+                    className,
+                  )}
+                  data-automationid={qaHook}
+                  id={id}
+                  ref={this.wrapperRef}
+                  role="dialog"
+                  style={{ maxWidth: typeof width === 'number' ? `${width}px` : undefined }}
+                  tabIndex={-1}
+                >
                   <IdContext.Provider value={{ bodyId, getTitleId: this.getTitleId }}>
-                    {children}
+                    <CloseContext.Provider value={{ onClosePopover: onClickCloseButton }}>
+                      {children}
+                    </CloseContext.Provider>
                   </IdContext.Provider>
-                </PortalFocusHelper>
-              </div>
+                </div>
+              </PortalFocusHelper>
               <Positioning preferredLocation={location} triggerRef={triggerRef}>
                 {() => <div className={cn(`${baseClassName}--arrow-${location}`)} />}
               </Positioning>
@@ -90,10 +103,12 @@ export default class XUIPopover extends React.Component {
 
   addEventListeners = () => {
     document.addEventListener('click', this.handleClickOutside);
+    document.addEventListener('keydown', this.handleEscKeyPressed);
   };
 
   removeEventListeners = () => {
     document.removeEventListener('click', this.handleClickOutside);
+    document.removeEventListener('keydown', this.handleEscKeyPressed);
   };
 
   handleClickOutside = event => {
@@ -109,6 +124,24 @@ export default class XUIPopover extends React.Component {
     ) {
       onClickOutside?.();
     }
+  };
+
+  handleEscKeyPressed = event => {
+    if (event.key !== eventKeyValues.escape) {
+      return;
+    }
+    const { onClickCloseButton, onClickOutside } = this.props;
+    const triggerRef = getTriggerElementRef(this.props.triggerRef);
+
+    if (
+      event.target &&
+      (this.wrapperRef.current?.contains(event.target) ||
+        triggerRef.current?.contains(event.target))
+    ) {
+      onClickCloseButton?.();
+    }
+
+    onClickOutside?.();
   };
 
   focusOnTheTrigger = () => {
@@ -147,6 +180,11 @@ XUIPopover.propTypes = {
    * element to ensure assistive technologies know where the popover is on the page.
    */
   id: PropTypes.string.isRequired,
+  /**
+   * A callback to be called when the user clicks the close button or presses the escape key to
+   * close the popover.
+   */
+  onClickCloseButton: PropTypes.func,
   /**
    * A callback to be called when the user clicks outside the popover or uses the keyboard to
    * navigate outside the popover.

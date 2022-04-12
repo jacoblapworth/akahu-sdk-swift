@@ -6,9 +6,11 @@ import React, { useEffect } from 'react';
 import { XUIIconButton } from '../../button';
 import IdContext from './contexts/IdContext';
 import { baseClassName } from './private/constants';
+import CloseContext from './contexts/CloseContext';
 
 const XUIPopoverHeader = ({ className, closeButtonProps, onClose, qaHook, subtitle, title }) => {
   const { getTitleId } = React.useContext(IdContext);
+  const { onClosePopover } = React.useContext(CloseContext);
   const [titleId, setTitleId] = React.useState();
 
   useEffect(() => {
@@ -26,8 +28,14 @@ const XUIPopoverHeader = ({ className, closeButtonProps, onClose, qaHook, subtit
         {...closeButtonProps}
         className={cn(`${baseClassName}--close`, closeButtonProps && closeButtonProps.className)}
         onClick={event => {
-          closeButtonProps && closeButtonProps.onClick && closeButtonProps.onClick(event);
-          onClose && onClose(event);
+          if (onClose) {
+            console.warn(
+              "`XUIPopoverHeader` will stop supporting `closeButtonProps.onClick` and `onClose` in favour of `XUIPopover`'s `onClickCloseButton` in XUI 21",
+            );
+            closeButtonProps?.onClick?.(event);
+            onClose?.(event);
+          }
+          onClosePopover?.();
         }}
         qaHook={qaHook && `${qaHook}--close`}
         size="small"
@@ -45,6 +53,8 @@ XUIPopoverHeader.propTypes = {
    */
   closeButtonProps: PropTypes.object.isRequired,
   /**
+   * @deprecated
+   *
    * Callback to be called when the close button is clicked. If provided along with
    * `closeButtonProps.onClick`, both will be called.
    */

@@ -1,97 +1,98 @@
 @use 'sass:map';
+@import '../tokens/layout';
 
 // @section Spacing
 // @description Spacing units used within XUI components
 // @type spacing
 //
-$xui-s-2xsmall: 4px;
-$xui-s-xsmall: 8px;
-$xui-s-small: 12px;
-$xui-s-standard: 16px;
-$xui-s-large: 20px;
-$xui-s-xlarge: 24px;
-$xui-s-2xlarge: 32px;
-$xui-s-3xlarge: 40px;
-$xui-s-4xlarge: 48px;
-$xui-s-5xlarge: 64px;
+$xui-s-2xsmall: $xui-token-s-2xsmall;
+$xui-s-xsmall: $xui-token-s-xsmall;
+$xui-s-small: $xui-token-s-small;
+$xui-s-standard: $xui-token-s-standard;
+$xui-s-large: $xui-token-s-large;
+$xui-s-xlarge: $xui-token-s-xlarge;
+$xui-s-2xlarge: $xui-token-s-2xlarge;
+$xui-s-3xlarge: $xui-token-s-3xlarge;
+$xui-s-4xlarge: $xui-token-s-4xlarge;
+$xui-s-5xlarge: $xui-token-s-5xlarge;
 
 // @section Icon Sizes
 // @description Sizes used for bounding boxes of XUI icons
 // @type icon
 //
-$xui-icon-xsmall: 20px;
-$xui-icon-small: 24px;
-$xui-icon-medium: 32px;
-$xui-icon-large: 40px;
-$xui-icon-xlarge: 60px;
+$xui-icon-xsmall: $xui-token-icon-xsmall;
+$xui-icon-small: $xui-token-icon-small;
+$xui-icon-medium: $xui-token-icon-medium;
+$xui-icon-large: $xui-token-icon-large;
+$xui-icon-xlarge: $xui-token-icon-xlarge;
 
 // @section Illustration Sizes
 // @description Sizes used for height of XUI illustrations
 // @type table
 //
-$xui-illustration-small: 160px;
-$xui-illustration-medium: 280px;
-$xui-illustration-large: 400px;
+$xui-illustration-small: $xui-token-illustration-small;
+$xui-illustration-medium: $xui-token-illustration-medium;
+$xui-illustration-large: $xui-token-illustration-large;
 
 // @section Grid System
 // @description Variables used for creating the grid system
 // @type table
 //
 // Horizontal padding to apply between
-$xui-grid-gutter: $xui-s-large;
-$xui-layout-columns: 12;
-$xui-layout-column-start: 1;
+$xui-grid-gutter: $xui-token-grid-gutter;
+$xui-layout-columns: $xui-token-layout-columns;
+$xui-layout-column-start: $xui-token-layout-column-start;
 
 // @section Navigation Height
 // @description Height for navigation elements such as page headings and nested dropdown headings
 // @type table
 //
-$xui-navigation-height: 60px;
+$xui-navigation-height: $xui-token-navigation-height;
 
 // @section Forms
 // @type table
 //
-$xui-form-width: 400px;
-$xui-input-padding-horizontal: $xui-s-standard;
-$xui-input-padding-vertical: 8px;
-$xui-input-padding: $xui-input-padding-vertical $xui-input-padding-horizontal;
+$xui-form-width: $xui-token-form-width;
+$xui-input-padding-horizontal: $xui-token-input-padding-horizontal;
+$xui-input-padding-vertical: $xui-token-input-padding-vertical;
+$xui-input-padding: $xui-token-input-padding;
 
 // @section Controlls
 // @type table
 //
-$xui-control-size-2xsmall: 16px;
-$xui-control-size-xsmall: 24px;
-$xui-control-size-small: 32px;
-$xui-control-size-standard: 40px;
-$xui-control-size-large: 80px;
-$xui-control-size-xlarge: 120px;
+$xui-control-size-2xsmall: $xui-token-control-size-2xsmall;
+$xui-control-size-xsmall: $xui-token-control-size-xsmall;
+$xui-control-size-small: $xui-token-control-size-small;
+$xui-control-size-standard: $xui-token-control-size-standard;
+$xui-control-size-large: $xui-token-control-size-large;
+$xui-control-size-xlarge: $xui-token-control-size-xlarge;
 
 // @section Class Suffixes
 // @type table
 //
-$xui-class-suffix-auto: '-auto';
-$xui-class-suffix-none: '-none';
-$xui-class-suffix-small: '-small';
-$xui-class-suffix-2xsmall: '-2xsmall';
-$xui-class-suffix-xsmall: '-xsmall';
-$xui-class-suffix-standard: '';
-$xui-class-suffix-large: '-large';
-$xui-class-suffix-xlarge: '-xlarge';
-$xui-class-suffix-2xlarge: '-2xlarge';
-$xui-class-suffix-3xlarge: '-3xlarge';
-$xui-class-suffix-4xlarge: '-4xlarge';
-$xui-class-suffix-5xlarge: '-5xlarge';
-$xui-class-suffix-6xlarge: '-6xlarge';
+$xui-class-suffix-auto: $xui-token-class-suffix-auto;
+$xui-class-suffix-none: $xui-token-class-suffix-none;
+$xui-class-suffix-small: $xui-token-class-suffix-small;
+$xui-class-suffix-2xsmall: $xui-token-class-suffix-2xsmall;
+$xui-class-suffix-xsmall: $xui-token-class-suffix-xsmall;
+$xui-class-suffix-standard: $xui-token-class-suffix-standard;
+$xui-class-suffix-large: $xui-token-class-suffix-large;
+$xui-class-suffix-xlarge: $xui-token-class-suffix-xlarge;
+$xui-class-suffix-2xlarge: $xui-token-class-suffix-2xlarge;
+$xui-class-suffix-3xlarge: $xui-token-class-suffix-3xlarge;
+$xui-class-suffix-4xlarge: $xui-token-class-suffix-4xlarge;
+$xui-class-suffix-5xlarge: $xui-token-class-suffix-5xlarge;
+$xui-class-suffix-6xlarge: $xui-token-class-suffix-6xlarge;
 
 // @tokenparserstartignore
 
-$xui-s-actionlink: $xui-s-xsmall $xui-s-small;
+$xui-s-actionlink: $xui-token-s-actionlink;
 
 $xui-common-widths: (
-  xsmall: 100px,
-  small: 200px,
-  medium: 300px,
-  large: 400px,
+  xsmall: $xui-token-common-widths-xsmall,
+  small: $xui-token-common-widths-small,
+  medium: $xui-token-common-widths-medium,
+  large: $xui-token-common-widths-large,
 );
 
 $xui-width-variants-dropdown: $xui-common-widths;
@@ -99,31 +100,31 @@ $xui-width-variants-dropdown: $xui-common-widths;
 $xui-popover-widths: map.remove($xui-common-widths, 'xsmall');
 
 $xui-modal-widths: (
-  small: 300px,
-  medium: 400px,
-  large: 600px,
-  xlarge: 800px,
+  small: $xui-token-modal-widths-small,
+  medium: $xui-token-modal-widths-medium,
+  large: $xui-token-modal-widths-large,
+  xlarge: $xui-token-modal-widths-xlarge,
 );
 
 // @tokenparserendignore
 
 // Z-index stacking scheme.
-$xui-z-index-toast: 8000;
-$xui-z-index-sheet: 7000;
-$xui-z-index-sheetmask: 6000;
-$xui-z-index-modal: 5000;
-$xui-z-index-nav: 3000;
-$xui-z-index-header: 2000;
-$xui-z-index-dropdown: 1000;
-$xui-z-index-contextualtop: 500;
+$xui-z-index-toast: $xui-token-z-index-toast;
+$xui-z-index-sheet: $xui-token-z-index-sheet;
+$xui-z-index-sheetmask: $xui-token-z-index-sheetmask;
+$xui-z-index-modal: $xui-token-z-index-modal;
+$xui-z-index-nav: $xui-token-z-index-nav;
+$xui-z-index-header: $xui-token-z-index-header;
+$xui-z-index-dropdown: $xui-token-z-index-dropdown;
+$xui-z-index-contextualtop: $xui-token-z-index-contextualtop;
 // Navigation has been updated to use 99999, but Global Search uses 100 (Sept 2021). TODO: Remove when global search is updated.
-$xui-z-index-belownav: 90;
-$xui-z-index-focus: 2;
-$xui-z-index-responsiveoverlay: 1;
-$xui-z-index-checkboxradio: 1;
-$xui-z-index-body: 1;
-$xui-z-index-html: 0;
-$xui-z-index-hidden: -1;
+$xui-z-index-belownav: $xui-token-z-index-belownav;
+$xui-z-index-focus: $xui-token-z-index-focus;
+$xui-z-index-responsiveoverlay: $xui-token-z-index-responsiveoverlay;
+$xui-z-index-checkboxradio: $xui-token-z-index-checkboxradio;
+$xui-z-index-body: $xui-token-z-index-body;
+$xui-z-index-html: $xui-token-z-index-html;
+$xui-z-index-hidden: $xui-token-z-index-hidden;
 
 // The minimum value for the touch target.
-$xui-minimum-touch-target: 40px;
+$xui-minimum-touch-target: $xui-token-minimum-touch-target;

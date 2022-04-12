@@ -1,13 +1,15 @@
+@import '../tokens/structure';
+
 /**
  * Settings for the structure/layout of the Xero design.
  */
 
 // Border radius
-$xui-radius: 3px;
-$xui-radius-circle: 50%;
-$xui-radius-max: 9999px;
-$xui-radius-scaled: 8%; // 24 / 3
+$xui-radius: $xui-token-radius;
+$xui-radius-circle: $xui-token-radius-circle;
+$xui-radius-max: $xui-token-radius-max;
+$xui-radius-scaled: $xui-token-radius-scaled;
 
 // TODO: Update these to match new breakpoints??
-$xui-page-width-small: 1000px;
-$xui-page-width-large: 1200px;
+$xui-page-width-small: $xui-token-page-width-small;
+$xui-page-width-large: $xui-token-page-width-large;

@@ -6,7 +6,15 @@ const fs = require('fs');
 const { succeed, fail } = taskRunnerReturns;
 
 function clearTokens() {
-  const files = ['variables.scss', '_colors.scss'];
+  const files = [
+    'variables.scss',
+    '_colors.scss',
+    '_typography.scss',
+    '_structure.scss',
+    '_animation.scss',
+    '_layout.scss',
+    '_borders.scss',
+  ];
 
   return taskRunner(async taskSpinner => {
     try {

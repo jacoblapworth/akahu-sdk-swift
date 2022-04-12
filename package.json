@@ -104,7 +104,7 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "@xero/babel-preset-xero": "2.2.1",
     "@xero/browserslist-autoprefixer": "3.0.0",
-    "@xero/xui-tokens": "2.0.1",
+    "@xero/xui-tokens": "2.2.1",
     "@xero/xuishift": "4.2.0",
     "array.prototype.find": "^2.1.1",
     "autoprefixer": "9.8.0",

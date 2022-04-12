@@ -1,19 +1,21 @@
+@import '../tokens/animation';
+
 /**
  * Global animation-related settings.
  */
 
 /* ----- Duration ----- */
-$xui-motion-speed-fast: 0.1s;
-$xui-motion-speed-medium: 0.3s;
-$xui-motion-speed-slow: 0.5s;
-$xui-motion-speed-xslow: 1s;
+$xui-motion-speed-fast: $xui-token-motion-speed-fast;
+$xui-motion-speed-medium: $xui-token-motion-speed-medium;
+$xui-motion-speed-slow: $xui-token-motion-speed-slow;
+$xui-motion-speed-xslow: $xui-token-motion-speed-xslow;
 
 /* ----- Easing function ----- */
-$xui-motion-curve-standard: ease;
-$xui-motion-curve-enter: ease-in;
-$xui-motion-curve-exit: ease-out;
+$xui-motion-curve-standard: $xui-token-motion-curve-standard;
+$xui-motion-curve-enter: $xui-token-motion-curve-enter;
+$xui-motion-curve-exit: $xui-token-motion-curve-exit;
 
 /* ----- Delay ----- */
-$xui-motion-delay-short: 0.1s;
-$xui-motion-delay-medium: 0.3s;
-$xui-motion-delay-long: 0.5s;
+$xui-motion-delay-short: $xui-token-motion-delay-short;
+$xui-motion-delay-medium: $xui-token-motion-delay-medium;
+$xui-motion-delay-long: $xui-token-motion-delay-long;

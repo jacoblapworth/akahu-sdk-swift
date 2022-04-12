@@ -20,6 +20,7 @@
  */
 
 @use 'sass:math';
+@import '../tokens/typography';
 
 // Function for converting pixel to rem.
 @function prem($pixel) {
@@ -29,55 +30,55 @@
 // @section Core Font Sizes
 // @type font-size
 //
-$xui-font-size-base: prem(16px);
+$xui-font-size-base: prem($xui-token-font-size-base);
 
-$xui-font-size-4xlarge: prem(72px);
-$xui-font-size-3xlarge: prem(48px);
-$xui-font-size-2xlarge: prem(30px);
-$xui-font-size-xlarge: prem(21px);
-$xui-font-size-large: prem(17px);
-$xui-font-size-medium: prem(15px);
-$xui-font-size-small: prem(13px);
-$xui-font-size-xsmall: prem(11px);
-$xui-font-size-2xsmall: prem(9px);
+$xui-font-size-4xlarge: prem($xui-token-font-size-4xlarge);
+$xui-font-size-3xlarge: prem($xui-token-font-size-3xlarge);
+$xui-font-size-2xlarge: prem($xui-token-font-size-2xlarge);
+$xui-font-size-xlarge: prem($xui-token-font-size-xlarge);
+$xui-font-size-large: prem($xui-token-font-size-large);
+$xui-font-size-medium: prem($xui-token-font-size-medium);
+$xui-font-size-small: prem($xui-token-font-size-small);
+$xui-font-size-xsmall: prem($xui-token-font-size-xsmall);
+$xui-font-size-2xsmall: prem($xui-token-font-size-2xsmall);
 
-$xui-line-height-4xlarge: prem(96px);
-$xui-line-height-3xlarge: prem(72px);
-$xui-line-height-2xlarge: prem(44px);
-$xui-line-height-xlarge: prem(32px);
-$xui-line-height-large: prem(28px);
-$xui-line-height-standard: prem(24px);
-$xui-line-height-small: prem(20px);
-$xui-line-height-xsmall: prem(16px);
-$xui-line-height-2xsmall: prem(12px);
+$xui-line-height-4xlarge: prem($xui-token-font-line-height-4xlarge);
+$xui-line-height-3xlarge: prem($xui-token-font-line-height-3xlarge);
+$xui-line-height-2xlarge: prem($xui-token-font-line-height-2xlarge);
+$xui-line-height-xlarge: prem($xui-token-font-line-height-xlarge);
+$xui-line-height-large: prem($xui-token-font-line-height-large);
+$xui-line-height-standard: prem($xui-token-font-line-height-standard);
+$xui-line-height-small: prem($xui-token-font-line-height-small);
+$xui-line-height-xsmall: prem($xui-token-font-line-height-xsmall);
+$xui-line-height-2xsmall: prem($xui-token-font-line-height-2xsmall);
 
 // @section Weights
 // @type font-weight
 //
-$xui-font-weight-emphasis: 700;
-$xui-font-weight-deemphasis: 400;
+$xui-font-weight-emphasis: $xui-token-font-weight-emphasis;
+$xui-font-weight-deemphasis: $xui-token-font-weight-deemphasis;
 
 // @section Letter spacing
 // @type font-spacing
 //
-$xui-letter-spacing-tight: -0.005em;
-$xui-letter-spacing-loose: 0.01em;
+$xui-letter-spacing-tight: $xui-token-letter-spacing-tight;
+$xui-letter-spacing-loose: $xui-token-letter-spacing-loose;
 
 // @section Line heights
 // @type line-height
 //
-$xui-line-height-reset: 1;
-$xui-line-height-tight: 1.15;
-$xui-line-height-compact: 1.3077;
-$xui-line-height: 1.5;
-$xui-line-height-button: prem(16px);
+$xui-line-height-reset: $xui-token-font-line-height-reset;
+$xui-line-height-tight: $xui-token-font-line-height-tight;
+$xui-line-height-compact: $xui-token-font-line-height-compact;
+$xui-line-height: $xui-token-font-line-height;
+$xui-line-height-button: prem($xui-token-font-line-height-button);
 
 // @section Sizing for icon text within xui
 // @type font-size
 //
-$xui-font-size-icon-large: prem(18px);
-$xui-font-size-icon-xlarge: prem(32px);
+$xui-font-size-icon-large: prem($xui-token-font-size-icon-large);
+$xui-font-size-icon-xlarge: prem($xui-token-font-size-icon-xlarge);
 
 // @tokenparserstartignore
-$xui-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$xui-font-family: $xui-token-font-family;
 // @tokenparserendignore

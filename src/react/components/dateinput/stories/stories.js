@@ -3,7 +3,8 @@ import React from 'react';
 
 // Story book things
 import { storiesOf } from '@storybook/react';
-import { boolean, date, select, text } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
+import { dateKnob } from '../../../../../.storybook/helpers';
 
 // Components we need to test with
 import XUIDateInput from '../XUIDateInput';
@@ -20,14 +21,6 @@ import {
   dateRangeInputStoriesWithVariationsKindName,
   dateRangeInputVariations,
 } from './variations';
-
-// Default date knob returns a string, but we want a ‘Date’ date.
-// https://github.com/storybookjs/addon-knobs#date
-const dateKnob = (name, defaultValue, groupId) => {
-  const dateString = date(name, defaultValue, groupId);
-
-  return new Date(dateString);
-};
 
 const inputSizes = ['xsmall', 'small', 'medium'];
 

@@ -11,7 +11,7 @@ import { XUIOverviewBlock, XUIOverviewSection } from '@xero/xui/react/overviewbl
 
 <XUIOverviewBlock>
   <XUIOverviewSection label="Draft" value="$872.93" />
-  <XUIOverviewSection label="Paid" value="$2,354.02" sentiment="positive" />
-  <XUIOverviewSection label="Past due" value="$96.25" sentiment="negative" />
+  <XUIOverviewSection label="Awaiting payment" sentiment="positive" value="$2,354.02" />
+  <XUIOverviewSection label="Overdue" sentiment="negative" value="$96.25" />
 </XUIOverviewBlock>;
 ```

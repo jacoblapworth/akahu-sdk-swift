@@ -12,10 +12,10 @@
 
 // When to use
 //
-// * Viewing the page requires permissions the user doesn't have [(403)](./section-patterns-error-pages.html#patterns-error-pages-4-1)
-// * A page can't be found as the link is broken or URL is entered incorrectly [(404)](./section-patterns-error-pages.html#patterns-error-pages-4-2)
-// * There is a problem with the server and it can't complete a request [(500)](./section-patterns-error-pages.html#patterns-error-pages-5-1)
-// * The service is temporarily unavailable [(503)](./section-patterns-error-pages.html#patterns-error-pages-5-2)
+// * Viewing the page requires permissions the user doesn't have [(error 403)](./section-patterns-error-pages.html#patterns-error-pages-4-1)
+// * A page can't be found as the link is broken or URL is entered incorrectly [(error 404)](./section-patterns-error-pages.html#patterns-error-pages-4-2)
+// * There is a problem with the server and it can't complete a request [(error 500)](./section-patterns-error-pages.html#patterns-error-pages-5-1)
+// * The service is temporarily unavailable [(error 503)](./section-patterns-error-pages.html#patterns-error-pages-5-2)
 //
 // Styleguide: Patterns.Error-pages.1
 

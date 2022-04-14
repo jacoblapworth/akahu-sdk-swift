@@ -74,7 +74,7 @@
     the "#if @first" block as seen below.
     }}
     {{#each sections}}
-    {{#wrapSection referenceURI @root.sections}}
+    {{#wrapSection referenceURI callout}}
       <div data-search-section>
         <div class="kss-style ds-section-part">
           {{#if topdescription}}
@@ -338,7 +338,7 @@
       </div>
       {{/if}}
 
-      {{#ifStyleguide "Getting Started.5" }}
+      {{#ifStyleguide "Getting started.5" }}
         <div class="kss-style ds-section-part">
           <dl class="ds-definition ds-definition-two-cols">
             {{#renderFlagDefs}}
@@ -366,7 +366,7 @@
     {{#each sections}}
       {{#if @first}}
         {{! Don't show the landing page tiles for the following sections: }}
-        {{#ifStyleguide "Components.CollectingInput.Forms" "Components.DisplayingData.EditableTable" "Contributing to XUI.XUI Labs.XUI Labs Overview" "Contributing to XUI.XUI Labs.Contributing" "Getting Started" "Contributing to XUI"}}
+        {{#ifStyleguide "Components.CollectingInput.Forms" "Components.DisplayingData.EditableTable" "Contributing to XUI.XUI Labs.XUI Labs overview" "Contributing to XUI.XUI Labs.Contributing" "Getting started" "Contributing to XUI"}}
           {{! noop }}
         {{else}}
           {{> landingpage }}

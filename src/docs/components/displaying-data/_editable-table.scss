@@ -75,6 +75,8 @@
 
 // Column widths
 //
+// Callout:
+//
 // Content columns in a table will default to being equal width, but can be set to percentage widths, explicit widths (pixels, ems, etc), or “auto” which is different from a non-specified value. Widths can be set using the available `columnWidths` API or by specifying a width on the first cell in each column (often the header row).
 //
 // ExampleClass: ds-example-transparent ds-example-flush
@@ -89,6 +91,8 @@
 // Styleguide: Components.DisplayingData.EditableTable.3.2.1
 
 // Showing and hiding columns
+//
+// Callout:
 //
 // Depending on the workflow, it may not be necessary for all columns to be visible at all times. To facilitate this, give users the option to show and hide columns.
 //
@@ -107,6 +111,8 @@
 // Styleguide: Components.DisplayingData.EditableTable.3.2.2
 
 // Pinned columns
+//
+// Callout:
 //
 // In tables that have content that horizontally scrolls, there may be columns that you wish to have visible at all times to help provide context to other data in the table, eg a drag handle or overflow menu. First and last columns in the editable table can be pinned by toggling the `hasPinnedFirstColumn` and `hasPinnedLastColumn` properties.
 //
@@ -147,6 +153,8 @@
 
 // Read-only cells
 //
+// Callout:
+//
 // Read-only cells are used for presentational data that is not going to be changed by the user, for example a pre-populated contact name. Read-only cells in the editable table component are styled similarly to text input cells in order to create a cohesive visual experience, however, they do not have interactive qualities such as hover/focus states or cursor changes to help communicate that the cell content cannot be manipulated.
 //
 // Classes:
@@ -167,6 +175,8 @@
 // Styleguide: Components.DisplayingData.EditableTable.3.4.1
 
 // Text input cells
+//
+// Callout:
 //
 // Text input cells are used for displaying and modifying text content. Text input cells house a variant of XUI’s [text input component](section-components-controls-textinput.html), enabling a consistent text manipulation experience and the ability to consume the same properties.
 //
@@ -193,6 +203,8 @@
 
 // Select box cells
 //
+// Callout:
+//
 // Flags: updatesComing
 //
 // Select box cells are used to trigger a dropdown that contains a list of options. These options can be selected, which can then be represented by replacing the text content inside the cell container (this has to be hooked up manually upon implementation of the select box cell for your particular data). Select box cells house a variant of XUI’s [select box component](section-components-controls-select.html).
@@ -216,6 +228,8 @@
 // Styleguide: Components.DisplayingData.EditableTable.3.4.3
 
 // Autocompleter cells
+//
+// Callout:
 //
 // Flags: updatesComing
 //
@@ -243,6 +257,8 @@
 // Styleguide: Components.DisplayingData.EditableTable.3.4.4
 
 // Autocompleter secondary search cells
+//
+// Callout:
 //
 // Flags: updatesComing
 //
@@ -274,6 +290,8 @@
 
 // Icon button cells
 //
+// Callout:
+//
 // Icon button cells are used to provide a single action in a cell that is easily accessible and quick to recognise via the [icon](section-fundamentals-icons.html#fundamentals-icons-7) used inside. Icon button cells house a variant of XUI’s [icon button component](section-components-controls-button.html#components-controls-button-6).
 //
 // Classes:
@@ -290,6 +308,8 @@
 // Styleguide: Components.DisplayingData.EditableTable.3.4.6
 
 // Custom cell content
+//
+// Callout:
 //
 // While the editable table component provides cell options of-of-the-box for common controls, it is still possible to insert other components within cells. Examples of custom cell content could be inserting components like pills, tags or avatars. When using custom cell content, ensure the experience provided is accessible and responsive.
 //

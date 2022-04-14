@@ -9,6 +9,8 @@
   display: inline-flex;
   flex-shrink: 0;
   justify-content: center;
+  // Clobbering this here to work around specificity issues (see XUI-2714)
+  min-width: 0;
   position: relative;
 
   .#{$ns}-icon {

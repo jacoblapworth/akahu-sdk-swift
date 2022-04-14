@@ -21,7 +21,7 @@
 //
 // Medium is the standard, most comfortable reading size to be used for body copy. Sometimes though, it makes sense to use a different type size to tweak information [density](./section-fundamentals-spacing.html#fundamentals-spacing-2) or heirarchy.
 //
-// See our [Typography Variables](./section-fundamentals-variables-mixins.html#fundamentals-variables-mixins-typography) to use these different sizes.
+// See our [Typography variables](./section-fundamentals-variables-and-mixins.html#fundamentals-variables-mixins-typography) to use these different sizes.
 //
 // **Note:** As XUI does not provide a css margin reset, heading and paragraph elements will pickup user agent margins if not otherwise specified using [XUI spacing classes](./section-fundamentals-spacing.html).
 //
@@ -140,7 +140,7 @@
 //
 // Styleguide: Fundamentals.Typography.51
 
-// Letter Spacing
+// Letter spacing
 //
 // Common components, like headings, declare their own letter spacing where required – these classes should not be used very often.
 //
@@ -150,7 +150,7 @@
 //
 // Styleguide: Fundamentals.Typography.52
 
-// Line Height
+// Line height
 //
 // Generally line height is calculated as 1.5 times font size, rounded to the nearest multiple of 4px.
 // Common components should declare their own line height and these classes

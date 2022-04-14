@@ -42,13 +42,15 @@ const XUIAccordionItem = ({
       if (event.defaultPrevented) {
         return;
       }
-      setOpenAccordionItem(id);
 
-      if (onClick) {
-        onClick();
+      if (!onClick || propsIsOpen === undefined || propsIsOpen === null) {
+        // handle toggling visibility for uncontrolled components
+        setOpenAccordionItem(id);
       }
+
+      onClick?.();
     },
-    [setOpenAccordionItem, onClick, id],
+    [setOpenAccordionItem, onClick, id, propsIsOpen],
   );
 
   return (

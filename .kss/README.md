@@ -36,27 +36,28 @@ KSS supports custom properties and we have a number all pre-defined in our [conf
 
 ### XUI custom KSS props
 
-- `tokens`
-- `tokenType`
+- `callout`
+- `card`
 - `classes`
-- `markdown`
 - `components`
 - `definitions`
-- `note`
-- `teaser`
-- `teaser-image`
 - `exampleclass`
-- `card`
-- `introduction`
-- `tips`
+- `examplecontenttable`
 - `flags`
+- `image-caption`
+- `image`
 - `introduced`
+- `introduction`
+- `language`
+- `markdown`
+- `note`
 - `related`
 - `storybook`
-- `image`
-- `image-caption`
-- `language`
-- `examplecontenttable`
+- `teaser-image`
+- `teaser`
+- `tips`
+- `tokens`
+- `tokenType`
 - `topdescription`
 
 #### Adding new properties
@@ -241,6 +242,16 @@ A table used to compare examples of preferred and suboptimal content.
 // A preferred example of content | A suboptimal example of content
 // Another preferred example of content | Another suboptimal example of content
 ```
+
+### Callout
+
+Callouts can be used to group sections under a heading, however they should not have sub-headings. A callout wraps a section in a panel and reduces the spacing between itself and other callouts.
+
+```
+// Callout:
+```
+
+_Note: Callouts do not require a value_
 
 ## Handlebars Index Template
 

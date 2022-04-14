@@ -6,25 +6,25 @@
 //
 // Components: Detail
 //
+// VisualExample: ./compositions/examples/detail/_detail-visual-example.html
+//
 // Introduction: Detail is composed of a single, centered container that is used to house a page’s main content. Detail comes with some responsive behaviour and offers a range of spacing and sizing options.
 //
-// Image: composition-images/Detail_devices.svg
-//
-// Image-caption: Detail composition behaviour at breakpoints small-down and small-to-medium, medium-to-large, and large-up.
+// Styleguide: Compositions.Detail
+
+// Best practice
 //
 // Tips:
 // Do: Check that content stacks nicely at smaller breakpoints
 // Dont: Don’t introduce side panels to the Detail container – instead, consider using a different composition
 //
-// Weight: 4.1
-//
-// Styleguide: Compositions.Detail
+// Styleguide: Compositions.Detail.1
 
 // Detail default behaviour
 //
 // The Detail composition has a max width of 1200px by default.
 //
-// Styleguide: Compositions.Detail.1
+// Styleguide: Compositions.Detail.2
 
 // Example
 //
@@ -32,13 +32,13 @@
 //
 // Storybook: storybook/?selectedKind=Compositions&selectedStory=Detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=
 //
-// Styleguide: Compositions.Detail.1.5
+// Styleguide: Compositions.Detail.2.5
 
 // Detail with header
 //
 // When a page has a content header, include it in the composition to make use of the spacing and stacking behaviour.
 //
-// Styleguide: Compositions.Detail.2
+// Styleguide: Compositions.Detail.3
 
 // Example
 //
@@ -46,7 +46,7 @@
 //
 // Storybook: storybook/?selectedKind=Compositions&selectedStory=Detail&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=true&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=
 //
-// Styleguide: Compositions.Detail.2.5
+// Styleguide: Compositions.Detail.3.5
 
 // Anatomy
 //
@@ -56,13 +56,13 @@
 // xui-gridarea-header: Wraps the content header if one is included
 // xui-gridarea-detail: Detail container
 //
-// Styleguide: Compositions.Detail.3
+// Styleguide: Compositions.Detail.4
 
 // Composition properties
 //
 // Introduction: There are a number of spacing and layout properties that can be used to adjust the Detail composition.
 //
-// Styleguide: Compositions.Detail.4
+// Styleguide: Compositions.Detail.5
 
 // Grid gap
 //
@@ -77,7 +77,7 @@
 // Classes:
 // xui-composition-grid-gap: Applies standard spacing between composition containers
 //
-// Styleguide: Compositions.Detail.4.1
+// Styleguide: Compositions.Detail.5.1
 
 // Outer spacing
 //
@@ -90,7 +90,7 @@
 // Classes:
 // xui-composition-has-auto-space-around: Applies $xui-s-large spacing around the outside of the composition
 //
-// Styleguide: Compositions.Detail.4.2
+// Styleguide: Compositions.Detail.5.2
 
 // Full width
 //
@@ -103,7 +103,7 @@
 // Classes:
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
 //
-// Styleguide: Compositions.Detail.4.3
+// Styleguide: Compositions.Detail.5.3
 
 // Class list
 //
@@ -115,4 +115,4 @@
 // xui-gridarea-header: Style for content header if the page has one
 // xui-gridarea-detail: Style for Detail container
 //
-// Styleguide: Compositions.Detail.5
+// Styleguide: Compositions.Detail.6

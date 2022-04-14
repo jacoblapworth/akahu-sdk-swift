@@ -142,15 +142,9 @@ module.exports = function(handlebars) {
    *   }
    * {{/wrapSection}}
    */
-  handlebars.registerHelper('wrapSection', function (sectionId, sections, body) {
+  handlebars.registerHelper('wrapSection', function (sectionId, isCallout, body) {
     const depth = this.depth;
     const isLast = body.data.last;
-
-    const featuresOf = sections.find(section => section.header.includes("Features of"));
-    const formLayout = sections.find(section => section.header.includes("Elements within a form"));
-    const featuresOfReference = featuresOf && featuresOf.reference;
-    const isSectionUnderFeaturesOf = featuresOfReference && this.reference.includes(featuresOfReference);
-    const isCallout = (isSectionUnderFeaturesOf || formLayout) ? depth === 5 : depth === 4;
 
     var openSection = ``,
       closeSection = ``;

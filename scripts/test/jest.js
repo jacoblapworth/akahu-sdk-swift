@@ -32,7 +32,6 @@ function test(...args) {
 
   const environmentVars = {
     'NODE_ENV=test': true,
-    'NODE_ICU_DATA=node_modules/full-icu': true,
     'TEAMCITY_VERSION=\\"9.1.7\\"': ci,
   };
 

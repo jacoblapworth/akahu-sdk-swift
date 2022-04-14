@@ -133,6 +133,22 @@ const variations = [
     debugShowToolTip: true,
     hasLimitedWidth: true,
   },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'value text truncated',
+    value: 'I am the primary value, I have long text',
+    secondaryText: 'I am secondary text, I am long',
+    hasLimitedWidth: true,
+    isSecondaryTextTruncated: false,
+  },
+  {
+    storyKind: storiesWithVariationsKindName,
+    storyTitle: 'secondary text truncated',
+    value: 'I am the primary value, I have long text',
+    secondaryText: 'I am secondary text, I am long',
+    hasLimitedWidth: true,
+    isValueTruncated: false,
+  },
 ];
 
 export { storiesWithVariationsKindName, storiesWithKnobsKindName, variations, avatarProps };

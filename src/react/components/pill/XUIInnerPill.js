@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import XUIButton from '../button/XUIButton';
@@ -10,7 +10,8 @@ const XUIInnerPill = ({
   avatar,
   avatarProps,
   href,
-  innerPillRef,
+  valueRef,
+  secondaryTextRef,
   isInvalid,
   onClick,
   qaHook,
@@ -25,15 +26,12 @@ const XUIInnerPill = ({
   const className = cn(`${baseClass}--content`, isInteractive && `${baseClass}--button`);
   const innerPillQaHook = qaHook && `${qaHook}--inner`;
   const secondaryTextEl = secondaryText && (
-    <span className={`${ns}-color-grey-muted ${baseClass}--secondary`} ref={innerPillRef}>
+    <span className={`${ns}-color-grey-muted ${baseClass}--secondary`} ref={secondaryTextRef}>
       {secondaryText}
     </span>
   );
   const valueEl = value && (
-    <span
-      className={`${baseClass}--text`}
-      ref={!secondaryText && innerPillRef ? innerPillRef : null}
-    >
+    <span className={`${baseClass}--text`} ref={valueRef}>
       {value}
     </span>
   );
@@ -86,8 +84,6 @@ XUIInnerPill.propTypes = {
   /** This will make the value an `anchor` element instead of a `span` element and adds the
    * href as the link. */
   href: PropTypes.string,
-  /** The ref to the text nodes - Used to determine showing tooltips when text is truncated */
-  innerPillRef: PropTypes.object,
   /** The pill is invalid and should display the invalid icon */
   isInvalid: PropTypes.bool,
   /** Callback to fire when the main pill content is clicked. */
@@ -96,6 +92,8 @@ XUIInnerPill.propTypes = {
   qaHook: PropTypes.string,
   /** Adds a muted secondary text for the pill, appears before the main value. */
   secondaryText: PropTypes.node,
+  /** The ref to the secondaryText text node - Used to determine showing tooltips when text is truncated */
+  secondaryTextRef: PropTypes.object,
   /** The size of the pill */
   size: PropTypes.oneOf(Object.keys(childSizeClassMap)),
   /** When an `href` is supplied, adds a target attribute, else is ignored. */
@@ -104,4 +102,6 @@ XUIInnerPill.propTypes = {
   title: PropTypes.string,
   /** The text to display inside the pill. */
   value: PropTypes.node,
+  /** The ref to the value text node - Used to determine showing tooltips when text is truncated */
+  valueRef: PropTypes.object,
 };

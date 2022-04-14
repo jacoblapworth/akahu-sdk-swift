@@ -2,11 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import crossSmall from '@xero/xui-icon/icons/cross-small';
-
 import XUIIconButton from '../button/XUIIconButton';
 import XUIInnerPill from './XUIInnerPill';
 import XUITooltip from '../tooltip/XUITooltip';
-import { baseClass, sizeClasses } from './private/constants';
+import { baseClass, sizeClasses, textTruncationClasses } from './private/constants';
 import SizeContext from '../../contexts/SizeContext';
 import DisabledStateContext from '../../contexts/DisabledStateContext';
 
@@ -22,6 +21,8 @@ const XUIPill = ({
   deleteButtonLabel,
   href,
   isInvalid,
+  isSecondaryTextTruncated,
+  isValueTruncated,
   hasLimitedWidth,
   onClick,
   onDeleteClick,
@@ -35,12 +36,14 @@ const XUIPill = ({
   const [isFocused, setIsFocused] = useState(false);
   const [hasTooltip, setHasTooltip] = useState(false);
 
-  const _innerPill = useRef();
+  const _value = useRef();
+  const _secondaryText = useRef();
   const _tooltip = useRef();
 
   useEffect(() => {
-    const innerPillElement = _innerPill.current;
-    const shouldHaveToolTip = hasTooltip === false && shouldShowTooltip(innerPillElement);
+    const shouldHaveToolTip =
+      hasTooltip === false &&
+      (shouldShowTooltip(_secondaryText?.current) || shouldShowTooltip(_value?.current));
 
     if (shouldHaveToolTip) {
       setHasTooltip(true);
@@ -92,6 +95,8 @@ const XUIPill = ({
               onDeleteClick && `${baseClass}-is-deletable`,
               hasAvatar && `${baseClass}-has-avatar`,
               (href || onClick) && `${baseClass}-interactive`,
+              isValueTruncated && textTruncationClasses.value,
+              isSecondaryTextTruncated && textTruncationClasses.secondaryText,
             );
 
             const deleteButton = onDeleteClick && (
@@ -118,7 +123,8 @@ const XUIPill = ({
                 onMouseLeave={blurHandler}
               >
                 <XUIInnerPill
-                  innerPillRef={_innerPill}
+                  secondaryTextRef={_secondaryText}
+                  valueRef={_value}
                   {...{
                     avatarProps,
                     avatar,
@@ -162,8 +168,6 @@ const XUIPill = ({
   );
 };
 
-export default XUIPill;
-
 XUIPill.propTypes = {
   /** An avatar component. May be used instead of avatarProps */
   avatar(props, propName) {
@@ -201,6 +205,10 @@ XUIPill.propTypes = {
   href: PropTypes.string,
   /** When invalid, displays the text in a red colour. */
   isInvalid: PropTypes.bool,
+  /** Used to control whether the secondary text (`secondaryText`) has truncation priority. Defaults to `true`, along with `isValueTruncated` such that the default behaviour is that both pieces of text are truncated. */
+  isSecondaryTextTruncated: PropTypes.bool,
+  /** Used to control whether the primary text (`value`) has truncation priority. Defaults to `true`, along with `isSecondaryTextTruncated` such that the default behaviour is that both pieces of text are truncated. */
+  isValueTruncated: PropTypes.bool,
   /** Callback to fire when the main pill content is clicked. */
   onClick: PropTypes.func,
   /** Callback to fire when the delete pill button is clicked. When omitted, the delete button is also omitted from the view. If this is provided, you must also provide a `deleteButtonLabel` for accessibility. */
@@ -218,3 +226,10 @@ XUIPill.propTypes = {
   /** The text to display inside the pill. */
   value: PropTypes.node,
 };
+
+XUIPill.defaultProps = {
+  isSecondaryTextTruncated: true,
+  isValueTruncated: true,
+};
+
+export default XUIPill;

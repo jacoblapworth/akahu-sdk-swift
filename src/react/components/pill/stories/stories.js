@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, text, object, select } from '@storybook/addon-knobs';
 
 // Components we need to test with
-import { sizeClasses } from '../private/constants';
+import { sizeClasses, textTruncationClasses } from '../private/constants';
 import XUIPill from '../XUIPill';
 
 import NOOP from '../../helpers/noop';
@@ -32,6 +32,7 @@ storiesWithKnobs.add('Playground', () => (
     secondaryText={text('secondaryText', '')}
     size={select('Size', Object.keys(sizeClasses), 'medium')}
     target={text('target', '')}
+    textTruncation={select('textTruncation', ['', ...Object.keys(textTruncationClasses)], '')}
     title={text('title', '')}
     value={text('value', 'Plain pill')}
   />

@@ -15,3 +15,8 @@ export const childSizeClassMap = {
 export const childSizes = (
   Object.keys(childSizeClassMap) as Array<keyof typeof childSizeClassMap>
 ).map(size => childSizeClassMap[size]);
+
+export const textTruncationClasses = {
+  value: `${baseClass}-truncatevalue`,
+  secondaryText: `${baseClass}-truncatesecondarytext`,
+};

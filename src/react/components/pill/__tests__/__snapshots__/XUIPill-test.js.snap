@@ -2,7 +2,7 @@
 
 exports[`<XUIPill /> renders the pill with the business avatar prop 1`] = `
 <div
-  className="xui-pill xui-pill-medium xui-pill-has-avatar"
+  className="xui-pill xui-pill-medium xui-pill-has-avatar xui-pill-truncatevalue xui-pill-truncatesecondarytext"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -30,7 +30,7 @@ exports[`<XUIPill /> renders the pill with the business avatar prop 1`] = `
 
 exports[`<XUIPill /> renders the pill with the provided avatar component 1`] = `
 <div
-  className="xui-pill xui-pill-medium xui-pill-has-avatar"
+  className="xui-pill xui-pill-medium xui-pill-has-avatar xui-pill-truncatevalue xui-pill-truncatesecondarytext"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -56,7 +56,7 @@ exports[`<XUIPill /> renders the pill with the provided avatar component 1`] = `
 
 exports[`<XUIPill /> renders the pill with the provided business avatar component 1`] = `
 <div
-  className="xui-pill xui-pill-medium xui-pill-has-avatar"
+  className="xui-pill xui-pill-medium xui-pill-has-avatar xui-pill-truncatevalue xui-pill-truncatesecondarytext"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -82,7 +82,7 @@ exports[`<XUIPill /> renders the pill with the provided business avatar componen
 
 exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 <div
-  className="xui-pill xui-pill-medium"
+  className="xui-pill xui-pill-medium xui-pill-truncatevalue xui-pill-truncatesecondarytext"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -102,7 +102,7 @@ exports[`<XUIPill /> renders the pill with the specified value prop 1`] = `
 
 exports[`<XUIPill /> should render a pill with the maxwidth limiting class 1`] = `
 <div
-  className="xui-pill xui-pill-maxwidth xui-pill-medium"
+  className="xui-pill xui-pill-maxwidth xui-pill-medium xui-pill-truncatevalue xui-pill-truncatesecondarytext"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -116,7 +116,7 @@ exports[`<XUIPill /> should render a pill with the maxwidth limiting class 1`] =
 
 exports[`<XUIPill /> should render a pills with correct size modifiers 1`] = `
 <div
-  className="xui-pill xui-pill-medium xui-pill-is-deletable xui-pill-has-avatar"
+  className="xui-pill xui-pill-medium xui-pill-is-deletable xui-pill-has-avatar xui-pill-truncatevalue xui-pill-truncatesecondarytext"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -167,7 +167,7 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 1`] = `
 
 exports[`<XUIPill /> should render a pills with correct size modifiers 2`] = `
 <div
-  className="xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar"
+  className="xui-pill xui-pill-small xui-pill-is-deletable xui-pill-has-avatar xui-pill-truncatevalue xui-pill-truncatesecondarytext"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -218,7 +218,7 @@ exports[`<XUIPill /> should render a pills with correct size modifiers 2`] = `
 
 exports[`<XUIPill /> should render a target when passed in 1`] = `
 <div
-  className="xui-pill xui-pill-medium xui-pill-interactive"
+  className="xui-pill xui-pill-medium xui-pill-interactive xui-pill-truncatevalue xui-pill-truncatesecondarytext"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -237,7 +237,7 @@ exports[`<XUIPill /> should render a target when passed in 1`] = `
 
 exports[`<XUIPill /> should render a title when passed 1`] = `
 <div
-  className="xui-pill xui-pill-medium"
+  className="xui-pill xui-pill-medium xui-pill-truncatevalue xui-pill-truncatesecondarytext"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -251,7 +251,7 @@ exports[`<XUIPill /> should render a title when passed 1`] = `
 
 exports[`<XUIPill /> should render an automation id when a qaHook is passed in 1`] = `
 <div
-  className="xui-pill xui-pill-medium"
+  className="xui-pill xui-pill-medium xui-pill-truncatevalue xui-pill-truncatesecondarytext"
   data-automationid="pill-test"
   onBlur={[Function]}
   onFocus={[Function]}
@@ -267,7 +267,7 @@ exports[`<XUIPill /> should render an automation id when a qaHook is passed in 1
 
 exports[`<XUIPill /> should render an error icon when invalid 1`] = `
 <div
-  className="xui-pill xui-pill-medium xui-pill-is-invalid xui-pill-has-avatar"
+  className="xui-pill xui-pill-medium xui-pill-is-invalid xui-pill-has-avatar xui-pill-truncatevalue xui-pill-truncatesecondarytext"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -303,7 +303,7 @@ exports[`<XUIPill /> should render an error icon when invalid 1`] = `
 
 exports[`<XUIPill /> should render an error icon when invalid even with an avatar 1`] = `
 <div
-  className="xui-pill xui-pill-small xui-pill-is-invalid xui-pill-has-avatar"
+  className="xui-pill xui-pill-small xui-pill-is-invalid xui-pill-has-avatar xui-pill-truncatevalue xui-pill-truncatesecondarytext"
   onBlur={[Function]}
   onFocus={[Function]}
   onMouseEnter={[Function]}
@@ -350,7 +350,7 @@ exports[`<XUIPill /> should render inside a tooltip when using the debug flag 1`
     onFocus={[Function]}
   >
     <div
-      className="xui-pill xui-pill-medium"
+      className="xui-pill xui-pill-medium xui-pill-truncatevalue xui-pill-truncatesecondarytext"
       onBlur={[Function]}
       onFocus={[Function]}
       onMouseEnter={[Function]}

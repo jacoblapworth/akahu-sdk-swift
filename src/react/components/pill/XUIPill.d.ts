@@ -27,6 +27,15 @@ interface BaseProps {
    * When invalid, displays the text in a red colour.
    */
   isInvalid?: boolean;
+  /** Used to control whether the secondary text (`secondaryText`) has truncation priority. Defaults to `true`,
+   * along with `isValueTruncated` such that the default behaviour is that both pieces of text are truncated.
+   */
+  isSecondaryTextTruncated: PropTypes.bool;
+  /**
+   * Used to control whether the primary text (`value`) has truncation priority. Defaults to `true`,
+   * along with `isSecondaryTextTruncated` such that the default behaviour is that both pieces of text are truncated.
+   */
+  isValueTruncated: PropTypes.bool;
   /**
    * Callback to fire when the main pill content is clicked.
    */

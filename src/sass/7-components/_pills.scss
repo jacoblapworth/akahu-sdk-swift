@@ -18,10 +18,6 @@
 
 .#{$ns}-pill-maxwidth {
   max-width: 200px;
-
-  .#{$ns}-pill--secondary {
-    max-width: 50%;
-  }
 }
 
 .#{$ns}-pill-parentmaxwidth {
@@ -80,6 +76,18 @@
   display: flex;
   min-width: 0;
   width: 100%;
+}
+
+.#{$ns}-pill-truncatevalue {
+  .#{$ns}-pill--text {
+    flex-shrink: 1000000000;
+  }
+}
+
+.#{$ns}-pill-truncatesecondarytext {
+  .#{$ns}-pill--secondary {
+    flex-shrink: 1000000000;
+  }
 }
 
 .#{$ns}-pill--secondary {

@@ -32,6 +32,7 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 - For `XUIDateRangeInput`, markup has been significantly modified to support a more robust CSS grid layout, under the hood. The new structure supports greater flexibility in the lengths of labels, hints, and validation messages, while maintaining alignment between the controls. See the [examples in the Guide](https://xui.xero.com/20.0.0/section-components-collectinginput-dateinput.html) to construct these with hand-coded HTML.
 - The way element IDs are generated has changed slightly for `XUIAutocompleter`. You may need to update your tests.
 - Focus state was updated across whole XUI. Affected components: `XUICheckbox`, `XUIEditableTable`, `XUIRadio`, `XUIButton`, `XUITextInput`, `XUIAccordion`, `XUIDatePicker`, `XUIRange`, `XUISwitch`, `XUIBreadcrumb`, `XUIPickItem`, `XUIPill`, `XUIStepper`, `XUITable`, `XUIToggle` and other components using the listed ones.
+- Added `xui-pill-truncatevalue` and `xui-pill-truncatesecondarytext` classes to allow truncation priority to be given to either the `value` or `secondaryText` of a `XUIPill`.
 
 ## XUI React components
 
@@ -54,6 +55,7 @@ We recommend running a bundle analyser after upgrading (and regularly in general
     ```
   - If you were providing `className` and `qaHook` props to `XUIEditableTableFootAction`, these props should now be provided to `XUIEditableTableFootActions` instead.
     - `XUIEditableTableFootAction` now has its own separate `className` and `qaHook` props
+- `XUIPill` now has the ability to give text truncation priority to either the `value` text, or `secondaryText` by using two new props: `isValueTruncated` and `isSecondaryTextTruncated`. These default to `true` such that the default behavior remains unchanged, that is, both pieces of text are truncated.
 
 ### New components
 
@@ -96,6 +98,8 @@ _Note. The codemod will resolve most prop differences automatically when run._
 - `XUIEditableTableFootAction`
   - `addButtonContent` has been renamed to `buttonContent`
   - `onAdd` has been renamed to `onClick`
+- `XUIPill`
+  - Now has `isValueTruncated` and `isSecondaryTextTruncated` props to give the user more control of how text truncation is prioritized for `value` text and `secondaryText` when the `XUIPill` has a restricted width
 
 ## Other changes
 

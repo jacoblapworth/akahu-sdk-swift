@@ -1,61 +1,54 @@
-// Libs
-import React from 'react';
-
-// Story book things
+import { boolean, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { boolean, text, select } from '@storybook/addon-knobs';
-
-// Components we need to test with
-import XUIIsolationHeader from '../XUIIsolationHeader';
+import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
+import XUIAvatar from '../../avatar/XUIAvatar';
 import XUIButton from '../../button/XUIButton';
 import XUIIconButton from '../../button/XUIIconButton';
-import XUIAvatar from '../../avatar/XUIAvatar';
+import { flattenedIconMap } from '../../helpers/icons';
 import XUITag from '../../tag/XUITag';
-
-import centered from '../../../../../.storybook/decorators/xuiResponsiveCenter';
-
-import { variations, storiesWithVariationsKindName, storiesWithKnobsKindName } from './variations';
-import { flattenedIconList, flattenedIconMap } from '../../helpers/icons';
+import XUIIsolationHeader from '../XUIIsolationHeader';
+import { storiesWithKnobsKindName, storiesWithVariationsKindName, variations } from './variations';
 
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.addDecorator(centered);
 /* eslint-disable react/prop-types */
 function getComponent({
-  actionIcon,
+  hasActionIcon,
   hasActionsPrimaryButton,
   hasActionsSecondaryButton,
   hasAvatar,
   hasTag,
+  hasNavigationButton,
   navigationIcon,
   secondaryTitle,
   supplementaryText,
   title,
   ...spreadProps
 }) {
-  const navigationButton = navigationIcon && (
-    <XUIIconButton ariaLabel="navigate" icon={flattenedIconMap[navigationIcon]} />
+  const navigationButton = hasNavigationButton && (
+    <XUIIconButton ariaLabel="navigate" icon={flattenedIconMap.cross} />
   );
   const avatar = hasAvatar && <XUIAvatar size="small" value="ABC" />;
   const tags = hasTag
     ? [
         <XUITag key="tag-1" size="small" variant="positive">
-          Tag
+          Draft
         </XUITag>,
       ]
     : undefined;
 
   const primaryAction = hasActionsPrimaryButton && (
     <XUIButton size="small" variant="main">
-      Primary
+      Save and open draft invoice
     </XUIButton>
   );
   const secondaryAction = hasActionsSecondaryButton && (
     <XUIButton size="small" variant="standard">
-      Secondary
+      Save draft
     </XUIButton>
   );
-  const iconAction = actionIcon && (
-    <XUIIconButton ariaLabel="action" icon={flattenedIconMap[actionIcon]} />
+  const iconAction = hasActionIcon && (
+    <XUIIconButton ariaLabel="action" icon={flattenedIconMap.overflow} />
   );
 
   const actions = (
@@ -67,7 +60,7 @@ function getComponent({
   );
 
   return (
-    <div style={{ maxWidth: '600px' }}>
+    <div style={{ maxWidth: '1000px' }}>
       <XUIIsolationHeader
         actions={actions}
         avatar={avatar}
@@ -86,16 +79,16 @@ function getComponent({
 
 storiesWithKnobs.add('Playground', () =>
   getComponent({
-    title: text('Title', ''),
-    secondaryTitle: text('Secondary title', ''),
-    supplementaryText: text('Supplementary text', ''),
-    isPositionFixed: boolean('Is position fixed', false),
-    navigationIcon: select('Navigation icon', flattenedIconList, 'cross'),
-    actionIcon: select('Action icon', flattenedIconList, 'overflow'),
-    hasActionsPrimaryButton: boolean('Has primary action button', false),
-    hasActionsSecondaryButton: boolean('Has secondary action button', false),
-    hasTag: boolean('Has tag', false),
-    hasAvatar: boolean('Has avatar', false),
+    hasActionIcon: boolean('Has action icon', true),
+    hasActionsPrimaryButton: boolean('Has primary action button', true),
+    hasActionsSecondaryButton: boolean('Has secondary action button', true),
+    hasAvatar: boolean('Has avatar', true),
+    hasNavigationButton: boolean('Has navigation button', true),
+    hasTag: boolean('Has tag', true),
+    isPositionFixed: boolean('isPositionFixed', false),
+    secondaryTitle: text('secondary', undefined),
+    supplementaryText: text('supplementary', undefined),
+    title: text('title', 'New task invoice'),
   }),
 );
 

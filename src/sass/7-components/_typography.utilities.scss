@@ -40,7 +40,7 @@
   font-weight: $xui-font-weight-deemphasis;
 }
 
-// Letter Spacing
+// Letter spacing
 
 .#{$ns}-text-spacing-tight {
   @include xui-text-spacing-tight;
@@ -50,7 +50,7 @@
   @include xui-text-spacing-loose;
 }
 
-// Line Height
+// Line height
 .#{$ns}-text-reset {
   line-height: $xui-line-height-reset;
 }

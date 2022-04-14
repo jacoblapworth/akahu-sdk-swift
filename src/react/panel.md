@@ -7,32 +7,62 @@ Panels are top-level containers for grouping page content. XUIPanel can optional
 #### Default Panel
 
 ```jsx harmony
-import { XUIPanel } from '@xero/xui/react/panel';
+import XUIActions from '@xero/xui/react/actions';
+import XUIButton from '@xero/xui/react/button';
+import XUIIcon from '@xero/xui/react/icon';
+import XUIPanel from '@xero/xui/react/panel';
+import external from '@xero/xui-icon/icons/external';
 
-<XUIPanel className="xui-padding-small">
-  <p className="xui-padding-horizontal-small">
-    You can create a new bill from here or email an attachment to yourorg-987654321@xero.com to
-    generate it automatically.
+<XUIPanel className="xui-padding-large">
+  <p>
+    Xero has a new VAT return that's compatible with Making Tax Digital (MTD). MTD allows you to
+    easily review and submit VAT returns directly to HMRC.
   </p>
+  <p>
+    Most businesses registered for VAT will have been notified by HMRC if they need to start
+    submitting VAT returns using MTD Compatible software. If you don't set up MTD for VAT now, you
+    can still do VAT returns and set up MTD for VAT later.
+  </p>
+  <p>
+    <a href="#mtd">
+      Learn more about MTD for VAT <XUIIcon icon={external} />
+    </a>
+  </p>
+  <XUIActions
+    className="xui-padding-top"
+    primaryAction={<XUIButton variant="main">Set up MTD for VAT in Xero</XUIButton>}
+    secondaryAction={<XUIButton>Go to VAT returns without MTD</XUIButton>}
+  />
 </XUIPanel>;
 ```
 
 #### Panel with Sections
 
 ```jsx harmony
-import { XUIPanel, XUIPanelSection } from '@xero/xui/react/panel';
+import XUIButton from '@xero/xui/react/button';
+import XUIDateInput from '@xero/xui/react/dateinput';
+import XUIPanel, { XUIPanelSection } from '@xero/xui/react/panel';
+import XUITextInput from '@xero/xui/react/textinput';
 
 <XUIPanel>
-  <XUIPanelSection heading="Organisation Settings" className="xui-padding-large">
-    <p>
-      Settings allow you fine control over which members of your organisation can use different
-      parts of Xero.
-    </p>
+  <XUIPanelSection
+    className="xui-padding-large"
+    headerClassName="xui-margin-bottom"
+    heading="Personal details"
+  >
+    <form className="xui-form-layout">
+      <XUITextInput isFieldLayout label="Name" />
+      <XUITextInput isFieldLayout label="Email" type="email" />
+    </form>
   </XUIPanelSection>
-  <XUIPanelSection className="xui-padding-large">
-    <p>
-      Or <a href="#">add new members</a> to your organisation.
-    </p>
+  <XUIPanelSection
+    className="xui-padding-large"
+    headerClassName="xui-margin-bottom"
+    heading="Employment information"
+  >
+    <form className="xui-form-layout">
+      <XUIDateInput isFieldLayout label="Start date" />
+    </form>
   </XUIPanelSection>
 </XUIPanel>;
 ```
@@ -40,45 +70,48 @@ import { XUIPanel, XUIPanelSection } from '@xero/xui/react/panel';
 #### Panel with Sidebar, Heading, and Footer
 
 ```jsx harmony
-import { XUIPanel, XUIPanelSection, XUIPanelHeading, XUIPanelFooter } from '@xero/xui/react/panel';
 import XUIActions from '@xero/xui/react/actions';
-import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 import XUIButton from '@xero/xui/react/button';
+import XUIPanel, { XUIPanelFooter, XUIPanelHeading, XUIPanelSection } from '@xero/xui/react/panel';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import XUITextInput from '@xero/xui/react/textinput';
+import plus from '@xero/xui-icon/icons/plus';
 
-const heading = <XUIPanelHeading>Invoices</XUIPanelHeading>;
-const footerActions = (
-  <XUIActions
-    isLinear
-    primaryAction={
-      <XUIButton key="one" variant="main" size="small">
-        Continue
-      </XUIButton>
-    }
-    secondaryAction={
-      <XUIButton key="two" size="small">
-        Cancel
-      </XUIButton>
-    }
-  />
+const heading = <XUIPanelHeading>Payment information</XUIPanelHeading>;
+
+const footer = (
+  <XUIPanelFooter className="xui-padding-large">
+    <XUIActions primaryAction={<XUIButton variant="main">Save</XUIButton>} />
+  </XUIPanelFooter>
 );
-const footer = <XUIPanelFooter className="xui-padding-small">{footerActions}</XUIPanelFooter>;
-const exampleNav = (
+
+const sidebar = (
   <XUIPicklist secondaryProps={{ role: 'menu' }}>
-    <XUIPickitem id="panelpi1" ariaRole="menuitem">
-      Bills
+    <XUIPickitem ariaRole="menuitem" id="personal-details">
+      Personal details
     </XUIPickitem>
-    <XUIPickitem id="panelpi2" ariaRole="menuitem" isSelected>
-      Invoices
+    <XUIPickitem ariaRole="menuitem" id="employment-information">
+      Employment information
     </XUIPickitem>
-    <XUIPickitem id="panelpi3" ariaRole="menuitem">
-      Contacts
+    <XUIPickitem ariaRole="menuitem" id="payment-information" isSelected>
+      Payment information
+    </XUIPickitem>
+    <XUIPickitem ariaRole="menuitem" id="payslips">
+      Payslips
     </XUIPickitem>
   </XUIPicklist>
 );
 
-<XUIPanel heading={heading} footer={footer} sidebar={exampleNav}>
-  <XUIPanelSection className="xui-padding-large">
-    <p>Manage your invoices from this area.</p>
+<XUIPanel footer={footer} heading={heading} sidebar={sidebar}>
+  <XUIPanelSection
+    className="xui-padding-large"
+    headerClassName="xui-text-align-left xui-form-layout xui-padding-vertical"
+    heading="Primary bank account"
+  >
+    <form className="xui-form-layout">
+      <XUITextInput defaultValue="Jane Smith" isFieldLayout label="Account name" />
+      <XUITextInput defaultValue="06-0705-0201419-000" isFieldLayout label="Account number" />
+    </form>
   </XUIPanelSection>
 </XUIPanel>;
 ```

@@ -8,9 +8,11 @@
 //
 // Introduction: Detail summary composition is useful for layouts that require a small section displaying a summary of what is found in the main content area of the page. The Summary container sits above the Detail area by default, and becomes a right hand column when space allows.
 //
-// Image: composition-images/Detail-Summary_devices.svg
+// VisualExample: ./compositions/examples/detail-summary/_detail-summary-visual-example.html
 //
-// Image-caption: Detail summary composition at small-down and small-to-medium, medium-to-large, and large-up breakpoints.
+// Styleguide: Compositions.DetailSummary
+
+// Best practice
 //
 // Tips:
 // Do: Use Summary to house simple content that isn’t integral to the purpose of the page
@@ -19,15 +21,13 @@
 // Dont: Don’t use the Summary container to house dense, long form content
 // Dont: Don’t use Compositions in conjunction with $xui-max-page-width
 //
-// Weight: 4.3
-//
-// Styleguide: Compositions.DetailSummary
+// Styleguide: Compositions.DetailSummary.1
 
 // Detail summary default behaviour
 //
 // When the browser is narrower than `xui-breakpoint-medium`, the Summary and Detail containers are full width and stacked with the Summary on top. From `$xui-breakpoint-medium` both containers are columns with the Summary on the right. The entire composition has a max-width of 1200px.
 //
-// Styleguide: Compositions.DetailSummary.1
+// Styleguide: Compositions.DetailSummary.2
 
 // Example
 //
@@ -35,13 +35,13 @@
 //
 // Storybook: storybook/?selectedKind=Compositions&selectedStory=Detail%20summary&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=&knob-Retain%20a%20width=
 //
-// Styleguide: Compositions.DetailSummary.1.5
+// Styleguide: Compositions.DetailSummary.2.5
 
 // Detail Summary with header
 //
 // When a page has a content header, include it in the composition to make use of the spacing and stacking behaviour.
 //
-// Styleguide: Compositions.DetailSummary.2
+// Styleguide: Compositions.DetailSummary.3
 
 // Example
 //
@@ -49,7 +49,7 @@
 //
 // Storybook: storybook/?selectedKind=Compositions&selectedStory=Detail%20summary&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=true&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=&knob-Retain%20a%20width=
 //
-// Styleguide: Compositions.DetailSummary.2.5
+// Styleguide: Compositions.DetailSummary.3.5
 
 // Anatomy
 //
@@ -60,13 +60,13 @@
 // xui-gridarea-detail: Wraps the Detail container
 // xui-gridarea-summary: Wraps the Summary container
 //
-// Styleguide: Compositions.DetailSummary.3
+// Styleguide: Compositions.DetailSummary.4
 
 // Composition properties
 //
 // Introduction: There are a number of spacing and layout properties that can be used to adjust the Detail Summary composition.
 //
-// Styleguide: Compositions.DetailSummary.4
+// Styleguide: Compositions.DetailSummary.5
 
 // Lock Layout
 //
@@ -79,7 +79,7 @@
 // Classes:
 // xui-composition-auto-template: Allows the layout to adjust automatically to the viewport width
 //
-// Styleguide: Compositions.DetailSummary.4.1
+// Styleguide: Compositions.DetailSummary.5.1
 
 // Auto Column Widths
 //
@@ -94,7 +94,7 @@
 // Classes:
 // xui-composition-has-auto-widths: Applies standard column widths for flexibly sized content
 //
-// Styleguide: Compositions.DetailSummary.4.2
+// Styleguide: Compositions.DetailSummary.5.2
 
 // Grid gap
 //
@@ -109,7 +109,7 @@
 // Classes:
 // xui-composition-grid-gap: Applies standard spacing between composition containers
 //
-// Styleguide: Compositions.DetailSummary.4.3
+// Styleguide: Compositions.DetailSummary.5.3
 
 // Outer spacing
 //
@@ -122,7 +122,7 @@
 // Classes:
 // xui-composition-has-auto-space-around: Applies $xui-s-large spacing around the outside of the composition
 //
-// Styleguide: Compositions.DetailSummary.4.4
+// Styleguide: Compositions.DetailSummary.5.4
 
 // Full width
 //
@@ -135,7 +135,7 @@
 // Classes:
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
 //
-// Styleguide: Compositions.DetailSummary.4.5
+// Styleguide: Compositions.DetailSummary.5.5
 
 // Class list
 //
@@ -152,4 +152,4 @@
 // xui-gridarea-detail: Style for Detail container subcomponent
 // xui-gridarea-summary: Style for Summary container subcomponent
 //
-// Styleguide: Compositions.DetailSummary.5
+// Styleguide: Compositions.DetailSummary.6

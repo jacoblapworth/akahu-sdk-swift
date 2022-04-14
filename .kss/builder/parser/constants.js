@@ -2,7 +2,7 @@ module.exports = {
 	variablePages: [
 		{
 			section: 'Fundamentals',
-			page: 'Depth & Borders',
+			page: 'Depth and borders',
 			source: './src/sass/1-vars/_borders.scss'
 		},
 		{
@@ -12,13 +12,13 @@ module.exports = {
 		},
 		{
 			section: 'Fundamentals',
-			page: 'Variables&Mixins',
+			page: 'Variables and mixins',
 			name: 'Variables',
 			source: './src/sass/1-vars/_layout.scss'
 		},
 		{
 			section: 'Fundamentals',
-			page: 'Variables&Mixins',
+			page: 'Variables and mixins',
 			name: 'Typography',
 			source: './src/sass/1-vars/_typography.scss'
 		}
@@ -26,50 +26,50 @@ module.exports = {
 	mixinPages: [
 		{
 			section: 'Fundamentals',
-			page: 'Variables&Mixins',
+			page: 'Variables and mixins',
 			name: 'Buttons',
 			source: './src/sass/2-mixins/_buttons.scss',
 			isSubsection: true
 		},
 		{
 			section: 'Fundamentals',
-			page: 'Variables&Mixins',
+			page: 'Variables and mixins',
 			name: 'Components',
 			source: './src/sass/2-mixins/_components.scss'
 		},
 		{
 			section: 'Fundamentals',
-			page: 'Variables&Mixins',
+			page: 'Variables and mixins',
 			name: 'Elements',
 			source: './src/sass/2-mixins/_elements.scss'
 		},
 		{
 			section: 'Fundamentals',
-			page: 'Variables&Mixins',
+			page: 'Variables and mixins',
 			name: 'Breakpoints',
 			source: './src/sass/2-mixins/_layout.breakpoints.scss'
 		},
 		{
 			section: 'Fundamentals',
-			page: 'Variables&Mixins',
-			name: 'Margin & Padding',
+			page: 'Variables and mixins',
+			name: 'Margin and padding',
 			source: './src/sass/2-mixins/_layout.marginpadding.scss'
 		},
 		{
 			section: 'Fundamentals',
-			page: 'Variables&Mixins',
+			page: 'Variables and mixins',
 			name: 'Selectors',
 			source: './src/sass/2-mixins/_selectors.scss'
 		},
 		{
 			section: 'Fundamentals',
-			page: 'Variables&Mixins',
+			page: 'Variables and mixins',
 			name: 'States',
 			source: './src/sass/2-mixins/_states.scss'
 		},
 		{
 			section: 'Fundamentals',
-			page: 'Variables&Mixins',
+			page: 'Variables and mixins',
 			name: 'Utilities',
 			source: './src/sass/2-mixins/_utilities.scss'
 		}

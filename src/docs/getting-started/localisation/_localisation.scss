@@ -2,15 +2,15 @@
 //
 // Weight: 1.3
 //
-// Styleguide: Getting Started.Localisation
+// Styleguide: Getting started.Localisation
 
-// Designing for Localisation
+// Designing for localisation
 //
 // flags: wip
 //
 // Weight: 1.31
 //
-// Styleguide: Getting Started.Localisation.Designing for localisation
+// Styleguide: Getting started.Localisation.Designing for localisation
 
 // Text length affordance
 //
@@ -53,7 +53,7 @@
 // ### Resources
 // [https://www.w3.org/International/articles/article-text-size](https://www.w3.org/International/articles/article-text-size)
 //
-// Styleguide: Getting Started.Localisation.Designing for localisation.1
+// Styleguide: Getting started.Localisation.Designing for localisation.1
 
 // Labels and descriptions
 //
@@ -76,7 +76,7 @@
 // <span class="xui-margin-right-small"><svg width="12" height="12" focusable="false" class="xui-icon ds-tips--icon ds-tips-negative" role="undefined" viewbox="0 0 12 12" style="vertical-align: bottom;"><title>Don’t</title><path d="M6 4.5L10.5 0 12 1.5 7.5 6l4.5 4.5-1.5 1.5L6 7.5 1.5 12 0 10.5 4.5 6 0 1.5 1.5 0 6 4.5z" class="undefined"></path></svg></span> Enter the person this project is allocated to<br>
 // <span class="xui-margin-right-small"><svg width="14" height="10" focusable="false" class="xui-icon ds-tips--icon ds-tips-positive" role="undefined" viewbox="0 0 14 10" style="vertical-align: bottom;"><title>Do</title><path d="M0 5.714l1.444-1.428 2.89 2.857L11.555 0 13 1.429 4.333 10z" class="undefined"></path></svg></span> Contact
 //
-// Styleguide: Getting Started.Localisation.Designing for localisation.3
+// Styleguide: Getting started.Localisation.Designing for localisation.3
 
 // Currency
 //
@@ -98,7 +98,7 @@
 //
 // * Consider exchange rates when designing with monetary values. The number of characters to represent a value will be different depending on local currency, e.g. a standard invoice amount in New Zealand dollars will be different to Indian rupees and therefore more or fewer characters will display.
 //
-// Styleguide: Getting Started.Localisation.Designing for localisation.4
+// Styleguide: Getting started.Localisation.Designing for localisation.4
 
 // Time and date
 //
@@ -116,7 +116,7 @@
 //
 // * Use locale specific shortcuts from the Xero [date-shortcuts](https://github.dev.xero.com/XeroJS/date-shortcuts) library to enable appropriate shortcuts in different cultures
 //
-// Styleguide: Getting Started.Localisation.Designing for localisation.5
+// Styleguide: Getting started.Localisation.Designing for localisation.5
 
 // Addresses
 //
@@ -128,7 +128,7 @@
 // * Ensure address formatting matches user’s locale
 // * Avoid unnecessarily breaking out address details into separate fields
 //
-// Styleguide: Getting Started.Localisation.Designing for localisation.6
+// Styleguide: Getting started.Localisation.Designing for localisation.6
 
 // Collation
 //
@@ -138,7 +138,7 @@
 //
 // For more information on collation specifics, read [Unicode’s collation documentation](http://www.unicode.org/reports/tr35/tr35-collation.html#Contents).
 //
-// Styleguide: Getting Started.Localisation.Designing for localisation.7
+// Styleguide: Getting started.Localisation.Designing for localisation.7
 
 // Colour
 //
@@ -150,7 +150,7 @@
 // * Never rely on colour to convey meaning. Instead, use text or an icon to support the presentation of colour.
 // * Use colour consistently. Using the same colour to display multiple meanings confuses the intent and purpose of the UI.
 //
-// Styleguide: Getting Started.Localisation.Designing for localisation.8
+// Styleguide: Getting started.Localisation.Designing for localisation.8
 
 // Icons
 //
@@ -162,7 +162,7 @@
 // * If there is a lack of confidence in the conveyed meaning of an icon, user testing or research should be conducted to understand the interpreted meaning across cultures.
 // * When using an icon button without supporting text, provide additional clarity by displaying a tooltip on hover to describe the action.
 //
-// Styleguide: Getting Started.Localisation.Designing for localisation.9
+// Styleguide: Getting started.Localisation.Designing for localisation.9
 
 // Illustrations
 //
@@ -175,7 +175,7 @@
 // * If text has to be included with an illustration, make sure to do this with code so that the string can easily be translated without breaking the illustration asset.
 // * Avoid using objects or metaphors inside illustrations that rely on a specific cultural interpretation.
 //
-// Styleguide: Getting Started.Localisation.Designing for localisation.10
+// Styleguide: Getting started.Localisation.Designing for localisation.10
 
 // Metaphors and idioms
 //
@@ -189,7 +189,7 @@
 //
 // * Avoid referring to animals in any context. Animals in particular have strong metaphorical meanings in different cultures.
 //
-// Styleguide: Getting Started.Localisation.Designing for localisation.11
+// Styleguide: Getting started.Localisation.Designing for localisation.11
 
 // Directionality
 //
@@ -199,4 +199,4 @@
 //
 // If you are working with right to left languages, you should become familiar with the basics of the [Unicode bidirectional algorithm](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics). This algorithm takes care of much of this bidirectional text without the need for intervention from the author. There are some circumstances, however, where markup or Unicode control characters are needed to ensure the correct effect.
 //
-// Styleguide: Getting Started.Localisation.Designing for localisation.12
+// Styleguide: Getting started.Localisation.Designing for localisation.12

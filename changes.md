@@ -8,8 +8,10 @@
   - [Other Changes](#Other-CSS-changes)
 - [React Component Changes](#XUI-React-components)
   - [New Components](#New-components)
+  - [Updated focus/tab navigation for dropdowns](#updated-focustab-navigation-for-dropdowns)
   - [Prop Changes](#Component-props)
 - [Other Changes](#Other-changes)
+  - [Accessibility](#accessibility)
 
 ## Dependencies
 
@@ -31,8 +33,8 @@ We recommend running a bundle analyser after upgrading (and regularly in general
 - React components for `XUIAutocompleter` `XUISelectBox` and `XUIDateInput` have had their markup slightly modified, such that any visible labels are now sibling elements of the trigger. This should not result in any behaviour change.
 - For `XUIDateRangeInput`, markup has been significantly modified to support a more robust CSS grid layout, under the hood. The new structure supports greater flexibility in the lengths of labels, hints, and validation messages, while maintaining alignment between the controls. See the [examples in the Guide](https://xui.xero.com/20.0.0/section-components-collectinginput-dateinput.html) to construct these with hand-coded HTML.
 - The way element IDs are generated has changed slightly for `XUIAutocompleter`. You may need to update your tests.
-- Focus state was updated across whole XUI. Affected components: `XUICheckbox`, `XUIEditableTable`, `XUIRadio`, `XUIButton`, `XUITextInput`, `XUIAccordion`, `XUIDatePicker`, `XUIRange`, `XUISwitch`, `XUIBreadcrumb`, `XUIPickItem`, `XUIPill`, `XUIStepper`, `XUITable`, `XUIToggle` and other components using the listed ones.
 - Added `xui-pill-truncatevalue` and `xui-pill-truncatesecondarytext` classes to allow truncation priority to be given to either the `value` or `secondaryText` of a `XUIPill`.
+- `min-width` of a `XUIButton` is now overridable by applying a class to the `XUIButton`
 
 ## XUI React components
 
@@ -55,6 +57,7 @@ We recommend running a bundle analyser after upgrading (and regularly in general
     ```
   - If you were providing `className` and `qaHook` props to `XUIEditableTableFootAction`, these props should now be provided to `XUIEditableTableFootActions` instead.
     - `XUIEditableTableFootAction` now has its own separate `className` and `qaHook` props
+- `EditableTableUtilityBar` has been renamed to `XUIEditableTableUtilityBar`.
 - `XUIPill` now has the ability to give text truncation priority to either the `value` text, or `secondaryText` by using two new props: `isValueTruncated` and `isSecondaryTextTruncated`. These default to `true` such that the default behavior remains unchanged, that is, both pieces of text are truncated.
 
 ### New components
@@ -83,7 +86,7 @@ To apply the old dropdown behaviour, set the following props in `XUIDropdown` an
 
 The following components that use `XUIDropdown` and `XUIDropdownToggled` under the hood are affected by this change:
 
-- `XUIDropdown`, `XUIDropdownToggled`, `XUISelectBox`, `XUISelectBoxOption`, `XUIAutocompleter`, `XUIAutocompleterSecondarySearch`, `XUISplitButtonGroup`, `XUIEditableTableCellSelectBox`, `XUIEditableTableCellAutocompleter`and `XUIEditableTableCellAutocompleterSecondarySearch`: by setting `useNewFocusBehaviour`, `XUIDateInputItem`, `XUIDateRangeInput` and overflow dropdowns in `XUITable`.
+- `XUIDropdown`, `XUIDropdownToggled`, `XUISelectBox`, `XUISelectBoxOption`, `XUIAutocompleter`, `XUIAutocompleterSecondarySearch`, `XUISplitButtonGroup`, `XUIEditableTableCellSelectBox`, `XUIEditableTableCellAutocompleter`, horizontal `XUIPicklist` on a narrow viewport, and `XUIEditableTableCellAutocompleterSecondarySearch`: by setting `useNewFocusBehaviour`, `XUIDateInputItem`, `XUIDateRangeInput` and overflow dropdowns in `XUITable`.
 
 ### Component props
 
@@ -104,3 +107,8 @@ _Note. The codemod will resolve most prop differences automatically when run._
 ## Other changes
 
 ### Accessibility
+
+- Focus state styles have been updated XUI wide to meet WCAG 2.1 standards which adds sufficient contrast against adjacent backgrounds when a component is focused. Affected components: `XUICheckbox`, `XUIEditableTable`, `XUIRadio`, `XUIButton`, `XUITextInput`, `XUIAccordion`, `XUIDatePicker`, `XUIRange`, `XUISwitch`, `XUIBreadcrumb`, `XUIPickItem`, `XUIPill`, `XUIStepper`, `XUITable`, `XUIToggle`, as well as any other components using the previously listed components.
+- The introduction of `XUIControlGroup` allows accessible grouping of `XUITextInput`, `XUIDateInput`, `XUIAutocompleter`, `XUISelectBox`, `XUIButton`, `XUIButtonGroup`, and `XUISplitButton`. Additionally, `XUIControlGroup` can be used to group `XUICheckbox`, `XUIRadio`, and `XUISwitch` accessibly but _without_ the visual styling added when using their respective `*Group` components.
+
+Please refer to release notes for all `patch` and `minor` releases for XUI 19 to see additonal changes that will also be included in the XUI 20 release.

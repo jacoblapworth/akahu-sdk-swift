@@ -4,6 +4,7 @@ const classMap = {
   'xui-verticaltextinputgroup': 'xui-controlgroup xui-controlgroup-vertical',
   'xui-textinputgroup': 'xui-controlgroup xui-controlgroup-horizontal',
   'xui-inputgroup': 'xui-controlgroup xui-controlgroup-horizontal',
+  'xui-selectwrapper': '',
 };
 
 module.exports = classMap;

@@ -1,4 +1,7 @@
 const stringReplace = require('@xero/xuishift/transforms/stringReplace');
+
+const remove = () => () => undefined;
+
 module.exports = {
   editabletable: [
     {
@@ -14,8 +17,121 @@ module.exports = {
         },
       ],
     },
+    {
+      name: 'EditableTableUtilityBar',
+      newName: 'XUIEditableTableUtilityBar',
+    },
+    {
+      name: 'XUIEditableTableCellSelectBox',
+      props: [
+        {
+          name: 'useNewFocusBehaviour',
+          valueTransform: remove(),
+        },
+        {
+          name: 'restrictFocus',
+          valueTransform: remove(),
+        },
+      ],
+    },
+    {
+      name: 'XUIEditableTableCellAutocompleter',
+      props: [
+        {
+          name: 'useNewFocusBehaviour',
+          valueTransform: remove(),
+        },
+        {
+          name: 'closeOnTab',
+          valueTransform: remove(),
+        },
+      ],
+    },
+    {
+      name: 'XUIEditableTableCellAutocompleterSecondarySearch',
+      props: [
+        {
+          name: 'useNewFocusBehaviour',
+          valueTransform: remove(),
+        },
+        {
+          name: 'closeOnTab',
+          valueTransform: remove(),
+        },
+        {
+          name: 'restrictFocus',
+          valueTransform: remove(),
+        },
+      ],
+    },
   ],
-
+  dropdown: [
+    {
+      name: 'XUIDropdown',
+      props: [
+        {
+          name: 'restrictFocus',
+          valueTransform: remove(),
+        },
+      ],
+    },
+    {
+      name: 'XUIDropdownToggled',
+      props: [
+        {
+          name: 'useNewFocusBehaviour',
+          valueTransform: remove(),
+        },
+        {
+          name: 'closeOnTab',
+          valueTransform: remove(),
+        },
+      ],
+    },
+  ],
+  selectbox: [
+    {
+      name: 'XUISelectBox',
+      props: [
+        {
+          name: 'useNewFocusBehaviour',
+          valueTransform: remove(),
+        },
+        {
+          name: 'restrictFocus',
+          valueTransform: remove(),
+        },
+      ],
+    },
+  ],
+  autocompleter: [
+    {
+      name: 'XUIAutocompleter',
+      props: [
+        {
+          name: 'useNewFocusBehaviour',
+          valueTransform: remove(),
+        },
+        {
+          name: 'closeOnTab',
+          valueTransform: remove(),
+        },
+      ],
+    },
+    {
+      name: 'XUIAutocompleterSecondarySearch',
+      props: [
+        {
+          name: 'useNewFocusBehaviour',
+          valueTransform: remove(),
+        },
+        {
+          name: 'closeOnTab',
+          valueTransform: remove(),
+        },
+      ],
+    },
+  ],
   // Example usage to copy
   // button: [
   //   {

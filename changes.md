@@ -86,7 +86,7 @@ To apply the old dropdown behaviour, set the following props in `XUIDropdown` an
 
 The following components that use `XUIDropdown` and `XUIDropdownToggled` under the hood are affected by this change:
 
-- `XUIDropdown`, `XUIDropdownToggled`, `XUISelectBox`, `XUISelectBoxOption`, `XUIAutocompleter`, `XUIAutocompleterSecondarySearch`, `XUISplitButtonGroup`, `XUIEditableTableCellSelectBox`, `XUIEditableTableCellAutocompleter`, horizontal `XUIPicklist` on a narrow viewport, and `XUIEditableTableCellAutocompleterSecondarySearch`: by setting `useNewFocusBehaviour`, `XUIDateInputItem`, `XUIDateRangeInput` and overflow dropdowns in `XUITable`.
+- `XUIDropdown`, `XUIDropdownToggled`, `XUISelectBox`, `XUIAutocompleter`, `XUIAutocompleterSecondarySearch`, `XUISplitButtonGroup`, `XUIEditableTableCellSelectBox`, `XUIEditableTableCellAutocompleter`, horizontal `XUIPicklist` on a narrow viewport, and `XUIEditableTableCellAutocompleterSecondarySearch`: by setting `useNewFocusBehaviour`, `XUIDateInputItem`, `XUIDateRangeInput` and overflow dropdowns in `XUITable`.
 
 ### Component props
 

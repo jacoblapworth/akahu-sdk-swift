@@ -2,6 +2,7 @@ import crossIcon from '@xero/xui-icon/icons/cross';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
+import { logWarning } from '../helpers/developmentConsole';
 
 import { XUIIconButton } from '../../button';
 import IdContext from './contexts/IdContext';
@@ -29,9 +30,11 @@ const XUIPopoverHeader = ({ className, closeButtonProps, onClose, qaHook, subtit
         className={cn(`${baseClassName}--close`, closeButtonProps && closeButtonProps.className)}
         onClick={event => {
           if (onClose) {
-            console.warn(
-              "`XUIPopoverHeader` will stop supporting `closeButtonProps.onClick` and `onClose` in favour of `XUIPopover`'s `onClickCloseButton` in XUI 21",
-            );
+            logWarning({
+              componentName: 'XUIPopoverHeader',
+              message:
+                "`closeButtonProps.onClick` and `onClose` will no longer be supported in favour of `XUIPopover`'s `onClickCloseButton` in XUI 21",
+            });
             closeButtonProps?.onClick?.(event);
             onClose?.(event);
           }

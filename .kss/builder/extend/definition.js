@@ -1,4 +1,4 @@
-const marked = require('../../../node_modules/marked');
+const {marked} = require('../../../node_modules/marked');
 module.exports = function(handlebars) {
 	handlebars.registerHelper('renderDefinitions', renderDefinitions);
 	handlebars.registerHelper('renderTwoCols', renderTwoCols);
@@ -21,7 +21,7 @@ function renderDefinitions(data, block) {
 	rows.map( row => {
 		const parts = row.match(notColonRegex);
 		const dd = parts.slice(1).map( s => {
-			return marked(s.trim());
+			return marked.parse(s.trim());
 		});
 		this.definition = {
 			dt: parts[0],

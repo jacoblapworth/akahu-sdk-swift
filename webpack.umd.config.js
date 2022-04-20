@@ -38,12 +38,14 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              ident: 'postcss',
-              plugins: () => [
-                autoprefixer({
-                  overrideBrowserslist: require('@xero/browserslist-autoprefixer'),
-                }),
-              ],
+              postcssOptions: {
+                ident: 'postcss',
+                plugins: () => [
+                  autoprefixer({
+                    overrideBrowserslist: require('@xero/browserslist-autoprefixer'),
+                  }),
+                ],
+              },
             },
           },
           'css-loader',

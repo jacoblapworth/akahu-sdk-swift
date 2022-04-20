@@ -25,7 +25,7 @@ module.exports = function(handlebars) {
 		pagePath = path.resolve(__dirname, '../../../src/docs/', pageName);
 
 		if (fs.existsSync(pagePath)) {
-			pageHtml = marked(fs.readFileSync(pagePath, 'utf8'));
+			pageHtml = marked.parse(fs.readFileSync(pagePath, 'utf8'));
 		}
 
 		if (!pageHtml) { return '<!-- ' + pageName + ' could not be found. -->'; }

@@ -1,4 +1,4 @@
-const marked = require('../../../node_modules/marked');
+const {marked} = require('../../../node_modules/marked');
 
 module.exports = function(handlebars) {
   /**
@@ -9,6 +9,6 @@ module.exports = function(handlebars) {
 };
 
 const renderRelated = (data, block) => {
-  this.related = marked(data.trim());
+  this.related = marked.parse(data.trim());
   return block.fn(this);
 }

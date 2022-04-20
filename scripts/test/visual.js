@@ -41,9 +41,9 @@ async function runVisualRegressionTestsInDocker() {
   // Make sure Docker is running
   await docker.ping();
 
-  const newNodeVersion = md5FileHash('.nvmrc');
-  const currentNodeVersion = md5FileHash('.docker/.nvmrc');
-  if (argv.clean || newNodeVersion !== currentNodeVersion) {
+  const newDockerfile = md5FileHash('Dockerfile');
+  const currentDockerfile = md5FileHash('.docker/Dockerfile');
+  if (argv.clean || newDockerfile !== currentDockerfile) {
     await docker.removeContainer();
     await docker.removeImage();
   }
@@ -56,15 +56,16 @@ async function runVisualRegressionTestsInDocker() {
   const newDependencyHash = md5FileHash('package.json');
   const currentDependencyHash = md5FileHash('.docker/package.json');
 
-  if (newDependencyHash !== currentDependencyHash) {
+  if (argv.clean || newDependencyHash !== currentDependencyHash) {
     console.log(chalk.blue('[Docker]'), 'Installing dependencies');
     await docker.exec(['cp', '../.npmrc', './']);
     await docker.exec(['cp', '../package.json', './']);
     await docker.exec(['cp', '../package-lock.json', './']);
-    await docker.exec(['npm', 'install']);
+    await docker.exec(['npm', 'install', '--ignore-scripts']);
+    await docker.exec(['node', 'node_modules/puppeteer/install.js']);
   }
-  if (currentNodeVersion !== newNodeVersion) {
-    await docker.exec(['cp', '../.nvmrc', './']);
+  if (argv.clean || currentDockerfile !== newDockerfile) {
+    await docker.exec(['cp', '../Dockerfile', './']);
   }
 
   // Copy required files from `./.visual-testing` to `/.docker/.visual-testing`

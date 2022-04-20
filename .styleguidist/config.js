@@ -37,12 +37,14 @@ const config = {
             {
               loader: 'postcss-loader',
               options: {
-                ident: 'postcss',
-                plugins: () => [
-                  autoprefixer({
-                    overrideBrowserslist: browserlist,
-                  }),
-                ],
+                postcssOptions: {
+                  ident: 'postcss',
+                  plugins: [
+                    autoprefixer({
+                      overrideBrowserslist: browserlist,
+                    }),
+                  ],
+                },
               },
             },
             {

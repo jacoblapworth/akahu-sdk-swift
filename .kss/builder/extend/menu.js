@@ -1,5 +1,3 @@
-var marked = require('../../../node_modules/marked');
-
 module.exports = function (handlebars) {
 	handlebars.registerPartial('menu', `
 		{{#each menu as |menuItem|}} {{! Each item is an "li" }}

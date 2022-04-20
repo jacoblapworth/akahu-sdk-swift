@@ -25,6 +25,7 @@ module.exports = {
     'filenames',
   ],
   extends: [
+    // TODO: Review these extensions to confirm all are desired
     'plugin:jest/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:react/jsx-runtime',
@@ -33,7 +34,19 @@ module.exports = {
     'airbnb',
   ],
   rules: {
-    // TODO: Review these rules and adjust as desired
+    // TODO: Review rules introdcued with eslint update - 400 problems reported from these collectively
+    'no-restricted-exports': 'off',
+    'react/function-component-definition': 'off',
+    'react/no-unused-class-component-methods': 'off',
+    'react/jsx-no-useless-fragment': 'off',
+    'class-methods-use-this': 'off',
+    'react/no-unstable-nested-components': 'off',
+    'react/no-arrow-function-lifecycle': 'off',
+    'react/jsx-no-constructed-context-values': 'off',
+    'default-param-last': 'off',
+    'no-promise-executor-return': 'off',
+
+    // TODO: Review rules introduced by adjusting plugins
     'no-undef': 'off',
     'operator-linebreak': 'off',
     'max-len': 'off',

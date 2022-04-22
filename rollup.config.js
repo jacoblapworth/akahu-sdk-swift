@@ -1,9 +1,9 @@
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
-import commonJS from 'rollup-plugin-commonjs';
+import commonJS from '@rollup/plugin-commonjs';
 import license from 'rollup-plugin-license';
-import nodeResolve from 'rollup-plugin-node-resolve';
-import replace from 'rollup-plugin-replace';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
 import sass from 'rollup-plugin-sass';
 
 const licenseNotice = '';
@@ -42,7 +42,7 @@ const config = {
         '@babel/plugin-proposal-object-rest-spread',
         'transform-react-remove-prop-types',
       ],
-      presets: [['@babel/env', { useBuiltIns: 'usage', modules: false }]],
+      presets: [['@babel/env', { useBuiltIns: 'usage', modules: false, corejs: '3.17' }]],
       exclude: 'node_modules/**',
     }),
   ],

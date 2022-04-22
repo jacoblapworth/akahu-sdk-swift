@@ -5,6 +5,7 @@ async function wait(ms) {
 module.exports = async (page, scenario) => {
   const { clickSelector, hoverSelector, useCustomFontSize } = scenario;
   const xuiMotionDelayLong = 500;
+  const checkboxBaseClass = 'xui-styledcheckboxradio';
 
   await page.evaluate(() => {
     document.head.insertAdjacentHTML(
@@ -16,6 +17,14 @@ module.exports = async (page, scenario) => {
       </style>`,
     );
   });
+
+  try {
+    await page.waitForSelector(`.${checkboxBaseClass}`, { timeout: 100 }).then(() =>
+      page.waitForSelector(`.${checkboxBaseClass}--checkbox-is-animationdone`, {
+        timeout: xuiMotionDelayLong,
+      }),
+    );
+  } catch {}
 
   if (clickSelector) {
     await page.click(clickSelector);
@@ -34,7 +43,7 @@ module.exports = async (page, scenario) => {
     });
   }
 
-  await page.waitFor(() => {
+  await page.waitForFunction(() => {
     const imagesLoading = Array.from(document.querySelectorAll('img'))
       .filter(image => image.src !== '')
       .filter(image => !image.complete);

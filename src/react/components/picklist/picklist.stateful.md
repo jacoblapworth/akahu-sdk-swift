@@ -28,154 +28,104 @@ In most cases you would be able to use a wrapper around the `XUIStatefulPicklist
 A thin wrapper around `XUIStatefulPicklist` to demonstrate the bare minimum to build a working component.
 
 ```jsx harmony
-import XUIPicklist, { XUIStatefulPicklist, XUIPickitem } from '@xero/xui/react/picklist';
+import { useRef, useState } from 'react';
+import XUIPicklist, { XUIPickitem, XUIStatefulPicklist } from '@xero/xui/react/picklist';
 
-class BasicStatefulPicklist extends React.Component {
-  constructor(...args) {
-    super(...args);
+const items = [
+  { id: 0, text: 'Personal details' },
+  { id: 1, text: 'Employment information' },
+  { id: 2, text: 'Payment information' },
+  { id: 3, text: 'Payslips' }
+];
 
-    this.state = {
-      selectedItem: 2,
-      highlightedId: null
-    };
+const StatefulPicklistExample = () => {
+  const [selectedItem, setSelectedItem] = useState(0);
+  const [highlightedId, setHighlightedId] = useState(null);
 
-    this.onHighlightChange = this.onHighlightChange.bind(this);
-    this.onSelect = this.onSelect.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
-    this._rootNode = React.createRef();
-    this._list = React.createRef();
-  }
+  const onSelect = (value, item) => {
+    setSelectedItem(item.props.id);
+  };
 
-  onSelect(value, item) {
-    this.setState({
-      selectedItem: item.props.id
-    });
-    this._rootNode.current && this._rootNode.current.focus();
-  }
+  const onHighlightChange = item => {
+    setHighlightedId(item.props.id);
+  };
 
-  onHighlightChange(item) {
-    this.setState({
-      highlightedId: item.props.id
-    });
-  }
+  return (
+    <div className="xui-panel" style={{ width: '300px' }}>
+      <XUIStatefulPicklist isFocusable onHighlightChange={onHighlightChange} onSelect={onSelect}>
+        <XUIPicklist secondaryProps={{ role: 'menu' }}>
+          {items.map(item => {
+            return (
+              <XUIPickitem
+                ariaRole="menuitem"
+                id={item.id}
+                isSelected={selectedItem === item.id}
+                key={item.id}
+              >
+                {item.text}
+              </XUIPickitem>
+            );
+          })}
+        </XUIPicklist>
+      </XUIStatefulPicklist>
+    </div>
+  );
+};
 
-  onKeyDown(event) {
-    this._list.current && this._list.current.onKeyDown(event);
-  }
-
-  render() {
-    const { highlightedId } = this.state;
-    return (
-      <div
-        aria-activedescendant={highlightedId}
-        id="spl-wrapper1"
-        onKeyDown={this.onKeyDown}
-        ref={this._rootNode}
-        role="group"
-        tabIndex={0}
-      >
-        <XUIStatefulPicklist
-          secondaryProps={{ role: null }}
-          onHighlightChange={this.onHighlightChange}
-          onSelect={this.onSelect}
-          ref={this._list}
-        >
-          <XUIPicklist secondaryProps={{ role: 'menu' }}>
-            {[1, 2, 3, 4].map(i => {
-              return (
-                <XUIPickitem
-                  ariaRole="menuitem"
-                  id={`vertical_${i}`}
-                  key={i}
-                  isSelected={this.state.selectedItem === `vertical_${i}`}
-                >
-                  {`Item ${i}`}
-                </XUIPickitem>
-              );
-            })}
-          </XUIPicklist>
-        </XUIStatefulPicklist>
-      </div>
-    );
-  }
-}
-<BasicStatefulPicklist />;
+<StatefulPicklistExample />;
 ```
 
 ```jsx harmony
-import XUIPicklist, { XUIStatefulPicklist, XUIPickitem } from '@xero/xui/react/picklist';
+import { useRef, useState } from 'react';
+import XUIPicklist, { XUIPickitem, XUIStatefulPicklist } from '@xero/xui/react/picklist';
 
-class BasicHorizontalStatefulPicklist extends React.Component {
-  constructor(...args) {
-    super(...args);
+const items = [
+  { id: 0, text: 'All' },
+  { id: 1, text: 'FY 2020' },
+  { id: 2, text: 'FY 2019' },
+  { id: 3, text: 'FY 2018' }
+];
 
-    this.state = {
-      selectedItem: 2,
-      highlightedId: null
-    };
+const StatefulPicklistExample = () => {
+  const [selectedItem, setSelectedItem] = useState(0);
+  const [highlightedId, setHighlightedId] = useState(null);
 
-    this.onSelect = this.onSelect.bind(this);
-    this.onHighlightChange = this.onHighlightChange.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
-    this._rootNode = React.createRef();
-    this._list = React.createRef();
-  }
+  const onSelect = (value, item) => {
+    setSelectedItem(item.props.id);
+  };
 
-  onSelect(value, item) {
-    this.setState({
-      selectedItem: item.props.id
-    });
-    this._rootNode.current && this._rootNode.current.focus();
-  }
+  const onHighlightChange = item => {
+    setHighlightedId(item.props.id);
+  };
 
-  onHighlightChange(item) {
-    this.setState({
-      highlightedId: item.props.id
-    });
-  }
-
-  onKeyDown(event) {
-    this._list.current && this._list.current.onKeyDown(event);
-  }
-
-  render() {
-    const { highlightedId } = this.state;
-    return (
-      <div
-        aria-activedescendant={highlightedId}
-        id="spl-wrapper2"
-        onKeyDown={this.onKeyDown}
-        ref={this._rootNode}
-        role="group"
-        tabIndex={0}
+  return (
+    <div className="xui-panel">
+      <XUIStatefulPicklist
+        isFocusable
+        isHorizontal
+        onHighlightChange={onHighlightChange}
+        onSelect={onSelect}
       >
-        <XUIStatefulPicklist
-          secondaryProps={{ role: null }}
-          isHorizontal
-          onHighlightChange={this.onHighlightChange}
-          onSelect={this.onSelect}
-          ref={this._list}
-        >
-          <XUIPicklist secondaryProps={{ role: 'menu' }} isHorizontal>
-            {[1, 2, 3, 4].map(i => {
-              return (
-                <XUIPickitem
-                  ariaRole="menuitem"
-                  id={`horizontal_${i}`}
-                  key={i}
-                  isSelected={this.state.selectedItem === `horizontal_${i}`}
-                >
-                  {`Item ${i}`}
-                </XUIPickitem>
-              );
-            })}
-          </XUIPicklist>
-        </XUIStatefulPicklist>
-      </div>
-    );
-  }
-}
-<BasicHorizontalStatefulPicklist />;
+        <XUIPicklist isHorizontal secondaryProps={{ role: 'menu' }}>
+          {items.map(item => {
+            return (
+              <XUIPickitem
+                ariaRole="menuitem"
+                id={item.id}
+                isSelected={selectedItem === item.id}
+                key={item.id}
+              >
+                {item.text}
+              </XUIPickitem>
+            );
+          })}
+        </XUIPicklist>
+      </XUIStatefulPicklist>
+    </div>
+  );
+};
+
+<StatefulPicklistExample />;
 ```
 
 #### Key Things To Note

@@ -4,24 +4,18 @@ Although not a required child of `XUIPicklist`s, `XUIPickitem`s are the standard
 
 ```jsx harmony
 import { useState } from 'react';
-import XUIPicklist, {
-  XUIPickitem,
-  XUIPicklistHeader,
-  XUIPicklistDivider
-} from '@xero/xui/react/picklist';
-import XUIIcon from '@xero/xui/react/icon';
-import XUIAvatar from '@xero/xui/react/avatar';
-import search from '@xero/xui-icon/icons/search';
+import XUIPicklist, { XUIPickitem, XUIPicklistHeader } from '@xero/xui/react/picklist';
 
 const items = [
-  { id: 'corinne', text: 'Corinne Bowie' },
-  { id: 'dion', text: 'Dion Wise' }
+  { id: 'accountingBasis', text: 'Accounting basis' },
+  { id: 'accountCodes', text: 'Account codes' }
 ];
 
 const MultiselectPickitemExample = () => {
   const [selected, setSelected] = useState({
-    corinne: true,
-    dion: false
+    accountingBasis: true,
+    accountCodes: false,
+    decimals: false
   });
 
   const onSelect = id => {
@@ -35,57 +29,92 @@ const MultiselectPickitemExample = () => {
     }
   };
 
-  const selectedItems = items.filter(item => selected[item.id]).map(item => item.text);
-
   return (
-    <XUIPicklist isMultiselect>
-      {items.map(item => {
-        const { id, text } = item;
-        return (
-          <XUIPickitem
-            id={id}
-            isSelected={selected[id]}
-            key={id}
-            onClick={() => onSelect(id)}
-            onKeyDown={e => handleKeyDown(e, id)}
-            value={id}
-          >
-            {text}
-          </XUIPickitem>
-        );
-      })}
-    </XUIPicklist>
+    <div className="xui-panel" style={{ width: '300px' }}>
+      <XUIPicklist isMultiselect>
+        <XUIPicklistHeader>Show</XUIPicklistHeader>
+        {items.map(item => {
+          const { id, text } = item;
+          return (
+            <XUIPickitem
+              id={id}
+              isSelected={selected[id]}
+              key={id}
+              onClick={() => onSelect(id)}
+              onKeyDown={e => handleKeyDown(e, id)}
+              value={id}
+            >
+              {text}
+            </XUIPickitem>
+          );
+        })}
+      </XUIPicklist>
+    </div>
   );
 };
 
-<div>
+<MultiselectPickitemExample />;
+```
+
+```jsx harmony
+import { useState } from 'react';
+import XUIIcon from '@xero/xui/react/icon';
+import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
+import deposit from '@xero/xui-icon/icons/deposit';
+import quote from '@xero/xui-icon/icons/quote';
+
+<div className="xui-panel" style={{ width: '300px' }}>
   <XUIPicklist>
-    <XUIPicklistHeader id="pi-header">Design</XUIPicklistHeader>
-    <XUIPickitem
-      id="pi1"
-      rightElement={<XUIIcon icon={search} />}
-      leftElement={<XUIAvatar value="Finn Clark" size="small" />}
-      pinnedElement="42"
-      secondaryElement="#beautiful #human"
-    >
-      Finn Clark
+    <XUIPickitem id="pi1" leftElement={<XUIIcon icon={deposit} />}>
+      Deposit
+    </XUIPickitem>
+    <XUIPickitem id="pi2" isDisabled leftElement={<XUIIcon icon={quote} />}>
+      Quote
     </XUIPickitem>
   </XUIPicklist>
+</div>;
+```
+
+```jsx harmony
+import { useState } from 'react';
+import XUIPicklist, {
+  XUIPickitem,
+  XUIPicklistHeader,
+  XUIPicklistDivider
+} from '@xero/xui/react/picklist';
+import XUIAvatar from '@xero/xui/react/avatar';
+
+<div className="xui-panel" style={{ width: '400px' }}>
   <XUIPicklist>
-    <XUIPickitem id="pi3">Katie Macoy</XUIPickitem>
-    <XUIPickitem id="pi4" isInvalid>
-      Isaac Minogue
+    <XUIPicklistHeader>Recent</XUIPicklistHeader>
+    <XUIPickitem
+      id="nc"
+      leftElement={<XUIAvatar size="small" value="Nicole Campbell" />}
+      pinnedElement="50.0"
+      secondaryElement="Admin"
+    >
+      Nicole Campbell
     </XUIPickitem>
     <XUIPicklistDivider />
+    <XUIPicklistHeader>Suggested</XUIPicklistHeader>
     <XUIPickitem
-      id="pi2"
-      shouldTruncate
-      leftElement={<XUIAvatar value="Zac Sanderson-Harris" size="small" />}
-      secondaryElement="zac.sandersonharris@xero.com"
-      headingElement="Zac Sanderson-Harris"
+      headingElement="Rosie Cook"
+      id="rc"
       isMultiline
+      leftElement={<XUIAvatar size="small" value="Rosie Cook" />}
+      pinnedElement="60.0"
+      secondaryElement="rosie.cook@xero.com"
+      shouldTruncate
+    />
+    <XUIPickitem
+      headingElement="Michael Lane"
+      id="ml"
+      isMultiline
+      leftElement={<XUIAvatar size="small" value="Michael Lane" />}
+      pinnedElement="50.0"
+      secondaryElement="michael.lane@xero.com"
+      shouldTruncate
     />
   </XUIPicklist>
-  <MultiselectPickitemExample />
 </div>;
 ```

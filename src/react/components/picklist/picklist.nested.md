@@ -5,100 +5,126 @@ Nested picklists are similar to a collapsable menu inside of the main list. To c
 By default, if you do not specify an `isOpen` prop in `XUINestedPicklistContainer`, the component will be initialised as a fully uncontrolled component. If you need to pass a default open value, please pass this as a `isDefaultOpen` prop.
 
 ```jsx harmony
+import { useRef, useState } from 'react';
+import XUIAvatar from '@xero/xui/react/avatar';
 import XUIPicklist, {
-  XUIStatefulPicklist,
-  XUIPickitem,
   XUINestedPicklist,
   XUINestedPicklistContainer,
-  XUINestedPicklistTrigger
+  XUINestedPicklistTrigger,
+  XUIPickitem,
+  XUIStatefulPicklist
 } from '@xero/xui/react/picklist';
 
-class StatefulMultiselectPicklist extends React.Component {
-  constructor(...args) {
-    super(...args);
+const NestedPicklistExample = () => {
+  const [selectedItem, setSelectedItem] = useState();
+  const trigger = useRef();
 
-    this.state = {
-      selectedItems: {
-        2: true
-      }
-    };
+  const onOptionSelect = (value, item) => {
+    setSelectedItem(item.props.id);
+  };
 
-    this.onOptionSelect = this.onOptionSelect.bind(this);
-    this.trigger = React.createRef();
-  }
-
-  onOptionSelect(value, item) {
-    const smp = this;
-
-    smp.setState(prevState => {
-      return {
-        selectedItems: {
-          ...prevState.selectedItems,
-          [item.props.id]: !prevState.selectedItems[item.props.id]
-        }
-      };
-    });
-  }
-
-  render() {
-    const smp = this;
-
-    return (
-      <XUIStatefulPicklist onSelect={this.onOptionSelect} isFocusable>
-        <XUIPicklist>
-          <XUINestedPicklistContainer id="nested">
-            <XUINestedPicklistTrigger
-              ariaLabel="Toggle submenu"
-              id="nestedTrigger"
-              ref={smp.trigger}
-            >
-              Nested List
-            </XUINestedPicklistTrigger>
-            <XUINestedPicklist>
-              <XUIPickitem id="a" isSelected={smp.state.selectedItems.a}>
-                A
-              </XUIPickitem>
-              <XUIPickitem id="b" isSelected={smp.state.selectedItems.b}>
-                B
-              </XUIPickitem>
-              <XUIPickitem id="c" isSelected={smp.state.selectedItems.c}>
-                C
-              </XUIPickitem>
-              <XUIPickitem id="d" isSelected={smp.state.selectedItems.d}>
-                D
-              </XUIPickitem>
-            </XUINestedPicklist>
-          </XUINestedPicklistContainer>
-          <XUINestedPicklistContainer id="splitPicklistContainer">
+  return (
+    <XUIStatefulPicklist isFocusable onSelect={onOptionSelect}>
+      <XUIPicklist>
+        <XUINestedPicklistContainer id="clients">
+          <XUINestedPicklistTrigger
+            ariaLabel="Toggle clients list"
+            id="clientsTrigger"
+            ref={trigger}
+          >
+            Clients
+          </XUINestedPicklistTrigger>
+          <XUINestedPicklist>
             <XUIPickitem
-              id="splitTrigger"
-              isSplit
-              isSelected={smp.state.selectedItems.splitTrigger}
+              id="ac"
+              isSelected={selectedItem === 'ac'}
+              leftElement={<XUIAvatar size="small" value="Andy Colton" variant="business" />}
             >
-              Split Trigger Item
+              Andy Colton
             </XUIPickitem>
-            <XUINestedPicklistTrigger ariaLabel="Toggle submenu" id="nestedSplit" />
-            <XUINestedPicklist>
-              <XUIPickitem id="aa" isSelected={smp.state.selectedItems.aa}>
-                aa
+            <XUIPickitem
+              id="jk"
+              isSelected={selectedItem === 'jk'}
+              leftElement={<XUIAvatar size="small" value="Jacob King" variant="business" />}
+            >
+              Jacob King
+            </XUIPickitem>
+            <XUIPickitem
+              id="sk"
+              isSelected={selectedItem === 'sk'}
+              leftElement={<XUIAvatar size="small" value="Sue Kennedy" variant="business" />}
+            >
+              Sue Kennedy
+            </XUIPickitem>
+          </XUINestedPicklist>
+        </XUINestedPicklistContainer>
+      </XUIPicklist>
+    </XUIStatefulPicklist>
+  );
+};
+
+<NestedPicklistExample />;
+```
+
+```jsx harmony
+import { useRef, useState } from 'react';
+import XUIPicklist, {
+  XUINestedPicklist,
+  XUINestedPicklistContainer,
+  XUINestedPicklistTrigger,
+  XUIPickitem,
+  XUIStatefulPicklist
+} from '@xero/xui/react/picklist';
+
+const options = ['Timothy Redmayne', 'Finn Kent', 'George Padnell'];
+const values = object => Object.keys(object).reduce((values, key) => [...values, object[key]], []);
+
+const isAllSelected = selectedItems => {
+  const numberOfSelectedValues = values(selectedItems).filter(value => value).length;
+  return numberOfSelectedValues === options.length;
+};
+
+const NestedPicklistExample = () => {
+  const [selectedItems, setSelectedItems] = useState({});
+  const [allItemsSelected, setAllItemsSelected] = useState(false);
+  const trigger = useRef();
+
+  const onOptionSelect = (value, item) => {
+    let newSelectedItems = { ...selectedItems, [item.props.id]: !selectedItems[item.props.id] };
+
+    if (item.props.id === 'staffTrigger') {
+      newSelectedItems = options.reduce(
+        (selectedItems, option) => ({ ...selectedItems, [option]: !allItemsSelected }),
+        {}
+      );
+    }
+
+    setSelectedItems(newSelectedItems);
+    setAllItemsSelected(isAllSelected(newSelectedItems));
+  };
+
+  return (
+    <XUIStatefulPicklist isFocusable onSelect={onOptionSelect}>
+      <XUIPicklist isMultiselect>
+        <XUINestedPicklistContainer id="staff">
+          <XUIPickitem id="staffTrigger" isSelected={allItemsSelected} isSplit>
+            Staff
+          </XUIPickitem>
+          <XUINestedPicklistTrigger ariaLabel="Toggle staff list" id="staffSplitTrigger" />
+          <XUINestedPicklist>
+            {options.map(option => (
+              <XUIPickitem id={option} isSelected={selectedItems[option]} key={option}>
+                {option}
               </XUIPickitem>
-              <XUIPickitem id="bb" isSelected={smp.state.selectedItems.bb}>
-                bb
-              </XUIPickitem>
-              <XUIPickitem id="cc" isSelected={smp.state.selectedItems.cc}>
-                cc
-              </XUIPickitem>
-              <XUIPickitem id="dd" isSelected={smp.state.selectedItems.dd}>
-                dd
-              </XUIPickitem>
-            </XUINestedPicklist>
-          </XUINestedPicklistContainer>
-        </XUIPicklist>
-      </XUIStatefulPicklist>
-    );
-  }
-}
-<StatefulMultiselectPicklist />;
+            ))}
+          </XUINestedPicklist>
+        </XUINestedPicklistContainer>
+      </XUIPicklist>
+    </XUIStatefulPicklist>
+  );
+};
+
+<NestedPicklistExample />;
 ```
 
 ##### Controlled
@@ -108,88 +134,62 @@ To use the `XUINestedPicklistContainer` as a fully controlled component you can 
 If you pass in an `isOpen` prop and use this as a controlled component, be aware that the `XUINestedPicklistContainer`'s native events will be disabled. To control the native events you should implement `onOpen` and `onClose` callbacks.
 
 ```jsx harmony
+import { useRef, useState } from 'react';
+import XUIButton from '@xero/xui/react/button';
 import XUIPicklist, {
-  XUIStatefulPicklist,
-  XUIPickitem,
   XUINestedPicklist,
   XUINestedPicklistContainer,
-  XUINestedPicklistTrigger
+  XUINestedPicklistTrigger,
+  XUIPickitem,
+  XUIStatefulPicklist
 } from '@xero/xui/react/picklist';
-import XUIButton from '@xero/xui/react/button';
 
-class StatefulMultiselectPicklist extends React.Component {
-  constructor(...args) {
-    super(...args);
+const NestedPicklistExample = () => {
+  const [selectedItem, setSelectedItem] = useState('ac');
+  const [picklistOpen, setPicklistOpen] = useState(true);
+  const trigger = useRef();
 
-    this.state = {
-      selectedItems: {
-        2: true
-      },
-      picklistOpen: true
-    };
+  const onOptionSelect = (value, item) => {
+    setSelectedItem(item.props.id);
+  };
 
-    this.onOptionSelect = this.onOptionSelect.bind(this);
-    this.trigger = React.createRef();
-  }
-
-  onOptionSelect(value, item) {
-    const smp = this;
-
-    smp.setState(prevState => {
-      return {
-        selectedItems: {
-          ...prevState.selectedItems,
-          [item.props.id]: !prevState.selectedItems[item.props.id]
-        }
-      };
-    });
-  }
-
-  render() {
-    const smp = this;
-
-    return (
-      <div>
-        <XUIButton onClick={() => this.setState({ picklistOpen: !this.state.picklistOpen })}>
-          Toggle picklist
-        </XUIButton>
-        <XUIStatefulPicklist onSelect={this.onOptionSelect} isFocusable>
-          <XUIPicklist>
-            <XUINestedPicklistContainer
-              id="nested2"
-              isOpen={this.state.picklistOpen}
-              onOpen={() => this.setState({ picklistOpen: true })}
-              onClose={() => this.setState({ picklistOpen: false })}
+  return (
+    <div>
+      <XUIButton onClick={() => setPicklistOpen(!picklistOpen)}>Toggle client list</XUIButton>
+      <XUIStatefulPicklist isFocusable onSelect={onOptionSelect}>
+        <XUIPicklist>
+          <XUINestedPicklistContainer
+            id="clients2"
+            isOpen={picklistOpen}
+            onClose={() => setPicklistOpen(false)}
+            onOpen={() => setPicklistOpen(true)}
+          >
+            <XUINestedPicklistTrigger
+              ariaLabel="Toggle clients submenu"
+              id="clientsTrigger2"
+              ref={trigger}
             >
-              <XUINestedPicklistTrigger
-                ariaLabel="Toggle submenu"
-                id="nestedTrigger"
-                ref={smp.trigger}
-              >
-                Nested List
-              </XUINestedPicklistTrigger>
-              <XUINestedPicklist>
-                <XUIPickitem id="a" isSelected={smp.state.selectedItems.a}>
-                  A
-                </XUIPickitem>
-                <XUIPickitem id="b" isSelected={smp.state.selectedItems.b}>
-                  B
-                </XUIPickitem>
-                <XUIPickitem id="c" isSelected={smp.state.selectedItems.c}>
-                  C
-                </XUIPickitem>
-                <XUIPickitem id="d" isSelected={smp.state.selectedItems.d}>
-                  D
-                </XUIPickitem>
-              </XUINestedPicklist>
-            </XUINestedPicklistContainer>
-          </XUIPicklist>
-        </XUIStatefulPicklist>
-      </div>
-    );
-  }
-}
-<StatefulMultiselectPicklist />;
+              Clients
+            </XUINestedPicklistTrigger>
+            <XUINestedPicklist>
+              <XUIPickitem id="ac" isSelected={selectedItem === 'ac'}>
+                Andy Colton
+              </XUIPickitem>
+              <XUIPickitem id="jk" isSelected={selectedItem === 'jk'}>
+                Jacob King
+              </XUIPickitem>
+              <XUIPickitem id="sk" isSelected={selectedItem === 'sk'}>
+                Sue Kennedy
+              </XUIPickitem>
+            </XUINestedPicklist>
+          </XUINestedPicklistContainer>
+        </XUIPicklist>
+      </XUIStatefulPicklist>
+    </div>
+  );
+};
+
+<NestedPicklistExample />;
 ```
 
 For more information about the functionality of the lists such as keyboard handling, selected and highlighted state management please see the [stateful picklist section above](#stateful-picklist).

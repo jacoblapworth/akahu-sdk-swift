@@ -1,5 +1,5 @@
 const NUMBER_OF_MAJORS_TO_INCLUDE = 3;
-const NUMBER_OF_MAJORS_TO_INCLUDE_ALL_MINORS = 1;
+const LAST_MAJOR_TO_INCLUDE_MINORS = 18;
 const NUMBER_OF_MAJORS_TO_INCLUDE_PRERELEASES = 2;
 
 /**
@@ -20,8 +20,7 @@ const shouldExcludeThisVersion = (
 
   const excludeThisMajor = majorVersionsBehind > NUMBER_OF_MAJORS_TO_INCLUDE;
   const excludeThisMinor =
-    majorVersionsBehind > NUMBER_OF_MAJORS_TO_INCLUDE_ALL_MINORS &&
-    majorVersionsCollected[majorVersion];
+    majorVersion !== LAST_MAJOR_TO_INCLUDE_MINORS && majorVersionsCollected[majorVersion];
   const excludeThisPrerelease =
     !!prerelease && majorVersionsBehind >= NUMBER_OF_MAJORS_TO_INCLUDE_PRERELEASES;
 

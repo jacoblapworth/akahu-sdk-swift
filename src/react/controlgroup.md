@@ -10,7 +10,7 @@ Control groups are used to gather multiple controls into a single, connected row
 
 ```jsx harmony
 import XUIControlGroup from '@xero/xui/react/controlgroup';
-import { XUITextInput, XUITextInputSideElement } from '@xero/xui/react/textinput';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 
 <XUIControlGroup label="Full name">
   <XUITextInput
@@ -43,7 +43,7 @@ XUIControlGroup uses CSS grid to manage the width of items within, so implemente
 
 ```jsx harmony
 import XUIControlGroup from '@xero/xui/react/controlgroup';
-import { XUITextInput, XUITextInputSideElement } from '@xero/xui/react/textinput';
+import XUITextInput, { XUITextInputSideElement } from '@xero/xui/react/textinput';
 
 const resizeStyles = {
   maxWidth: '100%',
@@ -54,9 +54,9 @@ const resizeStyles = {
 
 <div style={resizeStyles}>
   <XUIControlGroup
+    columnWidths="minmax(100px, 2fr) minmax(80px, 1fr) minmax(100px, 2fr)"
     label="Full name"
     swapAtBreakpoint="small"
-    columnWidths="minmax(100px, 2fr) minmax(80px, 1fr) minmax(100px, 2fr)"
   >
     <XUITextInput
       leftElement={

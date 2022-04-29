@@ -248,7 +248,7 @@ export default class XUIAutocompleter extends PureComponent {
 
   onInputBlur = event => {
     const onBlurMethod = this.props.inputProps?.onBlur || this.props.onBlur;
-    this.state.isDropdownOpen ? event.preventDefault() : onBlurMethod?.();
+    this.state.isDropdownOpen ? event.preventDefault() : onBlurMethod?.(event);
   };
 
   onTriggerFocus = event => {

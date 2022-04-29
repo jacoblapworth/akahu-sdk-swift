@@ -18,6 +18,7 @@ import { isKeySpacebar, eventKeyValues } from '../helpers/reactKeyHandler';
 import { baseClass, dropdownPositionOptions } from './private/constants';
 import DropdownContext from './contexts/DropdownContext';
 import PortalFocusHelper from '../helpers/PortalFocusHelper/PortalFocusHelper';
+import Element from '../helpers/polyfills/Element';
 
 import EditableTableCellContext from '../../contexts/EditableTableCellContext';
 

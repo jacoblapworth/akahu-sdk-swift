@@ -853,6 +853,7 @@ describe('XUIAutocompleter', () => {
 
       // Assert
       expect(onBlurMock).toHaveBeenCalledTimes(1);
+      expect(onBlurMock).not.toBeCalledWith(); // Checking it was called with something, the something should be a blur event, but those are difficult to mock
     });
 
     it('should not call the function if the dropdown closes due to a click inside the dropdown', () => {

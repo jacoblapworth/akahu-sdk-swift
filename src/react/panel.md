@@ -61,7 +61,13 @@ import XUITextInput from '@xero/xui/react/textinput';
     heading="Employment information"
   >
     <form className="xui-form-layout">
-      <XUIDateInput isFieldLayout label="Start date" />
+      <XUIDateInput
+        inputLabel="Start date"
+        isFieldLayout
+        locale="en-NZ"
+        nextButtonAriaLabel="Next month"
+        prevButtonAriaLabel="Previous month"
+      />
     </form>
   </XUIPanelSection>
 </XUIPanel>;

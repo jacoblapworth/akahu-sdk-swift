@@ -699,7 +699,7 @@ XUIDropdownToggled.propTypes = {
   closeOnSelect: PropTypes.bool,
 
   /** Whether or not the dropdown should be automatically hidden when the user hits the tab key.
-   * Good to turn this off if you've got a date picker, nested dropd down, form, or other complex
+   * Good to turn this off if you've got a date picker, nested dropdown, form, or other complex
    * component inside of a dropdown. */
   closeOnTab: PropTypes.bool,
 

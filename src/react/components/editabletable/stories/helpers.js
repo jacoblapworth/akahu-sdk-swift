@@ -23,9 +23,17 @@ import { XUITextInputSideElement } from '../../../textinput';
 import XUIPill from '../../../pill';
 import people from '../../autocompleter/private/people';
 
+export const sampleText = {
+  readOnly: '15% GST on income',
+  singleLine: 'Golf balls - white 9 pack',
+  multiLine: '9-pack of Bridgestone white golf balls.',
+  header: ['Item', 'Description', 'Tax rate', 'Account', 'Vendor', 'Contact', 'Region'],
+  select: ['Sales', 'Other revenue', 'Interest income'],
+};
+
 const sampleReadOnly = (id, text, { inlineAlignment }, rowIndex) => (
   <XUIEditableTableCellReadOnly id={id} inlineAlignment={inlineAlignment} key={`${rowIndex}_${id}`}>
-    {text}
+    {text || sampleText.readOnly}
   </XUIEditableTableCellReadOnly>
 );
 
@@ -34,33 +42,43 @@ const sampleTextInput = (
   text,
   { isDisabled, inlineAlignment, isInvalid, isMultiline, validationMessage },
   rowIndex,
-) => (
-  <XUIEditableTableCellTextInput
-    defaultValue={text}
-    id={id}
-    isDisabled={isDisabled}
-    isInvalid={isInvalid}
-    isMultiline={isMultiline}
-    isValueReverseAligned={inlineAlignment === 'end'}
-    key={`${rowIndex}_${id}`}
-    minRows={1}
-    validationMessage={validationMessage}
-  />
-);
+) => {
+  if (!text) {
+    text = isMultiline ? sampleText.multiLine : sampleText.singleLine;
+  }
 
-const sampleSelect = (id, text, settings) => (
-  <XUIEditableTableCellSelectBox {...settings} buttonContent={text} id={id} key={id} label={text}>
-    <XUISelectBoxOption id={`${id}_a`} key="a" value="Apple">
-      Apple
-    </XUISelectBoxOption>
-    <XUISelectBoxOption id={`${id}_b`} key="b" value="Banana">
-      Banana
-    </XUISelectBoxOption>
-    <XUISelectBoxOption id={`${id}_c`} key="c" value="Cucumber">
-      Cucumber
-    </XUISelectBoxOption>
-  </XUIEditableTableCellSelectBox>
-);
+  return (
+    <XUIEditableTableCellTextInput
+      defaultValue={text}
+      id={id}
+      isDisabled={isDisabled}
+      isInvalid={isInvalid}
+      isMultiline={isMultiline}
+      isValueReverseAligned={inlineAlignment === 'end'}
+      key={`${rowIndex}_${id}`}
+      minRows={1}
+      validationMessage={validationMessage}
+    />
+  );
+};
+
+const sampleSelect = (id, text = 'Select', settings) => {
+  const { select } = sampleText;
+
+  return (
+    <XUIEditableTableCellSelectBox {...settings} buttonContent={text} id={id} key={id} label={text}>
+      <XUISelectBoxOption id={`${id}_a`} key="a" value={select[0]}>
+        {select[0]}
+      </XUISelectBoxOption>
+      <XUISelectBoxOption id={`${id}_b`} key="b" value={select[1]}>
+        {select[1]}
+      </XUISelectBoxOption>
+      <XUISelectBoxOption id={`${id}_c`} key="c" value={select[2]}>
+        {select[2]}
+      </XUISelectBoxOption>
+    </XUIEditableTableCellSelectBox>
+  );
+};
 
 const filterPeople = (peopleToSearch, value, idsToExclude) => {
   const val = value.toLowerCase();
@@ -221,7 +239,6 @@ class AutoExample extends Component {
 
     return (
       <XUIEditableTableCellAutocompleter
-        inputLabel="autocompleter"
         isInputLabelHidden
         isInvalid={this.state.isInvalid}
         key={`${this.props.rowIndex}_${this.props.index}`}
@@ -241,19 +258,31 @@ class AutoExample extends Component {
   }
 }
 
-const sampleAutocompleter = (id, text, settings, rowIndex) => (
-  <AutoExample {...settings} index={id} key={id} placeholder={text} rowIndex={rowIndex} />
-);
+const sampleAutocompleter = (id, text, settings, rowIndex) => {
+  const label = settings.isSingle ? 'Select vendor' : 'Select contact';
+
+  return (
+    <AutoExample
+      {...settings}
+      index={id}
+      inputLabel={text || label}
+      key={id}
+      placeholder={text || label}
+      rowIndex={rowIndex}
+    />
+  );
+};
 
 const SecondarySearchData = [
-  { props: { id: 'ss1' }, text: 'Cost' },
-  { props: { id: 'ss2' }, text: 'More Costs' },
-  { props: { id: 'ss3' }, text: 'No Costs' },
-  { props: { id: 'ss4' }, text: 'Nothing about Cost' },
-  { props: { id: 'ss5' }, text: 'Something Unrelated' },
-  { props: { id: 'ss6' }, text: 'Random Item' },
-  { props: { id: 'ss7' }, text: 'Coats' },
-  { props: { id: 'ss8' }, text: 'Big Coat' },
+  { props: { id: 'ss1' }, text: 'North' },
+  { props: { id: 'ss2' }, text: 'Northeast' },
+  { props: { id: 'ss3' }, text: 'East' },
+  { props: { id: 'ss4' }, text: 'Southeast' },
+  { props: { id: 'ss5' }, text: 'South' },
+  { props: { id: 'ss6' }, text: 'Southwest' },
+  { props: { id: 'ss7' }, text: 'West' },
+  { props: { id: 'ss8' }, text: 'Northwest' },
+  { props: { id: 'ss9' }, text: 'Central' },
 ];
 
 const isSelected = (item, selectedIds) =>
@@ -275,6 +304,7 @@ function createItems(item, selectedId) {
     </XUIPickitem>
   );
 }
+
 class SecondarySearchExample extends React.Component {
   constructor(props) {
     super(props);
@@ -329,7 +359,7 @@ class SecondarySearchExample extends React.Component {
             id="footerAction"
             leftElement={<XUIIcon className="xui-margin-right-xsmall" icon={plusIcon} />}
           >
-            Add New Person
+            Add new region
           </XUIPickitem>
         }
       />
@@ -338,9 +368,9 @@ class SecondarySearchExample extends React.Component {
     return (
       <XUIEditableTableCellAutocompleterSecondarySearch
         buttonContent={this.state.buttonContent}
-        buttonContentPlaceholder="Search items"
+        buttonContentPlaceholder="Search regions"
         footer={footer}
-        inputLabel="secondary search label"
+        inputLabel="Secondary search label"
         key={`${rowIndex}_${index}`}
         onOptionSelect={this.onOptionSelect}
         onSearch={this.onSearch}
@@ -362,7 +392,7 @@ const sampleSecondarySearch = (id, text, settings, rowIndex) => (
   />
 );
 
-const generateCell = ({
+export const generateCell = ({
   cellsCount,
   cellType,
   columnIndex,
@@ -373,7 +403,6 @@ const generateCell = ({
   rowIndex,
   validationMessage,
 }) => {
-  const cellIndex = cellsCount.toString();
   const derivedCellType =
     cellType === 'assorted' ? samples[columnIndex % samples.length] : cellType;
   const settings = {
@@ -385,7 +414,7 @@ const generateCell = ({
     isSingle: derivedCellType === 'autoCompleterSingle',
     validationMessage,
   };
-  const text = (randomiseContent && texts[cellsCount % texts.length]) || derivedCellType;
+  const text = randomiseContent ? texts[cellsCount % texts.length] : undefined;
   const cellGenerator = sampleTypes[derivedCellType];
   if (cellGenerator) {
     return cellGenerator(columnIndex.toString(), text, settings, rowIndex);
@@ -393,9 +422,9 @@ const generateCell = ({
 };
 
 const sampleTypes = {
-  readOnly: sampleReadOnly,
   textInput: sampleTextInput,
   textInputMultiline: sampleTextInput,
+  readOnly: sampleReadOnly,
   selectBox: sampleSelect,
   autoCompleterSingle: sampleAutocompleter,
   autoCompleterMulti: sampleAutocompleter,
@@ -411,5 +440,3 @@ const texts = [
   'Your name here',
   'X e r o',
 ];
-
-export default generateCell;

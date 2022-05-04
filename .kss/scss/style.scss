@@ -5,8 +5,17 @@
 @import './vars';
 @import './_flags';
 
-$ds-min-h1-size: 30px;
-$ds-min-h2-size: 24px;
+$ds-font-size-h1: 45px;
+$ds-font-size-h1-mobile: 35px;
+$ds-line-height-h1: 1.1;
+$ds-font-size-h2: 30px;
+$ds-line-height-h2: 1.3;
+$ds-font-size-h3: 25px;
+$ds-line-height-h3: 1.3;
+$ds-font-size-h4: 20px;
+$ds-line-height-h4: 1.3;
+$ds-font-size-h5: 15px;
+$ds-line-height-h5: 1.3;
 
 .ds-html {
   background: $ds-html-bg-color;
@@ -115,48 +124,45 @@ $ds-section-space: calc(6rem + 2vh);
 }
 
 .ds-title--level-1 {
-  font-size: #{'max(calc(1.6em + 1.5vw), ' $ds-min-h1-size ')'};
+  font-size: $ds-font-size-h1;
   letter-spacing: -0.006em;
-  line-height: 1.15;
-  // Add padding to accommodate react link
-  padding-right: 10rem;
+  line-height: $ds-line-height-h1;
 
   @include xui-breakpoint-small-down {
+    font-size: $ds-font-size-h1-mobile;
     padding-right: 3rem;
-  }
-  @media screen and (max-width: $xui-breakpoint-medium) {
-    font-size: $ds-min-h1-size;
   }
 }
 
 .ds-title--level-2,
 .ds-description h2 {
-  font-size: #{'max(calc(1.2em + 0.4vw), ' $ds-min-h2-size ')'};
+  font-size: $ds-font-size-h2;
   padding-top: $ds-section-space;
   letter-spacing: -0.006em;
-
-  @media screen and (max-width: $xui-breakpoint-medium) {
-    font-size: $ds-min-h2-size;
-  }
+  line-height: $ds-line-height-h2;
 }
 
 .ds-title--level-3,
 .ds-description h3 {
-  font-size: $xui-font-size-xlarge;
+  font-size: $ds-font-size-h3;
+  line-height: $ds-line-height-h3;
   margin-top: 0;
-  padding-top: calc(4rem + 2vh);
+  padding-top: $ds-section-space;
 }
 
 .ds-title--level-4,
 .ds-description h4 {
-  font-size: $xui-font-size-large;
+  font-size: $ds-font-size-h4;
+  line-height: $ds-line-height-h4;
   margin-top: 0;
   padding-top: calc(4rem + 2vh);
 }
 
 .ds-title--level-5,
 .ds-description h5 {
-  font-size: $xui-font-size-medium;
+  font-size: $ds-font-size-h5;
+  line-height: $ds-line-height-h5;
+  padding-top: calc(4rem + 2vh);
 }
 
 .kss-section--callout {
@@ -174,11 +180,20 @@ $ds-section-space: calc(6rem + 2vh);
   .ds-title--level-5,
   .ds-description h5 {
     padding-top: 0;
+    margin-bottom: 0;
   }
 
   .ds-anchor-hash {
     margin: 4px 0 0 4px;
   }
+}
+
+#xuiIconShowcase h1,
+#xuiIconShowcase h2,
+#xuiIconShowcase h3,
+#xuiIconShowcase h4,
+#xuiIconShowcase h5 {
+  color: $ds-text-heading-color;
 }
 
 *[class^='ds-title'] + *[class^='ds-title'] {
@@ -193,14 +208,15 @@ $ds-section-space: calc(6rem + 2vh);
 // Page anchors
 
 .ds-anchor {
-  visibility: hidden;
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  text-align: left;
-  margin-left: -20px;
+  flex-shrink: 0;
   font-size: $xui-font-size-small;
+  height: 20px;
+  margin-left: -20px;
+  text-align: left;
   transform: translateY(-20%);
+  visibility: hidden;
+  width: 20px;
 }
 
 .ds-anchor-hash {
@@ -231,23 +247,6 @@ $ds-section-space: calc(6rem + 2vh);
 
 *[class^='ds-title']:first-child {
   margin-top: 0;
-}
-
-// Page anchors
-
-.ds-anchor {
-  visibility: hidden;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  text-align: left;
-  margin-left: -20px;
-  font-size: $xui-font-size-small;
-  transform: translateY(-20%);
-}
-
-.ds-title:hover > .ds-anchor {
-  visibility: visible;
 }
 
 code {

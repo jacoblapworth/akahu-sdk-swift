@@ -173,6 +173,8 @@
 
 // Visible when invalid
 //
+// Callout:
+//
 // If a maximum character limit is used to prevent excessive input of characters, and the user is unlikely to exceed the limit, display the character count only when the limit is exceeded or close to being exceeded.
 //
 // Markup: ./examples/text-input/_text-input-character-limit-on-invalid.html
@@ -180,6 +182,8 @@
 // Styleguide: Components.Controls.TextInput.3.8.2.1
 
 // Always visible
+//
+// Callout:
 //
 // If the number of characters entered by a user is likely to exceed the character limit, always show the character counter so they know the character limit in advance.
 //

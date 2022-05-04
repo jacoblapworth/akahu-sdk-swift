@@ -5,3 +5,8 @@
   line-height: $xui-line-height-compact;
   padding-bottom: $xui-s-2xsmall;
 }
+
+.#{$ns}-textinput-label-indicator {
+  font-weight: $xui-font-weight-deemphasis;
+  margin-left: $xui-s-2xsmall;
+}

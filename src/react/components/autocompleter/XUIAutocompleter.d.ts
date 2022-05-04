@@ -149,6 +149,10 @@ interface Props {
    * Callback to handle when a pill has been backspaced.
    */
   onBackspacePill?: () => void;
+  /** Callback to handle when the autocompleter is blurred.
+   * An onBlur method set in `inputProps` will take precedence over this method
+   */
+  onBlur?: () => void;
   /**
    * Callback for when the list closes.
    */

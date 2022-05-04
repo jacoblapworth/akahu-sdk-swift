@@ -4,9 +4,9 @@
 //
 // Weight: 1.04
 //
-// Styleguide: Getting Started.Developing with XUI
+// Styleguide: Getting started.Developing with XUI
 
-// Getting Started
+// Getting started
 //
 // #### Load CSS via CDN (Recommended)
 //
@@ -14,7 +14,7 @@
 //
 // <!--?prettify lang=html?-->
 // ```html
-// <link rel="stylesheet" href="https://edge.xero.com/style/xui/19.4.0/xui.min.css"/>
+// <link rel="stylesheet" href="https://edge.xero.com/style/xui/19.5.0/xui.min.css"/>
 // ```
 //
 // If you are building an application that may live alongside other versions of XUI on the same page, see the [Advanced usage](#getting-started-developing-with-xui-5) section below.
@@ -27,7 +27,7 @@
 //
 // For legacy pages where `xui-body` can not be used globally `xui-container` should wrap any XUI sections to provide XUI base styling to a specific part of a page.
 //
-// Styleguide: Getting Started.Developing with XUI.1
+// Styleguide: Getting started.Developing with XUI.1
 
 // Structure of CSS
 //
@@ -40,7 +40,7 @@
 // 5. **Components** is where the bulk of the CSS library lives, the bread and butter which is the core UI components themselves such as `button` and `accordion`
 // 6. **Utils** is where the features of the library that aren't specific to a component live, such as the margin and padding classes as well as layout helpers. They're generally very specific and perform one task.
 //
-// Styleguide: Getting Started.Developing with XUI.1.1
+// Styleguide: Getting started.Developing with XUI.1.1
 
 // Conventions and standards
 //
@@ -54,7 +54,7 @@
 // * By default we use the `xui-` namespace. Please use your own namespace for any custom code.
 // * XUI does not provide a comprehensive reset style as to not make assumptions about resetting elements that may have already been styled.
 //
-// Styleguide: Getting Started.Developing with XUI.1.2
+// Styleguide: Getting started.Developing with XUI.1.2
 
 // Staying up-to-date
 //
@@ -75,7 +75,7 @@
 // Note:
 // *Longest times depend on relevant changes having been merged to the working branch. If there are no changes awaiting release, the time between releases could be longer. <a href="https://xero.atlassian.net/l/c/UHu1oqyX">Read more on this release strategy.</a><br />**<a href="https://github.dev.xero.com/UXE/xui/blob/master/CONTRIBUTING.md#breaking-changes">More about breaking changes</a>
 //
-// Styleguide: Getting Started.Developing with XUI.1.3
+// Styleguide: Getting started.Developing with XUI.1.3
 
 // Staying up-to-date with React
 //
@@ -94,7 +94,7 @@
 //
 // If you come across this warning we strongly recommend that you address this as soon as possible and follow the [official React guidelines](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles) to migrate away from the unsafe lifecycles.
 //
-// Styleguide: Getting Started.Developing with XUI.1.4
+// Styleguide: Getting started.Developing with XUI.1.4
 
 // Installing React components
 //
@@ -161,7 +161,7 @@
 //
 // By default, XUI provides code that has been processed by Babel. This includes a dependency on `core-js` polyfills as added by `@babel/preset-env` and `@babel/polyfill` via `useBuiltIns: 'usage'`.
 //
-// Styleguide: Getting Started.Developing with XUI.2
+// Styleguide: Getting started.Developing with XUI.2
 
 // Conventions and standards
 //
@@ -170,7 +170,7 @@
 // * All components should be accessible (have correct roles, tabindexes and other attributes) and internationalisable (default values are discouraged, and must be overridable via props)
 // * We use PropTypes and TypeScript for prop validation
 //
-// Styleguide: Getting Started.Developing with XUI.2.1
+// Styleguide: Getting started.Developing with XUI.2.1
 
 // Extending and contributing to XUI
 //
@@ -178,7 +178,7 @@
 //
 // Get more understanding of our process of [extending XUI](./section-contributing-to-xui.html) and how to contribute.
 //
-// Styleguide: Getting Started.Developing with XUI.3
+// Styleguide: Getting started.Developing with XUI.3
 
 // Advanced usage
 //
@@ -225,4 +225,4 @@
 //
 // Now, instead of `xui-button`, you'll have `zooey-button`, and that same class name will be used by the `<XUIButton />` component.
 //
-// Styleguide: Getting Started.Developing with XUI.4
+// Styleguide: Getting started.Developing with XUI.4

@@ -8,24 +8,24 @@
 //
 // Introduction: Split is the perfect composition for when content needs to be split between two container of similar or even importance.
 //
-// Image: composition-images/Split_devices.svg
+// VisualExample: ./compositions/examples/split/_split-visual-example.html
 //
-// Image-caption: Split composition at breakpoints small-down and small-to-medium, medium-to-large, and large-up.
+// Styleguide: Compositions.Split
+
+// Best practice
 //
 // Tips:
 // Do: Use the Primary container to house the most recent or important information
 // Do: Use Split for comparison screens
 // Don't: Don't use one of the Split containers to hold navigation, instead consider the Master Detail composition
 //
-// Weight: 4.5
-//
-// Styleguide: Compositions.Split.
+// Styleguide: Compositions.Split.1
 
 // Split default behaviour
 //
 // The Split composition is made up of the Primary and Detail containers. The Primary container sits above the Detail container until the browser width is $xui-breakpoint-medium, from which point Detail sits to the right of the Primary container. The entire composition has a max-width of 1200px.
 //
-// Styleguide: Compositions.Split.1
+// Styleguide: Compositions.Split.2
 
 // Example
 //
@@ -33,13 +33,13 @@
 //
 // Storybook: storybook/?selectedKind=Compositions&selectedStory=Split&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=&knob-Retain%20a%20width=
 //
-// Styleguide: Compositions.Split.1.5
+// Styleguide: Compositions.Split.2.5
 
 // Split with header
 //
 // When a page has a content header, include it in the composition to make use of the spacing and stacking behaviour.
 //
-// Styleguide: Compositions.Split.2
+// Styleguide: Compositions.Split.3
 
 //Example
 //
@@ -47,7 +47,7 @@
 //
 // Storybook: storybook/?selectedKind=Compositions&selectedStory=Split&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs&knob-Include%20content%20header=true&knob-Show%20example%20content=true&knob-Expand%20width%20infinitely=&knob-Retain%20a%20width=
 //
-// Styleguide: Compositions.Split.2.5
+// Styleguide: Compositions.Split.3.5
 
 // Anatomy
 //
@@ -58,13 +58,13 @@
 // xui-gridarea-primary: Wraps the Primary container
 // xui-gridarea-detail: Wraps the Detail container
 //
-// Styleguide: Compositions.Split.3
+// Styleguide: Compositions.Split.4
 
 // Composition properties
 //
 // Introduction: There are a number of spacing and layout properties that can be used to adjust the Split composition.
 //
-// Styleguide: Compositions.Split.4
+// Styleguide: Compositions.Split.5
 
 // Lock Layout
 //
@@ -77,7 +77,7 @@
 // Classes:
 // xui-composition-auto-template: Allows the layout to adjust automatically to the viewport width
 //
-// Styleguide: Compositions.Split.4.1
+// Styleguide: Compositions.Split.5.1
 
 // Grid gap
 //
@@ -92,7 +92,7 @@
 // Classes:
 // xui-composition-grid-gap: Applies standard spacing between composition containers
 //
-// Styleguide: Compositions.Split.4.2
+// Styleguide: Compositions.Split.5.2
 
 // Outer spacing
 //
@@ -105,7 +105,7 @@
 // Classes:
 // xui-composition-has-auto-space-around: Applies $xui-s-large spacing around the outside of the composition
 //
-// Styleguide: Compositions.Split.4.3
+// Styleguide: Compositions.Split.5.3
 
 // Full width
 //
@@ -118,7 +118,7 @@
 // Classes:
 // xui-composition-is-finite: Remove this class to have the composition span 100% width of page
 //
-// Styleguide: Compositions.Split.4.4
+// Styleguide: Compositions.Split.5.4
 
 // Primary below
 //
@@ -128,7 +128,7 @@
 // xui-composition-split-primarybelow: Changes the stacking order for the "small" layout in Split compositions
 // xui-composition-splitheader-primarybelow: Changes the stacking order for the "small" layout in Split compositions with a content header
 //
-// Styleguide: Compositions.Split.4.5
+// Styleguide: Compositions.Split.5.5
 
 // Class list
 //
@@ -145,4 +145,4 @@
 // xui-gridarea-primary: Style for Primary container subcomponent
 // xui-gridarea-detail: Style for Detail container subcomponent
 //
-// Styleguide: Compositions.Split.5
+// Styleguide: Compositions.Split.6

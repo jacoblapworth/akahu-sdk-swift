@@ -13,23 +13,22 @@ A set of components that brings in the XUI styles to render a list of items. `XU
 ```jsx harmony
 import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
-<XUIPicklist secondaryProps={{ role: 'menu' }}>
-  <XUIPickitem ariaRole="menuitem" id="plainpi1" isSelected>
-    An empty item
-  </XUIPickitem>
-  <XUIPickitem ariaRole="menuitem" id="plainpi2">
-    Next Item
-  </XUIPickitem>
-  <XUIPickitem ariaRole="menuitem" id="plainpi3">
-    Another Item
-  </XUIPickitem>
-  <XUIPickitem ariaRole="menuitem" id="plainpi4" href="http://xero.com">
-    This is a link to xero.com
-  </XUIPickitem>
-  <XUIPickitem ariaRole="menuitem" id="plainpi5">
-    Last Item
-  </XUIPickitem>
-</XUIPicklist>;
+<div className="xui-panel" style={{ width: '300px' }}>
+  <XUIPicklist secondaryProps={{ role: 'menu' }}>
+    <XUIPickitem ariaRole="menuitem" id="personal-details" isSelected>
+      Personal details
+    </XUIPickitem>
+    <XUIPickitem ariaRole="menuitem" id="employment-information">
+      Employment information
+    </XUIPickitem>
+    <XUIPickitem ariaRole="menuitem" id="payment-information">
+      Payment information
+    </XUIPickitem>
+    <XUIPickitem ariaRole="menuitem" id="payslips">
+      Payslips
+    </XUIPickitem>
+  </XUIPicklist>
+</div>;
 ```
 
 ### Horizontal variant
@@ -42,20 +41,23 @@ Try to resize: Click and drag the bottom right corner of the following container
 import XUIPicklist, { XUIPickitem } from '@xero/xui/react/picklist';
 
 const wrapperStyles = {
-  resize: 'horizontal',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  resize: 'horizontal'
 };
 
-<div className="xui-panel xui-padding-xsmall" style={wrapperStyles}>
-  <XUIPicklist secondaryProps={{ role: 'menu' }} isHorizontal swapAtBreakpoint="small">
-    <XUIPickitem ariaRole="menuitem" id="plain1" isSelected shouldTruncate>
-      Projects
+<div className="xui-panel" style={wrapperStyles}>
+  <XUIPicklist isHorizontal secondaryProps={{ role: 'menu' }} swapAtBreakpoint="small">
+    <XUIPickitem ariaRole="menuitem" id="all" isSelected shouldTruncate>
+      All
     </XUIPickitem>
-    <XUIPickitem ariaRole="menuitem" id="plain2" shouldTruncate>
-      Timesheets
+    <XUIPickitem ariaRole="menuitem" id="fy-2020" shouldTruncate>
+      FY 2020
     </XUIPickitem>
-    <XUIPickitem ariaRole="menuitem" id="plain3" shouldTruncate>
-      Other things
+    <XUIPickitem ariaRole="menuitem" id="fy-2019" shouldTruncate>
+      FY 2019
+    </XUIPickitem>
+    <XUIPickitem ariaRole="menuitem" id="fy-2018" shouldTruncate>
+      FY 2018
     </XUIPickitem>
   </XUIPicklist>
 </div>;

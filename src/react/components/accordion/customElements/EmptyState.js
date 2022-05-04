@@ -13,7 +13,7 @@ const XUIAccordionItemEmptyState = ({ children, emptyIcon, qaHook }) => (
 export default XUIAccordionItemEmptyState;
 
 XUIAccordionItemEmptyState.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   emptyIcon: PropTypes.shape({
     height: PropTypes.number,
     path: PropTypes.string,

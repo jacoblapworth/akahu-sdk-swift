@@ -25,7 +25,7 @@ import {
 } from '../../../editabletable';
 import XUIEditableTableBody from '../XUIEditableTableBody';
 import XUIActions from '../../../actions';
-import generateCell from './helpers';
+import { generateCell, sampleText } from './helpers';
 import ColumnHideSelect from './column-hide-select';
 import EditableTableCreatorRowExample from './creator-row';
 import { EditableTableUserTest } from './user-tests';
@@ -44,31 +44,34 @@ class EditableTablePlayground extends React.Component {
     const {
       activeSortKey,
       ariaLabel,
+      cellsValidationMessage,
       cellType,
       columnCount,
       columnWidths,
       disableRowControls,
       disableSecondRow,
       hasHeader,
-      hideShowColumns,
-      invalidSecondColumn,
-      isSortAsc,
       hasPinnedFirstColumn,
       hasPinnedLastColumn,
-      randomiseContent,
-      rows,
-      rowOptions,
+      hideShowColumns,
+      invalidFourthColumn,
+      isInvalid,
+      isSecondColumnEndAligned,
+      isSortAsc,
       maxWidth,
       minWidth,
-      cellsValidationMessage,
+      randomiseContent,
+      rowOptions,
+      rows,
       showAddRowButton,
       showFooterRow,
       showSortingByColumns,
-      tableValidationMessage,
-      isSecondColumnEndAligned,
+      validationMessage,
     } = this.props;
+
     let cellsCount = 0;
     const colWidths = columnWidths && columnWidths.split(/[\s,]/g);
+
     return (
       <>
         {hideShowColumns && (
@@ -103,14 +106,14 @@ class EditableTablePlayground extends React.Component {
           hasPinnedFirstColumn={hasPinnedFirstColumn}
           hasPinnedLastColumn={hasPinnedLastColumn}
           hiddenColumns={this.state.hiddenColumns}
-          isInvalid={invalidSecondColumn}
+          isInvalid={invalidFourthColumn || isInvalid}
           maxWidth={maxWidth}
           minWidth={minWidth}
           onReorderRow={(startIndex, destinationIndex) =>
             console.log(`Row dragged from index ${startIndex} to ${destinationIndex}`)
           }
           rowOptions={rowOptions}
-          validationMessage={tableValidationMessage}
+          validationMessage={validationMessage}
         >
           {(hasHeader && (
             <XUIEditableTableHead>
@@ -123,7 +126,7 @@ class EditableTablePlayground extends React.Component {
                     key={`head_${index}`}
                     onSortChange={showSortingByColumns ? NOOP : undefined}
                   >
-                    I’m a cell
+                    {sampleText.header[item % sampleText.header.length]}
                   </XUIEditableTableHeadingCell>
                 ))}
               </XUIEditableTableRow>
@@ -140,7 +143,7 @@ class EditableTablePlayground extends React.Component {
               >
                 {Array.from(Array(columnCount).keys()).map((item, columnIndex) => {
                   const isDisabled = disableSecondRow && rowIndex === 1;
-                  const isInvalid = invalidSecondColumn && columnIndex === 1;
+                  const isInvalid = invalidFourthColumn && columnIndex === 3;
                   const inlineAlignment =
                     isSecondColumnEndAligned && columnIndex === 1 ? 'end' : 'start';
                   cellsCount += 1;
@@ -195,64 +198,104 @@ class EditableTablePlayground extends React.Component {
 
 const storiesWithKnobs = storiesOf(storiesWithKnobsKindName, module);
 storiesWithKnobs.add('Playground', () => {
-  const columnCount = number('Column count', 7);
+  const setupPropsGroupId = 'Setup';
+  const storybookPropsGroupId = 'Options';
+  const reactPropsGroupId = 'React props';
+  const rowOptionPropsGroupId = 'Row options';
+
+  const columnCount = number('Number of columns', 7, {}, setupPropsGroupId);
   const sortKeyOptions = Array.from(Array(columnCount).keys());
 
-  return (
-    <EditableTablePlayground
-      activeSortKey={select('Sort by column number', sortKeyOptions, sortKeyOptions[0])}
-      ariaLabel={text('Aria label', '')}
-      cellType={select(
-        'Cell type',
-        [
-          'readOnly',
-          'textInput',
-          'textInputMultiline',
-          'selectBox',
-          'autoCompleterSingle',
-          'autoCompleterMulti',
-          'secondarySearch',
-          'assorted',
-        ],
+  const setupProps = {
+    rows: number('Number of rows', 3, {}, setupPropsGroupId),
+    activeSortKey: select(
+      'Sort by column number',
+      sortKeyOptions,
+      sortKeyOptions[0],
+      setupPropsGroupId,
+    ),
+    cellType: select(
+      'Cell type',
+      [
+        'textInput',
+        'textInputMultiline',
+        'readOnly',
+        'selectBox',
+        'autoCompleterSingle',
+        'autoCompleterMulti',
+        'secondarySearch',
         'assorted',
-      )}
-      cellsValidationMessage={text('Cells validationMessage', 'Example validation message')}
-      columnCount={columnCount}
-      columnWidths={text('Column widths (space-separated)')}
-      disableRowControls={boolean('Disable controls in the last row?', false)}
-      disableSecondRow={boolean('Disable cells in the second row?', false)}
-      hasHeader={boolean('Has header?', true)}
-      hasPinnedFirstColumn={boolean('Has pinned first column?', false)}
-      hasPinnedLastColumn={boolean('Has pinned last column?', false)}
-      hideShowColumns={boolean('Show column-hiding filter?', false)}
-      invalidSecondColumn={boolean('Invalid cells in the second column?', false)}
-      isSecondColumnEndAligned={boolean('End align the second column', false)}
-      isSortAsc={boolean('isSortAsc', false)}
-      maxWidth={text('Max width', '1100px')}
-      minWidth={text('Min width', '300px')}
-      randomiseContent={boolean('Various assorted strings as content?', false)}
-      rowOptions={{
-        isDraggable: boolean('Show drag handle?', true),
-        isRemovable: boolean('Show remove button?', true),
-        removeButtonAriaLabel: 'Remove row',
-        dragButtonAriaLabel: 'Reorder row',
-      }}
-      rows={number('Rows', 3)}
-      showAddRowButton={boolean('Show add row button?', false)}
-      showFooterRow={boolean('Show pinned row?', false)}
-      showSortingByColumns={boolean('Show sorting by columns?', true)}
-      tableValidationMessage={text(
-        'Table validationMessage',
-        '3 of the table cells have invalid data entered',
-      )}
-    />
-  );
+      ],
+      'assorted',
+      setupPropsGroupId,
+    ),
+    hasHeader: boolean('Has header', true, setupPropsGroupId),
+    cellsValidationMessage: text(
+      'Cell validation message',
+      'A valid account must be selected',
+      setupPropsGroupId,
+    ),
+  };
+
+  const storybookProps = {
+    columnCount,
+    disableRowControls: boolean('Disable controls in the last row', false, storybookPropsGroupId),
+    disableSecondRow: boolean('Disable cells in the second row', false, storybookPropsGroupId),
+    hideShowColumns: boolean('Enable column toggling', false, storybookPropsGroupId),
+    invalidFourthColumn: boolean(
+      'Invalid cells in the fourth column',
+      false,
+      storybookPropsGroupId,
+    ),
+    isSecondColumnEndAligned: boolean('End align the second column', false, storybookPropsGroupId),
+    isSortAsc: boolean('Sort ascending', false, storybookPropsGroupId),
+    randomiseContent: boolean('Various assorted strings as content', false, storybookPropsGroupId),
+
+    showAddRowButton: boolean('Show ‘Add new row’ button', false, storybookPropsGroupId),
+    showFooterRow: boolean('Show pinned row', false, storybookPropsGroupId),
+    showSortingByColumns: boolean('Enable sorting in first column', true, storybookPropsGroupId),
+  };
+
+  let reactProps = {
+    ariaLabel: text('ariaLabel', 'Editable table', reactPropsGroupId),
+    columnWidths: text('columnWidths', '', reactPropsGroupId),
+    hasPinnedFirstColumn: boolean('hasPinnedFirstColumn', false, reactPropsGroupId),
+    hasPinnedLastColumn: boolean('hasPinnedLastColumn', false, reactPropsGroupId),
+    hiddenColumns: text('hiddenColumns', '', reactPropsGroupId),
+    isInvalid: boolean('isInvalid', false, reactPropsGroupId),
+    maxWidth: text('maxWidth', '300px', reactPropsGroupId),
+    minWidth: text('minWidth', '1100px', reactPropsGroupId),
+    validationMessage: text(
+      'validationMessage',
+      '3 table cells have invalid data entered',
+      reactPropsGroupId,
+    ),
+  };
+
+  const rowOptionProps = {
+    dragButtonAriaLabel: text('dragButtonAriaLabel', 'Reorder row', rowOptionPropsGroupId),
+    isDraggable: boolean('isDraggable', true, rowOptionPropsGroupId),
+    isRemovable: boolean('isRemovable', true, rowOptionPropsGroupId),
+    removeButtonAriaLabel: text('removeButtonAriaLabel', 'Remove row', rowOptionPropsGroupId),
+  };
+
+  reactProps = {
+    ...reactProps,
+    rowOptions: rowOptionProps,
+  };
+
+  const playgroundProps = {
+    ...setupProps,
+    ...storybookProps,
+    ...reactProps,
+  };
+
+  return <EditableTablePlayground {...playgroundProps} />;
 });
 
 storiesWithKnobs.add('Interactive creator row example', () => <EditableTableCreatorRowExample />);
 
 const storiesWithVariations = storiesOf(storiesWithVariationsKindName, module);
-
 variations.forEach(variation => {
   storiesWithVariations.add(variation.storyTitle, () => {
     const {
@@ -419,7 +462,6 @@ const EditableTableStoryWrapper = ({
 };
 
 const regressionStoriesWithVariations = storiesOf(regressionVariationStoryKindName, module);
-
 regressionVariations.forEach(variation => {
   regressionStoriesWithVariations.add(variation.storyTitle, () => {
     const variationMinusStoryDetails = { ...variation };

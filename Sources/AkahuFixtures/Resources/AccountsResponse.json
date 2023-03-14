@@ -1,0 +1,808 @@
+{
+  "success": true,
+  "items": [
+    {
+      "_id": "acc_ckthr1ho1000109l20diu2om1",
+      "_credentials": "creds_ckgq8bh36000007mo9mche5zx",
+      "connection": {
+        "name": "Westpac",
+        "logo": "https://static.akahu.io/images/conn_cjgaaozdo000001mrnqmkl1m0_logo.png",
+        "_id": "conn_cjgaaozdo000001mrnqmkl1m0"
+      },
+      "name": "Business",
+      "status": "ACTIVE",
+      "formatted_account": "03-1592-0454958-02",
+      "meta": {
+        "holder": "Lapworth Jacob Murray",
+        "address": "91 Williamson Avenue, Grey Lynn, Auckland 1021"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T21:31:10.191Z",
+        "meta": "2022-08-22T21:30:59.945Z",
+        "transactions": "2022-09-27T21:31:21.939Z"
+      },
+      "balance": {
+        "current": 0,
+        "available": 0,
+        "limit": 0,
+        "currency": "NZD",
+        "overdrawn": false
+      },
+      "attributes": [
+        "TRANSACTIONS",
+        "TRANSFER_TO",
+        "TRANSFER_FROM",
+        "PAYMENT_FROM",
+        "PAYMENT_TO"
+      ],
+      "branch": {
+        "name": "Westpac",
+        "description": "Christchurch Central",
+        "phone": "+6433740710",
+        "address": {
+          "country": "New Zealand",
+          "line3": "Christchurch",
+          "city": "Christchurch",
+          "line2": "83 Cashel Street",
+          "line1": "Ground Floor"
+        }
+      },
+      "type": "CHECKING"
+    },
+    {
+      "_id": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_credentials": "creds_cl88hpzy6000009le64rbg3nu",
+      "connection": {
+        "name": "The Co-operative Bank",
+        "logo": "https://static.akahu.io/images/conn_cjgab1c8e000001pmyxrkhova_logo.png",
+        "_id": "conn_cjgab1c8e000001pmyxrkhova"
+      },
+      "name": "Williamson Ave",
+      "status": "ACTIVE",
+      "formatted_account": "02-1245-0486621-001",
+      "meta": {
+        "holder": "Lapworth Mr JM",
+        "address": "91 Williamson Avenue, Grey Lynn, Auckland 1021, New Zealand"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T21:00:43.736Z",
+        "meta": "2022-09-27T21:00:43.736Z",
+        "transactions": "2022-09-27T21:00:45.711Z"
+      },
+      "balance": {
+        "available": 149.64,
+        "currency": "NZD",
+        "current": 149.64,
+        "overdrawn": false
+      },
+      "attributes": [
+        "TRANSACTIONS",
+        "TRANSFER_TO",
+        "TRANSFER_FROM",
+        "PAYMENT_FROM",
+        "PAYMENT_TO"
+      ],
+      "type": "CHECKING"
+    },
+    {
+      "_id": "acc_ckkboj60d000008kvb96wa8tk",
+      "_credentials": "creds_ckkboiza4000008l859tz8xso",
+      "connection": {
+        "name": "Orcon",
+        "logo": "https://static.akahu.io/images/conn_cjgaanecj000001quwvi4yzg0_logo.png",
+        "_id": "conn_cjgaanecj000001quwvi4yzg0"
+      },
+      "name": "Orcon",
+      "status": "ACTIVE",
+      "meta": {
+        "payment_details": {
+          "account_holder": "Orcon Limited",
+          "account_number": "02-0290-0395011-00",
+          "particulars": "Lapworth J",
+          "reference": "35606418"
+        },
+        "plan_name": "Unlimited Fibre 300 Broadband",
+        "usage": {
+          "data": {
+            "used": 568504,
+            "limit": -1
+          }
+        },
+        "holder": "Jacob Lapworth",
+        "address": " 91 WILLIAMSON AVENUE , GREY LYNN, AUCKLAND 1021, New Zealand"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T15:01:03.660Z",
+        "meta": "2022-09-27T15:01:03.660Z"
+      },
+      "balance": {
+        "currency": "NZD",
+        "current": 0,
+        "overdrawn": false
+      },
+      "attributes": [],
+      "type": "ISP"
+    },
+    {
+      "_id": "acc_ckj7tlndd000108kubn8qhf29",
+      "_credentials": "creds_ckkbol0dj000208l81c9if4vk",
+      "connection": {
+        "name": "Inland Revenue Department",
+        "logo": "https://static.akahu.io/images/conn_ck352byub000001qqhber5lpw_logo.jpeg",
+        "_id": "conn_ck352byub000001qqhber5lpw"
+      },
+      "name": "Student Loan",
+      "status": "ACTIVE",
+      "formatted_account": "SLS 072-813-286",
+      "meta": {
+        "payment_details": {
+          "account_holder": "Inland Revenue Department",
+          "account_number": "03-0049-0001100-27",
+          "particulars": "072-813-286",
+          "code": "SLS 31/03/23"
+        },
+        "breakdown": [
+          {
+            "label": "Compulsory fees",
+            "value": 26673.2
+          },
+          {
+            "label": "Living costs",
+            "value": 20210.81
+          },
+          {
+            "label": "Course related costs",
+            "value": 4000
+          },
+          {
+            "label": "Administration fees",
+            "value": 240
+          },
+          {
+            "label": "Establishment fees",
+            "value": 240
+          },
+          {
+            "label": "Payment",
+            "value": -426.32
+          },
+          {
+            "label": "Salary/Wage deductions",
+            "value": -48362.15
+          },
+          {
+            "label": "Total loan balance",
+            "value": 2575.54
+          }
+        ]
+      },
+      "refreshed": {
+        "balance": "2022-09-27T11:00:46.672Z",
+        "meta": "2022-09-27T11:00:46.672Z"
+      },
+      "balance": {
+        "currency": "NZD",
+        "current": -2575.54,
+        "overdrawn": false
+      },
+      "attributes": [
+        "PAYMENT_TO"
+      ],
+      "type": "LOAN"
+    },
+    {
+      "_id": "acc_ckj7tkh6o000008kuaa9a2at4",
+      "_credentials": "creds_ckkbol0dj000208l81c9if4vk",
+      "connection": {
+        "name": "Inland Revenue Department",
+        "logo": "https://static.akahu.io/images/conn_ck352byub000001qqhber5lpw_logo.jpeg",
+        "_id": "conn_ck352byub000001qqhber5lpw"
+      },
+      "name": "GST",
+      "status": "ACTIVE",
+      "formatted_account": "072-813-286",
+      "meta": {
+        "holder": "Jacob M Lapworth"
+      },
+      "refreshed": {
+        "balance": "2022-08-03T12:00:43.999Z",
+        "meta": "2022-08-03T12:00:43.999Z"
+      },
+      "balance": {
+        "currency": "NZD",
+        "current": 0,
+        "overdrawn": false
+      },
+      "attributes": [],
+      "type": "TAX"
+    },
+    {
+      "_id": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_credentials": "creds_ckgq8bh36000007mo9mche5zx",
+      "connection": {
+        "name": "Westpac",
+        "logo": "https://static.akahu.io/images/conn_cjgaaozdo000001mrnqmkl1m0_logo.png",
+        "_id": "conn_cjgaaozdo000001mrnqmkl1m0"
+      },
+      "name": "Airpoints",
+      "status": "ACTIVE",
+      "formatted_account": "****-****-****-0194",
+      "meta": {
+        "bill": {
+          "bill_date": "2022-10-20T11:00:00.000Z",
+          "closing_balance": 3978.36,
+          "outstanding_amount": 3978.36,
+          "due_amount": 80,
+          "minimum_amount": 80,
+          "start_date": "2022-08-24T12:00:00.000Z",
+          "end_date": "2022-09-25T11:00:00.000Z",
+          "next_start_date": "2022-09-25T11:00:00.000Z",
+          "next_end_date": "2022-10-27T11:00:00.000Z",
+          "next_bill_date": "2022-11-21T11:00:00.000Z"
+        },
+        "interest_free_days": 56.958333333333336,
+        "period": 31.958333333333332,
+        "rates": {
+          "general": 20.95
+        },
+        "holder": "Mr J M Lapworth",
+        "address": "91 Williamson Avenue, Grey Lynn, Auckland 1021"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T21:31:10.193Z",
+        "meta": "2022-09-23T17:01:23.718Z",
+        "transactions": "2022-09-27T21:31:21.939Z"
+      },
+      "balance": {
+        "current": -4414.01,
+        "available": 378.25,
+        "limit": 5000,
+        "currency": "NZD",
+        "overdrawn": false
+      },
+      "attributes": [
+        "TRANSACTIONS",
+        "TRANSFER_TO",
+        "TRANSFER_FROM"
+      ],
+      "type": "CREDITCARD"
+    },
+    {
+      "_id": "acc_ckgq8c3dh000208mgbvtkbamb",
+      "_credentials": "creds_ckgq8bh36000007mo9mche5zx",
+      "connection": {
+        "name": "Westpac",
+        "logo": "https://static.akahu.io/images/conn_cjgaaozdo000001mrnqmkl1m0_logo.png",
+        "_id": "conn_cjgaaozdo000001mrnqmkl1m0"
+      },
+      "name": "Saving",
+      "status": "ACTIVE",
+      "formatted_account": "03-1590-0038547-25",
+      "meta": {
+        "bonus_interest": {
+          "cutoff": "2022-09-30T00:00:00.000Z",
+          "notify_at": "2022-09-29T19:00:00.000Z",
+          "target_balance": 20.01
+        },
+        "holder": "Lapworth Jacob Murray",
+        "address": "91 Williamson Avenue, Grey Lynn, Auckland 1021"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T21:31:10.181Z",
+        "meta": "2022-09-27T21:31:10.181Z",
+        "transactions": "2022-09-27T21:31:21.939Z"
+      },
+      "balance": {
+        "current": 0.01,
+        "available": 0.01,
+        "limit": 0,
+        "currency": "NZD",
+        "overdrawn": false
+      },
+      "attributes": [
+        "TRANSACTIONS",
+        "TRANSFER_TO",
+        "TRANSFER_FROM",
+        "PAYMENT_TO"
+      ],
+      "branch": {
+        "name": "Westpac",
+        "description": "Ferrymead",
+        "phone": "+6433842109",
+        "address": {
+          "country": "New Zealand",
+          "city": "Christchurch",
+          "line2": "Christchurch",
+          "line1": "1005 Ferry Road"
+        }
+      },
+      "type": "SAVINGS"
+    },
+    {
+      "_id": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_credentials": "creds_ckgq8bh36000007mo9mche5zx",
+      "connection": {
+        "name": "Westpac",
+        "logo": "https://static.akahu.io/images/conn_cjgaaozdo000001mrnqmkl1m0_logo.png",
+        "_id": "conn_cjgaaozdo000001mrnqmkl1m0"
+      },
+      "name": "Spending",
+      "status": "ACTIVE",
+      "formatted_account": "03-1592-0454958-00",
+      "meta": {
+        "holder": "Lapworth Jacob Murray",
+        "address": "91 Williamson Avenue, Grey Lynn, Auckland 1021"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T21:31:10.179Z",
+        "meta": "2022-08-22T21:30:59.933Z",
+        "transactions": "2022-09-27T21:31:21.939Z"
+      },
+      "balance": {
+        "current": 628.61,
+        "available": 628.61,
+        "limit": 0,
+        "currency": "NZD",
+        "overdrawn": false
+      },
+      "attributes": [
+        "TRANSACTIONS",
+        "TRANSFER_TO",
+        "TRANSFER_FROM",
+        "PAYMENT_FROM",
+        "PAYMENT_TO"
+      ],
+      "branch": {
+        "name": "Westpac",
+        "description": "Christchurch Central",
+        "phone": "+6433740710",
+        "address": {
+          "country": "New Zealand",
+          "line3": "Christchurch",
+          "city": "Christchurch",
+          "line2": "83 Cashel Street",
+          "line1": "Ground Floor"
+        }
+      },
+      "type": "CHECKING"
+    },
+    {
+      "_id": "acc_ckgq8c3df000008mg9m7b8t6k",
+      "_credentials": "creds_ckgq8bh36000007mo9mche5zx",
+      "connection": {
+        "name": "Westpac",
+        "logo": "https://static.akahu.io/images/conn_cjgaaozdo000001mrnqmkl1m0_logo.png",
+        "_id": "conn_cjgaaozdo000001mrnqmkl1m0"
+      },
+      "name": "Utilities",
+      "status": "ACTIVE",
+      "formatted_account": "03-1592-0454958-01",
+      "meta": {
+        "holder": "Lapworth Jacob Murray",
+        "address": "91 Williamson Avenue, Grey Lynn, Auckland 1021"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T21:31:10.177Z",
+        "meta": "2022-08-22T21:30:59.932Z",
+        "transactions": "2022-09-27T21:31:21.939Z"
+      },
+      "balance": {
+        "current": 1436.44,
+        "available": 1436.44,
+        "limit": 0,
+        "currency": "NZD",
+        "overdrawn": false
+      },
+      "attributes": [
+        "TRANSACTIONS",
+        "TRANSFER_TO",
+        "TRANSFER_FROM",
+        "PAYMENT_FROM",
+        "PAYMENT_TO"
+      ],
+      "branch": {
+        "name": "Westpac",
+        "description": "Christchurch Central",
+        "phone": "+6433740710",
+        "address": {
+          "country": "New Zealand",
+          "line3": "Christchurch",
+          "city": "Christchurch",
+          "line2": "83 Cashel Street",
+          "line1": "Ground Floor"
+        }
+      },
+      "type": "CHECKING"
+    },
+    {
+      "_id": "acc_ckf7nq251000107l65wtx7u8w",
+      "_credentials": "creds_ckf7npvio000007mj74od7nxe",
+      "connection": {
+        "name": "Fisher Funds",
+        "logo": "https://static.akahu.io/images/conn_ckc19ceu70000y5p2hhz24td1_logo.png",
+        "_id": "conn_ckc19ceu70000y5p2hhz24td1"
+      },
+      "name": "Fisher Funds Kiwisaver",
+      "status": "ACTIVE",
+      "meta": {
+        "payment_details": {
+          "account_number": "02-0500-0799760-000",
+          "account_holder": "Fisher Funds",
+          "code": "Lapworth",
+          "particulars": "",
+          "reference": "FI33904",
+          "minimum_amount": 0
+        },
+        "holder": "Jacob Murray Lapworth",
+        "address": "91 Williamson Avenue, Grey Lynn, New Zealand"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T21:00:48.744Z",
+        "meta": "2022-09-27T21:00:48.744Z",
+        "transactions": "2022-09-27T21:00:54.634Z"
+      },
+      "balance": {
+        "available": 0,
+        "currency": "NZD",
+        "current": 39562.98,
+        "overdrawn": false
+      },
+      "attributes": [
+        "TRANSACTIONS",
+        "PAYMENT_TO"
+      ],
+      "type": "KIWISAVER"
+    },
+    {
+      "_id": "acc_ckf7nq250000007l62u519j55",
+      "_credentials": "creds_ckf7npvio000007mj74od7nxe",
+      "connection": {
+        "name": "Fisher Funds",
+        "logo": "https://static.akahu.io/images/conn_ckc19ceu70000y5p2hhz24td1_logo.png",
+        "_id": "conn_ckc19ceu70000y5p2hhz24td1"
+      },
+      "name": "Jacob Lapworth",
+      "status": "ACTIVE",
+      "meta": {
+        "payment_details": {
+          "account_number": "02-0500-0799760-000",
+          "account_holder": "Fisher Funds",
+          "code": "Lapworth",
+          "particulars": "",
+          "reference": "FI13152",
+          "minimum_amount": 0
+        },
+        "holder": "Jacob Murray Lapworth",
+        "address": "91 Williamson Avenue, Grey Lynn, New Zealand"
+      },
+      "refreshed": {
+        "balance": "2022-01-19T21:00:40.531Z",
+        "meta": "2022-01-19T21:00:40.531Z",
+        "transactions": "2022-09-27T21:00:54.634Z"
+      },
+      "balance": {
+        "available": 0,
+        "currency": "NZD",
+        "current": 30252.859999999997,
+        "overdrawn": false
+      },
+      "attributes": [
+        "TRANSACTIONS",
+        "PAYMENT_TO"
+      ],
+      "type": "INVESTMENT"
+    },
+    {
+      "_id": "acc_ck36gp8xr000408i9jgn2gzio",
+      "_credentials": "creds_ckkbol0dj000208l81c9if4vk",
+      "connection": {
+        "name": "Inland Revenue Department",
+        "logo": "https://static.akahu.io/images/conn_ck352byub000001qqhber5lpw_logo.jpeg",
+        "_id": "conn_ck352byub000001qqhber5lpw"
+      },
+      "name": "Income Tax",
+      "status": "ACTIVE",
+      "formatted_account": "072-813-286",
+      "meta": {
+        "holder": "Jacob M Lapworth"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T11:00:46.671Z",
+        "meta": "2022-09-27T11:00:46.671Z"
+      },
+      "balance": {
+        "currency": "NZD",
+        "current": 0,
+        "overdrawn": false
+      },
+      "attributes": [],
+      "type": "TAX"
+    },
+    {
+      "_id": "acc_ck36gp8xr000308i9ytcyvxg4",
+      "_credentials": "creds_ckkbol0dj000208l81c9if4vk",
+      "connection": {
+        "name": "Inland Revenue Department",
+        "logo": "https://static.akahu.io/images/conn_ck352byub000001qqhber5lpw_logo.jpeg",
+        "_id": "conn_ck352byub000001qqhber5lpw"
+      },
+      "name": "Donation Tax Credit",
+      "status": "ACTIVE",
+      "formatted_account": "072-813-286",
+      "meta": {
+        "holder": "Jacob M Lapworth"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T11:00:46.670Z",
+        "meta": "2022-09-27T11:00:46.670Z"
+      },
+      "balance": {
+        "currency": "NZD",
+        "current": 0,
+        "overdrawn": false
+      },
+      "attributes": [],
+      "type": "TAX"
+    },
+    {
+      "_id": "acc_ck0dbh3mm000008jyvcjtftzw",
+      "_credentials": "creds_ck0dbgx93000108l6q30xoqhj",
+      "connection": {
+        "name": "Wise",
+        "logo": "https://static.akahu.io/images/conn_cjydl5bgu000001o4f33za1tj_logo.jpeg",
+        "_id": "conn_cjydl5bgu000001o4f33za1tj"
+      },
+      "name": "Personal NZD Wise Balance",
+      "status": "ACTIVE",
+      "formatted_account": "02-1291-0592521-00",
+      "meta": {
+        "profileId": 10535264,
+        "address": "91 Williamson Ave, , Grey Lynn 1021, NZ"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T21:00:53.576Z",
+        "meta": "2022-09-27T21:00:53.576Z",
+        "transactions": "2021-08-25T02:00:52.174Z"
+      },
+      "balance": {
+        "available": 0,
+        "currency": "NZD",
+        "current": 0,
+        "overdrawn": false
+      },
+      "attributes": [
+        "PAYMENT_TO"
+      ],
+      "branch": {
+        "name": "Transferwise Ltd",
+        "description": "Transferwise Ltd",
+        "phone": "+6449248796",
+        "address": {
+          "postcode": "6011",
+          "country": "New Zealand",
+          "line4": "Wellington",
+          "city": "Wellington",
+          "line2": "Wellington Central",
+          "line1": "42-52 Willis Street"
+        }
+      },
+      "type": "CHECKING"
+    },
+    {
+      "_id": "acc_cjvd6pbjc000g01mn535iklyb",
+      "_credentials": "creds_cjvd6otsa000601jk0wpb42wy",
+      "connection": {
+        "name": "Auckland Transport",
+        "logo": "https://static.akahu.io/images/conn_cjgaahfbb000001o157n8zax4_logo.png",
+        "_id": "conn_cjgaahfbb000001o157n8zax4"
+      },
+      "name": "Jacob",
+      "status": "ACTIVE",
+      "meta": {
+        "fare_type": "Adult",
+        "fate_type_expires_at": null,
+        "holder": "Jacob Lapworth",
+        "address": "91 Williamson Avenue, Grey Lynn 1021, Auckland, New Zealand"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T15:01:03.640Z",
+        "meta": "2022-09-27T15:01:03.640Z"
+      },
+      "balance": {
+        "currency": "NZD",
+        "current": -2.05,
+        "overdrawn": false
+      },
+      "attributes": [],
+      "type": "TRANSPORT"
+    },
+    {
+      "_id": "acc_cjsazentt000j01qfosieufxu",
+      "_credentials": "creds_cjsazdhuh000001qffkzwxhdg",
+      "connection": {
+        "name": "American Express",
+        "logo": "https://static.akahu.io/images/conn_cjlwrrm2u0000w30huy2yrezk_logo.png",
+        "_id": "conn_cjlwrrm2u0000w30huy2yrezk"
+      },
+      "name": "American Express",
+      "status": "INACTIVE",
+      "formatted_account": "****-******-61003",
+      "meta": {},
+      "refreshed": {},
+      "balance": {
+        "current": -3178.39
+      },
+      "attributes": [],
+      "type": "UNKNOWN"
+    },
+    {
+      "_id": "acc_cjs5dojrb000901ru0i5emsav",
+      "_credentials": "creds_cjs5do82h000k01rud0sgbljk",
+      "connection": {
+        "name": "Hatch",
+        "logo": "https://static.akahu.io/images/conn_cjmsgx5mm0000ikqsz7t9hwvl_logo.jpeg",
+        "_id": "conn_cjmsgx5mm0000ikqsz7t9hwvl"
+      },
+      "name": "Hatch",
+      "status": "INACTIVE",
+      "formatted_account": "JUYBRRTX",
+      "meta": {
+        "breakdown": {
+          "returns": 2.35
+        },
+        "portfolio": [
+          {
+            "fund_id": "1374",
+            "name": "AAPL",
+            "returns": 2.35,
+            "shares": 0.08,
+            "value": 11.07
+          }
+        ]
+      },
+      "refreshed": {
+        "balance": "2022-05-16T04:00:48.175Z",
+        "meta": "2022-05-16T04:00:48.175Z"
+      },
+      "balance": {
+        "available": 0.11,
+        "currency": "USD",
+        "current": 11.18,
+        "overdrawn": false
+      },
+      "attributes": [],
+      "type": "INVESTMENT"
+    },
+    {
+      "_id": "acc_cjs5dfleg000701rukydw6e70",
+      "_credentials": "creds_cjs5dfezg000e01ruhs0yukbq",
+      "connection": {
+        "name": "Sharesies",
+        "logo": "https://static.akahu.io/images/conn_cjgaajdrq000001paybrkcf7l_logo.png",
+        "_id": "conn_cjgaajdrq000001paybrkcf7l"
+      },
+      "name": "Sharesies",
+      "status": "ACTIVE",
+      "formatted_account": "JL166443",
+      "meta": {
+        "payment_details": {
+          "account_holder": "Sharesies NZ",
+          "account_number": "12-3497-0007278-01",
+          "reference": "JL166443"
+        },
+        "breakdown": {
+          "returns": 23.25
+        },
+        "profile": {
+          "pir": "28"
+        },
+        "portfolio": [
+          {
+            "fund_id": "16e35d81-b2a1-4587-9de3-6dd712564307",
+            "value": 0.31,
+            "shares": 0.25,
+            "returns": 0.87,
+            "name": "Macquarie All Country Global Shares Index Fund",
+            "symbol": "AIF PI",
+            "logo": "https://data.sharesies.nz/api/v1/public/instrument-logo/16e35d81-b2a1-4587-9de3-6dd712564307/logo/0814278e-6fda-4cc0-a978-1dde2f8ac292/342/0"
+          },
+          {
+            "fund_id": "65cec97c-c39f-4aa3-b8e7-b24599d88c33",
+            "value": 1.37,
+            "shares": 0.98,
+            "returns": -0.15,
+            "name": "Pathfinder Global Responsibility Fund",
+            "symbol": "450007",
+            "logo": "https://data.sharesies.nz/api/v1/public/instrument-logo/65cec97c-c39f-4aa3-b8e7-b24599d88c33/logo/38d77601-7b3b-4998-a6e3-ff8c6c41cff7/342/0"
+          },
+          {
+            "fund_id": "67a17798-c341-4af3-a06e-5a621d342adb",
+            "value": 3.84,
+            "shares": 0.89,
+            "returns": 0.39,
+            "name": "Smartshares Australian Top 20 Fund",
+            "symbol": "OZY",
+            "logo": "https://data.sharesies.nz/api/v1/public/instrument-logo/67a17798-c341-4af3-a06e-5a621d342adb/logo/d0c99346-faa2-4590-addb-ac5b9c9e08d7/342/0"
+          },
+          {
+            "fund_id": "68d32bbf-13e7-46e3-b735-1a7bb91ad481",
+            "value": 12.98,
+            "shares": 7.93,
+            "returns": 1.81,
+            "name": "Smartshares Europe Fund",
+            "symbol": "EUF",
+            "logo": "https://data.sharesies.nz/api/v1/public/instrument-logo/68d32bbf-13e7-46e3-b735-1a7bb91ad481/logo/68169b77-119c-4d16-8814-2c954b6f35aa/342/0"
+          },
+          {
+            "fund_id": "77866efa-d81e-4f71-beaf-371bb210ac8c",
+            "value": 2.18,
+            "shares": 0.72,
+            "returns": -0.16,
+            "name": "Smartshares NZ Top 50 Fund",
+            "symbol": "FNZ",
+            "logo": "https://data.sharesies.nz/api/v1/public/instrument-logo/77866efa-d81e-4f71-beaf-371bb210ac8c/logo/8b193c5e-082c-4586-aba8-1f14b80fdedc/342/0"
+          },
+          {
+            "fund_id": "84fb0b94-e7dd-4a48-996d-fd261b781c11",
+            "value": 8.1,
+            "shares": 6.1,
+            "returns": -0.74,
+            "name": "Smartshares Emerging Markets Fund",
+            "symbol": "EMF",
+            "logo": "https://data.sharesies.nz/api/v1/public/instrument-logo/84fb0b94-e7dd-4a48-996d-fd261b781c11/logo/02596639-0b21-492e-bb62-8a1267c3ff70/342/0"
+          },
+          {
+            "fund_id": "8cd3115a-831b-4a5a-9cdd-a5d523c6814f",
+            "value": 10.88,
+            "shares": 5.31,
+            "returns": -0.77,
+            "name": "Smartshares Asia Pacific Fund",
+            "symbol": "APA",
+            "logo": "https://data.sharesies.nz/api/v1/public/instrument-logo/8cd3115a-831b-4a5a-9cdd-a5d523c6814f/logo/956061ce-a04a-4f7a-8169-c2baa86e0c5b/342/0"
+          },
+          {
+            "fund_id": "af87fb44-ebf6-4239-ba08-ae1cc9a6461c",
+            "value": 25.45,
+            "shares": 2.16,
+            "returns": 4.55,
+            "name": "Smartshares US 500 Fund",
+            "symbol": "USF",
+            "logo": "https://data.sharesies.nz/api/v1/public/instrument-logo/af87fb44-ebf6-4239-ba08-ae1cc9a6461c/logo/25084e1f-151b-4ac1-88d9-cf581443687b/342/0"
+          },
+          {
+            "fund_id": "d4f6bf6b-2406-40c3-a0cc-a812bca962e4",
+            "value": 0.09,
+            "shares": 0.05,
+            "returns": 7.36,
+            "name": "Smartshares NZ Core Equity Trust",
+            "symbol": "ZNPCET",
+            "logo": "https://data.sharesies.nz/api/v1/public/instrument-logo/d4f6bf6b-2406-40c3-a0cc-a812bca962e4/logo/d38c8721-67e5-487b-974d-702932f8e81e/342/0"
+          },
+          {
+            "fund_id": "f3a08963-f8f1-4bc6-ad6f-bc4e043cde86",
+            "value": 1.19,
+            "shares": 0.99,
+            "returns": 0.17,
+            "name": "Smartshares NZ Property ETF",
+            "symbol": "NPF",
+            "logo": "https://data.sharesies.nz/api/v1/public/instrument-logo/f3a08963-f8f1-4bc6-ad6f-bc4e043cde86/logo/dce8e099-dc8f-4952-b966-d77b13259235/342/0"
+          }
+        ],
+        "address": "91 Williamson Avenue, Grey Lynn, Auckland 1021, New Zealand"
+      },
+      "refreshed": {
+        "balance": "2022-09-27T19:45:44.685Z",
+        "meta": "2022-09-27T19:45:44.685Z"
+      },
+      "balance": {
+        "currency": "NZD",
+        "current": 66.39,
+        "overdrawn": false
+      },
+      "attributes": [
+        "PAYMENT_TO"
+      ],
+      "type": "INVESTMENT"
+    }
+  ]
+}

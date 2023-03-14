@@ -1,0 +1,51 @@
+{
+  "success": true,
+  "item": {
+    "_id": "acc_ckthr1ho1000109l20diu2om1",
+    "_credentials": "creds_ckgq8bh36000007mo9mche5zx",
+    "connection": {
+      "name": "Westpac",
+      "logo": "https://static.akahu.io/images/conn_cjgaaozdo000001mrnqmkl1m0_logo.png",
+      "_id": "conn_cjgaaozdo000001mrnqmkl1m0"
+    },
+    "name": "Business",
+    "status": "ACTIVE",
+    "formatted_account": "03-1592-0454958-02",
+    "meta": {
+      "holder": "Lapworth Jacob Murray",
+      "address": "91 Williamson Avenue, Grey Lynn, Auckland 1021"
+    },
+    "refreshed": {
+      "balance": "2022-09-27T21:31:10.191Z",
+      "meta": "2022-08-22T21:30:59.945Z",
+      "transactions": "2022-09-27T21:31:21.939Z"
+    },
+    "balance": {
+      "current": 0,
+      "available": 0,
+      "limit": 0,
+      "currency": "NZD",
+      "overdrawn": false
+    },
+    "attributes": [
+      "TRANSACTIONS",
+      "TRANSFER_TO",
+      "TRANSFER_FROM",
+      "PAYMENT_FROM",
+      "PAYMENT_TO"
+    ],
+    "branch": {
+      "name": "Westpac",
+      "description": "Christchurch Central",
+      "phone": "+6433740710",
+      "address": {
+        "country": "New Zealand",
+        "line3": "Christchurch",
+        "city": "Christchurch",
+        "line2": "83 Cashel Street",
+        "line1": "Ground Floor"
+      }
+    },
+    "type": "CHECKING"
+  }
+}

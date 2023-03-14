@@ -1,0 +1,44 @@
+{
+  "success": true,
+  "item": {
+    "_id": "id_ckvvj11111111111111",
+    "status": "PROCESSING",
+    "source": {
+      "_id": "conn_cjgaac5at000001qi2yw8ftil",
+      "name": "My Bank",
+      "url": "https://mybank.co.nz",
+      "logo": "https://static.akahu.io/images/my_bank.png"
+    },
+    "accounts": [
+      {
+        "address": "27 Bag End, Bagshot Row, Hobbiton, 1011",
+        "bank": "Kiwibank",
+        "account_number": "38-9009-0000000-00",
+        "holder": "F BAGGINS"
+      }
+    ],
+    "identities": [
+      {
+        "name": "F BAGGINS",
+        "formatted_account": "38-9009-0000000-00",
+        "meta": {}
+      }
+    ],
+    "addresses": [
+      {
+        "type": "RESIDENTIAL",
+        "value": "27 Bag End, Bagshot Row, Hobbiton, 1011",
+        "formatted_address": "27 Bag End, Bagshot Row, Hobbiton, Middle Earth, 1011",
+        "place_id": "xxxxxxxxxxxxxxxxxxxxxxxxx",
+        "components": {
+          "street": "27 Bag End",
+          "suburb": "Bagshot Row",
+          "city": "Hobbiton",
+          "region": "Hobbiton",
+          "postal_code": 1011,
+          "country": "Middle Earth"
+        }
+      }
+    ]
+  }
+}

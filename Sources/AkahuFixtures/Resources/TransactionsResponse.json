@@ -1,0 +1,3043 @@
+{
+  "success": true,
+  "items": [
+    {
+      "_id": "trans_clbgjq7lf08cq08jqez7y0pcq",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-09T13:30:48.647Z",
+      "updated_at": "2022-12-09T13:30:48.647Z",
+      "date": "2022-12-08T22:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-72c8c43cac9efc094098f82517fa4c96",
+      "description": "Airpoints WBC Internet Transfer",
+      "amount": -1000,
+      "balance": 1382.9,
+      "type": "TRANSFER",
+      "meta": {
+        "particulars": "wbc internet",
+        "code": "transfer",
+        "reference": "11:00-14379"
+      }
+    },
+    {
+      "_id": "trans_clbf12hex02m708md0gmia3wc",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-12-08T12:00:41.675Z",
+      "updated_at": "2022-12-08T12:00:41.675Z",
+      "date": "2022-12-08T11:52:08.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-c1a3afb9643d07dda3191886cea206d9",
+      "description": "Ray White Property DUE 081222",
+      "amount": -960,
+      "balance": 73.36,
+      "type": "DIRECT DEBIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clbgjq7m208d708jqh3pfap4z",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-09T13:30:48.647Z",
+      "updated_at": "2022-12-09T13:30:48.647Z",
+      "date": "2022-12-08T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-c64e0d86ff3f89c286f7305fa0c41dd1",
+      "description": "PAYMENT RECEIVED THANK YOU NZL 220049",
+      "amount": 1000,
+      "type": "CREDIT CARD",
+      "meta": {
+        "reference": "220049"
+      }
+    },
+    {
+      "_id": "trans_clbgjq7lh08cs08jq6bi2a7j9",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-09T13:30:48.647Z",
+      "updated_at": "2022-12-09T13:30:48.647Z",
+      "date": "2022-12-08T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-f2963c02adfe0794068f1e357b721e8f",
+      "description": "Sterling Trust M Lapworth Apple One",
+      "amount": 26.5,
+      "balance": 2441.4,
+      "type": "STANDING ORDER",
+      "meta": {
+        "particulars": "m lapworth",
+        "reference": "apple one",
+        "other_account": "03-1599-0400485-00"
+      }
+    },
+    {
+      "_id": "trans_clbgjq7lg08cr08jq3hh9e9vs",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-09T13:30:48.647Z",
+      "updated_at": "2022-12-09T13:30:48.647Z",
+      "date": "2022-12-08T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-32e049d72be824918168ab67fe1c926b",
+      "description": "Kmart - St Lukes 07 7828",
+      "amount": -58.5,
+      "balance": 2382.9,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cji8bap1y00009uojjavcnvoj",
+        "name": "Kmart"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvybd001f08ml8w4y3yor",
+        "name": "General retail stores",
+        "components": [
+          {
+            "name": "General retail stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Household",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Department stores",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000uhk4m20nvc6m1",
+            "name": "Household"
+          }
+        }
+      },
+      "meta": {
+        "code": "7828",
+        "logo": "https://static.akahu.io/outlets/merchant_cji8bap1y00009uojjavcnvoj_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbedhooy018y08mggfwedk67",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-12-08T01:00:40.195Z",
+      "updated_at": "2022-12-08T01:00:40.195Z",
+      "date": "2022-12-08T00:34:37.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-akxp30009ox9",
+      "description": "DC- Lapworth J M akxp30009ox9",
+      "amount": 234,
+      "balance": 1033.36,
+      "type": "TRANSFER",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clbgmy8mj00az08l66wi8chm6",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-12-09T15:01:02.587Z",
+      "updated_at": "2022-12-09T15:01:02.587Z",
+      "date": "2022-12-08T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-0ad0bb1cc0e53f389b95811d9a28aa33",
+      "description": "APPLE.COM/BILL SYDNEY",
+      "amount": -9.68,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjfxh3p0m000001qk99reqten",
+        "name": "Apple",
+        "business_number": {
+          "type": "NZBN",
+          "value": "9429034262542"
+        }
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyge002108mlfe0l2thb",
+        "name": "Electronic and appliance stores",
+        "components": [
+          {
+            "name": "Electronic and appliance stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Household",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Furniture, houseware & appliance retail",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000uhk4m20nvc6m1",
+            "name": "Household"
+          }
+        }
+      },
+      "meta": {
+        "logo": "https://static.akahu.io/outlets/merchant_cjfxh3p0m000001qk99reqten_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbgmy8mm00b308l6fd1shkfp",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-12-09T15:01:02.588Z",
+      "updated_at": "2022-12-09T15:01:02.588Z",
+      "date": "2022-12-08T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-02adddcf6fb7f3d6387799d1f6776c30",
+      "description": "UBER TRIP SAN FRANCISCO",
+      "amount": -14.78,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjft924lt000001m8thncj3zm",
+        "name": "Uber"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyxm004c08mlexbea79o",
+        "name": "Taxi, rideshare, and on-demand transport services",
+        "components": [
+          {
+            "name": "Taxi, rideshare, and on-demand transport services",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Transport",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Road passenger transport",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000whk4m577xhmf3",
+            "name": "Transport"
+          }
+        }
+      },
+      "meta": {
+        "logo": "https://static.akahu.io/outlets/merchant_cjft924lt000001m8thncj3zm_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbgmy8mk00b008l61yn9a7om",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-12-09T15:01:02.588Z",
+      "updated_at": "2022-12-09T15:01:02.588Z",
+      "date": "2022-12-08T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-8475779ed5f045ebe928572a338f6545",
+      "description": "APPLE.COM/BILL SYDNEY",
+      "amount": -52.95,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjfxh3p0m000001qk99reqten",
+        "name": "Apple",
+        "business_number": {
+          "type": "NZBN",
+          "value": "9429034262542"
+        }
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyge002108mlfe0l2thb",
+        "name": "Electronic and appliance stores",
+        "components": [
+          {
+            "name": "Electronic and appliance stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Household",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Furniture, houseware & appliance retail",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000uhk4m20nvc6m1",
+            "name": "Household"
+          }
+        }
+      },
+      "meta": {
+        "logo": "https://static.akahu.io/outlets/merchant_cjfxh3p0m000001qk99reqten_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbgmy8mn00b408l640aaam3m",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-12-09T15:01:02.589Z",
+      "updated_at": "2022-12-09T15:01:02.589Z",
+      "date": "2022-12-08T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-40323ad45d3f2ecf73bbf873590f6e8e",
+      "description": "UBER TRIP SAN FRANCISCO",
+      "amount": -35.09,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjft924lt000001m8thncj3zm",
+        "name": "Uber"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyxm004c08mlexbea79o",
+        "name": "Taxi, rideshare, and on-demand transport services",
+        "components": [
+          {
+            "name": "Taxi, rideshare, and on-demand transport services",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Transport",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Road passenger transport",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000whk4m577xhmf3",
+            "name": "Transport"
+          }
+        }
+      },
+      "meta": {
+        "logo": "https://static.akahu.io/outlets/merchant_cjft924lt000001m8thncj3zm_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbfx8emd04nq08l79gxe93nu",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-12-09T03:01:05.991Z",
+      "updated_at": "2022-12-09T03:01:05.991Z",
+      "date": "2022-12-08T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-7af19b9dd48dd4318ee77502688b0d27",
+      "description": "UBER TRIP SAN FRANCISCO",
+      "amount": -7.99,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjft924lt000001m8thncj3zm",
+        "name": "Uber"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyxm004c08mlexbea79o",
+        "name": "Taxi, rideshare, and on-demand transport services",
+        "components": [
+          {
+            "name": "Taxi, rideshare, and on-demand transport services",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Transport",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Road passenger transport",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000whk4m577xhmf3",
+            "name": "Transport"
+          }
+        }
+      },
+      "meta": {
+        "logo": "https://static.akahu.io/outlets/merchant_cjft924lt000001m8thncj3zm_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbfx8emc04np08l7f38igzqm",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-12-09T03:01:05.990Z",
+      "updated_at": "2022-12-09T03:01:05.990Z",
+      "date": "2022-12-08T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-b2b0df0935c8163267d18e4291be531c",
+      "description": "SPARK PHONE ACCOUNT AUCKLAND",
+      "amount": -184.42,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjip6sgbf000cqjzyv1lxzi7h",
+        "name": "Spark"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvz0y004t08ml8zey1jiv",
+        "name": "Telecommunication services",
+        "components": [
+          {
+            "name": "Telecommunication services",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Utilities",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Other business services",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000vhk4m46ce9nrt",
+            "name": "Utilities"
+          }
+        }
+      },
+      "meta": {
+        "logo": "https://static.akahu.io/outlets/merchant_cjip6sgbf000cqjzyv1lxzi7h_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbe9dfn50eu908mt2thzgmp5",
+      "_account": "acc_ckgq8c3df000008mg9m7b8t6k",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-07T23:05:24.010Z",
+      "updated_at": "2022-12-08T14:00:54.126Z",
+      "date": "2022-12-07T23:05:00.000Z",
+      "hash": "acc_ckgq8c3df000008mg9m7b8t6k-akxp30009ox9",
+      "description": "Williamson Ave akxp30009ox9 ONE TIME PMT",
+      "amount": -234,
+      "balance": 312.19,
+      "type": "TRANSFER",
+      "meta": {
+        "particulars": "akxp30009ox9",
+        "code": "one time pmt",
+        "reference": "12:05-97037"
+      }
+    },
+    {
+      "_id": "trans_clbf5d2bq005y08ld9pwd8uvi",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-08T14:00:54.126Z",
+      "updated_at": "2022-12-08T14:00:54.126Z",
+      "date": "2022-12-07T22:54:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-35ac8df69ee54888b11cf5d18ea1d84e",
+      "description": "2080Kim Scott Airbnb BILL PAYMENT",
+      "amount": -270,
+      "balance": 2414.9,
+      "type": "PAYMENT",
+      "meta": {
+        "particulars": "airbnb",
+        "code": "bill payment",
+        "reference": "11:54-07472",
+        "other_account": "12-3059-0575451-50"
+      }
+    },
+    {
+      "_id": "trans_clbf5d2bs006008ld62nq2r6t",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-08T14:00:54.126Z",
+      "updated_at": "2022-12-08T14:00:54.126Z",
+      "date": "2022-12-07T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-e4c101eea13abc055a2453d76ae13e67",
+      "description": "HSBC Bank Plc Intl P Solium Capit Al UK Limite 106H99F0000K",
+      "amount": 1843.93,
+      "balance": 2695.9,
+      "type": "CREDIT",
+      "meta": {
+        "particulars": "solium capit",
+        "code": "al uk limite",
+        "reference": "106h99f0000k",
+        "other_account": "30-2940-0008618-62"
+      }
+    },
+    {
+      "_id": "trans_clbf5d2br005z08ldg9ym9f3r",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-08T14:00:54.126Z",
+      "updated_at": "2022-12-08T14:00:54.126Z",
+      "date": "2022-12-07T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-9db8d96a60d3edc01ecda97df8cba388",
+      "description": "Daily Bread Ponso 06 7828",
+      "amount": -11,
+      "balance": 2684.9,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjllgv4o7000yiyzyhqjvjgw9",
+        "name": "Daily Bread"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvy98001a08ml3l180boh",
+        "name": "Bakeries",
+        "components": [
+          {
+            "name": "Bakeries",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Food",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Specialised food retailing",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000xhk4mf7mg2j1z",
+            "name": "Food"
+          }
+        }
+      },
+      "meta": {
+        "code": "7828",
+        "logo": "https://static.akahu.io/outlets/merchant_cjllgv4o7000yiyzyhqjvjgw9_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbcy1v3s014s08mr3siyc3cg",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-12-07T01:00:41.866Z",
+      "updated_at": "2022-12-07T01:00:41.866Z",
+      "date": "2022-12-07T00:32:33.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-akx9x000ur02",
+      "description": "DC- Lapworth J M akx9x000ur02",
+      "amount": 20,
+      "balance": 799.36,
+      "type": "TRANSFER",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clbctxo8h00gc08lcd5835sm0",
+      "_account": "acc_ckgq8c3df000008mg9m7b8t6k",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-06T23:05:27.421Z",
+      "updated_at": "2022-12-07T14:00:49.433Z",
+      "date": "2022-12-06T23:05:00.000Z",
+      "hash": "acc_ckgq8c3df000008mg9m7b8t6k-akx9x000ur02",
+      "description": "Williamson Ave akx9x000ur02 ONE TIME PMT",
+      "amount": -20,
+      "balance": 546.19,
+      "type": "TRANSFER",
+      "meta": {
+        "particulars": "akx9x000ur02",
+        "code": "one time pmt",
+        "reference": "12:05-32368"
+      }
+    },
+    {
+      "_id": "trans_clbcrmbyb07bw08lc6ma27on1",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-12-06T22:00:38.977Z",
+      "updated_at": "2022-12-06T22:00:38.977Z",
+      "date": "2022-12-06T21:32:51.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-415f902c3a1587d614aaeead1313d995",
+      "description": "DC- MK SPRATT MKS WPK Rent",
+      "amount": 288,
+      "balance": 779.36,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clbcrmbyb07bx08lc3z281t37",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-12-06T22:00:38.978Z",
+      "updated_at": "2022-12-06T22:00:38.978Z",
+      "date": "2022-12-06T21:32:46.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-1452671c3cb841223a6c2ebd2397ad87",
+      "description": "DC- MK SPRATT MKSPRATT Expenses",
+      "amount": 20,
+      "balance": 491.36,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clbcrmbyc07by08lccwyterum",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-12-06T22:00:38.978Z",
+      "updated_at": "2022-12-06T22:00:38.978Z",
+      "date": "2022-12-06T21:32:46.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-6ab72402a4197343817e0741453042e9",
+      "description": "DC- WP KILLIP Wil",
+      "amount": 20,
+      "balance": 471.36,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clbcrmbyd07bz08lchzsvfkwb",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-12-06T22:00:38.978Z",
+      "updated_at": "2022-12-06T22:00:38.978Z",
+      "date": "2022-12-06T21:32:38.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-7e124b6ee1c79aae580075f50855f255",
+      "description": "DC- LISTON,READ Addition",
+      "amount": 30,
+      "balance": 451.36,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clbcph7aq04y208ml15wggmw5",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-12-06T21:00:40.836Z",
+      "updated_at": "2022-12-06T21:00:40.836Z",
+      "date": "2022-12-06T20:32:56.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-ce1b4f956ae70cbc82b7ce2523142be9",
+      "description": "DC- LISTON,READ Rent",
+      "amount": 250,
+      "balance": 421.36,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clbf5d2dc006c08ld6pu6fxiu",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-08T14:00:54.126Z",
+      "updated_at": "2022-12-08T14:00:54.126Z",
+      "date": "2022-12-06T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-9a804596b15e8c0bcf8ecbbe4765b0f7",
+      "description": "OF London GBR 990812",
+      "amount": -24.16,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cjxcb7llo000vn8zy1iehavyl",
+        "name": "OnlyFans"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvzi5006v08mlg3pndlk0",
+        "name": "Entertainment (not elsewhere classified)",
+        "components": [
+          {
+            "name": "Entertainment (not elsewhere classified)",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Parks & gardens",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "reference": "990812",
+        "conversion": {
+          "currency": "USD",
+          "amount": 14.94,
+          "rate": 0.6301,
+          "fee": 0.45
+        },
+        "logo": "https://static.akahu.io/outlets/merchant_cjxcb7llo000vn8zy1iehavyl_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbdpx3mt0afw08lee1zd8tmb",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-07T14:00:49.432Z",
+      "updated_at": "2022-12-07T14:00:49.432Z",
+      "date": "2022-12-06T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-2bea2fd89f16a55723e9063d5c4003ba",
+      "description": "Goodness Gracious 05 7828",
+      "amount": -18.4,
+      "balance": 851.97,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjfxheakq000001mae0n58j7k",
+        "name": "Goodness Gracious",
+        "business_number": {
+          "type": "NZBN",
+          "value": "9429030163713"
+        }
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyw1004408mlhy158i7j",
+        "name": "Cafes and restaurants",
+        "components": [
+          {
+            "name": "Cafes and restaurants",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Cafes & restaurants",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "code": "7828",
+        "logo": "https://static.akahu.io/outlets/merchant_cjfxheakq000001mae0n58j7k_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbdpx3mu0afx08le74gl7oec",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-07T14:00:49.432Z",
+      "updated_at": "2022-12-07T14:00:49.432Z",
+      "date": "2022-12-06T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-11af6d213642bf149b31fbfb40b85a68",
+      "description": "Smits,Edgar L Tub",
+      "amount": 175,
+      "balance": 870.37,
+      "type": "PAYMENT",
+      "meta": {
+        "particulars": "tub",
+        "other_account": "06-0489-0165117-00"
+      }
+    },
+    {
+      "_id": "trans_clbds2mrt07xs08l4gnjv4rom",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-12-07T15:01:05.857Z",
+      "updated_at": "2022-12-07T15:01:05.857Z",
+      "date": "2022-12-06T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-f335c7dd1e6af65d06cb8bb4c35b7ad9",
+      "description": "GITHUB SAN FRANCISCO",
+      "amount": -6.48,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjha0ibcv000001nsypvnamy6",
+        "name": "GitHub"
+      },
+      "category": {
+        "_id": "nzfcc_ckpymsz13000009l2alfj3mw4",
+        "name": "Business software and cloud services",
+        "components": [
+          {
+            "name": "Business software and cloud services",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Professional Services",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Postal & courier services",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0012hk4mgru5dgy7",
+            "name": "Professional Services"
+          }
+        }
+      },
+      "meta": {
+        "logo": "https://static.akahu.io/outlets/merchant_cjha0ibcv000001nsypvnamy6_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbcbjxrc0apl08mchsxs10ua",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-06T14:30:54.939Z",
+      "updated_at": "2022-12-06T14:30:54.939Z",
+      "date": "2022-12-05T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-a992c47b732047efc5b67880d6f2a1e7",
+      "description": "Countdown Ponsonb 02 7828",
+      "amount": -34.95,
+      "balance": 734.78,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjgkhyhvg000001n31lpr1zkt",
+        "name": "Countdown"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvy84001608ml5p6z4d8j",
+        "name": "Supermarkets and grocery stores",
+        "components": [
+          {
+            "name": "Supermarkets and grocery stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Food",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Supermarket and grocery stores",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000xhk4mf7mg2j1z",
+            "name": "Food"
+          }
+        }
+      },
+      "meta": {
+        "code": "7828",
+        "logo": "https://static.akahu.io/outlets/merchant_cjgkhyhvg000001n31lpr1zkt_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbcbjxrb0apk08mc5tm7fvb8",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-06T14:30:54.939Z",
+      "updated_at": "2022-12-06T14:30:54.939Z",
+      "date": "2022-12-05T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-695722faecc3e8690d88ed18fa1903b8",
+      "description": "Countdown Ponsonb 04 7828",
+      "amount": -39.41,
+      "balance": 695.37,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjgkhyhvg000001n31lpr1zkt",
+        "name": "Countdown"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvy84001608ml5p6z4d8j",
+        "name": "Supermarkets and grocery stores",
+        "components": [
+          {
+            "name": "Supermarkets and grocery stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Food",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Supermarket and grocery stores",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000xhk4mf7mg2j1z",
+            "name": "Food"
+          }
+        }
+      },
+      "meta": {
+        "code": "7828",
+        "logo": "https://static.akahu.io/outlets/merchant_cjgkhyhvg000001n31lpr1zkt_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbcbjxrd0apm08mce2ke79yz",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-06T14:30:54.939Z",
+      "updated_at": "2022-12-06T14:30:54.939Z",
+      "date": "2022-12-05T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-25a442867ffa69c454b1d43dcdf02b7f",
+      "description": "Glengarry Wines 03 7828",
+      "amount": -27.99,
+      "balance": 769.73,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjijwczep00164pzyv4d358yc",
+        "name": "Glengarry Wines"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyac001c08mlbyp5doni",
+        "name": "Liquor stores",
+        "components": [
+          {
+            "name": "Liquor stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Specialised food retailing",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "code": "7828",
+        "logo": "https://static.akahu.io/outlets/merchant_cjijwczep00164pzyv4d358yc_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbcbjxre0apo08mcfbd84rlg",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-06T14:30:54.939Z",
+      "updated_at": "2022-12-06T14:30:54.939Z",
+      "date": "2022-12-05T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-ca239e83f7a50a16ceb2a074dda0ec7d",
+      "description": "Daily Bread Ponso 03 7828",
+      "amount": -11.5,
+      "balance": 814.86,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjllgv4o7000yiyzyhqjvjgw9",
+        "name": "Daily Bread"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvy98001a08ml3l180boh",
+        "name": "Bakeries",
+        "components": [
+          {
+            "name": "Bakeries",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Food",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Specialised food retailing",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000xhk4mf7mg2j1z",
+            "name": "Food"
+          }
+        }
+      },
+      "meta": {
+        "code": "7828",
+        "logo": "https://static.akahu.io/outlets/merchant_cjllgv4o7000yiyzyhqjvjgw9_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbcbjxre0app08mc3eb922yc",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-06T14:30:54.939Z",
+      "updated_at": "2022-12-06T14:30:54.939Z",
+      "date": "2022-12-05T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-2822ee108a9ec22c303be3a46bd9281a",
+      "description": "Annabel's 03 7828",
+      "amount": -4,
+      "balance": 826.36,
+      "type": "DEBIT",
+      "meta": {
+        "code": "7828"
+      }
+    },
+    {
+      "_id": "trans_clbcbjxrd0apn08mc3qmz0hyz",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-06T14:30:54.939Z",
+      "updated_at": "2022-12-06T14:30:54.939Z",
+      "date": "2022-12-05T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-54b2b4750fb5ddd4cf381fc682f172b5",
+      "description": "Farro Fresh Grey 04 7828",
+      "amount": -17.14,
+      "balance": 797.72,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjj3yf6a700060zzyrvl6a4bm",
+        "name": "Farro Fresh"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvy84001608ml5p6z4d8j",
+        "name": "Supermarkets and grocery stores",
+        "components": [
+          {
+            "name": "Supermarkets and grocery stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Food",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Supermarket and grocery stores",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000xhk4mf7mg2j1z",
+            "name": "Food"
+          }
+        }
+      },
+      "meta": {
+        "code": "7828",
+        "logo": "https://static.akahu.io/outlets/merchant_cjj3yf6a700060zzyrvl6a4bm_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clba3676m01jb08jhahw3cy0v",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-12-05T01:00:43.678Z",
+      "updated_at": "2022-12-05T01:00:43.678Z",
+      "date": "2022-12-05T00:32:38.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-c28019985be28aaad925e10e359f5b14",
+      "description": "DC- MISS M K SPRATT M + W topup",
+      "amount": 60,
+      "balance": 171.36,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clb9yw1fc00bg08l26cjzhsjj",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-12-04T23:00:51.756Z",
+      "updated_at": "2022-12-04T23:00:51.756Z",
+      "date": "2022-12-04T22:44:36.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-9fcb0abbedd55a8214ff95c0f78e4325",
+      "description": "Damerell Group 12-3252-0054287-001",
+      "amount": -133.81,
+      "balance": 111.36,
+      "type": "DEBIT",
+      "meta": {
+        "other_account": "12-3252-0054287-01"
+      }
+    },
+    {
+      "_id": "trans_clbaxq5by06nk08mkeq4eckub",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-05T15:16:02.784Z",
+      "updated_at": "2022-12-05T15:16:02.784Z",
+      "date": "2022-12-04T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-0a6ce0a41c4570220d562417bdaa9cac",
+      "description": "Morningside Taver 01 7828",
+      "amount": -35.9,
+      "balance": 830.36,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjtqmw1zb001641zyazhmhf65",
+        "name": "The Morningside Tavern"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyvh004108mlfau3hrm2",
+        "name": "Bars, pubs, nightclubs",
+        "components": [
+          {
+            "name": "Bars, pubs, nightclubs",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Pubs, taverns & bars",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "code": "7828",
+        "logo": "https://static.akahu.io/outlets/merchant_cjtqmw1zb001641zyazhmhf65_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clbaxq5by06nl08mkg71k52tu",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-05T15:16:02.784Z",
+      "updated_at": "2022-12-05T15:16:02.784Z",
+      "date": "2022-12-04T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-38ddfb569ea9a88f16006979b1580c7c",
+      "description": "Daily Bread Ponso 01 7828",
+      "amount": -12,
+      "balance": 866.26,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjllgv4o7000yiyzyhqjvjgw9",
+        "name": "Daily Bread"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvy98001a08ml3l180boh",
+        "name": "Bakeries",
+        "components": [
+          {
+            "name": "Bakeries",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Food",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Specialised food retailing",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000xhk4mf7mg2j1z",
+            "name": "Food"
+          }
+        }
+      },
+      "meta": {
+        "code": "7828",
+        "logo": "https://static.akahu.io/outlets/merchant_cjllgv4o7000yiyzyhqjvjgw9_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb8s0uv101ix08mad8qnavyo",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-12-04T03:00:52.521Z",
+      "updated_at": "2022-12-04T03:00:52.521Z",
+      "date": "2022-12-04T02:30:37.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-cac29e5b7ff8ba54ed68caac520b5edb",
+      "description": "Michaela Spratt 12-3034-0152305-050",
+      "amount": -25.4,
+      "balance": 245.17,
+      "type": "DEBIT",
+      "meta": {
+        "other_account": "12-3034-0152305-50"
+      }
+    },
+    {
+      "_id": "trans_clb6lskcm03xe08ic3ptu0ufj",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-02T14:30:55.927Z",
+      "updated_at": "2022-12-02T14:30:55.927Z",
+      "date": "2022-12-01T23:54:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-4f5e5f67ad349aa3f7af1247c9842bf7",
+      "description": "1740Ashley Broatch Netball BILL PAYMENT",
+      "amount": -51.43,
+      "balance": 878.26,
+      "type": "PAYMENT",
+      "meta": {
+        "particulars": "netball",
+        "code": "bill payment",
+        "reference": "12:54-12052",
+        "other_account": "38-9000-0549280-12"
+      }
+    },
+    {
+      "_id": "trans_clbaxq5c006nn08mk4b8u0c51",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-05T15:16:02.784Z",
+      "updated_at": "2022-12-05T15:16:02.784Z",
+      "date": "2022-12-01T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-8251ca1c0dd19e091bba714302045b90",
+      "description": "OTT* WILDONLINE AUCKLAND NZ- 990412",
+      "amount": -19.99,
+      "type": "CREDIT CARD",
+      "meta": {
+        "reference": "990412"
+      }
+    },
+    {
+      "_id": "trans_clb6lskcn03xg08icbmzr1lkf",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-02T14:30:55.927Z",
+      "updated_at": "2022-12-02T14:30:55.927Z",
+      "date": "2022-12-01T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-4182e4e4d9c48d46b7991aca67c8bd7d",
+      "description": "Google GSUITE_lapworth Auckland NZL 990212",
+      "amount": -26.24,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cjfxgqw5m000001peog57a4b4",
+        "name": "Google"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvzhn006t08mlg81xhlbx",
+        "name": "Media and entertainment streaming services",
+        "components": [
+          {
+            "name": "Media and entertainment streaming services",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Radio & television services",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "reference": "990212",
+        "conversion": {
+          "currency": "USD",
+          "amount": 16.1,
+          "rate": 0.6188,
+          "fee": 0.22
+        },
+        "logo": "https://static.akahu.io/outlets/merchant_cjfxgqw5m000001peog57a4b4_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb4dewcw00pi08mj1486779v",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-12-01T01:00:48.782Z",
+      "updated_at": "2022-12-01T01:00:48.782Z",
+      "date": "2022-12-01T00:32:28.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-akx3u000yvk4",
+      "description": "DC- Lapworth J M akx3u000yvk4",
+      "amount": 234,
+      "balance": 270.57,
+      "type": "TRANSFER",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clb49alhb01oo08l81pt28khn",
+      "_account": "acc_ckgq8c3df000008mg9m7b8t6k",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-30T23:05:30.191Z",
+      "updated_at": "2022-12-01T14:30:59.216Z",
+      "date": "2022-11-30T23:05:00.000Z",
+      "hash": "acc_ckgq8c3df000008mg9m7b8t6k-akx3u000yvk4",
+      "description": "Williamson Ave akx3u000yvk4 ONE TIME PMT",
+      "amount": -234,
+      "balance": 566.19,
+      "type": "TRANSFER",
+      "meta": {
+        "particulars": "akx3u000yvk4",
+        "code": "one time pmt",
+        "reference": "12:05-90651"
+      }
+    },
+    {
+      "_id": "trans_clb3ljnwj00vz08jxal554mb9",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-30T12:00:42.185Z",
+      "updated_at": "2022-11-30T12:00:42.185Z",
+      "date": "2022-11-30T11:54:46.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-3103d03d6d5661353b3f6029f3d7483a",
+      "description": "Ray White Property DUE 011222",
+      "amount": -960,
+      "balance": 36.57,
+      "type": "DIRECT DEBIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clb6lskco03xh08ich8zpg8wq",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-02T14:30:55.927Z",
+      "updated_at": "2022-12-02T14:30:55.927Z",
+      "date": "2022-11-30T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-f30a970f839d5089834cfcf9d6ebe4e8",
+      "description": "AT Parking Auckland NZL 990212",
+      "amount": -9,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cji7ysnwi0005jnmsg4t5g7xe",
+        "name": "Auckland Transport"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyx4004a08ml4rop060m",
+        "name": "Boat transport services",
+        "components": [
+          {
+            "name": "Boat transport services",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Transport",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Road passenger transport",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000whk4m577xhmf3",
+            "name": "Transport"
+          }
+        }
+      },
+      "meta": {
+        "reference": "990212",
+        "logo": "https://static.akahu.io/outlets/merchant_cji7ysnwi0005jnmsg4t5g7xe_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb2xyz3j060808lbdd0bfi4z",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-30T01:00:45.334Z",
+      "updated_at": "2022-11-30T01:00:45.334Z",
+      "date": "2022-11-30T00:32:32.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-akxi9000w2qx",
+      "description": "DC- Lapworth J M akxi9000w2qx",
+      "amount": 20,
+      "balance": 996.57,
+      "type": "TRANSFER",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clb2tup3h042r08mkcqf28ccf",
+      "_account": "acc_ckgq8c3df000008mg9m7b8t6k",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-29T23:05:27.600Z",
+      "updated_at": "2022-11-30T15:01:15.908Z",
+      "date": "2022-11-29T23:05:00.000Z",
+      "hash": "acc_ckgq8c3df000008mg9m7b8t6k-akxi9000w2qx",
+      "description": "Williamson Ave akxi9000w2qx ONE TIME PMT",
+      "amount": -20,
+      "balance": 800.19,
+      "type": "TRANSFER",
+      "meta": {
+        "particulars": "akxi9000w2qx",
+        "code": "one time pmt",
+        "reference": "12:05-68029"
+      }
+    },
+    {
+      "_id": "trans_clb2rjgxg08jy08l77uld154r",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-29T22:00:44.177Z",
+      "updated_at": "2022-11-29T22:00:44.177Z",
+      "date": "2022-11-29T21:32:53.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-8379dc0bf2d762602a487592f591b51e",
+      "description": "DC- MK SPRATT MKS WPK Rent",
+      "amount": 288,
+      "balance": 976.57,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clb2rjgxh08jz08l7htpyb3yb",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-29T22:00:44.177Z",
+      "updated_at": "2022-11-29T22:00:44.177Z",
+      "date": "2022-11-29T21:32:49.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-c35c374e048d8d9ac0cebb61eab039e7",
+      "description": "DC- MK SPRATT MKSPRATT Expenses",
+      "amount": 20,
+      "balance": 688.57,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clb2rjgxi08k008l7duw6afd4",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-29T22:00:44.177Z",
+      "updated_at": "2022-11-29T22:00:44.177Z",
+      "date": "2022-11-29T21:32:49.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-037effd98f68e5bfba4b55ff28caf566",
+      "description": "DC- WP KILLIP Wil",
+      "amount": 20,
+      "balance": 668.57,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clb2pecem04qy08meg9yl3l0r",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-29T21:00:45.725Z",
+      "updated_at": "2022-11-29T21:00:45.725Z",
+      "date": "2022-11-29T20:32:52.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-a1456a8305d1e52328091d7390c00425",
+      "description": "DC- LISTON,READ Rent",
+      "amount": 250,
+      "balance": 648.57,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clb56csir02fe08jtdvfmbm8w",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-12-01T14:30:59.216Z",
+      "updated_at": "2022-12-01T14:30:59.216Z",
+      "date": "2022-11-29T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-1fe3ae78814c3fe153fc08e579cf7f03",
+      "description": "COUNTDOWN PONSONBY AUCKLAND NZL 990112",
+      "amount": -38.63,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cjgkhyhvg000001n31lpr1zkt",
+        "name": "Countdown"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvy84001608ml5p6z4d8j",
+        "name": "Supermarkets and grocery stores",
+        "components": [
+          {
+            "name": "Supermarkets and grocery stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Food",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Supermarket and grocery stores",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000xhk4mf7mg2j1z",
+            "name": "Food"
+          }
+        }
+      },
+      "meta": {
+        "reference": "990112",
+        "logo": "https://static.akahu.io/outlets/merchant_cjgkhyhvg000001n31lpr1zkt_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb0qnvvq018b08jt92ixa1c1",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-28T12:00:38.133Z",
+      "updated_at": "2022-11-28T12:00:38.133Z",
+      "date": "2022-11-28T11:58:41.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-eb1a44e5043dd54308859c8bc6b07463",
+      "description": "DIRECT DEBIT - Orcon LIMITED",
+      "amount": -100.77,
+      "balance": 398.57,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cji7z5dls0005obmstlg4wjgm",
+        "name": "Orcon"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvz0y004t08ml8zey1jiv",
+        "name": "Telecommunication services",
+        "components": [
+          {
+            "name": "Telecommunication services",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Utilities",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Other business services",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000vhk4m46ce9nrt",
+            "name": "Utilities"
+          }
+        }
+      },
+      "meta": {
+        "logo": "https://static.akahu.io/outlets/merchant_cji7z5dls0005obmstlg4wjgm_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb1mtvu702bd08l666ui965k",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-11-29T03:01:06.285Z",
+      "updated_at": "2022-11-29T03:01:06.285Z",
+      "date": "2022-11-28T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-7e38f8542930c162f239d7bdf2172c40",
+      "description": "ANNUAL CARD FEE",
+      "amount": -195,
+      "type": "DEBIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clb329pox005008l62pi7ftsy",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-11-30T03:01:05.101Z",
+      "updated_at": "2022-11-30T03:01:05.101Z",
+      "date": "2022-11-28T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-b428038ab2c6c3367d50d456cf6bde6f",
+      "description": "APPLE.COM/BILL SYDNEY",
+      "amount": -27.49,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjfxh3p0m000001qk99reqten",
+        "name": "Apple",
+        "business_number": {
+          "type": "NZBN",
+          "value": "9429034262542"
+        }
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyge002108mlfe0l2thb",
+        "name": "Electronic and appliance stores",
+        "components": [
+          {
+            "name": "Electronic and appliance stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Household",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Furniture, houseware & appliance retail",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000uhk4m20nvc6m1",
+            "name": "Household"
+          }
+        }
+      },
+      "meta": {
+        "logo": "https://static.akahu.io/outlets/merchant_cjfxh3p0m000001qk99reqten_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb1mtvu802be08l6dkgaa85y",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-11-29T03:01:06.285Z",
+      "updated_at": "2022-11-29T03:01:06.285Z",
+      "date": "2022-11-28T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-b71e5676ce3b229b7c2babec91ddcb40",
+      "description": "INTEREST CHARGE",
+      "amount": -65.36,
+      "type": "DEBIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clazuimm5011p08l5h4y7ctgm",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-27T21:00:45.354Z",
+      "updated_at": "2022-11-27T21:00:45.354Z",
+      "date": "2022-11-27T20:32:40.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-f2cb8ba1db813165181cab4dd35dcfdd",
+      "description": "DC- LISTON,READ Rent",
+      "amount": 250,
+      "balance": 499.34,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clb2ay60x00xi08l8alls3h4t",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-29T14:16:17.593Z",
+      "updated_at": "2022-11-29T14:16:17.593Z",
+      "date": "2022-11-27T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-ddf3fb57ee4819fe10e00a728a5a6cb3",
+      "description": "COUNTDOWN PONSONBY AUCKLAND NZL 992911",
+      "amount": -65.31,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cjgkhyhvg000001n31lpr1zkt",
+        "name": "Countdown"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvy84001608ml5p6z4d8j",
+        "name": "Supermarkets and grocery stores",
+        "components": [
+          {
+            "name": "Supermarkets and grocery stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Food",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Supermarket and grocery stores",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000xhk4mf7mg2j1z",
+            "name": "Food"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992911",
+        "logo": "https://static.akahu.io/outlets/merchant_cjgkhyhvg000001n31lpr1zkt_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb2ay60w00xh08l808spewuv",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-29T14:16:17.593Z",
+      "updated_at": "2022-11-29T14:16:17.593Z",
+      "date": "2022-11-27T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-150c6e985d7071ee40dd40ae1bb04069",
+      "description": "AT Parking Auckland NZL 992911",
+      "amount": -70,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cji7ysnwi0005jnmsg4t5g7xe",
+        "name": "Auckland Transport"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyx4004a08ml4rop060m",
+        "name": "Boat transport services",
+        "components": [
+          {
+            "name": "Boat transport services",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Transport",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Road passenger transport",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000whk4m577xhmf3",
+            "name": "Transport"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992911",
+        "logo": "https://static.akahu.io/outlets/merchant_cji7ysnwi0005jnmsg4t5g7xe_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb0xndc800bu08lae2ot29p7",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-28T15:16:12.654Z",
+      "updated_at": "2022-11-28T15:16:12.654Z",
+      "date": "2022-11-26T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-cbdc1130a8bab5e761c9706c4636072c",
+      "description": "BPME PONGAKAWA TE PUKE NZL 992811",
+      "amount": -9.56,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cjhbezrsj000001l9zru2i81j",
+        "name": "BP",
+        "business_number": {
+          "type": "NZBN",
+          "value": "9429040962658"
+        }
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvytq003o08mlbcy57jft",
+        "name": "Fuel stations",
+        "components": [
+          {
+            "name": "Fuel stations",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Transport",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Services to road transport",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000whk4m577xhmf3",
+            "name": "Transport"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992811",
+        "logo": "https://static.akahu.io/outlets/merchant_cjhbezrsj000001l9zru2i81j_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clawft6pl0d2208mhdfvagcpx",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-25T11:45:44.850Z",
+      "updated_at": "2022-11-25T11:45:44.850Z",
+      "date": "2022-11-25T11:32:54.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-106a8c771278c375208ad1544bcc6dce",
+      "description": "ELECTRONIC A/C MONTHLY FEE",
+      "amount": -5,
+      "balance": 249.34,
+      "type": "FEE",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clb0xndc900bv08la40ythdj9",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-28T15:16:12.654Z",
+      "updated_at": "2022-11-28T15:16:12.654Z",
+      "date": "2022-11-25T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-699a52b8b3e03dea0d4a42a6716da791",
+      "description": "R N Bees Whakatane NZL 992711",
+      "amount": -17.48,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cl6a31kqr000009md13iu1jeo",
+        "name": "R N' Bees Berry Farm"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvy84001608ml5p6z4d8j",
+        "name": "Supermarkets and grocery stores",
+        "components": [
+          {
+            "name": "Supermarkets and grocery stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Food",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Supermarket and grocery stores",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000xhk4mf7mg2j1z",
+            "name": "Food"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992711",
+        "logo": "https://static.akahu.io/images/merchant_cl6a31kqr000009md13iu1jeo_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb0xndca00bw08lagz37cckd",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-28T15:16:12.655Z",
+      "updated_at": "2022-11-28T15:16:12.655Z",
+      "date": "2022-11-25T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-0c6338d7daaec4f98db660c8dc3e01e2",
+      "description": "CADERA WHAKATANE NZL 992711",
+      "amount": -104,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_ckpyor8v8002x09l60dcq6794",
+        "name": "Cadera"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyw1004408mlhy158i7j",
+        "name": "Cafes and restaurants",
+        "components": [
+          {
+            "name": "Cafes and restaurants",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Cafes & restaurants",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992711",
+        "logo": "https://static.akahu.io/avatars/C.png"
+      }
+    },
+    {
+      "_id": "trans_clav0wlpc01zd08mj03ochb3p",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-24T12:00:43.905Z",
+      "updated_at": "2022-11-24T12:00:43.905Z",
+      "date": "2022-11-24T11:52:28.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-5b89635e6f4728e12628516d679ef499",
+      "description": "Ray White Property DUE 241122",
+      "amount": -960,
+      "balance": 254.34,
+      "type": "DIRECT DEBIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clb0xndcb00bx08la19g8fh35",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-28T15:16:12.655Z",
+      "updated_at": "2022-11-28T15:16:12.655Z",
+      "date": "2022-11-24T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-54849182c366670c41470173025b79d2",
+      "description": "NEW WORLD MT MAUNGANUI MT MAUNGANUI NZL 992711",
+      "amount": -14.08,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cjfvxogep000001tl3uhkjztq",
+        "name": "New World",
+        "business_number": {
+          "type": "NZBN",
+          "value": "9429040748160"
+        }
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvy84001608ml5p6z4d8j",
+        "name": "Supermarkets and grocery stores",
+        "components": [
+          {
+            "name": "Supermarkets and grocery stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Food",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Supermarket and grocery stores",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000xhk4mf7mg2j1z",
+            "name": "Food"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992711",
+        "logo": "https://static.akahu.io/outlets/merchant_cjfvxogep000001tl3uhkjztq_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb0xndcp00c008labfno0ir4",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-28T15:16:12.655Z",
+      "updated_at": "2022-11-28T15:16:12.655Z",
+      "date": "2022-11-24T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-0e1ee254f71141a750f45d8947153aa1",
+      "description": "Eddie Elspith Mt Maunganui NZL 992611",
+      "amount": -6,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cjv3cgb0f00066dojhs6qddvf",
+        "name": "Eddies & Elspeth"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyw1004408mlhy158i7j",
+        "name": "Cafes and restaurants",
+        "components": [
+          {
+            "name": "Cafes and restaurants",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Cafes & restaurants",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992611",
+        "logo": "https://static.akahu.io/outlets/merchant_cjv3cgb0f00066dojhs6qddvf_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb0xndcr00c208la5t3z7en2",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-28T15:16:12.655Z",
+      "updated_at": "2022-11-28T15:16:12.655Z",
+      "date": "2022-11-24T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-193579e9ff1a3e963082a1eb5964a3f2",
+      "description": "KMART - BAYFAIR TAURANGA NZL 992611",
+      "amount": -7,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cji8bap1y00009uojjavcnvoj",
+        "name": "Kmart"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvybd001f08ml8w4y3yor",
+        "name": "General retail stores",
+        "components": [
+          {
+            "name": "General retail stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Household",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Department stores",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000uhk4m20nvc6m1",
+            "name": "Household"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992611",
+        "logo": "https://static.akahu.io/outlets/merchant_cji8bap1y00009uojjavcnvoj_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb0xndcb00by08lacmw3fcxg",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-28T15:16:12.655Z",
+      "updated_at": "2022-11-28T15:16:12.655Z",
+      "date": "2022-11-24T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-22ba1c52cb493cd0146978281408a004",
+      "description": "LITTLE SISTER MOUNT MAUNGAN NZL 992711",
+      "amount": -52.5,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_ckyuolkhd000c09me2ficbr66",
+        "name": "Little Sisters"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvydo001q08ml4xvgfhgl",
+        "name": "Clothing stores",
+        "components": [
+          {
+            "name": "Clothing stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Appearance",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Clothing & soft good retailing",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0010hk4mf2dca4y8",
+            "name": "Appearance"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992711",
+        "logo": "https://static.akahu.io/images/merchant_ckyuolkhd000c09me2ficbr66_logo.jpeg"
+      }
+    },
+    {
+      "_id": "trans_clb0xndcc00bz08la6kdi1y2s",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-28T15:16:12.655Z",
+      "updated_at": "2022-11-28T15:16:12.655Z",
+      "date": "2022-11-24T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-e4f61ce427f6b3c698093775a88cd34f",
+      "description": "OF London GBR 992611",
+      "amount": -24.52,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cjxcb7llo000vn8zy1iehavyl",
+        "name": "OnlyFans"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvzi5006v08mlg3pndlk0",
+        "name": "Entertainment (not elsewhere classified)",
+        "components": [
+          {
+            "name": "Entertainment (not elsewhere classified)",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Parks & gardens",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992611",
+        "conversion": {
+          "currency": "USD",
+          "amount": 14.95,
+          "rate": 0.6214,
+          "fee": 0.46
+        },
+        "logo": "https://static.akahu.io/outlets/merchant_cjxcb7llo000vn8zy1iehavyl_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clb0xndcq00c108laeto6ahbt",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-28T15:16:12.655Z",
+      "updated_at": "2022-11-28T15:16:12.655Z",
+      "date": "2022-11-24T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-2aed08da6171bcb1c405d1a49e6d245b",
+      "description": "KMART - BAYFAIR TAURANGA NZL 992611",
+      "amount": -135,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cji8bap1y00009uojjavcnvoj",
+        "name": "Kmart"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvybd001f08ml8w4y3yor",
+        "name": "General retail stores",
+        "components": [
+          {
+            "name": "General retail stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Household",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Department stores",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000uhk4m20nvc6m1",
+            "name": "Household"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992611",
+        "logo": "https://static.akahu.io/outlets/merchant_cji8bap1y00009uojjavcnvoj_logo.png"
+      }
+    },
+    {
+      "_id": "trans_claujr9t309ie08ml37uz0z4g",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-24T04:00:41.692Z",
+      "updated_at": "2022-11-24T04:00:41.692Z",
+      "date": "2022-11-24T03:32:42.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-0aab612ab0e5076f69cfa8ff8c0ac167",
+      "description": "DC- LISTON,READ Rent",
+      "amount": 250,
+      "balance": 1214.34,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_claudbuuv06pp08lb0knzdqi0",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-24T01:00:45.535Z",
+      "updated_at": "2022-11-24T01:00:45.535Z",
+      "date": "2022-11-24T00:32:29.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-akxae000l135",
+      "description": "DC- Lapworth J M akxae000l135",
+      "amount": 234,
+      "balance": 964.34,
+      "type": "TRANSFER",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clau97jk009x908jo59pn62dk",
+      "_account": "acc_ckgq8c3df000008mg9m7b8t6k",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-23T23:05:26.899Z",
+      "updated_at": "2022-11-24T13:45:56.764Z",
+      "date": "2022-11-23T23:05:00.000Z",
+      "hash": "acc_ckgq8c3df000008mg9m7b8t6k-akxae000l135",
+      "description": "Williamson Ave akxae000l135 ONE TIME PMT",
+      "amount": -234,
+      "balance": 820.19,
+      "type": "TRANSFER",
+      "meta": {
+        "particulars": "akxae000l135",
+        "code": "one time pmt",
+        "reference": "12:05-71376"
+      }
+    },
+    {
+      "_id": "trans_clav4nw9905sj08ld3w3c0nf6",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-24T13:45:56.763Z",
+      "updated_at": "2022-11-24T13:45:56.763Z",
+      "date": "2022-11-23T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-4dea2ba2408a880f03e257b7379a3865",
+      "description": "INTEREST PURCHASES",
+      "amount": -51.91,
+      "type": "FEE",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clav4nw9905sk08ld0tlda1hi",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-24T13:45:56.763Z",
+      "updated_at": "2022-11-24T13:45:56.763Z",
+      "date": "2022-11-23T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-65e04217d132fb773332ff64eee74563",
+      "description": "INTEREST B'Fwd PURCHASES",
+      "amount": -23.48,
+      "type": "FEE",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clasxw05t064m08mfgpfi2gq8",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-23T01:00:44.612Z",
+      "updated_at": "2022-11-23T01:00:44.612Z",
+      "date": "2022-11-23T00:34:43.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-akxpu000lwe0",
+      "description": "DC- Lapworth J M akxpu000lwe0",
+      "amount": 20,
+      "balance": 730.34,
+      "type": "TRANSFER",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clastrnjb07qi08mkdlqh6fy2",
+      "_account": "acc_ckgq8c3df000008mg9m7b8t6k",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-22T23:05:23.447Z",
+      "updated_at": "2022-11-23T13:46:16.926Z",
+      "date": "2022-11-22T23:05:00.000Z",
+      "hash": "acc_ckgq8c3df000008mg9m7b8t6k-akxpu000lwe0",
+      "description": "Williamson Ave akxpu000lwe0 ONE TIME PMT",
+      "amount": -20,
+      "balance": 1054.19,
+      "type": "TRANSFER",
+      "meta": {
+        "particulars": "akxpu000lwe0",
+        "code": "one time pmt",
+        "reference": "12:05-12768"
+      }
+    },
+    {
+      "_id": "trans_clasrgk4502rf08mi06zc7ydz",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-22T22:00:47.118Z",
+      "updated_at": "2022-11-22T22:00:47.118Z",
+      "date": "2022-11-22T21:32:47.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-af861cff3cc6246d22d71f9c9ee284c9",
+      "description": "DC- MK SPRATT MKS WPK Rent",
+      "amount": 288,
+      "balance": 710.34,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clasrgk4602rh08mibxjoenkk",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-22T22:00:47.118Z",
+      "updated_at": "2022-11-22T22:00:47.118Z",
+      "date": "2022-11-22T21:32:43.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-1d4640524cfe864e396aa5e0bf6e29d8",
+      "description": "DC- MK SPRATT MKSPRATT Expenses",
+      "amount": 20,
+      "balance": 402.34,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clasrgk4602rg08micx6h9b64",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-22T22:00:47.118Z",
+      "updated_at": "2022-11-22T22:00:47.118Z",
+      "date": "2022-11-22T21:32:43.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-f0ee35576f671691507250f5dc0e3f26",
+      "description": "DC- WP KILLIP Wil",
+      "amount": 20,
+      "balance": 422.34,
+      "type": "DIRECT CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clas60w9f052i08mc5txgckum",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-22T12:00:43.696Z",
+      "updated_at": "2022-11-22T12:00:43.696Z",
+      "date": "2022-11-22T12:00:25.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-76f499221d7c33aeaa16ab4d6da76564",
+      "description": "DIRECT DEBIT - MERCURY NZ LTD",
+      "amount": -253.56,
+      "balance": 382.34,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjip6pwus0009qjzyon7isnbb",
+        "name": "Mercury"
+      },
+      "category": {
+        "_id": "nzfcc_clahc65qk000008jt7nug6ag9",
+        "name": "Electricity services",
+        "components": [
+          {
+            "name": "Electricity services",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Utilities",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Uncategorised",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000vhk4m46ce9nrt",
+            "name": "Utilities"
+          }
+        }
+      },
+      "meta": {
+        "logo": "https://static.akahu.io/outlets/merchant_cjip6pwus0009qjzyon7isnbb_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clawqjmxf07y108jshl309d66",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-25T16:46:15.979Z",
+      "updated_at": "2022-11-25T16:46:15.979Z",
+      "date": "2022-11-22T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-4879ff193a1eb486c28b0b8b4da52f36",
+      "description": "BURGER FUEL MT MAUNGAN MT MAUNGANUI NZL 992511",
+      "amount": -27.7,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cji8bj7ll00049uoj6rizbhx2",
+        "name": "Burger Fuel"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvywi004508mlacrd41wf",
+        "name": "Fast food stores",
+        "components": [
+          {
+            "name": "Fast food stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Cafes & restaurants",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992511",
+        "logo": "https://static.akahu.io/outlets/merchant_cji8bj7ll00049uoj6rizbhx2_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clav4nw9b05sm08ldbccdftdc",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-24T13:45:56.764Z",
+      "updated_at": "2022-11-24T13:45:56.764Z",
+      "date": "2022-11-22T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-d5869d9e4fdf9af6696516d4db9dba09",
+      "description": "EVERYDAY WINE AUCKLAND NZL 992411",
+      "amount": -50,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_ck5frjfvp0039yozyeq6k02xa",
+        "name": "Everyday Wine"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyac001c08mlbyp5doni",
+        "name": "Liquor stores",
+        "components": [
+          {
+            "name": "Liquor stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Specialised food retailing",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992411",
+        "logo": "https://static.akahu.io/outlets/merchant_ck5frjfvp0039yozyeq6k02xa_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clav4nw9a05sl08ld9vmlda8c",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-24T13:45:56.764Z",
+      "updated_at": "2022-11-24T13:45:56.764Z",
+      "date": "2022-11-22T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-871e0c40ba20cd25618a011103a23dd3",
+      "description": "OF London GBR 992411",
+      "amount": -12.52,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cjxcb7llo000vn8zy1iehavyl",
+        "name": "OnlyFans"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvzi5006v08mlg3pndlk0",
+        "name": "Entertainment (not elsewhere classified)",
+        "components": [
+          {
+            "name": "Entertainment (not elsewhere classified)",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Parks & gardens",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992411",
+        "conversion": {
+          "currency": "USD",
+          "amount": 7.48,
+          "rate": 0.6086,
+          "fee": 0.23
+        },
+        "logo": "https://static.akahu.io/outlets/merchant_cjxcb7llo000vn8zy1iehavyl_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clav4nw9b05sn08ldblc63ksd",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-24T13:45:56.764Z",
+      "updated_at": "2022-11-24T13:45:56.764Z",
+      "date": "2022-11-22T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-7fd5b6e521b595fc4a922d09ace3421d",
+      "description": "Caltex Newton Newton NZL 992411",
+      "amount": -94,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cji5dvh8i000001o3gibbbglo",
+        "name": "Caltex"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvytq003o08mlbcy57jft",
+        "name": "Fuel stations",
+        "components": [
+          {
+            "name": "Fuel stations",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Transport",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Services to road transport",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000whk4m577xhmf3",
+            "name": "Transport"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992411",
+        "logo": "https://static.akahu.io/outlets/merchant_cji5dvh8i000001o3gibbbglo_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clatp8h8e02mi08ld89ywe376",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-23T13:46:16.925Z",
+      "updated_at": "2022-11-23T13:46:16.925Z",
+      "date": "2022-11-22T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-f3a82d803b218250ded14cf6dbe9fc96",
+      "description": "American Express 46802961003 Amex Payment",
+      "amount": -952.45,
+      "balance": 929.69,
+      "type": "DIRECT DEBIT",
+      "merchant": {
+        "_id": "merchant_cjrr3feur00kz070hkigqpy6q",
+        "name": "AMEX"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvz23005008ml7hg16o7w",
+        "name": "Financial services (not elsewhere classified)",
+        "components": [
+          {
+            "name": "Financial services (not elsewhere classified)",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Professional Services",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Services to finance & investment",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0012hk4mgru5dgy7",
+            "name": "Professional Services"
+          }
+        }
+      },
+      "meta": {
+        "code": "46802961003",
+        "reference": "amex payment",
+        "logo": "https://static.akahu.io/outlets/merchant_cjrr3feur00kz070hkigqpy6q_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clav7cjfh00aa08jpg5aq5q01",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-11-24T15:01:05.057Z",
+      "updated_at": "2022-11-24T15:01:05.057Z",
+      "date": "2022-11-22T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-3df7698ba10ea5cbb2f32be254f917de",
+      "description": "PAYPAL *PADDLE.NET 02038794714",
+      "amount": -23.26,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjsflie9502yrgjzy2o45772q",
+        "name": "PayPal"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvybd001f08ml8w4y3yor",
+        "name": "General retail stores",
+        "components": [
+          {
+            "name": "General retail stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Household",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Department stores",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000uhk4m20nvc6m1",
+            "name": "Household"
+          }
+        }
+      },
+      "meta": {
+        "logo": "https://static.akahu.io/outlets/merchant_cjsflie9502yrgjzy2o45772q_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clat26tvj007d08madvp9bqjm",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-11-23T03:01:07.900Z",
+      "updated_at": "2022-11-23T03:01:07.900Z",
+      "date": "2022-11-22T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-417eca9f3600a470f89a9dcd809eeea1",
+      "description": "DIRECT DEBIT PAYMENT RECEIVED-THANK YOU",
+      "amount": 952.45,
+      "type": "CREDIT",
+      "meta": {}
+    },
+    {
+      "_id": "trans_clar8tv7k0ae608mk311uaj4s",
+      "_account": "acc_ckld8mf7f000008jm6gul0cu2",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgab1c8e000001pmyxrkhova",
+      "created_at": "2022-11-21T20:31:28.188Z",
+      "updated_at": "2022-11-21T20:31:28.188Z",
+      "date": "2022-11-21T20:30:09.000Z",
+      "hash": "acc_ckld8mf7f000008jm6gul0cu2-b040d6feb2edf000828b99ba302863bc",
+      "description": "Jacob Lapworth 03-1592-0454958-000",
+      "amount": -35.56,
+      "balance": 635.9,
+      "type": "DEBIT",
+      "meta": {
+        "other_account": "03-1592-0454958-00"
+      }
+    },
+    {
+      "_id": "trans_clasbehgm00oj08l7c3ukb2r7",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-22T14:31:16.899Z",
+      "updated_at": "2022-11-22T14:31:16.899Z",
+      "date": "2022-11-21T19:24:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-bd2be33c4db914338e4364fd56bdf01c",
+      "description": "Airpoints WBC Internet Transfer",
+      "amount": -600,
+      "balance": 1882.14,
+      "type": "TRANSFER",
+      "meta": {
+        "particulars": "wbc internet",
+        "code": "transfer",
+        "reference": "08:24-25947"
+      }
+    },
+    {
+      "_id": "trans_clasbehh600on08l7h8pe80ou",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-22T14:31:16.900Z",
+      "updated_at": "2022-11-22T14:31:16.900Z",
+      "date": "2022-11-21T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-cc62f8745dfc03d3a1a93427fea7cb5f",
+      "description": "Lapworth A M Mum bday",
+      "amount": 21,
+      "balance": 2490.76,
+      "type": "CREDIT",
+      "meta": {
+        "particulars": "mum bday",
+        "other_account": "03-0823-0669485-00"
+      }
+    },
+    {
+      "_id": "trans_clasbehgn00ok08l7bhx5ha2m",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-22T14:31:16.900Z",
+      "updated_at": "2022-11-22T14:31:16.900Z",
+      "date": "2022-11-21T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-2bb560f0aeda9ba749fa59319da4aa70",
+      "description": "Ripe Deli 18 7828",
+      "amount": -32,
+      "balance": 2482.14,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_cjipif2i40003bpzy0en7xq42",
+        "name": "Ripe Deli"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyw1004408mlhy158i7j",
+        "name": "Cafes and restaurants",
+        "components": [
+          {
+            "name": "Cafes and restaurants",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Cafes & restaurants",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "code": "7828",
+        "logo": "https://static.akahu.io/outlets/merchant_cjipif2i40003bpzy0en7xq42_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clav4nw9c05sp08ld2f1c51af",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-24T13:45:56.764Z",
+      "updated_at": "2022-11-24T13:45:56.764Z",
+      "date": "2022-11-21T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-2993331579f60f42f0f342d52b477c5e",
+      "description": "ACTION CENTRAL AUCKLAND NZL 992411",
+      "amount": -2.5,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_cjyhrxqcq000p2rojblgr9kjs",
+        "name": "Action Indoor Sports"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvziq006z08mldbw7eyne",
+        "name": "Sports and athletic clubs",
+        "components": [
+          {
+            "name": "Sports and athletic clubs",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Health",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Sport",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000yhk4mddaobwu7",
+            "name": "Health"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992411",
+        "logo": "https://static.akahu.io/outlets/merchant_cjyhrxqcq000p2rojblgr9kjs_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clasbehk000pc08l7fyqjexok",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-22T14:31:16.900Z",
+      "updated_at": "2022-11-22T14:31:16.900Z",
+      "date": "2022-11-21T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-c6b7e1544fa1214693c422aa42c2d614",
+      "description": "PAYMENT RECEIVED THANK YOU NZL 225770",
+      "amount": 600,
+      "type": "CREDIT CARD",
+      "meta": {
+        "reference": "225770"
+      }
+    },
+    {
+      "_id": "trans_clasbehgo00om08l7h2sn7bki",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-22T14:31:16.900Z",
+      "updated_at": "2022-11-22T14:31:16.900Z",
+      "date": "2022-11-21T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-12f894bfb6d2176e3392fad5a7563165",
+      "description": "JM Lapworth",
+      "amount": 35.56,
+      "balance": 2526.32,
+      "type": "CREDIT",
+      "meta": {
+        "other_account": "02-1245-0486621-01"
+      }
+    },
+    {
+      "_id": "trans_clav4nw9c05so08ld1dfrgbgi",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-24T13:45:56.764Z",
+      "updated_at": "2022-11-24T13:45:56.764Z",
+      "date": "2022-11-21T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dh000308mgb8h1djw6-5f082ddfda65d212efee20ad4ce9b4fe",
+      "description": "FLOTSAM & JETSAM AUCKLAND NZL 992411",
+      "amount": -175,
+      "type": "CREDIT CARD",
+      "merchant": {
+        "_id": "merchant_ck0wubglr000naazy1cy0f936",
+        "name": "Flotsam & Jetsam"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvyfc001z08ml7yeugcst",
+        "name": "Home furnishing and repair stores",
+        "components": [
+          {
+            "name": "Home furnishing and repair stores",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Household",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Furniture, houseware & appliance retail",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000uhk4m20nvc6m1",
+            "name": "Household"
+          }
+        }
+      },
+      "meta": {
+        "reference": "992411",
+        "logo": "https://static.akahu.io/images/merchant_ck0wubglr000naazy1cy0f936_logo.png"
+      }
+    },
+    {
+      "_id": "trans_clasbehgn00ol08l734661sxa",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-22T14:31:16.900Z",
+      "updated_at": "2022-11-22T14:31:16.900Z",
+      "date": "2022-11-21T11:00:00.000Z",
+      "hash": "acc_ckgq8c3dg000108mgavu6gri1-508dd8a12d56905ed575fbd813eaa54d",
+      "description": "St Lukes Indoor I 17 7828",
+      "amount": -12.18,
+      "balance": 2514.14,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_ckwxym3qg000909l9cmkr1579",
+        "name": "St Lukes Indoor Investments"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvziq006z08mldbw7eyne",
+        "name": "Sports and athletic clubs",
+        "components": [
+          {
+            "name": "Sports and athletic clubs",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Health",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Sport",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw000yhk4mddaobwu7",
+            "name": "Health"
+          }
+        }
+      },
+      "meta": {
+        "code": "7828",
+        "logo": "https://static.akahu.io/avatars/S.png"
+      }
+    },
+    {
+      "_id": "trans_claos0k8h03bf08migdi3e90i",
+      "_account": "acc_ckgq8c3df000008mg9m7b8t6k",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-20T03:05:15.403Z",
+      "updated_at": "2022-11-21T15:45:55.747Z",
+      "date": "2022-11-21T03:05:00.000Z",
+      "hash": "acc_ckgq8c3df000008mg9m7b8t6k-akpn7000ji1a",
+      "description": "JAM Clan Investments akpn7000ji1a Debt service",
+      "amount": -967,
+      "balance": 2267.38,
+      "type": "PAYMENT",
+      "meta": {
+        "particulars": "akpn7000ji1a",
+        "code": "debt service",
+        "reference": "16:05-42645",
+        "other_account": "03-0854-0049203-00"
+      }
+    },
+    {
+      "_id": "trans_clauhmmol00ai08mq7h3d51xn",
+      "_account": "acc_cla7ji2c8000008jr1u8oh8ai",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjlwrrm2u0000w30huy2yrezk",
+      "created_at": "2022-11-24T03:01:06.286Z",
+      "updated_at": "2022-11-24T03:01:06.286Z",
+      "date": "2022-11-21T00:00:00.000Z",
+      "hash": "acc_cla7ji2c8000008jr1u8oh8ai-e67ceb5196d733fc765b808c379cf1d7",
+      "description": "GOOGLE *GRINDR LLC G.CO/HELPPAY#",
+      "amount": -21.99,
+      "type": "DEBIT",
+      "merchant": {
+        "_id": "merchant_ck6zf3qt7006i47zyd2xi6l5h",
+        "name": "Grindr"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvzm5007i08mlcxn8dmcb",
+        "name": "Dating and matchmaking services",
+        "components": [
+          {
+            "name": "Dating and matchmaking services",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Lifestyle",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Other personal services",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0011hk4m6hlk9fq0",
+            "name": "Lifestyle"
+          }
+        }
+      },
+      "meta": {
+        "logo": "https://static.akahu.io/outlets/merchant_ck6zf3qt7006i47zyd2xi6l5h_logo.png"
+      }
+    },
+    {
+      "_id": "trans_claqymmht04w708jq91cx41zp",
+      "_account": "acc_ckgq8c3df000008mg9m7b8t6k",
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "created_at": "2022-11-21T15:45:55.744Z",
+      "updated_at": "2022-11-21T15:45:55.744Z",
+      "date": "2022-11-20T11:00:00.000Z",
+      "hash": "acc_ckgq8c3df000008mg9m7b8t6k-e329084dd2c8af74179fb55832d198bb",
+      "description": "UDC Finance Ltd Lapworth Jac 194252 4252 NDT509",
+      "amount": -1193.19,
+      "balance": 1074.19,
+      "type": "DIRECT DEBIT",
+      "merchant": {
+        "_id": "merchant_cjy99vuza0022ktzy6lgxen0i",
+        "name": "UDC"
+      },
+      "category": {
+        "_id": "nzfcc_ckouvvz23005008ml7hg16o7w",
+        "name": "Financial services (not elsewhere classified)",
+        "components": [
+          {
+            "name": "Financial services (not elsewhere classified)",
+            "type": "nzfcc:base"
+          },
+          {
+            "name": "Professional Services",
+            "type": "nzfcc:pfm"
+          },
+          {
+            "name": "Services to finance & investment",
+            "type": "nzfcc:group"
+          }
+        ],
+        "groups": {
+          "personal_finance": {
+            "_id": "group_clasr0ysw0012hk4mgru5dgy7",
+            "name": "Professional Services"
+          }
+        }
+      },
+      "meta": {
+        "particulars": "lapworth jac",
+        "code": "194252 4252",
+        "reference": "ndt509",
+        "logo": "https://static.akahu.io/outlets/merchant_cjy99vuza0022ktzy6lgxen0i_logo.png"
+      }
+    }
+  ],
+  "cursor": {
+    "next": "kJjGz685busNHmA1_8k_WgvMS8k6o1ckoMhGBNyqh1eMYZvlLj5Tg5WE04AsexDnCXfF8CHG1mAMMykyPy-8XIVa_x9-1wch3F1NAnpFqgZMM_rtEWPUQvlCS1mIN5-r"
+  }
+}

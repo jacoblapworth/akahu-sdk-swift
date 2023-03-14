@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "items": [
+    {
+      "_id": "transfer_1111111111111111111111111",
+      "from": "acc_1111111111111111111111111",
+      "to": "acc_2222222222222222222222222",
+      "amount": 5.5,
+      "sid": "akx111111111",
+      "status": "READY",
+      "status_text": "This transfer has just been created and is ready to be sent",
+      "final": false,
+      "cross_bank": true,
+      "created_at": "2020-04-15T23:12:01.746Z",
+      "updated_at": "2020-04-15T23:12:01.746Z",
+      "timeline": [
+        {
+          "status": "READY",
+          "time": "2020-04-15T23:00:00.000Z"
+        },
+        {
+          "status": "SENT",
+          "time": "2020-04-15T23:01:00.000Z"
+        },
+        {
+          "status": "RECEIVED",
+          "time": "2020-04-15T23:01:07.000Z"
+        }
+      ]
+    }
+  ]
+}

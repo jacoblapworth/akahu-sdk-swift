@@ -1,0 +1,75 @@
+{
+  "success": true,
+  "items": [
+    {
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "date": "2023-02-07T11:00:00.000Z",
+      "description": "Daily Bread Ponsonby",
+      "amount": "-11.50",
+      "type": "CREDIT CARD",
+      "updated_at": "2023-02-08T02:16:41.441Z"
+    },
+    {
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "date": "2023-02-07T11:00:00.000Z",
+      "description": "Daily Bread Ponsonby",
+      "amount": "-5.00",
+      "type": "CREDIT CARD",
+      "updated_at": "2023-02-08T02:16:41.441Z"
+    },
+    {
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "date": "2023-02-07T11:00:00.000Z",
+      "description": "OF",
+      "amount": "-23.83",
+      "type": "CREDIT CARD",
+      "updated_at": "2023-02-08T02:16:41.441Z"
+    },
+    {
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "date": "2023-02-06T11:00:00.000Z",
+      "description": "COUNTDOWN PONSONBY",
+      "amount": "-65.13",
+      "type": "CREDIT CARD",
+      "updated_at": "2023-02-08T02:16:41.441Z"
+    },
+    {
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "date": "2023-02-05T22:39:00.000Z",
+      "description": "Daily Bread Ponsonby 524651 7828",
+      "amount": "-12.00",
+      "type": "EFTPOS",
+      "updated_at": "2023-02-08T02:16:41.441Z"
+    },
+    {
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_account": "acc_ckgq8c3dh000308mgb8h1djw6",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "date": "2023-02-05T11:00:00.000Z",
+      "description": "LILIAN",
+      "amount": "-71.60",
+      "type": "CREDIT CARD",
+      "updated_at": "2023-02-08T02:16:41.441Z"
+    },
+    {
+      "_user": "user_cjs5crt0z000301rrh31pfosb",
+      "_account": "acc_ckgq8c3dg000108mgavu6gri1",
+      "_connection": "conn_cjgaaozdo000001mrnqmkl1m0",
+      "date": "2023-02-04T23:20:00.000Z",
+      "description": "SUPERETTE PONSONBY 524651 7828",
+      "amount": "-129.00",
+      "type": "EFTPOS",
+      "updated_at": "2023-02-08T02:16:41.441Z"
+    }
+  ]
+}

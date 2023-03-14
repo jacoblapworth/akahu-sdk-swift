@@ -1,0 +1,61 @@
+{
+  "success": true,
+  "items": [
+    {
+      "_id": "income_1111111111111111111111111",
+      "_account": "acc_1111111111111111111111111",
+      "start": "2021-03-01T11:00:00.000Z",
+      "end": "2022-03-02T10:59:59.999Z",
+      "name": "The Green Dragon Inn",
+      "type": "SALARY",
+      "frequency": "WEEKLY",
+      "stability": {
+        "payment_regularity": 0.47,
+        "payment_amount": 0
+      },
+      "projections": {
+        "yearly_net_income": 48000.01,
+        "pay_day": "Mon",
+        "next_date": "2020-01-01T01:00:00.000Z",
+        "next_payment_amount": 1000.01,
+        "yearly_gross_range": [
+          50000,
+          60000
+        ]
+      },
+      "summary": {
+        "max": 1000.01,
+        "mean": 1000.01,
+        "median": 1000.01,
+        "min": 1000.01,
+        "total": 3000.01,
+        "mode": 1000.01,
+        "occurrences": {
+          "count": 3,
+          "first": "2022-02-08T20:52:22.000Z",
+          "last": "2022-02-22T20:53:47.000Z"
+        }
+      },
+      "transactions": [
+        {
+          "_id": "trans_cl0089m1w03zz09joa5qt7fnh",
+          "amount": 1000.01,
+          "date": "2022-02-22T20:53:47.000Z",
+          "description": "The Green Dragon Inn"
+        },
+        {
+          "_id": "trans_ckzq8cy3j082909mn8z8vb5g8",
+          "amount": 1000.01,
+          "date": "2022-02-15T20:53:37.000Z",
+          "description": "The Green Dragon Inn"
+        },
+        {
+          "_id": "trans_ckzq8cy41082c09mn62xeh5d9",
+          "amount": 1000.01,
+          "date": "2022-02-08T20:52:22.000Z",
+          "description": "The Green Dragon Inn"
+        }
+      ]
+    }
+  ]
+}

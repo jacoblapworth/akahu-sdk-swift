@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuConnection: Mockable {
+extension Connection: Mockable {
   public static var mock: Self = .init(
     id: "conn_1111111111111111111111111",
     name: "Westpac",

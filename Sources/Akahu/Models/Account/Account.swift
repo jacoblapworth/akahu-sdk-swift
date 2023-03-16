@@ -19,7 +19,7 @@ import RegexBuilder
 public struct Account: Codable, Identifiable {
   public var id: String = UUID().uuidString
   public let credentials: String
-  public let connection: AkahuConnection
+  public let connection: Connection
   public let name: Name
   public let status: Status
   public let formattedAccount: FormattedAccount?

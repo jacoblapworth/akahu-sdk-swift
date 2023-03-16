@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuConnection {
+extension Connection {
   public enum BankConnection: String {
     /// ANZ
     case anz = "conn_cjgaawozb000001nyd111xixr"

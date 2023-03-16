@@ -16,7 +16,7 @@ public struct AkahuIdentity: Identifiable, Codable {
   /// A unique Akahu identity identifier.
   public var id: String
   public var status: Status
-  public var source: AkahuConnection
+  public var source: Connection
   public var accounts: Accounts
   public var identities: Identities
   public var addresses: Addresses

@@ -8,7 +8,6 @@ final public class Akahu {
   public let api = akahuApi
   public typealias Route = AkahuRoute
   
-  public typealias Connection = AkahuConnection
   public typealias Identity = AkahuIdentity
   public typealias Income = AkahuIncome
   public typealias Me = AkahuMe
@@ -29,6 +28,8 @@ final public class Akahu {
 public typealias AkahuAccount = Account
 @available(*, deprecated, renamed: "Auth")
 public typealias AkahuAuth = Auth
+@available(*, deprecated, renamed: "Connection")
+public typealias AkahuConnection = Connection
 @available(*, deprecated, renamed: "Transaction")
 public typealias AkahuTransaction = Transaction
 @available(*, deprecated, renamed: "TransactionPending")

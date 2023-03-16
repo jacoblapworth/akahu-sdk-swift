@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension AkahuTransaction: Mockable {
-  public static var mock = AkahuTransaction(
+extension Transaction: Mockable {
+  public static var mock = Transaction(
     id: "trans_cl8kw9h4o00uh09ju1vbtgsq0",
     account: "acc_ckld8mf7f000008jm6gul0cu2",
     user: "user_cjs5crt0z000301rrh31pfosb",

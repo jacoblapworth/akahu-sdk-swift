@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AkahuTransactionPending: Codable, Identifiable {
+public struct TransactionPending: Codable, Identifiable {
   public let id: String = UUID().uuidString
   /// The Akahu User ID that this transaction belongs to
   public let user: String
@@ -23,7 +23,7 @@ public struct AkahuTransactionPending: Codable, Identifiable {
   public let description: String
   /// How much money this transaction was for
   public let amount: Double
-  public let type: AkahuTransaction.TransactionType
+  public let type: Transaction.TransactionType
   
   enum CodingKeys: String, CodingKey {
     case user = "_user"
@@ -47,7 +47,7 @@ public struct AkahuTransactionPending: Codable, Identifiable {
       )
     }
     self.amount = amount
-    self.type = try container.decode(AkahuTransaction.TransactionType.self, forKey: .type)
+    self.type = try container.decode(Transaction.TransactionType.self, forKey: .type)
   }
 
 }

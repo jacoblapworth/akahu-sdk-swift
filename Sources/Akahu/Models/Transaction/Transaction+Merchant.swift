@@ -8,7 +8,7 @@
 import Foundation
 
 
-extension AkahuTransaction {
+extension Transaction {
   
   /// Akahu defines a merchant as the business who was party to this transaction. For example, "The Warehouse" is a merchant.
   public struct Merchant: Codable {

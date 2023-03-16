@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension AkahuTransaction {
-  public typealias FinanceCategory = AkahuTransaction.Category.Groups.PersonalFinance
+extension Transaction {
+  public typealias FinanceCategory = Transaction.Category.Groups.PersonalFinance
   
   /// The category object categorises the transaction using NZFCC codes (New Zealand Financial Category Codes)
   public struct Category: Codable {

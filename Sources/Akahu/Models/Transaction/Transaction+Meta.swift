@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuTransaction {
+extension Transaction {
   /// This is other metadata that we extract from the transaction, including the following fields (where possible). All of the meta fields are optional:
   public struct Meta: Codable {
     public var particulars: String? = nil
@@ -28,6 +28,6 @@ extension AkahuTransaction {
 
 }
 
-extension AkahuTransaction.Meta {
-  public static var mock = AkahuTransaction.Meta()
+extension Transaction.Meta {
+  public static var mock = Transaction.Meta()
 }

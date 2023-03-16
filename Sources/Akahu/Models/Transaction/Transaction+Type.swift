@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuTransaction {
+extension Transaction {
   /// What sort of transaction this is. Akahu tries to find a specific transaction type, falling back to "CREDIT" or "DEBIT" if nothing else is available.
   public enum TransactionType: RawRepresentable, CaseIterable, Codable, Equatable {
     

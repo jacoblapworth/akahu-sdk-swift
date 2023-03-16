@@ -10,7 +10,7 @@ import Foundation
 /// A transaction is a record of money moving between two accounts.
 ///
 /// Akahu can provide transaction data from connected accounts for all bank integrations and a selection of non-bank integrations.
-public struct AkahuTransaction: Codable, Identifiable {
+public struct Transaction: Codable, Identifiable {
   /// The _id key is a unique identifier for the transaction in the Akahu system. It is always be prefixed by trans_ so that you can tell that it refers to a transaction.
   public var id: String
   /// The _account key indicates which account this transaction belongs to. See our guide to Accessing Account Data to learn how to get this account, and our Account Model docs to learn more about accounts.
@@ -46,8 +46,8 @@ public struct AkahuTransaction: Codable, Identifiable {
   }
 }
 
-extension AkahuTransaction: Hashable {
-  public static func == (lhs: AkahuTransaction, rhs: AkahuTransaction) -> Bool {
+extension Transaction: Hashable {
+  public static func == (lhs: Transaction, rhs: Transaction) -> Bool {
     lhs.hash == rhs.hash
   }
   
@@ -56,9 +56,9 @@ extension AkahuTransaction: Hashable {
   }
 }
 
-extension AkahuTransaction {
+extension Transaction {
   init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuTransaction.self, from: data)
+    self = try newJSONDecoder().decode(Transaction.self, from: data)
   }
   
   init(_ json: String, using encoding: String.Encoding = .utf8) throws {

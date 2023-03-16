@@ -57,7 +57,7 @@ class ResponseTests: XCTestCase {
   
   func testItemsResponse() throws {
     let data = AkahuFixtures.Responses.transactions.data
-    let response = try newJSONDecoder().decode(AkahuResult<Akahu.Transaction>.self, from: data)
+    let response = try newJSONDecoder().decode(AkahuResult<Transaction>.self, from: data)
     
     XCTAssertEqual(response.items?.count, 100)
     XCTAssertNoDifference(response.cursor, Cursor(next: "kJjGz685busNHmA1_8k_WgvMS8k6o1ckoMhGBNyqh1eMYZvlLj5Tg5WE04AsexDnCXfF8CHG1mAMMykyPy-8XIVa_x9-1wch3F1NAnpFqgZMM_rtEWPUQvlCS1mIN5-r"))

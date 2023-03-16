@@ -22,7 +22,7 @@ final class RouterTests: XCTestCase {
 //    
 //    let (value, _) = try await mockApi.decodedResponse(
 //      for: .transactions(.all()),
-//      as: AkahuItemsResponse<AkahuTransaction>.self
+//      as: AkahuItemsResponse<Transaction>.self
 //    )
 //    
 //    XCTAssertTrue(value.success)

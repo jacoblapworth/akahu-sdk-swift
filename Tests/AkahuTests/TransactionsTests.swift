@@ -28,7 +28,7 @@ class TransactionTests: XCTestCase {
   
   func testCodableEnumWithUnknown() throws {
     struct Container: Decodable {
-      let type: AkahuTransaction.TransactionType
+      let type: Transaction.TransactionType
     }
     
     let data = #"{"type": "❌"}"#.data(using: .utf8)!

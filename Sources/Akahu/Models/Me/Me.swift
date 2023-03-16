@@ -8,6 +8,7 @@
 import Foundation
 
 /// The user's profile information that they have provided to Akahu.
+/// 
 /// The `email` and `mobile` keys will be visible if you have the required permissions.
 public struct AkahuMe: Codable, Identifiable {
   /// Unique Akahu user identifier.

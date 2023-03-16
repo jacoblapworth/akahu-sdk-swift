@@ -7,7 +7,9 @@
 
 import Foundation
 
-// MARK: - TransactionsItem
+/// A transaction is a record of money moving between two accounts.
+///
+/// Akahu can provide transaction data from connected accounts for all bank integrations and a selection of non-bank integrations.
 public struct AkahuTransaction: Codable, Identifiable {
   /// The _id key is a unique identifier for the transaction in the Akahu system. It is always be prefixed by trans_ so that you can tell that it refers to a transaction.
   public var id: String

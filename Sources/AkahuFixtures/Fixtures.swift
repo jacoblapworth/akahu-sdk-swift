@@ -10,6 +10,7 @@ import Foundation
 public enum Responses {
   case account
   case accounts
+  case connections
   case error
   case id
   case identity
@@ -23,6 +24,7 @@ public enum Responses {
     switch self {
     case .account: return "AccountResponse"
     case .accounts: return "AccountsResponse"
+    case .connections: return "ConnectionsResponse"
     case .error: return "ErrorResponse"
     case .id: return "IdResponse"
     case .identity: return "IdentityResponse"

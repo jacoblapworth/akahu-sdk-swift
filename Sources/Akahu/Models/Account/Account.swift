@@ -9,9 +9,10 @@ import Foundation
 import RegexBuilder
 
 /// At it's most basic, an Akahu account is something that has a balance.
+///
 /// Some connections (like banks) have lots of accounts, while others (like KiwiSaver providers) may only have one. Different types of accounts have different attributes and abilities, which can get a bit confusing!
 ///
-/// Keep in mind that we limit what information is available depending on your app permissions. This is done in order to protect user privacy, however it also means that some of the data here may not be visible to you.
+/// Keep in mind that Akahu limit's what information is available depending on your app permissions. This is done in order to protect user privacy, however it also means that some of the data here may not be visible to you.
 /// The id key is a unique identifier for the account in the Akahu system. It is always be prefixed by acc_ so that you can tell that it belongs to an account.
 /// # Reference
 /// [Akahu Reference](https://developers.akahu.nz/docs/the-account-model)

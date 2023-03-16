@@ -163,6 +163,7 @@ extension AkahuItemsResponse {
 
 public typealias AccountsResponse = AkahuItemsResponse<AkahuAccount>
 public typealias AccountResponse = AkahuItemResponse<AkahuAccount>
+public typealias ConnectionsResponse = AkahuItemsResponse<AkahuConnection>
 public typealias IdentityResponse = AkahuItemResponse<AkahuIdentity>
 public typealias IncomeResponse = AkahuItemsResponse<AkahuIncome>
 public typealias PaymentsResponse = AkahuItemsResponse<AkahuPayment>

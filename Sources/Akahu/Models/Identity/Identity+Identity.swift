@@ -8,6 +8,7 @@
 import Foundation
 
 extension AkahuIdentity {
+  /// Identity information derived from a user's connected accounts.
   public struct Identity: Codable {
     /// Name of one of the account holders.
     public var name: String

@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "items": [
+    {
+      "_id": "conn_cjgaac5at000001qi2yw8ftil",
+      "name": "My Bank",
+      "url": "https://mybank.co.nz",
+      "logo": "https://static.akahu.io/images/my_bank.png"
+    }
+  ]
+}

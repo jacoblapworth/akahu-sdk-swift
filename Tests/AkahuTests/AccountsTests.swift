@@ -8,7 +8,7 @@
 import XCTest
 import Foundation
 @testable import Akahu
-@testable import AkahuFixtures
+import AkahuFixtures
 
 class AccountTests: XCTestCase {
   func testDecoding() throws {

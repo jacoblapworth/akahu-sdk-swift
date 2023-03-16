@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AkahuAuth {
+public struct Auth {
   public struct AuthorizationToken {
     public var accessToken: String
     public var tokenType: String = "bearer"
@@ -15,7 +15,7 @@ public struct AkahuAuth {
   }
 }
 
-extension AkahuAuth.AuthorizationToken: Codable {
+extension Auth.AuthorizationToken: Codable {
   enum CodingKeys: CodingKey {
     case accessToken, tokenType, scope
   }

@@ -29,3 +29,5 @@ final public class Akahu {
 
 @available(*, deprecated, renamed: "Account")
 public typealias AkahuAccount = Account
+@available(*, deprecated, renamed: "Auth")
+public typealias AkahuAuth = Auth

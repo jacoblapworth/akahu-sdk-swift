@@ -8,7 +8,6 @@ final public class Akahu {
   public let api = akahuApi
   public typealias Route = AkahuRoute
   
-  public typealias Me = AkahuMe
   public typealias Payment = AkahuPayment
   public typealias Transfer = AkahuTransfer
   public typealias Webhook = AkahuWebhook
@@ -19,7 +18,7 @@ final public class Akahu {
   public typealias TransactionsPendingResponse = AkahuItemsResponse<TransactionPending>
   public typealias IncomeResponse = AkahuItemsResponse<Income>
   public typealias RefreshResponse = AkahuSuccessResponse
-  public typealias MeResponse = AkahuItemResponse<Akahu.Me>
+  public typealias MeResponse = AkahuItemResponse<Me>
 }
 
 @available(*, deprecated, renamed: "Account")
@@ -36,3 +35,5 @@ public typealias AkahuTransactionPending = TransactionPending
 public typealias AkahuIdentity = Identity
 @available(*, deprecated, renamed: "Income")
 public typealias AkahuIncome = Income
+@available(*, deprecated, renamed: "Me")
+public typealias AkahuMe = Me

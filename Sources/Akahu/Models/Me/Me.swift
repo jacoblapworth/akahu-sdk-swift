@@ -10,7 +10,7 @@ import Foundation
 /// The user's profile information that they have provided to Akahu.
 /// 
 /// The `email` and `mobile` keys will be visible if you have the required permissions.
-public struct AkahuMe: Codable, Identifiable {
+public struct Me: Codable, Identifiable {
   /// Unique Akahu user identifier.
   public var id: String
   /// ISO 8601 formatted date of when the users account was created
@@ -32,9 +32,9 @@ public struct AkahuMe: Codable, Identifiable {
   }
 }
 
-extension AkahuMe {
+extension Me {
   init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuMe.self, from: data)
+    self = try newJSONDecoder().decode(Me.self, from: data)
   }
   
   init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -49,7 +49,7 @@ extension AkahuMe {
   }
 }
 
-extension AkahuMe {
+extension Me {
   public var name: PersonNameComponents {
     .init(
       givenName: self.firstName,

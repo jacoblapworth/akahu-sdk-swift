@@ -171,7 +171,7 @@ public typealias TransactionsResponse = AkahuItemsResponse<Transaction>
 public typealias TransactionsPendingResponse = AkahuItemsResponse<TransactionPending>
 public typealias TransfersResponse = AkahuItemsResponse<AkahuTransfer>
 public typealias RefreshResponse = AkahuSuccessResponse
-public typealias MeResponse = AkahuItemResponse<AkahuMe>
+public typealias MeResponse = AkahuItemResponse<Me>
 
 //MARK: - Mocks
 

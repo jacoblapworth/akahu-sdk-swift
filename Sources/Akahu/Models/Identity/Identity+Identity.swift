@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuIdentity {
+extension Identity {
   /// Identity information derived from a user's connected accounts.
   public struct Identity: Codable {
     /// Name of one of the account holders.
@@ -23,7 +23,7 @@ extension AkahuIdentity {
   public typealias Identities = [Identity]
 }
 
-extension AkahuIdentity.Identity: Mockable {
+extension Identity.Identity: Mockable {
   public static var mock: Self = .init(
     name: "F BAGGINS",
     formattedAccount: "38-9009-0000000-00",

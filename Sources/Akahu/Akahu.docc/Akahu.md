@@ -11,7 +11,7 @@ Swift SDK for Akahu — providing open finance infrastructure for New Zealand
 
 - ``Account``
 - ``Connection``
-- ``AkahuIdentity``
+- ``Identity``
 - ``AkahuIncome``
 - ``AkahuMe``
 - ``AkahuPayment``

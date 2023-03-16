@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuIdentity {
+extension Identity {
   ///For more details about one of identity statuses see: [Identity Status reference](https://developers.akahu.nz/docs/the-oneoff-identity-result-model#identity-status)
   public enum Status: String, Codable {
     ///  Identity request is in progress, continue to poll for a final state of `COMPLETE` or `ERROR`.

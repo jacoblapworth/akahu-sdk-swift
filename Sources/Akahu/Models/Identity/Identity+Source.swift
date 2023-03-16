@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuIdentity {
+extension Identity {
   /// The source that provided this data. This is supplied as an object with the following keys:
   public struct Source: Codable {
     /// The connected financial institution's unique identifier. This will always be prefixed with conn_.

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuIdentity {
+extension Identity {
   public struct Address: Codable {
     public var type: AddressType
     /// The raw address value provided by the bank.
@@ -48,7 +48,7 @@ extension AkahuIdentity {
   public typealias Addresses = [Address]
 }
 
-extension AkahuIdentity.Address: Mockable {
+extension Identity.Address: Mockable {
   public static var mock: Self = .init(
     type: .residential,
     value: "27 Bag End, Bagshot Row, Hobbiton, 1011",

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuIdentity {
+extension Identity {
   public static var mock: Self = .init(
     id: "conn_1111111111111111111111111",
     status: .processing,

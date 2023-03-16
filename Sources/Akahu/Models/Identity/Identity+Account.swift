@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuIdentity {
+extension Identity {
   /// Identity information registered on linked accounts
   public struct Account: Codable {
     /// Registered address for the bank account
@@ -23,7 +23,7 @@ extension AkahuIdentity {
   public typealias Accounts = [Account]
 }
 
-extension AkahuIdentity.Account: Mockable {
+extension Identity.Account: Mockable {
   public static var mock: Self = .init(
     address: "27 Bag End, Bagshot Row, Hobbiton, 1011",
     bank: "Kiwibank",

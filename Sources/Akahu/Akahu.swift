@@ -13,14 +13,13 @@ final public class Akahu {
   public typealias Income = AkahuIncome
   public typealias Me = AkahuMe
   public typealias Payment = AkahuPayment
-  public typealias TransactionPending = AkahuTransactionPending
   public typealias Transfer = AkahuTransfer
   public typealias Webhook = AkahuWebhook
   
   public typealias AccountsResponse = AkahuItemsResponse<Account>
   public typealias AccountResponse = AkahuItemResponse<Account>
   public typealias TransactionsResponse = AkahuItemsResponse<Transaction>
-  public typealias TransactionsPendingResponse = AkahuItemsResponse<Akahu.TransactionPending>
+  public typealias TransactionsPendingResponse = AkahuItemsResponse<TransactionPending>
   public typealias IncomeResponse = AkahuItemsResponse<Akahu.Income>
   public typealias RefreshResponse = AkahuSuccessResponse
   public typealias MeResponse = AkahuItemResponse<Akahu.Me>

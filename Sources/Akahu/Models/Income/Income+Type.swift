@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuIncome {
+extension Income {
   // The type of income
   public enum IncomeType: String, Codable {
     /// Money earnt from a job salary payment

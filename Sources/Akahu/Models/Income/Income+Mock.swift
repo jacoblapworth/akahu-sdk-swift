@@ -7,9 +7,9 @@
 
 import Foundation
 
-extension AkahuIncome: Mockable {
+extension Income: Mockable {
   
-  public static var mock = AkahuIncome(
+  public static var mock = Income(
     id: "income_1111111111111111111111111",
     account: "income_1111111111111111111111111",
     start: try! Date("2023-01-01T00:00:00Z", strategy: .iso8601),

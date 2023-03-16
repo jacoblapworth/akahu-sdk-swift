@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuIncome {
+extension Income {
   /// An indication of the stability of this income source. This object is only included if the income frequency is recurring and is active (frequency is WEEKLY, BIWEEKLY or MONTHLY).
   public struct Stability: Codable {
     /// Standard deviation of the difference in days between payments. The closer this is to 0, the more regular the payments are. Less than 1 is a good indication that this income is being paid regularly.
@@ -21,8 +21,8 @@ extension AkahuIncome {
   }
 }
 
-extension AkahuIncome.Stability: Mockable {
-  static let mock = AkahuIncome.Stability(
+extension Income.Stability: Mockable {
+  static let mock = Income.Stability(
     paymentRegularity: 0.47,
     paymentAmount: 0
   )

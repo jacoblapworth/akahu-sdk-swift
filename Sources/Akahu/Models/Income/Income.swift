@@ -8,7 +8,7 @@
 import Foundation
 
 /// A user's income source, derived from transactions belonging to the accounts that the user has connected to your application.
-public struct AkahuIncome: Codable, Identifiable {
+public struct Income: Codable, Identifiable {
   /// A unique identifier for this income source. It is always prefixed by income_.
   public let id: String
   /// The Akahu Account ID that this income source belongs to.

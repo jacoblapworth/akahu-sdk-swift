@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuIncome {
+extension Income {
   /// The frequency of income payments
   public enum Frequency: String, Codable {
     /// Income failed meet the criteria of an current ongoing recurring pattern, for example this may be income for a past job.

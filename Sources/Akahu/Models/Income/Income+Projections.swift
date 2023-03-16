@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuIncome {
+extension Income {
   
   /// Projections for this income source. This object is only included if the income frequency is recurring and is active (frequency is WEEKLY, BIWEEKLY or MONTHLY).
   public struct Projections: Codable {
@@ -29,8 +29,8 @@ extension AkahuIncome {
   
 }
 
-extension AkahuIncome.Projections: Mockable {
-  static let mock = AkahuIncome.Projections(
+extension Income.Projections: Mockable {
+  static let mock = Income.Projections(
     yearlyNetIncome: 48000.01,
     payDay: "Mon",
     nextDate: Date(timeIntervalSinceNow: 60*60*24),

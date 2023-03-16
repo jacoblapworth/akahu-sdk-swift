@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuIncome {
+extension Income {
   
   public struct Transaction: Codable, Identifiable {
     /// The Akahu Transaction ID
@@ -25,10 +25,10 @@ extension AkahuIncome {
     }
   }
   
-  public typealias Transactions = [AkahuIncome.Transaction]
+  public typealias Transactions = [Income.Transaction]
 }
 
-extension AkahuIncome.Transactions {
+extension Income.Transactions {
   static let mock: Self = [
     .init(
       id: "trans_1111111111111111111111111",
@@ -45,8 +45,8 @@ extension AkahuIncome.Transactions {
   ]
 }
 
-extension AkahuIncome.Transaction: Comparable {
-  public static func < (lhs: AkahuIncome.Transaction, rhs: AkahuIncome.Transaction) -> Bool {
+extension Income.Transaction: Comparable {
+  public static func < (lhs: Income.Transaction, rhs: Income.Transaction) -> Bool {
     lhs.date < rhs.date
   }
 }

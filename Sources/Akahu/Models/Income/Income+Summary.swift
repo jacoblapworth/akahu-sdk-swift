@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuIncome {
+extension Income {
   
   public struct Summary: Codable {
     /// The max value of all the credits assigned to this income source.
@@ -35,26 +35,26 @@ extension AkahuIncome {
   }
 }
 
-extension AkahuIncome.Summary {
+extension Income.Summary {
   public init(from decoder: Decoder) throws {
-    let container: KeyedDecodingContainer<AkahuIncome.Summary.CodingKeys> = try decoder.container(keyedBy: AkahuIncome.Summary.CodingKeys.self)
-    self.max = try container.decode(Double.self, forKey: AkahuIncome.Summary.CodingKeys.max)
-    self.mean = try container.decode(Double.self, forKey: AkahuIncome.Summary.CodingKeys.mean)
-    self.median = try container.decode(Double.self, forKey: AkahuIncome.Summary.CodingKeys.median)
-    if let mode = try? container.decode([Double].self, forKey: AkahuIncome.Summary.CodingKeys.mode) {
+    let container: KeyedDecodingContainer<Income.Summary.CodingKeys> = try decoder.container(keyedBy: Income.Summary.CodingKeys.self)
+    self.max = try container.decode(Double.self, forKey: Income.Summary.CodingKeys.max)
+    self.mean = try container.decode(Double.self, forKey: Income.Summary.CodingKeys.mean)
+    self.median = try container.decode(Double.self, forKey: Income.Summary.CodingKeys.median)
+    if let mode = try? container.decode([Double].self, forKey: Income.Summary.CodingKeys.mode) {
       self.mode = mode
     } else {
-      let mode = try container.decode(Double.self, forKey: AkahuIncome.Summary.CodingKeys.mode)
+      let mode = try container.decode(Double.self, forKey: Income.Summary.CodingKeys.mode)
       self.mode = [mode]
     }
-    self.min = try container.decode(Double.self, forKey: AkahuIncome.Summary.CodingKeys.min)
-    self.total = try container.decode(Double.self, forKey: AkahuIncome.Summary.CodingKeys.total)
-    self.occurrences = try container.decode(AkahuIncome.Summary.Occurrences.self, forKey: AkahuIncome.Summary.CodingKeys.occurrences)
+    self.min = try container.decode(Double.self, forKey: Income.Summary.CodingKeys.min)
+    self.total = try container.decode(Double.self, forKey: Income.Summary.CodingKeys.total)
+    self.occurrences = try container.decode(Income.Summary.Occurrences.self, forKey: Income.Summary.CodingKeys.occurrences)
   }
 }
 
-extension AkahuIncome.Summary: Mockable {
-  static let mock = AkahuIncome.Summary(
+extension Income.Summary: Mockable {
+  static let mock = Income.Summary(
     max: 1000.01,
     mean: 1000.01,
     median:  1000.01,

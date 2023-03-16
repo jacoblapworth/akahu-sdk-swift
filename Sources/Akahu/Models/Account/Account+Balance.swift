@@ -8,7 +8,7 @@
 import Foundation
 
 
-extension AkahuAccount {
+extension Account {
   /// The account balance
   public struct Balance: Codable {
     /// The current account balance.
@@ -24,6 +24,6 @@ extension AkahuAccount {
   }
 }
 
-extension AkahuAccount.Balance: Mockable {
+extension Account.Balance: Mockable {
   public static var mock: Self = .init(current: -2575.54, available: 396, currency: "NZD", overdrawn: false)
 }

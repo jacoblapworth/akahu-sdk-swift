@@ -161,8 +161,8 @@ extension AkahuItemsResponse {
 
 //MARK: - Response types
 
-public typealias AccountsResponse = AkahuItemsResponse<AkahuAccount>
-public typealias AccountResponse = AkahuItemResponse<AkahuAccount>
+public typealias AccountsResponse = AkahuItemsResponse<Account>
+public typealias AccountResponse = AkahuItemResponse<Account>
 public typealias ConnectionsResponse = AkahuItemsResponse<AkahuConnection>
 public typealias IdentityResponse = AkahuItemResponse<AkahuIdentity>
 public typealias IncomeResponse = AkahuItemsResponse<AkahuIncome>

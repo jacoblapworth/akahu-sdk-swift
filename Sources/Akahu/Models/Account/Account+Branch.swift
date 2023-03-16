@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuAccount {
+extension Account {
   /// If this account is a NZ bank account, Akahu will provide details of the opening branch.
   public struct Branch: Codable {
     /// The branch name
@@ -21,7 +21,7 @@ extension AkahuAccount {
   }
 }
 
-extension AkahuAccount.Branch {
+extension Account.Branch {
   public struct Address: Codable {
     public let line1: String
     public let line2: String

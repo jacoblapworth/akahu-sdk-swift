@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuAccount {
+extension Account {
   /// This tells you whether Akahu can currently sign in to the account to refresh it's data.
   public enum Status: String, Codable {
     /// Akahu can sign in and refresh this account.

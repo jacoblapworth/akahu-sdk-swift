@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuAccount {
+extension Account {
   /// Metadata regarding this account
   public struct Meta: Codable {
     /// The account holder name
@@ -32,11 +32,11 @@ extension AkahuAccount {
   }
 }
 
-extension AkahuAccount.Meta: Mockable {
+extension Account.Meta: Mockable {
   public static var mock: Self = .init()
 }
 
-extension AkahuAccount.Meta {
+extension Account.Meta {
   public struct Bill: Codable {
     public let billDate: String
     public let closingBalance, outstandingAmount: Double

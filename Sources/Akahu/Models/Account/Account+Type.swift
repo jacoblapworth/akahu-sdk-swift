@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuAccount {
+extension Account {
   /// Type of account, Akahu provides specific bank account types, and falls back to more general types for other types of connection.
   public enum AccountType: RawRepresentable, Codable, CaseIterable, Equatable {
     public typealias RawValue = String
@@ -91,7 +91,7 @@ extension AkahuAccount {
       }
     }
     
-    public static var allCases: [AkahuAccount.AccountType] = [
+    public static var allCases: [Account.AccountType] = [
       .checking,
       .savings,
       .creditcard,

@@ -14,7 +14,7 @@ import AkahuFixtures
 class ResponseTests: XCTestCase {
   func testErrorResponse() throws {
     let data = AkahuFixtures.Responses.error.data
-    let response = try newJSONDecoder().decode(AkahuResult<AkahuAccount>.self, from: data)
+    let response = try newJSONDecoder().decode(AkahuResult<Account>.self, from: data)
     
     switch response {
     case .success: return XCTFail()
@@ -28,7 +28,7 @@ class ResponseTests: XCTestCase {
   
   func testSuccessResponse() throws {
     let data = AkahuFixtures.Responses.accounts.data
-    let response = try newJSONDecoder().decode(AkahuResult<Akahu.Account>.self, from: data)
+    let response = try newJSONDecoder().decode(AkahuResult<Account>.self, from: data)
     
     switch response {
     case .success(let value):
@@ -42,14 +42,14 @@ class ResponseTests: XCTestCase {
   }
   
   func testIdResponse() throws {
-    let response = try newJSONDecoder().decode(AkahuResult<Akahu.Account>.self, from: AkahuFixtures.Responses.id.data)
+    let response = try newJSONDecoder().decode(AkahuResult<Account>.self, from: AkahuFixtures.Responses.id.data)
     XCTAssertEqual(response.itemId, "1234567890")
     XCTAssertNil(response.item)
     XCTAssertNil(response.items)
   }
   
   func testItemResponse() throws {
-    let response = try newJSONDecoder().decode(AkahuResult<Akahu.Account>.self, from: AkahuFixtures.Responses.account.data)
+    let response = try newJSONDecoder().decode(AkahuResult<Account>.self, from: AkahuFixtures.Responses.account.data)
     XCTAssertNotNil(response.item)
     XCTAssertNil(response.items)
     XCTAssertNil(response.itemId)

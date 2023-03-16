@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuAccount {
+extension Account {
   /// The list of attributes indicates which abilities an account has.
   public enum Attribute: String, Codable {
     /// This account can initiate payments to any Akahu account with the "PAYMENT_TO" attribute.
@@ -25,7 +25,7 @@ extension AkahuAccount {
   public typealias Attributes = [Attribute]
 }
 
-extension AkahuAccount.Attributes: Mockable {
+extension Account.Attributes: Mockable {
   static var mock: Self = [
     .transactions,
     .paymentTo,

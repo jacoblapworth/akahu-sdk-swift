@@ -16,7 +16,7 @@ import RegexBuilder
 /// The id key is a unique identifier for the account in the Akahu system. It is always be prefixed by acc_ so that you can tell that it belongs to an account.
 /// # Reference
 /// [Akahu Reference](https://developers.akahu.nz/docs/the-account-model)
-public struct AkahuAccount: Codable, Identifiable {
+public struct Account: Codable, Identifiable {
   public var id: String = UUID().uuidString
   public let credentials: String
   public let connection: AkahuConnection
@@ -37,8 +37,8 @@ public struct AkahuAccount: Codable, Identifiable {
   }
 }
 
-extension AkahuAccount: Hashable {
-  public static func == (lhs: AkahuAccount, rhs: AkahuAccount) -> Bool {
+extension Account: Hashable {
+  public static func == (lhs: Account, rhs: Account) -> Bool {
     lhs.id == rhs.id
   }
   
@@ -47,9 +47,9 @@ extension AkahuAccount: Hashable {
   }
 }
 
-extension AkahuAccount {
+extension Account {
   init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuAccount.self, from: data)
+    self = try newJSONDecoder().decode(Account.self, from: data)
   }
   
   init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -65,7 +65,7 @@ extension AkahuAccount {
 }
 
 // MARK: - Computed properties
-extension AkahuAccount {
+extension Account {
   public var displayName: String {
     var mutableName = self.name
 
@@ -81,7 +81,7 @@ extension AkahuAccount {
   }
   
   public var hasCard: Bool {
-    let types: [AkahuAccount.AccountType] = [
+    let types: [Account.AccountType] = [
       .creditcard,
       .checking
     ]

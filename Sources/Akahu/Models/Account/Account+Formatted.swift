@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuAccount {
+extension Account {
   /// If the account has a well defined account number (eg. a bank account number) this will be defined here with a standard format across connections.
   public typealias FormattedAccount = String
 }

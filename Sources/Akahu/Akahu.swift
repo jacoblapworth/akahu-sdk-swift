@@ -8,7 +8,6 @@ final public class Akahu {
   public let api = akahuApi
   public typealias Route = AkahuRoute
   
-  public typealias Account = AkahuAccount
   public typealias Connection = AkahuConnection
   public typealias Identity = AkahuIdentity
   public typealias Income = AkahuIncome
@@ -19,11 +18,14 @@ final public class Akahu {
   public typealias Transfer = AkahuTransfer
   public typealias Webhook = AkahuWebhook
   
-  public typealias AccountsResponse = AkahuItemsResponse<Akahu.Account>
-  public typealias AccountResponse = AkahuItemResponse<Akahu.Account>
+  public typealias AccountsResponse = AkahuItemsResponse<Account>
+  public typealias AccountResponse = AkahuItemResponse<Account>
   public typealias TransactionsResponse = AkahuItemsResponse<Akahu.Transaction>
   public typealias TransactionsPendingResponse = AkahuItemsResponse<Akahu.TransactionPending>
   public typealias IncomeResponse = AkahuItemsResponse<Akahu.Income>
   public typealias RefreshResponse = AkahuSuccessResponse
   public typealias MeResponse = AkahuItemResponse<Akahu.Me>
 }
+
+@available(*, deprecated, renamed: "Account")
+public typealias AkahuAccount = Account

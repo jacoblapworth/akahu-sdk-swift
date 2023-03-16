@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuAccount {
+extension Account {
   /// Akahu can refresh different parts of an account's data at different rates.
   /// The timestamps in the refreshed object tell you when that account data was last updated.
   /// This can be thought of as "Akahu's view of the account (balance/metadata/transactions) is up to date as of $TIME".
@@ -22,6 +22,6 @@ extension AkahuAccount {
   }
 }
 
-extension AkahuAccount.Refreshed: Mockable {
+extension Account.Refreshed: Mockable {
   static let mock: Self = .init(balance: Date(timeIntervalSinceNow: TimeInterval(-60*6)))
 }

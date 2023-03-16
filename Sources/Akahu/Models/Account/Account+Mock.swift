@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuAccount: Mockable {
+extension Account: Mockable {
   public static var mock: Self = .init(
     id: "acc_1111111111111111111111111",
     credentials: "creds_1111111111111111111111111",

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuWebhook: Mockable {
+extension Webhook: Mockable {
   public static var mock: Self = .init(
     id: "hook_1111111111111111111111111",
     createdAt: try! Date("2023-01-01T00:00:00Z", strategy: .iso8601),

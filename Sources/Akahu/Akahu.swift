@@ -8,8 +8,6 @@ final public class Akahu {
   public let api = akahuApi
   public typealias Route = AkahuRoute
   
-  public typealias Webhook = AkahuWebhook
-  
   public typealias AccountsResponse = AkahuItemsResponse<Account>
   public typealias AccountResponse = AkahuItemResponse<Account>
   public typealias TransactionsResponse = AkahuItemsResponse<Transaction>
@@ -39,3 +37,5 @@ public typealias AkahuMe = Me
 public typealias AkahuPayment = Payment
 @available(*, deprecated, renamed: "Transfer")
 public typealias AkahuTransfer = Transfer
+@available(*, deprecated, renamed: "Webhook")
+public typealias AkahuWebhook = Webhook

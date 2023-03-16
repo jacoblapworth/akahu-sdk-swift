@@ -8,12 +8,12 @@
 import Foundation
 
 protocol WebhookEvent {
-  var type: AkahuWebhook.WebhookType { get }
+  var type: Webhook.WebhookType { get }
   var code: String { get }
   var state: String  { get }
 }
 
-extension AkahuWebhook {
+extension Webhook {
   public struct Event {
     public var type: WebhookType
     public var code: String

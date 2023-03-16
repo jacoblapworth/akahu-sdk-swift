@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AkahuWebhook: Codable, Identifiable {
+public struct Webhook: Codable, Identifiable {
   /// Unique Akahu webhook identifier.
   public var id: String
   /// ISO 8601 formatted timestamp that the webhook was created.

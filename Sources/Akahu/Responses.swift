@@ -106,7 +106,7 @@ public enum AkahuResponseBody<T: Decodable & Identifiable>: Decodable {
   }
 }
 
-protocol AkahuResponse: Decodable {
+protocol AkahuResponse: Codable {
   var success: Bool { get }
 }
 
@@ -119,12 +119,12 @@ public struct AkahuIdResponse: AkahuResponse {
   public var id: String
 }
 
-public struct AkahuItemResponse<T: Decodable>: AkahuResponse  {
+public struct AkahuItemResponse<T: Codable>: AkahuResponse  {
   public var success: Bool = true
   public var item: T
 }
 
-public struct AkahuItemsResponse<T: Decodable & Identifiable>: AkahuResponse  {
+public struct AkahuItemsResponse<T: Codable & Identifiable>: AkahuResponse  {
   public var success: Bool = true
   public var items: [T]
   public var cursor: Cursor?
@@ -135,7 +135,7 @@ public struct AkahuErrorResponse: AkahuResponse  {
   public var message: String
 }
 
-public struct Cursor: Decodable, Equatable {
+public struct Cursor: Codable, Equatable {
   public let next: String?
 }
 

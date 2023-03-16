@@ -9,6 +9,7 @@ final public class Akahu {
   public typealias Route = AkahuRoute
   
   public typealias Account = AkahuAccount
+  public typealias Auth = AkahuAuth
   public typealias Connection = AkahuConnection
   public typealias Identity = AkahuIdentity
   public typealias Income = AkahuIncome

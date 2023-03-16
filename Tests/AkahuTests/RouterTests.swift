@@ -10,9 +10,26 @@ import Foundation
 import URLRouting
 import CustomDump
 @testable import Akahu
+import AkahuFixtures
 
 
 final class RouterTests: XCTestCase {
+
+//  func testAPIcallItems() async throws {
+//    let mockApi = URLRoutingClient<AkahuRoute>.failing.override(AkahuRoute.transactions()) {
+//      try .ok(TransactionsResponse.mock)
+//    }
+//    
+//    let (value, _) = try await mockApi.decodedResponse(
+//      for: .transactions(.all()),
+//      as: AkahuItemsResponse<AkahuTransaction>.self
+//    )
+//    
+//    XCTAssertTrue(value.success)
+//    XCTAssertEqual(value.items.count, 100)
+//  }
+  
+  
   func testPrintedRoute() {
     let string = baseRouter.url(for: .transactions(.transaction(id: "123abc"))).absoluteString
     XCTAssertEqual(string, "/transactions/123abc")
@@ -60,7 +77,7 @@ final class RouterTests: XCTestCase {
     let url = URL(string: "https://api.akahu.io/v1/transactions?start=2040-01-15T23:31:30Z&end=2040-02-14T23:31:30Z&cursor=123")!
     let match = try paginationParser.match(url: url)
     XCTAssertNoDifference(match.cursor, "123")
-
+    
     let request = try paginationParser.request(for: match)
     XCTAssertNoDifference(request.url?.absoluteString, "/?cursor=123")
   }

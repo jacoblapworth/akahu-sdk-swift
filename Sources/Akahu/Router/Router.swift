@@ -9,14 +9,15 @@ import Foundation
 import URLRouting
 
 public enum AkahuRoute: Equatable {
-  case auth(Auth = .token)
   case accounts(Accounts = .all)
+  case auth(Auth)
   case categories(Categories = .all)
   case connections(Connections = .all)
   case income(Income = .all)
   case me(Me = .get)
   case payments(Payments = .all())
   case refresh(Refresh = .all)
+  case support(Support)
   case transactions(Transactions = .all())
   case transfers(Transfers = .all())
 }
@@ -36,6 +37,7 @@ public let baseRouter = OneOf {
   meRoute
   paymentsRoute
   refreshRoute
+  supportRoute
   transactionsRoute
   transfersRoute 
 }

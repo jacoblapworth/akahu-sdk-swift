@@ -7,8 +7,7 @@ final public class Akahu {
   public static let router = akahuRouter
   public let api = akahuApi
   public typealias Route = AkahuRoute
-  
-  public typealias Payment = AkahuPayment
+
   public typealias Transfer = AkahuTransfer
   public typealias Webhook = AkahuWebhook
   
@@ -37,3 +36,5 @@ public typealias AkahuIdentity = Identity
 public typealias AkahuIncome = Income
 @available(*, deprecated, renamed: "Me")
 public typealias AkahuMe = Me
+@available(*, deprecated, renamed: "Payment")
+public typealias AkahuPayment = Payment

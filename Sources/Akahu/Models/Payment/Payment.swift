@@ -11,7 +11,7 @@ import Foundation
 ///
 /// Akahu payments are designed to move money from your user's connected account to another party's bank account.
 /// To move money between a user's connected accounts, make a ``AkahuTransfer`` instead.
-public struct AkahuPayment: Identifiable, Codable {
+public struct Payment: Identifiable, Codable {
   /// The Akahu Payment ID
   public var id: String
   /// The Akahu Account ID of the source account

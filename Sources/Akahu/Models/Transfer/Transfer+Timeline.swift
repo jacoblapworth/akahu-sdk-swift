@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuTransfer {
+extension Transfer {
   /// A timeline of events regarding this transfer
   public struct TimelineEntry: Codable {
     /// The transfer's status at this time

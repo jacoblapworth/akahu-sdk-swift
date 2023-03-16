@@ -169,7 +169,7 @@ public typealias IncomeResponse = AkahuItemsResponse<Income>
 public typealias PaymentsResponse = AkahuItemsResponse<Payment>
 public typealias TransactionsResponse = AkahuItemsResponse<Transaction>
 public typealias TransactionsPendingResponse = AkahuItemsResponse<TransactionPending>
-public typealias TransfersResponse = AkahuItemsResponse<AkahuTransfer>
+public typealias TransfersResponse = AkahuItemsResponse<Transfer>
 public typealias RefreshResponse = AkahuSuccessResponse
 public typealias MeResponse = AkahuItemResponse<Me>
 

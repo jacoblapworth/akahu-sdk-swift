@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AkahuTransfer: Identifiable, Codable {
+public struct Transfer: Identifiable, Codable {
   /// The Akahu Transfer ID
   public var id: String
   /// The Akahu Account ID of the source account

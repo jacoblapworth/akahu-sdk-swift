@@ -10,7 +10,7 @@ import Foundation
 /// Online banking payments are a common way for consumers and businesses to pay bills, invoices, or another person.
 ///
 /// Akahu payments are designed to move money from your user's connected account to another party's bank account.
-/// To move money between a user's connected accounts, make a ``AkahuTransfer`` instead.
+/// To move money between a user's connected accounts, make a ``Transfer`` instead.
 public struct Payment: Identifiable, Codable {
   /// The Akahu Payment ID
   public var id: String

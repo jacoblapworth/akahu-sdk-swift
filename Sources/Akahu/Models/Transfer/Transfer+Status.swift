@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AkahuTransfer {
+extension Transfer {
   public enum Status: String, Codable {
     /// Transfer is ready to be processed.
     case ready = "READY"

@@ -6,20 +6,8 @@ Swift SDK for Akahu — providing open finance infrastructure for New Zealand
 ## Topics
                 
 ### Essentials
-
-### Models
-
-- ``AkahuAccount``
-- ``AkahuAuth``
-- ``AkahuConnection``
-- ``AkahuIdentity``
-- ``AkahuIncome``
-- ``AkahuMe``
-- ``AkahuPayment``
-- ``AkahuTransaction``
-- ``AkahuTransactionPending``
-- ``AkahuTransfer``
-- ``AkahuWebhook``
+- <doc:Models>
+- <doc:Authentication>
 
 ### Routing
 

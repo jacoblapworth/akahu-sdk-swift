@@ -7,6 +7,12 @@
 
 import Foundation
 
+/// Pending transactions are transactions that are still being processed by the bank.
+///
+/// These transactions are made available at a separate endpoint ``AkahuRoute/Transactions/pending`` and contain less information than transactions that have been settled.
+/// For example, pending transactions are not assigned a unique identifier. This is because New Zealand banks typically do not serve a consistent view of pending transactions.
+/// Pending transactions are liable to change significantly as they are processed, so it would be misleading to assign them a unique identifier.
+/// When working with pending transactions it is recommended that you completely rebuild your local copy of this data (i.e. delete then re-create) each time you query them from Akahu.
 public struct AkahuTransactionPending: Codable, Identifiable {
   public let id: String = UUID().uuidString
   /// The Akahu User ID that this transaction belongs to

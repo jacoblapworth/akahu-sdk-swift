@@ -6,7 +6,7 @@ on:
       - published
   push:
     branches:
-      - main
+      - $default
   workflow_dispatch:
 
 permissions:
@@ -19,8 +19,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  docc:
-    name: Docs
+  build:
     runs-on: macos-latest
     steps:
       - name: Checkout
@@ -45,12 +44,11 @@ jobs:
           path: ./docs
 
   deploy:
-    name: Deploy Docs
-    needs: docc
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
       - name: Deploy Pages
         uses: actions/deploy-pages@v1

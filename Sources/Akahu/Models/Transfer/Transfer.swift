@@ -7,6 +7,10 @@
 
 import Foundation
 
+/// Transfers on Akahu are the movement of money between accounts that the user has connected.
+///
+/// A transfer is distinct from a Payment, which is the movement of money to an external account (an account that has not been connected to Akahu by the user).
+/// Akahu supports inter-bank transfers, but note that these will take longer due to standard bank processing times.
 public struct AkahuTransfer: Identifiable, Codable {
   /// The Akahu Transfer ID
   public var id: String

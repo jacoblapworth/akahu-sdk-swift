@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Webhooks are the best way to make your application responsive to new or changing data.
 public struct AkahuWebhook: Codable, Identifiable {
   /// Unique Akahu webhook identifier.
   public var id: String

@@ -18,6 +18,16 @@ extension AkahuRoute {
     ///
     /// Revoking a User Access Token will remove your access to **all** of a user's connected account data including transactions.
     case revoke
+    /// Build the OAuth Authorization URL
+    /// 
+    /// To begin the OAuth flow, the user must be directed to https://oauth.akahu.io, with several query parameters set.
+    case authorize(AkahuAuth.AuthorizationOptions)
+  }
+}
+
+internal let oauthRoute = Route(.case(AkahuRoute.auth)) {
+  Route(.case(AkahuRoute.Auth.authorize)) {
+    AkahuAuth.authorizationOptionsParser
   }
 }
 
@@ -29,7 +39,7 @@ internal let authRoute = Route(.case(AkahuRoute.auth)) {
 internal let authRouter = OneOf {
   Route(.case(AkahuRoute.Auth.exchange)) {
     Method.post
-    Body(.json(AuthParameters.self))
+    Body(.json(AuthParameters.self, decoder: newJSONDecoder(), encoder: newJSONEncoder()))
   }
 
   Route(.case(AkahuRoute.Auth.revoke)) {

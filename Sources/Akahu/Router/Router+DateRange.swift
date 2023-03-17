@@ -8,7 +8,7 @@
 import Foundation
 import URLRouting
 
-public struct DateRangeOptions: Equatable {
+public struct DateRangeQueryParams: Equatable {
   var start: Date? = nil
   var end: Date? = nil
   
@@ -18,7 +18,7 @@ public struct DateRangeOptions: Equatable {
   }
 }
 
-public let dateRangeParser = Parse(.memberwise(DateRangeOptions.init(start:end:))) {
+public let dateRangeParser = Parse(.memberwise(DateRangeQueryParams.init(start:end:))) {
   Query {
     Optionally {
       Field("start") { Parse { Formatted(.iso8601 ) } }

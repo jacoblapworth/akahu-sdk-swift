@@ -10,7 +10,7 @@ import URLRouting
 
 extension AkahuRoute {
   public enum Transactions: Equatable {
-    case all(query: DateRangeOptions = .init(), cursor: PaginationOptions = .init())
+    case all(query: DateRangeQueryParams = .init(), cursor: PaginationQueryParams = .init())
     case transaction(id: String, Self.Transaction = .get)
     case pending
     case ids(ids: [String])

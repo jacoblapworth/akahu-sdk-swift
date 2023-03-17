@@ -13,6 +13,7 @@ public enum AkahuRoute: Equatable {
   case auth(Auth)
   case categories(Categories = .all)
   case connections(Connections = .all)
+  case identity(Identity = .enduring)
   case income(Income = .all)
   case me(Me = .get)
   case payments(Payments = .all())
@@ -20,19 +21,26 @@ public enum AkahuRoute: Equatable {
   case support(Support)
   case transactions(Transactions = .all())
   case transfers(Transfers = .all())
+  case webhooks(Webhooks)
 }
 
 extension AkahuRoute {
+  /// Convert a route into a request
   public func request() throws -> URLRequest {
     try akahuRouter.request(for: self)
   }
+  
+  public func print() throws -> URLRequestData {
+    try akahuRouter.print(self)
+  }
 }
 
-public let baseRouter = OneOf {
+internal let enduringEndpoints = OneOf {
   accountsRoute
   authRoute
   categoriesRoute
   connectionsRoute
+  identityRoute
   incomeRoute
   meRoute
   paymentsRoute
@@ -41,11 +49,22 @@ public let baseRouter = OneOf {
   transactionsRoute
   transfersRoute 
 }
-
-let akahuRouter = baseRouter
   .baseURL("https://api.akahu.io/v1")
 
-let akahuApi = URLRoutingClient.live(
+internal let oauthEndpoints = OneOf {
+  oauthRoute
+}
+  .baseURL("https://oauth.akahu.io")
+
+
+let akahuRouter = OneOf {
+  enduringEndpoints
+  oauthEndpoints
+}
+
+let akahuApi = URLRoutingClient<AkahuRoute>.live(
   router: akahuRouter,
   decoder: newJSONDecoder()
 )
+
+let mockApi = URLRoutingClient<AkahuRoute>.failing

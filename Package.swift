@@ -11,8 +11,9 @@ let package = Package(
     .library(name: "Akahu", targets: ["Akahu"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/pointfreeco/swift-url-routing", from: "0.4.0"),
-    .package(url: "https://github.com/pointfreeco/swift-custom-dump", from: "0.3.0")
+    .package(url: "https://github.com/pointfreeco/swift-custom-dump", from: "0.3.0"),
+    .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "0.2.0"),
+    .package(url: "https://github.com/pointfreeco/swift-url-routing", from: "0.4.0")
   ],
   targets: [
     .target(
@@ -33,7 +34,8 @@ let package = Package(
       dependencies: [
         "Akahu",
         "AkahuFixtures",
-        .product(name: "CustomDump", package: "swift-custom-dump")
+        .product(name: "CustomDump", package: "swift-custom-dump"),
+        .product(name: "Dependencies", package: "swift-dependencies")
       ]
     )
   ]

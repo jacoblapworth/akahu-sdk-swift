@@ -10,6 +10,7 @@ final public class Akahu {
   
   public typealias Account = AkahuAccount
   public typealias Auth = AkahuAuth
+  public typealias Category = AkahuTransaction.Category
   public typealias Connection = AkahuConnection
   public typealias Identity = AkahuIdentity
   public typealias Income = AkahuIncome
@@ -20,11 +21,26 @@ final public class Akahu {
   public typealias Transfer = AkahuTransfer
   public typealias Webhook = AkahuWebhook
   
-  public typealias AccountsResponse = AkahuItemsResponse<Akahu.Account>
-  public typealias AccountResponse = AkahuItemResponse<Akahu.Account>
-  public typealias TransactionsResponse = AkahuItemsResponse<Akahu.Transaction>
-  public typealias TransactionsPendingResponse = AkahuItemsResponse<Akahu.TransactionPending>
-  public typealias IncomeResponse = AkahuItemsResponse<Akahu.Income>
-  public typealias RefreshResponse = AkahuSuccessResponse
-  public typealias MeResponse = AkahuItemResponse<Akahu.Me>
+  public struct Responses {
+    public typealias Account = AkahuItemResponse<Akahu.Account>
+    public typealias Accounts = AkahuItemsResponse<Akahu.Account>
+    public typealias Categories = AkahuItemsResponse<Akahu.Category>
+    public typealias Category = AkahuItemResponse<Akahu.Category>
+    public typealias Connection = AkahuItemResponse<Akahu.Connection>
+    public typealias Connections = AkahuItemsResponse<Akahu.Connection>
+    public typealias Identities = AkahuItemsResponse<Akahu.Identity>
+    public typealias Income = AkahuItemsResponse<Akahu.Income>
+    public typealias Me = AkahuItemResponse<Akahu.Me>
+    public typealias Payment = AkahuItemResponse<Akahu.Payment>
+    public typealias Payments = AkahuItemsResponse<Akahu.Payment>
+    public typealias Transaction = AkahuItemResponse<Akahu.Transaction>
+    public typealias Transactions = AkahuItemsResponse<Akahu.Transaction>
+    public typealias TransactionsPending = AkahuItemsResponse<Akahu.TransactionPending>
+    public typealias Transfer = AkahuItemResponse<Akahu.Transfer>
+    public typealias Transfers = AkahuItemsResponse<Akahu.Transfer>
+    public typealias Webhook = AkahuItemResponse<Akahu.Webhook>
+    public typealias Webhooks = AkahuItemsResponse<Akahu.Webhook>
+    public typealias Refresh = AkahuSuccessResponse
+    public typealias Support = AkahuSuccessResponse
+  }
 }

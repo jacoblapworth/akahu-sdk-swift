@@ -31,29 +31,29 @@ final class RouterTests: XCTestCase {
   
   
   func testPrintedRoute() {
-    let string = baseRouter.url(for: .transactions(.transaction(id: "123abc"))).absoluteString
-    XCTAssertEqual(string, "/transactions/123abc")
+    let string = akahuRouter.url(for: .transactions(.transaction(id: "123abc"))).absoluteString
+    XCTAssertEqual("https://api.akahu.io/v1/transactions/123abc", string)
   }
   
   func testPrintedRouteWithDate() {
     let end = Date(timeIntervalSinceReferenceDate: 1234567890)
     let start = Calendar.current.date(byAdding: .day, value: -30, to: end)!
-    let string = baseRouter.url(for: .transactions(.all(query: .init(start: start, end: end), cursor: .init(cursor: "123")))).absoluteString
-    XCTAssertEqual(string, "/transactions?start=2040-01-15T23:31:30Z&end=2040-02-14T23:31:30Z&cursor=123")
+    let string = enduringEndpoints.url(for: .transactions(.all(query: .init(start: start, end: end), cursor: .init(cursor: "123")))).absoluteString
+    XCTAssertEqual( "https://api.akahu.io/v1/transactions?start=2040-01-15T23:31:30Z&end=2040-02-14T23:31:30Z&cursor=123", string)
   }
   
   func testParsingRouteWithID() {
-    let result = try! baseRouter.match(path: "/transactions/123456")
+    let result = try! akahuRouter.match(path: "/transactions/123456")
     
     if case let AkahuRoute.transactions(.transaction(id, _)) = result {
-      XCTAssertEqual(id, "123456")
+      XCTAssertEqual("123456", id)
     } else {
       XCTFail()
     }
   }
   
   func testParsingRouteWithDate() {
-    let route = try! baseRouter.match(path: "/transactions?start=2040-01-15T23:31:30Z")
+    let route = try! akahuRouter.match(path: "/transactions?start=2040-01-15T23:31:30Z")
     let expected = AkahuRoute.transactions(.all(query: .init(start: try! Date("2040-01-15T23:31:30Z", strategy: .iso8601))))
     XCTAssertNoDifference(route, expected)
     

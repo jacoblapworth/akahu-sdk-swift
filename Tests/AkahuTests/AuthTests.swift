@@ -10,6 +10,7 @@ import Foundation
 import CustomDump
 @testable import Akahu
 import AkahuFixtures
+import Dependencies
 
 class AuthTests: XCTestCase {
   
@@ -22,7 +23,46 @@ class AuthTests: XCTestCase {
     )
     let request = try akahuRouter.print(.auth(.exchange(params)))
     
-    XCTAssertNoDifference(request.method, "POST")
-    XCTAssertNoDifference(request.path, ["v1","token"])
+    XCTAssertNoDifference(
+      "POST",
+      request.method
+    )
+    XCTAssertNoDifference(
+      ["v1","token"],
+      request.path
+    )
+    XCTAssertNoDifference(
+#"""
+{
+  "code" : "code",
+  "client_id" : "<<appToken>>",
+  "redirect_uri" : "http:\/\/localhost:3000\/redirect",
+  "client_secret" : "<<appSecret>>",
+  "grant_type" : "authorization_code"
+}
+"""#,
+String(data: request.body!, encoding: .utf8)!
+    )
+  }
+  
+  func testAuthorizationUrl() throws {
+    let request = try withDependencies {
+      $0.uuid = .incrementing
+    } operation: {
+      @Dependency(\.uuid) var uuid
+      let options = AkahuAuth.AuthorizationOptions(
+        redirectUri: "http://localhost:3000",
+        scope: [.enduringConsent,.akahu],
+        clientId: "123",
+        state: uuid().uuidString
+      )
+      
+      return try Akahu.router.request(for: .auth(.authorize(options)))
+    }
+    
+    XCTAssertNoDifference(
+      "https://oauth.akahu.io/?redirect_uri=http://localhost:3000&scope=ENDURING_CONSENT%20AKAHU&client_id=123&state=00000000-0000-0000-0000-000000000000",
+      request.url?.absoluteString
+    )
   }
 }

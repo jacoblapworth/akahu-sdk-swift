@@ -8,7 +8,7 @@
 import Foundation
 import URLRouting
 
-public struct PaginationOptions: Equatable {
+public struct PaginationQueryParams: Equatable {
   var cursor: String? = nil
   
   public init(cursor: String? = nil) {
@@ -16,7 +16,7 @@ public struct PaginationOptions: Equatable {
   }
 }
 
-public let paginationParser = Parse(.memberwise(PaginationOptions.init(cursor:))) {
+public let paginationParser = Parse(.memberwise(PaginationQueryParams.init(cursor:))) {
   Query {
     Optionally {
       Field("cursor") { Parse(.string) }
@@ -25,7 +25,7 @@ public let paginationParser = Parse(.memberwise(PaginationOptions.init(cursor:))
 }
 
 
-@available(*, deprecated, message: "Use individual ``PaginationOptions`` and ``DateRangeOptions`` options")
+@available(*, deprecated, message: "Use individual ``PaginationQueryParams`` and ``DateRangeOptions`` options")
 public struct PaginatedDateRangeOptions: Equatable {
   public var start: Date? = nil
   public var end: Date? = nil
@@ -55,7 +55,7 @@ public let paginatedDateRangeParser = Parse(.memberwise(PaginatedDateRangeOption
 
 //public struct PaginatedDateRangeOptions: Equatable {
 //  var dateRange: DateRangeOptions? = nil
-//  var pagination: PaginationOptions? = nil
+//  var pagination: PaginationQueryParams? = nil
 //
 //  var start: Date? { dateRange?.start }
 //  var end: Date? { dateRange?.end }
@@ -66,7 +66,7 @@ public let paginatedDateRangeParser = Parse(.memberwise(PaginatedDateRangeOption
 //    self.pagination = .init(cursor: cursor)
 //  }
 //
-//  public init(dateRange: DateRangeOptions? = nil, pagination: PaginationOptions? = nil) {
+//  public init(dateRange: DateRangeOptions? = nil, pagination: PaginationQueryParams? = nil) {
 //    self.dateRange = dateRange
 //    self.pagination = pagination
 //  }

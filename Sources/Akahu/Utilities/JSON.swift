@@ -35,6 +35,8 @@ func newJSONDecoder() -> JSONDecoder {
 func newJSONEncoder() -> JSONEncoder {
   let encoder = JSONEncoder()
   encoder.dateEncodingStrategy = .iso8601
+  encoder.keyEncodingStrategy = .convertToSnakeCase
+  encoder.outputFormatting = [.prettyPrinted]
   
   return encoder
 }

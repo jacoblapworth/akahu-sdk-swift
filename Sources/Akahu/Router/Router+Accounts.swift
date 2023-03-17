@@ -24,7 +24,7 @@ extension AkahuRoute {
       case transactions(Self.Transactions = .all())
       
       public enum Transactions: Equatable {
-        case all(query: DateRangeOptions = .init(), cursor: PaginationOptions = .init())
+        case all(query: DateRangeQueryParams = .init(), cursor: PaginationQueryParams = .init())
         case pending
       }
     }

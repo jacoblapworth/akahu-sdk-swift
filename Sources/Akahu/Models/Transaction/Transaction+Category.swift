@@ -11,7 +11,7 @@ extension AkahuTransaction {
   public typealias FinanceCategory = AkahuTransaction.Category.Groups.PersonalFinance
   
   /// The category object categorises the transaction using NZFCC codes (New Zealand Financial Category Codes)
-  public struct Category: Codable {
+  public struct Category: Codable, Identifiable {
     /// The NZFCC Category ID
     public let id: String
     /// The NZFCC Category Name

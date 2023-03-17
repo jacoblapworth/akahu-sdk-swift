@@ -12,7 +12,7 @@ extension AkahuRoute {
   
   public enum Payments: Equatable {
     /// Get a list of the payments that your application has initiated on behalf of the user within the start and end time range.
-    case all(query: DateRangeOptions = .init())
+    case all(query: DateRangeQueryParams = .init())
     /// Initiate a payment from the user's connected bank account to another New Zealand bank account.
     case create(payment: Create = .payment)
     case payment(id: String, payment: Payment = .get)

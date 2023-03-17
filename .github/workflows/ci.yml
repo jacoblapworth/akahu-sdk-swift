@@ -10,7 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  Build and Test:
+  build_and_test:
+    name: Build and Test
     runs-on: macos-latest
 
     steps:

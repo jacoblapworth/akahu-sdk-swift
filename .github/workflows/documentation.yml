@@ -19,7 +19,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  Docs:
+  docc:
+    name: Docs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -44,12 +45,13 @@ jobs:
           path: ./docs
 
   deploy:
+    name: Deploy Docs
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: docs
+    needs: docc
 
     steps:
-      - name: Deploy Docs
+      - name: Deploy Pages
         uses: actions/deploy-pages@v1

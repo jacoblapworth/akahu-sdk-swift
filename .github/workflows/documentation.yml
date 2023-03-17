@@ -35,7 +35,7 @@ jobs:
         with:
           target: Akahu
           output: ./docs
-          hosting-base-path: akahu-swift-sdk
+          hosting-base-path: akahu-sdk-swift
           disable-indexing: 'true'
           transform-for-static-hosting: 'true'
       - name: Upload artifact

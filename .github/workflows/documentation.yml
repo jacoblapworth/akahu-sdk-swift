@@ -6,7 +6,7 @@ on:
       - published
   push:
     branches:
-      - $default
+      - main
   workflow_dispatch:
 
 permissions:
@@ -51,4 +51,5 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy Pages
+        id: deployment
         uses: actions/deploy-pages@v1

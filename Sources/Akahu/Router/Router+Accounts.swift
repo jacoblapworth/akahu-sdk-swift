@@ -57,8 +57,8 @@ internal let accountRouter = OneOf {
 
 internal let accountTransactionsRouter = OneOf {
   Route(.case(AkahuRoute.Accounts.Account.Transactions.all)) {
-    dateRangeParser
-    paginationParser
+    AkahuRoute.dateRangeParser
+    AkahuRoute.paginationParser
   }
   Route(.case(AkahuRoute.Accounts.Account.Transactions.pending)) {
     Path { "pending" }

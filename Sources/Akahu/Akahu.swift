@@ -1,11 +1,18 @@
 import Foundation
+import URLRouting
 import AkahuFixtures
 
 final public class Akahu {
   private init() {}
   public static let shared = Akahu()
   public static let router = akahuRouter
-  public let api = akahuApi
+  public static let api = URLRoutingClient<AkahuRoute>.live(
+    router: akahuRouter,
+    decoder: newJSONDecoder()
+  )
+  
+  public static let mockApi = URLRoutingClient<AkahuRoute>.failing
+  
   public typealias Route = AkahuRoute
   
   public typealias Account = AkahuAccount

@@ -16,9 +16,9 @@ class SupportTests: XCTestCase {
   func testSupportTransactionEncoding() throws {
     let encoder = newJSONEncoder()
     
-    let duplicate = TransactionSupportType.duplicate(id: "123")
-    let error = TransactionSupportType.enrichmentError(fields: ["merchant.name"], comment: "error")
-    let suggestion = TransactionSupportType.enrichmentSuggestion(comment: "suggestion")
+    let duplicate = AkahuRoute.Support.TransactionSupportType.duplicate(id: "123")
+    let error = AkahuRoute.Support.TransactionSupportType.enrichmentError(fields: ["merchant.name"], comment: "error")
+    let suggestion = AkahuRoute.Support.TransactionSupportType.enrichmentSuggestion(comment: "suggestion")
     
     let duplicateData = try encoder.encode(duplicate)
     let duplicateString = String(data: duplicateData, encoding: .utf8)!
@@ -61,11 +61,11 @@ suggestionString)
     let duplicate = #"{"type":"DUPLICATE","id":"123"}"#
     let duplicateWithNoId = #"{"type":"DUPLICATE"}"#
     
-    let duplicateResult = try decoder.decode(TransactionSupportType.self, from: duplicate.data(using: .utf8)!)
+    let duplicateResult = try decoder.decode(AkahuRoute.Support.TransactionSupportType.self, from: duplicate.data(using: .utf8)!)
     
     XCTAssertNoDifference(duplicateResult, .duplicate(id: "123"))
     
-    XCTAssertThrowsError(try decoder.decode(TransactionSupportType.self, from: duplicateWithNoId.data(using: .utf8)!)) {
+    XCTAssertThrowsError(try decoder.decode(AkahuRoute.Support.TransactionSupportType.self, from: duplicateWithNoId.data(using: .utf8)!)) {
       XCTAssertTrue($0 is DecodingError)
     }
   }

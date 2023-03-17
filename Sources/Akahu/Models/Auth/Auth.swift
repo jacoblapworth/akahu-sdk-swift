@@ -9,44 +9,7 @@ import Foundation
 import URLRouting
 
 public struct AkahuAuth {
-  public struct AuthorizationOptions: Equatable {
-    /// Where to redirect the user once they have accepted or rejected the access request. This must match one of your app's Redirect URIs.
-    public var redirectUri: String
-    /// The type of oauth response. Currently "code" is the only supported option.
-    public var responseType: String = "code"
-    /// The type of oauth flow to perform. `ENDURING_CONSENT` is all you need to supply here.
-    public var scope: [EnduringConsentScope] = [.enduringConsent]
-    /// Your App ID Token.
-    public var clientId: String
-    /// The user's email.
-    public var email: String?
-    /// Direct the user to a specific connection from your app.
-    public var connection: String?
-    /// An arbitrary string that will be returned with the Authorization Code. Useful to keep track of request-specific state and to prevent CSRF attacks.
-    /// **Recommended**
-    public var state: String?
-  }
-  
-  public static let authorizationOptionsParser = Parse(.memberwise(AuthorizationOptions.init(
-      redirectUri:responseType:scope:clientId:email:connection:state:
-  ))) {
-    Query {
-      Field("redirect_uri", .string)
-      Field("response_type", .string, default: "code")
-      Field("scope") { scopesParser }
-      Field("client_id", .string)
-      Optionally {
-        Field("email", .string)
-      }
-      Optionally {
-        Field("connection", .string)
-      }
-      Optionally {
-        Field("state", .string)
-      }
-    }
-  }
-  
+ 
   /// The authorization response is delivered to your app by redirecting the user to your supplied Redirect URI, with results included in the query parameters.
   ///
   /// When the user accepts your app's request for authorization, they will be returned to your supplied Redirect URI with the following query parameters:
@@ -67,14 +30,23 @@ public struct AkahuAuth {
     }
   }
   
+  /// In keeping with the OAuth2 specification, error responses from ``AkahuRoute/Auth/exchange(_:)`` contain an error in the error field, rather than the message field used by other Akahu endpoints.
   public struct AuthorizationErrorResponse {
+    public var success: Bool = false
+    public var error: String
   }
 }
 
 extension AkahuAuth {
+  /// The User Access Token returned from exchanging an `Authorization Code`
+  ///
+  /// This token can be used to access the rest of the API.
   public struct AuthorizationToken {
+    /// Authorised User Access Token used to authenticate the user upon additional resource request.
     public var accessToken: String
+    /// Type of authentication
     public var tokenType: String = "bearer"
+    /// List of granted permissions and resources the given token has access to.
     public var scope: [EnduringConsentScope]
   }
 }
@@ -89,7 +61,7 @@ extension AkahuAuth.AuthorizationToken: Codable {
     self.accessToken = try container.decode(String.self, forKey: .accessToken)
     self.tokenType = try container.decode(String.self, forKey: .tokenType)
     let scopes = try container.decode(String.self, forKey: .scope)
-    self.scope = try scopesParser.parse(scopes)
+    self.scope = try AkahuRoute.Auth.scopesParser.parse(scopes)
   }
 }
 

@@ -15,12 +15,13 @@ import Dependencies
 class AuthTests: XCTestCase {
   
   func testAuthRoutePrinting() throws {
-    let params = AuthParameters(
+    let params = AkahuRoute.Auth.TokenParams(
       code: "code",
       redirectUri: "http://localhost:3000/redirect",
       clientId: "<<appToken>>",
       clientSecret: "<<appSecret>>"
     )
+    
     let request = try akahuRouter.print(.auth(.exchange(params)))
     
     XCTAssertNoDifference(
@@ -50,7 +51,7 @@ String(data: request.body!, encoding: .utf8)!
       $0.uuid = .incrementing
     } operation: {
       @Dependency(\.uuid) var uuid
-      let options = AkahuAuth.AuthorizationOptions(
+      let options = AkahuRoute.Auth.AuthorizationParams(
         redirectUri: "http://localhost:3000",
         scope: [.enduringConsent,.akahu],
         clientId: "123",

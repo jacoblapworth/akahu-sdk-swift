@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - Helper functions for creating encoders and decoders
-
 func newJSONDecoder() -> JSONDecoder {
   let formatter = ISO8601DateFormatter()
   formatter.formatOptions = [

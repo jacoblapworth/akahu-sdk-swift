@@ -38,7 +38,7 @@ internal let paymentsRoute = Route(.case(AkahuRoute.payments)) {
 
 internal let paymentsParser = OneOf {
   Route(.case(AkahuRoute.Payments.all(query:))) {
-    dateRangeParser
+    AkahuRoute.dateRangeParser
   }
   Route(.case(AkahuRoute.Payments.create)) {
     Method.post

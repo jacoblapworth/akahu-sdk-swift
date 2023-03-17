@@ -8,18 +8,21 @@
 import Foundation
 import URLRouting
 
-public struct PaginationQueryParams: Equatable {
-  var cursor: String? = nil
+extension AkahuRoute {
   
-  public init(cursor: String? = nil) {
-    self.cursor = cursor
+  public struct PaginationQueryParams: Equatable {
+    var cursor: String? = nil
+    
+    public init(cursor: String? = nil) {
+      self.cursor = cursor
+    }
   }
-}
-
-public let paginationParser = Parse(.memberwise(PaginationQueryParams.init(cursor:))) {
-  Query {
-    Optionally {
-      Field("cursor") { Parse(.string) }
+  
+  public static let paginationParser = Parse(.memberwise(PaginationQueryParams.init(cursor:))) {
+    Query {
+      Optionally {
+        Field("cursor") { Parse(.string) }
+      }
     }
   }
 }

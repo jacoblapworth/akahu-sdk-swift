@@ -14,11 +14,16 @@ extension AkahuRoute {
     case all(query: DateRangeQueryParams = .init())
     /// Initiate a transfer between two of the user's connected accounts.
     case create
+    /// An individual transfer
     case transfer(id: String, transfer: Transfer = .get)
     
     public enum Transfer: Equatable {
       /// Get the record of an individual money transfer that your application has initiated between two of the user's connected accounts.
       case get
+      
+      internal static let router = OneOf {
+        Route(.case(Transfer.get))
+      }
     }
   }
 }
@@ -27,18 +32,15 @@ internal let transfersRoute = Route(.case(AkahuRoute.transfers)) {
   Path { "transfers" }
   OneOf {
     Route(.case(AkahuRoute.Transfers.all(query:))) {
-      dateRangeParser
+      AkahuRoute.dateRangeParser
     }
     Route(.case(AkahuRoute.Transfers.create)) {
       Method.post
     }
     Route(.case(AkahuRoute.Transfers.transfer)) {
       Path { Parse(.string) }
-      transferRouter
+      AkahuRoute.Transfers.Transfer.router
     }
   }
 }
 
-internal let transferRouter = OneOf {
-  Route(.case(AkahuRoute.Transfers.Transfer.get))
-}

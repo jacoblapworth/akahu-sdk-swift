@@ -57,14 +57,7 @@ internal let oauthEndpoints = OneOf {
   .baseURL("https://oauth.akahu.io")
 
 
-let akahuRouter = OneOf {
+internal let akahuRouter = OneOf {
   enduringEndpoints
   oauthEndpoints
 }
-
-let akahuApi = URLRoutingClient<AkahuRoute>.live(
-  router: akahuRouter,
-  decoder: newJSONDecoder()
-)
-
-let mockApi = URLRoutingClient<AkahuRoute>.failing

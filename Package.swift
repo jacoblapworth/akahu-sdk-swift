@@ -6,7 +6,7 @@ let package = Package(
   name: "Akahu",
   platforms: [
     .iOS(.v16),
-    .macOS(.v13)
+    .macOS(.v12)
   ],
   products: [
     .library(name: "Akahu", targets: ["Akahu"]),

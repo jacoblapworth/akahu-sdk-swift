@@ -69,10 +69,12 @@ extension AkahuRoute.Auth {
     public var state: String?
   }
   
-  internal static let scopesParser = Many {
-    AkahuAuth.EnduringConsentScope.parser(of: Substring.self)
-  } separator: {
-    Whitespace(1)
+  internal static let scopesParser = Parse(inputType: Substring.UTF8View.self) {
+    Many {
+      AkahuAuth.EnduringConsentScope.parser()
+    } separator: {
+      Whitespace(1)
+    }
   }
   
   public static let authorizationParamsParser = Parse(.memberwise(AuthorizationParams.init(

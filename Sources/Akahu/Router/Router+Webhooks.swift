@@ -39,9 +39,8 @@ extension AkahuRoute {
     }
     
     internal static let statusParser = Query {
-      Field("status") { AkahuWebhook.Event.Status.parser(of: Substring.self) }
+      Field("status") { AkahuWebhook.Event.Status.parser() }
     }
-
   }
 }
 

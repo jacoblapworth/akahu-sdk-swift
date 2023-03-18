@@ -11,10 +11,11 @@ import URLRouting
 
 extension AkahuRoute {
   public enum Support: Equatable {
+    /// Let Akahu know about an issue with a specific transaction
     case transaction(id: String, TransactionSupportType)
     
     internal static let router = OneOf {
-      Route(.case(AkahuRoute.Support.transaction)) {
+      Route(.case(Support.transaction)) {
         Path { Parse(.string) }
         Body(.json(TransactionSupportType.self))
       }

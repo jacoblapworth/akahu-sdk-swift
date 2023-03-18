@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Documentation
-      url: ${{ steps.deployment.outputs.page_url }}/documentation/akahu
+      url: ${{ steps.deployment.outputs.page_url }}documentation/akahu
     steps:
       - name: Deploy Pages
         id: deployment

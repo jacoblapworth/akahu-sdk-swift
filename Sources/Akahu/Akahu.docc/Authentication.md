@@ -39,16 +39,27 @@ See our [Example Authorization Flow](/docs/authorization-flow-example) for a vis
 
 To begin the OAuth flow, the user must be directed to `https://oauth.akahu.io`, with several query parameters set.
 
-> Note: Akahu does not support being embedded inside iframes.
+``AkahuRoute/Auth/AuthorizationParams``
+
+```swift
+let options = AkahuRoute.Auth.AuthorizationParams(
+  redirectUri: "http://localhost:3000",
+  scope: [.enduringConsent,.akahu],
+  clientId: <<appToken>>,
+  state: uuid().uuidString
+)
+
+AkahuRoute.auth(.authorize(options)
+```
 
 
 | Parameter       | Example                          | Description                                                                                                                                                          |
 | --------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `response_type` | _code_                           | The type of oauth response. Currently "code" is the only supported option.                                                                                           |
 | `client_id`     | _<<appToken>>_                   | Your **App ID Token**.                                                                                                                                               |
-| `email`         | _user@example.com_               | (Optional) The user's email.                                                                                                                                         |
+| `email`         | _user@example.com _              | (Optional) The user's email.                                                                                                                                         |
 | `connection`    | _conn_1234_                      | (Optional) Direct the user to a specific connection from your app                                                                                                    |
-| `redirect_uri`  | _https://example.com/auth/akahu_ | Where to redirect the user once they have accepted or rejected the access request. This **must** match one of your app's **Redirect URIs**.                          |
+| `redirect_uri`  | _https://example.com/auth/akahu _| Where to redirect the user once they have accepted or rejected the access request. This **must** match one of your app's **Redirect URIs**.                          |
 | `scope`         | _ENDURING_CONSENT_               | The type of oauth flow to perform. `ENDURING_CONSENT` is all you need to supply here.                                                                                |
 | `state`         | _1234567890_                     | (Recommended) An arbitrary string that will be returned with the **Authorization Code**. Useful to keep track of request-specific state and to prevent CSRF attacks. |
 

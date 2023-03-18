@@ -15,6 +15,14 @@ extension AkahuRoute {
     /// An individual account that the user has connected to your application.
     case account(id: String, Account = .get)
     
+    internal static let router = OneOf {
+      Route(.case(Accounts.all))
+      Route(.case(Accounts.account)) {
+        Path { Parse(.string) }
+        Account.router
+      }
+    }
+    
     public enum Account: Equatable {
       case get
       /// Revoke your application's access to one of the user's connected accounts and its associated data, including transactions.
@@ -23,9 +31,30 @@ extension AkahuRoute {
       case revoke
       case transactions(Self.Transactions = .all())
       
+      internal static let router = OneOf {
+        Route(.case(Account.get))
+        Route(.case(Account.revoke)) {
+          Method.delete
+        }
+        Route(.case(Account.transactions)) {
+          Path { "transactions" }
+          Transactions.router
+        }
+      }
+      
       public enum Transactions: Equatable {
-        case all(query: DateRangeQueryParams = .init(), cursor: PaginationQueryParams = .init())
+        case all(query: DateRangeQuery = .init(), cursor: PaginationQuery = .init())
         case pending
+        
+        internal static let router = OneOf {
+          Route(.case(Transactions.all)) {
+            DateRangeQuery.parser
+            PaginationQuery.parser
+          }
+          Route(.case(Transactions.pending)) {
+            Path { "pending" }
+          }
+        }
       }
     }
   }
@@ -33,34 +62,9 @@ extension AkahuRoute {
 
 internal let accountsRoute = Route(.case(AkahuRoute.accounts)) {
   Path { "accounts" }
-  accountsRouter
+  AkahuRoute.Accounts.router
 }
 
-internal let accountsRouter = OneOf {
-  Route(.case(AkahuRoute.Accounts.all))
-  Route(.case(AkahuRoute.Accounts.account)) {
-    Path { Parse(.string) }
-    accountRouter
-  }
-}
 
-internal let accountRouter = OneOf {
-  Route(.case(AkahuRoute.Accounts.Account.get))
-  Route(.case(AkahuRoute.Accounts.Account.revoke)) {
-    Method.delete
-  }
-  Route(.case(AkahuRoute.Accounts.Account.transactions)) {
-    Path { "transactions" }
-    accountTransactionsRouter
-  }
-}
 
-internal let accountTransactionsRouter = OneOf {
-  Route(.case(AkahuRoute.Accounts.Account.Transactions.all)) {
-    AkahuRoute.dateRangeParser
-    AkahuRoute.paginationParser
-  }
-  Route(.case(AkahuRoute.Accounts.Account.Transactions.pending)) {
-    Path { "pending" }
-  }
-}
+

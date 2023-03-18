@@ -16,25 +16,28 @@ extension AkahuRoute {
     /// Get an individual NZFCC Category.
     case category(id: String, category: Category = .get)
     
+    internal static let router = OneOf {
+      Route(.case(Categories.all))
+      Route(.case(Categories.category)) {
+        Path { Parse(.string) }
+        Category.router
+      }
+    }
+    
     public enum Category: Equatable {
       case get
+      
+      internal static let router = OneOf {
+        Route(.case(Category.get))
+      }
     }
   }
 }
 
 internal let categoriesRoute = Route(.case(AkahuRoute.categories)) {
   Path { "categories" }
-  categoriesParser
+  AkahuRoute.Categories.router
 }
 
-internal let categoriesParser = OneOf {
-  Route(.case(AkahuRoute.Categories.all))
-  Route(.case(AkahuRoute.Categories.category)) {
-    Path { Parse(.string) }
-    categoryParser
-  }
-}
 
-internal let categoryParser = OneOf {
-  Route(.case(AkahuRoute.Categories.Category.get))
-}
+

@@ -15,25 +15,28 @@ extension AkahuRoute {
     /// An individual financial institution connection.
     case connection(id: String, Connection = .get)
     
+    internal static let router = OneOf {
+      Route(.case(Connections.all))
+      Route(.case(Connections.connection)) {
+        Path { Parse(.string) }
+        Connection.router
+      }
+    }
+    
     public enum Connection: Equatable {
       case get
+      
+      internal static let router = OneOf {
+        Route(.case(Connection.get))
+      }
     }
   }
 }
 
 let connectionsRoute = Route(.case(AkahuRoute.connections)) {
   Path { "connections" }
-  connectionsRouter
+  AkahuRoute.Connections.router
 }
 
-internal let connectionsRouter = OneOf {
-  Route(.case(AkahuRoute.Connections.all))
-  Route(.case(AkahuRoute.Connections.connection)) {
-    Path { Parse(.string) }
-    connectionRouter
-  }
-}
 
-internal let connectionRouter = OneOf {
-  Route(.case(AkahuRoute.Connections.Connection.get))
-}
+

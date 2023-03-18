@@ -11,15 +11,16 @@ import URLRouting
 extension AkahuRoute {
   public enum Me: Equatable {
     case get
+    
+    internal static let router = OneOf {
+      Route(.case(Me.get))
+    }
   }
 }
 
 internal let meRoute = Route(.case(AkahuRoute.me)) {
   Path { "me" }
-  meRouter
+  AkahuRoute.Me.router
 }
 
-internal let meRouter = OneOf {
-  Route(.case(AkahuRoute.Me.get))
-}
 

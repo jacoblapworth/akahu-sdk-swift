@@ -11,7 +11,7 @@ import URLRouting
 extension AkahuRoute {
   public enum Transfers: Equatable {
     /// Get a list of the money transfers that your application has initiated between the user's connected accounts within the start and end time range.
-    case all(query: DateRangeQueryParams = .init())
+    case all(query: DateRangeQuery = .init())
     /// Initiate a transfer between two of the user's connected accounts.
     case create
     /// An individual transfer
@@ -32,7 +32,7 @@ internal let transfersRoute = Route(.case(AkahuRoute.transfers)) {
   Path { "transfers" }
   OneOf {
     Route(.case(AkahuRoute.Transfers.all(query:))) {
-      AkahuRoute.dateRangeParser
+      AkahuRoute.DateRangeQuery.parser
     }
     Route(.case(AkahuRoute.Transfers.create)) {
       Method.post

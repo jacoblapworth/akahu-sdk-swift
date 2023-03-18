@@ -9,8 +9,7 @@ import Foundation
 import URLRouting
 
 extension AkahuRoute {
-  
-  public struct DateRangeQueryParams: Equatable {
+  public struct DateRangeQuery: Equatable {
     var start: Date? = nil
     var end: Date? = nil
     
@@ -18,15 +17,15 @@ extension AkahuRoute {
       self.start = start
       self.end = end
     }
-  }
-  
-  public static let dateRangeParser = Parse(.memberwise(DateRangeQueryParams.init(start:end:))) {
-    Query {
-      Optionally {
-        Field("start") { Parse { Formatted(.iso8601 ) } }
-      }
-      Optionally {
-        Field("end") { Parse { Formatted(.iso8601 ) } }
+    
+    public static let parser = Parse(.memberwise(DateRangeQuery.init(start:end:))) {
+      Query {
+        Optionally {
+          Field("start") { Parse { Formatted(.iso8601 ) } }
+        }
+        Optionally {
+          Field("end") { Parse { Formatted(.iso8601 ) } }
+        }
       }
     }
   }

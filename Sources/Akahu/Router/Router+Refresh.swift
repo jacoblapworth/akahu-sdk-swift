@@ -21,18 +21,20 @@ extension AkahuRoute {
     case account(id: String)
     /// Calling this endpoint with a Connection ID will request that Akahu performs a data refresh for all of the user's connected accounts that are held at the financial institution corresponding to that Connection.
     case connection(id: String)
+    
+    internal static let router = OneOf {
+      Route(.case(Refresh.all))
+      Route(.case(Refresh.account)) {
+        Path { Parse(.string) }
+      }
+    }
   }
 }
 
 internal let refreshRoute = Route(.case(AkahuRoute.refresh)) {
   Method.post
   Path { "refresh" }
-  refreshRouter
+  AkahuRoute.Refresh.router
 }
 
-internal let refreshRouter = OneOf {
-  Route(.case(AkahuRoute.Refresh.all))
-  Route(.case(AkahuRoute.Refresh.account)) {
-    Path { Parse(.string) }
-  }
-}
+

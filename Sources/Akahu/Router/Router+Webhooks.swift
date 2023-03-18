@@ -16,7 +16,7 @@ extension AkahuRoute {
     /// - Parameter id: An Akahu webhook signing key ID
     case key(id: String)
     /// Returns a list of webhook events that have been published to your application by Akahu within the `start` and `end` time range.
-    case events(status: AkahuWebhook.Event.Status, options: DateRangeQueryParams)
+    case events(status: AkahuWebhook.Event.Status, options: DateRangeQuery)
     /// Subscribe and unsubscribe to a webhook for the user
     case webhook(Webhook)
     
@@ -74,7 +74,7 @@ internal let webhooksRoute = Route(.case(AkahuRoute.webhooks)) {
     Route(.case(AkahuRoute.Webhooks.events)) {
       Path { "webhook-events" }
       AkahuRoute.Webhooks.statusParser
-      AkahuRoute.dateRangeParser
+      AkahuRoute.DateRangeQuery.parser
     }
   }
 }

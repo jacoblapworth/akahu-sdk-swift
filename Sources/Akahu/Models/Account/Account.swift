@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RegexBuilder
 
 /// At it's most basic, an Akahu account is something that has a balance.
 ///
@@ -93,7 +92,7 @@ extension AkahuAccount {
     guard let formattedAccount else { return nil }
     
     // Card numbers are redacted with asterisks
-    let regex = Regex { OneOrMore("*") }
+    let regex: Regex = #/\*+/#
     if formattedAccount.contains(regex) { return nil }
     guard self.hasCard else { return nil }
     

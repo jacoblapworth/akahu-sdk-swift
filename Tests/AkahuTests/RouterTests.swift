@@ -42,8 +42,8 @@ final class RouterTests: XCTestCase {
     XCTAssertEqual( "https://api.akahu.io/v1/transactions?start=2040-01-15T23:31:30Z&end=2040-02-14T23:31:30Z&cursor=123", string)
   }
   
-  func testParsingRouteWithID() {
-    let result = try! akahuRouter.match(path: "/transactions/123456")
+  func testParsingRouteWithID() throws {
+    let result = try akahuRouter.match(path: "/v1/transactions/123456")
     
     if case let AkahuRoute.transactions(.transaction(id, _)) = result {
       XCTAssertEqual("123456", id)
@@ -52,8 +52,8 @@ final class RouterTests: XCTestCase {
     }
   }
   
-  func testParsingRouteWithDate() {
-    let route = try! akahuRouter.match(path: "/transactions?start=2040-01-15T23:31:30Z")
+  func testParsingRouteWithDate() throws {
+    let route = try akahuRouter.match(path: "/v1/transactions?start=2040-01-15T23:31:30Z")
     let expected = AkahuRoute.transactions(.all(query: .init(start: try! Date("2040-01-15T23:31:30Z", strategy: .iso8601))))
     XCTAssertNoDifference(route, expected)
     
@@ -63,8 +63,8 @@ final class RouterTests: XCTestCase {
     XCTAssertEqual(query.start?.ISO8601Format(), "2040-01-15T23:31:30Z")
   }
   
-  func testAkahuRouterParsing() {
-    let route = try! akahuRouter.parse(URLRequestData(string: "/accounts")!)
+  func testAkahuRouterParsing() throws {
+    let route = try akahuRouter.match(path: "/v1/accounts")
     XCTAssertNoDifference(route, AkahuRoute.accounts())
   }
   

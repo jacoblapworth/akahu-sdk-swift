@@ -35,21 +35,24 @@ extension AkahuRoute {
   }
 }
 
-internal let enduringEndpoints = OneOf {
-  accountsRoute
-  authRoute
-  categoriesRoute
-  connectionsRoute
-  identityRoute
-  incomeRoute
-  meRoute
-  paymentsRoute
-  refreshRoute
-  supportRoute
-  transactionsRoute
-  transfersRoute 
+internal let enduringEndpoints = Parse {
+  Path { "v1" }
+  OneOf {
+    accountsRoute
+    authRoute
+    categoriesRoute
+    connectionsRoute
+    identityRoute
+    incomeRoute
+    meRoute
+    paymentsRoute
+    refreshRoute
+    supportRoute
+    transactionsRoute
+    transfersRoute
+  }
 }
-  .baseURL("https://api.akahu.io/v1")
+  .baseURL("https://api.akahu.io")
 
 internal let oauthEndpoints = OneOf {
   oauthRoute

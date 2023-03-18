@@ -109,5 +109,38 @@ extension AkahuRoute.Auth {
     /// Your Akahu App Secret
     public var clientSecret: String
   }
+  
+  internal struct ScopesParser: Parser {
+    var body: some Parser<Substring, [AkahuAuth.EnduringConsentScope]> {
+      Many {
+        AkahuAuth.EnduringConsentScope.parser()
+      } separator: {
+        Whitespace(1)
+      }
+    }
+  }
+  
+  internal struct AuthorizationParamsParser: Parser {
+    var body: some Parser<URLRequestData, AkahuRoute.Auth.AuthorizationParams> {
+      Parse(AkahuRoute.Auth.AuthorizationParams.init(
+        redirectUri:responseType:scope:clientId:email:connection:state:
+      )) {
+        Query {
+          Field("redirect_uri", .string)
+          Field("response_type", .string, default: "code")
+          Field("scope") { AkahuRoute.Auth.scopesParser }
+          Field("client_id", .string)
+          Optionally {
+            Field("email", .string)
+          }
+          Optionally {
+            Field("connection", .string)
+          }
+          Optionally {
+            Field("state", .string)
+          }
+        }
+      }
+    }
+  }
 }
-

@@ -15,7 +15,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: 'pages'
+  group: 'documentation'
   cancel-in-progress: true
 
 jobs:

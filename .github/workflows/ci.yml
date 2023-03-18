@@ -6,10 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-concurrency:
-  group: 'build_and_test'
-  cancel-in-progress: true
-
 jobs:
   test:
     runs-on: macos-latest
@@ -28,4 +24,4 @@ jobs:
           path: .build
           key: ${{ runner.os }}
       - name: Test
-        run: swift test -v
+        run: swift test

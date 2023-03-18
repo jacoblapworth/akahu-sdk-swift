@@ -14,7 +14,7 @@ public struct AkahuMe: Codable, Identifiable {
   /// Unique Akahu user identifier.
   public var id: String
   /// ISO 8601 formatted date of when the users account was created
-  public var createdAt: Date
+  public var createdAt: Date?
   /// Users first name
   public var firstName: String
   /// Users last name

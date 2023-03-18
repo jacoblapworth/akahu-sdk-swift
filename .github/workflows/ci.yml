@@ -8,8 +8,8 @@ on:
 
 jobs:
   test:
-    name: Test
-    runs-on: macos-latest
+    name: Test (Swift ${{ matrix.swift }}, Xcode ${{ matrix.xcode }})
+    runs-on: macos-12
     strategy:
       matrix:
         xcode: ['14.2']

@@ -171,7 +171,7 @@ public typealias TransactionsResponse = AkahuItemsResponse<AkahuTransaction>
 public typealias TransactionsPendingResponse = AkahuItemsResponse<AkahuTransactionPending>
 public typealias TransfersResponse = AkahuItemsResponse<AkahuTransfer>
 public typealias RefreshResponse = AkahuSuccessResponse
-public typealias MeResponse = AkahuItemResponse<AkahuMe>
+public typealias UserResponse = AkahuItemResponse<AkahuUser>
 
 //MARK: - Mocks
 
@@ -191,7 +191,7 @@ extension IncomeResponse {
   public static var mock: Self = try! .init(data: AkahuFixtures.Responses.income.data)
 }
 
-extension MeResponse {
+extension UserResponse {
   public static var mock: Self = .init(item: .mock)
 }
 

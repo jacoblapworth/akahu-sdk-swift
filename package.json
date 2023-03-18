@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "name": "akahu-sdk-swift",
+  "private": true,
+  "scripts": {
+    "changeset": "npx @changesets/cli",
+    "build": "swift build",
+    "test": "swift test"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.0"
+  }
+}

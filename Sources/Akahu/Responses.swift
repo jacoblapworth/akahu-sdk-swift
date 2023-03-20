@@ -159,39 +159,25 @@ extension AkahuItemsResponse {
   }
 }
 
-//MARK: - Response types
-
-public typealias AccountsResponse = AkahuItemsResponse<AkahuAccount>
-public typealias AccountResponse = AkahuItemResponse<AkahuAccount>
-public typealias ConnectionsResponse = AkahuItemsResponse<AkahuConnection>
-public typealias IdentityResponse = AkahuItemResponse<AkahuIdentity>
-public typealias IncomeResponse = AkahuItemsResponse<AkahuIncome>
-public typealias PaymentsResponse = AkahuItemsResponse<AkahuPayment>
-public typealias TransactionsResponse = AkahuItemsResponse<AkahuTransaction>
-public typealias TransactionsPendingResponse = AkahuItemsResponse<AkahuTransactionPending>
-public typealias TransfersResponse = AkahuItemsResponse<AkahuTransfer>
-public typealias RefreshResponse = AkahuSuccessResponse
-public typealias MeResponse = AkahuItemResponse<AkahuMe>
-
 //MARK: - Mocks
 
-extension AccountsResponse {
-  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.accounts.data)
-}
-
-extension TransactionsResponse {
-  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactions.data)
-}
-
-extension TransactionsPendingResponse {
-  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactionsPending.data)
-}
-
-extension IncomeResponse {
-  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.income.data)
-}
-
-extension MeResponse {
-  public static var mock: Self = .init(item: .mock)
-}
+//extension AccountsResponse {
+//  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.accounts.data)
+//}
+//
+//extension TransactionsResponse {
+//  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactions.data)
+//}
+//
+//extension TransactionsPendingResponse {
+//  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactionsPending.data)
+//}
+//
+//extension IncomeResponse {
+//  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.income.data)
+//}
+//
+//extension MeResponse {
+//  public static var mock: Self = .init(item: .mock)
+//}
 

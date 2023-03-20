@@ -1,20 +1,38 @@
 import Foundation
 import URLRouting
+import CasePaths
 import AkahuFixtures
 
 final public class Akahu {
   private init() {}
   public static let shared = Akahu()
+
+  public typealias Route = AkahuRoute
   public static let router = akahuRouter
   public static let api = URLRoutingClient<AkahuRoute>.live(
     router: akahuRouter,
     decoder: newJSONDecoder()
   )
   
+  public func createClient<R: ParserPrinter>(
+    router: R,
+    session: URLSession = .shared,
+    decoder: JSONDecoder? = nil
+  ) -> URLRoutingClient<Route> where R.Input == URLRequestData, R.Output == Route {
+    .live(
+      router: router,
+      session: session,
+      decoder: decoder ?? newJSONDecoder()
+    )
+  }
+  
+  public var client = shared.createClient(router: akahuRouter)
+  
   public static let mockApi = URLRoutingClient<AkahuRoute>.failing
   
-  public typealias Route = AkahuRoute
-  
+}
+
+extension Akahu {
   public typealias Account = AkahuAccount
   public typealias Auth = AkahuAuth
   public typealias Category = AkahuTransaction.Category
@@ -27,7 +45,9 @@ final public class Akahu {
   public typealias TransactionPending = AkahuTransactionPending
   public typealias Transfer = AkahuTransfer
   public typealias Webhook = AkahuWebhook
-  
+}
+
+extension Akahu {
   public struct Responses {
     public typealias Account = AkahuItemResponse<Akahu.Account>
     public typealias Accounts = AkahuItemsResponse<Akahu.Account>
@@ -51,3 +71,24 @@ final public class Akahu {
     public typealias Support = AkahuSuccessResponse
   }
 }
+
+extension Akahu.Responses.Accounts {
+  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.accounts.data)
+}
+
+extension Akahu.Responses.Transactions {
+  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactions.data)
+}
+
+extension Akahu.Responses.TransactionsPending {
+  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactionsPending.data)
+}
+
+extension Akahu.Responses.Income {
+  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.income.data)
+}
+
+extension Akahu.Responses.Me {
+  public static var mock: Self = .init(item: .mock)
+}
+

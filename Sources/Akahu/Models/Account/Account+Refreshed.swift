@@ -23,5 +23,5 @@ extension AkahuAccount {
 }
 
 extension AkahuAccount.Refreshed: Mockable {
-  static let mock: Self = .init(balance: Date(timeIntervalSinceNow: TimeInterval(-60*6)))
+  public static let mock: Self = .init(balance: Date(timeIntervalSinceNow: TimeInterval(-60*6)))
 }

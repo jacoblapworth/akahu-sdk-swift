@@ -30,7 +30,7 @@ extension AkahuIncome {
 }
 
 extension AkahuIncome.Projections: Mockable {
-  static let mock = AkahuIncome.Projections(
+  public static let mock = AkahuIncome.Projections(
     yearlyNetIncome: 48000.01,
     payDay: "Mon",
     nextDate: Date(timeIntervalSinceNow: 60*60*24),

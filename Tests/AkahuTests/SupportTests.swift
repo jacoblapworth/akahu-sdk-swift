@@ -27,32 +27,35 @@ class SupportTests: XCTestCase {
     let suggestionData = try encoder.encode(suggestion)
     let suggestionString = String(data: suggestionData, encoding: .utf8)!
     XCTAssertNoDifference(
-#"""
-{
-  "type" : "DUPLICATE",
-  "id" : "123"
-}
-"""#,
-duplicateString)
+      """
+      {
+        "type" : "DUPLICATE",
+        "id" : "123"
+      }
+      """,
+      duplicateString
+    )
     XCTAssertNoDifference(
-#"""
-{
-  "type" : "ENRICHMENT_ERROR",
-  "comment" : "error",
-  "fields" : [
-    "merchant.name"
-  ]
-}
-"""#,
-errorString)
+      #"""
+      {
+        "type" : "ENRICHMENT_ERROR",
+        "comment" : "error",
+        "fields" : [
+          "merchant.name"
+        ]
+      }
+      """#,
+      errorString
+    )
     XCTAssertNoDifference(
-#"""
-{
-  "type" : "ENRICHMENT_SUGGESTION",
-  "comment" : "suggestion"
-}
-"""#,
-suggestionString)
+      #"""
+      {
+        "type" : "ENRICHMENT_SUGGESTION",
+        "comment" : "suggestion"
+      }
+      """#,
+      suggestionString
+    )
   }
   
   func testSupportTransactionDecoding() throws {

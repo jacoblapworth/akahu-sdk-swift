@@ -54,7 +54,7 @@ extension AkahuIncome.Summary {
 }
 
 extension AkahuIncome.Summary: Mockable {
-  static let mock = AkahuIncome.Summary(
+  public static let mock = AkahuIncome.Summary(
     max: 1000.01,
     mean: 1000.01,
     median:  1000.01,

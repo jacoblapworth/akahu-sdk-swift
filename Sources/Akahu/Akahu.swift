@@ -6,16 +6,26 @@ import AkahuFixtures
 final public class Akahu {
   private init() {}
   public static let shared = Akahu()
-
+  
   public typealias Route = AkahuRoute
   public static let router = akahuRouter
-  public static let api = URLRoutingClient<AkahuRoute>.live(
-    router: akahuRouter,
-    decoder: newJSONDecoder()
-  )
+  
+  enum Errors: Error, Equatable, LocalizedError {
+    case invalidAppToken(String)
+    
+    var localizedDescription: String {
+      switch self {
+      case let .invalidAppToken(token):
+        return """
+               Invalid appToken value: \(token).
+               appToken must be a string beginning with app_token_
+               """
+      }
+    }
+  }
   
   public func createClient<R: ParserPrinter>(
-    router: R,
+    router: R = router,
     session: URLSession = .shared,
     decoder: JSONDecoder? = nil
   ) -> URLRoutingClient<Route> where R.Input == URLRequestData, R.Output == Route {
@@ -26,10 +36,27 @@ final public class Akahu {
     )
   }
   
-  public var client = shared.createClient(router: akahuRouter)
+  public func authenticateRouter(appToken: String) throws -> any ParserPrinter<URLRequestData, Route> {
+    guard Self.validateAppToken(appToken) else {
+      throw Errors.invalidAppToken(appToken)
+    }
+    
+    return akahuRouter.baseRequestData(
+      .init(headers: [
+        "X-Akahu-Id": [appToken]
+      ])
+    )
+  }
   
-  public static let mockApi = URLRoutingClient<AkahuRoute>.failing
+  public static let failingClient = URLRoutingClient<AkahuRoute>.failing
   
+  static func validateAppToken(_ token: String) -> Bool {
+    token.starts(with: "app_token_")
+  }
+  
+  static func validateUserToken(_ token: String) -> Bool {
+    token.starts(with: "user_token_")
+  }
 }
 
 extension Akahu {
@@ -71,24 +98,3 @@ extension Akahu {
     public typealias Support = AkahuSuccessResponse
   }
 }
-
-extension Akahu.Responses.Accounts {
-  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.accounts.data)
-}
-
-extension Akahu.Responses.Transactions {
-  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactions.data)
-}
-
-extension Akahu.Responses.TransactionsPending {
-  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactionsPending.data)
-}
-
-extension Akahu.Responses.Income {
-  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.income.data)
-}
-
-extension Akahu.Responses.Me {
-  public static var mock: Self = .init(item: .mock)
-}
-

@@ -22,7 +22,7 @@ extension AkahuIncome {
 }
 
 extension AkahuIncome.Stability: Mockable {
-  static let mock = AkahuIncome.Stability(
+  public static let mock = AkahuIncome.Stability(
     paymentRegularity: 0.47,
     paymentAmount: 0
   )

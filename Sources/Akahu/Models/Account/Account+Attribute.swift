@@ -26,7 +26,7 @@ extension AkahuAccount {
 }
 
 extension AkahuAccount.Attributes: Mockable {
-  static var mock: Self = [
+  public static var mock: Self = [
     .transactions,
     .paymentTo,
     .transferTo

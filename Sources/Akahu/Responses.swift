@@ -159,25 +159,48 @@ extension AkahuItemsResponse {
   }
 }
 
+public typealias AccountResponse = AkahuItemResponse<Akahu.Account>
+public typealias AccountsResponse = AkahuItemsResponse<Akahu.Account>
+public typealias CategoriesResponse = AkahuItemsResponse<Akahu.Category>
+public typealias CategoryResponse = AkahuItemResponse<Akahu.Category>
+public typealias ConnectionResponse = AkahuItemResponse<Akahu.Connection>
+public typealias ConnectionsResponse = AkahuItemsResponse<Akahu.Connection>
+public typealias IdentitiesResponse = AkahuItemsResponse<Akahu.Identity>
+public typealias IdentityResponse = AkahuItemResponse<Akahu.Identity>
+public typealias IncomeResponse = AkahuItemResponse<Akahu.Income>
+public typealias IncomesResponse = AkahuItemsResponse<Akahu.Income>
+public typealias MeResponse = AkahuItemResponse<Akahu.Me>
+public typealias PaymentResponse = AkahuItemResponse<Akahu.Payment>
+public typealias PaymentsResponse = AkahuItemsResponse<Akahu.Payment>
+public typealias TransactionResponse = AkahuItemResponse<Akahu.Transaction>
+public typealias TransactionsResponse = AkahuItemsResponse<Akahu.Transaction>
+public typealias TransactionsPendingResponse = AkahuItemsResponse<Akahu.TransactionPending>
+public typealias TransferResponse = AkahuItemResponse<Akahu.Transfer>
+public typealias TransfersResponse = AkahuItemsResponse<Akahu.Transfer>
+public typealias WebhookResponse = AkahuItemResponse<Akahu.Webhook>
+public typealias WebhooksResponse = AkahuItemsResponse<Akahu.Webhook>
+public typealias RefreshResponse = AkahuSuccessResponse
+public typealias SupportResponse = AkahuSuccessResponse
+
 //MARK: - Mocks
 
-//extension AccountsResponse {
-//  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.accounts.data)
-//}
-//
-//extension TransactionsResponse {
-//  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactions.data)
-//}
-//
-//extension TransactionsPendingResponse {
-//  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactionsPending.data)
-//}
-//
-//extension IncomeResponse {
-//  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.income.data)
-//}
-//
-//extension MeResponse {
-//  public static var mock: Self = .init(item: .mock)
-//}
+extension AccountsResponse {
+  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.accounts.data)
+}
+
+extension TransactionsResponse {
+  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactions.data)
+}
+
+extension TransactionsPendingResponse {
+  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactionsPending.data)
+}
+
+extension IncomeResponse {
+  public static var mock: Self = try! .init(data: AkahuFixtures.Responses.income.data)
+}
+
+extension MeResponse {
+  public static var mock: Self = .init(item: .mock)
+}
 

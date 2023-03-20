@@ -8,6 +8,9 @@
 import Foundation
 import URLRouting
 
+/// Represents an Akahu endpoint.
+///
+/// Some routes default the associated value
 public enum AkahuRoute: Equatable {
   case accounts(Accounts = .all)
   case auth(Auth)
@@ -30,6 +33,7 @@ extension AkahuRoute {
     try akahuRouter.request(for: self)
   }
   
+  /// Attempts to print the route as a parseable URL request.
   public func print() throws -> URLRequestData {
     try akahuRouter.print(self)
   }
@@ -59,6 +63,19 @@ internal let oauthEndpoints = OneOf {
 }
   .baseURL("https://oauth.akahu.io")
 
+
+internal let oneoffEndpoints = OneOf {
+  Path { "v1" }
+//TODO: Add routes
+//  OneOf {
+//    accountsRoute
+//    partiesRoute
+//    pdfsRoute
+//    statusRoute
+//    transactionsRoute
+//  }
+}
+  .baseURL("https://api.oneoff.akahu.io")
 
 internal let akahuRouter = OneOf {
   enduringEndpoints

@@ -196,7 +196,7 @@ extension TransactionsPendingResponse {
   public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactionsPending.data)
 }
 
-extension IncomeResponse {
+extension IncomesResponse {
   public static var mock: Self = try! .init(data: AkahuFixtures.Responses.income.data)
 }
 

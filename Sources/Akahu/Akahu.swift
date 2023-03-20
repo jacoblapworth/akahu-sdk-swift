@@ -10,15 +10,15 @@ final public class Akahu {
   public typealias Route = AkahuRoute
   public static let router = akahuRouter
   
-  enum Errors: Error, Equatable, LocalizedError {
+  enum Errors: Error, Equatable, CustomStringConvertible {
     case invalidAppToken(String)
     
-    var localizedDescription: String {
+    var description: String {
       switch self {
       case let .invalidAppToken(token):
         return """
                Invalid appToken value: \(token).
-               appToken must be a string beginning with app_token_
+               `appToken` must be a string beginning with "app_token_"
                """
       }
     }

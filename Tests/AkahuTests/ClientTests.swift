@@ -34,7 +34,7 @@ class ClientTests: XCTestCase {
       XCTAssertNoDifference(.invalidAppToken("123"), error as? Akahu.Errors)
       XCTAssertNoDifference(
       """
-      Invalid appToken value: 123.
+      Invalid appToken value: "123".
       `appToken` must be a string beginning with "app_token_"
       """,
       "\(error)"

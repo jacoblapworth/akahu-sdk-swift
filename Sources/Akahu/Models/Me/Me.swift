@@ -34,7 +34,7 @@ public struct AkahuMe: Codable, Identifiable {
 
 extension AkahuMe {
   init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuMe.self, from: data)
+    self = try AkahuJSONDecoder().decode(AkahuMe.self, from: data)
   }
   
   init(_ json: String, using encoding: String.Encoding = .utf8) throws {

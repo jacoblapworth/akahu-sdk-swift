@@ -12,7 +12,7 @@ import Foundation
 /// The bank integrations are generally stable and consistent in terms of functionality.
 /// Non-bank integrations are more variable because these institutions tend to offer differing functionality in their consumer apps.
 /// [Supported integrations](https://developers.akahu.nz/docs/integrations#supported-integrations)
-public struct AkahuConnection: Codable, Identifiable {
+public struct AkahuConnection: Codable, Identifiable, Hashable {
   public let id: String
   public let name: String
   public let logo: URL

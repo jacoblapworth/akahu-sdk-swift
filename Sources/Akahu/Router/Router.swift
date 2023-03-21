@@ -37,6 +37,25 @@ extension AkahuRoute {
   public func print() throws -> URLRequestData {
     try akahuRouter.print(self)
   }
+
+  public enum AuthLevel {
+    case appLevelAuth
+    case userSpecificAuth
+  }
+  
+  public var authLevel: AuthLevel {
+    switch self {
+    case .accounts, .connections, .income, .me, .payments, .refresh, .support, .transactions, .transfers: return .userSpecificAuth
+    case .auth: return .appLevelAuth
+    case .categories: return .appLevelAuth
+    case .webhooks: return .appLevelAuth
+    case .identity(let route):
+      switch route {
+      case .enduring: return .userSpecificAuth
+      case .oneOff: return .appLevelAuth
+      }
+    }
+  }
 }
 
 internal let enduringEndpoints = Parse {

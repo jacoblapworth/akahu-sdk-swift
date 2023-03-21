@@ -44,23 +44,21 @@ extension AkahuAccount: Hashable {
   
   public func hash(into hasher: inout Hasher) {
     hasher.combine(id)
+    hasher.combine(credentials)
+    hasher.combine(connection)
+    hasher.combine(name)
+    hasher.combine(status)
+    hasher.combine(formattedAccount)
+    hasher.combine(refreshed)
+    hasher.combine(balance)
+    hasher.combine(attributes)
+    hasher.combine(type)
   }
 }
 
 extension AkahuAccount {
   init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuAccount.self, from: data)
-  }
-  
-  init(_ json: String, using encoding: String.Encoding = .utf8) throws {
-    guard let data = json.data(using: encoding) else {
-      throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
-    }
-    try self.init(data: data)
-  }
-
-  init(fromURL url: URL) throws {
-    try self.init(data: try Data(contentsOf: url))
+    self = try AkahuJSONDecoder().decode(AkahuAccount.self, from: data)
   }
 }
 
@@ -79,7 +77,7 @@ extension AkahuAccount {
     
     return mutableName
   }
-  
+   
   public var hasCard: Bool {
     let types: [AkahuAccount.AccountType] = [
       .creditcard,
@@ -91,11 +89,11 @@ extension AkahuAccount {
   
   public var shareableAccount: String? {
     guard let formattedAccount else { return nil }
+    guard self.hasCard else { return nil }
     
     // Card numbers are redacted with asterisks
     let regex = Regex { OneOrMore("*") }
     if formattedAccount.contains(regex) { return nil }
-    guard self.hasCard else { return nil }
     
     return formattedAccount
   }

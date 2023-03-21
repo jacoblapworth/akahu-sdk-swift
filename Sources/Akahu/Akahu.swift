@@ -17,7 +17,7 @@ final public class Akahu {
       switch self {
       case let .invalidAppToken(token):
         return """
-               Invalid appToken value: \(token).
+               Invalid appToken value: "\(token)".
                `appToken` must be a string beginning with "app_token_"
                """
       }
@@ -32,7 +32,7 @@ final public class Akahu {
     .live(
       router: router,
       session: session,
-      decoder: decoder ?? newJSONDecoder()
+      decoder: decoder ?? AkahuJSONDecoder()
     )
   }
   
@@ -50,11 +50,11 @@ final public class Akahu {
   
   public static let failingClient = URLRoutingClient<AkahuRoute>.failing
   
-  static func validateAppToken(_ token: String) -> Bool {
+  public static func validateAppToken(_ token: String) -> Bool {
     token.starts(with: "app_token_")
   }
   
-  static func validateUserToken(_ token: String) -> Bool {
+  public static func validateUserToken(_ token: String) -> Bool {
     token.starts(with: "user_token_")
   }
 }

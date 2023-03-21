@@ -28,7 +28,7 @@ extension AkahuRoute {
     internal static let router = OneOf {
       Route(.case(Auth.exchange)) {
         Method.post
-        Body(.json(Auth.TokenParams.self, decoder: newJSONDecoder(), encoder: newJSONEncoder()))
+        Body(.json(Auth.TokenParams.self, decoder: AkahuJSONDecoder(), encoder: AkahuJSONEncoder()))
       }
       
       Route(.case(Auth.revoke)) {

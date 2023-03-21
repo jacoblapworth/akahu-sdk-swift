@@ -28,7 +28,7 @@ public enum AkahuResult<T:Decodable & Identifiable>: Decodable {
   }
   
   init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuResult.self, from: data)
+    self = try AkahuJSONDecoder().decode(AkahuResult.self, from: data)
   }
   
   init(fromURL url: URL) throws {
@@ -141,7 +141,7 @@ public struct Cursor: Codable, Equatable {
 
 extension AkahuItemResponse {
   init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuItemResponse.self, from: data)
+    self = try AkahuJSONDecoder().decode(AkahuItemResponse.self, from: data)
   }
   
   init(fromURL url: URL) throws {
@@ -151,7 +151,7 @@ extension AkahuItemResponse {
 
 extension AkahuItemsResponse {
   init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuItemsResponse.self, from: data)
+    self = try AkahuJSONDecoder().decode(AkahuItemsResponse.self, from: data)
   }
   
   init(fromURL url: URL) throws {

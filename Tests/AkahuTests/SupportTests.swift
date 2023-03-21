@@ -14,7 +14,7 @@ import AkahuFixtures
 class SupportTests: XCTestCase {
   
   func testSupportTransactionEncoding() throws {
-    let encoder = newJSONEncoder()
+    let encoder = AkahuJSONEncoder()
     
     let duplicate = AkahuRoute.Support.TransactionSupportType.duplicate(id: "123")
     let error = AkahuRoute.Support.TransactionSupportType.enrichmentError(fields: ["merchant.name"], comment: "error")
@@ -59,7 +59,7 @@ class SupportTests: XCTestCase {
   }
   
   func testSupportTransactionDecoding() throws {
-    let decoder = newJSONDecoder()
+    let decoder = AkahuJSONDecoder()
     
     let duplicate = #"{"type":"DUPLICATE","id":"123"}"#
     let duplicateWithNoId = #"{"type":"DUPLICATE"}"#

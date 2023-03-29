@@ -78,7 +78,7 @@
       "location" : "https://github.com/pointfreeco/swift-parsing",
       "state" : {
         "branch" : "swift-5-8",
-        "revision" : "1bd042f734071e0c3e968f46b0fc0fee999a7dd5"
+        "revision" : "057c559b5d9874911b5b4d915f7f1842fe771e18"
       }
     },
     {
@@ -87,7 +87,7 @@
       "location" : "https://github.com/pointfreeco/swift-url-routing",
       "state" : {
         "branch" : "swift-5-8",
-        "revision" : "62b444ec677243dff173b0b399c7cdd4f7ecd210"
+        "revision" : "1d45c926a695f3a6b8845ffa39fe834e14c79a61"
       }
     },
     {

@@ -7,16 +7,17 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: 'build_and_test'
+  group: 'test'
   cancel-in-progress: true
 
 jobs:
-  build_and_test:
-    name: Build and Test
-    runs-on: macos-latest
+  test:
+    name: Test (Swift ${{ matrix.swift }}, Xcode ${{ matrix.xcode }})
+    runs-on: macos-12
     strategy:
       matrix:
         xcode: ['14.2']
+        swift: ['5.7']
     steps:
       - name: Select Xcode ${{ matrix.xcode }}
         uses: maxim-lobanov/setup-xcode@v1

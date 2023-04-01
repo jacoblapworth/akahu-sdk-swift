@@ -73,7 +73,7 @@ internal let webhooksRoute = Route(.case(AkahuRoute.webhooks)) {
     Route(.case(AkahuRoute.Webhooks.events)) {
       Path { "webhook-events" }
       AkahuRoute.Webhooks.statusParser
-      AkahuRoute.DateRangeQuery.parser
+      AkahuRoute.DateRangeQuery.Parser()
     }
   }
 }

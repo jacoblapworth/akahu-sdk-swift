@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RegexBuilder
 
 /// At it's most basic, an Akahu account is something that has a balance.
 ///
@@ -67,8 +66,8 @@ extension AkahuAccount {
   public var displayName: String {
     var mutableName = self.name
 
-    mutableName = mutableName.replacing("balance", with: "")
-    mutableName = mutableName.replacing("\(self.connection.name)", with: "")
+    mutableName = mutableName.replacingOccurrences(of: "balance", with: "")
+    mutableName = mutableName.replacingOccurrences(of: "\(self.connection.name)", with: "")
     mutableName = mutableName.trimmingCharacters(in: .whitespacesAndNewlines)
     
     if mutableName.isEmpty {
@@ -92,8 +91,7 @@ extension AkahuAccount {
     guard self.hasCard else { return nil }
     
     // Card numbers are redacted with asterisks
-    let regex = Regex { OneOrMore("*") }
-    if formattedAccount.contains(regex) { return nil }
+    if formattedAccount.contains("*") {  return nil }
     
     return formattedAccount
   }

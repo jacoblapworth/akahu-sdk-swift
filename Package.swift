@@ -6,7 +6,7 @@ let package = Package(
   name: "Akahu",
   platforms: [
     .iOS(.v16),
-    .macOS(.v13)
+    .macOS(.v12)
   ],
   products: [
     .library(name: "Akahu", targets: ["Akahu"]),
@@ -15,7 +15,7 @@ let package = Package(
     .package(url: "https://github.com/apple/swift-docc-plugin.git", from: "1.0.0"),
     .package(url: "https://github.com/pointfreeco/swift-custom-dump", from: "0.3.0"),
     .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "0.2.0"),
-    .package(url: "https://github.com/pointfreeco/swift-url-routing", branch: "swift-5-8")
+    .package(url: "https://github.com/pointfreeco/swift-url-routing", from: "0.5.0")
   ],
   targets: [
     .target(

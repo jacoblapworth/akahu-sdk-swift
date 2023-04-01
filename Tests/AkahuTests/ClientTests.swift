@@ -25,20 +25,22 @@ class ClientTests: XCTestCase {
   }
   
   func testAuthenticatingRouter() throws {
-    XCTAssertThrowsError(try Akahu.shared.authenticateRouter(appToken: "123")) { error in
-      XCTAssertTrue(
-        error is Akahu.Errors,
-        "Unexpected error type: \(type(of: error))"
-      )
-      
-      XCTAssertNoDifference(.invalidAppToken("123"), error as? Akahu.Errors)
-      XCTAssertNoDifference(
+    if #available(macOS 13.0, *) {
+      XCTAssertThrowsError(try Akahu.shared.authenticateRouter(appToken: "123")) { error in
+        XCTAssertTrue(
+          error is Akahu.Errors,
+          "Unexpected error type: \(type(of: error))"
+        )
+        
+        XCTAssertNoDifference(.invalidAppToken("123"), error as? Akahu.Errors)
+        XCTAssertNoDifference(
       """
       Invalid appToken value: "123".
       `appToken` must be a string beginning with "app_token_"
       """,
       "\(error)"
-      )
+        )
+      }
     }
     
     let router = try Akahu.shared.authenticateRouter(appToken: "app_token_123")

@@ -72,7 +72,7 @@ String(data: request.body!, encoding: .utf8)!
     let scope = try parser.parse("IDENTITY_TAX_NUMBERS")
     XCTAssertNoDifference(scope, .identityTaxNumbers)
     
-    let scopes = try AkahuRoute.Auth.scopesParser.parse("ENDURING_CONSENT AKAHU IDENTITY_NAMES")
+    let scopes = try AkahuRoute.Auth.ScopesParser().parse("ENDURING_CONSENT AKAHU IDENTITY_NAMES")
     XCTAssertNoDifference([
         .enduringConsent,
         .akahu,
@@ -83,7 +83,7 @@ String(data: request.body!, encoding: .utf8)!
   }
   
   func testAuthScopePrinter() throws {
-    let scopes = try AkahuRoute.Auth.scopesParser.print([
+    let scopes = try AkahuRoute.Auth.ScopesParser().print([
       .enduringConsent,
       .akahu,
       .identityNames

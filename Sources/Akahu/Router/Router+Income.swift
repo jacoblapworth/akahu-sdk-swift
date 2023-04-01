@@ -17,11 +17,11 @@ extension AkahuRoute {
     
     internal static let router = OneOf {
       Route(.case(AkahuRoute.Income.all)) {
-        DateRangeQuery.parser
+        DateRangeQuery.Parser()
       }
       Route(.case(AkahuRoute.Income.income)) {
         Path { Parse(.string) }
-        DateRangeQuery.parser
+        DateRangeQuery.Parser()
       }
     }
   }

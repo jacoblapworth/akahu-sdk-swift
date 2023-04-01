@@ -32,7 +32,7 @@ internal let transfersRoute = Route(.case(AkahuRoute.transfers)) {
   Path { "transfers" }
   OneOf {
     Route(.case(AkahuRoute.Transfers.all(query:))) {
-      AkahuRoute.DateRangeQuery.parser
+      AkahuRoute.DateRangeQuery.Parser()
     }
     Route(.case(AkahuRoute.Transfers.create)) {
       Method.post

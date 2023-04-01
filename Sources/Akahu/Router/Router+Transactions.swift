@@ -29,7 +29,7 @@ extension AkahuRoute {
     
     internal static let router = OneOf {
       Route(.case(Transactions.all)) {
-        AkahuRoute.DateRangeQuery.parser
+        AkahuRoute.DateRangeQuery.Parser()
         AkahuRoute.PaginationQuery.parser
       }
       

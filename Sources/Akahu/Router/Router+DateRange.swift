@@ -37,16 +37,5 @@ extension AkahuRoute {
         }
       }
     }
-    
-//    public static let parser = Parse( .memberwise(DateRangeQuery.init(start:end:))) {
-//      Query {
-//        Optionally {
-//          Field("start") { Parse { Formatted(.iso8601) } }
-//        }
-//        Optionally {
-//          Field("end") { Parse { Formatted(.iso8601) } }
-//        }
-//      }
-//    }
   }
 }

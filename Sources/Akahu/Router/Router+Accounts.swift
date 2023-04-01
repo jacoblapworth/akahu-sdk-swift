@@ -51,7 +51,7 @@ extension AkahuRoute {
         internal static let router = OneOf {
           Route(.case(Transactions.all)) {
             DateRangeQuery.Parser()
-            PaginationQuery.parser
+            PaginationQuery.Parser()
           }
           Route(.case(Transactions.pending)) {
             Path { "pending" }

@@ -74,10 +74,10 @@ final class RouterTests: XCTestCase {
   }
   
   func testPaginationParser() throws {
-    let match = try AkahuRoute.PaginationQuery.parser.match(path: "https://api.akahu.io/v1/transactions?start=2040-01-15T23:31:30Z&end=2040-02-14T23:31:30Z&cursor=123")
+    let match = try AkahuRoute.PaginationQuery.Parser().match(path: "https://api.akahu.io/v1/transactions?start=2040-01-15T23:31:30Z&end=2040-02-14T23:31:30Z&cursor=123")
     XCTAssertNoDifference(match.cursor, "123")
     
-    let request = try AkahuRoute.PaginationQuery.parser.request(for: match)
+    let request = try AkahuRoute.PaginationQuery.Parser().request(for: match)
     XCTAssertNoDifference(request.url?.absoluteString, "/?cursor=123")
   }
 }

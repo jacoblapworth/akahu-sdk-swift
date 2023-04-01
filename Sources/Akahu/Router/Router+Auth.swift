@@ -85,7 +85,7 @@ extension AkahuRoute.Auth {
   internal struct ScopesParser: ParserPrinter {
     var body: some ParserPrinter<Substring, [AkahuAuth.EnduringConsentScope]> {
       Many {
-        AkahuAuth.EnduringConsentScope.parser()
+        AkahuAuth.EnduringConsentScope.parser(of: Substring.UTF8View.self)
       } separator: {
         Whitespace(1)
       }

@@ -13,6 +13,27 @@ import CustomDump
 class DateTimeTests: XCTestCase {
   let parser = DateTime()
   
+  func testParsingDateTime() throws {
+    let input = "1979-05-27"
+    XCTAssertThrowsError(try parser.parse(input))
+  }
+  
+  func testParsingWithFractionalSeconds() throws {
+    let input = "1979-05-27T00:32:00.191Z"
+    let expected: DateComponents = .init(
+      timeZone: TimeZone(identifier: "GMT"),
+      year: 1979,
+      month: 5,
+      day: 27,
+      hour: 0,
+      minute: 32,
+      second: 0,
+      nanosecond: 191000000
+    )
+    let output = try parser.parse(input)
+    XCTAssertNoDifference(expected, output)
+  }
+  
   func testParsingUTC() throws {
     let input = "1979-05-27T00:32:00Z"
     let expected: DateComponents = .init(

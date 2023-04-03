@@ -51,10 +51,10 @@ extension AkahuMe {
 
 extension AkahuMe {
   public var name: PersonNameComponents {
-    .init(
-      givenName: self.firstName,
-      familyName: self.lastName,
-      nickname: self.preferredName
-    )
+    var components = PersonNameComponents()
+    components.givenName = self.firstName
+    components.familyName = self.lastName
+    components.nickname = self.preferredName
+    return components
   }
 }

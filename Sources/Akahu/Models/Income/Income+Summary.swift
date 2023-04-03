@@ -63,8 +63,8 @@ extension AkahuIncome.Summary: Mockable {
     total: 3000.01,
     occurrences: Occurrences(
       count: 3,
-      first: try! Date("2022-02-08T20:52:22Z", strategy: .iso8601),
-      last: try! Date("2022-02-22T20:53:47Z", strategy: .iso8601))
+      first: Date(timeIntervalSince1970: 1644353542),
+      last: Date(timeIntervalSince1970: 1645563227)
+    )
   )
-  
 }

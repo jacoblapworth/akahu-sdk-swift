@@ -25,7 +25,7 @@ class ClientTests: XCTestCase {
   }
   
   func testAuthenticatingRouter() throws {
-    if #available(macOS 13.0, *) {
+    if #available(iOS 16.0, macOS 13.0, *) {
       XCTAssertThrowsError(try Akahu.shared.authenticateRouter(appToken: "123")) { error in
         XCTAssertTrue(
           error is Akahu.Errors,

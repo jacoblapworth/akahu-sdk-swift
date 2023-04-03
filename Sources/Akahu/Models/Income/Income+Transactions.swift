@@ -33,13 +33,13 @@ extension AkahuIncome.Transactions {
     .init(
       id: "trans_1111111111111111111111111",
       amount: 1000.01,
-      date: try! Date("2022-02-22T20:53:47Z", strategy: .iso8601),
+      date: Date(timeIntervalSince1970: 1672531200),
       description: "The Green Dragon Inn"
     ),
     .init(
       id: "trans_2222222222222222222222222",
       amount: 1000.01,
-      date: try! Date("2022-02-22T20:53:47Z", strategy: .iso8601),
+      date: Date(timeIntervalSince1970: 1672531200),
       description: "The Green Dragon Inn"
     )
   ]

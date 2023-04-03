@@ -12,8 +12,8 @@ extension AkahuIncome: Mockable {
   public static var mock = AkahuIncome(
     id: "income_1111111111111111111111111",
     account: "income_1111111111111111111111111",
-    start: try! Date("2023-01-01T00:00:00Z", strategy: .iso8601),
-    end: try! Date("2023-01-01T00:00:00Z", strategy: .iso8601),
+    start: Date(timeIntervalSince1970: 1672531200),
+    end: Date(timeIntervalSince1970: 1672531200),
     name: "The Green Dragon Inn",
     type: .salary,
     frequency: .weekly,

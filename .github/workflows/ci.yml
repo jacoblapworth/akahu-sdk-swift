@@ -12,12 +12,12 @@ concurrency:
 
 jobs:
   test:
-    name: Test (Swift ${{ matrix.swift }}, Xcode ${{ matrix.xcode }})
+    name: Test (swift-${{ matrix.swift }}, xcode-${{ matrix.xcode }})
     runs-on: macos-12
     strategy:
       matrix:
         xcode: ['latest']
-        swift: ['5.7']
+        swift: ['5.8']
     steps:
       - name: Setup Swift ${{ matrix.swift }}
         uses: fwal/setup-swift@v1
@@ -39,11 +39,11 @@ jobs:
         run: swift test
 
   test_ubuntu:
-    name: Test (Swift ${{ matrix.swift }}, ${{ matrix.os }})
+    name: Test (swift-${{ matrix.swift }}, ${{ matrix.os }})
     strategy:
       matrix:
         os: [ubuntu-20.04]
-        swift: ['5.7']
+        swift: ['5.8']
     runs-on: ${{ matrix.os }}
     steps:
       - name: Setup Swift ${{ matrix.swift }}

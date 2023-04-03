@@ -33,16 +33,16 @@ class AuthTests: XCTestCase {
       request.path
     )
     XCTAssertNoDifference(
-#"""
-{
-  "code" : "code",
-  "client_id" : "<<appToken>>",
-  "redirect_uri" : "http:\/\/localhost:3000\/redirect",
-  "client_secret" : "<<appSecret>>",
-  "grant_type" : "authorization_code"
-}
-"""#,
-String(data: request.body!, encoding: .utf8)!
+      #"""
+      {
+        "code" : "code",
+        "client_id" : "<<appToken>>",
+        "redirect_uri" : "http:\/\/localhost:3000\/redirect",
+        "client_secret" : "<<appSecret>>",
+        "grant_type" : "authorization_code"
+      }
+      """#,
+      String(data: request.body!, encoding: .utf8)!
     )
   }
   
@@ -89,6 +89,9 @@ String(data: request.body!, encoding: .utf8)!
       .identityNames
     ])
     
-    XCTAssertNoDifference("ENDURING_CONSENT AKAHU IDENTITY_NAMES", String(scopes))
+    XCTAssertNoDifference(
+      "ENDURING_CONSENT AKAHU IDENTITY_NAMES",
+      String(scopes)
+    )
   }
 }

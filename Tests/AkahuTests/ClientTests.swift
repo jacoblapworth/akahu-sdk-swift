@@ -32,13 +32,16 @@ class ClientTests: XCTestCase {
           "Unexpected error type: \(type(of: error))"
         )
         
-        XCTAssertNoDifference(.invalidAppToken("123"), error as? Akahu.Errors)
         XCTAssertNoDifference(
-      """
-      Invalid appToken value: "123".
-      `appToken` must be a string beginning with "app_token_"
-      """,
-      "\(error)"
+          .invalidAppToken("123"),
+          error as? Akahu.Errors
+        )
+        XCTAssertNoDifference(
+          """
+          Invalid appToken value: "123".
+          `appToken` must be a string beginning with "app_token_"
+          """,
+          "\(error)"
         )
       }
     }
@@ -46,6 +49,9 @@ class ClientTests: XCTestCase {
     let router = try Akahu.shared.authenticateRouter(appToken: "app_token_123")
     let request = try router.request(for: .me())
     
-    XCTAssertNoDifference(#"["x-akahu-id": "app_token_123"]"#, request.allHTTPHeaderFields?.description)
+    XCTAssertNoDifference(
+      #"["x-akahu-id": "app_token_123"]"#,
+      request.allHTTPHeaderFields?.description
+    )
   }
 }

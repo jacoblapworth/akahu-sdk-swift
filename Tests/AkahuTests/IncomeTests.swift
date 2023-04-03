@@ -16,6 +16,7 @@ class IncomeTests: XCTestCase {
     let income = try IncomesResponse(fromURL: url)
     
     XCTAssertEqual(income.success, true)
+    XCTAssertEqual(income.items.count, 1)
     XCTAssertEqual(income.items.first?.type, .salary)
   }
 }

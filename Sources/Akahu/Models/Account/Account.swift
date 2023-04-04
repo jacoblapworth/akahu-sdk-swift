@@ -63,6 +63,7 @@ extension AkahuAccount {
 
 // MARK: - Computed properties
 extension AkahuAccount {
+  /// A simplified account name for display
   public var displayName: String {
     var mutableName = self.name
 
@@ -76,7 +77,8 @@ extension AkahuAccount {
     
     return mutableName
   }
-   
+  
+  /// If the account type should be displayed as having a physical card
   public var hasCard: Bool {
     let types: [AkahuAccount.AccountType] = [
       .creditcard,

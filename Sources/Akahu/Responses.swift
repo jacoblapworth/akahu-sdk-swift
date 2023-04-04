@@ -27,28 +27,28 @@ public enum AkahuResult<T:Decodable & Identifiable>: Decodable {
     }
   }
   
-  init(data: Data) throws {
+  public init(data: Data) throws {
     self = try AkahuJSONDecoder().decode(AkahuResult.self, from: data)
   }
   
-  init(fromURL url: URL) throws {
+  public init(fromURL url: URL) throws {
     try self.init(data: try Data(contentsOf: url))
   }
   
-  var success: AkahuResponseBody<T>? {
+  public var success: AkahuResponseBody<T>? {
     guard case let .success(response) = self else { return nil }
     return response
   }
   
-  var error: String? {
+  public var error: String? {
     guard case let .error(response) = self else { return nil }
     return response.message
   }
   
-  var itemId: String? { self.success?.itemId }
-  var item: T? { self.success?.item }
-  var items: [T]? { self.success?.items }
-  var cursor: Cursor? { self.success?.cursor }
+  public var itemId: String? { self.success?.itemId }
+  public var item: T? { self.success?.item }
+  public var items: [T]? { self.success?.items }
+  public var cursor: Cursor? { self.success?.cursor }
 }
 
 public enum AkahuResponseBody<T: Decodable & Identifiable>: Decodable {

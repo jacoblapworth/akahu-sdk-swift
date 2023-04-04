@@ -39,9 +39,8 @@ extension AkahuRoute {
     }
     
     internal static let statusParser = Query {
-      Field("status") { AkahuWebhook.Event.Status.parser(of: Substring.self) }
+      Field("status") { AkahuWebhook.Event.Status.parser() }
     }
-
   }
 }
 
@@ -74,7 +73,7 @@ internal let webhooksRoute = Route(.case(AkahuRoute.webhooks)) {
     Route(.case(AkahuRoute.Webhooks.events)) {
       Path { "webhook-events" }
       AkahuRoute.Webhooks.statusParser
-      AkahuRoute.DateRangeQuery.parser
+      AkahuRoute.DateRangeQuery.Parser()
     }
   }
 }

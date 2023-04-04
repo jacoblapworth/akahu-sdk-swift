@@ -14,7 +14,7 @@ import AkahuFixtures
 class SupportTests: XCTestCase {
   
   func testSupportTransactionEncoding() throws {
-    let encoder = newJSONEncoder()
+    let encoder = AkahuJSONEncoder()
     
     let duplicate = AkahuRoute.Support.TransactionSupportType.duplicate(id: "123")
     let error = AkahuRoute.Support.TransactionSupportType.enrichmentError(fields: ["merchant.name"], comment: "error")
@@ -27,36 +27,39 @@ class SupportTests: XCTestCase {
     let suggestionData = try encoder.encode(suggestion)
     let suggestionString = String(data: suggestionData, encoding: .utf8)!
     XCTAssertNoDifference(
-#"""
-{
-  "type" : "DUPLICATE",
-  "id" : "123"
-}
-"""#,
-duplicateString)
+      """
+      {
+        "type" : "DUPLICATE",
+        "id" : "123"
+      }
+      """,
+      duplicateString
+    )
     XCTAssertNoDifference(
-#"""
-{
-  "type" : "ENRICHMENT_ERROR",
-  "comment" : "error",
-  "fields" : [
-    "merchant.name"
-  ]
-}
-"""#,
-errorString)
+      #"""
+      {
+        "type" : "ENRICHMENT_ERROR",
+        "comment" : "error",
+        "fields" : [
+          "merchant.name"
+        ]
+      }
+      """#,
+      errorString
+    )
     XCTAssertNoDifference(
-#"""
-{
-  "type" : "ENRICHMENT_SUGGESTION",
-  "comment" : "suggestion"
-}
-"""#,
-suggestionString)
+      #"""
+      {
+        "type" : "ENRICHMENT_SUGGESTION",
+        "comment" : "suggestion"
+      }
+      """#,
+      suggestionString
+    )
   }
   
   func testSupportTransactionDecoding() throws {
-    let decoder = newJSONDecoder()
+    let decoder = AkahuJSONDecoder()
     
     let duplicate = #"{"type":"DUPLICATE","id":"123"}"#
     let duplicateWithNoId = #"{"type":"DUPLICATE"}"#

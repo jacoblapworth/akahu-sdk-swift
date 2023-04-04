@@ -16,6 +16,7 @@ class ConnectionTests: XCTestCase {
     let connections = try ConnectionsResponse(fromURL: url)
     
     XCTAssertEqual(connections.success, true)
+    XCTAssertEqual(connections.items.count, 1)
     XCTAssertEqual(connections.items.first?.bank, .kiwibank)
   }
 }

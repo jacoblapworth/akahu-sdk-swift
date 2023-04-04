@@ -15,22 +15,30 @@ extension AkahuAccount {
     /// The account holder physical address
     public var address: String? = nil
     public var paymentDetails: PaymentDetails? = nil
-    public var planName: String? = nil
-    public var usage: Usage? = nil
-    public var breakdown: BreakdownUnion? = nil
+    public var breakdown: Breakdown? = nil
     public var bill: Bill? = nil
     public var interestFreeDays: Double? = nil
     public var period: Double? = nil
     public var rates: Rates? = nil
     public var bonusInterest: BonusInterest? = nil
-    public var profileID: Int? = nil
-    public var fareType: String? = nil
-    public var fateTypeExpiresAt: String? = nil
     public var portfolio: [Portfolio]? = nil
     public var profile: Profile? = nil
+    @available(*, deprecated, message: "Akahu no longer supports 'Utility' integrations")
+    public var planName: String? = nil
+    @available(*, deprecated, message: "Akahu no longer supports 'Utility' integrations")
+    public var usage: Usage? = nil
+    @available(*, deprecated, message: "Akahu no longer supports 'Utility' integrations")
+    public var profileID: Int? = nil
+    @available(*, deprecated, message: "Akahu no longer supports 'Utility' integrations")
+    public var fareType: String? = nil
+    @available(*, deprecated, message: "Akahu no longer supports 'Utility' integrations")
+    public var fateTypeExpiresAt: String? = nil
+    @available(*, deprecated, message: "Akahu no longer supports 'Utility' integrations")
     public var icp: String? = nil
   }
 }
+
+
 
 extension AkahuAccount.Meta: Mockable {
   public static var mock: Self = .init()
@@ -39,26 +47,38 @@ extension AkahuAccount.Meta: Mockable {
 extension AkahuAccount.Meta {
   public struct Bill: Codable {
     public let billDate: String
-    public let closingBalance, outstandingAmount: Double
-    public let dueAmount, minimumAmount: Double
-    public let startDate, endDate, nextStartDate, nextEndDate: String
+    public let closingBalance: Double
+    public let outstandingAmount: Double
+    public let dueAmount: Double
+    public let minimumAmount: Double
+    public let startDate: String
+    public let endDate: String
+    public let nextStartDate: String
+    public let nextEndDate: String
     public let nextBillDate: String
   }
   
   public struct BonusInterest: Codable {
-    public let cutoff, notifyAt: String
+    public let cutoff: String
+    public let notifyAt: String
     public let targetBalance: Double
   }
   
   public struct PaymentDetails: Codable {
-    public let accountHolder, accountNumber: String
-    public let particulars, reference, code: String?
+    public let accountHolder: String
+    public let accountNumber: String
+    public let code: String?
+    public let particulars: String?
+    public let reference: String?
     public let minimumAmount: Double?
   }
 
   public struct Portfolio: Codable {
-    public let fundId, name: String
-    public let returns, shares, value: Double
+    public let fundId: String
+    public let name: String
+    public let value: Double
+    public let shares: Double
+    public let returns: Double
     public let symbol: String?
     public let logo: String?
   }
@@ -71,6 +91,7 @@ extension AkahuAccount.Meta {
     public let general: Double
   }
 
+  @available(*, deprecated, message: "Akahu no longer supports 'Utility' integrations")
   public struct Usage: Codable {
     public let data: DataUsage
     
@@ -79,9 +100,9 @@ extension AkahuAccount.Meta {
     }
   }
   
-  public enum BreakdownUnion: Codable {
+  public enum Breakdown: Codable {
     case breakdownElementArray([BreakdownElement])
-    case purpleBreakdown(PurpleBreakdown)
+    case breakdownElement(SimpleBreakdown)
     
     public init(from decoder: Decoder) throws {
       let container = try decoder.singleValueContainer()
@@ -89,11 +110,11 @@ extension AkahuAccount.Meta {
         self = .breakdownElementArray(x)
         return
       }
-      if let x = try? container.decode(PurpleBreakdown.self) {
-        self = .purpleBreakdown(x)
+      if let x = try? container.decode(SimpleBreakdown.self) {
+        self = .breakdownElement(x)
         return
       }
-      throw DecodingError.typeMismatch(BreakdownUnion.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for BreakdownUnion"))
+      throw DecodingError.typeMismatch(Breakdown.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for BreakdownUnion"))
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -101,7 +122,7 @@ extension AkahuAccount.Meta {
       switch self {
       case .breakdownElementArray(let x):
         try container.encode(x)
-      case .purpleBreakdown(let x):
+      case .breakdownElement(let x):
         try container.encode(x)
       }
     }
@@ -113,7 +134,7 @@ extension AkahuAccount.Meta {
   }
 
 
-  public struct PurpleBreakdown: Codable {
+  public struct SimpleBreakdown: Codable {
     public let returns: Double
   }
 

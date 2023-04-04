@@ -1,20 +1,65 @@
 import Foundation
 import URLRouting
+import CasePaths
 import AkahuFixtures
 
 final public class Akahu {
   private init() {}
   public static let shared = Akahu()
-  public static let router = akahuRouter
-  public static let api = URLRoutingClient<AkahuRoute>.live(
-    router: akahuRouter,
-    decoder: newJSONDecoder()
-  )
-  
-  public static let mockApi = URLRoutingClient<AkahuRoute>.failing
   
   public typealias Route = AkahuRoute
+  public static let router = akahuRouter
   
+  enum Errors: Error, Equatable, CustomStringConvertible {
+    case invalidAppToken(String)
+    
+    var description: String {
+      switch self {
+      case let .invalidAppToken(token):
+        return """
+               Invalid appToken value: "\(token)".
+               `appToken` must be a string beginning with "app_token_"
+               """
+      }
+    }
+  }
+  
+  public func createClient<R: ParserPrinter>(
+    router: R = router,
+    session: URLSession = .shared,
+    decoder: JSONDecoder? = nil
+  ) -> URLRoutingClient<Route> where R.Input == URLRequestData, R.Output == Route {
+    .live(
+      router: router,
+      session: session,
+      decoder: decoder ?? AkahuJSONDecoder()
+    )
+  }
+  
+  public func authenticateRouter(appToken: String) throws -> any ParserPrinter<URLRequestData, Route> {
+    guard Self.validateAppToken(appToken) else {
+      throw Errors.invalidAppToken(appToken)
+    }
+    
+    return akahuRouter.baseRequestData(
+      .init(headers: [
+        "X-Akahu-Id": [appToken]
+      ])
+    )
+  }
+  
+  public static let failingClient = URLRoutingClient<AkahuRoute>.failing
+  
+  public static func validateAppToken(_ token: String) -> Bool {
+    token.starts(with: "app_token_")
+  }
+  
+  public static func validateUserToken(_ token: String) -> Bool {
+    token.starts(with: "user_token_")
+  }
+}
+
+extension Akahu {
   public typealias Account = AkahuAccount
   public typealias Auth = AkahuAuth
   public typealias Category = AkahuTransaction.Category
@@ -27,7 +72,9 @@ final public class Akahu {
   public typealias TransactionPending = AkahuTransactionPending
   public typealias Transfer = AkahuTransfer
   public typealias Webhook = AkahuWebhook
-  
+}
+
+extension Akahu {
   public struct Responses {
     public typealias Account = AkahuItemResponse<Akahu.Account>
     public typealias Accounts = AkahuItemsResponse<Akahu.Account>

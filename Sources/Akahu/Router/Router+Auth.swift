@@ -28,7 +28,7 @@ extension AkahuRoute {
     internal static let router = OneOf {
       Route(.case(Auth.exchange)) {
         Method.post
-        Body(.json(Auth.TokenParams.self, decoder: newJSONDecoder(), encoder: newJSONEncoder()))
+        Body(.json(Auth.TokenParams.self, decoder: AkahuJSONDecoder(), encoder: AkahuJSONEncoder()))
       }
       
       Route(.case(Auth.revoke)) {
@@ -41,7 +41,7 @@ extension AkahuRoute {
 
 internal let oauthRoute = Route(.case(AkahuRoute.auth)) {
   Route(.case(AkahuRoute.Auth.authorize)) {
-    AkahuRoute.Auth.authorizationParamsParser
+    AkahuRoute.Auth.AuthorizationParamsParser()
   }
 }
 
@@ -69,32 +69,6 @@ extension AkahuRoute.Auth {
     public var state: String?
   }
   
-  internal static let scopesParser = Many {
-    AkahuAuth.EnduringConsentScope.parser(of: Substring.self)
-  } separator: {
-    Whitespace(1)
-  }
-  
-  public static let authorizationParamsParser = Parse(.memberwise(AuthorizationParams.init(
-    redirectUri:responseType:scope:clientId:email:connection:state:
-  ))) {
-    Query {
-      Field("redirect_uri", .string)
-      Field("response_type", .string, default: "code")
-      Field("scope") { scopesParser }
-      Field("client_id", .string)
-      Optionally {
-        Field("email", .string)
-      }
-      Optionally {
-        Field("connection", .string)
-      }
-      Optionally {
-        Field("state", .string)
-      }
-    }
-  }
-  
   public struct TokenParams: Codable, Equatable {
     /// Must always be authorization_code
     public var grantType: String = "authorization_code"
@@ -107,5 +81,36 @@ extension AkahuRoute.Auth {
     /// Your Akahu App Secret
     public var clientSecret: String
   }
+  
+  internal struct ScopesParser: ParserPrinter {
+    var body: some ParserPrinter<Substring, [AkahuAuth.EnduringConsentScope]> {
+      Many {
+        AkahuAuth.EnduringConsentScope.parser(of: Substring.UTF8View.self)
+      } separator: {
+        Whitespace(1)
+      }
+    }
+  }
+  
+  public struct AuthorizationParamsParser: ParserPrinter{
+    public var body: some ParserPrinter<URLRequestData, AuthorizationParams> {
+      ParsePrint(.memberwise(AuthorizationParams.init)) {
+        Query {
+          Field("redirect_uri", .string)
+          Field("response_type", .string, default: "code")
+          Field("scope") { ScopesParser() }
+          Field("client_id", .string)
+          Optionally {
+            Field("email", .string)
+          }
+          Optionally {
+            Field("connection", .string)
+          }
+          Optionally {
+            Field("state", .string)
+          }
+        }
+      }
+    }
+  }
 }
-

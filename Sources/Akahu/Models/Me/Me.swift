@@ -34,7 +34,7 @@ public struct AkahuMe: Codable, Identifiable {
 
 extension AkahuMe {
   init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuMe.self, from: data)
+    self = try AkahuJSONDecoder().decode(AkahuMe.self, from: data)
   }
   
   init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -51,10 +51,10 @@ extension AkahuMe {
 
 extension AkahuMe {
   public var name: PersonNameComponents {
-    .init(
-      givenName: self.firstName,
-      familyName: self.lastName,
-      nickname: self.preferredName
-    )
+    var components = PersonNameComponents()
+    components.givenName = self.firstName
+    components.familyName = self.lastName
+    components.nickname = self.preferredName
+    return components
   }
 }

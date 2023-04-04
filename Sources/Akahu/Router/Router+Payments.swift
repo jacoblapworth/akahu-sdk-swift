@@ -20,7 +20,7 @@ extension AkahuRoute {
     
     internal static let router = OneOf {
       Route(.case(Payments.all(query:))) {
-        AkahuRoute.DateRangeQuery.parser
+        AkahuRoute.DateRangeQuery.Parser()
       }
       Route(.case(Payments.create)) {
         Method.post

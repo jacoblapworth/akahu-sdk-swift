@@ -61,7 +61,7 @@ extension AkahuAuth.AuthorizationToken: Codable {
     self.accessToken = try container.decode(String.self, forKey: .accessToken)
     self.tokenType = try container.decode(String.self, forKey: .tokenType)
     let scopes = try container.decode(String.self, forKey: .scope)
-    self.scope = try AkahuRoute.Auth.scopesParser.parse(scopes)
+    self.scope = try AkahuRoute.Auth.ScopesParser().parse(scopes)
   }
 }
 

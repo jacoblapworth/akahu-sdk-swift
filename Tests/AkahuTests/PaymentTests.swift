@@ -16,6 +16,7 @@ class PaymentTests: XCTestCase {
     let payments = try PaymentsResponse(fromURL: url)
     
     XCTAssertEqual(payments.success, true)
+    XCTAssertEqual(payments.items.count, 1)
     XCTAssertEqual(payments.items.first?.status, .ready)
   }
 }

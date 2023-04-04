@@ -10,7 +10,7 @@ import Foundation
 
 extension AkahuAccount {
   /// The account balance
-  public struct Balance: Codable {
+  public struct Balance: Codable, Hashable {
     /// The current account balance.
     public var current: Double
     /// The balance that is currently available to the account holder.

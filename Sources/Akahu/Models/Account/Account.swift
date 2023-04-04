@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RegexBuilder
 
 /// At it's most basic, an Akahu account is something that has a balance.
 ///
@@ -44,33 +43,32 @@ extension AkahuAccount: Hashable {
   
   public func hash(into hasher: inout Hasher) {
     hasher.combine(id)
+    hasher.combine(credentials)
+    hasher.combine(connection)
+    hasher.combine(name)
+    hasher.combine(status)
+    hasher.combine(formattedAccount)
+    hasher.combine(refreshed)
+    hasher.combine(balance)
+    hasher.combine(attributes)
+    hasher.combine(type)
   }
 }
 
 extension AkahuAccount {
   init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuAccount.self, from: data)
-  }
-  
-  init(_ json: String, using encoding: String.Encoding = .utf8) throws {
-    guard let data = json.data(using: encoding) else {
-      throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
-    }
-    try self.init(data: data)
-  }
-
-  init(fromURL url: URL) throws {
-    try self.init(data: try Data(contentsOf: url))
+    self = try AkahuJSONDecoder().decode(AkahuAccount.self, from: data)
   }
 }
 
 // MARK: - Computed properties
 extension AkahuAccount {
+  /// A simplified account name for display
   public var displayName: String {
     var mutableName = self.name
 
-    mutableName = mutableName.replacing("balance", with: "")
-    mutableName = mutableName.replacing("\(self.connection.name)", with: "")
+    mutableName = mutableName.replacingOccurrences(of: "balance", with: "")
+    mutableName = mutableName.replacingOccurrences(of: "\(self.connection.name)", with: "")
     mutableName = mutableName.trimmingCharacters(in: .whitespacesAndNewlines)
     
     if mutableName.isEmpty {
@@ -80,6 +78,7 @@ extension AkahuAccount {
     return mutableName
   }
   
+  /// If the account type should be displayed as having a physical card
   public var hasCard: Bool {
     let types: [AkahuAccount.AccountType] = [
       .creditcard,
@@ -91,11 +90,10 @@ extension AkahuAccount {
   
   public var shareableAccount: String? {
     guard let formattedAccount else { return nil }
+    guard self.hasCard else { return nil }
     
     // Card numbers are redacted with asterisks
-    let regex = Regex { OneOrMore("*") }
-    if formattedAccount.contains(regex) { return nil }
-    guard self.hasCard else { return nil }
+    if formattedAccount.contains("*") {  return nil }
     
     return formattedAccount
   }

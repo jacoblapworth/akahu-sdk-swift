@@ -16,6 +16,7 @@ class TransferTests: XCTestCase {
     let transfers = try TransfersResponse(fromURL: url)
     
     XCTAssertEqual(transfers.success, true)
+    XCTAssertEqual(transfers.items.count, 1)
     XCTAssertEqual(transfers.items.first?.status, .ready)
   }
 }

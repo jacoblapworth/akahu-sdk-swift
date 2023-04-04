@@ -16,10 +16,14 @@ extension AkahuRoute {
       self.cursor = cursor
     }
     
-    public static let parser = Parse(.memberwise(Self.init(cursor:))) {
-      Query {
-        Optionally {
-          Field("cursor") { Parse(.string) }
+    public struct Parser: ParserPrinter {
+      public var body: some ParserPrinter<URLRequestData, PaginationQuery> {
+        Parse(.memberwise(PaginationQuery.init)) {
+          Query {
+            Optionally {
+              Field("cursor") { Parse(.string) }
+            }
+          }
         }
       }
     }

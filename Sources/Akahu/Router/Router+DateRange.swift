@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Router+DateRange.swift
 //  
 //
 //  Created by Jacob Lapworth on 16/03/23.
@@ -18,13 +18,22 @@ extension AkahuRoute {
       self.end = end
     }
     
-    public static let parser = Parse(.memberwise(DateRangeQuery.init(start:end:))) {
-      Query {
-        Optionally {
-          Field("start") { Parse { Formatted(.iso8601 ) } }
-        }
-        Optionally {
-          Field("end") { Parse { Formatted(.iso8601 ) } }
+    public struct Parser: ParserPrinter {
+      let dateTimeParser = DateTime().map(AnyConversion(
+        apply: { Calendar.current.date(from: $0) },
+        unapply: { Calendar.current.dateComponents(in: .autoupdatingCurrent, from: $0) }
+      ))
+      
+      public var body: some ParserPrinter<URLRequestData, DateRangeQuery> {
+        Parse(.memberwise(DateRangeQuery.init)) {
+          Query {
+            Optionally {
+              Field("start") { dateTimeParser }
+            }
+            Optionally {
+              Field("end") { dateTimeParser }
+            }
+          }
         }
       }
     }

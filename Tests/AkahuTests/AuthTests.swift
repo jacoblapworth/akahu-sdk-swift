@@ -33,16 +33,16 @@ class AuthTests: XCTestCase {
       request.path
     )
     XCTAssertNoDifference(
-#"""
-{
-  "code" : "code",
-  "client_id" : "<<appToken>>",
-  "redirect_uri" : "http:\/\/localhost:3000\/redirect",
-  "client_secret" : "<<appSecret>>",
-  "grant_type" : "authorization_code"
-}
-"""#,
-String(data: request.body!, encoding: .utf8)!
+      #"""
+      {
+        "code" : "code",
+        "client_id" : "<<appToken>>",
+        "redirect_uri" : "http:\/\/localhost:3000\/redirect",
+        "client_secret" : "<<appSecret>>",
+        "grant_type" : "authorization_code"
+      }
+      """#,
+      String(data: request.body!, encoding: .utf8)!
     )
   }
   
@@ -68,25 +68,30 @@ String(data: request.body!, encoding: .utf8)!
   }
   
   func testAuthScopeParser() throws {
-    let parser = AkahuAuth.EnduringConsentScope.parser(of: Substring.self)
+    let parser = AkahuAuth.EnduringConsentScope.parser(of: Substring.UTF8View.self)
     let scope = try parser.parse("IDENTITY_TAX_NUMBERS")
     XCTAssertNoDifference(scope, .identityTaxNumbers)
     
-    let scopes = try AkahuRoute.Auth.scopesParser.parse("ENDURING_CONSENT AKAHU IDENTITY_NAMES")
-    XCTAssertNoDifference(scopes, [
-      .enduringConsent,
-      .akahu,
-      .identityNames
-    ])
+    let scopes = try AkahuRoute.Auth.ScopesParser().parse("ENDURING_CONSENT AKAHU IDENTITY_NAMES")
+    XCTAssertNoDifference([
+        .enduringConsent,
+        .akahu,
+        .identityNames
+      ],
+      scopes
+    )
   }
   
   func testAuthScopePrinter() throws {
-    let scopes = try AkahuRoute.Auth.scopesParser.print([
+    let scopes = try AkahuRoute.Auth.ScopesParser().print([
       .enduringConsent,
       .akahu,
       .identityNames
     ])
     
-    XCTAssertNoDifference(scopes, "ENDURING_CONSENT AKAHU IDENTITY_NAMES")
+    XCTAssertNoDifference(
+      "ENDURING_CONSENT AKAHU IDENTITY_NAMES",
+      String(scopes)
+    )
   }
 }

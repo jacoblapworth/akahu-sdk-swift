@@ -15,11 +15,12 @@ permissions:
   id-token: write
 
 concurrency:
-  group: 'pages'
+  group: 'documentation'
   cancel-in-progress: true
 
 jobs:
   build:
+    name: Build
     runs-on: macos-latest
     steps:
       - name: Checkout
@@ -44,6 +45,7 @@ jobs:
           path: ./docs
 
   deploy:
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
     environment:

@@ -27,28 +27,28 @@ public enum AkahuResult<T:Decodable & Identifiable>: Decodable {
     }
   }
   
-  init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuResult.self, from: data)
+  public init(data: Data) throws {
+    self = try AkahuJSONDecoder().decode(AkahuResult.self, from: data)
   }
   
-  init(fromURL url: URL) throws {
+  public init(fromURL url: URL) throws {
     try self.init(data: try Data(contentsOf: url))
   }
   
-  var success: AkahuResponseBody<T>? {
+  public var success: AkahuResponseBody<T>? {
     guard case let .success(response) = self else { return nil }
     return response
   }
   
-  var error: String? {
+  public var error: String? {
     guard case let .error(response) = self else { return nil }
     return response.message
   }
   
-  var itemId: String? { self.success?.itemId }
-  var item: T? { self.success?.item }
-  var items: [T]? { self.success?.items }
-  var cursor: Cursor? { self.success?.cursor }
+  public var itemId: String? { self.success?.itemId }
+  public var item: T? { self.success?.item }
+  public var items: [T]? { self.success?.items }
+  public var cursor: Cursor? { self.success?.cursor }
 }
 
 public enum AkahuResponseBody<T: Decodable & Identifiable>: Decodable {
@@ -141,7 +141,7 @@ public struct Cursor: Codable, Equatable {
 
 extension AkahuItemResponse {
   init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuItemResponse.self, from: data)
+    self = try AkahuJSONDecoder().decode(AkahuItemResponse.self, from: data)
   }
   
   init(fromURL url: URL) throws {
@@ -151,7 +151,7 @@ extension AkahuItemResponse {
 
 extension AkahuItemsResponse {
   init(data: Data) throws {
-    self = try newJSONDecoder().decode(AkahuItemsResponse.self, from: data)
+    self = try AkahuJSONDecoder().decode(AkahuItemsResponse.self, from: data)
   }
   
   init(fromURL url: URL) throws {
@@ -159,19 +159,28 @@ extension AkahuItemsResponse {
   }
 }
 
-//MARK: - Response types
-
-public typealias AccountsResponse = AkahuItemsResponse<AkahuAccount>
-public typealias AccountResponse = AkahuItemResponse<AkahuAccount>
-public typealias ConnectionsResponse = AkahuItemsResponse<AkahuConnection>
-public typealias IdentityResponse = AkahuItemResponse<AkahuIdentity>
-public typealias IncomeResponse = AkahuItemsResponse<AkahuIncome>
-public typealias PaymentsResponse = AkahuItemsResponse<AkahuPayment>
-public typealias TransactionsResponse = AkahuItemsResponse<AkahuTransaction>
-public typealias TransactionsPendingResponse = AkahuItemsResponse<AkahuTransactionPending>
-public typealias TransfersResponse = AkahuItemsResponse<AkahuTransfer>
+public typealias AccountResponse = AkahuItemResponse<Akahu.Account>
+public typealias AccountsResponse = AkahuItemsResponse<Akahu.Account>
+public typealias CategoriesResponse = AkahuItemsResponse<Akahu.Category>
+public typealias CategoryResponse = AkahuItemResponse<Akahu.Category>
+public typealias ConnectionResponse = AkahuItemResponse<Akahu.Connection>
+public typealias ConnectionsResponse = AkahuItemsResponse<Akahu.Connection>
+public typealias IdentitiesResponse = AkahuItemsResponse<Akahu.Identity>
+public typealias IdentityResponse = AkahuItemResponse<Akahu.Identity>
+public typealias IncomeResponse = AkahuItemResponse<Akahu.Income>
+public typealias IncomesResponse = AkahuItemsResponse<Akahu.Income>
+public typealias MeResponse = AkahuItemResponse<Akahu.Me>
+public typealias PaymentResponse = AkahuItemResponse<Akahu.Payment>
+public typealias PaymentsResponse = AkahuItemsResponse<Akahu.Payment>
+public typealias TransactionResponse = AkahuItemResponse<Akahu.Transaction>
+public typealias TransactionsResponse = AkahuItemsResponse<Akahu.Transaction>
+public typealias TransactionsPendingResponse = AkahuItemsResponse<Akahu.TransactionPending>
+public typealias TransferResponse = AkahuItemResponse<Akahu.Transfer>
+public typealias TransfersResponse = AkahuItemsResponse<Akahu.Transfer>
+public typealias WebhookResponse = AkahuItemResponse<Akahu.Webhook>
+public typealias WebhooksResponse = AkahuItemsResponse<Akahu.Webhook>
 public typealias RefreshResponse = AkahuSuccessResponse
-public typealias MeResponse = AkahuItemResponse<AkahuMe>
+public typealias SupportResponse = AkahuSuccessResponse
 
 //MARK: - Mocks
 
@@ -187,7 +196,7 @@ extension TransactionsPendingResponse {
   public static var mock: Self = try! .init(data: AkahuFixtures.Responses.transactionsPending.data)
 }
 
-extension IncomeResponse {
+extension IncomesResponse {
   public static var mock: Self = try! .init(data: AkahuFixtures.Responses.income.data)
 }
 

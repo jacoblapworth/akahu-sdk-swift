@@ -7,6 +7,7 @@
 
 import Foundation
 
-protocol Mockable {
+/// A type that can initialise itself with a mock value.
+public protocol Mockable {
   static var mock: Self { get }
 }

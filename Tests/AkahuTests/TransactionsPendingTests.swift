@@ -16,6 +16,7 @@ class TransactionPendingTests: XCTestCase {
     let transactions = try TransactionsPendingResponse(fromURL: url)
     
     XCTAssertEqual(transactions.success, true)
+    XCTAssertEqual(transactions.items.count, 7)
     XCTAssertEqual(transactions.items.first?.amount, -11.5)
   }
 }

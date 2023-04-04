@@ -9,7 +9,7 @@ import Foundation
 import URLRouting
 
 extension AkahuRoute {
-  public enum Accounts: Equatable {
+  public enum Accounts: AkahuEndpoint {
     /// Get a list of all accounts that the user has connected to your application.
     case all
     /// An individual account that the user has connected to your application.
@@ -22,6 +22,8 @@ extension AkahuRoute {
         Account.router
       }
     }
+    
+    static var auth: AkahuRoute.AuthLevel = .user
     
     public enum Account: Equatable {
       case get
@@ -48,8 +50,8 @@ extension AkahuRoute {
         
         internal static let router = OneOf {
           Route(.case(Transactions.all)) {
-            DateRangeQuery.parser
-            PaginationQuery.parser
+            DateRangeQuery.Parser()
+            PaginationQuery.Parser()
           }
           Route(.case(Transactions.pending)) {
             Path { "pending" }

@@ -14,7 +14,7 @@ extension AkahuRoute {
     ///
     /// This data is sourced from the profile information at each connected institution rather than any specific account held within.
     /// In general this identity data will relate to the person who has connected the account, however if the user connects an account that is registered under another party (e.g. another person, an LLC, a trust), the result may also contain data pertaining to these other parties. That is to say, Akahu is simply passing this information on from the connected institutions.
-    case enduring(Enduring)
+    case enduring(Enduring = .identity)
     
     /// Get the results of an Identity OAuth result using the authorization code provided upon redirection to your redirect_uri after the user's successful completion of the authorization flow.
     ///
@@ -31,15 +31,20 @@ extension AkahuRoute {
 
 internal let identityRoute = Route(.case(AkahuRoute.identity)) {
   OneOf {
-    Route(.case(AkahuRoute.Identity.Enduring.identity)) {
-      Path { "parties" }
+    Route(.case(AkahuRoute.Identity.enduring)) {
+      OneOf {
+        Route(.case(AkahuRoute.Identity.Enduring.identity)) {
+          Path { "parties" }
+        }
+        Route(.case(AkahuRoute.Identity.Enduring.name)) {
+          Method.post
+          Path { "verify" }
+          Path { "name" }
+          Body(.json(AkahuRoute.Identity.Enduring.VerifyNameRequest.self))
+        }
+      }
     }
-    Route(.case(AkahuRoute.Identity.Enduring.name)) {
-      Method.post
-      Path { "verify" }
-      Path { "name" }
-      Body(.json(AkahuRoute.Identity.Enduring.VerifyNameRequest.self))
-    }
+    
     Route(.case(AkahuRoute.Identity.oneOff)) {
       Path { "identity" }
       Path { Parse(.string) }

@@ -169,7 +169,6 @@ public typealias IdentitiesResponse = AkahuItemsResponse<Akahu.Identity>
 public typealias IdentityResponse = AkahuItemResponse<Akahu.Identity>
 public typealias IncomeResponse = AkahuItemResponse<Akahu.Income>
 public typealias IncomesResponse = AkahuItemsResponse<Akahu.Income>
-public typealias MeResponse = AkahuItemResponse<Akahu.Me>
 public typealias PaymentResponse = AkahuItemResponse<Akahu.Payment>
 public typealias PaymentsResponse = AkahuItemsResponse<Akahu.Payment>
 public typealias TransactionResponse = AkahuItemResponse<Akahu.Transaction>
@@ -181,6 +180,7 @@ public typealias WebhookResponse = AkahuItemResponse<Akahu.Webhook>
 public typealias WebhooksResponse = AkahuItemsResponse<Akahu.Webhook>
 public typealias RefreshResponse = AkahuSuccessResponse
 public typealias SupportResponse = AkahuSuccessResponse
+public typealias UserResponse = AkahuItemResponse<AkahuUser>
 
 //MARK: - Mocks
 
@@ -200,7 +200,7 @@ extension IncomesResponse {
   public static var mock: Self = try! .init(data: AkahuFixtures.Responses.income.data)
 }
 
-extension MeResponse {
+extension UserResponse {
   public static var mock: Self = .init(item: .mock)
 }
 

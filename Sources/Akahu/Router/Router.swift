@@ -20,7 +20,7 @@ public enum AkahuRoute: Equatable {
   case auth(Auth)
   case categories(Categories = .all)
   case connections(Connections = .all)
-  case identity(Identity = .enduring)
+  case identity(Identity = .enduring())
   case income(Income = .all())
   case me(Me = .get)
   case payments(Payments = .all())

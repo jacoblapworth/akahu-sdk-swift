@@ -66,11 +66,11 @@ extension Akahu {
   public typealias Connection = AkahuConnection
   public typealias Identity = AkahuIdentity
   public typealias Income = AkahuIncome
-  public typealias Me = AkahuMe
   public typealias Payment = AkahuPayment
   public typealias Transaction = AkahuTransaction
   public typealias TransactionPending = AkahuTransactionPending
   public typealias Transfer = AkahuTransfer
+  public typealias User = AkahuUser
   public typealias Webhook = AkahuWebhook
 }
 
@@ -84,17 +84,17 @@ extension Akahu {
     public typealias Connections = AkahuItemsResponse<Akahu.Connection>
     public typealias Identities = AkahuItemsResponse<Akahu.Identity>
     public typealias Income = AkahuItemsResponse<Akahu.Income>
-    public typealias Me = AkahuItemResponse<Akahu.Me>
     public typealias Payment = AkahuItemResponse<Akahu.Payment>
     public typealias Payments = AkahuItemsResponse<Akahu.Payment>
+    public typealias Refresh = AkahuSuccessResponse
+    public typealias Support = AkahuSuccessResponse
     public typealias Transaction = AkahuItemResponse<Akahu.Transaction>
     public typealias Transactions = AkahuItemsResponse<Akahu.Transaction>
     public typealias TransactionsPending = AkahuItemsResponse<Akahu.TransactionPending>
     public typealias Transfer = AkahuItemResponse<Akahu.Transfer>
     public typealias Transfers = AkahuItemsResponse<Akahu.Transfer>
+    public typealias User = AkahuItemResponse<Akahu.User>
     public typealias Webhook = AkahuItemResponse<Akahu.Webhook>
     public typealias Webhooks = AkahuItemsResponse<Akahu.Webhook>
-    public typealias Refresh = AkahuSuccessResponse
-    public typealias Support = AkahuSuccessResponse
   }
 }

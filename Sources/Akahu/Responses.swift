@@ -21,9 +21,9 @@ public enum AkahuResult<T:Decodable & Identifiable>: Decodable {
     let success = try container.decode(Bool.self, forKey: .success)
     
     if success {
-      self = .success(try AkahuResponseBody(from: decoder))
+      self = .success(try .init(from: decoder))
     } else {
-      self = .error(try AkahuErrorResponse(from: decoder))
+      self = .error(try .init(from: decoder))
     }
   }
   

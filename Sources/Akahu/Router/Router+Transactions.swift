@@ -17,7 +17,7 @@ extension AkahuRoute {
     case all(query: DateRangeQuery = .init(), cursor: PaginationQuery = .init())
     /// An Individual transaction.
     case transaction(id: String, Self.Transaction = .get)
-    /// Get a list of pending transactions ``Akahu/Akahu/TransactionPending`` from a user's connected accounts within the `start` and `end` time range.
+    /// Get a list of pending transactions ``Akahu/Akahu/TransactionPending`` from a user's connected accounts.
     ///
     /// This endpoint returns pending transactions from all of a user's accounts that the user has connected to your application.
     case pending(cursor: PaginationQuery = .init())

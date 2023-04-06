@@ -26,11 +26,13 @@ extension AkahuRoute {
     static var auth: AkahuRoute.AuthLevel = .user
     
     public enum Account: Equatable {
+      /// Get an individual account that the user has connected to your application.
       case get
       /// Revoke your application's access to one of the user's connected accounts and its associated data, including transactions.
       ///
-      ///Use this if you no longer require access to the consented account data.
+      /// Use this if you no longer require access to the consented account data.
       case revoke
+      /// Transactions for a specific account
       case transactions(Self.Transactions = .all())
       
       internal static let router = OneOf {
@@ -45,7 +47,11 @@ extension AkahuRoute {
       }
       
       public enum Transactions: Equatable {
+        /// Get a list of the user's transactions for a specific connected account within the `start` and `end` time range.
+        ///
+        /// Time range defaults to the last 30 days
         case all(query: DateRangeQuery = .init(), cursor: PaginationQuery = .init())
+        /// Get a list of the user's pending transactions for a specific connected account.
         case pending
         
         internal static let router = OneOf {

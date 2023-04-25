@@ -61,7 +61,11 @@ struct DateTime: ParserPrinter {
       Parse {
         ".".utf8
         Prefix(1...9, while: (UInt8(ascii: "0")...UInt8(ascii: "9")).contains)
-          .compactMap { n in Int(Substring(n)).map { $0 * Int(pow(10, 9 - Double(n.count))) } }
+          .compactMap { n in
+            Int(Substring(n)).map {
+              $0 * Int(pow(10, 9 - Double(n.count)))
+            }
+          }
       }
     }
   }

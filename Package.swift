@@ -23,7 +23,8 @@ let package = Package(
       name: "Akahu",
       dependencies: [
         "AkahuFixtures",
-        .product(name: "URLRouting", package: "swift-url-routing")
+        .product(name: "URLRouting", package: "swift-url-routing"),
+        .product(name: "Parsing", package: "swift-parsing")
       ]
     ),
     .target(

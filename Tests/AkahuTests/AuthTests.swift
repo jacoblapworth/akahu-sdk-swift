@@ -52,7 +52,7 @@ class AuthTests: XCTestCase {
     } operation: {
       @Dependency(\.uuid) var uuid
       let options = AkahuRoute.Auth.AuthorizationParams(
-        redirectUri: "http://localhost:3000",
+        redirectUri: URL(string: "http://localhost:3000")!,
         scope: [.enduringConsent,.akahu],
         clientId: "123",
         state: uuid().uuidString

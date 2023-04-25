@@ -53,10 +53,10 @@ internal let authRoute = Route(.case(AkahuRoute.auth)) {
 extension AkahuRoute.Auth {
   public struct AuthorizationParams: Equatable {
     /// Where to redirect the user once they have accepted or rejected the access request. This must match one of your app's Redirect URIs.
-    public var redirectUri: String
-    /// The type of oauth response. Currently "code" is the only supported option.
+    public var redirectUri: URL
+    /// The type of oauth response. Currently `code` is the only supported option.
     public var responseType: String = "code"
-    /// The type of oauth flow to perform. `ENDURING_CONSENT` is all you need to supply here.
+    /// The type of oauth flow to perform. ``AkahuAuth/EnduringConsentScope/enduringConsent`` is all you need to supply here.
     public var scope: [AkahuAuth.EnduringConsentScope] = [.enduringConsent]
     /// Your App ID Token.
     public var clientId: String
@@ -65,8 +65,9 @@ extension AkahuRoute.Auth {
     /// Direct the user to a specific connection from your app.
     public var connection: String?
     /// An arbitrary string that will be returned with the Authorization Code. Useful to keep track of request-specific state and to prevent CSRF attacks.
+    ///
     /// **Recommended**
-    public var state: String?
+    public var state: String? = UUID().uuidString
   }
   
   public struct TokenParams: Codable, Equatable {
@@ -96,7 +97,7 @@ extension AkahuRoute.Auth {
     public var body: some ParserPrinter<URLRequestData, AuthorizationParams> {
       ParsePrint(.memberwise(AuthorizationParams.init)) {
         Query {
-          Field("redirect_uri", .string)
+          Field("redirect_uri", .string.url)
           Field("response_type", .string, default: "code")
           Field("scope") { ScopesParser() }
           Field("client_id", .string)

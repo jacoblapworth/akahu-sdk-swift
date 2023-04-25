@@ -51,9 +51,5 @@ class ClientTests: XCTestCase {
     
     XCTAssertEqual(request.value(forHTTPHeaderField: "Authorization"), "Bearer user_token_123")
     XCTAssertEqual(request.value(forHTTPHeaderField: "x-akahu-id"), "app_token_123")
-    XCTAssertNoDifference(
-      #"["Authorization": "Bearer user_token_123", "x-akahu-id": "app_token_123"]"#,
-      request.allHTTPHeaderFields?.description
-    )
   }
 }

@@ -65,4 +65,58 @@ extension AkahuAuth.AuthorizationToken: Codable {
   }
 }
 
+extension Akahu {
+  
+  public struct Credentials {
+    var appToken: String
+    var userToken: String
+    
+    init(
+      appToken: String,
+      userToken: String
+    ) throws {
+      guard Self.validateAppToken(appToken) else { throw Errors.invalidAppToken(appToken) }
+      self.appToken = appToken
+      guard Self.validateUserToken(userToken) else { throw Errors.invalidUserToken(userToken) }
+      self.userToken = userToken
+    }
+       
+    /// Check that an Akahu App Token is valid
+    /// ```
+    /// validateAppToken("app_token_abcdefghi012345abcdefghij") // true
+    /// ```
+    public static func validateAppToken(_ token: String) -> Bool {
+      token.starts(with: "app_token_")
+    }
+    
+    /// Check that an Akahu User Token is valid
+    /// ```
+    /// validateAppToken("user_token_abcdefghi012345abcdefghij") // true
+    /// ```
+    public static func validateUserToken(_ token: String) -> Bool {
+      token.starts(with: "user_token_")
+    }
+    
+    enum Errors: Error, Equatable, CustomStringConvertible {
+      case invalidAppToken(String)
+      case invalidUserToken(String)
+      
+      var description: String {
+        switch self {
+        case let .invalidAppToken(token):
+          return """
+               Invalid appToken value: "\(token)".
+               `appToken` must be a string beginning with "app_token_"
+               """
+        case let .invalidUserToken(token):
+          return """
+               Invalid userToken value: "\(token)".
+               `userToken` must be a string beginning with "user_token_"
+               """
+        }
+      }
+    }
+  }
+}
+
 

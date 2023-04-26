@@ -15,26 +15,26 @@ import Dependencies
 class ClientTests: XCTestCase {
   
   func testAppTokenValidation() {
-    XCTAssertFalse(Akahu.validateAppToken("123"))
-    XCTAssertTrue(Akahu.validateAppToken("app_token_123"))
+    XCTAssertFalse(Akahu.Credentials.validateAppToken("123"))
+    XCTAssertTrue(Akahu.Credentials.validateAppToken("app_token_123"))
   }
   
   func testUserTokenValidation() {
-    XCTAssertFalse(Akahu.validateUserToken("123"))
-    XCTAssertTrue(Akahu.validateUserToken("user_token_123"))
+    XCTAssertFalse(Akahu.Credentials.validateUserToken("123"))
+    XCTAssertTrue(Akahu.Credentials.validateUserToken("user_token_123"))
   }
   
   func testAuthenticatingRouter() throws {
     if #available(iOS 16.0, macOS 13.0, *) {
       XCTAssertThrowsError(try Akahu.shared.authenticateRouter(appToken: "123", userToken: "user_token_123")) { error in
         XCTAssertTrue(
-          error is Akahu.Errors,
+          error is Akahu.Credentials.Errors,
           "Unexpected error type: \(type(of: error))"
         )
         
         XCTAssertNoDifference(
           .invalidAppToken("123"),
-          error as? Akahu.Errors
+          error as? Akahu.Credentials.Errors
         )
         XCTAssertNoDifference(
           """

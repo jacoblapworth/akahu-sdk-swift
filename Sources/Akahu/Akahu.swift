@@ -12,7 +12,7 @@ final public class Akahu {
   
 
   
-  public func authenticateRouter(
+  public func authenticateUserRouter(
     appToken: String,
     userToken: String
   ) throws -> any ParserPrinter<URLRequestData, Route> {
@@ -22,6 +22,19 @@ final public class Akahu {
       .init(headers: [
         "X-Akahu-Id": [credentials.appToken],
         "Authorization": ["Bearer \(credentials.userToken)"]
+      ])
+    )
+  }
+  
+  public func authenticateAppRouter(
+    appToken: String,
+    appSecret: String
+  ) throws -> any ParserPrinter<URLRequestData, Route> {
+    let credentials = "\(appToken):\(appSecret)".data(using: .utf8)!.base64EncodedString()
+      
+    return akahuRouter.baseRequestData(
+      .init(headers: [
+        "Authorization": ["Basic \(credentials)"]
       ])
     )
   }
@@ -46,11 +59,10 @@ final public class Akahu {
   public static let failingClient = URLRoutingClient<AkahuRoute>.failing
   
   /// Constructs an AkahuAPIClient authenticated for a specific user.
-  public func createAuthenticatedClient(
-    appToken: String,
-    userToken: String
+  public func createUserAuthenticatedClient(
+    credentials: Akahu.Credentials
   ) throws -> URLRoutingClient<Route> {
-    let router = try authenticateRouter(appToken: appToken, userToken: userToken)
+    let router = try authenticateUserRouter(appToken: credentials.appToken, userToken: credentials.userToken)
     return createClient(router: router)
   }
 }

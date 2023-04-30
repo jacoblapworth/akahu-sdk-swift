@@ -40,7 +40,7 @@ extension AkahuWebhook {
       case payload
     }
     
-    public enum Status: String, CaseIterable, Codable {
+    public enum Status: String, CaseIterable, Codable, Equatable {
       /// Webhook has been sent and has been confirmed with a 200 response from the receiver.
       case sent = "SENT"
       /// Webhook has failed to send in a previous attempt but it will be retried.
@@ -74,7 +74,5 @@ extension AkahuWebhook {
       
       }
     }
-    
-    
   }
 }

@@ -10,42 +10,26 @@ final public class Akahu {
   public typealias Route = AkahuRoute
   public static let router = akahuRouter
   
-  enum Errors: Error, Equatable, CustomStringConvertible {
-    case invalidAppToken(String)
-    case invalidUserToken(String)
-    
-    var description: String {
-      switch self {
-      case let .invalidAppToken(token):
-        return """
-               Invalid appToken value: "\(token)".
-               `appToken` must be a string beginning with "app_token_"
-               """
-      case let .invalidUserToken(token):
-        return """
-               Invalid userToken value: "\(token)".
-               `userToken` must be a string beginning with "user_token_"
-               """
-      }
-    }
+  public func authenticateUserRouter(
+    with credentials: Credentials
+  ) -> any ParserPrinter<URLRequestData, Route> {
+    akahuRouter.baseRequestData(
+      .init(headers: [
+        "X-Akahu-Id": [credentials.appToken],
+        "Authorization": ["Bearer \(credentials.userToken)"]
+      ])
+    )
   }
   
-  public func authenticateRouter(
+  public func authenticateAppRouter(
     appToken: String,
-    userToken: String
+    appSecret: String
   ) throws -> any ParserPrinter<URLRequestData, Route> {
-    guard Self.validateAppToken(appToken) else {
-      throw Errors.invalidAppToken(appToken)
-    }
-    
-    guard Self.validateUserToken(userToken) else {
-      throw Errors.invalidUserToken(userToken)
-    }
-    
+    let token = "\(appToken):\(appSecret)".data(using: .utf8)!.base64EncodedString()
+      
     return akahuRouter.baseRequestData(
       .init(headers: [
-        "X-Akahu-Id": [appToken],
-        "Authorization": ["Bearer \(userToken)"]
+        "Authorization": ["Basic \(token)"]
       ])
     )
   }
@@ -70,25 +54,11 @@ final public class Akahu {
   public static let failingClient = URLRoutingClient<AkahuRoute>.failing
   
   /// Constructs an AkahuAPIClient authenticated for a specific user.
-  public func createAuthenticatedClient(
-    appToken: String,
-    userToken: String
-  ) throws -> URLRoutingClient<Route> {
-    let router = try authenticateRouter(appToken: appToken, userToken: userToken)
+  public func createUserAuthenticatedClient(
+    credentials: Credentials
+  ) -> URLRoutingClient<Route> {
+    let router = authenticateUserRouter(with: credentials)
     return createClient(router: router)
-  }
-  
-  /// Check that an Akahu App Token is valid
-  public static func validateAppToken(_ token: String) -> Bool {
-    token.starts(with: "app_token_")
-  }
-  
-  /// Check that an Akahu User Token is valid
-  /// ```
-  /// validateAppToken("user_token_abcdefghi012345abcdefghij") // true
-  /// ```
-  public static func validateUserToken(_ token: String) -> Bool {
-    token.starts(with: "user_token_")
   }
 }
 

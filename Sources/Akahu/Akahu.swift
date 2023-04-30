@@ -10,15 +10,10 @@ final public class Akahu {
   public typealias Route = AkahuRoute
   public static let router = akahuRouter
   
-
-  
   public func authenticateUserRouter(
-    appToken: String,
-    userToken: String
-  ) throws -> any ParserPrinter<URLRequestData, Route> {
-    let credentials = try Credentials(appToken: appToken, userToken: userToken)
-    
-    return akahuRouter.baseRequestData(
+    with credentials: Credentials
+  ) -> any ParserPrinter<URLRequestData, Route> {
+    akahuRouter.baseRequestData(
       .init(headers: [
         "X-Akahu-Id": [credentials.appToken],
         "Authorization": ["Bearer \(credentials.userToken)"]
@@ -30,11 +25,11 @@ final public class Akahu {
     appToken: String,
     appSecret: String
   ) throws -> any ParserPrinter<URLRequestData, Route> {
-    let credentials = "\(appToken):\(appSecret)".data(using: .utf8)!.base64EncodedString()
+    let token = "\(appToken):\(appSecret)".data(using: .utf8)!.base64EncodedString()
       
     return akahuRouter.baseRequestData(
       .init(headers: [
-        "Authorization": ["Basic \(credentials)"]
+        "Authorization": ["Basic \(token)"]
       ])
     )
   }
@@ -60,9 +55,9 @@ final public class Akahu {
   
   /// Constructs an AkahuAPIClient authenticated for a specific user.
   public func createUserAuthenticatedClient(
-    credentials: Akahu.Credentials
-  ) throws -> URLRoutingClient<Route> {
-    let router = try authenticateUserRouter(appToken: credentials.appToken, userToken: credentials.userToken)
+    credentials: Credentials
+  ) -> URLRoutingClient<Route> {
+    let router = authenticateUserRouter(with: credentials)
     return createClient(router: router)
   }
 }

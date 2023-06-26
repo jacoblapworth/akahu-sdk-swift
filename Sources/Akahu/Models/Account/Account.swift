@@ -30,6 +30,7 @@ public struct AkahuAccount: Codable, Identifiable {
   public let refreshed: Refreshed
   public let balance: Balance
   public let attributes: Attributes
+  @available(*, deprecated, message: "Akahu no longer provides branch details")
   public var branch: Branch? = nil
   public let type: AccountType
   

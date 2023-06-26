@@ -9,6 +9,7 @@ import Foundation
 
 extension AkahuAccount {
   /// If this account is a NZ bank account, Akahu will provide details of the opening branch.
+  @available(*, deprecated, message: "Akahu no longer provides branch details")
   public struct Branch: Codable {
     /// The branch name
     public let name: String

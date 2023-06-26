@@ -19,4 +19,9 @@ class ConnectionTests: XCTestCase {
     XCTAssertEqual(connections.items.count, 1)
     XCTAssertEqual(connections.items.first?.bank, .kiwibank)
   }
+  
+  func testInstitutionIds() {
+    let unknownBank = Akahu.Connection.BankConnection(rawValue: "unknown")
+    XCTAssertNil(unknownBank)
+  }
 }

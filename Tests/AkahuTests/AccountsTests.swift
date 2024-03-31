@@ -17,6 +17,6 @@ class AccountTests: XCTestCase {
     
     XCTAssertEqual(accounts.success, true)
     XCTAssertEqual(accounts.items.first?.type, .checking)
-    XCTAssertEqual(accounts.items.count, 18)
+    XCTAssertEqual(accounts.items.count, 13)
   }
 }

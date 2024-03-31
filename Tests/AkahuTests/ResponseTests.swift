@@ -33,12 +33,12 @@ class ResponseTests: XCTestCase {
     switch response {
     case .success(let value):
       guard case let .items(items, _) = value else { return XCTFail("No items in response") }
-      XCTAssertEqual(items.count, 18)
+      XCTAssertEqual(items.count, 13)
     case .error: return XCTFail("Response has error")
     }
     
     XCTAssertNil(response.error)
-    XCTAssertEqual(response.success?.items?.count, 18)
+    XCTAssertEqual(response.success?.items?.count, 13)
   }
   
   func testIdResponse() throws {

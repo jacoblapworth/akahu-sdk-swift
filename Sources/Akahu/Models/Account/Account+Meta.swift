@@ -84,7 +84,7 @@ extension AkahuAccount.Meta {
   }
 
   public struct Profile: Codable {
-    public let pir: String
+    public let pir: Double
   }
 
   public struct Rates: Codable {

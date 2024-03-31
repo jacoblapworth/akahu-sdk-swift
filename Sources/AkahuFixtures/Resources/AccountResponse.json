@@ -1,32 +1,17 @@
 {
   "success": true,
   "item": {
-    "_id": "acc_ckthr1ho1000109l20diu2om1",
-    "_credentials": "creds_ckgq8bh36000007mo9mche5zx",
+    "_id": "acc_ckthr1ho1000109l20abcdefg",
+    "_credentials": "creds_ckgq8bh361234567mo9mche5zx",
     "connection": {
       "name": "Westpac",
       "logo": "https://static.akahu.io/images/conn_cjgaaozdo000001mrnqmkl1m0_logo.png",
-      "_id": "conn_cjgaaozdo000001mrnqmkl1m0"
+      "_id": "conn_cjgaaozdo000001abcdefghij"
     },
     "name": "Business",
+    "formatted_account": "01-1234-0123456-01",
     "status": "ACTIVE",
-    "formatted_account": "03-1592-0454958-02",
-    "meta": {
-      "holder": "Lapworth Jacob Murray",
-      "address": "91 Williamson Avenue, Grey Lynn, Auckland 1021"
-    },
-    "refreshed": {
-      "balance": "2022-09-27T21:31:10.191Z",
-      "meta": "2022-08-22T21:30:59.945Z",
-      "transactions": "2022-09-27T21:31:21.939Z"
-    },
-    "balance": {
-      "current": 0,
-      "available": 0,
-      "limit": 0,
-      "currency": "NZD",
-      "overdrawn": false
-    },
+    "type": "CHECKING",
     "attributes": [
       "TRANSACTIONS",
       "TRANSFER_TO",
@@ -34,18 +19,20 @@
       "PAYMENT_FROM",
       "PAYMENT_TO"
     ],
-    "branch": {
-      "name": "Westpac",
-      "description": "Christchurch Central",
-      "phone": "+6433740710",
-      "address": {
-        "country": "New Zealand",
-        "line3": "Christchurch",
-        "city": "Christchurch",
-        "line2": "83 Cashel Street",
-        "line1": "Ground Floor"
-      }
+    "balance": {
+      "currency": "NZD",
+      "current": 0,
+      "available": 0,
+      "overdrawn": false
     },
-    "type": "CHECKING"
+    "meta": {
+      "holder": "John Doe"
+    },
+    "refreshed": {
+      "balance": "2024-03-30T17:33:15.618Z",
+      "meta": "2024-03-30T17:33:15.618Z",
+      "transactions": "2024-03-30T17:33:26.807Z",
+      "party": "2024-03-27T14:15:45.930Z"
+    }
   }
 }

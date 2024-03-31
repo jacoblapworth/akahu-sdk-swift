@@ -22,7 +22,7 @@ public struct AkahuAccount: Codable, Identifiable {
   public let name: Name
   public let status: Status
   public let formattedAccount: FormattedAccount?
-  public let meta: Meta
+  public var meta: Meta? = nil
   public let refreshed: Refreshed
   public let balance: Balance
   public let attributes: Attributes
